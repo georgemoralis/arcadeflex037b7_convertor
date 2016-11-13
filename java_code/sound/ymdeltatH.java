@@ -49,7 +49,7 @@ void YM_DELTAT_ADPCM_Reset(YM_DELTAT *DELTAT,int pan);
 /* INLINE void YM_DELTAT_ADPCM_CALC(YM_DELTAT *DELTAT); */
 #define YM_INLINE_BLOCK
 /*
- * ported to v0.37b5
+ * ported to v0.37b7
  * using automatic conversion tool v0.01
  */ 
 package sound;

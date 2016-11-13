@@ -90,7 +90,7 @@ Playfield ROM: 136023.306,136023.305
 ****************************************************************************/
 
 /*
- * ported to v0.37b5
+ * ported to v0.37b7
  * using automatic conversion tool v0.01
  */ 
 package drivers;

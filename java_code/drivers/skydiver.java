@@ -73,7 +73,7 @@ The NMI interrupts are only used to read the coin switches.
 ***************************************************************************/
 
 /*
- * ported to v0.37b5
+ * ported to v0.37b7
  * using automatic conversion tool v0.01
  */ 
 package drivers;

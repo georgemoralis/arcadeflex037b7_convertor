@@ -35,7 +35,7 @@ Coin insertion in left slot generates a NMI, in right slot an IRQ.
 ***************************************************************************/
 
 /*
- * ported to v0.37b5
+ * ported to v0.37b7
  * using automatic conversion tool v0.01
  */ 
 package drivers;

@@ -45,7 +45,7 @@ the board, and no piggybacked ROMs. Board number is MDK 321 V-0    EXPRO-02
 ***************************************************************************/
 
 /*
- * ported to v0.37b5
+ * ported to v0.37b7
  * using automatic conversion tool v0.01
  */ 
 package drivers;

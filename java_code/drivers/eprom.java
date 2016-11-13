@@ -103,7 +103,7 @@ Write sound processor   360030          W    D0-D7
 ****************************************************************************/
 
 /*
- * ported to v0.37b5
+ * ported to v0.37b7
  * using automatic conversion tool v0.01
  */ 
 package drivers;

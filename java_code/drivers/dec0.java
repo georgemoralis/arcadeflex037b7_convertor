@@ -36,7 +36,7 @@ Boulderdash use the same graphics chips but are different pcbs.
 ***************************************************************************/
 
 /*
- * ported to v0.37b5
+ * ported to v0.37b7
  * using automatic conversion tool v0.01
  */ 
 package drivers;

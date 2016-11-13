@@ -78,7 +78,7 @@ remaps button 2 and 3 to button 1, so you can't enter the above sequence.
 
 
 /*
- * ported to v0.37b5
+ * ported to v0.37b7
  * using automatic conversion tool v0.01
  */ 
 package drivers;

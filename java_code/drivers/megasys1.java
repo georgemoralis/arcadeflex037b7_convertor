@@ -115,7 +115,7 @@ RAM				RW	0f0000-0f3fff	0e0000-0effff?	<
 #define SOUND_HACK 1
 
 /*
- * ported to v0.37b5
+ * ported to v0.37b7
  * using automatic conversion tool v0.01
  */ 
 package drivers;

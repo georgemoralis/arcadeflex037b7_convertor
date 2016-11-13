@@ -1,7 +1,7 @@
 /* This program is based on DIS68k by Aaron Giles */
 
 /*
- * ported to v0.37b5
+ * ported to v0.37b7
  * using automatic conversion tool v0.01
  */ 
 package cpu.tms34010;

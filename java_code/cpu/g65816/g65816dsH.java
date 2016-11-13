@@ -22,7 +22,7 @@ int g65816_disassemble(char* buff, unsigned int pc, unsigned int pb, int m_flag,
 unsigned int g65816_read_8_disassembler(unsigned int address);
 
 /*
- * ported to v0.37b5
+ * ported to v0.37b7
  * using automatic conversion tool v0.01
  */ 
 package cpu.g65816;

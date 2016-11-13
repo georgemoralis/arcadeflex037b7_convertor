@@ -58,7 +58,7 @@ Program RAM                        FFC000-FFFFFF  R/W  D0-D15
 ****************************************************************************/
 
 /*
- * ported to v0.37b5
+ * ported to v0.37b7
  * using automatic conversion tool v0.01
  */ 
 package drivers;
