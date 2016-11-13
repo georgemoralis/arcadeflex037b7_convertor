@@ -146,7 +146,7 @@ public class quantum
 		new ReadHandlerPtr[] { quantum_input_1_r, quantum_input_2_r },
 		new ReadHandlerPtr[] { quantum_input_1_r, quantum_input_2_r },
 		/* The allpot handler */
-		new ReadHandlerPtr[] { 0, 0 },
+		new ReadHandlerPtr[] { null, null },
 	);
 	
 	

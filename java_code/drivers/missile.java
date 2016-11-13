@@ -342,14 +342,14 @@ public class missile
 		1250000,	/* 1.25 MHz??? */
 		new int[] { 100 },
 		/* The 8 pot handlers */
-		new ReadHandlerPtr[] { 0 },
-		new ReadHandlerPtr[] { 0 },
-		new ReadHandlerPtr[] { 0 },
-		new ReadHandlerPtr[] { 0 },
-		new ReadHandlerPtr[] { 0 },
-		new ReadHandlerPtr[] { 0 },
-		new ReadHandlerPtr[] { 0 },
-		new ReadHandlerPtr[] { 0 },
+		new ReadHandlerPtr[] { null },
+		new ReadHandlerPtr[] { null },
+		new ReadHandlerPtr[] { null },
+		new ReadHandlerPtr[] { null },
+		new ReadHandlerPtr[] { null },
+		new ReadHandlerPtr[] { null },
+		new ReadHandlerPtr[] { null },
+		new ReadHandlerPtr[] { null },
 		/* The allpot handler */
 		new ReadHandlerPtr[] { input_port_3_r },
 	);

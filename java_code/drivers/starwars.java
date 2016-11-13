@@ -473,16 +473,16 @@ public class starwars
 		1500000,	/* 1.5 MHz? */
 		new int[] { 20, 20, 20, 20 },	/* volume */
 		/* The 8 pot handlers */
-		new ReadHandlerPtr[] { 0, 0, 0, 0 },
-		new ReadHandlerPtr[] { 0, 0, 0, 0 },
-		new ReadHandlerPtr[] { 0, 0, 0, 0 },
-		new ReadHandlerPtr[] { 0, 0, 0, 0 },
-		new ReadHandlerPtr[] { 0, 0, 0, 0 },
-		new ReadHandlerPtr[] { 0, 0, 0, 0 },
-		new ReadHandlerPtr[] { 0, 0, 0, 0 },
-		new ReadHandlerPtr[] { 0, 0, 0, 0 },
+		new ReadHandlerPtr[] { null, null, null, null },
+		new ReadHandlerPtr[] { null, null, null, null },
+		new ReadHandlerPtr[] { null, null, null, null },
+		new ReadHandlerPtr[] { null, null, null, null },
+		new ReadHandlerPtr[] { null, null, null, null },
+		new ReadHandlerPtr[] { null, null, null, null },
+		new ReadHandlerPtr[] { null, null, null, null },
+		new ReadHandlerPtr[] { null, null, null, null },
 		/* The allpot handler */
-		new ReadHandlerPtr[] { 0, 0, 0, 0 },
+		new ReadHandlerPtr[] { null, null, null, null },
 	);
 	
 	static struct TMS5220interface tms5220_interface =

@@ -358,7 +358,7 @@ public class tempest
 		new ReadHandlerPtr[] { input_port_1_bit_r, input_port_2_bit_r },
 		new ReadHandlerPtr[] { input_port_1_bit_r, input_port_2_bit_r },
 		/* The allpot handler */
-		new ReadHandlerPtr[] { 0, 0 },
+		new ReadHandlerPtr[] { null, null },
 	);
 	
 	

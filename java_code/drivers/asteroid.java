@@ -655,14 +655,14 @@ public class asteroid
 		1500000,	/* 1.5 MHz??? */
 		new int[] { 100 },
 		/* The 8 pot handlers */
-		new ReadHandlerPtr[] { 0 },
-		new ReadHandlerPtr[] { 0 },
-		new ReadHandlerPtr[] { 0 },
-		new ReadHandlerPtr[] { 0 },
-		new ReadHandlerPtr[] { 0 },
-		new ReadHandlerPtr[] { 0 },
-		new ReadHandlerPtr[] { 0 },
-		new ReadHandlerPtr[] { 0 },
+		new ReadHandlerPtr[] { null },
+		new ReadHandlerPtr[] { null },
+		new ReadHandlerPtr[] { null },
+		new ReadHandlerPtr[] { null },
+		new ReadHandlerPtr[] { null },
+		new ReadHandlerPtr[] { null },
+		new ReadHandlerPtr[] { null },
+		new ReadHandlerPtr[] { null },
 		/* The allpot handler */
 		new ReadHandlerPtr[] { input_port_3_r }
 	);

@@ -266,23 +266,23 @@ public class jedi
 		1500000,	/* 1.5 MHz? */
 		new int[] { 30, 30, MIXER(30,MIXER_PAN_LEFT), MIXER(30,MIXER_PAN_RIGHT) },
 		/* The 8 pot handlers */
-		new ReadHandlerPtr[] { 0, 0 ,0 ,0},
-		new ReadHandlerPtr[] { 0, 0 ,0 ,0},
-		new ReadHandlerPtr[] { 0, 0 ,0 ,0},
-		new ReadHandlerPtr[] { 0, 0 ,0 ,0},
-		new ReadHandlerPtr[] { 0, 0 ,0 ,0},
-		new ReadHandlerPtr[] { 0, 0 ,0 ,0},
-		new ReadHandlerPtr[] { 0, 0 ,0 ,0},
-		new ReadHandlerPtr[] { 0, 0 ,0 ,0},
+		new ReadHandlerPtr[] { null, null ,null ,null},
+		{ null, null ,null ,null},
+		{ null, null ,null ,null},
+		{ null, null ,null ,null},
+		{ null, null ,null ,null},
+		{ null, null ,null ,null},
+		{ null, null ,null ,null},
+		{ null, null ,null ,null},
 		/* The allpot handler */
-		new ReadHandlerPtr[] { 0,0,0,0 }
-	);
+		{ null,null,null,null }
+	};
 	
 	static struct TMS5220interface tms5220_interface =
 	{
 		672000,     /* clock speed (80*samplerate) */
 		100,        /* volume */
-		0           /* IRQ handler */
+		null           /* IRQ handler */
 	};
 	
 	

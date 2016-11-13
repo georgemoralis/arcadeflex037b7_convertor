@@ -2307,6 +2307,11 @@ public class convertMame {
                             sUtil.putString("null");
                             Convertor.inpos += 1;
                         }
+                        if(type == POKEYinterface)
+                        {
+                            sUtil.putString("null");
+                            Convertor.inpos += 1;
+                        }
 
                     }
                     break;

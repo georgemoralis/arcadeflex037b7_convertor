@@ -233,12 +233,12 @@ public class warlord
 		new ReadHandlerPtr[] { input_port_5_r },
 		new ReadHandlerPtr[] { input_port_6_r },
 		new ReadHandlerPtr[] { input_port_7_r },
-		new ReadHandlerPtr[] { 0 },
-		new ReadHandlerPtr[] { 0 },
-		new ReadHandlerPtr[] { 0 },
-		new ReadHandlerPtr[] { 0 },
+		new ReadHandlerPtr[] { null },
+		new ReadHandlerPtr[] { null },
+		new ReadHandlerPtr[] { null },
+		new ReadHandlerPtr[] { null },
 		/* The allpot handler */
-		new ReadHandlerPtr[] { 0 },
+		new ReadHandlerPtr[] { null },
 	);
 	
 	

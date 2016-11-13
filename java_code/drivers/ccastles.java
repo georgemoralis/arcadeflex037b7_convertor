@@ -234,16 +234,16 @@ public class ccastles
 		1250000,	/* 1.25 MHz??? */
 		new int[] { 50, 50 },
 		/* The 8 pot handlers */
-		new ReadHandlerPtr[] { 0, 0 },
-		new ReadHandlerPtr[] { 0, 0 },
-		new ReadHandlerPtr[] { 0, 0 },
-		new ReadHandlerPtr[] { 0, 0 },
-		new ReadHandlerPtr[] { 0, 0 },
-		new ReadHandlerPtr[] { 0, 0 },
-		new ReadHandlerPtr[] { 0, 0 },
-		new ReadHandlerPtr[] { 0, 0 },
+		new ReadHandlerPtr[] { null, null },
+		new ReadHandlerPtr[] { null, null },
+		new ReadHandlerPtr[] { null, null },
+		new ReadHandlerPtr[] { null, null },
+		new ReadHandlerPtr[] { null, null },
+		new ReadHandlerPtr[] { null, null },
+		new ReadHandlerPtr[] { null, null },
+		new ReadHandlerPtr[] { null, null },
 		/* The allpot handler */
-		new ReadHandlerPtr[] { 0, input_port_1_r },
+		new ReadHandlerPtr[] { null, input_port_1_r },
 	);
 	
 	

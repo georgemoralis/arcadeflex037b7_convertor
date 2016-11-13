@@ -471,16 +471,16 @@ public class centiped
 		12096000/8,	/* 1.512 MHz */
 		new int[] { 100 },
 		/* The 8 pot handlers */
-		new ReadHandlerPtr[] { 0 },
-		new ReadHandlerPtr[] { 0 },
-		new ReadHandlerPtr[] { 0 },
-		new ReadHandlerPtr[] { 0 },
-		new ReadHandlerPtr[] { 0 },
-		new ReadHandlerPtr[] { 0 },
-		new ReadHandlerPtr[] { 0 },
-		new ReadHandlerPtr[] { 0 },
+		new ReadHandlerPtr[] { null },
+		new ReadHandlerPtr[] { null },
+		new ReadHandlerPtr[] { null },
+		new ReadHandlerPtr[] { null },
+		new ReadHandlerPtr[] { null },
+		new ReadHandlerPtr[] { null },
+		new ReadHandlerPtr[] { null },
+		new ReadHandlerPtr[] { null },
 		/* The allpot handler */
-		new ReadHandlerPtr[] { 0 },
+		new ReadHandlerPtr[] { null },
 	);
 	
 	static AY8910interface centipdb_ay8910_interface = new AY8910interface

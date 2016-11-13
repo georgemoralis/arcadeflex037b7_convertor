@@ -302,14 +302,14 @@ public class milliped
 		1500000,	/* 1.5 MHz??? */
 		new int[] { 50, 50 },
 		/* The 8 pot handlers */
-		new ReadHandlerPtr[] { 0, 0 },
-		new ReadHandlerPtr[] { 0, 0 },
-		new ReadHandlerPtr[] { 0, 0 },
-		new ReadHandlerPtr[] { 0, 0 },
-		new ReadHandlerPtr[] { 0, 0 },
-		new ReadHandlerPtr[] { 0, 0 },
-		new ReadHandlerPtr[] { 0, 0 },
-		new ReadHandlerPtr[] { 0, 0 },
+		new ReadHandlerPtr[] { null, null },
+		new ReadHandlerPtr[] { null, null },
+		new ReadHandlerPtr[] { null, null },
+		new ReadHandlerPtr[] { null, null },
+		new ReadHandlerPtr[] { null, null },
+		new ReadHandlerPtr[] { null, null },
+		new ReadHandlerPtr[] { null, null },
+		new ReadHandlerPtr[] { null, null },
 		/* The allpot handler */
 		new ReadHandlerPtr[] { input_port_4_r, input_port_5_r },
 	);

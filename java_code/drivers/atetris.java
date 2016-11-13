@@ -167,14 +167,14 @@ public class atetris
 		1789790,	/* ? */
 		new int[] { 50, 50 },
 		/* The 8 pot handlers */
-		new ReadHandlerPtr[] { 0, 0 },
-		new ReadHandlerPtr[] { 0, 0 },
-		new ReadHandlerPtr[] { 0, 0 },
-		new ReadHandlerPtr[] { 0, 0 },
-		new ReadHandlerPtr[] { 0, 0 },
-		new ReadHandlerPtr[] { 0, 0 },
-		new ReadHandlerPtr[] { 0, 0 },
-		new ReadHandlerPtr[] { 0, 0 },
+		new ReadHandlerPtr[] { null, null },
+		new ReadHandlerPtr[] { null, null },
+		new ReadHandlerPtr[] { null, null },
+		new ReadHandlerPtr[] { null, null },
+		new ReadHandlerPtr[] { null, null },
+		new ReadHandlerPtr[] { null, null },
+		new ReadHandlerPtr[] { null, null },
+		new ReadHandlerPtr[] { null, null },
 		/* The allpot handler */
 		new ReadHandlerPtr[] { input_port_0_r, input_port_1_r }
 	);

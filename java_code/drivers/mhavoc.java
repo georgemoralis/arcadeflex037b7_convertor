@@ -424,16 +424,16 @@ public class mhavoc
 		1250000,	/* 1.25 MHz??? */
 		new int[] { 25, 25, 25, 25 },
 		/* The 8 pot handlers */
-		new ReadHandlerPtr[] { 0, 0, 0, 0 },
-		new ReadHandlerPtr[] { 0, 0, 0, 0 },
-		new ReadHandlerPtr[] { 0, 0, 0, 0 },
-		new ReadHandlerPtr[] { 0, 0, 0, 0 },
-		new ReadHandlerPtr[] { 0, 0, 0, 0 },
-		new ReadHandlerPtr[] { 0, 0, 0, 0 },
-		new ReadHandlerPtr[] { 0, 0, 0, 0 },
-		new ReadHandlerPtr[] { 0, 0, 0, 0 },
+		new ReadHandlerPtr[] { null, null, null, null },
+		new ReadHandlerPtr[] { null, null, null, null },
+		new ReadHandlerPtr[] { null, null, null, null },
+		new ReadHandlerPtr[] { null, null, null, null },
+		new ReadHandlerPtr[] { null, null, null, null },
+		new ReadHandlerPtr[] { null, null, null, null },
+		new ReadHandlerPtr[] { null, null, null, null },
+		new ReadHandlerPtr[] { null, null, null, null },
 		/* The allpot handler */
-		new ReadHandlerPtr[] { input_port_3_r, 0, 0, 0 },
+		new ReadHandlerPtr[] { input_port_3_r, null, null, null },
 	);
 	
 	

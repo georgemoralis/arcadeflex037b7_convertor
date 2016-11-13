@@ -188,16 +188,16 @@ public class foodf
 		600000,	/* .6 MHz */
 		new int[] { 33, 33, 33 },
 		/* The 8 pot handlers */
-		new ReadHandlerPtr[] { 0, 0, 0 },
-		new ReadHandlerPtr[] { 0, 0, 0 },
-		new ReadHandlerPtr[] { 0, 0, 0 },
-		new ReadHandlerPtr[] { 0, 0, 0 },
-		new ReadHandlerPtr[] { 0, 0, 0 },
-		new ReadHandlerPtr[] { 0, 0, 0 },
-		new ReadHandlerPtr[] { 0, 0, 0 },
-		new ReadHandlerPtr[] { 0, 0, 0 },
+		new ReadHandlerPtr[] { null, null, null },
+		new ReadHandlerPtr[] { null, null, null },
+		new ReadHandlerPtr[] { null, null, null },
+		new ReadHandlerPtr[] { null, null, null },
+		new ReadHandlerPtr[] { null, null, null },
+		new ReadHandlerPtr[] { null, null, null },
+		new ReadHandlerPtr[] { null, null, null },
+		new ReadHandlerPtr[] { null, null, null },
 		/* The allpot handler */
-		new ReadHandlerPtr[] { 0, 0, 0 }
+		new ReadHandlerPtr[] { null, null, null }
 	);
 	
 	

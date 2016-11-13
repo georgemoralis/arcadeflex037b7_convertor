@@ -606,14 +606,14 @@ public class bwidow
 		1500000,	/* 1.5 MHz??? */
 		new int[] { 50, 50 },
 		/* The 8 pot handlers */
-		new ReadHandlerPtr[] { 0, 0 },
-		new ReadHandlerPtr[] { 0, 0 },
-		new ReadHandlerPtr[] { 0, 0 },
-		new ReadHandlerPtr[] { 0, 0 },
-		new ReadHandlerPtr[] { 0, 0 },
-		new ReadHandlerPtr[] { 0, 0 },
-		new ReadHandlerPtr[] { 0, 0 },
-		new ReadHandlerPtr[] { 0, 0 },
+		new ReadHandlerPtr[] { null, null },
+		new ReadHandlerPtr[] { null, null },
+		new ReadHandlerPtr[] { null, null },
+		new ReadHandlerPtr[] { null, null },
+		new ReadHandlerPtr[] { null, null },
+		new ReadHandlerPtr[] { null, null },
+		new ReadHandlerPtr[] { null, null },
+		new ReadHandlerPtr[] { null, null },
 		/* The allpot handler */
 		new ReadHandlerPtr[] { input_port_1_r, input_port_2_r },
 	);

@@ -1163,14 +1163,14 @@ public class atarisy2
 		ATARI_CLOCK_14MHz/8,
 		new int[] { MIXER(60,MIXER_PAN_LEFT), MIXER(60,MIXER_PAN_RIGHT) },
 		/* The 8 pot handlers */
-		new ReadHandlerPtr[] { 0, 0 },
-		new ReadHandlerPtr[] { 0, 0 },
-		new ReadHandlerPtr[] { 0, 0 },
-		new ReadHandlerPtr[] { 0, 0 },
-		new ReadHandlerPtr[] { 0, 0 },
-		new ReadHandlerPtr[] { 0, 0 },
-		new ReadHandlerPtr[] { 0, 0 },
-		new ReadHandlerPtr[] { 0, 0 },
+		new ReadHandlerPtr[] { null, null },
+		new ReadHandlerPtr[] { null, null },
+		new ReadHandlerPtr[] { null, null },
+		new ReadHandlerPtr[] { null, null },
+		new ReadHandlerPtr[] { null, null },
+		new ReadHandlerPtr[] { null, null },
+		new ReadHandlerPtr[] { null, null },
+		new ReadHandlerPtr[] { null, null },
 		/* The allpot handler */
 		new ReadHandlerPtr[] { input_port_11_r, input_port_12_r },	/* dip switches */
 	);
