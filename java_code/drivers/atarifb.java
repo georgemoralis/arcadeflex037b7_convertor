@@ -657,7 +657,7 @@ public class atarifb
 		60, 2037,	/* frames per second, vblank duration: 16.3ms * 1/8 = 2037.5. Is it 1/8th or 3/32nds? (1528?) */
 	//	60, 1528,	/* frames per second, vblank duration: 16.3ms * 3/32 = 1528.125. Is it 1/8th or 3/32nds? (1528?) */
 		1,	/* single CPU, no need for interleaving */
-		0,
+		null,
 	
 		/* video hardware */
 		38*8, 32*8, { 0*8, 38*8-1, 0*8, 32*8-1 },
@@ -695,7 +695,7 @@ public class atarifb
 		60, 2037,	/* frames per second, vblank duration: 16.3ms * 1/8 = 2037.5. Is it 1/8th or 3/32nds? (1528?) */
 	//	60, 1528,	/* frames per second, vblank duration: 16.3ms * 3/32 = 1528.125. Is it 1/8th or 3/32nds? (1528?) */
 		1,	/* single CPU, no need for interleaving */
-		0,
+		null,
 	
 		/* video hardware */
 		38*8, 32*8, { 0*8, 38*8-1, 0*8, 32*8-1 },
@@ -733,7 +733,7 @@ public class atarifb
 		60, 2037,	/* frames per second, vblank duration: 16.3ms * 1/8 = 2037.5. Is it 1/8th or 3/32nds? (1528?) */
 	//	60, 1528,	/* frames per second, vblank duration: 16.3ms * 3/32 = 1528.125. Is it 1/8th or 3/32nds? (1528?) */
 		1,	/* single CPU, no need for interleaving */
-		0,
+		null,
 	
 		/* video hardware */
 		38*8, 32*8, { 0*8, 38*8-1, 0*8, 32*8-1 },

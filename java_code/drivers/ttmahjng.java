@@ -209,7 +209,7 @@ public class ttmahjng
 	
 		/* video hardware */
 		256, 256, new rectangle( 0, 256-1, 0, 256-1 ),
-		0,
+		null,
 		8, null,
 		ttmahjng_vh_convert_color_prom,
 	

@@ -355,7 +355,7 @@ public class xexex
 	
 		/* video hardware */
 		64*8, 32*8, new rectangle( 8*8, (64-8)*8-1, 0*8, 32*8-1 ),
-		0,	/* gfx decoded by konamiic.c */
+		null,	/* gfx decoded by konamiic.c */
 		2048, 2048,
 		null,
 	

@@ -430,7 +430,7 @@ public class gradius3
 	
 		/* video hardware */
 		64*8, 32*8, new rectangle( 12*8, (64-14)*8-1, 2*8, 30*8-1 ),	/* asymmetrical! */
-		0,	/* gfx decoded by konamiic.c */
+		null,	/* gfx decoded by konamiic.c */
 		2048, 2048,
 		null,
 	

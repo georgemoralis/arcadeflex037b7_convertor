@@ -2434,7 +2434,7 @@ public class balsente
 	
 		/* video hardware */
 		256, 240, new rectangle( 0, 255, 0, 239 ),
-		0,
+		null,
 		1025,1025,
 		null,
 	

@@ -361,7 +361,7 @@ public class kangaroo
 	
 		/* video hardware */
 		32*8, 32*8, new rectangle( 0, 255, 8, 255-8 ),
-		0,
+		null,
 		24,null,
 		kangaroo_vh_convert_color_prom,
 	

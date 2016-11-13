@@ -368,7 +368,7 @@ public class vendetta
 	
 		/* video hardware */
 		64*8, 32*8, new rectangle( 13*8, (64-13)*8-1, 2*8, 30*8-1 ),
-		0,	/* gfx decoded by konamiic.c */
+		null,	/* gfx decoded by konamiic.c */
 		2048, 2048,
 		null,
 	

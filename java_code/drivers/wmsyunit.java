@@ -702,7 +702,7 @@ public class wmsyunit
 		/* video hardware */
 	    512, 432, new rectangle( 0, 511, 27, 427 ),
 	
-		0,
+		null,
 		65536,65536,
 		null,
 	
@@ -748,7 +748,7 @@ public class wmsyunit
 		/* video hardware */
 		512, 288, new rectangle( 0, 399, 20, 274 ),
 	
-		0,
+		null,
 		256,256,
 		null,
 	
@@ -787,7 +787,7 @@ public class wmsyunit
 		/* video hardware */
 		512, 288, new rectangle( 0, 399, 20, 274 ),
 	
-		0,
+		null,
 		4096,4096,
 		null,
 	
@@ -826,7 +826,7 @@ public class wmsyunit
 		/* video hardware */
 		512, 304, new rectangle( 0, 399, 27, 282 ),
 	
-		0,
+		null,
 		4096,4096,
 	    null,
 	

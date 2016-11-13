@@ -364,7 +364,7 @@ public class spiders
 		32*8, 28*8,                         /* Width/Height         */
 		new rectangle( 0*8, 32*8-1, 0*8, 28*8-1 ),       /* Visible area         */
 		null,
-		sizeof(palette) / sizeof(palette[0]) / 3, 0,
+		sizeof(palette) / sizeof(palette[null]) / 3, 0,
 		init_palette,
 	
 		VIDEO_TYPE_RASTER | VIDEO_SUPPORTS_DIRTY,                  /* Video attributes     */

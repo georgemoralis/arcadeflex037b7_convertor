@@ -1104,7 +1104,7 @@ public class exidy440
 	
 		/* video hardware */
 		320, 240, new rectangle( 0, 319, 0, 239 ),
-		0,
+		null,
 		257, 512,
 		null,
 	

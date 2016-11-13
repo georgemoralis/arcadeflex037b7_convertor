@@ -1321,7 +1321,7 @@ public class _8080bw
 	
 		/* video hardware */
 		32*8, 32*8, new rectangle( 0*8, 32*8-1, 0*8, 28*8-1 ),
-		0,      /* no gfxdecodeinfo - bitmapped display */
+		null,      /* no gfxdecodeinfo - bitmapped display */
 		32768+2, null,		/* leave extra colors for the overlay */
 		init_palette,
 	
@@ -1431,7 +1431,7 @@ public class _8080bw
 	
 		/* video hardware */
 		32*8, 32*8, new rectangle( 0*8, 32*8-1, 0*8, 28*8-1 ),
-		0,      /* no gfxdecodeinfo - bitmapped display */
+		null,      /* no gfxdecodeinfo - bitmapped display */
 		32768+2, null,		/* leave extra colors for the overlay */
 		init_palette,
 	
@@ -1507,7 +1507,7 @@ public class _8080bw
 	
 		/* video hardware */
 		32*8, 32*8, new rectangle( 0*8, 32*8-1, 0*8, 28*8-1 ),
-		0,      /* no gfxdecodeinfo - bitmapped display */
+		null,      /* no gfxdecodeinfo - bitmapped display */
 		32768+2, null,		/* leave extra colors for the overlay */
 		init_palette,
 	
@@ -1585,7 +1585,7 @@ public class _8080bw
 	
 		/* video hardware */
 		32*8, 32*8, new rectangle( 0*8, 32*8-1, 0*8, 28*8-1 ),
-		0,      /* no gfxdecodeinfo - bitmapped display */
+		null,      /* no gfxdecodeinfo - bitmapped display */
 		32768+2, null,		/* leave extra colors for the overlay */
 		init_palette,
 	
@@ -1842,7 +1842,7 @@ public class _8080bw
 	
 		/* video hardware */
 		32*8, 32*8, new rectangle( 0*8, 32*8-1, 0*8, 28*8-1 ),
-		0,      /* no gfxdecodeinfo - bitmapped display */
+		null,      /* no gfxdecodeinfo - bitmapped display */
 		32768+2, null,		/* leave extra colors for the overlay */
 		init_palette,
 	
@@ -2488,7 +2488,7 @@ public class _8080bw
 	
 		/* video hardware */
 		32*8, 32*8, new rectangle( 0*8, 32*8-1, 0*8, 28*8-1 ),
-		0,      /* no gfxdecodeinfo - bitmapped display */
+		null,      /* no gfxdecodeinfo - bitmapped display */
 		32768+2, null,		/* leave extra colors for the overlay */
 		init_palette,
 	
@@ -2575,7 +2575,7 @@ public class _8080bw
 	
 		/* video hardware */
 		32*8, 32*8, new rectangle( 0*8, 32*8-1, 0*8, 28*8-1 ),
-		0,      /* no gfxdecodeinfo - bitmapped display */
+		null,      /* no gfxdecodeinfo - bitmapped display */
 		32768+2, null,		/* leave extra colors for the overlay */
 		init_palette,
 	
@@ -2652,7 +2652,7 @@ public class _8080bw
 	
 		/* video hardware */
 		32*8, 32*8, new rectangle( 0*8, 32*8-1, 0*8, 28*8-1 ),
-		0,      /* no gfxdecodeinfo - bitmapped display */
+		null,      /* no gfxdecodeinfo - bitmapped display */
 		32768+2, null,		/* leave extra colors for the overlay */
 		init_palette,
 	
@@ -3066,7 +3066,7 @@ public class _8080bw
 	
 		/* video hardware */
 		32*8, 32*8, new rectangle( 0*8, 32*8-1, 0*8, 28*8-1 ),
-		0,      /* no gfxdecodeinfo - bitmapped display */
+		null,      /* no gfxdecodeinfo - bitmapped display */
 		32768+2, null,		/* leave extra colors for the overlay */
 		init_palette,
 	

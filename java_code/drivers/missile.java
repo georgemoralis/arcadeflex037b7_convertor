@@ -373,7 +373,7 @@ public class missile
 	
 		/* video hardware */
 		256, 231, new rectangle( 0, 255, 0, 230 ),
-		0,
+		null,
 		8, null,
 		null,
 	

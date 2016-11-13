@@ -476,7 +476,7 @@ public class wmstunit
 		/* video hardware */
 		512, 288, new rectangle( 56, 450, 0, 253 ),
 	
-		0,
+		null,
 		65536,65536,
 		null,
 	
@@ -514,7 +514,7 @@ public class wmstunit
 		/* video hardware */
 		512, 288, new rectangle( 56, 450, 0, 253 ),
 	
-		0,
+		null,
 		65536,65536,
 		null,
 	

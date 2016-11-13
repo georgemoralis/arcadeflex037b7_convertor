@@ -304,7 +304,7 @@ public class capbowl
 																\
 		/* video hardware */									\
 		360, 256, new rectangle( 0, 359, 0, VISIBLE_Y ),						\
-		0,														\
+		null,														\
 		16*256,16*256,											\
 		null,														\
 																\

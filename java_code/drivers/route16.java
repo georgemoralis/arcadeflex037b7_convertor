@@ -274,7 +274,7 @@ public class route16
 																\
 		/* video hardware */									\
 		256, 256, new rectangle( 0, 256-1, 0, 256-1 ),						\
-		0,														\
+		null,														\
 		8, null,													\
 		route16_vh_convert_color_prom,							\
 																\

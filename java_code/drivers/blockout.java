@@ -240,7 +240,7 @@ public class blockout
 	
 		/* video hardware */
 		320, 256, new rectangle( 0, 319, 8, 247 ),
-		0,
+		null,
 		513, null,
 		null,
 	

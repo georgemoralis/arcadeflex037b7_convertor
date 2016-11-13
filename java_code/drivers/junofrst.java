@@ -394,7 +394,7 @@ public class junofrst
 	
 		/* video hardware */
 		32*8, 32*8, new rectangle( 0*8, 32*8-1, 2*8, 30*8-1 ),	/* not sure about the visible area */
-		0,					/* GfxDecodeInfo * */
+		null,					/* GfxDecodeInfo * */
 		16,                                  /* total colors */
 		null,                                      /* color table length */
 		null,			/* convert color prom routine */

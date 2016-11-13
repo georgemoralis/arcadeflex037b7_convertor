@@ -313,7 +313,7 @@ public class spy
 	
 		/* video hardware */
 		64*8, 32*8, new rectangle( 14*8, (64-14)*8-1, 2*8, 30*8-1 ),
-		0,	/* gfx decoded by konamiic.c */
+		null,	/* gfx decoded by konamiic.c */
 		1024, 1024,
 		null,
 	

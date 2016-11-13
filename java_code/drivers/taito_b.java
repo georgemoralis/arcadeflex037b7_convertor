@@ -2350,7 +2350,7 @@ public class taito_b
 		/* video hardware */
 		64*8, 32*8, new rectangle( 0*8, 40*8-1, 2*8, 30*8-1 ),
 	
-		0, /*either no graphics rom dump, or the game does not use them. It uses pixel layer for sure*/
+		null, /*either no graphics rom dump, or the game does not use them. It uses pixel layer for sure*/
 		4096, 4096,
 		null,
 	
