@@ -501,7 +501,7 @@ public class omegrace
 	
 		/* video hardware */
 		400, 300, new rectangle( 0, 1020, -10, 1010 ),
-		0,
+		null,
 		256,null,
 		avg_init_palette_white,
 	

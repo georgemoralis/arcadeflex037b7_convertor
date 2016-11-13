@@ -610,7 +610,7 @@ public class qix
 		/* video hardware */
 		256, 256,					/* screen_width, screen_height */
 		new rectangle( 0, 255, 8, 247 ), 		/* struct rectangle visible_area - just a guess */
-		0,							/* GfxDecodeInfo * */
+		null,							/* GfxDecodeInfo * */
 		256,						/* total colors */
 		null,							/* color table length */
 		null,							/* convert color prom routine */
@@ -670,7 +670,7 @@ public class qix
 		/* video hardware */
 		256, 256,					/* screen_width, screen_height */
 		new rectangle( 0, 255, 8, 247 ), 		/* struct rectangle visible_area - just a guess */
-		0,							/* GfxDecodeInfo * */
+		null,							/* GfxDecodeInfo * */
 		256,						/* total colors */
 		null,							/* color table length */
 		null,							/* convert color prom routine */
@@ -730,7 +730,7 @@ public class qix
 		/* video hardware */
 		256, 256,					/* screen_width, screen_height */
 		new rectangle( 0, 255, 8, 247 ), 		/* struct rectangle visible_area - just a guess */
-		0,							/* GfxDecodeInfo * */
+		null,							/* GfxDecodeInfo * */
 		256,						/* total colors */
 		null,							/* color table length */
 		null,							/* convert color prom routine */

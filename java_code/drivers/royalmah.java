@@ -327,7 +327,7 @@ public class royalmah
 		/* video hardware */
 		32*8, 32*8, new rectangle( 0, 255, 0, 255 ),
 		null,
-		16,0,
+		16,null,
 		royalmah_vh_convert_color_prom,
 	
 		VIDEO_TYPE_RASTER,

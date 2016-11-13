@@ -168,7 +168,7 @@ public class quantum
 	
 		/* video hardware */
 		300, 400, new rectangle( 0, 600, 0, 900 ),
-		0,
+		null,
 		256, null,
 		avg_init_palette_multi,
 	

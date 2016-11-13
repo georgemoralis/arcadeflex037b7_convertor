@@ -441,7 +441,7 @@ public class berzerk
 																			\
 		/* video hardware */												\
 		256, 256, new rectangle( 0, 256-1, 32, 256-1 ),									\
-		0,																	\
+		null,																	\
 		sizeof(palette) / sizeof(palette[null]) / 3, null,						\
 		init_palette,														\
 																			\

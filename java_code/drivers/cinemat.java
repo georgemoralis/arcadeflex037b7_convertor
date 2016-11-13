@@ -108,7 +108,7 @@ public class cinemat
 																						\
 		/* video hardware */ 															\
 		400, 300, new rectangle( minx, maxx, miny, maxy ), 											\
-		0, 																				\
+		null, 																				\
 		256 + 32768, 256, 																\
 	 	cinemat_init_colors, 															\
 																						\
@@ -228,7 +228,7 @@ public class cinemat
 	
 		/* video hardware */
 		400, 300, new rectangle( 0, 1024, 0, 768 ),
-		0,
+		null,
 		256 + 32768, 256,
 	 	spacewar_init_colors,
 	
@@ -1114,7 +1114,7 @@ public class cinemat
 	
 		/* video hardware */
 		400, 300, new rectangle( 0, 1024, 0, 800 ),
-		0,
+		null,
 		256 + 32768, 256,
 	 	cinemat_init_colors,
 	

@@ -598,7 +598,7 @@ public class astrocde
 	
 		/* video hardware */
 		320, 204, new rectangle( 0, 320-1, 0, 204-1 ),
-		0,	/* no gfxdecodeinfo - bitmapped display */
+		null,	/* no gfxdecodeinfo - bitmapped display */
 		256, null,
 		astrocde_init_palette,
 	
@@ -629,7 +629,7 @@ public class astrocde
 	
 		/* video hardware */
 		320, 204, new rectangle( 0, 320-1, 0, 204-1 ),
-		0,	/* no gfxdecodeinfo - bitmapped display */
+		null,	/* no gfxdecodeinfo - bitmapped display */
 		256, null,
 		astrocde_init_palette,
 	
@@ -666,7 +666,7 @@ public class astrocde
 	
 		/* video hardware */
 		320, 204, new rectangle( 0, 320-1, 0, 204-1 ),
-		0,	/* no gfxdecodeinfo - bitmapped display */
+		null,	/* no gfxdecodeinfo - bitmapped display */
 		256, null,
 		astrocde_init_palette,
 	
@@ -703,7 +703,7 @@ public class astrocde
 	
 		/* video hardware */
 		320, 204, new rectangle( 0, 320-1, 0, 204-1 ),
-		0,	/* no gfxdecodeinfo - bitmapped display */
+		null,	/* no gfxdecodeinfo - bitmapped display */
 		256, null,
 		astrocde_init_palette,
 	
@@ -796,7 +796,7 @@ public class astrocde
 	
 		/* video hardware */
 		320, 204, new rectangle( 0, 320-1, 0, 204-1 ),
-		0,	/* no gfxdecodeinfo - bitmapped display */
+		null,	/* no gfxdecodeinfo - bitmapped display */
 		256, null,
 		astrocde_init_palette,
 	
@@ -833,7 +833,7 @@ public class astrocde
 	
 		/* video hardware */
 		320, 204, new rectangle( 0, 320-1, 0, 204-1 ),
-		0,	/* no gfxdecodeinfo - bitmapped display */
+		null,	/* no gfxdecodeinfo - bitmapped display */
 		256, null,
 		astrocde_init_palette,
 	

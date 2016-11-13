@@ -387,7 +387,7 @@ public class liberatr
 															\
 		/* video hardware */								\
 		256, 256, new rectangle( 8, 247, 13, 244 ),						\
-		0,      /* no gfxdecodeinfo - bitmapped display */	\
+		null,      /* no gfxdecodeinfo - bitmapped display */	\
 		32, null,												\
 		null,													\
 															\

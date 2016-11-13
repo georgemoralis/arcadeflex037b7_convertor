@@ -736,7 +736,7 @@ public class shanghai
 	
 		/* video hardware */
 		384, 280, new rectangle( 0, 384-1, 0, 280-1 ),
-		0,
+		null,
 		256,null,
 		shanghai_vh_convert_color_prom,
 	

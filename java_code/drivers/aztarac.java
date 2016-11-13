@@ -144,7 +144,7 @@ public class aztarac
 	
 		/* video hardware */
 		400, 300, new rectangle( 0, 1024-1, 0, 768-1 ),
-		0,
+		null,
 		256, 256,
 		aztarac_init_colors,
 	

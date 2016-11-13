@@ -524,7 +524,7 @@ public class thief
 	
 		/* video hardware */
 		32*8, 32*8, new rectangle( 0*8, 32*8-1, 0*8, 32*8-1 ),
-		0,
+		null,
 		16, 16,
 		null,
 	
@@ -565,7 +565,7 @@ public class thief
 	
 		/* video hardware */
 		32*8, 32*8, new rectangle( 0*8, 32*8-1, 0*8, 32*8-1 ),
-		0,
+		null,
 		16, 16,
 		null,
 	

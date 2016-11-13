@@ -323,7 +323,7 @@ public class arabian
 	
 		/* video hardware */
 		256, 256, new rectangle( 0, 255, 11, 242 ),
-		0,
+		null,
 		32,32,
 		arabian_vh_convert_color_prom,
 	

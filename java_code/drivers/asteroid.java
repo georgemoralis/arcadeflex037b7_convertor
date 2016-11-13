@@ -590,7 +590,7 @@ public class asteroid
 	
 		/* video hardware */
 		400, 300, new rectangle( 0, 1040, 70, 950 ),
-		0,
+		null,
 		256+32768, null,
 		avg_init_palette_white,
 	
@@ -627,7 +627,7 @@ public class asteroid
 	
 		/* video hardware */
 		400, 300, new rectangle( 0, 1040, 70, 950 ),
-		0,
+		null,
 		256+32768, null,
 		avg_init_palette_white,
 	
@@ -690,7 +690,7 @@ public class asteroid
 	
 		/* video hardware */
 		400, 300, new rectangle( 0, 1040, 70, 950 ),
-		0,
+		null,
 		256+32768, null,
 		avg_init_palette_astdelux,
 	
@@ -742,7 +742,7 @@ public class asteroid
 	
 		/* video hardware */
 		400, 300, new rectangle( 0, 1050, 0, 900 ),
-		0,
+		null,
 		256+32768, null,
 		llander_init_colors,
 	

@@ -90,7 +90,7 @@ public class dotrikun
 	
 		/* video hardware */
 		256, 256, new rectangle( 0, 256-1, 0, 192-1 ),
-		0,
+		null,
 		2, null,
 		null,
 	

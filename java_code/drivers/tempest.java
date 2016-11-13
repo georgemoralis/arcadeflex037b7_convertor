@@ -380,7 +380,7 @@ public class tempest
 	
 		/* video hardware */
 		300, 400, new rectangle( 0, 550, 0, 580 ),
-		0,
+		null,
 		256,null,
 		avg_init_palette_multi,
 	

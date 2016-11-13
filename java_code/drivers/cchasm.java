@@ -171,7 +171,7 @@ public class cchasm
 	
 		/* video hardware */
 		400, 300, new rectangle( 0, 1024-1, 0, 768-1 ),
-		0,
+		null,
 		256, 256,
 		cchasm_init_colors,
 	

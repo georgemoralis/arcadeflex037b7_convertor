@@ -245,7 +245,7 @@ public class skychut
 	
 		/* video hardware */
 		32*8, 32*8, new rectangle( 0*8, 32*8-1, 2*8, 30*8-1 ),
-		0,
+		null,
 		sizeof(spacebeam_palette) / sizeof(spacebeam_palette[null]) / 3,
 		null,
 		init_greenber_palette,

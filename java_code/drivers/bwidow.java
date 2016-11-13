@@ -637,7 +637,7 @@ public class bwidow
 	
 		/* video hardware */
 		400, 300, new rectangle( 0, 480, 0, 440 ),
-		0,
+		null,
 		256, null,
 		avg_init_palette_multi,
 	
@@ -674,7 +674,7 @@ public class bwidow
 	
 		/* video hardware */
 		400, 300, new rectangle( 0, 420, 0, 400 ),
-		0,
+		null,
 		256, null,
 		avg_init_palette_multi,
 	
@@ -713,7 +713,7 @@ public class bwidow
 	
 		/* video hardware */
 		400, 300, new rectangle( 0, 540, 0, 400 ),
-		0,
+		null,
 		256, null,
 		avg_init_palette_multi,
 	
