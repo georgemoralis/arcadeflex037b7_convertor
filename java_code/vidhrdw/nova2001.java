@@ -184,15 +184,15 @@ public class nova2001
 		/* Next, draw the sprites */
 		for (offs = 0;offs < spriteram_size;offs += 32)
 		{
-			if (spriteram[offs+0] & 0x40)
+			if (spriteram.read(offs+0)& 0x40)
 			{
 				int sx,sy,flipx,flipy;
 	
 	
-				sx = spriteram[offs+1];
-				sy = spriteram[offs+2];
-				flipx = spriteram[offs+3] & 0x10;
-				flipy = spriteram[offs+3] & 0x20;
+				sx = spriteram.read(offs+1);
+				sy = spriteram.read(offs+2);
+				flipx = spriteram.read(offs+3)& 0x10;
+				flipy = spriteram.read(offs+3)& 0x20;
 				if (flipscreen != 0)
 				{
 					sx = 240 - sx;
@@ -201,9 +201,9 @@ public class nova2001
 					flipy = !flipy;
 				}
 	
-				drawgfx(bitmap,Machine.gfx[2 + ((spriteram[offs+0] & 0x80) >> 7)],
-						spriteram[offs+0] & 0x3f,
-						spriteram[offs+3] & 0x0f,
+				drawgfx(bitmap,Machine.gfx[2 + ((spriteram.read(offs+0)& 0x80) >> 7)],
+						spriteram.read(offs+0)& 0x3f,
+						spriteram.read(offs+3)& 0x0f,
 						flipx,flipy,
 						sx,sy,
 						&Machine.visible_area,TRANSPARENCY_PEN,0);

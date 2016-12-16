@@ -138,12 +138,12 @@ public class wc90b
 	  /* draw all visible sprites of specified priority */
 		for ( offs = spriteram_size - 8;offs >= 0;offs -= 8 ){
 	
-			if ( ( ~( spriteram[offs+3] >> 6 ) & 3 ) == priority ) {
+			if ( ( ~( spriteram.read(offs+3)>> 6 ) & 3 ) == priority ) {
 	
-				if ( spriteram[offs+1] > 16 ) { /* visible */
-					int code = ( spriteram[offs+3] & 0x3f ) << 4;
-					int bank = spriteram[offs+0];
-					int flags = spriteram[offs+4];
+				if ( spriteram.read(offs+1)> 16 ) { /* visible */
+					int code = ( spriteram.read(offs+3)& 0x3f ) << 4;
+					int bank = spriteram.read(offs+0);
+					int flags = spriteram.read(offs+4);
 	
 					code += ( bank & 0xf0 ) >> 4;
 					code <<= 2;
@@ -153,8 +153,8 @@ public class wc90b
 							flags >> 4, /* color */
 							bank&1, /* flipx */
 							bank&2, /* flipy */
-							spriteram[offs + 2], /* sx */
-							240 - spriteram[offs + 1], /* sy */
+							spriteram.read(offs+2), /* sx */
+							240 - spriteram.read(offs+1), /* sy */
 							&Machine.visible_area,TRANSPARENCY_PEN,15 );
 				}
 			}
@@ -193,8 +193,8 @@ public class wc90b
 				palette_map[1*16 + (cram >> 4)] |= Machine.gfx[0].pen_usage[tile];
 			}
 			for ( offs = spriteram_size - 8;offs >= 0;offs -= 8 ){
-				if ( spriteram[offs+1] > 16 ) { /* visible */
-					int flags = spriteram[offs+4];
+				if ( spriteram.read(offs+1)> 16 ) { /* visible */
+					int flags = spriteram.read(offs+4);
 					palette_map[0*16 + (flags >> 4)] |= 0xfffe;
 				}
 			}

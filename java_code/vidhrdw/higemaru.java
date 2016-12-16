@@ -126,12 +126,12 @@ public class higemaru
 			int code,col,sx,sy,flipx,flipy;
 	
 	
-			code = spriteram[offs] & 0x7f;
-			col = spriteram[offs + 4] & 0x0f;
-			sx = spriteram[offs + 12];
-			sy = spriteram[offs + 8];
-			flipx = spriteram[offs + 4] & 0x10;
-			flipy = spriteram[offs + 4] & 0x20;
+			code = spriteram.read(offs)& 0x7f;
+			col = spriteram.read(offs+4)& 0x0f;
+			sx = spriteram.read(offs+12);
+			sy = spriteram.read(offs+8);
+			flipx = spriteram.read(offs+4)& 0x10;
+			flipy = spriteram.read(offs+4)& 0x20;
 			if (flipscreen != 0)
 			{
 				sx = 240 - sx;

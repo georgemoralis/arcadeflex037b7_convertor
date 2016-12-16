@@ -43,14 +43,14 @@ public class snk68
 	{
 		/* DWORD aligned bytes should be $ff */
 		if ((offset & 0x02) != 0)
-			WRITE_WORD(&spriteram[offset], data);
+			WRITE_WORD(&spriteram.read(offset), data);
 		else
-			WRITE_WORD(&spriteram[offset], data | 0xff00);
+			WRITE_WORD(&spriteram.read(offset), data | 0xff00);
 	} };
 	
 	public static ReadHandlerPtr pow_spriteram_r  = new ReadHandlerPtr() { public int handler(int offset)
 	{
-		return READ_WORD(&spriteram[offset]);
+		return READ_WORD(&spriteram.read(offset));
 	} };
 	
 	public static ReadHandlerPtr control_1_r  = new ReadHandlerPtr() { public int handler(int offset)

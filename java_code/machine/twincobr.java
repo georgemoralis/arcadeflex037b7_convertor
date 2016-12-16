@@ -108,10 +108,10 @@ public class twincobr
 		unsigned int input_data = 0;
 		switch (main_ram_seg) {
 			case 0x30000:	input_data = READ_WORD(&twincobr_68k_dsp_ram[dsp_addr_w]); break;
-			case 0x40000:	input_data = READ_WORD(&spriteram[dsp_addr_w]); break;
+			case 0x40000:	input_data = READ_WORD(&spriteram.read(dsp_addr_w)); break;
 			case 0x50000:	input_data = READ_WORD(&paletteram[dsp_addr_w]); break;
 			case 0x7000:	input_data = wardner_mainram[dsp_addr_w] + (wardner_mainram[dsp_addr_w+1]<<8); break;
-			case 0x8000:	input_data = spriteram[dsp_addr_w] + (spriteram[dsp_addr_w+1]<<8); break;
+			case 0x8000:	input_data = spriteram.read(dsp_addr_w)+ (spriteram.read(dsp_addr_w+1)<<8); break;
 			case 0xa000:	input_data = paletteram[dsp_addr_w] + (paletteram[dsp_addr_w+1]<<8); break;
 			default:		logerror("DSP PC:%04x Warning !!! IO reading from %08x (port 1)\n",cpu_getpreviouspc(),main_ram_seg + dsp_addr_w);
 		}
@@ -164,7 +164,7 @@ public class twincobr
 			switch (main_ram_seg) {
 				case 0x30000:	WRITE_WORD(&twincobr_68k_dsp_ram[dsp_addr_w],data);
 									if ((dsp_addr_w < 3) && (data == 0)) dsp_execute = 1; break;
-				case 0x40000:	WRITE_WORD(&spriteram[dsp_addr_w],data); break;
+				case 0x40000:	WRITE_WORD(&spriteram.read(dsp_addr_w),data); break;
 				case 0x50000:	WRITE_WORD(&paletteram[dsp_addr_w],data); break;
 				case 0x7000:	wardner_mainram[dsp_addr_w] = data & 0xff;
 								wardner_mainram[dsp_addr_w + 1] = (data >> 8) & 0xff;

@@ -177,11 +177,11 @@ public class megazone
 				int sx,sy,flipx,flipy;
 	
 	
-				sx = spriteram[offs + 3] + 4*8;
-				sy = 255-((spriteram[offs + 1]+16)&0xff);
+				sx = spriteram.read(offs+3)+ 4*8;
+				sy = 255-((spriteram.read(offs+1)+16)&0xff);
 	
-				flipx = ~spriteram[offs+0] & 0x40;
-				flipy = spriteram[offs+0] & 0x80;
+				flipx = ~spriteram.read(offs+0)& 0x40;
+				flipy = spriteram.read(offs+0)& 0x80;
 	
 	//			if (flipscreen != 0)
 	//			{
@@ -191,8 +191,8 @@ public class megazone
 	//				flipy = !flipy;
 	//			}
 				drawgfx(bitmap,Machine.gfx[1],
-						spriteram[offs + 2],
-						spriteram[offs + 0] & 0x0f,
+						spriteram.read(offs+2),
+						spriteram.read(offs+0)& 0x0f,
 						flipx,flipy,
 						sx,sy,
 						&Machine.visible_area,TRANSPARENCY_COLOR,0);

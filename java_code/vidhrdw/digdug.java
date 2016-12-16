@@ -277,8 +277,8 @@ public class digdug
 			/* is it on? */
 			if ((spriteram_3[offs+1] & 2) == 0)
 			{
-				int sprite = spriteram[offs];
-				int color = spriteram[offs+1];
+				int sprite = spriteram.read(offs);
+				int color = spriteram.read(offs+1);
 				int x = spriteram_2[offs+1]-40;
 				int y = 28*8-spriteram_2[offs];
 				int flipx = spriteram_3[offs] & 1;

@@ -109,15 +109,15 @@ public class flstory
 			int code,sx,sy,flipx,flipy;
 	
 	
-			code = spriteram[offs+2] + ((spriteram[offs+1] & 0x30) << 4);
-			sx = spriteram[offs+3];
-			sy = 240 - spriteram[offs+0];
-			flipx = spriteram[offs+1]&0x40;
-			flipy = spriteram[offs+1]&0x80;
+			code = spriteram.read(offs+2)+ ((spriteram.read(offs+1)& 0x30) << 4);
+			sx = spriteram.read(offs+3);
+			sy = 240 - spriteram.read(offs+0);
+			flipx = spriteram.read(offs+1)&0x40;
+			flipy = spriteram.read(offs+1)&0x80;
 	
 			drawgfx(bitmap,Machine.gfx[1],
 					code,
-					spriteram[offs+1] & 0x0f,
+					spriteram.read(offs+1)& 0x0f,
 					flipx,flipy,
 					sx,sy,
 					&Machine.visible_area,TRANSPARENCY_PEN,0);
@@ -125,7 +125,7 @@ public class flstory
 			if (sx > 240)
 				drawgfx(bitmap,Machine.gfx[1],
 						code,
-						spriteram[offs+1] & 0x0f,
+						spriteram.read(offs+1)& 0x0f,
 						flipx,flipy,
 						sx-256,sy,
 						&Machine.visible_area,TRANSPARENCY_PEN,0);

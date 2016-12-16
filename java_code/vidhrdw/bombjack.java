@@ -163,16 +163,16 @@ public class bombjack
 			int sx,sy,flipx,flipy;
 	
 	
-			sx = spriteram[offs+3];
-			if (spriteram[offs] & 0x80)
-				sy = 225-spriteram[offs+2];
+			sx = spriteram.read(offs+3);
+			if (spriteram.read(offs)& 0x80)
+				sy = 225-spriteram.read(offs+2);
 			else
-				sy = 241-spriteram[offs+2];
-			flipx = spriteram[offs+1] & 0x40;
-			flipy =	spriteram[offs+1] & 0x80;
+				sy = 241-spriteram.read(offs+2);
+			flipx = spriteram.read(offs+1)& 0x40;
+			flipy =	spriteram.read(offs+1)& 0x80;
 			if (flipscreen != 0)
 			{
-				if (spriteram[offs+1] & 0x20)
+				if (spriteram.read(offs+1)& 0x20)
 				{
 					sx = 224 - sx;
 					sy = 224 - sy;
@@ -186,9 +186,9 @@ public class bombjack
 				flipy = !flipy;
 			}
 	
-			drawgfx(bitmap,Machine.gfx[(spriteram[offs] & 0x80) ? 3 : 2],
-					spriteram[offs] & 0x7f,
-					spriteram[offs+1] & 0x0f,
+			drawgfx(bitmap,Machine.gfx[(spriteram.read(offs)& 0x80) ? 3 : 2],
+					spriteram.read(offs)& 0x7f,
+					spriteram.read(offs+1)& 0x0f,
 					flipx,flipy,
 					sx,sy,
 					&Machine.visible_area,TRANSPARENCY_PEN,0);

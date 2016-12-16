@@ -305,19 +305,19 @@ public class senjyo
 		{
 			int big,sx,sy,flipx,flipy;
 	
-			if (((spriteram[offs+1] & 0x30) >> 4) == priority)
+			if (((spriteram.read(offs+1)& 0x30) >> 4) == priority)
 			{
 				if (senjyo != 0)	/* Senjyo */
-					big = (spriteram[offs] & 0x80);
+					big = (spriteram.read(offs)& 0x80);
 				else	/* Star Force */
-					big = ((spriteram[offs] & 0xc0) == 0xc0);
-				sx = spriteram[offs+3];
+					big = ((spriteram.read(offs)& 0xc0) == 0xc0);
+				sx = spriteram.read(offs+3);
 				if (big != 0)
-					sy = 224-spriteram[offs+2];
+					sy = 224-spriteram.read(offs+2);
 				else
-					sy = 240-spriteram[offs+2];
-				flipx = spriteram[offs+1] & 0x40;
-				flipy = spriteram[offs+1] & 0x80;
+					sy = 240-spriteram.read(offs+2);
+				flipx = spriteram.read(offs+1)& 0x40;
+				flipy = spriteram.read(offs+1)& 0x80;
 	
 				if (flip_screen != 0)
 				{
@@ -338,8 +338,8 @@ public class senjyo
 	
 	
 				drawgfx(bitmap,Machine.gfx[big ? 5 : 4],
-						spriteram[offs],
-						spriteram[offs + 1] & 0x07,
+						spriteram.read(offs),
+						spriteram.read(offs+1)& 0x07,
 						flipx,flipy,
 						sx,sy,
 						clip,TRANSPARENCY_PEN,0);

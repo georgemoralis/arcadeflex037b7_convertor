@@ -480,8 +480,8 @@ public class seta
 	
 		/* Floating tilemap made of sprites */
 	
-		int ctrl	=	READ_WORD(&spriteram[0x600]);
-		int ctrl2	=	READ_WORD(&spriteram[0x602]);
+		int ctrl	=	READ_WORD(&spriteram.read(0x600));
+		int ctrl2	=	READ_WORD(&spriteram.read(0x602));
 		int flip	=	ctrl & 0x40;
 		int numcol	=	ctrl2 & 0x000f;
 	
@@ -536,16 +536,16 @@ public class seta
 	
 		int total_color_codes	=	Machine.drv.gfxdecodeinfo[0].total_color_codes;
 	
-		int ctrl	=	READ_WORD(&spriteram[0x600]);
-		int ctrl2	=	READ_WORD(&spriteram[0x602]);
+		int ctrl	=	READ_WORD(&spriteram.read(0x600));
+		int ctrl2	=	READ_WORD(&spriteram.read(0x602));
 	
 		int flip	=	ctrl & 0x40;
 		int numcol	=	ctrl2 & 0x000f;
 	
 		unsigned char *spriteram1 = spriteram_2 + ((ctrl2 & 0x40) ? 0x2000 : 0);
 	
-		int upper	=	( READ_WORD(&spriteram[0x604]) & 0xFF ) +
-						( READ_WORD(&spriteram[0x606]) & 0xFF ) * 256;
+		int upper	=	( READ_WORD(&spriteram.read(0x604)) & 0xFF ) +
+						( READ_WORD(&spriteram.read(0x606)) & 0xFF ) * 256;
 	
 	//	int max_x	=	Machine.drv.screen_width  - 16;
 	//	int max_y	=	Machine.visible_area.max_y+1;	// see pic of metafox
@@ -620,8 +620,8 @@ public class seta
 	
 		int total_color_codes	=	Machine.drv.gfxdecodeinfo[0].total_color_codes;
 	
-		int ctrl	=	READ_WORD(&spriteram[0x600]);
-		int ctrl2	=	READ_WORD(&spriteram[0x602]);
+		int ctrl	=	READ_WORD(&spriteram.read(0x600));
+		int ctrl2	=	READ_WORD(&spriteram.read(0x602));
 	
 		int flip	=	ctrl & 0x40;
 		unsigned char *spriteram1 = spriteram_2 + ((ctrl2 & 0x40) ? 0x2000 : 0);
@@ -701,7 +701,7 @@ public class seta
 		int enab_0, enab_1, x_0, x_1, y_0, y_1;
 	
 		int order	= 	0;
-		int flip	=	READ_WORD(&spriteram[0x600]) & 0x40;
+		int flip	=	READ_WORD(&spriteram.read(0x600)) & 0x40;
 	
 		tilemap_set_flip(ALL_TILEMAPS, flip ? (TILEMAP_FLIPX|TILEMAP_FLIPY) : 0 );
 	

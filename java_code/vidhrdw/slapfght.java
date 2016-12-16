@@ -120,11 +120,11 @@ public class slapfght
 		for (offs = 0;offs < spriteram_size;offs += 4)
 		{
 			drawgfx(bitmap,Machine.gfx[2],
-				spriteram[offs] + ((spriteram[offs+2] & 0xc0) << 2),
-				(spriteram[offs+2] & 0x1e) >>1,
+				spriteram.read(offs)+ ((spriteram.read(offs+2)& 0xc0) << 2),
+				(spriteram.read(offs+2)& 0x1e) >>1,
 				0,0,
 			/* Mysterious fudge factor sprite offset */
-				(spriteram[offs+1] + ((spriteram[offs+2] & 0x01) << 8)) - 13,spriteram[offs+3],
+				(spriteram.read(offs+1)+ ((spriteram.read(offs+2)& 0x01) << 8)) - 13,spriteram.read(offs+3),
 				&Machine.visible_area,TRANSPARENCY_PEN,0);
 		}
 	

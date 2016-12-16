@@ -162,8 +162,8 @@ public class phozon
 		for (offs = 0;offs < spriteram_size;offs += 2){
 			/* is it on? */
 			if ((spriteram_3[offs+1] & 2) == 0){
-				int sprite = spriteram[offs];
-				int color = spriteram[offs+1];
+				int sprite = spriteram.read(offs);
+				int color = spriteram.read(offs+1);
 				int x = (spriteram_2[offs+1]-69) + 0x100*(spriteram_3[offs+1] & 1);
 				int y = ( Machine.drv.screen_height ) - spriteram_2[offs] - 8;
 				int flipx = spriteram_3[offs] & 1;

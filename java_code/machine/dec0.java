@@ -495,7 +495,7 @@ public class dec0
 	public static WriteHandlerPtr sprite_mirror_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
 		extern unsigned char *spriteram;
-		WRITE_WORD (&spriteram[offset], data);
+		WRITE_WORD (&spriteram.read(offset), data);
 	} };
 	
 	/******************************************************************************/

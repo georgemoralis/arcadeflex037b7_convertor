@@ -300,13 +300,13 @@ public class bloodbro
 	static void weststry_draw_sprites( struct osd_bitmap *bitmap, int priority) {
 		int offs;
 		for( offs = 0x800-8; offs > 0; offs-=8 ){
-			int data = READ_WORD( &spriteram[offs+4] );
-			int data0 = READ_WORD( &spriteram[offs+0] );
-			int tile_number = READ_WORD( &spriteram[offs+2] )&0x1fff;
-			int sx = READ_WORD( &spriteram[offs+6] )&0xff;
+			int data = READ_WORD( &spriteram.read(offs+4));
+			int data0 = READ_WORD( &spriteram.read(offs+0));
+			int tile_number = READ_WORD( &spriteram.read(offs+2))&0x1fff;
+			int sx = READ_WORD( &spriteram.read(offs+6))&0xff;
 			int sy = 0xf0-(data0&0xff);
 			int flipx = (data&0x200)>>9;
-			int datax = (READ_WORD( &spriteram[offs+6] )&0x100);
+			int datax = (READ_WORD( &spriteram.read(offs+6))&0x100);
 			int color = (data&0xf000)>>12;
 	
 			/* Remap sprites */
@@ -383,8 +383,8 @@ public class bloodbro
 		for (color = 0;color < 16;color++) colmask[color] = 0;
 		for (offs = 0;offs <0x800;offs += 8 )
 		{
-			color = READ_WORD(&spriteram[offs+4])>>12;
-			code = READ_WORD(&spriteram[offs+2])&0x1fff;
+			color = READ_WORD(&spriteram.read(offs+4))>>12;
+			code = READ_WORD(&spriteram.read(offs+2))&0x1fff;
 	                /* Remap code 0x800 <. 0x1000 */
 	                code = (code&0x7ff) | ((code&0x800)<<1) | ((code&0x1000)>>1);
 	

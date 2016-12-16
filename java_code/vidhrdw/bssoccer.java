@@ -141,8 +141,8 @@ public class bssoccer
 									  ((srcx + tile_x) & 0x1f) * 0x20 +
 	  								  ((srcy + tile_y) & 0x1f) ) * 2;
 	
-					int tile	=	READ_WORD( &spriteram[addr] );
-					int attr	=	READ_WORD( &spriteram[addr + 0x10000] );
+					int tile	=	READ_WORD( &spriteram.read(addr));
+					int attr	=	READ_WORD( &spriteram.read(addr+0x10000));
 	
 					int sx		=	x + dx;
 					int sy		=	(y + dy) & 0xff;
@@ -245,8 +245,8 @@ public class bssoccer
 									  ((srcx + tile_x) & 0x1f) * 0x20 +
 	  								  ((srcy + tile_y) & 0x1f) ) * 2;
 	
-					int tile	=	READ_WORD( &spriteram[addr] );
-					int attr	=	READ_WORD( &spriteram[addr + 0x10000] );
+					int tile	=	READ_WORD( &spriteram.read(addr));
+					int attr	=	READ_WORD( &spriteram.read(addr+0x10000));
 	
 					int color	=	attr % total_color_codes;
 	

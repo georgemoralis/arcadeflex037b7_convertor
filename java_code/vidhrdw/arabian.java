@@ -294,10 +294,10 @@ public class arabian
 		INT8 dx=1, dy=0;
 	
 	
-		plane1 = spriteram[0] & 0x01;
-		plane2 = spriteram[0] & 0x02;
-		plane3 = spriteram[0] & 0x04;
-		plane4 = spriteram[0] & 0x08;
+		plane1 = spriteram.read(0)& 0x01;
+		plane2 = spriteram.read(0)& 0x02;
+		plane3 = spriteram.read(0)& 0x04;
+		plane4 = spriteram.read(0)& 0x08;
 	
 		x = (offset >> 8) << 2;
 		y = offset & 0xff;

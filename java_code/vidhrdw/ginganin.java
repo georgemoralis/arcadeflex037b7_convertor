@@ -227,10 +227,10 @@ public class ginganin
 	
 		for ( offs = 0 ; offs < spriteram_size ; offs += 8 )
 		{
-			int	y		=	READ_WORD(&spriteram[offs + 0]);
-			int	x		=	READ_WORD(&spriteram[offs + 2]);
-			int	code	=	READ_WORD(&spriteram[offs + 4]);
-			int	attr	=	READ_WORD(&spriteram[offs + 6]);
+			int	y		=	READ_WORD(&spriteram.read(offs+0));
+			int	x		=	READ_WORD(&spriteram.read(offs+2));
+			int	code	=	READ_WORD(&spriteram.read(offs+4));
+			int	attr	=	READ_WORD(&spriteram.read(offs+6));
 			int	flipx	=	code & 0x4000;
 			int	flipy	=	code & 0x8000;
 	
@@ -321,16 +321,16 @@ public class ginganin
 		{
 		int x,y,code;
 	
-			y	=	READ_WORD(&spriteram[offs + 0]);
+			y	=	READ_WORD(&spriteram.read(offs+0));
 			y	=	(y & 0xff) - (y & 0x100);
 			if ((y < ymin) || (y > ymax))	continue;
 	
-			x	=	READ_WORD(&spriteram[offs + 2]);
+			x	=	READ_WORD(&spriteram.read(offs+2));
 			x	=	(x & 0xff) - (x & 0x100);
 			if ((x < xmin) || (x > xmax))	continue;
 	
-			code	=	(READ_WORD(&spriteram[offs + 4]) & 0x3fff)% nmax;
-			color	=	READ_WORD(&spriteram[offs + 6]) >> 12;
+			code	=	(READ_WORD(&spriteram.read(offs+4)) & 0x3fff)% nmax;
+			color	=	READ_WORD(&spriteram.read(offs+6)) >> 12;
 	
 			colmask[color] |= pen_usage[code];
 		}

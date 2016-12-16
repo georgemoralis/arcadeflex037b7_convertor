@@ -1649,7 +1649,7 @@ public class megasys1
 	
 	public static WriteHandlerPtr bigstrik_spriteram_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		COMBINE_WORD_MEM(&spriteram[offset],data);
+		COMBINE_WORD_MEM(&spriteram.read(offset),data);
 	} };
 	
 	static public static InitDriverPtr init_bigstrik = new InitDriverPtr() { public void handler() 
@@ -3351,11 +3351,11 @@ public class megasys1
 	
 	public static ReadHandlerPtr soldamj_spriteram_r  = new ReadHandlerPtr() { public int handler(int offset)
 	{
-		return READ_WORD(&spriteram[offset]);
+		return READ_WORD(&spriteram.read(offset));
 	} };
 	public static WriteHandlerPtr soldamj_spriteram_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		if (offset < 0x800)	COMBINE_WORD_MEM(&spriteram[offset],data);
+		if (offset < 0x800)	COMBINE_WORD_MEM(&spriteram.read(offset),data);
 	} };
 	
 	static public static InitDriverPtr init_soldam = new InitDriverPtr() { public void handler() 

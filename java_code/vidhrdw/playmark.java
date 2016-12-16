@@ -270,10 +270,10 @@ public class playmark
 			if (sy == 0x2000) return;	/* end of list marker */
 	
 			flipx = sy & 0x4000;
-			sx = (READ_WORD(&spriteram[offs+2]) & 0x01ff) - 16-7;
+			sx = (READ_WORD(&spriteram.read(offs+2)) & 0x01ff) - 16-7;
 			sy = (256-8-height - sy) & 0xff;
-			code = READ_WORD(&spriteram[offs+4]) >> codeshift;
-			color = (READ_WORD(&spriteram[offs+2]) & 0xfe00) >> 9;
+			code = READ_WORD(&spriteram.read(offs+4)) >> codeshift;
+			color = (READ_WORD(&spriteram.read(offs+2)) & 0xfe00) >> 9;
 	
 			drawgfx(bitmap,Machine.gfx[0],
 					code,

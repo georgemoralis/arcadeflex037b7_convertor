@@ -264,18 +264,18 @@ public class jedi
 			int b,c;
 	
 	
-			b = ((spriteram[offs+0x40] & 0x02) >> 1);
-			b = b | ((spriteram[offs+0x40] & 0x40) >> 5);
-			b = b | (spriteram[offs+0x40] & 0x04);
+			b = ((spriteram.read(offs+0x40)& 0x02) >> 1);
+			b = b | ((spriteram.read(offs+0x40)& 0x40) >> 5);
+			b = b | (spriteram.read(offs+0x40)& 0x04);
 	
-			c = spriteram[offs] + (b * 256);
-			if (spriteram[offs+0x40] & 0x08) c |= 1;	/* double height */
+			c = spriteram.read(offs)+ (b * 256);
+			if (spriteram.read(offs+0x40)& 0x08) c |= 1;	/* double height */
 	
 			/* coordinates adjustments made to match screenshot */
-			x = spriteram[offs+0x100] + ((spriteram[offs+0x40] & 0x01) << 8) - 2;
-			y = 240-spriteram[offs+0x80] + 1;
-			flipx = spriteram[offs+0x40] & 0x10;
-			flipy = spriteram[offs+0x40] & 0x20;
+			x = spriteram.read(offs+0x100)+ ((spriteram.read(offs+0x40)& 0x01) << 8) - 2;
+			y = 240-spriteram.read(offs+0x80)+ 1;
+			flipx = spriteram.read(offs+0x40)& 0x10;
+			flipy = spriteram.read(offs+0x40)& 0x20;
 	
 			drawgfx(tmpbitmap2,Machine.gfx[2],
 					c,
@@ -284,7 +284,7 @@ public class jedi
 					x,y,
 					&Machine.visible_area,TRANSPARENCY_PEN_RAW,0);
 	
-			if (spriteram[offs+0x40] & 0x08)	/* double height */
+			if (spriteram.read(offs+0x40)& 0x08)	/* double height */
 				drawgfx(tmpbitmap2,Machine.gfx[2],
 						c-1,
 						0,

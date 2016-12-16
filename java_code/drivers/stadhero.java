@@ -58,7 +58,7 @@ public class stadhero
 	
 	public static WriteHandlerPtr spriteram_mirror_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		WRITE_WORD(&spriteram[offset],data);
+		WRITE_WORD(&spriteram.read(offset),data);
 	} };
 	
 	/******************************************************************************/

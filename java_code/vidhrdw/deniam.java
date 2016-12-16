@@ -242,19 +242,19 @@ public class deniam
 			UINT8 *rom = memory_region(REGION_GFX2);
 	
 	
-			sx = (READ_WORD(&spriteram[offs+2]) & 0x01ff) + 16*8 - 1;
+			sx = (READ_WORD(&spriteram.read(offs+2)) & 0x01ff) + 16*8 - 1;
 			if (sx >= 512) sx -= 512;
-			starty = READ_WORD(&spriteram[offs+0]) & 0xff;
-			endy = READ_WORD(&spriteram[offs+0]) >> 8;
+			starty = READ_WORD(&spriteram.read(offs+0)) & 0xff;
+			endy = READ_WORD(&spriteram.read(offs+0)) >> 8;
 	
-			width = READ_WORD(&spriteram[offs+4]) & 0x007f;
-			flipx = READ_WORD(&spriteram[offs+4]) & 0x0100;
+			width = READ_WORD(&spriteram.read(offs+4)) & 0x007f;
+			flipx = READ_WORD(&spriteram.read(offs+4)) & 0x0100;
 			if (flipx != 0) sx++;
 	
-			color = 0x40 + (READ_WORD(&spriteram[offs+8]) & 0x3f);
+			color = 0x40 + (READ_WORD(&spriteram.read(offs+8)) & 0x3f);
 	
 			primask = 8;
-			switch (READ_WORD(&spriteram[offs+8]) & 0xc0)
+			switch (READ_WORD(&spriteram.read(offs+8)) & 0xc0)
 			{
 				case 0x00: primask |= 4|2|1; break;	/* below everything */
 				case 0x40: primask |= 4|2;   break;	/* below fg and tx */
@@ -263,8 +263,8 @@ public class deniam
 			}
 	
 	
-			start = READ_WORD(&spriteram[offs+6]) +
-					((READ_WORD(&spriteram[offs+8]) & 0x1f00) << 8);
+			start = READ_WORD(&spriteram.read(offs+6)) +
+					((READ_WORD(&spriteram.read(offs+8)) & 0x1f00) << 8);
 			rom += 2*start;
 	
 			for (y = starty+1;y <= endy;y++)
@@ -377,7 +377,7 @@ public class deniam
 		{
 			int color;
 	
-			color = 0x40 + (READ_WORD(&spriteram[i+8]) & 0x3f);
+			color = 0x40 + (READ_WORD(&spriteram.read(i+8)) & 0x3f);
 			palette_map[color] |= 0xffff;
 		}
 	

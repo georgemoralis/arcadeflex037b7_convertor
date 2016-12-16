@@ -151,13 +151,13 @@ public class centiped
 			int sx, sy;
 	
 	
-			spritenum = spriteram[offs] & 0x3f;
+			spritenum = spriteram.read(offs)& 0x3f;
 			if ((spritenum & 1) != 0) spritenum = spritenum / 2 + 64;
 			else spritenum = spritenum / 2;
 	
-			flipx = (spriteram[offs] & 0x80);
-			x = spriteram[offs + 0x20];
-			y = 240 - spriteram[offs + 0x10];
+			flipx = (spriteram.read(offs)& 0x80);
+			x = spriteram.read(offs+0x20);
+			y = 240 - spriteram.read(offs+0x10);
 	
 			if (flip_screen != 0)
 			{
@@ -170,7 +170,7 @@ public class centiped
 			/* bit 3-2 = color to use for pen 10 */
 			/* bit 1-0 = color to use for pen 01 */
 			/* pen 00 is transparent */
-			color = spriteram[offs+0x30];
+			color = spriteram.read(offs+0x30);
 			Machine.gfx[1].colortable[3] =
 					Machine.pens[Machine.drv.gfxdecodeinfo[1].color_codes_start + ((color >> 4) & 3)];
 			Machine.gfx[1].colortable[2] =

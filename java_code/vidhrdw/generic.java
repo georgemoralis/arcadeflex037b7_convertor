@@ -143,7 +143,7 @@ public class generic
 	
 	public static ReadHandlerPtr spriteram_r  = new ReadHandlerPtr() { public int handler(int offset)
 	{
-		return spriteram[offset];
+		return spriteram.read(offset);
 	} };
 	
 	public static WriteHandlerPtr spriteram_w = new WriteHandlerPtr() {public void handler(int offset, int data)

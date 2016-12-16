@@ -126,24 +126,24 @@ public class dcon
 	
 		for (offs = 0x800-8;offs >= 0;offs -= 8)
 		{
-			if ((READ_WORD(&spriteram[offs+0])&0x8000)!=0x8000) continue;
-			sprite = READ_WORD(&spriteram[offs+2]);
+			if ((READ_WORD(&spriteram.read(offs+0))&0x8000)!=0x8000) continue;
+			sprite = READ_WORD(&spriteram.read(offs+2));
 			if ((sprite>>14)!=pri) continue;
 			sprite &= 0x3fff;
 	
-			y = READ_WORD(&spriteram[offs+6]);
-			x = READ_WORD(&spriteram[offs+4]);
+			y = READ_WORD(&spriteram.read(offs+6));
+			x = READ_WORD(&spriteram.read(offs+4));
 	
 			if ((x & 0x8000) != 0) x=0-(0x200-(x&0x1ff));
 			else x&=0x1ff;
 			if ((y & 0x8000) != 0) y=0-(0x200-(y&0x1ff));
 			else y&=0x1ff;
 	
-			color = READ_WORD(&spriteram[offs+0])&0x3f;
+			color = READ_WORD(&spriteram.read(offs+0))&0x3f;
 			fx = 0; /* To do */
 			fy = 0; /* To do */
-			dy=((READ_WORD(&spriteram[offs+0])&0x0380)>>7)+1;
-			dx=((READ_WORD(&spriteram[offs+0])&0x1c00)>>10)+1;
+			dy=((READ_WORD(&spriteram.read(offs+0))&0x0380)>>7)+1;
+			dx=((READ_WORD(&spriteram.read(offs+0))&0x1c00)>>10)+1;
 	
 			for (ax=0; ax<dx; ax++)
 				for (ay=0; ay<dy; ay++) {
@@ -163,10 +163,10 @@ public class dcon
 		for (color = 0;color < 64;color++) colmask[color] = 0;
 		for (offs = 8;offs <0x800;offs += 8)
 		{
-			color = READ_WORD(&spriteram[offs+0])&0x3f;
-			sprite = READ_WORD(&spriteram[offs+2]);
+			color = READ_WORD(&spriteram.read(offs+0))&0x3f;
+			sprite = READ_WORD(&spriteram.read(offs+2));
 			sprite &= 0x3fff;
-			multi=(((READ_WORD(&spriteram[offs+0])&0x0380)>>7)+1)*(((READ_WORD(&spriteram[offs+0])&0x1c00)>>10)+1);
+			multi=(((READ_WORD(&spriteram.read(offs+0))&0x0380)>>7)+1)*(((READ_WORD(&spriteram.read(offs+0))&0x1c00)>>10)+1);
 	
 			for (i=0; i<multi; i++)
 				colmask[color] |= Machine.gfx[4].pen_usage[(sprite+i)&0x3fff];

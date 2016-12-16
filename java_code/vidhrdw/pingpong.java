@@ -151,13 +151,13 @@ public class pingpong
 			int sx,sy,flipx,flipy,color,schar;
 	
 	
-			sx = spriteram[offs + 3];
-			sy = 241 - spriteram[offs + 1];
+			sx = spriteram.read(offs+3);
+			sy = 241 - spriteram.read(offs+1);
 	
-			flipx = spriteram[offs] & 0x40;
-			flipy = spriteram[offs] & 0x80;
-			color = spriteram[offs] & 0x1F;
-			schar = spriteram[offs + 2] & 0x7F;
+			flipx = spriteram.read(offs)& 0x40;
+			flipy = spriteram.read(offs)& 0x80;
+			color = spriteram.read(offs)& 0x1F;
+			schar = spriteram.read(offs+2)& 0x7F;
 	
 			drawgfx(bitmap,Machine.gfx[1],
 					schar,

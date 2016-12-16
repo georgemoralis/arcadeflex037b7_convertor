@@ -153,10 +153,10 @@ public class yiear
 			int sx,sy,flipx,flipy;
 	
 	
-			sy    =  240 - spriteram[offs + 1];
+			sy    =  240 - spriteram.read(offs+1);
 			sx    =  spriteram_2[offs];
-			flipx = ~spriteram[offs] & 0x40;
-			flipy =  spriteram[offs] & 0x80;
+			flipx = ~spriteram.read(offs)& 0x40;
+			flipy =  spriteram.read(offs)& 0x80;
 	
 			if (flip_screen != 0)
 			{
@@ -170,7 +170,7 @@ public class yiear
 			}
 	
 			drawgfx(bitmap,Machine.gfx[1],
-				spriteram_2[offs + 1] + 256 * (spriteram[offs] & 1),
+				spriteram_2[offs + 1] + 256 * (spriteram.read(offs)& 1),
 				0,
 				flipx,flipy,
 				sx,sy,

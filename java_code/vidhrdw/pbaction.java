@@ -206,16 +206,16 @@ public class pbaction
 			/* if next sprite is double size, skip this one */
 			if (offs > 0 && spriteram[offs - 4] & 0x80) continue;
 	
-			sx = spriteram[offs+3];
-			if (spriteram[offs] & 0x80)
-				sy = 225-spriteram[offs+2];
+			sx = spriteram.read(offs+3);
+			if (spriteram.read(offs)& 0x80)
+				sy = 225-spriteram.read(offs+2);
 			else
-				sy = 241-spriteram[offs+2];
-			flipx = spriteram[offs+1] & 0x40;
-			flipy =	spriteram[offs+1] & 0x80;
+				sy = 241-spriteram.read(offs+2);
+			flipx = spriteram.read(offs+1)& 0x40;
+			flipy =	spriteram.read(offs+1)& 0x80;
 			if (flipscreen != 0)
 			{
-				if (spriteram[offs] & 0x80)
+				if (spriteram.read(offs)& 0x80)
 				{
 					sx = 224 - sx;
 					sy = 225 - sy;
@@ -229,9 +229,9 @@ public class pbaction
 				flipy = !flipy;
 			}
 	
-			drawgfx(bitmap,Machine.gfx[(spriteram[offs] & 0x80) ? 3 : 2],	/* normal or double size */
-					spriteram[offs],
-					spriteram[offs + 1] & 0x0f,
+			drawgfx(bitmap,Machine.gfx[(spriteram.read(offs)& 0x80) ? 3 : 2],	/* normal or double size */
+					spriteram.read(offs),
+					spriteram.read(offs+1)& 0x0f,
 					flipx,flipy,
 					sx+scroll,sy,
 					&Machine.visible_area,TRANSPARENCY_PEN,0);

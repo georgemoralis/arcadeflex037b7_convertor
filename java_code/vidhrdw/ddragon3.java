@@ -199,13 +199,13 @@ public class ddragon3
 		for (color = 0;color < 16;color++) colmask[color] = 0;
 		for (offs = 0;offs < 0x1000;offs += 16)
 		{
-			attr = READ_WORD (&spriteram[offs+2]);
+			attr = READ_WORD (&spriteram.read(offs+2));
 			if (!(attr&1)) continue;
 	
 			multi = (attr>>5)&0x7;
-			sprite = READ_WORD (&spriteram[offs+4]) & 0xff;
-			sprite += ((READ_WORD (&spriteram[offs+6]) & 0xff)<<8);
-			color = READ_WORD (&spriteram[offs+8]) & 0xf;
+			sprite = READ_WORD (&spriteram.read(offs+4)) & 0xff;
+			sprite += ((READ_WORD (&spriteram.read(offs+6)) & 0xff)<<8);
+			color = READ_WORD (&spriteram.read(offs+8)) & 0xf;
 	
 			while (multi >= 0)
 			{

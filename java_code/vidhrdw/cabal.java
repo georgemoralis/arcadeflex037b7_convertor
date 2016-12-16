@@ -71,10 +71,10 @@ public class cabal
 	    int offs;
 	
 	    for( offs = spriteram_size - 8; offs >= 0; offs -= 8 ) {
-	        int data0 = READ_WORD( &spriteram[offs] );
-	        int data1 = READ_WORD( &spriteram[offs+2] );
-	        int data2 = READ_WORD( &spriteram[offs+4] );
-	//      int data3 = READ_WORD( &spriteram[offs+6] );
+	        int data0 = READ_WORD( &spriteram.read(offs));
+	        int data1 = READ_WORD( &spriteram.read(offs+2));
+	        int data2 = READ_WORD( &spriteram.read(offs+4));
+	//      int data3 = READ_WORD( &spriteram.read(offs+6));
 	
 	        /*
 	            -------E YYYYYYYY

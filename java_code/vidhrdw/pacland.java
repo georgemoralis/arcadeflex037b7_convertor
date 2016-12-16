@@ -216,9 +216,9 @@ public class pacland
 	
 		for (offs = 0;offs < spriteram_size;offs += 2)
 		{
-			int sprite = spriteram[offs];
+			int sprite = spriteram.read(offs);
 			int gfx = ( spriteram_3[offs] >> 7 ) & 1;
-			int color = ( spriteram[offs+1] & 0x3f ) + 64 * priority;
+			int color = ( spriteram.read(offs+1)& 0x3f ) + 64 * priority;
 			int x = (spriteram_2[offs+1]) + 0x100*(spriteram_3[offs+1] & 1) - 48;
 			int y = 256 - spriteram_2[offs] - 23;
 			int flipy = spriteram_3[offs] & 2;

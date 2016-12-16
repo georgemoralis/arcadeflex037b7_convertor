@@ -208,7 +208,7 @@ public class dynduke
 		for (color = 0;color < 32;color++) colmask[color] = 0;
 		for (offs = 0;offs <0x1000;offs += 8)
 		{
-			color = spriteram[offs+1]&0x1f;
+			color = spriteram.read(offs+1)&0x1f;
 			sprite = buffered_spriteram[offs+2]+(buffered_spriteram[offs+3]<<8);
 			sprite &= 0x3fff;
 			colmask[color] |= Machine.gfx[3].pen_usage[sprite];

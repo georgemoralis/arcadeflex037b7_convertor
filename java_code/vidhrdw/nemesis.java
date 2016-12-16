@@ -824,21 +824,21 @@ public class nemesis
 		{
 			for (adress = 0;adress < spriteram_size;adress += 16)
 			{
-				if(READ_WORD(&spriteram[adress])!=priority) continue;
+				if(READ_WORD(&spriteram.read(adress))!=priority) continue;
 	
-				code = READ_WORD(&spriteram[adress+6]) + ((READ_WORD(&spriteram[adress+8]) & 0xc0) << 2);
-				zoom=READ_WORD(&spriteram[adress+4])&0xff;
+				code = READ_WORD(&spriteram.read(adress+6)) + ((READ_WORD(&spriteram.read(adress+8)) & 0xc0) << 2);
+				zoom=READ_WORD(&spriteram.read(adress+4))&0xff;
 				if (zoom != 0xFF || code!=0)
 				{
-					size=READ_WORD(&spriteram[adress+2]);
+					size=READ_WORD(&spriteram.read(adress+2));
 					zoom+=(size&0xc0)<<2;
 	
-					sx = READ_WORD(&spriteram[adress+10])&0xff;
-					sy = READ_WORD(&spriteram[adress+12])&0xff;
-					if(READ_WORD(&spriteram[adress+8])&1) sx-=0x100;	/* fixes left side clip */
-					color = (READ_WORD(&spriteram[adress+8]) & 0x1e) >> 1;
-					flipx = READ_WORD(&spriteram[adress+2]) & 0x01;
-					flipy = READ_WORD(&spriteram[adress+8]) & 0x20;
+					sx = READ_WORD(&spriteram.read(adress+10))&0xff;
+					sy = READ_WORD(&spriteram.read(adress+12))&0xff;
+					if(READ_WORD(&spriteram.read(adress+8))&1) sx-=0x100;	/* fixes left side clip */
+					color = (READ_WORD(&spriteram.read(adress+8)) & 0x1e) >> 1;
+					flipx = READ_WORD(&spriteram.read(adress+2)) & 0x01;
+					flipy = READ_WORD(&spriteram.read(adress+8)) & 0x20;
 	
 					switch(size&0x38)
 					{
@@ -950,11 +950,11 @@ public class nemesis
 		for (offs = 0;offs < spriteram_size;offs += 16)
 		{
 			int char_type;
-			int zoom=READ_WORD(&spriteram[offs+4]);
-			code = READ_WORD(&spriteram[offs+6]) + ((READ_WORD(&spriteram[offs+8]) & 0xc0) << 2);
+			int zoom=READ_WORD(&spriteram.read(offs+4));
+			code = READ_WORD(&spriteram.read(offs+6)) + ((READ_WORD(&spriteram.read(offs+8)) & 0xc0) << 2);
 			if (zoom != 0xFF || code!=0)
 			{
-				int size=READ_WORD(&spriteram[offs+2]);
+				int size=READ_WORD(&spriteram.read(offs+2));
 				switch(size&0x38)
 				{
 					case 0x00:
@@ -1049,7 +1049,7 @@ public class nemesis
 						break;
 				}
 	
-				color = (READ_WORD(&spriteram[offs+8]) & 0x1e) >> 1;
+				color = (READ_WORD(&spriteram.read(offs+8)) & 0x1e) >> 1;
 				colmask[color] |= Machine.gfx[char_type].pen_usage[code];
 			}
 		}

@@ -100,17 +100,17 @@ public class galspnbl
 			int sx,sy,code,color,size,attr,flipx,flipy;
 			int col,row;
 	
-			attr = READ_WORD(&spriteram[offs]);
+			attr = READ_WORD(&spriteram.read(offs));
 			if ((attr & 0x0004) && ((attr & 0x0040) == 0 || (cpu_getcurrentframe() & 1))
 	//				&& ((attr & 0x0030) >> 4) == priority)
 					&& ((attr & 0x0020) >> 5) == priority)
 			{
-				code = READ_WORD(&spriteram[offs+2]);
-				color = READ_WORD(&spriteram[offs+4]);
+				code = READ_WORD(&spriteram.read(offs+2));
+				color = READ_WORD(&spriteram.read(offs+4));
 				size = 1 << (color & 0x0003); // 1,2,4,8
 				color = (color & 0x00f0) >> 4;
-				sx = READ_WORD(&spriteram[offs+8]) + screenscroll;
-				sy = READ_WORD(&spriteram[offs+6]);
+				sx = READ_WORD(&spriteram.read(offs+8)) + screenscroll;
+				sy = READ_WORD(&spriteram.read(offs+6));
 				flipx = attr & 0x0001;
 				flipy = attr & 0x0002;
 	

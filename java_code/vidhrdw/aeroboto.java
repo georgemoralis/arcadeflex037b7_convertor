@@ -86,12 +86,12 @@ public class aeroboto
 			int sx,sy;
 	
 	
-			sx = spriteram[offs + 3];
-			sy = 239 - spriteram[offs];
+			sx = spriteram.read(offs+3);
+			sy = 239 - spriteram.read(offs);
 	
 			drawgfx(bitmap,Machine.gfx[2],
-					spriteram[offs + 1],
-					spriteram[offs + 2] & 0x0f,
+					spriteram.read(offs+1),
+					spriteram.read(offs+2)& 0x0f,
 					0,0,
 					sx,sy,
 					&Machine.visible_area,TRANSPARENCY_PEN,0);

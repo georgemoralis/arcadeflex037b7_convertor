@@ -197,7 +197,7 @@ public class trackfld
 			int sx,sy,flipx,flipy;
 	
 	
-			sx = spriteram[offs] - 1;
+			sx = spriteram.read(offs)- 1;
 			sy = 240 - spriteram_2[offs + 1];
 			flipx = ~spriteram_2[offs] & 0x40;
 			flipy = spriteram_2[offs] & 0x80;
@@ -212,7 +212,7 @@ public class trackfld
 			sy += 1;
 	
 			drawgfx(bitmap,Machine.gfx[1],
-					spriteram[offs + 1],
+					spriteram.read(offs+1),
 					spriteram_2[offs] & 0x0f,
 					flipx,flipy,
 					sx,sy,
@@ -220,7 +220,7 @@ public class trackfld
 	
 			/* redraw with wraparound */
 			drawgfx(bitmap,Machine.gfx[1],
-					spriteram[offs + 1],
+					spriteram.read(offs+1),
 					spriteram_2[offs] & 0x0f,
 					flipx,flipy,
 					sx-256,sy,

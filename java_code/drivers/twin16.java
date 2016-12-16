@@ -110,8 +110,8 @@ public class twin16
 	public static ReadHandlerPtr VIDRAM_r  = new ReadHandlerPtr() { public int handler(int offset){ return READ_WORD(&videoram[offset]); } };
 	public static WriteHandlerPtr VIDRAM_w = new WriteHandlerPtr() {public void handler(int offset, int data){ COMBINE_WORD_MEM(&videoram[offset],data); } };
 	
-	public static ReadHandlerPtr OBJRAM_r  = new ReadHandlerPtr() { public int handler(int offset){ return READ_WORD(&spriteram[offset]); } };
-	public static WriteHandlerPtr OBJRAM_w = new WriteHandlerPtr() {public void handler(int offset, int data){ COMBINE_WORD_MEM(&spriteram[offset],data); } };
+	public static ReadHandlerPtr OBJRAM_r  = new ReadHandlerPtr() { public int handler(int offset){ return READ_WORD(&spriteram.read(offset)); } };
+	public static WriteHandlerPtr OBJRAM_w = new WriteHandlerPtr() {public void handler(int offset, int data){ COMBINE_WORD_MEM(&spriteram.read(offset),data); } };
 	
 	
 	public static ReadHandlerPtr battery_backed_ram_r  = new ReadHandlerPtr() { public int handler(int offset)

@@ -522,12 +522,12 @@ public class taito_f2
 	
 	public static ReadHandlerPtr taitof2_spriteram_r  = new ReadHandlerPtr() { public int handler(int offset)
 	{
-		return READ_WORD(&spriteram[offset]);
+		return READ_WORD(&spriteram.read(offset));
 	} };
 	
 	public static WriteHandlerPtr taitof2_spriteram_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		COMBINE_WORD_MEM(&spriteram[offset],data);
+		COMBINE_WORD_MEM(&spriteram.read(offset),data);
 	} };
 	
 	public static WriteHandlerPtr taitof2_sprite_extension_w = new WriteHandlerPtr() {public void handler(int offset, int data)

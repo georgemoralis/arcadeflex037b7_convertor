@@ -191,8 +191,8 @@ public class cop01
 		/* draw the sprites */
 		for (offs = 0;offs < spriteram_size;offs += 4)
 		{
-			int attr = spriteram[offs+2];
-			int numtile = spriteram[offs+1];
+			int attr = spriteram.read(offs+2);
+			int numtile = spriteram.read(offs+1);
 			int flipx = attr & 4;
 			int sx,sy;
 	
@@ -202,8 +202,8 @@ public class cop01
 				else if ((spritebank & 2) != 0) numtile += 256;
 			}
 	
-			sy = 240 - spriteram[offs];
-			sx = (spriteram[offs+3] - 0x80) + 256 * (attr & 1);
+			sy = 240 - spriteram.read(offs);
+			sx = (spriteram.read(offs+3)- 0x80) + 256 * (attr & 1);
 			if (flipscreen != 0)
 			{
 				sx = 240 - sx;

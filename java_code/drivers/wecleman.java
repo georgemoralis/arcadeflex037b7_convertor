@@ -432,8 +432,8 @@ public class wecleman
 	
 	
 	/* Data is read from and written to *spriteram* */
-	public static ReadHandlerPtr spriteram_word_r  = new ReadHandlerPtr() { public int handler(int offset)			{ return READ_WORD(&spriteram[offset]); } };
-	public static WriteHandlerPtr spriteram_word_w = new WriteHandlerPtr() {public void handler(int offset, int data)	{ COMBINE_WORD_MEM(&spriteram[offset], data); } };
+	public static ReadHandlerPtr spriteram_word_r  = new ReadHandlerPtr() { public int handler(int offset)			{ return READ_WORD(&spriteram.read(offset)); } };
+	public static WriteHandlerPtr spriteram_word_w = new WriteHandlerPtr() {public void handler(int offset, int data)	{ COMBINE_WORD_MEM(&spriteram.read(offset), data); } };
 	
 	
 	

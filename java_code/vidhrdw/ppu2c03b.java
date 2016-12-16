@@ -766,7 +766,7 @@ public class ppu2c03b
 	#if 0	/* hmm... this only goes if we implement the osd_skip_this_frame functionality */
 	
 			/* check for sprite 0 hit */
-			if ( ( scanline == spriteram[0] + 7 ) && ( ppu_regs[PPU_CONTROL1] & PPU_CONTROL1_SPRITES ) )
+			if ( ( scanline == spriteram.read(0)+ 7 ) && ( ppu_regs[PPU_CONTROL1] & PPU_CONTROL1_SPRITES ) )
 				ppu_regs[PPU_STATUS] |= PPU_STATUS_SPRITE0_HIT;
 	
 	#endif

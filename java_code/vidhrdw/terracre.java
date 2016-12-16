@@ -213,16 +213,16 @@ public class terracre
 		for (x = 0;x <spriteram_size;x += 8)
 		{
 			int code;
-			int attr = READ_WORD(&spriteram[x+4]) & 0xff;
+			int attr = READ_WORD(&spriteram.read(x+4)) & 0xff;
 			int color = (attr & 0xf0) >> 4;
 			int flipx = attr & 0x04;
 			int flipy = attr & 0x08;
 			int sx,sy;
 	
-			sx = (READ_WORD(&spriteram[x+6]) & 0xff) - 0x80 + 256 * (attr & 1);
-			sy = 240 - (READ_WORD(&spriteram[x]) & 0xff);
+			sx = (READ_WORD(&spriteram.read(x+6)) & 0xff) - 0x80 + 256 * (attr & 1);
+			sy = 240 - (READ_WORD(&spriteram.read(x)) & 0xff);
 	
-			code = (READ_WORD(&spriteram[x+2]) & 0xff) + ((attr & 0x02) << 7);
+			code = (READ_WORD(&spriteram.read(x+2)) & 0xff) + ((attr & 0x02) << 7);
 	
 			drawgfx(bitmap,Machine.gfx[2],
 					code,

@@ -229,8 +229,8 @@ public class snk68
 		for (color = 0;color < 128;color++) colmask[color] = 0;
 		for (offs = 0x1000;offs <0x4000;offs += 4 )
 		{
-			code = READ_WORD(&spriteram[offs+2])&0x3fff;
-			color= READ_WORD(&spriteram[offs])&0x7f;
+			code = READ_WORD(&spriteram.read(offs+2))&0x3fff;
+			color= READ_WORD(&spriteram.read(offs))&0x7f;
 			colmask[color] |= Machine.gfx[1].pen_usage[code];
 		}
 		for (color = 1;color < 128;color++)
@@ -268,7 +268,7 @@ public class snk68
 	
 		for (offs = pos; offs < pos+0x800 ; offs += 0x80 )
 		{
-			mx=READ_WORD(&spriteram[offs+j]);
+			mx=READ_WORD(&spriteram.read(offs+j));
 			my=READ_WORD(&spriteram[offs+j+2]);
 	
 			mx=mx<<4;
@@ -343,8 +343,8 @@ public class snk68
 		for (color = 0;color < 128;color++) colmask[color] = 0;
 		for (offs = 0x1000;offs <0x4000;offs += 4 )
 		{
-			code = READ_WORD(&spriteram[offs+2])&0x7fff;
-			color= READ_WORD(&spriteram[offs])&0x7f;
+			code = READ_WORD(&spriteram.read(offs+2))&0x7fff;
+			color= READ_WORD(&spriteram.read(offs))&0x7f;
 			if (code>0x5fff) code=0;
 			if (color != 0)
 				colmask[color] |= Machine.gfx[1].pen_usage[code];

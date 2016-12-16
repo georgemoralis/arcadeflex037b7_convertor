@@ -141,14 +141,14 @@ public class espial
 			int sx,sy,code,color,flipx,flipy;
 	
 	
-			sx = spriteram[offs + 16];
+			sx = spriteram.read(offs+16);
 			sy = 240 - spriteram_2[offs];
-			code = spriteram[offs] >> 1;
+			code = spriteram.read(offs)>> 1;
 			color = spriteram_2[offs + 16];
 			flipx = spriteram_3[offs] & 0x04;
 			flipy = spriteram_3[offs] & 0x08;
 	
-			if (spriteram[offs] & 1)	/* double height */
+			if (spriteram.read(offs)& 1)	/* double height */
 			{
 				drawgfx(bitmap,Machine.gfx[1],
 						code,

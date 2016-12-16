@@ -263,17 +263,17 @@ public class pengo
 			sy = spriteram_2[offs] - 31;
 	
 			drawgfx(bitmap,Machine.gfx[gfx_bank*2+1],
-					spriteram[offs] >> 2,
-					spriteram[offs + 1] & 0x1f,
-					spriteram[offs] & 1,spriteram[offs] & 2,
+					spriteram.read(offs)>> 2,
+					spriteram.read(offs+1)& 0x1f,
+					spriteram.read(offs)& 1,spriteram.read(offs)& 2,
 					sx,sy,
 					&spritevisiblearea,TRANSPARENCY_COLOR,0);
 	
 	        /* also plot the sprite with wraparound (tunnel in Crush Roller) */
 	        drawgfx(bitmap,Machine.gfx[gfx_bank*2+1],
-					spriteram[offs] >> 2,
-					spriteram[offs + 1] & 0x1f,
-					spriteram[offs] & 1,spriteram[offs] & 2,
+					spriteram.read(offs)>> 2,
+					spriteram.read(offs+1)& 0x1f,
+					spriteram.read(offs)& 1,spriteram.read(offs)& 2,
 					sx - 256,sy,
 					&spritevisiblearea,TRANSPARENCY_COLOR,0);
 		}
@@ -288,17 +288,17 @@ public class pengo
 			sy = spriteram_2[offs] - 31;
 	
 	        drawgfx(bitmap,Machine.gfx[gfx_bank*2+1],
-					spriteram[offs] >> 2,
-					spriteram[offs + 1] & 0x1f,
-					spriteram[offs] & 1,spriteram[offs] & 2,
+					spriteram.read(offs)>> 2,
+					spriteram.read(offs+1)& 0x1f,
+					spriteram.read(offs)& 1,spriteram.read(offs)& 2,
 					sx,sy + xoffsethack,
 					&spritevisiblearea,TRANSPARENCY_COLOR,0);
 	
 	        /* also plot the sprite with wraparound (tunnel in Crush Roller) */
 	        drawgfx(bitmap,Machine.gfx[gfx_bank*2+1],
-					spriteram[offs] >> 2,
-					spriteram[offs + 1] & 0x1f,
-					spriteram[offs] & 2,spriteram[offs] & 1,
+					spriteram.read(offs)>> 2,
+					spriteram.read(offs+1)& 0x1f,
+					spriteram.read(offs)& 2,spriteram.read(offs)& 1,
 					sx - 256,sy + xoffsethack,
 					&spritevisiblearea,TRANSPARENCY_COLOR,0);
 	    }

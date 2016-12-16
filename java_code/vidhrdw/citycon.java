@@ -138,7 +138,7 @@ public class citycon
 		{
 			int color;
 	
-			color = spriteram[offs + 2] & 0x0f;
+			color = spriteram.read(offs+2)& 0x0f;
 			memset(&palette_used_colors[16 * color + 1],PALETTE_COLOR_USED,15);
 		}
 	
@@ -262,9 +262,9 @@ public class citycon
 			int sx,sy,flipx;
 	
 	
-			sx = spriteram[offs + 3];
-			sy = 239 - spriteram[offs];
-			flipx = ~spriteram[offs + 2] & 0x10;
+			sx = spriteram.read(offs+3);
+			sy = 239 - spriteram.read(offs);
+			flipx = ~spriteram.read(offs+2)& 0x10;
 			if (flip_screen != 0)
 			{
 				sx = 240 - sx;
@@ -272,9 +272,9 @@ public class citycon
 				flipx = !flipx;
 			}
 	
-			drawgfx(bitmap,Machine.gfx[spriteram[offs + 1] & 0x80 ? 2 : 1],
-					spriteram[offs + 1] & 0x7f,
-					spriteram[offs + 2] & 0x0f,
+			drawgfx(bitmap,Machine.gfx[spriteram.read(offs+1)& 0x80 ? 2 : 1],
+					spriteram.read(offs+1)& 0x7f,
+					spriteram.read(offs+2)& 0x0f,
 					flipx,flip_screen,
 					sx,sy,
 					&Machine.visible_area,TRANSPARENCY_PEN,0);

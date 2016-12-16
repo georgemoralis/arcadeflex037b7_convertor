@@ -196,8 +196,8 @@ public class vastar
 					+ ((offs & 0x20) << 2);
 	
 			sx = spriteram_3[offs + 1];
-			sy = spriteram[offs];
-			color = spriteram[offs + 1] & 0x3f;
+			sy = spriteram.read(offs);
+			color = spriteram.read(offs+1)& 0x3f;
 			flipx = spriteram_3[offs] & 0x02;
 			flipy = spriteram_3[offs] & 0x01;
 	

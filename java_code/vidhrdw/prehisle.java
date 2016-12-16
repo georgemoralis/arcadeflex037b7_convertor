@@ -84,8 +84,8 @@ public class prehisle
 		for (color = 0;color < 16;color++) colmask[color] = 0;
 		for (offs = 0;offs <0x400;offs += 8 )
 		{
-			code = READ_WORD(&spriteram[offs+4])&0x1fff;
-			color= READ_WORD(&spriteram[offs+6])>>12;
+			code = READ_WORD(&spriteram.read(offs+4))&0x1fff;
+			color= READ_WORD(&spriteram.read(offs+6))>>12;
 			if (code>0x13ff) code=0x13ff;
 			colmask[color] |= Machine.gfx[3].pen_usage[code];
 		}
@@ -173,14 +173,14 @@ public class prehisle
 		for (offs = 0;offs <0x800 ;offs += 8) {
 			int x,y,sprite,colour,fx,fy;
 	
-		    y=READ_WORD (&spriteram[offs+0]);
+		    y=READ_WORD (&spriteram.read(offs+0));
 			if (y>254) continue; /* Speedup */
-		    x=READ_WORD (&spriteram[offs+2]);
+		    x=READ_WORD (&spriteram.read(offs+2));
 			if ((x & 0x200) != 0) x=-(0xff-(x&0xff));
 			if (x>256) continue; /* Speedup */
 	
-		    sprite=READ_WORD (&spriteram[offs+4]);
-		    colour=READ_WORD (&spriteram[offs+6])>>12;
+		    sprite=READ_WORD (&spriteram.read(offs+4));
+		    colour=READ_WORD (&spriteram.read(offs+6))>>12;
 	
 			fy=sprite&0x8000;
 			fx=sprite&0x4000;

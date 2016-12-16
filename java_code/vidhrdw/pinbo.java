@@ -105,10 +105,10 @@ public class pinbo
 			int code,color;
 	
 	
-			sx = spriteram[offs + 3];
-			sy = 240 - spriteram[offs];
-			flipx = spriteram[offs+1] & 0x40;
-			flipy = spriteram[offs+1] & 0x80;
+			sx = spriteram.read(offs+3);
+			sy = 240 - spriteram.read(offs);
+			flipx = spriteram.read(offs+1)& 0x40;
+			flipy = spriteram.read(offs+1)& 0x80;
 			if (flipscreen[0])
 			{
 				sx = 240 - sx;
@@ -119,8 +119,8 @@ public class pinbo
 				sy = 240 - sy;
 				flipy = !flipy;
 			}
-			code = (spriteram[offs+1] & 0x3f) | 0x40 | ((spriteram[offs+2] & 0x30) << 3);
-			color = (spriteram[offs+2] & 0x0f);
+			code = (spriteram.read(offs+1)& 0x3f) | 0x40 | ((spriteram.read(offs+2)& 0x30) << 3);
+			color = (spriteram.read(offs+2)& 0x0f);
 	
 			drawgfx(bitmap,Machine.gfx[1],
 					code,

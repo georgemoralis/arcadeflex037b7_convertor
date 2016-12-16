@@ -277,13 +277,13 @@ public class rpunch
 		memset(used_colors, 0, sizeof(used_colors));
 		for (offs = 0; offs < spriteram_size; offs += 8)
 		{
-			int data1 = READ_WORD(&spriteram[offs + 2]);
+			int data1 = READ_WORD(&spriteram.read(offs+2));
 			int code = data1 & 0x7ff;
 	
 			if (code < 0x600)
 			{
-				int data0 = READ_WORD(&spriteram[offs + 0]);
-				int data2 = READ_WORD(&spriteram[offs + 4]);
+				int data0 = READ_WORD(&spriteram.read(offs+0));
+				int data2 = READ_WORD(&spriteram.read(offs+4));
 				int x = (data2 & 0x1ff) + 8;
 				int y = 513 - (data0 & 0x1ff);
 				int color = ((data1 >> 13) & 7) | ((videoflags & 0x0040) >> 3);
@@ -317,13 +317,13 @@ public class rpunch
 		/* draw the sprites */
 		for (offs = 0; offs < spriteram_size; offs += 8)
 		{
-			int data1 = READ_WORD(&spriteram[offs + 2]);
+			int data1 = READ_WORD(&spriteram.read(offs+2));
 			int code = data1 & 0x7ff;
 	
 			if (code < 0x600)
 			{
-				int data0 = READ_WORD(&spriteram[offs + 0]);
-				int data2 = READ_WORD(&spriteram[offs + 4]);
+				int data0 = READ_WORD(&spriteram.read(offs+0));
+				int data2 = READ_WORD(&spriteram.read(offs+4));
 				int x = (data2 & 0x1ff) + 8;
 				int y = 513 - (data0 & 0x1ff);
 				int xflip = data1 & 0x1000;

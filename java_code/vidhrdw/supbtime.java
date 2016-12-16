@@ -44,11 +44,11 @@ public class supbtime
 		{
 			int x,y,sprite,multi;
 	
-			sprite = READ_WORD (&spriteram[offs+2]) & 0x3fff;
+			sprite = READ_WORD (&spriteram.read(offs+2)) & 0x3fff;
 			if (!sprite) continue;
 	
-			y = READ_WORD(&spriteram[offs]);
-			x = READ_WORD(&spriteram[offs+4]);
+			y = READ_WORD(&spriteram.read(offs));
+			x = READ_WORD(&spriteram.read(offs+4));
 			color = (x >>9) &0xf;
 	
 			multi = (1 << ((y & 0x0600) >> 9)) - 1;	/* 1x, 2x, 4x, 8x height */
@@ -80,14 +80,14 @@ public class supbtime
 		{
 			int x,y,sprite,colour,multi,fx,fy,inc,flash,mult;
 	
-			sprite = READ_WORD (&spriteram[offs+2]) & 0x3fff;
+			sprite = READ_WORD (&spriteram.read(offs+2)) & 0x3fff;
 			if (!sprite) continue;
 	
-			y = READ_WORD(&spriteram[offs]);
+			y = READ_WORD(&spriteram.read(offs));
 			flash=y&0x1000;
 			if (flash && (cpu_getcurrentframe() & 1)) continue;
 	
-			x = READ_WORD(&spriteram[offs+4]);
+			x = READ_WORD(&spriteram.read(offs+4));
 			colour = (x >>9) & 0x1f;
 	
 			fx = y & 0x2000;

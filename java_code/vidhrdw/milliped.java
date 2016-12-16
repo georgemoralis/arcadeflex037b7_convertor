@@ -128,10 +128,10 @@ public class milliped
 			int sx, sy;
 	
 	
-			x = spriteram[offs + 0x20];
-			y = 240 - spriteram[offs + 0x10];
+			x = spriteram.read(offs+0x20);
+			y = 240 - spriteram.read(offs+0x10);
 	
-			spritenum = spriteram[offs] & 0x3f;
+			spritenum = spriteram.read(offs)& 0x3f;
 			if ((spritenum & 1) != 0) spritenum = spritenum / 2 + 64;
 			else spritenum = spritenum / 2;
 	
@@ -142,7 +142,7 @@ public class milliped
 			/* bit 3-2 = color to use for pen 10 */
 			/* bit 1-0 = color to use for pen 01 */
 			/* pen 00 is transparent */
-			color = spriteram[offs + 0x30];
+			color = spriteram.read(offs+0x30);
 			Machine.gfx[1].colortable[3] =
 					Machine.pens[16+((color >> 4) & 3)+4*((color >> 6) & 3)];
 			Machine.gfx[1].colortable[2] =
@@ -153,7 +153,7 @@ public class milliped
 			drawgfx(bitmap,Machine.gfx[1],
 					spritenum,
 					0,
-					0,spriteram[offs] & 0x80,
+					0,spriteram.read(offs)& 0x80,
 					x,y,
 					&spritevisiblearea,TRANSPARENCY_PEN,0);
 	

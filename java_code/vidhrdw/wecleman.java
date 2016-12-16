@@ -695,13 +695,13 @@ public class wecleman
 		{
 			int dest_y, dest_h, color;
 	
-			dest_y = READ_WORD(&spriteram[offs + 0x00]);
+			dest_y = READ_WORD(&spriteram.read(offs+0x00));
 			if (dest_y == 0xFFFF)	break;
 	
 			dest_h = (dest_y >> 8) - (dest_y & 0x00FF);
 			if (dest_h < 1) continue;
 	
-			color = (READ_WORD(&spriteram[offs + 0x04]) >> 8) & 0x7f;
+			color = (READ_WORD(&spriteram.read(offs+0x04)) >> 8) & 0x7f;
 			memset(&palette_used_colors[color*16 + 1], PALETTE_COLOR_USED, 16 - 2 );
 	
 			// pens 0 & 15 are transparent

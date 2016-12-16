@@ -168,16 +168,16 @@ public class sauro
 		/* Weird, sprites entries don't start on DWORD boundary */
 		for (offs = 3;offs < spriteram_size - 1;offs += 4)
 		{
-			sy = spriteram[offs];
+			sy = spriteram.read(offs);
 			if (sy == 0xf8) continue;
 	
-			code = spriteram[offs+1] + ((spriteram[offs+3] & 0x03) << 8);
-			sx = spriteram[offs+2];
+			code = spriteram.read(offs+1)+ ((spriteram.read(offs+3)& 0x03) << 8);
+			sx = spriteram.read(offs+2);
 			sy = 236 - sy;
-			color = (spriteram[offs+3] >> 4) & 0x0f;
+			color = (spriteram.read(offs+3)>> 4) & 0x0f;
 	
 			/* I'm not really sure how this bit works */
-			if (spriteram[offs+3] & 0x08)
+			if (spriteram.read(offs+3)& 0x08)
 			{
 				if (sx > 0xc0)
 				{
@@ -190,7 +190,7 @@ public class sauro
 				if (sx < 0x40) continue;
 			}
 	
-			flipx = spriteram[offs+3] & 0x04;
+			flipx = spriteram.read(offs+3)& 0x04;
 	
 			if (flip_screen != 0)
 			{

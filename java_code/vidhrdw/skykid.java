@@ -168,8 +168,8 @@ public class skykid
 		int offs;
 	
 		for (offs = 0; offs < spriteram_size; offs += 2){
-			int number = spriteram[offs] | ((spriteram_3[offs] & 0x80) << 1);
-			int color = (spriteram[offs+1] & 0x3f);
+			int number = spriteram.read(offs)| ((spriteram_3[offs] & 0x80) << 1);
+			int color = (spriteram.read(offs+1)& 0x3f);
 			int sx = (spriteram_2[offs+1]) + 0x100*(spriteram_3[offs+1] & 1) - 72;
 			int sy = 256 - spriteram_2[offs] - 57;
 			int flipy = spriteram_3[offs] & 0x02;

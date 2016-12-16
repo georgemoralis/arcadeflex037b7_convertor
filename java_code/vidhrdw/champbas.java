@@ -140,9 +140,9 @@ public class champbas
 		for (offs = spriteram_size - 2;offs >= 0;offs -= 2)
 		{
 			drawgfx(bitmap,Machine.gfx[2 + gfxbank],
-					spriteram[offs] >> 2,
-					spriteram[offs + 1],
-					spriteram[offs] & 1,spriteram[offs] & 2,
+					spriteram.read(offs)>> 2,
+					spriteram.read(offs+1),
+					spriteram.read(offs)& 1,spriteram.read(offs)& 2,
 					((256+16 - spriteram_2[offs + 1]) & 0xff) - 16,spriteram_2[offs] - 16,
 					&Machine.visible_area,TRANSPARENCY_COLOR,0);
 		}

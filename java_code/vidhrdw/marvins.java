@@ -94,7 +94,7 @@ public class marvins
 	} };
 	public static ReadHandlerPtr marvins_spriteram_r  = new ReadHandlerPtr() { public int handler(int offset)
 	{
-		return spriteram[offset];
+		return spriteram.read(offset);
 	} };
 	
 	public static ReadHandlerPtr marvins_foreground_ram_r  = new ReadHandlerPtr() { public int handler(int offset)

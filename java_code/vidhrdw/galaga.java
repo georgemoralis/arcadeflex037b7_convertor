@@ -255,8 +255,8 @@ public class galaga
 				int code,color,flipx,flipy,sx,sy,sfa,sfb;
 	
 	
-				code = spriteram[offs];
-				color = spriteram[offs + 1];
+				code = spriteram.read(offs);
+				color = spriteram.read(offs+1);
 				flipx = spriteram_3[offs] & 1;
 				flipy = spriteram_3[offs] & 2;
 				sx = spriteram_2[offs + 1] - 40 + 0x100*(spriteram_3[offs + 1] & 1);

@@ -140,26 +140,39 @@ public class convertMame {
                 }
                 case 's': {
                     i = Convertor.inpos;
-                    /*if(sUtil.getToken("spriteram")) //WIP
+                    if(sUtil.getToken("spriteram")) //WIP
                     {
                         if (sUtil.parseChar() != '[') {
                             Convertor.inpos = i;
                             break;
                         }
                         Convertor.token[0] = sUtil.parseToken();
+                        sUtil.skipSpace();
+                        int k = Convertor.inpos;
+                        if(sUtil.parseChar()== '+')
+                        {
+                            sUtil.skipSpace();
+                            Convertor.token[0] += '+' + sUtil.parseToken();
+                        }
+                        else {
+                            Convertor.inpos = k;
+                        }
                         if (sUtil.parseChar() != ']') {
                             Convertor.inpos = i;
                             break;
                         }
-                        sUtil.skipSpace();
-                        if (sUtil.parseChar() == '=') {
-                            Convertor.inpos = i;
-                            break;
+                        else {
+                            sUtil.skipSpace();
+
+                            if (sUtil.parseChar() == '=') {
+                                Convertor.inpos = i;
+                                break;
+                            }
+                            sUtil.putString((new StringBuilder()).append("spriteram.read(").append(Convertor.token[0]).append(")").toString());
+                            Convertor.inpos -= 1;
+                            continue;
                         }
-                        sUtil.putString((new StringBuilder()).append("spriteram.read(").append(Convertor.token[0]).toString());
-                        Convertor.inpos -= 2;
-                        continue;
-                    }*/
+                    }
                     if (type == WRITEHANDLER) {
                         if (sUtil.getToken("soundlatch_w")) {
                             sUtil.putString((new StringBuilder()).append("soundlatch_w.handler").toString());

@@ -200,10 +200,10 @@ public class madmotor
 		{
 			int x,y,sprite,multi;
 	
-			y = READ_WORD(&spriteram[offs]);
+			y = READ_WORD(&spriteram.read(offs));
 			if ((y&0x8000) == 0) continue;
 	
-			x = READ_WORD(&spriteram[offs+4]);
+			x = READ_WORD(&spriteram.read(offs+4));
 			color = (x & 0xf000) >> 12;
 	
 			multi = (1 << ((y & 0x1800) >> 11)) - 1;	/* 1x, 2x, 4x, 8x height */
@@ -214,7 +214,7 @@ public class madmotor
 			x = 240 - x;
 			if (x>256) continue; /* Speedup + save colours */
 	
-			sprite = READ_WORD (&spriteram[offs+2]) & 0x1fff;
+			sprite = READ_WORD (&spriteram.read(offs+2)) & 0x1fff;
 			sprite &= ~multi;
 	
 			while (multi >= 0)
@@ -244,10 +244,10 @@ public class madmotor
 		{
 			int x,y,sprite,colour,multi,fx,fy,inc,flash,mult;
 	
-			y = READ_WORD(&spriteram[offs]);
+			y = READ_WORD(&spriteram.read(offs));
 			if ((y&0x8000) == 0) continue;
 	
-			x = READ_WORD(&spriteram[offs+4]);
+			x = READ_WORD(&spriteram.read(offs+4));
 			colour = x >> 12;
 			if ((colour & pri_mask) != pri_val) continue;
 	
@@ -259,7 +259,7 @@ public class madmotor
 			multi = (1 << ((y & 0x1800) >> 11)) - 1;	/* 1x, 2x, 4x, 8x height */
 												/* multi = 0   1   3   7 */
 	
-			sprite = READ_WORD (&spriteram[offs+2]) & 0x1fff;
+			sprite = READ_WORD (&spriteram.read(offs+2)) & 0x1fff;
 	
 			x = x & 0x01ff;
 			y = y & 0x01ff;

@@ -185,14 +185,14 @@ public class tecmo
 	
 		for (offs = spriteram_size-8;offs >= 0;offs -= 8)
 		{
-			int flags = spriteram[offs+3];
+			int flags = spriteram.read(offs+3);
 			int priority = flags>>6;
-			int bank = spriteram[offs+0];
+			int bank = spriteram.read(offs+0);
 			if ((bank & 4) != 0)
 			{ /* visible */
-				int which = spriteram[offs+1];
+				int which = spriteram.read(offs+1);
 				int code,xpos,ypos,flipx,flipy,priority_mask,x,y;
-				int size = spriteram[offs + 2] & 3;
+				int size = spriteram.read(offs+2)& 3;
 	
 				if (tecmo_video_type != 0)	/* gemini, silkworm */
 				  code = which + ((bank & 0xf8) << 5);
@@ -202,8 +202,8 @@ public class tecmo
 				code &= ~((1 << (size*2)) - 1);
 				size = 1 << size;
 	
-				xpos = spriteram[offs + 5] - ((flags & 0x10) << 4);
-				ypos = spriteram[offs + 4] - ((flags & 0x20) << 3);
+				xpos = spriteram.read(offs+5)- ((flags & 0x10) << 4);
+				ypos = spriteram.read(offs+4)- ((flags & 0x20) << 3);
 				flipx = bank & 1;
 				flipy = bank & 2;
 	
@@ -257,7 +257,7 @@ public class tecmo
 		{
 			int color;
 	
-			color = spriteram[i+3] & 0x0f;
+			color = spriteram.read(i+3)& 0x0f;
 			palette_map[color] |= 0xffff;
 		}
 	

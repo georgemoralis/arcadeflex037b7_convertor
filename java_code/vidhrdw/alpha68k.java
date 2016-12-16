@@ -154,9 +154,9 @@ public class alpha68k
 		for (color = 0;color < 128;color++) colmask[color] = 0;
 		for (offs = 0x1000;offs <0x4000;offs += 4 )
 		{
-			color= READ_WORD(&spriteram[offs])&0x7f;
+			color= READ_WORD(&spriteram.read(offs))&0x7f;
 			if (!color) continue;
-			code = READ_WORD(&spriteram[offs+2])&0x3fff;
+			code = READ_WORD(&spriteram.read(offs+2))&0x3fff;
 			colmask[color] |= Machine.gfx[1].pen_usage[code];
 		}
 	
@@ -324,9 +324,9 @@ public class alpha68k
 		for (color = 0;color < 256;color++) colmask[color] = 0;
 		for (offs = 0x1000;offs <0x4000;offs += 4 )
 		{
-			color= READ_WORD(&spriteram[offs])&0xff;
+			color= READ_WORD(&spriteram.read(offs))&0xff;
 			if (!color) continue;
-			code = READ_WORD(&spriteram[offs+2])&0x7fff;
+			code = READ_WORD(&spriteram.read(offs+2))&0x7fff;
 			colmask[color] |= Machine.gfx[1].pen_usage[code];
 		}
 	
@@ -397,9 +397,9 @@ public class alpha68k
 		for (color = 0;color < 256;color++) colmask[color] = 0;
 		for (offs = 0x1000;offs <0x4000;offs += 4 )
 		{
-			color= READ_WORD(&spriteram[offs])&0xff;
+			color= READ_WORD(&spriteram.read(offs))&0xff;
 			if (!color) continue;
-			code = READ_WORD(&spriteram[offs+2])&0x7fff;
+			code = READ_WORD(&spriteram.read(offs+2))&0x7fff;
 			colmask[color] |= Machine.gfx[1].pen_usage[code];
 		}
 	
@@ -462,7 +462,7 @@ public class alpha68k
 	
 		for (offs = 0x0000; offs < 0x800; offs += 0x40 )
 		{
-			mx=READ_WORD(&spriteram[offs+c]);
+			mx=READ_WORD(&spriteram.read(offs+c));
 	
 			my=mx>>8;
 			mx=mx&0xff;
@@ -548,7 +548,7 @@ public class alpha68k
 	
 		for (offs = 0x0000; offs < 0x800; offs += 0x40 )
 		{
-			mx=READ_WORD(&spriteram[offs+c]);
+			mx=READ_WORD(&spriteram.read(offs+c));
 			my=0x100-(mx>>8);
 			mx=mx&0xff;
 	
@@ -588,7 +588,7 @@ public class alpha68k
 	
 		for (offs = 0x0000; offs < 0x800; offs += 0x40 )
 		{
-			mx=READ_WORD(&spriteram[offs+c]);
+			mx=READ_WORD(&spriteram.read(offs+c));
 			my=0x100-(mx>>8);
 			mx=mx&0xff;
 	

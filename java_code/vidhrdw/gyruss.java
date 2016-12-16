@@ -441,11 +441,11 @@ public class gyruss
 		{
 			for (offs = spriteram_size - 4;offs >= 0;offs -= 4)
 			{
-				drawgfx(bitmap,Machine.gfx[1 + (spriteram[offs + 1] & 1)],
-						spriteram[offs + 1]/2 + 4*(spriteram[offs + 2] & 0x20),
-						spriteram[offs + 2] & 0x0f,
-						!(spriteram[offs + 2] & 0x40),spriteram[offs + 2] & 0x80,
-						spriteram[offs],240-spriteram[offs + 3]+1,
+				drawgfx(bitmap,Machine.gfx[1 + (spriteram.read(offs+1)& 1)],
+						spriteram.read(offs+1)/2 + 4*(spriteram.read(offs+2)& 0x20),
+						spriteram.read(offs+2)& 0x0f,
+						!(spriteram.read(offs+2)& 0x40),spriteram.read(offs+2)& 0x80,
+						spriteram.read(offs),240-spriteram.read(offs+3)+1,
 						&Machine.visible_area,TRANSPARENCY_PEN,0);
 			}
 		}

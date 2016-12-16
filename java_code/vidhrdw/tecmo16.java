@@ -119,7 +119,7 @@ public class tecmo16
 	
 	public static ReadHandlerPtr tecmo16_spriteram_r  = new ReadHandlerPtr() { public int handler(int offset)
 	{
-	   return READ_WORD(&spriteram[offset]);
+	   return READ_WORD(&spriteram.read(offset));
 	} };
 	
 	public static WriteHandlerPtr tecmo16_videoram_w = new WriteHandlerPtr() {public void handler(int offset, int data)
@@ -185,7 +185,7 @@ public class tecmo16
 	
 	public static WriteHandlerPtr tecmo16_spriteram_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		COMBINE_WORD_MEM(&spriteram[offset],data);
+		COMBINE_WORD_MEM(&spriteram.read(offset),data);
 	} };
 	
 	/******************************************************************************/
@@ -239,28 +239,28 @@ public class tecmo16
 	
 		for (offs = spriteram_size - 0x10;offs >= 0;offs -= 0x10)
 		{
-			if (READ_WORD(&spriteram[offs]) & 0x04)	/* enable */
+			if (READ_WORD(&spriteram.read(offs)) & 0x04)	/* enable */
 			{
 				int code,color,sizex,sizey,flipx,flipy,xpos,ypos;
 				int x,y,priority,priority_mask;
 	
-				code = READ_WORD(&spriteram[offs+0x02]);
-				color = (READ_WORD(&spriteram[offs+0x04]) & 0xf0) >> 4;
-				sizex = 1 << ((READ_WORD(&spriteram[offs+0x04]) & 0x03) >> 0);
-				sizey = 1 << ((READ_WORD(&spriteram[offs+0x04]) & 0x0c) >> 2);
+				code = READ_WORD(&spriteram.read(offs+0x02));
+				color = (READ_WORD(&spriteram.read(offs+0x04)) & 0xf0) >> 4;
+				sizex = 1 << ((READ_WORD(&spriteram.read(offs+0x04)) & 0x03) >> 0);
+				sizey = 1 << ((READ_WORD(&spriteram.read(offs+0x04)) & 0x0c) >> 2);
 				if (sizex >= 2) code &= ~0x01;
 				if (sizey >= 2) code &= ~0x02;
 				if (sizex >= 4) code &= ~0x04;
 				if (sizey >= 4) code &= ~0x08;
 				if (sizex >= 8) code &= ~0x10;
 				if (sizey >= 8) code &= ~0x20;
-				flipx = READ_WORD(&spriteram[offs]) & 0x01;
-				flipy = READ_WORD(&spriteram[offs]) & 0x02;
-				xpos = READ_WORD(&spriteram[offs+0x08]);
+				flipx = READ_WORD(&spriteram.read(offs)) & 0x01;
+				flipy = READ_WORD(&spriteram.read(offs)) & 0x02;
+				xpos = READ_WORD(&spriteram.read(offs+0x08));
 				if (xpos >= 0x8000) xpos -= 0x10000;
-				ypos = READ_WORD(&spriteram[offs+0x06]);
+				ypos = READ_WORD(&spriteram.read(offs+0x06));
 				if (ypos >= 0x8000) ypos -= 0x10000;
-				priority = (READ_WORD(&spriteram[offs]) & 0xc0) >> 6;
+				priority = (READ_WORD(&spriteram.read(offs)) & 0xc0) >> 6;
 	
 				/* bg: 1; fg:2; text: 4 */
 				switch (priority)
@@ -301,11 +301,11 @@ public class tecmo16
 	
 		for (offs = 0; offs < spriteram_size; offs += 0x10)
 		{
-			if (READ_WORD(&spriteram[offs]) & 0x04)	/* visible */
+			if (READ_WORD(&spriteram.read(offs)) & 0x04)	/* visible */
 			{
 				int color;
 	
-				color = (READ_WORD(&spriteram[offs+0x04]) & 0xf0) >> 4;
+				color = (READ_WORD(&spriteram.read(offs+0x04)) & 0xf0) >> 4;
 				palette_map[color] |= 0xffff;
 			}
 		}

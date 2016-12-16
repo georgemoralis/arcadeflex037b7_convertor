@@ -291,7 +291,7 @@ public class wiz
 		visible_area = flipx ? &spritevisibleareaflipx : &spritevisiblearea;
 	
 		/* I seriously doubt that the real hardware works this way */
-		if ((spriteram[1] & 0x80) || !spriteram[3] || !spriteram[0])
+		if ((spriteram.read(1)& 0x80) || !spriteram.read(3)|| !spriteram.read(0))
 		{
 		    bank = 7 + *wiz_sprite_bank;
 		}

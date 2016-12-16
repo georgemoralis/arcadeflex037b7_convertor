@@ -177,10 +177,10 @@ public class twin16
 		UINT16 dx = scrollx[0];
 		UINT16 dy = scrolly[0];
 	
-		const UINT16 *source = (const UINT16 *)&spriteram[0x0000];
-		const UINT16 *finish = (const UINT16 *)&spriteram[0x3000];
+		const UINT16 *source = (const UINT16 *)&spriteram.read(0x0000);
+		const UINT16 *finish = (const UINT16 *)&spriteram.read(0x3000);
 	
-		memset( &spriteram[0x3000], 0, 0x800 );
+		memset( &spriteram.read(0x3000), 0, 0x800 );
 		while( source<finish ){
 			UINT16 priority = source[0];
 			if ((priority & 0x8000) != 0){

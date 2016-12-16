@@ -214,14 +214,14 @@ public class magmax
 		for (offs = 0; offs < spriteram_size; offs += 8)
 		{
 			int code;
-			int attr = READ_WORD(&spriteram[offs + 4]) & 0xff;
+			int attr = READ_WORD(&spriteram.read(offs+4)) & 0xff;
 			int color = (attr & 0xf0) >> 4;
 			int flipx = attr & 0x04;
 			int flipy = attr & 0x08;
 			int sx, sy;
 	
-			sx = (READ_WORD(&spriteram[offs + 6]) & 0xff) - 0x80 + 0x100 * (attr & 0x01);
-			sy = 240 - (READ_WORD(&spriteram[offs]) & 0xff);
+			sx = (READ_WORD(&spriteram.read(offs+6)) & 0xff) - 0x80 + 0x100 * (attr & 0x01);
+			sy = 240 - (READ_WORD(&spriteram.read(offs)) & 0xff);
 	
 			if (flipscreen != 0)
 			{
@@ -231,7 +231,7 @@ public class magmax
 				flipy = !flipy;
 			}
 	
-			code = (READ_WORD(&spriteram[offs + 2]) & 0xff);
+			code = (READ_WORD(&spriteram.read(offs+2)) & 0xff);
 	
 			if ((code & 0x80) != 0)	/* sprite bankswitch */
 			{

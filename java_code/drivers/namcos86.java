@@ -290,7 +290,7 @@ public class namcos86
 	} };
 	public static ReadHandlerPtr spriteram_r  = new ReadHandlerPtr() { public int handler(int offset)
 	{
-		return spriteram[offset];
+		return spriteram.read(offset);
 	} };
 	
 	public static WriteHandlerPtr bankswitch1_w = new WriteHandlerPtr() {public void handler(int offset, int data)

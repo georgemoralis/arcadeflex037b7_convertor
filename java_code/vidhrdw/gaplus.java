@@ -285,8 +285,8 @@ public class gaplus
 	
 		for (offs = 0; offs < spriteram_size; offs += 2){
 	        if ((spriteram_3[offs+1] & 2) == 0){
-				int number = spriteram[offs]+4*(spriteram_3[offs] & 0x40);
-				int color = spriteram[offs+1] & 0x3f;
+				int number = spriteram.read(offs)+4*(spriteram_3[offs] & 0x40);
+				int color = spriteram.read(offs+1)& 0x3f;
 	            int sx = (spriteram_2[offs+1]-71) + 0x100*(spriteram_3[offs+1] & 1);
 				int sy = ( Machine.drv.screen_height ) - spriteram_2[offs]-24;
 				int flipy = spriteram_3[offs] & 2;

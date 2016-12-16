@@ -186,10 +186,10 @@ public class solomon
 			int sx,sy,flipx,flipy;
 	
 	
-			sx = spriteram[offs+3];
-			sy = 241-spriteram[offs+2];
-			flipx = spriteram[offs+1] & 0x40;
-			flipy =	spriteram[offs+1] & 0x80;
+			sx = spriteram.read(offs+3);
+			sy = 241-spriteram.read(offs+2);
+			flipx = spriteram.read(offs+1)& 0x40;
+			flipy =	spriteram.read(offs+1)& 0x80;
 			if ((flipscreen & 1) != 0)
 			{
 				sx = 240 - sx;
@@ -199,8 +199,8 @@ public class solomon
 			}
 	
 			drawgfx(bitmap,Machine.gfx[2],
-					spriteram[offs] + 16*(spriteram[offs+1] & 0x10),
-					(spriteram[offs + 1] & 0x0e) >> 1,
+					spriteram.read(offs)+ 16*(spriteram.read(offs+1)& 0x10),
+					(spriteram.read(offs+1)& 0x0e) >> 1,
 					flipx,flipy,
 					sx,sy,
 					&Machine.visible_area,TRANSPARENCY_PEN,0);

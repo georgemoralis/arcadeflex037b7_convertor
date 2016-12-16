@@ -60,7 +60,7 @@ public class xexex
 	public static ReadHandlerPtr K053247_scattered_word_r  = new ReadHandlerPtr() { public int handler(int offset)
 	{
 		if ((offset & 0x0062) != 0)
-			return READ_WORD(&spriteram[offset]);
+			return READ_WORD(&spriteram.read(offset));
 		else
 		{
 			offset = ((offset & 0x001c) >> 1) | ((offset & 0x7f80) >> 3);
@@ -71,7 +71,7 @@ public class xexex
 	public static WriteHandlerPtr K053247_scattered_word_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
 		if ((offset & 0x0062) != 0)
-			COMBINE_WORD_MEM(&spriteram[offset],data);
+			COMBINE_WORD_MEM(&spriteram.read(offset),data);
 		else
 		{
 			offset = ((offset & 0x001c) >> 1) | ((offset & 0x7f80) >> 3);

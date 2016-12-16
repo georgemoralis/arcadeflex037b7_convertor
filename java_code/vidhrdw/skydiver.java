@@ -124,7 +124,7 @@ public class skydiver
 			int xflip, yflip;
 			int color;
 	
-			sx = 29*8 - spriteram[pic];
+			sx = 29*8 - spriteram.read(pic);
 			sy = 30*8 - spriteram[pic*2 + 8];
 			charcode = spriteram[pic*2 + 9];
 			xflip = (charcode & 0x10) >> 4;
