@@ -91,7 +91,7 @@ public class centiped
 		/* set the palette for the previous screen slice to properly support */
 		/* midframe palette changes in test mode */
 		for (offset = 4;offset < 8;offset++)
-			setcolor(4 * slice + start + (offset - 4),paletteram[offset]);
+			setcolor(4 * slice + start + (offset - 4),paletteram.read(offset));
 	
 		/* Centipede doesn't like to receive interrupts just after a reset. */
 		/* The only workaround I've found is to wait a little before starting */

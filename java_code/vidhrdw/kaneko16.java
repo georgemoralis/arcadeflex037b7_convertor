@@ -121,9 +121,9 @@ public class kaneko16
 	
 		int newword, r,g,b;
 	
-		COMBINE_WORD_MEM(&paletteram[offset], data);
+		COMBINE_WORD_MEM(&paletteram.read(offset), data);
 	
-		newword = READ_WORD (&paletteram[offset]);
+		newword = READ_WORD (&paletteram.read(offset));
 		r = (newword >>  5) & 0x1f;
 		g = (newword >> 10) & 0x1f;
 		b = (newword >>  0) & 0x1f;
@@ -136,7 +136,7 @@ public class kaneko16
 	public static WriteHandlerPtr gtmr_paletteram_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
 		if (offset < 0x10000)	kaneko16_paletteram_w(offset, data);
-		else					COMBINE_WORD_MEM(&paletteram[offset], data);
+		else					COMBINE_WORD_MEM(&paletteram.read(offset), data);
 	} };
 	
 	

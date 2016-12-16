@@ -162,8 +162,8 @@ public class vaportra
 	{
 		int r,g,b;
 	
-		r = (READ_WORD(&paletteram[offset]) >> 0) & 0xff;
-		g = (READ_WORD(&paletteram[offset]) >> 8) & 0xff;
+		r = (READ_WORD(&paletteram.read(offset)) >> 0) & 0xff;
+		g = (READ_WORD(&paletteram.read(offset)) >> 8) & 0xff;
 		b = (READ_WORD(&paletteram_2[offset]) >> 0) & 0xff;
 	
 		palette_change_color(offset / 2,r,g,b);
@@ -171,7 +171,7 @@ public class vaportra
 	
 	public static WriteHandlerPtr vaportra_palette_24bit_rg_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		COMBINE_WORD_MEM(&paletteram[offset],data);
+		COMBINE_WORD_MEM(&paletteram.read(offset),data);
 		update_24bitcol(offset);
 	} };
 	

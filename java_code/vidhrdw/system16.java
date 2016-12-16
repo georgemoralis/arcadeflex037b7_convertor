@@ -133,7 +133,7 @@ public class system16
 	/***************************************************************************/
 	
 	public static WriteHandlerPtr sys16_paletteram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
-		UINT16 oldword = READ_WORD (&paletteram[offset]);
+		UINT16 oldword = READ_WORD (&paletteram.read(offset));
 		UINT16 newword = COMBINE_WORD (oldword, data);
 		if( oldword!=newword ){
 			/* we can do this, because we initialize palette RAM to all black in vh_start */
@@ -188,7 +188,7 @@ public class system16
 				palette_change_color( offset/2+Machine.drv.total_colors/2,r,g,b);
 			}
 	#endif
-			WRITE_WORD (&paletteram[offset], newword);
+			WRITE_WORD (&paletteram.read(offset), newword);
 		}
 	} };
 	

@@ -1357,7 +1357,80 @@ public class convertMame {
                     Convertor.inpos = i;
                 }
                 break;
+                case 'p':
+                {
+                    int sd1=Convertor.inpos;
+                    if(sUtil.getToken("paletteram"))
+                    {
+                        if (sUtil.parseChar() != '[') {
+                            Convertor.inpos = sd1;
+                            break;
+                        }
+                        Convertor.token[0] = sUtil.parseToken();
+                        sUtil.skipSpace();
+                        int k = Convertor.inpos;
+                        if(sUtil.parseChar()== '+')
+                        {
+                            sUtil.skipSpace();
+                            Convertor.token[0] += '+' + sUtil.parseToken();
+                        }
+                        else {
+                            Convertor.inpos = k;
+                        }
+                        if (sUtil.parseChar() != ']') {
+                            Convertor.inpos = sd1;
+                            break;
+                        }
+                        else {
+                            sUtil.skipSpace();
+
+                            if (sUtil.parseChar() == '=') {
+                                Convertor.inpos = sd1;
+                                break;
+                            }
+                            sUtil.putString((new StringBuilder()).append("paletteram.read(").append(Convertor.token[0]).append(")").toString());
+                            Convertor.inpos -= 1;
+                            continue;
+                        }
+                    }
+                    int sd2=Convertor.inpos;
+                    if(sUtil.getToken("paletteram_2"))
+                    {
+                        if (sUtil.parseChar() != '[') {
+                            Convertor.inpos = sd2;
+                            break;
+                        }
+                        Convertor.token[0] = sUtil.parseToken();
+                        sUtil.skipSpace();
+                        int k = Convertor.inpos;
+                        if(sUtil.parseChar()== '+')
+                        {
+                            sUtil.skipSpace();
+                            Convertor.token[0] += '+' + sUtil.parseToken();
+                        }
+                        else {
+                            Convertor.inpos = k;
+                        }
+                        if (sUtil.parseChar() != ']') {
+                            Convertor.inpos = sd2;
+                            break;
+                        }
+                        else {
+                            sUtil.skipSpace();
+
+                            if (sUtil.parseChar() == '=') {
+                                Convertor.inpos = sd2;
+                                break;
+                            }
+                            sUtil.putString((new StringBuilder()).append("paletteram_2.read(").append(Convertor.token[0]).append(")").toString());
+                            Convertor.inpos -= 1;
+                            continue;
+                        }
+                    }
+                }
+                break;
                 case 'P':
+
                     if (sUtil.getToken("PORT_START")) {
                         sUtil.putString((new StringBuilder()).append("PORT_START(); ").toString());
                         continue;

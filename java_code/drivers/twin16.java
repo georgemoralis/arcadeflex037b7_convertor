@@ -156,9 +156,9 @@ public class twin16
 	
 	public static WriteHandlerPtr twin16_paletteram_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{ // identical to tmnt_paletteram_w
-		int oldword = READ_WORD(&paletteram[offset]);
+		int oldword = READ_WORD(&paletteram.read(offset));
 		int newword = COMBINE_WORD(oldword,data);
-		WRITE_WORD(&paletteram[offset],newword);
+		WRITE_WORD(&paletteram.read(offset),newword);
 	
 		offset /= 4;
 		{

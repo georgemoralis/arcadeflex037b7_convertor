@@ -47,11 +47,11 @@ public class mcr68
 	
 	public static WriteHandlerPtr mcr68_paletteram_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		int oldword = READ_WORD(&paletteram[offset]);
+		int oldword = READ_WORD(&paletteram.read(offset));
 		int newword = COMBINE_WORD(oldword, data);
 		int r, g, b;
 	
-		WRITE_WORD(&paletteram[offset], newword);
+		WRITE_WORD(&paletteram.read(offset), newword);
 	
 		r = (newword >> 6) & 7;
 		b = (newword >> 3) & 7;
@@ -285,11 +285,11 @@ public class mcr68
 	
 	public static WriteHandlerPtr zwackery_paletteram_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		int oldword = READ_WORD(&paletteram[offset]);
+		int oldword = READ_WORD(&paletteram.read(offset));
 		int newword = COMBINE_WORD(oldword, data);
 		int r, g, b;
 	
-		WRITE_WORD(&paletteram[offset], newword);
+		WRITE_WORD(&paletteram.read(offset), newword);
 	
 		r = (~newword >> 10) & 31;
 		b = (~newword >> 5) & 31;

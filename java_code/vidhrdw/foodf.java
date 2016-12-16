@@ -141,13 +141,13 @@ public class foodf
 	
 	public static WriteHandlerPtr foodf_paletteram_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		int oldword = READ_WORD(&paletteram[offset]);
+		int oldword = READ_WORD(&paletteram.read(offset));
 		int newword = COMBINE_WORD(oldword,data);
 		int bit0,bit1,bit2;
 		int r,g,b;
 	
 	
-		WRITE_WORD(&paletteram[offset],newword);
+		WRITE_WORD(&paletteram.read(offset),newword);
 	
 		/* only the bottom 8 bits are used */
 		/* red component */

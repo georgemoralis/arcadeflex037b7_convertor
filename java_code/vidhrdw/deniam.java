@@ -161,12 +161,12 @@ public class deniam
 	
 	public static WriteHandlerPtr deniam_palette_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		int oldword = READ_WORD(&paletteram[offset]);
+		int oldword = READ_WORD(&paletteram.read(offset));
 		int newword = COMBINE_WORD(oldword,data);
 		int r,g,b;
 	
 	
-		WRITE_WORD(&paletteram[offset],newword);
+		WRITE_WORD(&paletteram.read(offset),newword);
 	
 		r = ((newword << 1) & 0x1e) | ((newword >> 12) & 0x01);
 		g = ((newword >> 3) & 0x1e) | ((newword >> 13) & 0x01);

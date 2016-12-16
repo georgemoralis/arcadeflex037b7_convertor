@@ -196,9 +196,9 @@ public class toobin
 	
 	public static WriteHandlerPtr toobin_paletteram_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		int oldword = READ_WORD(&paletteram[offset]);
+		int oldword = READ_WORD(&paletteram.read(offset));
 		int newword = COMBINE_WORD(oldword, data);
-		WRITE_WORD(&paletteram[offset], newword);
+		WRITE_WORD(&paletteram.read(offset), newword);
 	
 		{
 			int red =   (((newword >> 10) & 31) * 224) >> 5;

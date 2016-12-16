@@ -184,11 +184,11 @@ public class vindictr
 		static const int ztable[16] =
 			{ 0x0, 0x3, 0x4, 0x5, 0x6, 0x7, 0x8, 0x9, 0xa, 0xb, 0xc, 0xd, 0xe, 0xf, 0x10, 0x11 };
 	
-		int oldword = READ_WORD(&paletteram[offset]);
+		int oldword = READ_WORD(&paletteram.read(offset));
 		int newword = COMBINE_WORD(oldword, data);
 		int i, r, g, b;
 	
-		WRITE_WORD(&paletteram[offset], newword);
+		WRITE_WORD(&paletteram.read(offset), newword);
 	
 		i = ztable[(newword >> 12) & 15];
 		r = ((newword >> 8) & 15) * i;

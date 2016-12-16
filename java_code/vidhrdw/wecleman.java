@@ -129,7 +129,7 @@ public class wecleman
 		/*	S000 4321 	4321 4321	*/
 		/*  S = Shade				*/
 	
-		int oldword = READ_WORD (&paletteram[offset]);
+		int oldword = READ_WORD (&paletteram.read(offset));
 		int newword = COMBINE_WORD (oldword, data);
 	
 		int r = ((newword << 1) & 0x1E ) | ((newword >> 12) & 0x01);
@@ -143,7 +143,7 @@ public class wecleman
 										 (g * 0xFF) / 0x1F,
 										 (b * 0xFF) / 0x1F	 );
 	
-		WRITE_WORD (&paletteram[offset], newword);
+		WRITE_WORD (&paletteram.read(offset), newword);
 	} };
 	
 	

@@ -191,15 +191,15 @@ public class cischeat
 	
 	public static ReadHandlerPtr cischeat_palette_r  = new ReadHandlerPtr() { public int handler(int offset)
 	{
-		return READ_WORD(&paletteram[offset]);
+		return READ_WORD(&paletteram.read(offset));
 	} };
 	
 	public static WriteHandlerPtr cischeat_palette_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
 	int newword,r,g,b;
 	
-		COMBINE_WORD_MEM(&paletteram[offset],data);
-		newword = READ_WORD(&paletteram[offset]);
+		COMBINE_WORD_MEM(&paletteram.read(offset),data);
+		newword = READ_WORD(&paletteram.read(offset));
 		r = ((newword >> 8) & 0xF0 ) | ((newword << 0) & 0x08);
 		g = ((newword >> 4) & 0xF0 ) | ((newword << 1) & 0x08);
 		b = ((newword >> 0) & 0xF0 ) | ((newword << 2) & 0x08);
@@ -279,14 +279,14 @@ public class cischeat
 	
 	public static ReadHandlerPtr f1gpstar_palette_r  = new ReadHandlerPtr() { public int handler(int offset)
 	{
-		return READ_WORD(&paletteram[offset]);
+		return READ_WORD(&paletteram.read(offset));
 	} };
 	public static WriteHandlerPtr f1gpstar_palette_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
 	int newword,r,g,b;
 	
-		COMBINE_WORD_MEM(&paletteram[offset],data);
-		newword = READ_WORD(&paletteram[offset]);
+		COMBINE_WORD_MEM(&paletteram.read(offset),data);
+		newword = READ_WORD(&paletteram.read(offset));
 		r = ((newword >> 8) & 0xF0 ) | ((newword << 0) & 0x08);
 		g = ((newword >> 4) & 0xF0 ) | ((newword << 1) & 0x08);
 		b = ((newword >> 0) & 0xF0 ) | ((newword << 2) & 0x08);

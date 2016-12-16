@@ -352,7 +352,7 @@ public class wmsyunit
 	
 	public static WriteHandlerPtr wms_yunit_paletteram_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		int oldword = READ_WORD(&paletteram[offset]);
+		int oldword = READ_WORD(&paletteram.read(offset));
 		int newword = COMBINE_WORD(oldword, data);
 		
 		int r = (newword >> 10) & 0x1f;
@@ -363,7 +363,7 @@ public class wmsyunit
 		g = (g << 3) | (g >> 2);
 		b = (b << 3) | (b >> 2);
 		
-		WRITE_WORD(&paletteram[offset], newword);
+		WRITE_WORD(&paletteram.read(offset), newword);
 		palette_change_color((offset / 2) & (pixel_mask | palette_mask), r, g, b);
 	} };
 	

@@ -109,12 +109,12 @@ public class shangha3
 	
 	public static WriteHandlerPtr shangha3_paletteram_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		int oldword = READ_WORD(&paletteram[offset]);
+		int oldword = READ_WORD(&paletteram.read(offset));
 		int newword = COMBINE_WORD(oldword,data);
 		int r,g,b;
 	
 	
-		WRITE_WORD(&paletteram[offset],newword);
+		WRITE_WORD(&paletteram.read(offset),newword);
 	
 		r = (newword >> 11) & 0x1f;
 		g = (newword >>  6) & 0x1f;

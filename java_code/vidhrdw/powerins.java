@@ -130,7 +130,7 @@ public class powerins
 		/*	RRRR GGGG BBBB RGBx	*/
 		/*	4321 4321 4321 000x	*/
 	
-		int oldword = READ_WORD (&paletteram[offset]);
+		int oldword = READ_WORD (&paletteram.read(offset));
 		int newword = COMBINE_WORD (oldword, data);
 	
 		int r = ((newword >> 8) & 0xF0 ) | ((newword << 0) & 0x08);
@@ -139,7 +139,7 @@ public class powerins
 	
 		palette_change_color( offset/2, r,g,b );
 	
-		WRITE_WORD (&paletteram[offset], newword);
+		WRITE_WORD (&paletteram.read(offset), newword);
 	} };
 	
 	

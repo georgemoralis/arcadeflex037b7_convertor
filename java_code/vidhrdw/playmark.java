@@ -176,9 +176,9 @@ public class playmark
 		int r,g,b,val;
 	
 	
-		COMBINE_WORD_MEM(&paletteram[offset],data);
+		COMBINE_WORD_MEM(&paletteram.read(offset),data);
 	
-		val = READ_WORD(&paletteram[offset]);
+		val = READ_WORD(&paletteram.read(offset));
 		r = (val >> 11) & 0x1e;
 		g = (val >>  7) & 0x1e;
 		b = (val >>  3) & 0x1e;

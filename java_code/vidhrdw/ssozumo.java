@@ -62,7 +62,7 @@ public class ssozumo
 		paletteram[offset] = data;
 		offs2 = offset & 0x0f;
 	
-		val = paletteram[offs2];
+		val = paletteram.read(offs2);
 		bit0 = (val >> 0) & 0x01;
 		bit1 = (val >> 1) & 0x01;
 		bit2 = (val >> 2) & 0x01;

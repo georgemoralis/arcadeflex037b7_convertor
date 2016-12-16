@@ -280,12 +280,12 @@ public class cninja
 	{
 		int r,g,b;
 	
-		COMBINE_WORD_MEM(&paletteram[offset],data);
+		COMBINE_WORD_MEM(&paletteram.read(offset),data);
 		if (offset%4) offset-=2;
 	
-		b = (READ_WORD(&paletteram[offset]) >> 0) & 0xff;
-		g = (READ_WORD(&paletteram[offset+2]) >> 8) & 0xff;
-		r = (READ_WORD(&paletteram[offset+2]) >> 0) & 0xff;
+		b = (READ_WORD(&paletteram.read(offset)) >> 0) & 0xff;
+		g = (READ_WORD(&paletteram.read(offset+2)) >> 8) & 0xff;
+		r = (READ_WORD(&paletteram.read(offset+2)) >> 0) & 0xff;
 	
 		palette_change_color(offset / 4,r,g,b);
 	} };

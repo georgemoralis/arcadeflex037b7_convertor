@@ -41,8 +41,8 @@ public class nemesis
 	{
 		int r,g,b,bit1,bit2,bit3,bit4,bit5;
 	
-		COMBINE_WORD_MEM(&paletteram[offset],data);
-		data = READ_WORD(&paletteram[offset]);
+		COMBINE_WORD_MEM(&paletteram.read(offset),data);
+		data = READ_WORD(&paletteram.read(offset));
 	
 		/* Mish, 30/11/99 - Schematics show the resistor values are:
 			300 Ohms
@@ -85,10 +85,10 @@ public class nemesis
 	{
 		int r,g,b;
 	
-		COMBINE_WORD_MEM(&paletteram[offset],data);
+		COMBINE_WORD_MEM(&paletteram.read(offset),data);
 		if (offset%4) offset-=2;
 	
-		data = ((READ_WORD(&paletteram[offset]) << 8) | READ_WORD(&paletteram[offset+2]))&0xffff;
+		data = ((READ_WORD(&paletteram.read(offset)) << 8) | READ_WORD(&paletteram.read(offset+2)))&0xffff;
 	
 		r = (data >>  0) & 0x1f;
 		g = (data >>  5) & 0x1f;
@@ -1252,7 +1252,7 @@ public class nemesis
 		setup_backgrounds();
 	
 		/* screen flash */
-		fillbitmap(bitmap,Machine.pens[READ_WORD(&paletteram[0x00]) & 0x7ff],&Machine.visible_area);
+		fillbitmap(bitmap,Machine.pens[READ_WORD(&paletteram.read(0x00)) & 0x7ff],&Machine.visible_area);
 	
 		/* Copy the background bitmap */
 		yscroll = -(READ_WORD(&nemesis_yscroll[0x300]) & 0xff);	/* used on nemesis level 2 */
@@ -1344,7 +1344,7 @@ public class nemesis
 		setup_backgrounds();
 	
 		/* screen flash */
-		fillbitmap(bitmap,Machine.pens[READ_WORD(&paletteram[0x00]) & 0x7ff],&Machine.visible_area);
+		fillbitmap(bitmap,Machine.pens[READ_WORD(&paletteram.read(0x00)) & 0x7ff],&Machine.visible_area);
 	
 		/* Kludge - check if we need row or column scroll */
 		if (READ_WORD(&nemesis_yscroll[0x780]) || READ_WORD(&nemesis_yscroll[0x790])) {

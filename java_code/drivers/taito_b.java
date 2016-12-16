@@ -569,10 +569,10 @@ public class taito_b
 	
 	public static WriteHandlerPtr taitob_paletteram_RRRRGGGGBBBBRGBx_word_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		int oldword = READ_WORD(&paletteram[offset]);
+		int oldword = READ_WORD(&paletteram.read(offset));
 		int newword = COMBINE_WORD(oldword,data);
 	
-		WRITE_WORD(&paletteram[offset],newword);
+		WRITE_WORD(&paletteram.read(offset),newword);
 		taitob_changecolor_RRRRGGGGBBBBRGBx(offset / 2,newword);
 	} };
 	

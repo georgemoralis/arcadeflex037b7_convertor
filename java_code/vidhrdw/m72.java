@@ -285,7 +285,7 @@ public class m72
 	
 	public static ReadHandlerPtr m72_palette1_r  = new ReadHandlerPtr() { public int handler(int offset)
 	{
-		return paletteram[offset];
+		return paletteram.read(offset);
 	} };
 	
 	public static ReadHandlerPtr m72_palette2_r  = new ReadHandlerPtr() { public int handler(int offset)
@@ -308,9 +308,9 @@ public class m72
 		if ((offset & 1) != 0) return;
 		offset &= 0x3ff;
 		changecolor(offset / 2,
-				paletteram[offset + 0x000],
-				paletteram[offset + 0x400],
-				paletteram[offset + 0x800]);
+				paletteram.read(offset+0x000),
+				paletteram.read(offset+0x400),
+				paletteram.read(offset+0x800));
 	} };
 	
 	public static WriteHandlerPtr m72_palette2_w = new WriteHandlerPtr() {public void handler(int offset, int data)

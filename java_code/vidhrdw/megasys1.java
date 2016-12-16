@@ -305,7 +305,7 @@ public class megasys1
 		/*	RRRR GGGG BBBB RGB?	*/
 		/*	4321 4321 4321 000?	*/
 	
-		int oldword = READ_WORD (&paletteram[offset]);
+		int oldword = READ_WORD (&paletteram.read(offset));
 		int newword = COMBINE_WORD (oldword, data);
 	
 		int r = ((newword >> 8) & 0xF0 ) | ((newword << 0) & 0x08);
@@ -314,7 +314,7 @@ public class megasys1
 	
 		palette_change_color( offset/2, r,g,b );
 	
-		WRITE_WORD (&paletteram[offset], newword);
+		WRITE_WORD (&paletteram.read(offset), newword);
 	} };
 	
 	

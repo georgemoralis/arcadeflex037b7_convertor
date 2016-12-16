@@ -69,17 +69,17 @@ public class galpanic
 	
 	public static ReadHandlerPtr galpanic_paletteram_r  = new ReadHandlerPtr() { public int handler(int offset)
 	{
-		return READ_WORD(&paletteram[offset]);
+		return READ_WORD(&paletteram.read(offset));
 	} };
 	
 	public static WriteHandlerPtr galpanic_paletteram_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
 		int r,g,b;
-		int oldword = READ_WORD(&paletteram[offset]);
+		int oldword = READ_WORD(&paletteram.read(offset));
 		int newword = COMBINE_WORD(oldword,data);
 	
 	
-		WRITE_WORD(&paletteram[offset],newword);
+		WRITE_WORD(&paletteram.read(offset),newword);
 	
 		r = (newword >>  6) & 0x1f;
 		g = (newword >> 11) & 0x1f;

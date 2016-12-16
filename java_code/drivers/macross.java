@@ -68,11 +68,11 @@ public class macross
 	public static WriteHandlerPtr macross_paletteram_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
 		int r,g,b;
-		int oldword = READ_WORD(&paletteram[offset]);
+		int oldword = READ_WORD(&paletteram.read(offset));
 		int newword = COMBINE_WORD(oldword,data);
 	
 	
-		WRITE_WORD(&paletteram[offset],newword);
+		WRITE_WORD(&paletteram.read(offset),newword);
 	
 		r = ((newword >> 11) & 0x1e) | ((newword >> 3) & 0x01);
 		g = ((newword >>  7) & 0x1e) | ((newword >> 2) & 0x01);

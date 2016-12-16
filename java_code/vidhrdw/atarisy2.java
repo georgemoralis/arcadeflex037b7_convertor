@@ -244,11 +244,11 @@ public class atarisy2
 	
 		int inten, red, green, blue;
 	
-		int oldword = READ_WORD(&paletteram[offset]);
+		int oldword = READ_WORD(&paletteram.read(offset));
 		int newword = COMBINE_WORD(oldword, data);
 		int indx = offset / 2;
 	
-		WRITE_WORD(&paletteram[offset], newword);
+		WRITE_WORD(&paletteram.read(offset), newword);
 	
 		inten = intensity_table[newword & 15];
 		red = (color_table[(newword >> 12) & 15] * inten) >> 4;
