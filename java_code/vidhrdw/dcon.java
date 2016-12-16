@@ -58,7 +58,7 @@ public class dcon
 	
 	public static WriteHandlerPtr dcon_text_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		COMBINE_WORD_MEM(&videoram[offset],data);
+		COMBINE_WORD_MEM(&videoram.read(offset),data);
 		tilemap_mark_tile_dirty( text_layer,offset/2);
 	} };
 	

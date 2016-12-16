@@ -159,7 +159,7 @@ public class pbaction
 				}
 	
 				drawgfx(tmpbitmap,Machine.gfx[0],
-						videoram[offs] + 0x10 * (colorram[offs] & 0x30),
+						videoram.read(offs)+ 0x10 * (colorram[offs] & 0x30),
 						colorram[offs] & 0x0f,
 						flipx,flipy,
 						8*sx,8*sy,

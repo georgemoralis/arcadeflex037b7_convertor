@@ -283,7 +283,7 @@ public class cosmic
 	
 			for (offs = 0; offs < videoram_size; offs++)
 			{
-				cosmica_videoram_w(offs, videoram[offs]);
+				cosmica_videoram_w(offs, videoram.read(offs));
 			}
 		}
 	

@@ -126,8 +126,8 @@ public class m72
 	/* place there's no need to support it, it's just a black screen... */
 		tile_info.priority |= (m72_videoram1[4*tile_index+2] & 0x80) >> 7;
 	
-	/* (videoram[tile_index+2] & 0x10) is used by majtitle on the green, but it's not clear for what */
-	/* (videoram[tile_index+3] & 0xfe) are used as well */
+	/* (videoram.read(tile_index+2)& 0x10) is used by majtitle on the green, but it's not clear for what */
+	/* (videoram.read(tile_index+3)& 0xfe) are used as well */
 	}
 	
 	static void majtitle_get_bg_tile_info(int tile_index)

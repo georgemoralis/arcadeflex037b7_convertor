@@ -258,7 +258,7 @@ public class karnov
 	
 	/******************************************************************************/
 	
-	public static WriteHandlerPtr videoram_mirror_w = new WriteHandlerPtr() {public void handler(int offset, int data) { COMBINE_WORD_MEM(&videoram[offset],data);} };
+	public static WriteHandlerPtr videoram_mirror_w = new WriteHandlerPtr() {public void handler(int offset, int data) { COMBINE_WORD_MEM(&videoram.read(offset),data);} };
 	
 	static MemoryReadAddress karnov_readmem[] =
 	{

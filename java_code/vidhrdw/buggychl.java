@@ -146,7 +146,7 @@ public class buggychl
 	
 		for (offs = 0;offs < 0x400;offs++)
 		{
-			int code = videoram[0x400+offs];
+			int code = videoram.read(0x400+offs);
 	
 			if (dirtybuffer[0x400+offs] || dirtychar[code])
 			{
@@ -193,7 +193,7 @@ public class buggychl
 			/* the following line is most likely wrong */
 			int transp = (bg_on && sx >= 22) ? TRANSPARENCY_NONE : TRANSPARENCY_PEN;
 	
-			int code = videoram[offs];
+			int code = videoram.read(offs);
 	
 			if (flip_screen_x != 0) sx = 31 - sx;
 			if (flip_screen_y != 0) sy = 31 - sy;

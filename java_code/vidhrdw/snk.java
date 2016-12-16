@@ -109,8 +109,8 @@ public class snk
 		const struct GfxElement *gfx = Machine.gfx[GFX_TILES];
 		int offs;
 		for( offs=0; offs<64*64*2; offs+=2 ){
-			int tile_number = videoram[offs];
-			unsigned char attributes = videoram[offs+1];
+			int tile_number = videoram.read(offs);
+			unsigned char attributes = videoram.read(offs+1);
 	
 			if( tile_number!=dirtybuffer[offs] || attributes != dirtybuffer[offs+1] ){
 				int sy = ((offs/2)%64)*8;

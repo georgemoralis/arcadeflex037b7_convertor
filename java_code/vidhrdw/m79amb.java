@@ -32,7 +32,7 @@ public class m79amb
 	{
 		data = data & ~mask;
 	
-		if (videoram[offset] != data)
+		if (videoram.read(offset)!= data)
 		{
 			int i,x,y;
 	

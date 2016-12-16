@@ -172,7 +172,7 @@ public class wiz
 				if (flipy != 0) sy = 31 - sy;
 	
 				drawgfx(tmpbitmap,Machine.gfx[bank],
-					videoram[offs],
+					videoram.read(offs),
 					(wiz_attributesram[2 * (offs % 32) + 1] & 0x07) + 8 * palette_bank,
 					flipx,flipy,
 					8*sx,8*sy,

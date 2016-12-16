@@ -142,9 +142,9 @@ public class snk68
 	public static WriteHandlerPtr pow_video_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
 		if ((data>>16)==0xff)
-			WRITE_WORD(&videoram[offset],(data>>8)&0xff);
+			WRITE_WORD(&videoram.read(offset),(data>>8)&0xff);
 		else
-			WRITE_WORD(&videoram[offset],data);
+			WRITE_WORD(&videoram.read(offset),data);
 	
 		tilemap_mark_tile_dirty(fix_tilemap,offset/4);
 	} };

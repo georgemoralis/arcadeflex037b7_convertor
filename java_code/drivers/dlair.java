@@ -69,7 +69,7 @@ public class dlair
 				sy = (offs/2) / 32;
 	
 				drawgfx(tmpbitmap,Machine.gfx[0],
-						videoram[offs+1],
+						videoram.read(offs+1),
 						0,
 						0,0,
 						8*sx,16*sy,

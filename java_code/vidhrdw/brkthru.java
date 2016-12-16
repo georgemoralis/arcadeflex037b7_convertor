@@ -197,10 +197,10 @@ public class brkthru
 					sy = 15 - sy;
 				}
 	
-				code = videoram[offs] + 256 * (videoram[offs+1] & 3);
+				code = videoram.read(offs)+ 256 * (videoram.read(offs+1)& 3);
 				drawgfx(tmpbitmap,Machine.gfx[1 + (code >> 7)],
 						code & 0x7f,
-						bgbasecolor + ((videoram[offs+1] & 0x04) >> 2),
+						bgbasecolor + ((videoram.read(offs+1)& 0x04) >> 2),
 						flipscreen,flipscreen,
 						16*sx,16*sy,
 						0,TRANSPARENCY_NONE,0);

@@ -143,7 +143,7 @@ public class amidar
 				if (flip_screen_y != 0) sy = 31 - sy;
 	
 				drawgfx(tmpbitmap,Machine.gfx[0],
-						videoram[offs],
+						videoram.read(offs),
 						amidar_attributesram[2 * (offs % 32) + 1] & 0x07,
 						flip_screen_x,flip_screen_y,
 						8*sx,8*sy,

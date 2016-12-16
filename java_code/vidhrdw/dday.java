@@ -405,7 +405,7 @@ public class dday
 			sy *= 8;
 	
 	
-			code_background = videoram[offs];
+			code_background = videoram.read(offs);
 	
 			flipx  = colorram[sy << 2] & 0x01;
 			code = dday_videoram3[flipx ? offs ^ 0x1f : offs];

@@ -96,7 +96,7 @@ public class slapfght
 				sy = offs / 64;
 	
 				drawgfx(tmpbitmap,Machine.gfx[1],
-						videoram[offs] + ((colorram[offs] & 0x0f) << 8),
+						videoram.read(offs)+ ((colorram[offs] & 0x0f) << 8),
 						(colorram[offs] & 0xf0) >> 4,
 						0,0,
 						8*sx,8*sy,

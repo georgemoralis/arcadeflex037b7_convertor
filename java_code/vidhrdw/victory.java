@@ -185,7 +185,7 @@ public class victory
 	
 	public static WriteHandlerPtr victory_videoram_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		if (videoram[offset] != data)
+		if (videoram.read(offset)!= data)
 		{
 			videoram[offset] = data;
 			bgdirty[offset] = 1;
@@ -1123,7 +1123,7 @@ public class victory
 		for (y = offs = 0; y < 32; y++)
 			for (x = 0; x < 32; x++, offs++)
 			{
-				int code = videoram[offs];
+				int code = videoram.read(offs);
 	
 				/* see if the character is dirty */
 				if (chardirty[code] == 1)

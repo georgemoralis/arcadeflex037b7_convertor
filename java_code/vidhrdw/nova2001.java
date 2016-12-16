@@ -154,7 +154,7 @@ public class nova2001
 				}
 	
 				drawgfx(tmpbitmap,Machine.gfx[1],
-						videoram[offs],
+						videoram.read(offs),
 						colorram[offs] & 0x0f,
 						flipscreen,flipscreen,
 						8*sx,8*sy,

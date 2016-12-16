@@ -182,7 +182,7 @@ public class kingobox
 	
 				dirtybuffer[offs] = 0;
 	
-				code = videoram[offs] + ((colorram[offs] & 0x03) << 8);
+				code = videoram.read(offs)+ ((colorram[offs] & 0x03) << 8);
 				bank = (colorram[offs] & 0x04) >> 2;
 	
 				drawgfx(tmpbitmap,Machine.gfx[2 + bank],
@@ -268,7 +268,7 @@ public class kingobox
 				dirtybuffer[offs] = 0;
 	
 				drawgfx(tmpbitmap,Machine.gfx[4],
-						videoram[offs],
+						videoram.read(offs),
 						((colorram[offs] & 0x70) >> 4 ) + 8 * palette_bank,
 						0,0,
 						sx*16,sy*16,

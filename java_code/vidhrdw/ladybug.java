@@ -137,7 +137,7 @@ public class ladybug
 				}
 	
 				drawgfx(tmpbitmap,Machine.gfx[0],
-						videoram[offs] + 32 * (colorram[offs] & 8),
+						videoram.read(offs)+ 32 * (colorram[offs] & 8),
 						colorram[offs],
 						flipscreen,flipscreen,
 						8*sx,8*sy,

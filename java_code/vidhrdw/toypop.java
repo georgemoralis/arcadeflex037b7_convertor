@@ -205,7 +205,7 @@ public class toypop
 				copybitmap(tmpbitmap,bgbitmap,0,0,0,0,&box,TRANSPARENCY_NONE,0);
 				// draw the character
 				drawgfx(tmpbitmap,Machine.gfx[0],
-						videoram[offs],
+						videoram.read(offs),
 						colorram[offs],
 						0,0,sx,sy,
 						0,TRANSPARENCY_PEN,0);

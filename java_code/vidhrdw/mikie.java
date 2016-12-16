@@ -153,7 +153,7 @@ public class mikie
 				}
 	
 				drawgfx(tmpbitmap,Machine.gfx[0],
-						videoram[offs] + ((colorram[offs] & 0x20) << 3),
+						videoram.read(offs)+ ((colorram[offs] & 0x20) << 3),
 						(colorram[offs] & 0x0f) + 16 * palettebank,
 						flipx,flipy,
 						8*sx,8*sy,

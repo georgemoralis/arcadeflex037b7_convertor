@@ -122,7 +122,7 @@ public class champbas
 				sy = 8 * (offs / 32);
 	
 				drawgfx(tmpbitmap,Machine.gfx[0 + gfxbank],
-						videoram[offs],
+						videoram.read(offs),
 						(colorram[offs] & 0x1f) + 32,
 						0,0,
 						sx,sy,

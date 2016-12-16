@@ -307,11 +307,11 @@ public class pacland
 				sx = ( ( ( offs - ( videoram_size / 2 ) ) % 128 ) / 2 );
 				sy = ( ( ( offs - ( videoram_size / 2 ) ) / 128 ) );
 	
-				flipx = videoram[offs+1] & 0x40;
-				flipy = videoram[offs+1] & 0x80;
+				flipx = videoram.read(offs+1)& 0x40;
+				flipy = videoram.read(offs+1)& 0x80;
 	
-				code = videoram[offs] + ((videoram[offs+1] & 0x01) << 8);
-				color = ((videoram[offs+1] & 0x3e) >> 1) + ((code & 0x1c0) >> 1);
+				code = videoram.read(offs)+ ((videoram.read(offs+1)& 0x01) << 8);
+				color = ((videoram.read(offs+1)& 0x3e) >> 1) + ((code & 0x1c0) >> 1);
 	
 				drawgfx(tmpbitmap,Machine.gfx[1],
 						code,
@@ -349,11 +349,11 @@ public class pacland
 				sx = ( ( offs % 128 ) / 2 );
 				sy = ( ( offs / 128 ) );
 	
-				flipx = videoram[offs+1] & 0x40;
-				flipy = videoram[offs+1] & 0x80;
+				flipx = videoram.read(offs+1)& 0x40;
+				flipy = videoram.read(offs+1)& 0x80;
 	
-				code = videoram[offs] + ((videoram[offs+1] & 0x01) << 8);
-				color = ((videoram[offs+1] & 0x1e) >> 1) + ((code & 0x1e0) >> 1);
+				code = videoram.read(offs)+ ((videoram.read(offs+1)& 0x01) << 8);
+				color = ((videoram.read(offs+1)& 0x1e) >> 1) + ((code & 0x1e0) >> 1);
 	
 				drawgfx(tmpbitmap2,Machine.gfx[0],
 						code,
@@ -388,7 +388,7 @@ public class pacland
 		fillbitmap(tmpbitmap3,Machine.pens[0x7f],&Machine.visible_area);
 		for ( offs = 0; offs < videoram_size / 2; offs += 2 )
 		{
-			if (videoram[offs+1] & 0x20)
+			if (videoram.read(offs+1)& 0x20)
 			{
 				int scroll;
 	
@@ -403,11 +403,11 @@ public class pacland
 	
 				if (sx*8 + scroll < -8) scroll += 512;
 	
-				flipx = videoram[offs+1] & 0x40;
-				flipy = videoram[offs+1] & 0x80;
+				flipx = videoram.read(offs+1)& 0x40;
+				flipy = videoram.read(offs+1)& 0x80;
 	
-				code = videoram[offs] + ((videoram[offs+1] & 0x01) << 8);
-				color = ((videoram[offs+1] & 0x1e) >> 1) + ((code & 0x1e0) >> 1);
+				code = videoram.read(offs)+ ((videoram.read(offs+1)& 0x01) << 8);
+				color = ((videoram.read(offs+1)& 0x1e) >> 1) + ((code & 0x1e0) >> 1);
 	
 				drawgfx(tmpbitmap3,Machine.gfx[0],
 						code,

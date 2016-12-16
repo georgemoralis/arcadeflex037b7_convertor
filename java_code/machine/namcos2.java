@@ -117,12 +117,12 @@ public class namcos2
 	
 	public static WriteHandlerPtr namcos2_68k_vram_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		int oldword = READ_WORD(&videoram[offset]);
+		int oldword = READ_WORD(&videoram.read(offset));
 		int newword = COMBINE_WORD(oldword,data);
 	
 		if (oldword != newword)
 		{
-			WRITE_WORD(&videoram[offset],newword);
+			WRITE_WORD(&videoram.read(offset),newword);
 	
 			/* Some games appear to use the 409000 region as SRAM to */
 			/* communicate between master/slave processors ??		 */
@@ -169,7 +169,7 @@ public class namcos2
 	
 	public static ReadHandlerPtr namcos2_68k_vram_r  = new ReadHandlerPtr() { public int handler(int offset)
 	{
-		int data=READ_WORD(&videoram[offset]);
+		int data=READ_WORD(&videoram.read(offset));
 		return data;
 	} };
 	

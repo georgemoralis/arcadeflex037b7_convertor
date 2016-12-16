@@ -181,7 +181,7 @@ public class sidearms
 	
 		for (offs = videoram_size - 1;offs >= 0;offs--)
 		{
-			code = videoram[offs] + 4 * (colorram[offs] & 0xc0);
+			code = videoram.read(offs)+ 4 * (colorram[offs] & 0xc0);
 			color = colorram[offs] & 0x3f;
 			colmask[color] |= Machine.gfx[0].pen_usage[code];
 		}
@@ -315,7 +315,7 @@ public class sidearms
 			}
 	
 			drawgfx(bitmap,Machine.gfx[0],
-					videoram[offs] + 4 * (colorram[offs] & 0xc0),
+					videoram.read(offs)+ 4 * (colorram[offs] & 0xc0),
 					colorram[offs] & 0x3f,
 					flipscreen,flipscreen,
 					8*sx,8*sy,

@@ -22,7 +22,7 @@ public class cabal
 	    for( offs = 0; offs < videoram_size; offs += 2 ){
 	        int offs2 = offs / 2;
 	        if( dirtybuffer[offs2] ) {
-	            int data = READ_WORD( &videoram[offs] );
+	            int data = READ_WORD( &videoram.read(offs));
 	            int numtile = ( data & 0xfff );
 	            int color = ( data & 0xf000 ) >> 12;
 	            int sx = ( offs2 % 16 ) * 16;

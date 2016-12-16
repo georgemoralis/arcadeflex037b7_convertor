@@ -234,7 +234,7 @@ public class galaga
 				}
 	
 				drawgfx(tmpbitmap,Machine.gfx[0],
-						videoram[offs],
+						videoram.read(offs),
 						colorram[offs],
 						flip_screen,flip_screen,
 						8*sx,8*sy,

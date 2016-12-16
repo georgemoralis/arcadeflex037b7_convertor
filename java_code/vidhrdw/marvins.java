@@ -99,7 +99,7 @@ public class marvins
 	
 	public static ReadHandlerPtr marvins_foreground_ram_r  = new ReadHandlerPtr() { public int handler(int offset)
 	{
-		return videoram[offset+0x1000];
+		return videoram.read(offset+0x1000);
 	} };
 	public static WriteHandlerPtr marvins_foreground_ram_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
@@ -113,7 +113,7 @@ public class marvins
 	
 	public static ReadHandlerPtr marvins_background_ram_r  = new ReadHandlerPtr() { public int handler(int offset)
 	{
-		return videoram[offset];
+		return videoram.read(offset);
 	} };
 	public static WriteHandlerPtr marvins_background_ram_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
@@ -127,7 +127,7 @@ public class marvins
 	
 	public static ReadHandlerPtr marvins_text_ram_r  = new ReadHandlerPtr() { public int handler(int offset)
 	{
-		return videoram[offset+0x2000];
+		return videoram.read(offset+0x2000);
 	} };
 	public static WriteHandlerPtr marvins_text_ram_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
@@ -147,17 +147,17 @@ public class marvins
 	
 	static void get_bg_tilemap_info(int tile_index)
 	{
-		SET_TILE_INFO(2,videoram[tile_index],0);
+		SET_TILE_INFO(2,videoram.read(tile_index),0);
 	}
 	
 	static void get_fg_tilemap_info(int tile_index)
 	{
-		SET_TILE_INFO(1,videoram[tile_index+0x1000],0);
+		SET_TILE_INFO(1,videoram.read(tile_index+0x1000),0);
 	}
 	
 	static void get_tx_tilemap_info(int tile_index)
 	{
-		int tile_number = videoram[tile_index+0x2000];
+		int tile_number = videoram.read(tile_index+0x2000);
 		SET_TILE_INFO(0,tile_number,(tile_number>>5));
 	}
 	

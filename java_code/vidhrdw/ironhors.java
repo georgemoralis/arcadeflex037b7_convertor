@@ -152,7 +152,7 @@ public class ironhors
 				sy = 8 * (offs / 32);
 	
 				drawgfx(tmpbitmap,Machine.gfx[0],
-						videoram[offs] + 16*(colorram[offs] & 0x20) + 4*(colorram[offs] & 0x40) + 1024 * charbank,
+						videoram.read(offs)+ 16*(colorram[offs] & 0x20) + 4*(colorram[offs] & 0x40) + 1024 * charbank,
 						(colorram[offs] & 0x0f) + 16 * palettebank,
 						colorram[offs] & 0x10,colorram[offs] & 0x20,
 						sx,sy,

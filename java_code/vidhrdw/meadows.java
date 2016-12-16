@@ -142,7 +142,7 @@ public class meadows
 				y = (i / SCR_HORZ) * CHR_VERT;
 	
 				drawgfx(bitmap, Machine.gfx[0],
-					videoram[i] & 0x7f, 1, 0,0, x, y,
+					videoram.read(i)& 0x7f, 1, 0,0, x, y,
 					&Machine.visible_area,
 					TRANSPARENCY_NONE,0);
 				meadows_char_dirty(x,y);

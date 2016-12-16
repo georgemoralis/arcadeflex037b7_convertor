@@ -99,7 +99,7 @@ public class sauro
 	
 			dirtybuffer[offs] = 0;
 	
-			code = videoram[offs] + ((colorram[offs] & 0x07) << 8);
+			code = videoram.read(offs)+ ((colorram[offs] & 0x07) << 8);
 			sx = 8 * (offs / 32);
 			sy = 8 * (offs % 32);
 			color = (colorram[offs] >> 4) & 0x0f;

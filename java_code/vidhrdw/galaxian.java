@@ -821,7 +821,7 @@ public class galaxian
 	
 	            background_charcode = sx;
 	
-				charcode = videoram[offs];
+				charcode = videoram.read(offs);
 	
 				if (flip_screen_x != 0) sx = 31 - sx;
 				if (flip_screen_y != 0) sy = 31 - sy;

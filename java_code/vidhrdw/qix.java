@@ -132,7 +132,7 @@ public class qix
 	public static ReadHandlerPtr qix_videoram_r  = new ReadHandlerPtr() { public int handler(int offset)
 	{
 		offset += (qix_videoaddress[0] & 0x80) * 0x100;
-		return videoram[offset];
+		return videoram.read(offset);
 	} };
 	
 	public static WriteHandlerPtr qix_videoram_w = new WriteHandlerPtr() {public void handler(int offset, int data)
@@ -154,7 +154,7 @@ public class qix
 	public static ReadHandlerPtr qix_addresslatch_r  = new ReadHandlerPtr() { public int handler(int offset)
 	{
 		offset = qix_videoaddress[0] * 0x100 + qix_videoaddress[1];
-		return videoram[offset];
+		return videoram.read(offset);
 	} };
 	
 	
@@ -230,7 +230,7 @@ public class qix
 				int x = offs & 0xff;
 				int y = offs >> 8;
 	
-				plot_pixel(bitmap, x, y, Machine.pens[videoram[offs]]);
+				plot_pixel(bitmap, x, y, Machine.pens[videoram.read(offs)]);
 			}
 		}
 	} };

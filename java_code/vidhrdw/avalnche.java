@@ -32,7 +32,7 @@ public class avalnche
 	
 	
 			for (offs = 0;offs < videoram_size; offs++)
-				avalnche_videoram_w(offs,videoram[offs]);
+				avalnche_videoram_w(offs,videoram.read(offs));
 		}
 	} };
 }

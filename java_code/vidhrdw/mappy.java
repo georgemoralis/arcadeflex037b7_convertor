@@ -125,7 +125,7 @@ public class mappy
 	
 	public static WriteHandlerPtr mappy_videoram_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		if (videoram[offset] != data)
+		if (videoram.read(offset)!= data)
 		{
 			dirtybuffer[offset] = 1;
 			videoram[offset] = data;
@@ -246,7 +246,7 @@ public class mappy
 				}
 	
 				drawgfx(tmpbitmap,Machine.gfx[0],
-						videoram[offs],
+						videoram.read(offs),
 						colorram[offs] & 0x3f,
 						flipscreen,flipscreen,8*sx,8*sy,
 						0,TRANSPARENCY_NONE,0);
@@ -409,7 +409,7 @@ public class mappy
 					}
 	
 					drawgfx(bitmap,Machine.gfx[0],
-							videoram[offs],
+							videoram.read(offs),
 							colorram[offs] & 0x3f,
 							flipscreen,flipscreen,8*sx,sy,
 							0,TRANSPARENCY_COLOR,31);

@@ -1111,6 +1111,40 @@ public class convertMame {
                     break;
                 case 'v': {
                     int j = Convertor.inpos;
+                    if(sUtil.getToken("videoram"))
+                    {
+                        if (sUtil.parseChar() != '[') {
+                            Convertor.inpos = j;
+                            break;
+                        }
+                        Convertor.token[0] = sUtil.parseToken();
+                        sUtil.skipSpace();
+                        int k = Convertor.inpos;
+                        if(sUtil.parseChar()== '+')
+                        {
+                            sUtil.skipSpace();
+                            Convertor.token[0] += '+' + sUtil.parseToken();
+                        }
+                        else {
+                            Convertor.inpos = k;
+                        }
+                        if (sUtil.parseChar() != ']') {
+                            Convertor.inpos = j;
+                            break;
+                        }
+                        else {
+                            sUtil.skipSpace();
+
+                            if (sUtil.parseChar() == '=') {
+                                Convertor.inpos = j;
+                                break;
+                            }
+                            sUtil.putString((new StringBuilder()).append("videoram.read(").append(Convertor.token[0]).append(")").toString());
+                            Convertor.inpos -= 1;
+                            continue;
+                        }
+                    }
+                    Convertor.inpos=j;
                     if (!sUtil.getToken("void")) {
                         break;
                     }

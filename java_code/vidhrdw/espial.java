@@ -113,7 +113,7 @@ public class espial
 				sy = offs / 32;
 	
 				drawgfx(tmpbitmap,Machine.gfx[0],
-						videoram[offs] + 256*(espial_attributeram[offs] & 0x03),
+						videoram.read(offs)+ 256*(espial_attributeram[offs] & 0x03),
 						colorram[offs],
 						espial_attributeram[offs] & 0x04,espial_attributeram[offs] & 0x08,
 						8*sx,8*sy,

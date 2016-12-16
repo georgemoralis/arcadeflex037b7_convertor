@@ -75,13 +75,13 @@ public class mcr68
 	
 	public static WriteHandlerPtr mcr68_videoram_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		int oldword = READ_WORD(&videoram[offset]);
+		int oldword = READ_WORD(&videoram.read(offset));
 		int newword = COMBINE_WORD(oldword, data);
 	
 		if (oldword != newword)
 		{
 			dirtybuffer[offset & ~3] = 1;
-			WRITE_WORD(&videoram[offset], newword);
+			WRITE_WORD(&videoram.read(offset), newword);
 		}
 	} };
 	
@@ -107,9 +107,9 @@ public class mcr68
 			{
 				int mx = (offs / 4) % 32;
 				int my = (offs / 4) / 32;
-				int attr = LOW_BYTE(&videoram[offs + 2]);
+				int attr = LOW_BYTE(&videoram.read(offs+2));
 				int color = (attr & 0x30) >> 4;
-				int code = LOW_BYTE(&videoram[offs]) + 256 * (attr & 0x03) + 1024 * ((attr >> 6) & 0x03);
+				int code = LOW_BYTE(&videoram.read(offs)) + 256 * (attr & 0x03) + 1024 * ((attr >> 6) & 0x03);
 	
 				if (!overrender)
 					drawgfx(bitmap, Machine.gfx[0], code, color ^ 3, attr & 0x04, attr & 0x08,
@@ -259,7 +259,7 @@ public class mcr68
 				fprintf(f, "\n\n=================================================================\n");
 				for (offs = 0; offs < videoram_size; offs += 4)
 				{
-					fprintf(f, "%02X%02X ", LOW_BYTE(&videoram[offs + 2]), LOW_BYTE(&videoram[offs + 0]));
+					fprintf(f, "%02X%02X ", LOW_BYTE(&videoram.read(offs+2)), LOW_BYTE(&videoram.read(offs+0)));
 					if (offs % (32 * 4) == 31 * 4) fprintf(f, "\n");
 				}
 				fprintf(f, "\n\n");
@@ -313,13 +313,13 @@ public class mcr68
 	
 	public static WriteHandlerPtr zwackery_videoram_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		int oldword = READ_WORD(&videoram[offset]);
+		int oldword = READ_WORD(&videoram.read(offset));
 		int newword = COMBINE_WORD(oldword, data);
 	
 		if (oldword != newword)
 		{
 			dirtybuffer[offset & ~1] = 1;
-			WRITE_WORD(&videoram[offset], newword);
+			WRITE_WORD(&videoram.read(offset), newword);
 		}
 	} };
 	
@@ -411,7 +411,7 @@ public class mcr68
 		/* for every character in the Video RAM, mark the colors */
 		for (offs = videoram_size - 2; offs >= 0; offs -= 2)
 		{
-			int data = READ_WORD(&videoram[offs]);
+			int data = READ_WORD(&videoram.read(offs));
 			int color = (data >> 13) & 7;
 			int code = data & 0x3ff;
 			int i;
@@ -439,7 +439,7 @@ public class mcr68
 			/* intersecting tiles for us */
 			if (dirtybuffer[offs])
 			{
-				int data = READ_WORD(&videoram[offs]);
+				int data = READ_WORD(&videoram.read(offs));
 				int mx = (offs / 2) % 32;
 				int my = (offs / 2) / 32;
 				int color = (data >> 13) & 7;
@@ -681,7 +681,7 @@ public class mcr68
 				fprintf(f, "\n\n=================================================================\n");
 				for (offs = 0; offs < videoram_size; offs += 2)
 				{
-					fprintf(f, "%04X ", READ_WORD(&videoram[offs]));
+					fprintf(f, "%04X ", READ_WORD(&videoram.read(offs)));
 					if (offs % (32 * 2) == 31 * 2) fprintf(f, "\n");
 				}
 				fprintf(f, "\n\n");

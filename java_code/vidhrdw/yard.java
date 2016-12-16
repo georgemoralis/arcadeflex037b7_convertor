@@ -276,7 +276,7 @@ public class yard
 	
 				sx = (offs/2) % 32;
 				sy = (offs/2) / 32;
-				flipx = videoram[offs+1] & 0x20;
+				flipx = videoram.read(offs+1)& 0x20;
 	
 				if (sy >= 32)
 				{
@@ -292,8 +292,8 @@ public class yard
 				}
 	
 				drawgfx(tmpbitmap,Machine.gfx[0],
-						videoram[offs] + ((videoram[offs+1] & 0xc0) << 2),
-						videoram[offs+1] & 0x1f,
+						videoram.read(offs)+ ((videoram.read(offs+1)& 0xc0) << 2),
+						videoram.read(offs+1)& 0x1f,
 						flipx,flip_screen,
 						8*sx,8*sy,
 						0,TRANSPARENCY_NONE,0);

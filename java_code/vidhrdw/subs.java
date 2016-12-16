@@ -74,7 +74,7 @@ public class subs
 	
 				dirtybuffer[offs]=0;
 	
-				charcode = videoram[offs];
+				charcode = videoram.read(offs);
 	
 				/* Which monitor is this for? */
 				right_enable = charcode & 0x40;

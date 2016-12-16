@@ -74,7 +74,7 @@ public class nitedrvr
 	
 				dirtybuffer[offs]=0;
 	
-				charcode = videoram[offs] & 0x3f;
+				charcode = videoram.read(offs)& 0x3f;
 	
 				sx = 8 * (offs % 32);
 				sy = 16 * (offs / 32);

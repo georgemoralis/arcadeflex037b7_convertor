@@ -148,7 +148,7 @@ public class phozon
 				}
 	
 				drawgfx(tmpbitmap,Machine.gfx[(colorram[offs] & 0x80) ? 1 : 0],
-						videoram[offs],
+						videoram.read(offs),
 						colorram[offs] & 0x3f,
 						0,0,
 						8*sx,8*sy,
@@ -257,7 +257,7 @@ public class phozon
 				}
 	
 				drawgfx(bitmap,Machine.gfx[(colorram[offs] & 0x80) ? 1 : 0],
-						videoram[offs],
+						videoram.read(offs),
 						colorram[offs] & 0x3f,
 						0,0,
 						8*sx,8*sy,

@@ -155,7 +155,7 @@ public class thepit
 	
 				if (priority == 0)
 				{
-					code = videoram[offs];
+					code = videoram.read(offs);
 					bank = graphics_bank;
 				}
 				else

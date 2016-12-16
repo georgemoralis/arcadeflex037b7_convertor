@@ -457,7 +457,7 @@ public class zaxxon
 				color =	(color_codes[sx + 32 * (sy/4)] & 0x0f) + 16 * (*zaxxon_char_color_bank & 1);
 	
 			drawgfx(bitmap,Machine.gfx[0],
-					videoram[offs],
+					videoram.read(offs),
 					color,
 					0,0,
 					8*sx,8*sy,
@@ -498,7 +498,7 @@ public class zaxxon
 			sx = offs % 32;
 			sy = offs / 32;
 	
-			code = videoram[offs];
+			code = videoram.read(offs);
 			color =	(color_codes[code] & 0x0f) + 16 * (*zaxxon_char_color_bank & 1);
 	
 			drawgfx(bitmap,Machine.gfx[0],

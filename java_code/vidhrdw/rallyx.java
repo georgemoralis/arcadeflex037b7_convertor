@@ -322,7 +322,7 @@ public class rallyx
 				}
 	
 				drawgfx(tmpbitmap,Machine.gfx[0],
-						videoram[offs],
+						videoram.read(offs),
 						colorram[offs] & 0x3f,
 						flipx,flipy,
 						8*sx,8*sy,
@@ -488,7 +488,7 @@ public class rallyx
 				}
 	
 				drawgfx(tmpbitmap,Machine.gfx[0],
-						videoram[offs],
+						videoram.read(offs),
 						colorram[offs] & 0x3f,
 						flipx,flipy,
 						8*sx,8*sy,
@@ -604,7 +604,7 @@ public class rallyx
 				}
 	
 				drawgfx(tmpbitmap,Machine.gfx[0],
-						(videoram[offs]&0x7f) + 2*(colorram[offs]&0x40) + 2*(videoram[offs]&0x80),
+						(videoram.read(offs)&0x7f) + 2*(colorram[offs]&0x40) + 2*(videoram.read(offs)&0x80),
 						colorram[offs] & 0x3f,
 						flipx,flipy,
 						8*sx,8*sy,
@@ -746,7 +746,7 @@ public class rallyx
 				}
 	
 				drawgfx(tmpbitmap,Machine.gfx[0],
-						(videoram[offs]&0x7f) + 2*(colorram[offs]&0x40) + 2*(videoram[offs]&0x80),
+						(videoram.read(offs)&0x7f) + 2*(colorram[offs]&0x40) + 2*(videoram.read(offs)&0x80),
 						colorram[offs] & 0x3f,
 						flipx,flipy,
 						8*sx,8*sy,

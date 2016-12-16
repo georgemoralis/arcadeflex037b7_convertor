@@ -443,7 +443,7 @@ public class cclimber
 				}
 	
 				drawgfx(tmpbitmap,Machine.gfx[(colorram[offs] & 0x10) ? 1 : 0],
-						videoram[offs] + 8 * (colorram[offs] & 0x20),
+						videoram.read(offs)+ 8 * (colorram[offs] & 0x20),
 						colorram[offs] & 0x0f,
 						flipx,flipy,
 						8*sx,8*sy,
@@ -601,7 +601,7 @@ public class cclimber
 				}
 	
 				drawgfx(tmpbitmap,Machine.gfx[0],
-						videoram[offs] + ((colorram[offs] & 0x10) << 4),
+						videoram.read(offs)+ ((colorram[offs] & 0x10) << 4),
 						color,
 						flipx,flipy,
 						8*sx,8*sy,

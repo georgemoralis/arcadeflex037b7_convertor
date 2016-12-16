@@ -64,7 +64,7 @@ public class jack
 				}
 	
 				drawgfx(tmpbitmap,Machine.gfx[0],
-						videoram[offs] + ((colorram[offs] & 0x18) << 5),
+						videoram.read(offs)+ ((colorram[offs] & 0x18) << 5),
 						colorram[offs] & 0x07,
 						flip_screen,flip_screen,
 						8*sx,8*sy,

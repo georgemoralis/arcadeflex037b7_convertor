@@ -41,7 +41,7 @@ public class bsktball
 	
 	                        dirtybuffer[offs]=0;
 	
-	                        charcode = videoram[offs];
+	                        charcode = videoram.read(offs);
 	
 	                        color = (charcode & 0x40) >> 6;
 							flipx = (charcode & 0x80) >> 7;

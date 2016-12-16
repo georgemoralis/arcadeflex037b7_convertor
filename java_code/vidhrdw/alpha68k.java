@@ -62,9 +62,9 @@ public class alpha68k
 	public static WriteHandlerPtr alpha68k_videoram_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
 		if ((data>>16)==0xff)
-			WRITE_WORD(&videoram[offset],(data>>8)&0xff);
+			WRITE_WORD(&videoram.read(offset),(data>>8)&0xff);
 		else
-			WRITE_WORD(&videoram[offset],data);
+			WRITE_WORD(&videoram.read(offset),data);
 	
 		tilemap_mark_tile_dirty(fix_tilemap,offset/4);
 	} };
@@ -378,8 +378,8 @@ public class alpha68k
 		for (color = 0;color < 16;color++) colmask[color] = 0;
 		for (offs = 0;offs <0x1000;offs += 4)
 		{
-			color = READ_WORD(&videoram[offs+2])&0xf;
-			tile = READ_WORD(&videoram[offs])&0xff;
+			color = READ_WORD(&videoram.read(offs+2))&0xf;
+			tile = READ_WORD(&videoram.read(offs))&0xff;
 	        tile = tile | ((bank_base)<<8);
 			colmask[color] |= Machine.gfx[0].pen_usage[tile];
 		}
@@ -626,15 +626,15 @@ public class alpha68k
 	static void get_kouyakyu_info( int tile_index )
 	{
 		int offs=tile_index*4;
-		int tile=READ_WORD(&videoram[offs])&0xff;
-		int color=READ_WORD(&videoram[offs+2])&0xf;
+		int tile=READ_WORD(&videoram.read(offs))&0xff;
+		int color=READ_WORD(&videoram.read(offs+2))&0xf;
 	
 		SET_TILE_INFO(0,tile,color)
 	}
 	
 	public static WriteHandlerPtr kouyakyu_video_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		WRITE_WORD(&videoram[offset],data);
+		WRITE_WORD(&videoram.read(offset),data);
 		tilemap_mark_tile_dirty( fix_tilemap, offset/4 );
 	} };
 	

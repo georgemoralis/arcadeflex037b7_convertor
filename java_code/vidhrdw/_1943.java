@@ -393,7 +393,7 @@ public class _1943
 				}
 	
 				drawgfx(bitmap,Machine.gfx[0],
-						videoram[offs] + ((colorram[offs] & 0xe0) << 3),
+						videoram.read(offs)+ ((colorram[offs] & 0xe0) << 3),
 						colorram[offs] & 0x1f,
 						flipscreen,flipscreen,
 						8*sx,8*sy,

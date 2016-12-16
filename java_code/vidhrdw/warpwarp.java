@@ -121,7 +121,7 @@ public class warpwarp
 				}
 	
 				drawgfx(tmpbitmap,Machine.gfx[0],
-						videoram[offs],
+						videoram.read(offs),
 						colorram[offs],
 						0,0,
 						8*sx,8*sy,

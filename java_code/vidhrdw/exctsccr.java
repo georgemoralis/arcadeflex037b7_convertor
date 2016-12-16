@@ -237,7 +237,7 @@ public class exctsccr
 				sx = 8 * (offs % 32);
 				sy = 8 * (offs / 32);
 	
-				code = videoram[offs];
+				code = videoram.read(offs);
 	
 				drawgfx(tmpbitmap,Machine.gfx[gfx_bank],
 						code,

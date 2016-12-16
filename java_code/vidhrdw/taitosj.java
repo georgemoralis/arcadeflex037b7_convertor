@@ -824,7 +824,7 @@ public class taitosj
 				if (flipscreen[1]) sy = 31 - sy;
 	
 				drawgfx(taitosj_tmpbitmap[0],Machine.gfx[taitosj_colorbank[0] & 0x08 ? 2 : 0],
-						videoram[offs],
+						videoram.read(offs),
 						(taitosj_colorbank[0] & 0x07) + 8,	/* use transparent pen 0 */
 						flipscreen[0],flipscreen[1],
 						8*sx,8*sy,

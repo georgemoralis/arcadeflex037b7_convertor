@@ -195,9 +195,9 @@ public class atarifb
 	
 				dirtybuffer[offs]=0;
 	
-				charcode = videoram[offs] & 0x3f;
-				flipx = (videoram[offs] & 0x40) >> 6;
-				flipy = (videoram[offs] & 0x80) >> 7;
+				charcode = videoram.read(offs)& 0x3f;
+				flipx = (videoram.read(offs)& 0x40) >> 6;
+				flipy = (videoram.read(offs)& 0x80) >> 7;
 	
 				sx = (8 * (offs % 32) - *atarifb_scroll_register);
 				sy = 8 * (offs / 32) + 8;

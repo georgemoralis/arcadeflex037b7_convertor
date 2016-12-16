@@ -163,7 +163,7 @@ public class zaccaria
 				sy = offs / 32;
 	
 				drawgfx(tmpbitmap,Machine.gfx[0],
-						videoram[offs] + ((colorram[offs] & 0x03) << 8),
+						videoram.read(offs)+ ((colorram[offs] & 0x03) << 8),
 						4 * (zaccaria_attributesram[2 * (offs % 32) + 1] & 0x07)
 								+ ((colorram[offs] & 0x0c) >> 2),
 						0,0,

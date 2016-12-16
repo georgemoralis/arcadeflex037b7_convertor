@@ -86,9 +86,9 @@ public class qwakprot
 				sx = offs % 32;
 				sy = offs / 32;
 	
-				gfxset = ((videoram[offs] & 0x80) >> 7);
+				gfxset = ((videoram.read(offs)& 0x80) >> 7);
 				drawgfx(bitmap,Machine.gfx[gfxset],
-						videoram[offs] & 0x7f,
+						videoram.read(offs)& 0x7f,
 						0,		/* color */
 						0,0,	/* flipx, flipy */
 						8*sx,8*sy,

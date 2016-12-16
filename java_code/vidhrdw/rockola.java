@@ -226,7 +226,7 @@ public class rockola
 				}
 	
 				drawgfx(tmpbitmap,Machine.gfx[1],
-						videoram[offs] + 256 * charbank,
+						videoram.read(offs)+ 256 * charbank,
 						(colorram[offs] & 0x38) >> 3,
 						flip_screen,flip_screen,
 						8*sx,8*sy,
@@ -317,7 +317,7 @@ public class rockola
 				}
 	
 				drawgfx(tmpbitmap,Machine.gfx[1],
-						videoram[offs],
+						videoram.read(offs),
 						(colorram[offs] & 0x0c) >> 2,
 						flip_screen,flip_screen,
 						8*sx,8*sy,

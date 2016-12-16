@@ -133,7 +133,7 @@ public class ssozumo
 				sy = (offs % 32);
 	
 				drawgfx(tmpbitmap, Machine.gfx[1],
-						videoram[offs] + ((colorram[offs] & 0x08) << 5),
+						videoram.read(offs)+ ((colorram[offs] & 0x08) << 5),
 						(colorram[offs] & 0x30) >> 4,
 						0, sy >= 16,
 						(16 * sx), (16 * sy),

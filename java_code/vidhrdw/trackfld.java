@@ -162,7 +162,7 @@ public class trackfld
 				}
 	
 				drawgfx(tmpbitmap,Machine.gfx[0],
-						videoram[offs] + 4 * (colorram[offs] & 0xc0),
+						videoram.read(offs)+ 4 * (colorram[offs] & 0xc0),
 						colorram[offs] & 0x0f,
 						flipx,flipy,
 						8*sx,8*sy,

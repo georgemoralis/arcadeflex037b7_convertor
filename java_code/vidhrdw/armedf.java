@@ -48,32 +48,32 @@ public class armedf
 	
 	public static WriteHandlerPtr armedf_text_videoram_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		int oldword = READ_WORD(&videoram[offset]);
+		int oldword = READ_WORD(&videoram.read(offset));
 		int newword = COMBINE_WORD(oldword,data);
 		if( oldword != newword )
 		{
-			WRITE_WORD(&videoram[offset],newword);
+			WRITE_WORD(&videoram.read(offset),newword);
 			tilemap_mark_tile_dirty(text_layer,(offset/2) & 0x7ff);
 		}
 	} };
 	
 	public static ReadHandlerPtr armedf_text_videoram_r  = new ReadHandlerPtr() { public int handler(int offset)
 	{
-		return READ_WORD (&videoram[offset]);
+		return READ_WORD (&videoram.read(offset));
 	} };
 	
 	public static ReadHandlerPtr terraf_text_videoram_r  = new ReadHandlerPtr() { public int handler(int offset)
 	{
-		return READ_WORD( &videoram[offset] );
+		return READ_WORD( &videoram.read(offset));
 	} };
 	
 	public static WriteHandlerPtr terraf_text_videoram_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		int oldword = READ_WORD(&videoram[offset]);
+		int oldword = READ_WORD(&videoram.read(offset));
 		int newword = COMBINE_WORD(oldword,data);
 		if( oldword != newword )
 		{
-			WRITE_WORD(&videoram[offset],newword);
+			WRITE_WORD(&videoram.read(offset),newword);
 			offset = offset/2;
 			tilemap_mark_tile_dirty(text_layer,offset & 0xbff);
 		}

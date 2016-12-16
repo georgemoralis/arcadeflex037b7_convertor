@@ -126,7 +126,7 @@ public class bagman
 				if (Machine.gfx[2] && (colorram[offs] & 0x10)) bank = 2;
 	
 				drawgfx(tmpbitmap,Machine.gfx[bank],
-						videoram[offs] + 8 * (colorram[offs] & 0x20),
+						videoram.read(offs)+ 8 * (colorram[offs] & 0x20),
 						colorram[offs] & 0x0f,
 						flipscreen[0],flipscreen[1],
 						8*sx,8*sy,

@@ -154,7 +154,7 @@ public class megazone
 	//			}
 	
 				drawgfx(tmpbitmap,Machine.gfx[0],
-						((int)videoram[offs]) + ((colorram[offs] & (1<<7) ? 256 : 0) ),
+						((int)videoram.read(offs)) + ((colorram[offs] & (1<<7) ? 256 : 0) ),
 						(colorram[offs] & 0x0f) + 0x10,
 						flipx,flipy,
 						8*sx,8*sy,

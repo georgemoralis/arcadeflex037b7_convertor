@@ -102,16 +102,16 @@ public class milliped
 				sx = offs % 32;
 				sy = offs / 32;
 	
-				if (videoram[offs] & 0x40)
+				if (videoram.read(offs)& 0x40)
 					bank = 1;
 				else bank = 0;
 	
-				if (videoram[offs] & 0x80)
+				if (videoram.read(offs)& 0x80)
 					color = 2;
 				else color = 0;
 	
 				drawgfx(bitmap,Machine.gfx[0],
-						0x40 + (videoram[offs] & 0x3f) + 0x80 * bank,
+						0x40 + (videoram.read(offs)& 0x3f) + 0x80 * bank,
 						bank + color,
 						0,0,
 						8*sx,8*sy,

@@ -57,7 +57,7 @@ public class pkunwar
 				if (flipscreen[1]) sy = 31 - sy;
 	
 				drawgfx(tmpbitmap,Machine.gfx[0],
-						videoram[offs] + ((colorram[offs] & 0x07) << 8),
+						videoram.read(offs)+ ((colorram[offs] & 0x07) << 8),
 						(colorram[offs] & 0xf0) >> 4,
 						flipscreen[0],flipscreen[1],
 						8*sx,8*sy,
@@ -113,7 +113,7 @@ public class pkunwar
 				if (flipscreen[1]) sy = 31 - sy;
 	
 				drawgfx(bitmap,Machine.gfx[0],
-						videoram[offs] + ((colorram[offs] & 0x07) << 8),
+						videoram.read(offs)+ ((colorram[offs] & 0x07) << 8),
 						(colorram[offs] & 0xf0) >> 4,
 						flipscreen[0],flipscreen[1],
 						8*sx,8*sy,

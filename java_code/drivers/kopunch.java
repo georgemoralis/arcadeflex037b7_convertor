@@ -64,7 +64,7 @@ public class kopunch
 				sy = offs / 32;
 	
 				drawgfx(tmpbitmap,Machine.gfx[0],
-						videoram[offs],
+						videoram.read(offs),
 						0,
 						0,0,
 						8*sx,8*sy,

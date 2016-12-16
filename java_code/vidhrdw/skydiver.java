@@ -85,8 +85,8 @@ public class skydiver
 	
 				dirtybuffer[offs]=0;
 	
-				charcode = videoram[offs] & 0x3F;
-				color    = (videoram[offs] & 0xc0) >> 6;
+				charcode = videoram.read(offs)& 0x3F;
+				color    = (videoram.read(offs)& 0xc0) >> 6;
 	
 				sx = 8 * (offs % 32);
 				sy = 8 * (offs / 32);

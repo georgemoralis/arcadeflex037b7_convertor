@@ -179,9 +179,9 @@ public class atetris
 	
 			if (sx >= 42*8) continue;
 	
-			charcode = videoram[offs] | ((videoram[offs + 1] & 0x07) << 8);
+			charcode = videoram.read(offs)| ((videoram.read(offs+1)& 0x07) << 8);
 	
-			color = ((videoram[offs + 1] & 0xf0) >> 4);
+			color = ((videoram.read(offs+1)& 0xf0) >> 4);
 	
 			drawgfx(bitmap,Machine.gfx[0],
 					charcode,

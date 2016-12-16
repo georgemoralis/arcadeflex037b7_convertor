@@ -327,7 +327,7 @@ public class bosco
 				}
 	
 				drawgfx(tmpbitmap,Machine.gfx[0],
-						videoram[offs],
+						videoram.read(offs),
 						colorram[offs] & 0x3f,
 						flipx,flipy,
 						8*sx,8*sy,

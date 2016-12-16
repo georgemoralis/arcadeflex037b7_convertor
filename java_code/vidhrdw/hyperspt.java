@@ -167,7 +167,7 @@ public class hyperspt
 				}
 	
 				drawgfx(tmpbitmap,Machine.gfx[0],
-						videoram[offs] + ((colorram[offs] & 0x80) << 1) + ((colorram[offs] & 0x40) << 3),
+						videoram.read(offs)+ ((colorram[offs] & 0x80) << 1) + ((colorram[offs] & 0x40) << 3),
 						colorram[offs] & 0x0f,
 						flipx,flipy,
 						8*sx,8*sy,
@@ -267,7 +267,7 @@ public class hyperspt
 				}
 	
 				drawgfx(tmpbitmap,Machine.gfx[0],
-						videoram[offs] + ((colorram[offs] & 0x80) << 1) + ((colorram[offs] & 0x60) << 4),
+						videoram.read(offs)+ ((colorram[offs] & 0x80) << 1) + ((colorram[offs] & 0x60) << 4),
 						colorram[offs] & 0x0f,
 						flipx,flipy,
 						8*sx,8*sy,

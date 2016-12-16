@@ -239,7 +239,7 @@ public class appoooh
 	
 				sx = offs % 32;
 				sy = offs / 32;
-				code = videoram[offs] + 256 * ((colorram[offs]>>5) & 7);
+				code = videoram.read(offs)+ 256 * ((colorram[offs]>>5) & 7);
 	
 				flipx = colorram[offs] & 0x10;
 				if (flipscreen != 0)

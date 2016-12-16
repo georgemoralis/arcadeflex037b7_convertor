@@ -195,7 +195,7 @@ public class btime
 	
 	public static WriteHandlerPtr lnc_videoram_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-	    if (videoram[offset] != data || colorram[offset] != *lnc_charbank)
+	    if (videoram.read(offset)!= data || colorram[offset] != *lnc_charbank)
 	    {
 	        videoram[offset] = data;
 	        colorram[offset] = *lnc_charbank;
@@ -395,7 +395,7 @@ public class btime
 	
 	        dirtybuffer[offs] = 0;
 	
-	        code = videoram[offs] + 256 * (colorram[offs] & 3);
+	        code = videoram.read(offs)+ 256 * (colorram[offs] & 3);
 	
 	        /* check priority */
 	        if ((priority != -1) && (priority != ((code >> 7) & 0x01)))  continue;
@@ -517,7 +517,7 @@ public class btime
 	    {
 	        int code;
 	
-	        code = videoram[offs] + 256 * (colorram[offs] & 3);
+	        code = videoram.read(offs)+ 256 * (colorram[offs] & 3);
 	
 	        switch (char_dirty[code])
 	        {

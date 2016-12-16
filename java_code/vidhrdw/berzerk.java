@@ -130,26 +130,26 @@ public class berzerk
 		/* Check for collision */
 		if (!collision)
 		{
-			collision = (data2 & videoram[offset]);
+			collision = (data2 & videoram.read(offset));
 		}
 	
 		switch (magicram_control & 0xf0)
 		{
 		case 0x00: berzerk_magicram[offset] = data2; 						break;
-		case 0x10: berzerk_magicram[offset] = data2 |  videoram[offset]; 	break;
-		case 0x20: berzerk_magicram[offset] = data2 | ~videoram[offset]; 	break;
+		case 0x10: berzerk_magicram[offset] = data2 |  videoram.read(offset); 	break;
+		case 0x20: berzerk_magicram[offset] = data2 | ~videoram.read(offset); 	break;
 		case 0x30: berzerk_magicram[offset] = 0xff;  						break;
-		case 0x40: berzerk_magicram[offset] = data2 & videoram[offset]; 	break;
-		case 0x50: berzerk_magicram[offset] = videoram[offset]; 			break;
-		case 0x60: berzerk_magicram[offset] = ~(data2 ^ videoram[offset]); 	break;
-		case 0x70: berzerk_magicram[offset] = ~data2 | videoram[offset]; 	break;
-		case 0x80: berzerk_magicram[offset] = data2 & ~videoram[offset];	break;
-		case 0x90: berzerk_magicram[offset] = data2 ^ videoram[offset];		break;
-		case 0xa0: berzerk_magicram[offset] = ~videoram[offset];			break;
-		case 0xb0: berzerk_magicram[offset] = ~(data2 & videoram[offset]); 	break;
+		case 0x40: berzerk_magicram[offset] = data2 & videoram.read(offset); 	break;
+		case 0x50: berzerk_magicram[offset] = videoram.read(offset); 			break;
+		case 0x60: berzerk_magicram[offset] = ~(data2 ^ videoram.read(offset)); 	break;
+		case 0x70: berzerk_magicram[offset] = ~data2 | videoram.read(offset); 	break;
+		case 0x80: berzerk_magicram[offset] = data2 & ~videoram.read(offset);	break;
+		case 0x90: berzerk_magicram[offset] = data2 ^ videoram.read(offset);		break;
+		case 0xa0: berzerk_magicram[offset] = ~videoram.read(offset);			break;
+		case 0xb0: berzerk_magicram[offset] = ~(data2 & videoram.read(offset)); 	break;
 		case 0xc0: berzerk_magicram[offset] = 0x00; 						break;
-		case 0xd0: berzerk_magicram[offset] = ~data2 & videoram[offset]; 	break;
-		case 0xe0: berzerk_magicram[offset] = ~(data2 | videoram[offset]); 	break;
+		case 0xd0: berzerk_magicram[offset] = ~data2 & videoram.read(offset); 	break;
+		case 0xe0: berzerk_magicram[offset] = ~(data2 | videoram.read(offset)); 	break;
 		case 0xf0: berzerk_magicram[offset] = ~data2; 						break;
 		}
 	
@@ -189,7 +189,7 @@ public class berzerk
 	
 			for (offs = 0; offs < videoram_size; offs++)
 			{
-				berzerk_videoram_w(offs, videoram[offs]);
+				berzerk_videoram_w(offs, videoram.read(offs));
 			}
 		}
 	} };

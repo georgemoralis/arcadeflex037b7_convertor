@@ -175,7 +175,7 @@ public class kyugo
 					flipy = !flipy;
 				}
 	
-				tile = videoram[offs] + ( 256 * ( colorram[offs] & 3 ) );
+				tile = videoram.read(offs)+ ( 256 * ( colorram[offs] & 3 ) );
 	
 				drawgfx( tmpbitmap, Machine.gfx[2],
 						tile,

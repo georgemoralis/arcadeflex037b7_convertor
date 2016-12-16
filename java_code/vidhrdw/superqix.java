@@ -233,7 +233,7 @@ public class superqix
 				sy = offs / 32;
 	
 				drawgfx(tmpbitmap,Machine.gfx[(colorram[offs] & 0x04) ? 0 : (1 + gfxbank)],
-						videoram[offs] + 256 * (colorram[offs] & 0x03),
+						videoram.read(offs)+ 256 * (colorram[offs] & 0x03),
 						(colorram[offs] & 0xf0) >> 4,
 						0,0,
 						8*sx,8*sy,
@@ -324,7 +324,7 @@ public class superqix
 				sy = offs / 32;
 	
 				drawgfx(bitmap,Machine.gfx[(colorram[offs] & 0x04) ? 0 : 1],
-						videoram[offs] + 256 * (colorram[offs] & 0x03),
+						videoram.read(offs)+ 256 * (colorram[offs] & 0x03),
 						(colorram[offs] & 0xf0) >> 4,
 						0,0,
 						8*sx,8*sy,

@@ -174,7 +174,7 @@ public class grobda
 				}
 	
 				drawgfx(tmpbitmap,Machine.gfx[0],
-						videoram[offs],
+						videoram.read(offs),
 						colorram[offs] & 0x3f,
 						flip_screen,flip_screen,
 						sx*8,sy*8,

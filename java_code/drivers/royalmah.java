@@ -94,7 +94,7 @@ public class royalmah
 	
 			for (offs = 0; offs < videoram_size; offs++)
 			{
-				royalmah_videoram_w(offs, videoram[offs]);
+				royalmah_videoram_w(offs, videoram.read(offs));
 			}
 		}
 	} };

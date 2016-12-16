@@ -125,7 +125,7 @@ public class wiping
 				}
 	
 				drawgfx(tmpbitmap,Machine.gfx[0],
-						videoram[offs],
+						videoram.read(offs),
 						colorram[offs] & 0x3f,
 						flipscreen,flipscreen,
 						sx*8,sy*8,
@@ -195,7 +195,7 @@ public class wiping
 				}
 	
 				drawgfx(bitmap,Machine.gfx[0],
-						videoram[offs],
+						videoram.read(offs),
 						colorram[offs] & 0x3f,
 						flipscreen,flipscreen,
 						sx*8,sy*8,

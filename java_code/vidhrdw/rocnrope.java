@@ -129,7 +129,7 @@ public class rocnrope
 				}
 	
 				drawgfx(tmpbitmap,Machine.gfx[0],
-						videoram[offs] + 2 * (colorram[offs] & 0x80),
+						videoram.read(offs)+ 2 * (colorram[offs] & 0x80),
 						colorram[offs] & 0x0f,
 						flipx,flipy,
 						8*sx,8*sy,

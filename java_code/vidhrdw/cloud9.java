@@ -111,7 +111,7 @@ public class cloud9
 		switch (x & 0x02)
 		{
 		case 0x00:
-			*vptr = &(videoram[voff]);
+			*vptr = &(videoram.read(voff));
 			break;
 		case 0x02:
 			*vptr = &(cloud9_vram2[voff]);
@@ -268,7 +268,7 @@ public class cloud9
 		for (offs = 0; offs < videoram_size; offs++)
 		{
 			*cloud9_vram_bank = 0;
-			cloud9_bitmap_w(offs, videoram[offs]);
+			cloud9_bitmap_w(offs, videoram.read(offs));
 	
 			*cloud9_vram_bank = 0x80;
 			cloud9_bitmap_w(offs, cloud9_vram2[offs]);

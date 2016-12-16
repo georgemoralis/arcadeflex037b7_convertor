@@ -134,7 +134,7 @@ public class zodiack
 				sy = 31 - sy;
 			}
 	
-			code = videoram[offs];
+			code = videoram.read(offs);
 	
 			drawgfx(tmpbitmap,Machine.gfx[3],
 					code,

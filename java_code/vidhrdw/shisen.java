@@ -76,8 +76,8 @@ public class shisen
 				sy = (offs/2) / 64;
 	
 				drawgfx(tmpbitmap,Machine.gfx[0],
-						videoram[offs] + ((videoram[offs+1] & 0x0f) << 8) + (gfxbank << 12),
-						(videoram[offs+1] & 0xf0) >> 4,
+						videoram.read(offs)+ ((videoram.read(offs+1)& 0x0f) << 8) + (gfxbank << 12),
+						(videoram.read(offs+1)& 0xf0) >> 4,
 						0,0,
 						8*sx,8*sy,
 						&Machine.visible_area,TRANSPARENCY_NONE,0);

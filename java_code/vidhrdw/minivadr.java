@@ -76,7 +76,7 @@ public class minivadr
 			/* redraw bitmap */
 	
 			for (offs = 0; offs < videoram_size; offs++)
-				minivadr_videoram_w(offs,videoram[offs]);
+				minivadr_videoram_w(offs,videoram.read(offs));
 		}
 	} };
 }

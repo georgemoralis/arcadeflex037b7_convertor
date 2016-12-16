@@ -222,7 +222,7 @@ public class tehkanwc
 	
 		for (offs = videoram_size - 1;offs >= 0;offs--)
 		{
-			code = videoram[offs] + ((colorram[offs] & 0x10) << 4);
+			code = videoram.read(offs)+ ((colorram[offs] & 0x10) << 4);
 			color = colorram[offs] & 0x0f;
 			colmask[color] |= Machine.gfx[0].pen_usage[code];
 		}
@@ -287,7 +287,7 @@ public class tehkanwc
 	
 			if ((colorram[offs] & 0x20))
 				drawgfx(bitmap,Machine.gfx[0],
-						videoram[offs] + ((colorram[offs] & 0x10) << 4),
+						videoram.read(offs)+ ((colorram[offs] & 0x10) << 4),
 						colorram[offs] & 0x0f,
 						colorram[offs] & 0x40, colorram[offs] & 0x80,
 						sx*8,sy*8,
@@ -320,7 +320,7 @@ public class tehkanwc
 	
 			if (!(colorram[offs] & 0x20))
 				drawgfx(bitmap,Machine.gfx[0],
-						videoram[offs] + ((colorram[offs] & 0x10) << 4),
+						videoram.read(offs)+ ((colorram[offs] & 0x10) << 4),
 						colorram[offs] & 0x0f,
 						colorram[offs] & 0x40, colorram[offs] & 0x80,
 						sx*8,sy*8,

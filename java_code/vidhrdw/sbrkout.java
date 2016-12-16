@@ -78,13 +78,13 @@ public class sbrkout
 	
 				dirtybuffer[offs]=0;
 	
-				code = videoram[offs] & 0x3f;
+				code = videoram.read(offs)& 0x3f;
 	
 				sx = 8*(offs % 32);
 				sy = 8*(offs / 32);
 	
 				/* Check the "draw" bit */
-				color = ((videoram[offs] & 0x80)>>7);
+				color = ((videoram.read(offs)& 0x80)>>7);
 	
 				drawgfx(tmpbitmap,Machine.gfx[0],
 						code, color,

@@ -79,7 +79,7 @@ public class tsamurai
 	
 	static void get_fg_tile_info(int tile_index)
 	{
-		int tile_number = videoram[tile_index];
+		int tile_number = videoram.read(tile_index);
 		if ((textbank & 1) != 0) tile_number += 256;
 		SET_TILE_INFO(1,tile_number,colorram[((tile_index&0x1f)*2)+1] & 0x1f )
 	}
@@ -146,7 +146,7 @@ public class tsamurai
 	} };
 	public static WriteHandlerPtr tsamurai_fg_videoram_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		if( videoram[offset]!=data )
+		if( videoram.read(offset)!=data )
 		{
 			videoram[offset]=data;
 			tilemap_mark_tile_dirty(foreground,offset);

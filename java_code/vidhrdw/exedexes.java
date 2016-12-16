@@ -236,7 +236,7 @@ public class exedexes
 				sy = offs / 32;
 	
 				drawgfx(bitmap,Machine.gfx[0],
-						videoram[offs] + 2 * (colorram[offs] & 0x80),
+						videoram.read(offs)+ 2 * (colorram[offs] & 0x80),
 						colorram[offs] & 0x3f,
 						0,0,
 						8*sx,8*sy,

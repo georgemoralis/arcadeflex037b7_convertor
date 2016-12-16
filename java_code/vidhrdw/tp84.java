@@ -248,7 +248,7 @@ public class tp84
 				sy = offs / 32;
 	
 				drawgfx(tmpbitmap,Machine.gfx[0],
-						videoram[offs] + ((colorram[offs] & 0x30) << 4),
+						videoram.read(offs)+ ((colorram[offs] & 0x30) << 4),
 						(colorram[offs] & 0x0f) + coloffset,
 						colorram[offs] & 0x40,colorram[offs] & 0x80,
 						8*sx,8*sy,

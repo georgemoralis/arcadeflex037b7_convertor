@@ -169,7 +169,7 @@ public class solomon
 				}
 	
 				drawgfx(tmpbitmap,Machine.gfx[0],
-						videoram[offs] + 256 * (colorram[offs] & 0x07),
+						videoram.read(offs)+ 256 * (colorram[offs] & 0x07),
 						(colorram[offs] & 0x70) >> 4,
 						flipscreen,flipscreen,
 						8*sx,8*sy,

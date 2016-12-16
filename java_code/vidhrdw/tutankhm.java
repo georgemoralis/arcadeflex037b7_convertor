@@ -73,7 +73,7 @@ public class tutankhm
 			int offs;
 	
 			for (offs = 0;offs < videoram_size;offs++)
-				tutankhm_videoram_w(offs,videoram[offs]);
+				tutankhm_videoram_w(offs,videoram.read(offs));
 		}
 	
 		/* copy the temporary bitmap to the screen */
@@ -187,10 +187,10 @@ public class tutankhm
 	#define JUNOCLEARPIXEL(x) 						\
 		if ((JunoBLTRom[srcaddress+x] & 0xF0)) 		\
 			tutankhm_videoram_w( destaddress+x,		\
-				videoram[destaddress+x] & 0xF0);	\
+				videoram.read(destaddress+x)& 0xF0);	\
 		if ((JunoBLTRom[srcaddress+x] & 0x0F))		\
 			tutankhm_videoram_w( destaddress+x,		\
-				videoram[destaddress+x] & 0x0F);
+				videoram.read(destaddress+x)& 0x0F);
 	
 					JUNOCLEARPIXEL(0);
 					JUNOCLEARPIXEL(1);

@@ -145,7 +145,7 @@ public class frogger
 					sx = 31 - sx;
 					sy = 31 - sy;
 					drawgfx(tmpbitmap,Machine.gfx[0],
-							videoram[offs],
+							videoram.read(offs),
 							col + (sx >= 16 ? 8 : 0),	/* blue background in the lower 128 lines */
 							flipscreen,flipscreen,8*sx,8*sy,
 							0,TRANSPARENCY_NONE,0);
@@ -153,7 +153,7 @@ public class frogger
 				else
 				{
 					drawgfx(tmpbitmap,Machine.gfx[0],
-							videoram[offs],
+							videoram.read(offs),
 							col + (sx <= 15 ? 8 : 0),	/* blue background in the upper 128 lines */
 							flipscreen,flipscreen,8*sx,8*sy,
 							0,TRANSPARENCY_NONE,0);
@@ -248,7 +248,7 @@ public class frogger
 					sx = 31 - sx;
 					sy = 31 - sy;
 					drawgfx(tmpbitmap,Machine.gfx[0],
-							videoram[offs],
+							videoram.read(offs),
 							col + (sx >= 16 ? 8 : 0),	/* blue background in the lower 128 lines */
 							flipscreen,flipscreen,8*sx,8*sy,
 							0,TRANSPARENCY_NONE,0);
@@ -256,7 +256,7 @@ public class frogger
 				else
 				{
 					drawgfx(tmpbitmap,Machine.gfx[0],
-							videoram[offs],
+							videoram.read(offs),
 							col + (sx <= 15 ? 8 : 0),	/* blue background in the upper 128 lines */
 							flipscreen,flipscreen,8*sx,8*sy,
 							0,TRANSPARENCY_NONE,0);

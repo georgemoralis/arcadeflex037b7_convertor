@@ -232,7 +232,7 @@ public class dkong
 				sx = offs % 32;
 				sy = offs / 32;
 	
-				charcode = videoram[offs] + 256 * gfx_bank;
+				charcode = videoram.read(offs)+ 256 * gfx_bank;
 				/* retrieve the character color from the PROM */
 				color = (color_codes[offs % 32 + 32 * (offs / 32 / 4)] & 0x0f) + 0x10 * palette_bank;
 	

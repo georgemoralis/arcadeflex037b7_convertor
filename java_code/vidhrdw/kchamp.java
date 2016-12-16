@@ -160,7 +160,7 @@ public class kchamp
 	                        sx = (offs % 32);
 				sy = (offs / 32);
 	
-	                        code = videoram[offs] + ( ( colorram[offs] & 7 ) << 8 );
+	                        code = videoram.read(offs)+ ( ( colorram[offs] & 7 ) << 8 );
 	
 	                        drawgfx(tmpbitmap,Machine.gfx[0],
 	                                        code,

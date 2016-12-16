@@ -166,13 +166,13 @@ public class rpunch
 	
 	WRITE_HANDLER(rpunch_videoram_w)
 	{
-		int oldword = READ_WORD(&videoram[offset]);
+		int oldword = READ_WORD(&videoram.read(offset));
 		int newword = COMBINE_WORD(oldword, data);
 		if (oldword != newword)
 		{
 			int tilemap = offset >> 13;
 			int tile_index = (offset / 2) & 0xfff;
-			WRITE_WORD(&videoram[offset], newword);
+			WRITE_WORD(&videoram.read(offset), newword);
 			tilemap_mark_tile_dirty(background[tilemap],tile_index);
 		}
 	}
@@ -351,7 +351,7 @@ public class rpunch
 	
 		/* update background 0 */
 		callback_gfxbank = 0;
-		callback_videoram = (const UINT16 *)&videoram[0];
+		callback_videoram = (const UINT16 *)&videoram.read(0);
 		callback_colorbase = (videoflags & 0x0010) >> 1;
 		callback_imagebase = (videoflags & 0x0400) << 3;
 		callback_imagemask = callback_imagebase ? 0x0fff : 0x1fff;

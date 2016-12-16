@@ -131,7 +131,7 @@ public class circusc
 				}
 	
 				drawgfx(tmpbitmap,Machine.gfx[0],
-						videoram[offs] + 8 * (colorram[offs] & 0x20),
+						videoram.read(offs)+ 8 * (colorram[offs] & 0x20),
 						colorram[offs] & 0x0f,
 						flipx,flipy,
 						8*sx,8*sy,

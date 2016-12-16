@@ -145,8 +145,8 @@ public class troangel
 				sx = (offs/2) % 32;
 				sy = (offs/2) / 32;
 	
-				attr = videoram[offs];
-				code = videoram[offs+1] + ((attr & 0xc0) << 2);
+				attr = videoram.read(offs);
+				code = videoram.read(offs+1)+ ((attr & 0xc0) << 2);
 				flipx = attr & 0x20;
 	
 				if (flipscreen != 0)

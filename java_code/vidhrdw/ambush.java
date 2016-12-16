@@ -87,7 +87,7 @@ public class ambush
 	
 			scroll = ~ambush_scrollram[sx];
 	
-			code = videoram[offs] | ((col & 0x60) << 3);
+			code = videoram.read(offs)| ((col & 0x60) << 3);
 	
 			if (flip_screen != 0)
 			{

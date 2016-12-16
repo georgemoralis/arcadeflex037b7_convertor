@@ -58,14 +58,14 @@ public class cabal
 	} };
 	
 	public static ReadHandlerPtr cabal_background_r  = new ReadHandlerPtr() { public int handler(int offset){
-		return READ_WORD (&videoram[offset]);
+		return READ_WORD (&videoram.read(offset));
 	} };
 	
 	public static WriteHandlerPtr cabal_background_w = new WriteHandlerPtr() {public void handler(int offset, int data){
-		int oldword = READ_WORD(&videoram[offset]);
+		int oldword = READ_WORD(&videoram.read(offset));
 		int newword = COMBINE_WORD(oldword,data);
 		if( oldword != newword ){
-			WRITE_WORD(&videoram[offset],newword);
+			WRITE_WORD(&videoram.read(offset),newword);
 			dirtybuffer[offset/2] = 1;
 		}
 	} };

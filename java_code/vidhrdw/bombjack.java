@@ -119,7 +119,7 @@ public class bombjack
 							&clip,TRANSPARENCY_NONE,0);
 	
 					drawgfx(tmpbitmap,Machine.gfx[0],
-							videoram[offs] + 16 * (colorram[offs] & 0x10),
+							videoram.read(offs)+ 16 * (colorram[offs] & 0x10),
 							colorram[offs] & 0x0f,
 							flipscreen,flipscreen,
 							8*sx,8*sy,
@@ -127,7 +127,7 @@ public class bombjack
 				}
 				else
 					drawgfx(tmpbitmap,Machine.gfx[0],
-							videoram[offs] + 16 * (colorram[offs] & 0x10),
+							videoram.read(offs)+ 16 * (colorram[offs] & 0x10),
 							colorram[offs] & 0x0f,
 							flipscreen,flipscreen,
 							8*sx,8*sy,

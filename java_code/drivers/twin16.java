@@ -107,8 +107,8 @@ public class twin16
 	#define twin16_tile_gfx_ram_w		MWA_BANK6, &twin16_tile_gfx_ram
 	#define twin16_tile_gfx_ram_r		MRA_BANK7
 	
-	public static ReadHandlerPtr VIDRAM_r  = new ReadHandlerPtr() { public int handler(int offset){ return READ_WORD(&videoram[offset]); } };
-	public static WriteHandlerPtr VIDRAM_w = new WriteHandlerPtr() {public void handler(int offset, int data){ COMBINE_WORD_MEM(&videoram[offset],data); } };
+	public static ReadHandlerPtr VIDRAM_r  = new ReadHandlerPtr() { public int handler(int offset){ return READ_WORD(&videoram.read(offset)); } };
+	public static WriteHandlerPtr VIDRAM_w = new WriteHandlerPtr() {public void handler(int offset, int data){ COMBINE_WORD_MEM(&videoram.read(offset),data); } };
 	
 	public static ReadHandlerPtr OBJRAM_r  = new ReadHandlerPtr() { public int handler(int offset){ return READ_WORD(&spriteram.read(offset)); } };
 	public static WriteHandlerPtr OBJRAM_w = new WriteHandlerPtr() {public void handler(int offset, int data){ COMBINE_WORD_MEM(&spriteram.read(offset),data); } };

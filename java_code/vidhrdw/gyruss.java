@@ -296,7 +296,7 @@ public class gyruss
 				}
 	
 				drawgfx(tmpbitmap,Machine.gfx[0],
-						videoram[offs] + 8 * (colorram[offs] & 0x20),
+						videoram.read(offs)+ 8 * (colorram[offs] & 0x20),
 						colorram[offs] & 0x0f,
 						flipx,flipy,
 						8*sx,8*sy,
@@ -386,7 +386,7 @@ public class gyruss
 	
 			if (colorram[offs] & 0x10)
 				drawgfx(bitmap,Machine.gfx[0],
-						videoram[offs] + 8 * (colorram[offs] & 0x20),
+						videoram.read(offs)+ 8 * (colorram[offs] & 0x20),
 						colorram[offs] & 0x0f,
 						flipx,flipy,
 						8*sx,8*sy,
@@ -423,7 +423,7 @@ public class gyruss
 				}
 	
 				drawgfx(tmpbitmap,Machine.gfx[0],
-						videoram[offs] + 8 * (colorram[offs] & 0x20),
+						videoram.read(offs)+ 8 * (colorram[offs] & 0x20),
 						colorram[offs] & 0x0f,
 						flipx,flipy,
 						8*sx,8*sy,
@@ -471,7 +471,7 @@ public class gyruss
 	
 			if ((colorram[offs] & 0x10) != 0)
 				drawgfx(bitmap,Machine.gfx[0],
-						videoram[offs] + 8 * (colorram[offs] & 0x20),
+						videoram.read(offs)+ 8 * (colorram[offs] & 0x20),
 						colorram[offs] & 0x0f,
 						flipx,flipy,
 						8*sx,8*sy,

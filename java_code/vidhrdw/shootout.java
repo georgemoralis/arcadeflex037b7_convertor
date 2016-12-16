@@ -133,7 +133,7 @@ public class shootout
 				int sx = (offs%32)*8;
 				int sy = (offs/32)*8;
 				int attributes = colorram[offs]; /* CCCC -TTT */
-				int tile_number = videoram[offs] + 256*(attributes&7);
+				int tile_number = videoram.read(offs)+ 256*(attributes&7);
 				int color = attributes>>4;
 	
 				drawgfx(tmpbitmap,Machine.gfx[2],

@@ -428,7 +428,7 @@ public class _8080bw
 		/* redraw region with (possibly) changed color */
 		for (i = 0; i < 8; i++, offset += 0x20)
 		{
-			videoram_w_p(offset, videoram[offset]);
+			videoram_w_p(offset, videoram.read(offset));
 		}
 	} };
 	
@@ -443,7 +443,7 @@ public class _8080bw
 		colorram[offset] = data;
 	
 		/* redraw region with (possibly) changed color */
-		videoram_w_p(offset, videoram[offset]);
+		videoram_w_p(offset, videoram.read(offset));
 	} };
 	
 	
@@ -467,7 +467,7 @@ public class _8080bw
 			int offs;
 	
 			for (offs = 0;offs < videoram_size;offs++)
-				videoram_w_p(offs, videoram[offs]);
+				videoram_w_p(offs, videoram.read(offs));
 		}
 	
 	

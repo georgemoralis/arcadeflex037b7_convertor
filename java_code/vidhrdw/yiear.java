@@ -123,8 +123,8 @@ public class yiear
 	
 				sx = (offs/2) % 32;
 				sy = (offs/2) / 32;
-				flipx = videoram[offs] & 0x80;
-				flipy = videoram[offs] & 0x40;
+				flipx = videoram.read(offs)& 0x80;
+				flipy = videoram.read(offs)& 0x40;
 				if (flip_screen != 0)
 				{
 					sx = 31 - sx;
@@ -134,7 +134,7 @@ public class yiear
 				}
 	
 				drawgfx(tmpbitmap,Machine.gfx[0],
-					videoram[offs + 1] | ((videoram[offs] & 0x10) << 4),
+					videoram.read(offs+1)| ((videoram.read(offs)& 0x10) << 4),
 					0,
 					flipx,flipy,
 					8*sx,8*sy,

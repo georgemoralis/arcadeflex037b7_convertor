@@ -144,8 +144,8 @@ public class mario
 				sy = offs / 32;
 	
 				drawgfx(tmpbitmap,Machine.gfx[0],
-						videoram[offs] + 256 * gfx_bank,
-						(videoram[offs] >> 5) + 8 * palette_bank,
+						videoram.read(offs)+ 256 * gfx_bank,
+						(videoram.read(offs)>> 5) + 8 * palette_bank,
 						0,0,
 						8*sx,8*sy,
 						0,TRANSPARENCY_NONE,0);

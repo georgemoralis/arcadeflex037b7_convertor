@@ -44,7 +44,7 @@ public class meteor
 			sy = 8 * (offs / 32) -  (meteor_scrollram[offs]       & 0x0f);
 			sx = 8 * (offs % 32) + ((meteor_scrollram[offs] >> 4) & 0x0f);
 	
-			code = videoram[offs] + ((colorram[offs] & 0x01) << 8);
+			code = videoram.read(offs)+ ((colorram[offs] & 0x01) << 8);
 			col  = (~colorram[offs] >> 4) & 0x07;
 	
 			drawgfx(bitmap,Machine.gfx[0],

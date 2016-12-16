@@ -37,7 +37,7 @@ public class prehisle
 		for (color = 0;color < 16;color++) colmask[color] = 0;
 		for (offs = 0;offs <0x800;offs += 2)
 		{
-			code = READ_WORD(&videoram[offs]);
+			code = READ_WORD(&videoram.read(offs));
 			color=code>>12;
 			if (code==0xff20) continue;
 			colmask[color] |= Machine.gfx[0].pen_usage[code&0xfff];
@@ -206,7 +206,7 @@ public class prehisle
 				mx = 0;
 				my++;
 			}
-			tile = READ_WORD(&videoram[offs]);
+			tile = READ_WORD(&videoram.read(offs));
 			color = tile>>12;
 			if ((tile&0xff)!=0x20)
 				drawgfx(bitmap,Machine.gfx[0],

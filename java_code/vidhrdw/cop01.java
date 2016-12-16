@@ -166,7 +166,7 @@ public class cop01
 				}
 	
 				drawgfx(tmpbitmap2,Machine.gfx[1],
-						videoram[offs] + ((colorram[offs] & 0x03) << 8),
+						videoram.read(offs)+ ((colorram[offs] & 0x03) << 8),
 						(colorram[offs] & 0x0c) >> 2,
 						flipscreen,flipscreen,
 						8*sx,8*sy,

@@ -269,7 +269,7 @@ public class cloak
 				sy = offs / 32;
 	
 				drawgfx(charbitmap,Machine.gfx[0],
-						videoram[offs],0,
+						videoram.read(offs),0,
 						0,0,
 						8*sx,8*sy,
 						&Machine.visible_area,TRANSPARENCY_NONE,0);

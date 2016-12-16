@@ -223,7 +223,7 @@ public class citycon
 					clip.max_y = 8*sy + i;
 	
 					drawgfx(tmpbitmap,Machine.gfx[0],
-							videoram[offs],
+							videoram.read(offs),
 							citycon_charlookup[flip_screen ? (255 - 8*sy - i) : 8*sy + i],
 							flip_screen,flip_screen,
 							8*sx,8*sy,

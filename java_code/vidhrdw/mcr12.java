@@ -135,7 +135,7 @@ public class mcr12
 	
 	public static WriteHandlerPtr mcr1_videoram_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		if (videoram[offset] != data)
+		if (videoram.read(offset)!= data)
 		{
 			dirtybuffer[offset] = 1;
 			videoram[offset] = data;
@@ -145,7 +145,7 @@ public class mcr12
 	
 	public static WriteHandlerPtr mcr2_videoram_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		if (videoram[offset] != data)
+		if (videoram.read(offset)!= data)
 		{
 			dirtybuffer[offset & ~1] = 1;
 			videoram[offset] = data;
@@ -176,7 +176,7 @@ public class mcr12
 				int sx = 16 * mx;
 				int sy = 16 * my;
 	
-				int code = videoram[offs];
+				int code = videoram.read(offs);
 	
 				/* adjust for cocktail mode */
 				if (mcr_cocktail_flip != 0)
@@ -222,8 +222,8 @@ public class mcr12
 				int sx = 16 * mx;
 				int sy = 16 * my;
 	
-				int attr = videoram[offs + 1];
-				int code = videoram[offs] + 256 * (attr & 0x01);
+				int attr = videoram.read(offs+1);
+				int code = videoram.read(offs)+ 256 * (attr & 0x01);
 				int hflip = attr & 0x02;
 				int vflip = attr & 0x04;
 				int color = (attr & 0x18) >> 3;

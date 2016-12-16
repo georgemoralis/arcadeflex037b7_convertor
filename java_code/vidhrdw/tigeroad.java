@@ -151,7 +151,7 @@ public class tigeroad
 		for (offs = 0;offs < videoram_size;offs += 2)
 		{
 			int sx,sy;
-			int data = READ_WORD(&videoram[offs]);
+			int data = READ_WORD(&videoram.read(offs));
 			int attr = data >> 8;
 			int code = data & 0xff;
 			int color = attr & 0x0f;

@@ -134,7 +134,7 @@ public class centiped
 				sy = offs / 32;
 	
 				drawgfx(bitmap,Machine.gfx[0],
-						(videoram[offs] & 0x3f) + 0x40,
+						(videoram.read(offs)& 0x3f) + 0x40,
 						(sy + 1) / 8,	/* support midframe palette changes in test mode */
 						flip_screen,flip_screen,
 						8*sx,8*sy,

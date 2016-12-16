@@ -112,7 +112,7 @@ public class crbaloon
 				}
 	
 				drawgfx(tmpbitmap,Machine.gfx[0],
-						videoram[offs],
+						videoram.read(offs),
 						colorram[offs] & 0x0f,
 						flip_screen,flip_screen,
 						8*sx,8*sy,

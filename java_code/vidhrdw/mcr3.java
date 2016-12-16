@@ -98,7 +98,7 @@ public class mcr3
 	
 	public static WriteHandlerPtr mcr3_videoram_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		if (videoram[offset] != data)
+		if (videoram.read(offset)!= data)
 		{
 			dirtybuffer[offset & ~1] = 1;
 			videoram[offset] = data;
@@ -125,9 +125,9 @@ public class mcr3
 			{
 				int mx = (offs / 2) % 32;
 				int my = (offs / 2) / 32;
-				int attr = videoram[offs + 1];
+				int attr = videoram.read(offs+1);
 				int color = ((attr & 0x30) >> 4) ^ color_xor;
-				int code = videoram[offs] + 256 * (attr & 0x03);
+				int code = videoram.read(offs)+ 256 * (attr & 0x03);
 	
 				if (!mcr_cocktail_flip)
 					drawgfx(bitmap, Machine.gfx[0], code, color, attr & 0x04, attr & 0x08,
@@ -346,7 +346,7 @@ public class mcr3
 		{
 			if (dirtybuffer[offs])
 			{
-				int code = videoram[offs];
+				int code = videoram.read(offs);
 				int vflip = code & 0x40;
 				int mx = (offs >> 4) & 0x3f;
 				int my = (offs & 0x0f) | ((offs >> 6) & 0x10);
@@ -507,8 +507,8 @@ public class mcr3
 		{
 			if (dirtybuffer[offs])
 			{
-				int attr = videoram[offs+1];
-				int code = videoram[offs] + 256 * (attr & 0x03);
+				int attr = videoram.read(offs+1);
+				int code = videoram.read(offs)+ 256 * (attr & 0x03);
 				int color = (attr & 0x30) >> 4;
 				int mx = ((offs / 2) % 32) * 16;
 				int my = ((offs / 2) / 32) * 16;

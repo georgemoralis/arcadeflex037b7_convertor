@@ -116,7 +116,7 @@ public class blueprnt
 				}
 	
 				drawgfx(tmpbitmap,Machine.gfx[0],
-						videoram[offs] + 256 * gfx_bank,
+						videoram.read(offs)+ 256 * gfx_bank,
 						colorram[offs] & 0x7f,
 						flipscreen,flipscreen,
 						8*sx,8*sy,
@@ -193,7 +193,7 @@ public class blueprnt
 				}
 	
 				drawgfx(bitmap,Machine.gfx[0],
-						videoram[offs] + 256 * gfx_bank,
+						videoram.read(offs)+ 256 * gfx_bank,
 						colorram[offs] & 0x7f,
 						flipscreen,flipscreen,
 						8*sx,(8*sy+scroll[sx]) & 0xff,

@@ -177,8 +177,8 @@ public class playch10
 				int sx = offs2 % 32;
 				int sy = offs2 / 32;
 	
-				int tilenum = videoram[offs] + ( ( videoram[offs+1] & 7 ) << 8 );
-				int color = ( videoram[offs+1] >> 3 ) & 0x1f;
+				int tilenum = videoram.read(offs)+ ( ( videoram.read(offs+1)& 7 ) << 8 );
+				int color = ( videoram.read(offs+1)>> 3 ) & 0x1f;
 	
 				dirtybuffer[offs] = dirtybuffer[offs+1] = 0;
 	

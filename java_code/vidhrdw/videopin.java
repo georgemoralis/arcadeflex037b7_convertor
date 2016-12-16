@@ -65,7 +65,7 @@ public class videopin
 			{
 				dirtybuffer[offs]=0;
 	
-				charcode = videoram[offs] & 0x3F;
+				charcode = videoram.read(offs)& 0x3F;
 	
 				// Correct coordinates for cut-in-half display
 				sx = 8 * (offs / 32);
@@ -88,7 +88,7 @@ public class videopin
 					copybitmap(tmpbitmap,videopin_backdrop.artwork,0,0,0,0,&aclip,TRANSPARENCY_NONE,0);
 				}
 	
-				if (videoram[offs] & 0x40)
+				if (videoram.read(offs)& 0x40)
 				{
 					drawgfx(tmpbitmap,Machine.gfx[0],
 						charcode, 1,
@@ -108,7 +108,7 @@ public class videopin
 			 * offsc test is necessary for selftest mode
 			 * where there are more than 4 tiles having the ball bit
 			 */
-			if (videoram[offs] & 0x80)
+			if (videoram.read(offs)& 0x80)
 			{
 				if (offsc < 4)
 				{

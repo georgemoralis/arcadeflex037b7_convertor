@@ -204,9 +204,9 @@ public class vigilant
 		{
 			int sy = 8 * ((offs/2) / 64);
 			int sx = 8 * ((offs/2) % 64);
-			int attributes = videoram[offs+1];
+			int attributes = videoram.read(offs+1);
 			int color = attributes & 0x0F;
-			int tile_number = videoram[offs] | ((attributes & 0xF0) << 4);
+			int tile_number = videoram.read(offs)| ((attributes & 0xF0) << 4);
 	
 			if (priority != 0)	 /* foreground */
 			{
@@ -384,9 +384,9 @@ public class vigilant
 		{
 			int sy = 8 * ((offs/2) / 64);
 			int sx = 8 * ((offs/2) % 64);
-			int attributes = videoram[offs+1];
+			int attributes = videoram.read(offs+1);
 			int color = (attributes & 0xF0) >> 4;
-			int tile_number = videoram[offs] | ((attributes & 0x0F) << 8);
+			int tile_number = videoram.read(offs)| ((attributes & 0x0F) << 8);
 	
 			if (dirtybuffer[offs] || dirtybuffer[offs+1])
 			{

@@ -64,7 +64,7 @@ public class copsnrob
 			sy = offs / 32;
 	
 			drawgfx(bitmap,Machine.gfx[0],
-					videoram[offs] & 0x3f,0,
+					videoram.read(offs)& 0x3f,0,
 					0,0,
 					8*sx,8*sy,
 					&Machine.visible_area,TRANSPARENCY_NONE,0);

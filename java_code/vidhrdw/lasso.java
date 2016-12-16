@@ -58,8 +58,8 @@ public class lasso
 	
 	static void get_bg_tile_info(int tile_index)
 	{
-		int tile_number = videoram[tile_index];
-		int attributes = videoram[tile_index+0x400];
+		int tile_number = videoram.read(tile_index);
+		int attributes = videoram.read(tile_index+0x400);
 		SET_TILE_INFO(gfxbank,tile_number,attributes&0xf)
 	}
 	
@@ -91,7 +91,7 @@ public class lasso
 	
 	public static WriteHandlerPtr lasso_videoram_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		if( videoram[offset]!=data )
+		if( videoram.read(offset)!=data )
 		{
 			videoram[offset] = data;
 			tilemap_mark_tile_dirty( background, offset&0x3ff );

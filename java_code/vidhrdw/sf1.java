@@ -85,11 +85,11 @@ public class sf1
 	
 	public static WriteHandlerPtr sf1_videoram_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		int old = READ_WORD(&videoram[offset]);
+		int old = READ_WORD(&videoram.read(offset));
 		int new = COMBINE_WORD(old, data);
 		if (old != new)
 		{
-			WRITE_WORD(&videoram[offset], new);
+			WRITE_WORD(&videoram.read(offset), new);
 			tilemap_mark_tile_dirty(char_tilemap,offset/2);
 		}
 	} };

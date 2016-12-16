@@ -98,7 +98,7 @@ public class mrjong
 	
 				dirtybuffer[offs] = 0;
 	
-				tile = videoram[offs] | ((colorram[offs] & 0x20) << 3);
+				tile = videoram.read(offs)| ((colorram[offs] & 0x20) << 3);
 				flipx = (colorram[offs] & 0x40) >> 6;
 				flipy = (colorram[offs] & 0x80) >> 7;
 				color = colorram[offs] & 0x1f;

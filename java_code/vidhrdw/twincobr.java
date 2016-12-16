@@ -157,11 +157,11 @@ public class twincobr
 	} };
 	public static ReadHandlerPtr twincobr_txram_r  = new ReadHandlerPtr() { public int handler(int offset)
 	{
-		return READ_WORD(&videoram[txoffs]);
+		return READ_WORD(&videoram.read(txoffs));
 	} };
 	public static WriteHandlerPtr twincobr_txram_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		WRITE_WORD(&videoram[txoffs],data);
+		WRITE_WORD(&videoram.read(txoffs),data);
 	} };
 	
 	public static WriteHandlerPtr twincobr_bgoffs_w = new WriteHandlerPtr() {public void handler(int offset, int data)

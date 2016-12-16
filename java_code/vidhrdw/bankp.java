@@ -231,7 +231,7 @@ public class bankp
 				}
 	
 				drawgfx(tmpbitmap,Machine.gfx[0],
-						videoram[offs] + 256 * ((colorram[offs] & 3) >> 0),
+						videoram.read(offs)+ 256 * ((colorram[offs] & 3) >> 0),
 						colorram[offs] >> 3,
 						flipx,flipscreen,
 						8*sx,8*sy,

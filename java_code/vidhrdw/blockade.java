@@ -26,7 +26,7 @@ public class blockade
 				sx = offs % 32;
 				sy = offs / 32;
 	
-				charcode = videoram[offs];
+				charcode = videoram.read(offs);
 	
 				drawgfx(tmpbitmap,Machine.gfx[0],
 						charcode,

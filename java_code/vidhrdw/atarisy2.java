@@ -296,21 +296,21 @@ public class atarisy2
 	
 	public static ReadHandlerPtr atarisys2_videoram_r  = new ReadHandlerPtr() { public int handler(int offset)
 	{
-		return READ_WORD(&videoram[offset]);
+		return READ_WORD(&videoram.read(offset));
 	} };
 	
 	
 	public static WriteHandlerPtr atarisys2_videoram_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		int oldword = READ_WORD(&videoram[offset]);
+		int oldword = READ_WORD(&videoram.read(offset));
 		int newword = COMBINE_WORD(oldword, data);
-		WRITE_WORD(&videoram[offset], newword);
+		WRITE_WORD(&videoram.read(offset), newword);
 	
 		/* mark the playfield dirty if we write to it */
 		if (videobank >= 2)
 			if ((oldword & 0x3fff) != (newword & 0x3fff))
 			{
-				int offs = (&videoram[offset] - playfieldram) / 2;
+				int offs = (&videoram.read(offset)- playfieldram) / 2;
 				atarigen_pf_dirty[offs] = 0xff;
 			}
 	

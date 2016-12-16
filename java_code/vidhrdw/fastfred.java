@@ -178,7 +178,7 @@ public class fastfred
 				if (flip_screen_y != 0) sy = 31 - sy;
 	
 				drawgfx(tmpbitmap,Machine.gfx[0],
-						charbank | videoram[offs],
+						charbank | videoram.read(offs),
 						color,
 						flip_screen_x,flip_screen_y,
 						8*sx,8*sy,

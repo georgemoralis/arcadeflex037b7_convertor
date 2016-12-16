@@ -36,7 +36,7 @@ public class snk68
 	
 	public static ReadHandlerPtr pow_video_r  = new ReadHandlerPtr() { public int handler(int offset)
 	{
-		return READ_WORD(&videoram[offset]);
+		return READ_WORD(&videoram.read(offset));
 	} };
 	
 	public static WriteHandlerPtr pow_spriteram_w = new WriteHandlerPtr() {public void handler(int offset, int data)

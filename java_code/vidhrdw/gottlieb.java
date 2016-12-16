@@ -204,7 +204,7 @@ public class gottlieb
 	    /* since last time and update it accordingly. */
 	    for (offs = videoram_size - 1;offs >= 0;offs--)
 		{
-			if (dirtybuffer[offs] || dirtycharacter[videoram[offs]])
+			if (dirtybuffer[offs] || dirtycharacter[videoram.read(offs)])
 			{
 				int sx,sy;
 	
@@ -217,7 +217,7 @@ public class gottlieb
 				if (vflip != 0) sy = 29 - sy;
 	
 				drawgfx(tmpbitmap,Machine.gfx[0],
-						videoram[offs],
+						videoram.read(offs),
 						0,
 						hflip,vflip,
 						8*sx,8*sy,

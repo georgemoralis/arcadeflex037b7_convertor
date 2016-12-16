@@ -41,8 +41,8 @@ public class pcktgal
 				}
 	
 		        drawgfx(tmpbitmap,Machine.gfx[0],
-						videoram[offs+1] + ((videoram[offs] & 0x0f) << 8),
-						videoram[offs] >> 4,
+						videoram.read(offs+1)+ ((videoram.read(offs)& 0x0f) << 8),
+						videoram.read(offs)>> 4,
 						fx,fy,
 						8*sx,8*sy,
 						&Machine.visible_area,TRANSPARENCY_NONE,0);

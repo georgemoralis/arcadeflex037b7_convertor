@@ -64,7 +64,7 @@ public class alpha68k
 	
 	public static ReadHandlerPtr alpha68k_II_video_r  = new ReadHandlerPtr() { public int handler(int offset)
 	{
-		return READ_WORD(&videoram[offset]);
+		return READ_WORD(&videoram.read(offset));
 	} };
 	
 	public static ReadHandlerPtr control_1_r  = new ReadHandlerPtr() { public int handler(int offset)

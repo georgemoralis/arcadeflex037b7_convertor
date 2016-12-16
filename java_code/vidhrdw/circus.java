@@ -179,7 +179,7 @@ public class circus
 				sx = offs % 32;
 	
 				drawgfx(bitmap,Machine.gfx[0],
-						videoram[offs],
+						videoram.read(offs),
 						0,
 						0,0,
 						8*sx,8*sy,
@@ -255,7 +255,7 @@ public class circus
 				sy = offs / 32;
 	
 				drawgfx(bitmap,Machine.gfx[0],
-						videoram[offs],
+						videoram.read(offs),
 						0,
 						0,0,
 						8*sx,8*sy,
@@ -349,7 +349,7 @@ public class circus
 				sy = offs / 32;
 	
 				drawgfx(bitmap,Machine.gfx[0],
-						videoram[offs],
+						videoram.read(offs),
 						0,
 						0,0,
 						8*sx,8*sy,

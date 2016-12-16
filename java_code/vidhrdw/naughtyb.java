@@ -298,8 +298,8 @@ public class naughtyb
 						0,TRANSPARENCY_NONE,0);
 	
 				drawgfx(tmpbitmap,Machine.gfx[1],
-						videoram[offs] + 256*bankreg,
-						(videoram[offs] >> 5) + 8 * palreg,
+						videoram.read(offs)+ 256*bankreg,
+						(videoram.read(offs)>> 5) + 8 * palreg,
 						0,0,
 						8*sx,8*sy,
 						0,TRANSPARENCY_PEN,0);

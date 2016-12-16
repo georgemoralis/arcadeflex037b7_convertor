@@ -43,12 +43,12 @@ public class taito_b
 	
 	public static ReadHandlerPtr taitob_videoram_r  = new ReadHandlerPtr() { public int handler(int offset)
 	{
-		return READ_WORD(&videoram[offset]);
+		return READ_WORD(&videoram.read(offset));
 	} };
 	
 	public static WriteHandlerPtr taitob_videoram_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		COMBINE_WORD_MEM(&videoram[offset],data);
+		COMBINE_WORD_MEM(&videoram.read(offset),data);
 	} };
 	
 	public static ReadHandlerPtr taitob_video_control_r  = new ReadHandlerPtr() { public int handler(int offset)
@@ -434,8 +434,8 @@ public class taito_b
 		{
 			int tile;
 	
-			tile = READ_WORD(&videoram[offs]);
-			color = b_sp_color_base + (READ_WORD(&videoram[offs+2]) & 0x3f);
+			tile = READ_WORD(&videoram.read(offs));
+			color = b_sp_color_base + (READ_WORD(&videoram.read(offs+2)) & 0x3f);
 	
 			palette_map[color] |= pen_usage[tile & elem_mask];
 		}
@@ -523,9 +523,9 @@ public class taito_b
 	
 		for (offs = 0x1980-16; offs >=0; offs -= 16)
 		{
-			code = READ_WORD(&videoram[offs]);
+			code = READ_WORD(&videoram.read(offs));
 	
-			color = READ_WORD(&videoram[offs+2]);
+			color = READ_WORD(&videoram.read(offs+2));
 			flipx = color & 0x4000;
 			flipy = color & 0x8000;
 	#if 0
@@ -538,12 +538,12 @@ public class taito_b
 	#endif
 			color = b_sp_color_base + (color & 0x3f);
 	
-			x = READ_WORD(&videoram[offs+4]) & 0x3ff;
-			y = READ_WORD(&videoram[offs+6]) & 0x3ff;
+			x = READ_WORD(&videoram.read(offs+4)) & 0x3ff;
+			y = READ_WORD(&videoram.read(offs+6)) & 0x3ff;
 			if (x >= 0x200)	x -= 0x400;
 			if (y >= 0x200)	y -= 0x400;
 	
-			data = READ_WORD(&videoram[offs+0x0a]);
+			data = READ_WORD(&videoram.read(offs+0x0a));
 			if (data != 0)
 			{
 				if (!big_sprite)
@@ -554,14 +554,14 @@ public class taito_b
 					y_no  = 0;
 					xlatch = x;
 					ylatch = y;
-					data = READ_WORD(&videoram[offs+0x08]);
+					data = READ_WORD(&videoram.read(offs+0x08));
 					zoomxlatch = (data>>8) & 0xff;
 					zoomylatch = (data) & 0xff;
 					big_sprite = 1;
 				}
 			}
 	
-			data = READ_WORD(&videoram[offs+0x08]);
+			data = READ_WORD(&videoram.read(offs+0x08));
 			zoomx = (data>>8) & 0xff;
 			zoomy = (data) & 0xff;
 			zx = (0x100 - zoomx) / 16;
@@ -653,20 +653,20 @@ public class taito_b
 	
 		for (offs = 0x1980-16; offs >= 0; offs -= 16)
 		{
-			code = READ_WORD(&videoram[offs]);
+			code = READ_WORD(&videoram.read(offs));
 	
-			color = READ_WORD(&videoram[offs+2]);
+			color = READ_WORD(&videoram.read(offs+2));
 			flipx = color & 0x4000;
 			flipy = color & 0x8000;
 			//if ((color & 0x3fc0) != 0) logerror("color sprite (crimec)=%x\n",color);
 			color = b_sp_color_base + (color & 0x3f);
 	
-			x = READ_WORD(&videoram[offs+4]) & 0x3ff;
-			y = READ_WORD(&videoram[offs+6]) & 0x3ff;
+			x = READ_WORD(&videoram.read(offs+4)) & 0x3ff;
+			y = READ_WORD(&videoram.read(offs+6)) & 0x3ff;
 			if (x >= 0x200)	x -= 0x400;
 			if (y >= 0x200)	y -= 0x400;
 	
-			data = READ_WORD(&videoram[offs+0x0a]);
+			data = READ_WORD(&videoram.read(offs+0x0a));
 			if (data != 0)
 			{
 				if (!big_sprite)
@@ -677,14 +677,14 @@ public class taito_b
 					y_no  = 0;
 					xlatch = x;
 					ylatch = y;
-					data = READ_WORD(&videoram[offs+0x08]);
+					data = READ_WORD(&videoram.read(offs+0x08));
 					zoomxlatch = (data>>8) & 0xff;
 					zoomylatch = (data) & 0xff;
 					big_sprite = 1;
 				}
 			}
 	
-			data = READ_WORD(&videoram[offs+0x08]);
+			data = READ_WORD(&videoram.read(offs+0x08));
 			zoomx = (data>>8) & 0xff;
 			zoomy = (data) & 0xff;
 			zx = (0x100 - zoomx) / 16;

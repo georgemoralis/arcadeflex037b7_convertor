@@ -123,7 +123,7 @@ public class sbasketb
 				sx = offs % 32;
 				sy = offs / 32;
 	
-				code  = videoram[offs] + ((colorram[offs] & 0x20) << 3);
+				code  = videoram.read(offs)+ ((colorram[offs] & 0x20) << 3);
 				color = colorram[offs] & 0x0f;
 				flipx = colorram[offs] & 0x40;
 				flipy = colorram[offs] & 0x80;

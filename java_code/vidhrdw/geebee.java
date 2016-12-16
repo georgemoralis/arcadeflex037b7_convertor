@@ -227,7 +227,7 @@ public class geebee
 					sy = 31*8 - sy;
 				}
 	
-				code = videoram[offs];
+				code = videoram.read(offs);
 				color = ((geebee_bgw & 1) << 1) | ((code & 0x80) >> 7);
 				drawgfx(bitmap,Machine.gfx[0],
 						code,color,

@@ -406,7 +406,7 @@ public class mpatrol
 				}
 	
 				drawgfx(tmpbitmap,Machine.gfx[0],
-						videoram[offs] + 2 * (colorram[offs] & 0x80),
+						videoram.read(offs)+ 2 * (colorram[offs] & 0x80),
 						color,
 						flip_screen,flip_screen,
 						8*sx,8*sy,

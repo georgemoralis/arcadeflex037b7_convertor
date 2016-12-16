@@ -217,7 +217,7 @@ public class jedi
 				sy = offs / 64;
 	
 				drawgfx(tmpbitmap,Machine.gfx[0],
-						videoram[offs] + jedi_alpha_bank,
+						videoram.read(offs)+ jedi_alpha_bank,
 						0,
 						0,0,
 						8*sx,8*sy,

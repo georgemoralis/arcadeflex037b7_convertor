@@ -242,7 +242,7 @@ public class terracre
 			sy = (offs/2) % 32;
 	
 			drawgfx(bitmap,Machine.gfx[0],
-					READ_WORD(&videoram[offs]) & 0xff,
+					READ_WORD(&videoram.read(offs)) & 0xff,
 					0,
 					0,0,
 					8*sx,8*sy,
