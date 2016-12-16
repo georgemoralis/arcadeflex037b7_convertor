@@ -259,7 +259,7 @@ public class astrof
 			/* redraw bitmap */
 			for (offs = 0; offs < videoram_size; offs++)
 			{
-				common_videoram_w(offs, videoram.read(offs), colorram[offs]);
+				common_videoram_w(offs, videoram.read(offs), colorram.read(offs));
 			}
 		}
 	} };

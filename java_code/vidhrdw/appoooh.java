@@ -239,9 +239,9 @@ public class appoooh
 	
 				sx = offs % 32;
 				sy = offs / 32;
-				code = videoram.read(offs)+ 256 * ((colorram[offs]>>5) & 7);
+				code = videoram.read(offs)+ 256 * ((colorram.read(offs)>>5) & 7);
 	
-				flipx = colorram[offs] & 0x10;
+				flipx = colorram.read(offs)& 0x10;
 				if (flipscreen != 0)
 				{
 					sx = 31 - sx;
@@ -250,7 +250,7 @@ public class appoooh
 				}
 				drawgfx(tmpbitmap,Machine.gfx[0],
 						code,
-						colorram[offs]&0x0f,
+						colorram.read(offs)&0x0f,
 						flipx,flipscreen,
 						8*sx,8*sy,
 						0,TRANSPARENCY_NONE,0);

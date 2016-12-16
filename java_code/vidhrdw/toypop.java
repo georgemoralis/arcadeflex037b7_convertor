@@ -206,7 +206,7 @@ public class toypop
 				// draw the character
 				drawgfx(tmpbitmap,Machine.gfx[0],
 						videoram.read(offs),
-						colorram[offs],
+						colorram.read(offs),
 						0,0,sx,sy,
 						0,TRANSPARENCY_PEN,0);
 			}

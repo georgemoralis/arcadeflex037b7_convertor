@@ -316,8 +316,8 @@ public class bosco
 	
 				sx = (offs % 32) ^ 4;
 				sy = offs / 32 - 2;
-				flipx = ~colorram[offs] & 0x40;
-				flipy = colorram[offs] & 0x80;
+				flipx = ~colorram.read(offs)& 0x40;
+				flipy = colorram.read(offs)& 0x80;
 				if (flipscreen != 0)
 				{
 					sx = 7 - sx;
@@ -328,7 +328,7 @@ public class bosco
 	
 				drawgfx(tmpbitmap,Machine.gfx[0],
 						videoram.read(offs),
-						colorram[offs] & 0x3f,
+						colorram.read(offs)& 0x3f,
 						flipx,flipy,
 						8*sx,8*sy,
 						&radarvisibleareaflip,TRANSPARENCY_NONE,0);

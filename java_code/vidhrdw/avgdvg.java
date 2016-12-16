@@ -68,7 +68,7 @@ public class avgdvg
 	static int vectorEngine = USE_DVG;
 	static int flipword = 0; /* little/big endian issues */
 	static int busy = 0;     /* vector engine busy? */
-	static int colorram[16]; /* colorram entries */
+	static int colorram.read(16); /* colorram entries */
 	
 	/* These hold the X/Y coordinates the vector engine uses */
 	static int width; int height;
@@ -244,7 +244,7 @@ public class avgdvg
 						z = z * BRIGHTNESS;
 					else
 						if (z != 0) z = (z << 4) | 0x0f;
-					vector_add_point (currentx, currenty, colorram[1], z);
+					vector_add_point (currentx, currenty, colorram.read(1), z);
 	
 					break;
 	
@@ -335,7 +335,7 @@ public class avgdvg
 						z = z * BRIGHTNESS;
 					else
 						if (z != 0) z = (z << 4) | 0x0f;
-					vector_add_point (currentx, currenty, colorram[1], z);
+					vector_add_point (currentx, currenty, colorram.read(1), z);
 					break;
 	
 				default:
@@ -560,7 +560,7 @@ public class avgdvg
 							color = 2;
 					}
 	
-					vector_add_point (currentx, currenty, colorram[color], z);
+					vector_add_point (currentx, currenty, colorram.read(color), z);
 	
 	#ifdef VG_DEBUG
 					logerror("VCTR x:%d y:%d z:%d statz:%d", x, y, z, statz);
@@ -603,7 +603,7 @@ public class avgdvg
 						color = rand() & 0x07;
 					}
 	
-					vector_add_point (currentx, currenty, colorram[color], z);
+					vector_add_point (currentx, currenty, colorram.read(color), z);
 	
 	#ifdef VG_DEBUG
 					logerror("SVEC x:%d y:%d z:%d statz:%d", x, y, z, statz);

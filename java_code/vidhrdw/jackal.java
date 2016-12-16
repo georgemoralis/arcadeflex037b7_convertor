@@ -124,9 +124,9 @@ public class jackal
 				sy = offs / 32;
 	
 				drawgfx(tmpbitmap,Machine.gfx[0],
-					videoram.read(offs)+ ((colorram[offs] & 0xc0) << 2) + ((colorram[offs] & 0x30) << 6),
-					0,//colorram[offs] & 0x0f, there must be a PROM like in Contra
-					colorram[offs] & 0x10,colorram[offs] & 0x20,
+					videoram.read(offs)+ ((colorram.read(offs)& 0xc0) << 2) + ((colorram.read(offs)& 0x30) << 6),
+					0,//colorram.read(offs)& 0x0f, there must be a PROM like in Contra
+					colorram.read(offs)& 0x10,colorram.read(offs)& 0x20,
 					8*sx,8*sy,
 					0,TRANSPARENCY_NONE,0);
 			}

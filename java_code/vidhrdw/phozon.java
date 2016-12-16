@@ -147,9 +147,9 @@ public class phozon
 					sy = my - 2;
 				}
 	
-				drawgfx(tmpbitmap,Machine.gfx[(colorram[offs] & 0x80) ? 1 : 0],
+				drawgfx(tmpbitmap,Machine.gfx[(colorram.read(offs)& 0x80) ? 1 : 0],
 						videoram.read(offs),
-						colorram[offs] & 0x3f,
+						colorram.read(offs)& 0x3f,
 						0,0,
 						8*sx,8*sy,
 						&Machine.visible_area,TRANSPARENCY_NONE,0);
@@ -226,7 +226,7 @@ public class phozon
 		/* redraw high priority chars */
 		for (offs = videoram_size - 1;offs >= 0;offs--)
 		{
-			if (colorram[offs] & 0x40)
+			if (colorram.read(offs)& 0x40)
 			{
 				int sx,sy,mx,my;
 	
@@ -256,9 +256,9 @@ public class phozon
 					sy = my - 2;
 				}
 	
-				drawgfx(bitmap,Machine.gfx[(colorram[offs] & 0x80) ? 1 : 0],
+				drawgfx(bitmap,Machine.gfx[(colorram.read(offs)& 0x80) ? 1 : 0],
 						videoram.read(offs),
-						colorram[offs] & 0x3f,
+						colorram.read(offs)& 0x3f,
 						0,0,
 						8*sx,8*sy,
 						&Machine.visible_area,TRANSPARENCY_PEN,0);

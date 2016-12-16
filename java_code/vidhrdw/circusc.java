@@ -120,8 +120,8 @@ public class circusc
 	
 				sx = offs % 32;
 				sy = offs / 32;
-				flipx = colorram[offs] & 0x40;
-				flipy = colorram[offs] & 0x80;
+				flipx = colorram.read(offs)& 0x40;
+				flipy = colorram.read(offs)& 0x80;
 				if (flipscreen != 0)
 				{
 					sx = 31 - sx;
@@ -131,8 +131,8 @@ public class circusc
 				}
 	
 				drawgfx(tmpbitmap,Machine.gfx[0],
-						videoram.read(offs)+ 8 * (colorram[offs] & 0x20),
-						colorram[offs] & 0x0f,
+						videoram.read(offs)+ 8 * (colorram.read(offs)& 0x20),
+						colorram.read(offs)& 0x0f,
 						flipx,flipy,
 						8*sx,8*sy,
 						0,TRANSPARENCY_NONE,0);

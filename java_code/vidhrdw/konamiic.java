@@ -1135,7 +1135,7 @@ public class konamiic
 	{
 		int color, code;
 	
-		color = colorram[tile_index];
+		color = colorram.read(tile_index);
 		code = videoram1[tile_index];
 	
 		tile_info.flags = TILE_FLIPYX((color & 0x30) >> 4);
@@ -1588,7 +1588,7 @@ public class konamiic
 	{
 		int flipy = 0;
 		int code = videoram1[tile_index] + 256 * videoram2[tile_index];
-		int color = colorram[tile_index];
+		int color = colorram.read(tile_index);
 		int bank = K052109_charrombank[(color & 0x0c) >> 2];
 	if (has_extra_video_ram != 0) bank = (color & 0x0c) >> 2;	/* kludge for X-Men */
 		color = (color & 0xf3) | ((bank & 0x03) << 2);

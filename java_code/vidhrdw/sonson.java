@@ -124,8 +124,8 @@ public class sonson
 				sy = offs / 32;
 	
 				drawgfx(tmpbitmap,Machine.gfx[0],
-						videoram.read(offs)+ 256 * (colorram[offs] & 3),
-						colorram[offs] >> 2,
+						videoram.read(offs)+ 256 * (colorram.read(offs)& 3),
+						colorram.read(offs)>> 2,
 						0,0,
 						8*sx,8*sy,
 						0,TRANSPARENCY_NONE,0);

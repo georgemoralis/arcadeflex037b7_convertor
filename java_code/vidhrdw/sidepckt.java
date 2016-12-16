@@ -53,7 +53,7 @@ public class sidepckt
 	
 	static void get_tile_info(int tile_index)
 	{
-		unsigned char attr = colorram[tile_index];
+		unsigned char attr = colorram.read(tile_index);
 		SET_TILE_INFO(0,videoram.read(tile_index)+ ((attr & 0x07) << 8),
 				((attr & 0x10) >> 3) | ((attr & 0x20) >> 5))
 		tile_info.flags = TILE_FLIPX | TILE_SPLIT((attr & 0x80) >> 7);
@@ -101,7 +101,7 @@ public class sidepckt
 	
 	public static WriteHandlerPtr sidepckt_colorram_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		if (colorram[offset] != data)
+		if (colorram.read(offset)!= data)
 		{
 			colorram[offset] = data;
 			tilemap_mark_tile_dirty(bg_tilemap,offset);

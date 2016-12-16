@@ -59,7 +59,7 @@ public class berzerk
 		y = (offset >> 5);
 		x = (offset & 0x1f) << 3;
 	
-	    copy_byte(x, y, data, colorram[coloroffset]);
+	    copy_byte(x, y, data, colorram.read(coloroffset));
 	} };
 	
 	

@@ -142,8 +142,8 @@ public class mikie
 	
 				sx = offs % 32;
 				sy = offs / 32;
-				flipx = colorram[offs] & 0x40;
-				flipy = colorram[offs] & 0x80;
+				flipx = colorram.read(offs)& 0x40;
+				flipy = colorram.read(offs)& 0x80;
 				if (flipscreen != 0)
 				{
 					sx = 31 - sx;
@@ -153,8 +153,8 @@ public class mikie
 				}
 	
 				drawgfx(tmpbitmap,Machine.gfx[0],
-						videoram.read(offs)+ ((colorram[offs] & 0x20) << 3),
-						(colorram[offs] & 0x0f) + 16 * palettebank,
+						videoram.read(offs)+ ((colorram.read(offs)& 0x20) << 3),
+						(colorram.read(offs)& 0x0f) + 16 * palettebank,
 						flipx,flipy,
 						8*sx,8*sy,
 						&Machine.visible_area,TRANSPARENCY_NONE,0);

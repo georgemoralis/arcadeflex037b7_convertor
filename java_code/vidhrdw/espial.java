@@ -114,7 +114,7 @@ public class espial
 	
 				drawgfx(tmpbitmap,Machine.gfx[0],
 						videoram.read(offs)+ 256*(espial_attributeram[offs] & 0x03),
-						colorram[offs],
+						colorram.read(offs),
 						espial_attributeram[offs] & 0x04,espial_attributeram[offs] & 0x08,
 						8*sx,8*sy,
 						0,TRANSPARENCY_NONE,0);

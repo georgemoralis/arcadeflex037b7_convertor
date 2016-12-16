@@ -142,7 +142,7 @@ public class superpac
 	
 				drawgfx(tmpbitmap,Machine.gfx[0],
 						videoram.read(offs),
-						colorram[offs],
+						colorram.read(offs),
 						flip_screen,flip_screen,
 						8*sx,8*sy,
 						&Machine.visible_area,TRANSPARENCY_NONE,0);

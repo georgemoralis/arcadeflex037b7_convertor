@@ -415,7 +415,7 @@ public class popeye
 					sy = 16 * (offs / 32) - 16;
 	
 					drawgfx(tmpbitmap,Machine.gfx[0],
-							videoram.read(offs),colorram[offs],
+							videoram.read(offs),colorram.read(offs),
 							0,0,sx,sy,
 							&Machine.visible_area,TRANSPARENCY_NONE,0);
 				}
@@ -485,7 +485,7 @@ public class popeye
 				sy = 16 * (offs / 32) - 16;
 	
 				drawgfx(bitmap,Machine.gfx[0],
-						videoram.read(offs),colorram[offs],
+						videoram.read(offs),colorram.read(offs),
 						0,0,sx,sy,
 						&Machine.visible_area,TRANSPARENCY_PEN,0);
 			}

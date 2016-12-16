@@ -222,8 +222,8 @@ public class tehkanwc
 	
 		for (offs = videoram_size - 1;offs >= 0;offs--)
 		{
-			code = videoram.read(offs)+ ((colorram[offs] & 0x10) << 4);
-			color = colorram[offs] & 0x0f;
+			code = videoram.read(offs)+ ((colorram.read(offs)& 0x10) << 4);
+			color = colorram.read(offs)& 0x0f;
 			colmask[color] |= Machine.gfx[0].pen_usage[code];
 		}
 	
@@ -285,11 +285,11 @@ public class tehkanwc
 			sx = offs % 32;
 			sy = offs / 32;
 	
-			if ((colorram[offs] & 0x20))
+			if ((colorram.read(offs)& 0x20))
 				drawgfx(bitmap,Machine.gfx[0],
-						videoram.read(offs)+ ((colorram[offs] & 0x10) << 4),
-						colorram[offs] & 0x0f,
-						colorram[offs] & 0x40, colorram[offs] & 0x80,
+						videoram.read(offs)+ ((colorram.read(offs)& 0x10) << 4),
+						colorram.read(offs)& 0x0f,
+						colorram.read(offs)& 0x40, colorram.read(offs)& 0x80,
 						sx*8,sy*8,
 						&Machine.visible_area,TRANSPARENCY_PEN,0);
 		}
@@ -318,11 +318,11 @@ public class tehkanwc
 			sx = offs % 32;
 			sy = offs / 32;
 	
-			if (!(colorram[offs] & 0x20))
+			if (!(colorram.read(offs)& 0x20))
 				drawgfx(bitmap,Machine.gfx[0],
-						videoram.read(offs)+ ((colorram[offs] & 0x10) << 4),
-						colorram[offs] & 0x0f,
-						colorram[offs] & 0x40, colorram[offs] & 0x80,
+						videoram.read(offs)+ ((colorram.read(offs)& 0x10) << 4),
+						colorram.read(offs)& 0x0f,
+						colorram.read(offs)& 0x40, colorram.read(offs)& 0x80,
 						sx*8,sy*8,
 						&Machine.visible_area,TRANSPARENCY_PEN,0);
 		}

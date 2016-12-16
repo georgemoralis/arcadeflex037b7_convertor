@@ -106,11 +106,11 @@ public class jailbrek
 				sx = ( i % 64 );
 				sy = ( i / 64 );
 	
-				code = videoram.read(i)+ ( ( colorram[i] & 0xc0 ) << 2 );
+				code = videoram.read(i)+ ( ( colorram.read(i)& 0xc0 ) << 2 );
 	
 				drawgfx(tmpbitmap,Machine.gfx[0],
 						code,
-						colorram[i] & 0x0f,
+						colorram.read(i)& 0x0f,
 						0,0,
 						sx*8,sy*8,
 						0,TRANSPARENCY_NONE,0);

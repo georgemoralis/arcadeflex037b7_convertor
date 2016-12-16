@@ -47,7 +47,7 @@ public class cabal
 	    const struct rectangle *clip = &Machine.visible_area;
 	
 	    for ( offs = 0; offs < 0x800; offs += 2 ) {
-	        unsigned short data = READ_WORD( &colorram[offs] );
+	        unsigned short data = READ_WORD( &colorram.read(offs));
 	        int tile_number = data&0x3ff;
 	
 	        if ( tile_number != 0xd ) {

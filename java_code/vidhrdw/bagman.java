@@ -123,11 +123,11 @@ public class bagman
 	
 				/* Pickin' doesn't have the second char bank */
 				bank = 0;
-				if (Machine.gfx[2] && (colorram[offs] & 0x10)) bank = 2;
+				if (Machine.gfx[2] && (colorram.read(offs)& 0x10)) bank = 2;
 	
 				drawgfx(tmpbitmap,Machine.gfx[bank],
-						videoram.read(offs)+ 8 * (colorram[offs] & 0x20),
-						colorram[offs] & 0x0f,
+						videoram.read(offs)+ 8 * (colorram.read(offs)& 0x20),
+						colorram.read(offs)& 0x0f,
 						flipscreen[0],flipscreen[1],
 						8*sx,8*sy,
 						&Machine.visible_area,TRANSPARENCY_NONE,0);

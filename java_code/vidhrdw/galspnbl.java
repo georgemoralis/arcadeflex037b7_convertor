@@ -152,7 +152,7 @@ public class galspnbl
 			int sx,sy,code,attr,color;
 	
 			code = READ_WORD(&videoram.read(offs));
-			attr = READ_WORD(&colorram[offs]);
+			attr = READ_WORD(&colorram.read(offs));
 			color = (attr & 0x00f0) >> 4;
 			sx = (offs/2) % 64;
 			sy = (offs/2) / 64;

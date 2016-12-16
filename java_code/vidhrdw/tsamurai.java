@@ -154,7 +154,7 @@ public class tsamurai
 	} };
 	public static WriteHandlerPtr tsamurai_fg_colorram_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		if( colorram[offset]!=data )
+		if( colorram.read(offset)!=data )
 		{
 			colorram[offset]=data;
 			if ((offset & 1) != 0)

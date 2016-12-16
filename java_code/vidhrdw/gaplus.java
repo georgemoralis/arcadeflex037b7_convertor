@@ -398,11 +398,11 @@ public class gaplus
 	
 			sx = ( ( Machine.drv.screen_height - 1 ) / 8 ) - sx;
 	
-			bank = ( colorram[offs] & 0x80 ) ? 1 : 0;
+			bank = ( colorram.read(offs)& 0x80 ) ? 1 : 0;
 	
 	        drawgfx(bitmap,Machine.gfx[bank],
 	                videoram.read(offs),
-	                colorram[offs] & 0x3f,
+	                colorram.read(offs)& 0x3f,
 	                flip_screen,flip_screen,8*sy,8*sx,
 	                &Machine.visible_area,TRANSPARENCY_PEN,0);
 		}

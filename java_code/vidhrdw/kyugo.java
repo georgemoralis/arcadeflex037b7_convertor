@@ -165,8 +165,8 @@ public class kyugo
 	
 				sx = offs % 64;
 				sy = offs / 64;
-				flipx = colorram[offs] & 0x04;
-				flipy = colorram[offs] & 0x08;
+				flipx = colorram.read(offs)& 0x04;
+				flipy = colorram.read(offs)& 0x08;
 				if (flipscreen != 0)
 				{
 					sx = 63 - sx;
@@ -175,11 +175,11 @@ public class kyugo
 					flipy = !flipy;
 				}
 	
-				tile = videoram.read(offs)+ ( 256 * ( colorram[offs] & 3 ) );
+				tile = videoram.read(offs)+ ( 256 * ( colorram.read(offs)& 3 ) );
 	
 				drawgfx( tmpbitmap, Machine.gfx[2],
 						tile,
-						((colorram[offs] & 0xf0) >> 4) + (palbank << 4),
+						((colorram.read(offs)& 0xf0) >> 4) + (palbank << 4),
 						flipx,flipy,
 						8*sx, 8*sy,
 						0,TRANSPARENCY_NONE, 0 );

@@ -165,7 +165,7 @@ public class wiz
 				}
 				else
 				{
-					col = (colorram[offs] & 0x07);
+					col = (colorram.read(offs)& 0x07);
 				}
 	
 				if (flipx != 0) sx = 31 - sx;

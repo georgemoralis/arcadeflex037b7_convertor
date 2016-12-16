@@ -137,9 +137,9 @@ public class hanaawas
 				   previous one!!! */
 				offs2 = (offs + offs_adj) & 0x03ff;
 	
-				col  = colorram[offs] & 0x1f;
-				code = videoram.read(offs)+ ((colorram[offs2] & 0x20) << 3);
-				bank = (colorram[offs2] & 0x40) >> 6;
+				col  = colorram.read(offs)& 0x1f;
+				code = videoram.read(offs)+ ((colorram.read(offs2)& 0x20) << 3);
+				bank = (colorram.read(offs2)& 0x40) >> 6;
 	
 				drawgfx(bitmap,Machine.gfx[bank],
 						code,col,

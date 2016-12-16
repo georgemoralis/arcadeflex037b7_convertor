@@ -132,7 +132,7 @@ public class shootout
 			if( dirtybuffer[offs] ){
 				int sx = (offs%32)*8;
 				int sy = (offs/32)*8;
-				int attributes = colorram[offs]; /* CCCC -TTT */
+				int attributes = colorram.read(offs); /* CCCC -TTT */
 				int tile_number = videoram.read(offs)+ 256*(attributes&7);
 				int color = attributes>>4;
 	

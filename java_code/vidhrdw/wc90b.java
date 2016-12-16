@@ -188,7 +188,7 @@ public class wc90b
 				palette_map[2*16 + (cram >> 4)] |= Machine.gfx[gfx].pen_usage[tile];
 			}
 			for ( offs = videoram_size - 1; offs >= 0; offs-- ) {
-				cram = colorram[offs];
+				cram = colorram.read(offs);
 				tile = videoram.read(offs)+ ( ( cram & 0x07 ) << 8 );
 				palette_map[1*16 + (cram >> 4)] |= Machine.gfx[0].pen_usage[tile];
 			}
@@ -312,8 +312,8 @@ public class wc90b
 				sy = (offs / 64);
 	
 				drawgfx(tmpbitmap,Machine.gfx[0],
-						videoram.read(offs)+ ( ( colorram[offs] & 0x07 ) << 8 ),
-						colorram[offs] >> 4,
+						videoram.read(offs)+ ( ( colorram.read(offs)& 0x07 ) << 8 ),
+						colorram.read(offs)>> 4,
 						0,0,
 						sx*8,sy*8,
 						0,TRANSPARENCY_NONE,0);

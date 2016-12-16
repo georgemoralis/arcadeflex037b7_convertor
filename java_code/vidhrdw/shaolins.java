@@ -137,9 +137,9 @@ public class shaolins
 				sy = offs / 32;
 	
 				drawgfx(tmpbitmap,Machine.gfx[0],
-						videoram.read(offs)+ ((colorram[offs] & 0x40) << 2),
-						(colorram[offs] & 0x0f) + 16 * palettebank,
-						0,colorram[offs] & 0x20,
+						videoram.read(offs)+ ((colorram.read(offs)& 0x40) << 2),
+						(colorram.read(offs)& 0x0f) + 16 * palettebank,
+						0,colorram.read(offs)& 0x20,
 						8*sx,8*sy,
 						0,TRANSPARENCY_NONE,0);
 			}

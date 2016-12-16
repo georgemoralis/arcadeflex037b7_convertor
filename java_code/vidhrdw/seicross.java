@@ -74,7 +74,7 @@ public class seicross
 	
 	public static WriteHandlerPtr seicross_colorram_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		if (colorram[offset] != data)
+		if (colorram.read(offset)!= data)
 		{
 			/* bit 5 of the address is not used for color memory. There is just */
 			/* 512k of memory; every two consecutive rows share the same memory */
@@ -119,9 +119,9 @@ public class seicross
 				sy = offs / 32;
 	
 				drawgfx(tmpbitmap,Machine.gfx[0],
-						videoram.read(offs)+ ((colorram[offs] & 0x10) << 4),
-						colorram[offs] & 0x0f,
-						colorram[offs] & 0x40,colorram[offs] & 0x80,
+						videoram.read(offs)+ ((colorram.read(offs)& 0x10) << 4),
+						colorram.read(offs)& 0x0f,
+						colorram.read(offs)& 0x40,colorram.read(offs)& 0x80,
 						8*sx,8*sy,
 						0,TRANSPARENCY_NONE,0);
 			}

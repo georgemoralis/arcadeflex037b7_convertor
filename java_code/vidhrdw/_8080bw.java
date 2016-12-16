@@ -405,7 +405,7 @@ public class _8080bw
 		x = 8 * (offset % 32);
 	
 		back_color = 0;
-		foreground_color = colorram[offset] & 0x07;
+		foreground_color = colorram.read(offset)& 0x07;
 	
 		if (x < 0x78)
 		{

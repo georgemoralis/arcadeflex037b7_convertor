@@ -241,7 +241,7 @@ public class exctsccr
 	
 				drawgfx(tmpbitmap,Machine.gfx[gfx_bank],
 						code,
-						( colorram[offs] ) & 0x1f,
+						( colorram.read(offs)) & 0x1f,
 						0, 0,
 						sx,sy,
 						&Machine.visible_area,

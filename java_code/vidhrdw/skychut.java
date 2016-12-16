@@ -35,7 +35,7 @@ public class skychut
 	
 	public static WriteHandlerPtr skychut_colorram_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		if (colorram[offset] != data)
+		if (colorram.read(offset)!= data)
 		{
 			dirtybuffer[offset] = 1;
 	
@@ -72,7 +72,7 @@ public class skychut
 	
 				drawgfx(bitmap,Machine.gfx[0],
 						videoram.read(offs),
-						 colorram[offs],
+						 colorram.read(offs),
 						flipscreen,flipscreen,
 						8*sx,8*sy,
 						&Machine.visible_area,TRANSPARENCY_NONE,0);
@@ -129,7 +129,7 @@ public class skychut
 	
 				iremm15_drawgfx(bitmap,
 								videoram.read(offs),
-								Machine.pens[colorram[offs]],
+								Machine.pens[colorram.read(offs)],
 								Machine.pens[7], // space beam not color 0
 								8*sx,8*sy);
 				osd_mark_dirty (sx*8, sy*8, sx*8+7, sy*8+7, 0);

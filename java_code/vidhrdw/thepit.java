@@ -140,10 +140,10 @@ public class thepit
 			int bgcolor;
 	
 	
-			bgcolor = (colorram[offs] & 0x70) >> 4;
+			bgcolor = (colorram.read(offs)& 0x70) >> 4;
 	
 			if ((priority == 0 && dirtybuffer[offs]) ||
-					(priority == 1 && bgcolor != 0 && (colorram[offs] & 0x80) == 0))
+					(priority == 1 && bgcolor != 0 && (colorram.read(offs)& 0x80) == 0))
 			{
 				int sx,sy,code,bank,color;
 	
@@ -169,7 +169,7 @@ public class thepit
 				if (flip_screen_x != 0) sx = 31 - sx;
 				if (flip_screen_y != 0) sy = 248 - sy;
 	
-				color = colorram[offs] & 0x07;
+				color = colorram.read(offs)& 0x07;
 	
 				/* set up the background color */
 				Machine.gfx[bank].
