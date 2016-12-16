@@ -141,7 +141,7 @@ public class darkseal
 	
 		r = (READ_WORD(&paletteram.read(offset)) >> 0) & 0xff;
 		g = (READ_WORD(&paletteram.read(offset)) >> 8) & 0xff;
-		b = (READ_WORD(&paletteram_2[offset]) >> 0) & 0xff;
+		b = (READ_WORD(&paletteram_2.read(offset)) >> 0) & 0xff;
 	
 		palette_change_color(offset / 2,r,g,b);
 	}
@@ -160,7 +160,7 @@ public class darkseal
 		/* only 1280 out of 2048 colors are actually used */
 		if (offset >= 2*Machine.drv.total_colors) return;
 	
-		COMBINE_WORD_MEM(&paletteram_2[offset],data);
+		COMBINE_WORD_MEM(&paletteram_2.read(offset),data);
 		update_24bitcol(offset);
 	} };
 	
@@ -171,7 +171,7 @@ public class darkseal
 	
 	public static ReadHandlerPtr darkseal_palette_24bit_b_r  = new ReadHandlerPtr() { public int handler(int offset)
 	{
-		return READ_WORD(&paletteram_2[offset]);
+		return READ_WORD(&paletteram_2.read(offset));
 	} };
 	
 	/******************************************************************************/

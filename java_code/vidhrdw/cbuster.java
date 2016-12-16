@@ -97,7 +97,7 @@ public class cbuster
 	
 		r = (READ_WORD(&paletteram.read(offset)) >> 0) & 0xff;
 		g = (READ_WORD(&paletteram.read(offset)) >> 8) & 0xff;
-		b = (READ_WORD(&paletteram_2[offset]) >> 0) & 0xff;
+		b = (READ_WORD(&paletteram_2.read(offset)) >> 0) & 0xff;
 	
 		palette_change_color(offset / 2,r,g,b);
 	}
@@ -110,7 +110,7 @@ public class cbuster
 	
 	public static WriteHandlerPtr twocrude_palette_24bit_b_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		COMBINE_WORD_MEM(&paletteram_2[offset],data);
+		COMBINE_WORD_MEM(&paletteram_2.read(offset),data);
 		update_24bitcol(offset);
 	} };
 	
@@ -121,7 +121,7 @@ public class cbuster
 	
 	public static ReadHandlerPtr twocrude_palette_24bit_b_r  = new ReadHandlerPtr() { public int handler(int offset)
 	{
-		return READ_WORD(&paletteram_2[offset]);
+		return READ_WORD(&paletteram_2.read(offset));
 	} };
 	
 	/******************************************************************************/

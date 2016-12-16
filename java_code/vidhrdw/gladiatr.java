@@ -29,11 +29,11 @@ public class gladiatr
 	
 		r = (paletteram.read(offset)>> 0) & 0x0f;
 		g = (paletteram.read(offset)>> 4) & 0x0f;
-		b = (paletteram_2[offset] >> 0) & 0x0f;
+		b = (paletteram_2.read(offset)>> 0) & 0x0f;
 	
-		r = (r << 1) + ((paletteram_2[offset] >> 4) & 0x01);
-		g = (g << 1) + ((paletteram_2[offset] >> 5) & 0x01);
-		b = (b << 1) + ((paletteram_2[offset] >> 6) & 0x01);
+		r = (r << 1) + ((paletteram_2.read(offset)>> 4) & 0x01);
+		g = (g << 1) + ((paletteram_2.read(offset)>> 5) & 0x01);
+		b = (b << 1) + ((paletteram_2.read(offset)>> 6) & 0x01);
 	
 		r = (r << 3) | (r >> 2);
 		g = (g << 3) | (g >> 2);

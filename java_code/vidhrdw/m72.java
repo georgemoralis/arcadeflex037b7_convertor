@@ -290,7 +290,7 @@ public class m72
 	
 	public static ReadHandlerPtr m72_palette2_r  = new ReadHandlerPtr() { public int handler(int offset)
 	{
-		return paletteram_2[offset];
+		return paletteram_2.read(offset);
 	} };
 	
 	INLINE void changecolor(int color,int r,int g,int b)
@@ -319,9 +319,9 @@ public class m72
 		if ((offset & 1) != 0) return;
 		offset &= 0x3ff;
 		changecolor(offset / 2 + 512,
-				paletteram_2[offset + 0x000],
-				paletteram_2[offset + 0x400],
-				paletteram_2[offset + 0x800]);
+				paletteram_2.read(offset+0x000),
+				paletteram_2.read(offset+0x400),
+				paletteram_2.read(offset+0x800));
 	} };
 	
 	public static ReadHandlerPtr m72_videoram1_r  = new ReadHandlerPtr() { public int handler(int offset)

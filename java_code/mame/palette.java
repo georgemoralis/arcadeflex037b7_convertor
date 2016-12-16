@@ -1252,7 +1252,7 @@ public class palette
 	
 	public static ReadHandlerPtr paletteram_2_r  = new ReadHandlerPtr() { public int handler(int offset)
 	{
-		return paletteram_2[offset];
+		return paletteram_2.read(offset);
 	} };
 	
 	public static ReadHandlerPtr paletteram_word_r  = new ReadHandlerPtr() { public int handler(int offset)
@@ -1262,7 +1262,7 @@ public class palette
 	
 	public static ReadHandlerPtr paletteram_2_word_r  = new ReadHandlerPtr() { public int handler(int offset)
 	{
-		return READ_WORD(&paletteram_2[offset]);
+		return READ_WORD(&paletteram_2.read(offset));
 	} };
 	
 	public static WriteHandlerPtr paletteram_RRRGGGBB_w = new WriteHandlerPtr() {public void handler(int offset, int data)
@@ -1396,13 +1396,13 @@ public class palette
 	public static WriteHandlerPtr paletteram_xxxxBBBBGGGGRRRR_split1_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
 		paletteram[offset] = data;
-		changecolor_xxxxBBBBGGGGRRRR(offset,paletteram.read(offset)| (paletteram_2[offset] << 8));
+		changecolor_xxxxBBBBGGGGRRRR(offset,paletteram.read(offset)| (paletteram_2.read(offset)<< 8));
 	} };
 	
 	public static WriteHandlerPtr paletteram_xxxxBBBBGGGGRRRR_split2_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
 		paletteram_2[offset] = data;
-		changecolor_xxxxBBBBGGGGRRRR(offset,paletteram.read(offset)| (paletteram_2[offset] << 8));
+		changecolor_xxxxBBBBGGGGRRRR(offset,paletteram.read(offset)| (paletteram_2.read(offset)<< 8));
 	} };
 	
 	public static WriteHandlerPtr paletteram_xxxxBBBBGGGGRRRR_word_w = new WriteHandlerPtr() {public void handler(int offset, int data)
@@ -1447,13 +1447,13 @@ public class palette
 	public static WriteHandlerPtr paletteram_xxxxBBBBRRRRGGGG_split1_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
 		paletteram[offset] = data;
-		changecolor_xxxxBBBBRRRRGGGG(offset,paletteram.read(offset)| (paletteram_2[offset] << 8));
+		changecolor_xxxxBBBBRRRRGGGG(offset,paletteram.read(offset)| (paletteram_2.read(offset)<< 8));
 	} };
 	
 	public static WriteHandlerPtr paletteram_xxxxBBBBRRRRGGGG_split2_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
 		paletteram_2[offset] = data;
-		changecolor_xxxxBBBBRRRRGGGG(offset,paletteram.read(offset)| (paletteram_2[offset] << 8));
+		changecolor_xxxxBBBBRRRRGGGG(offset,paletteram.read(offset)| (paletteram_2.read(offset)<< 8));
 	} };
 	
 	
@@ -1476,13 +1476,13 @@ public class palette
 	public static WriteHandlerPtr paletteram_xxxxRRRRBBBBGGGG_split1_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
 		paletteram[offset] = data;
-		changecolor_xxxxRRRRBBBBGGGG(offset,paletteram.read(offset)| (paletteram_2[offset] << 8));
+		changecolor_xxxxRRRRBBBBGGGG(offset,paletteram.read(offset)| (paletteram_2.read(offset)<< 8));
 	} };
 	
 	public static WriteHandlerPtr paletteram_xxxxRRRRBBBBGGGG_split2_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
 		paletteram_2[offset] = data;
-		changecolor_xxxxRRRRBBBBGGGG(offset,paletteram.read(offset)| (paletteram_2[offset] << 8));
+		changecolor_xxxxRRRRBBBBGGGG(offset,paletteram.read(offset)| (paletteram_2.read(offset)<< 8));
 	} };
 	
 	
@@ -1550,13 +1550,13 @@ public class palette
 	public static WriteHandlerPtr paletteram_RRRRGGGGBBBBxxxx_split1_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
 		paletteram[offset] = data;
-		changecolor_RRRRGGGGBBBBxxxx(offset,paletteram.read(offset)| (paletteram_2[offset] << 8));
+		changecolor_RRRRGGGGBBBBxxxx(offset,paletteram.read(offset)| (paletteram_2.read(offset)<< 8));
 	} };
 	
 	public static WriteHandlerPtr paletteram_RRRRGGGGBBBBxxxx_split2_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
 		paletteram_2[offset] = data;
-		changecolor_RRRRGGGGBBBBxxxx(offset,paletteram.read(offset)| (paletteram_2[offset] << 8));
+		changecolor_RRRRGGGGBBBBxxxx(offset,paletteram.read(offset)| (paletteram_2.read(offset)<< 8));
 	} };
 	
 	public static WriteHandlerPtr paletteram_RRRRGGGGBBBBxxxx_word_w = new WriteHandlerPtr() {public void handler(int offset, int data)
@@ -1595,13 +1595,13 @@ public class palette
 	public static WriteHandlerPtr paletteram_BBBBGGGGRRRRxxxx_split1_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
 		paletteram[offset] = data;
-		changecolor_BBBBGGGGRRRRxxxx(offset,paletteram.read(offset)| (paletteram_2[offset] << 8));
+		changecolor_BBBBGGGGRRRRxxxx(offset,paletteram.read(offset)| (paletteram_2.read(offset)<< 8));
 	} };
 	
 	public static WriteHandlerPtr paletteram_BBBBGGGGRRRRxxxx_split2_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
 		paletteram_2[offset] = data;
-		changecolor_BBBBGGGGRRRRxxxx(offset,paletteram.read(offset)| (paletteram_2[offset] << 8));
+		changecolor_BBBBGGGGRRRRxxxx(offset,paletteram.read(offset)| (paletteram_2.read(offset)<< 8));
 	} };
 	
 	public static WriteHandlerPtr paletteram_BBBBGGGGRRRRxxxx_word_w = new WriteHandlerPtr() {public void handler(int offset, int data)

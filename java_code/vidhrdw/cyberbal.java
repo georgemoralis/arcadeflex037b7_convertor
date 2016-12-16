@@ -292,12 +292,12 @@ public class cyberbal
 	
 	public static WriteHandlerPtr cyberbal_paletteram_2_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		int oldword = READ_WORD(&paletteram_2[offset]);
+		int oldword = READ_WORD(&paletteram_2.read(offset));
 		int newword = COMBINE_WORD(oldword, data);
 	
 		if (oldword != newword)
 		{
-			WRITE_WORD(&paletteram_2[offset], newword);
+			WRITE_WORD(&paletteram_2.read(offset), newword);
 			if (paletteram_2 == active_palette)
 				set_palette_entry(offset / 2, newword);
 		}
@@ -305,7 +305,7 @@ public class cyberbal
 	
 	public static ReadHandlerPtr cyberbal_paletteram_2_r  = new ReadHandlerPtr() { public int handler(int offset)
 	{
-		return READ_WORD(&paletteram_2[offset]);
+		return READ_WORD(&paletteram_2.read(offset));
 	} };
 	
 	
