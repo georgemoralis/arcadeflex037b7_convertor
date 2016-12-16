@@ -187,7 +187,7 @@ public class psikyo
 		/* Look for "end of sprites" marker in the sprites list */
 		for ( offs = 0 ; offs < (0x800-2) ; offs += 2 )	// skip last "sprite"
 		{
-			int sprite	=	READ_WORD(&spriteram_2[offs]);
+			int sprite	=	READ_WORD(&spriteram_2.read(offs));
 			if (sprite == 0xffff)	break;
 		}
 		offs -= 2;
@@ -203,7 +203,7 @@ public class psikyo
 			int xinc, yinc, dx, dy;
 	
 			/* Get next entry in the list */
-			sprite	=	READ_WORD(&spriteram_2[offs]);
+			sprite	=	READ_WORD(&spriteram_2.read(offs));
 	
 			sprite	%=	0x300;
 			source	=	&spriteram[sprite*8];
@@ -318,7 +318,7 @@ public class psikyo
 			int color;
 	
 			/* Get next entry in the list */
-			sprite	=	READ_WORD(&spriteram_2[offs]);
+			sprite	=	READ_WORD(&spriteram_2.read(offs));
 	
 			/* End of sprites list */
 			if (sprite == 0xffff)	break;

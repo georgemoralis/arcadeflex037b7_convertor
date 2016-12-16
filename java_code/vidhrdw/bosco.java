@@ -368,11 +368,11 @@ public class bosco
 		{
 			sx = spriteram.read(offs+1)- displacement;
 	if (flipscreen != 0) sx += 32;
-			sy = 225 - spriteram_2[offs] - displacement;
+			sy = 225 - spriteram_2.read(offs)- displacement;
 	
 			drawgfx(bitmap,Machine.gfx[1],
 					(spriteram.read(offs)& 0xfc) >> 2,
-					spriteram_2[offs + 1] & 0x3f,
+					spriteram_2.read(offs+1)& 0x3f,
 					spriteram.read(offs)& 1,spriteram.read(offs)& 2,
 					sx,sy,
 					flipscreen ? &spritevisibleareaflip : &spritevisiblearea,TRANSPARENCY_THROUGH,Machine.pens[0]);

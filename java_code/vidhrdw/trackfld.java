@@ -198,9 +198,9 @@ public class trackfld
 	
 	
 			sx = spriteram.read(offs)- 1;
-			sy = 240 - spriteram_2[offs + 1];
-			flipx = ~spriteram_2[offs] & 0x40;
-			flipy = spriteram_2[offs] & 0x80;
+			sy = 240 - spriteram_2.read(offs+1);
+			flipx = ~spriteram_2.read(offs)& 0x40;
+			flipy = spriteram_2.read(offs)& 0x80;
 			if (flip_screen != 0)
 			{
 				sy = 240 - sy;
@@ -213,7 +213,7 @@ public class trackfld
 	
 			drawgfx(bitmap,Machine.gfx[1],
 					spriteram.read(offs+1),
-					spriteram_2[offs] & 0x0f,
+					spriteram_2.read(offs)& 0x0f,
 					flipx,flipy,
 					sx,sy,
 					&Machine.visible_area,TRANSPARENCY_COLOR,0);
@@ -221,7 +221,7 @@ public class trackfld
 			/* redraw with wraparound */
 			drawgfx(bitmap,Machine.gfx[1],
 					spriteram.read(offs+1),
-					spriteram_2[offs] & 0x0f,
+					spriteram_2.read(offs)& 0x0f,
 					flipx,flipy,
 					sx-256,sy,
 					&Machine.visible_area,TRANSPARENCY_COLOR,0);

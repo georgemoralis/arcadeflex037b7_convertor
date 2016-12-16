@@ -192,14 +192,14 @@ public class vastar
 			int code, sx, sy, color, flipx, flipy;
 	
 	
-			code = ((spriteram_3[offs] & 0xfc) >> 2) + ((spriteram_2[offs] & 0x01) << 6)
+			code = ((spriteram_3.read(offs)& 0xfc) >> 2) + ((spriteram_2.read(offs)& 0x01) << 6)
 					+ ((offs & 0x20) << 2);
 	
-			sx = spriteram_3[offs + 1];
+			sx = spriteram_3.read(offs+1);
 			sy = spriteram.read(offs);
 			color = spriteram.read(offs+1)& 0x3f;
-			flipx = spriteram_3[offs] & 0x02;
-			flipy = spriteram_3[offs] & 0x01;
+			flipx = spriteram_3.read(offs)& 0x02;
+			flipy = spriteram_3.read(offs)& 0x01;
 	
 			if (flip_screen != 0)
 			{
@@ -207,7 +207,7 @@ public class vastar
 				flipy = !flipy;
 			}
 	
-			if (spriteram_2[offs] & 0x08)	/* double width */
+			if (spriteram_2.read(offs)& 0x08)	/* double width */
 			{
 				if (!flip_screen)
 					sy = 224 - sy;

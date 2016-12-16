@@ -306,7 +306,7 @@ public class xevious
 				int bank,code,color,flipx,flipy;
 	
 	
-				if (spriteram_3[offs] & 0x80)
+				if (spriteram_3.read(offs)& 0x80)
 				{
 					bank = 4;
 					code = spriteram.read(offs)& 0x3f;
@@ -318,18 +318,18 @@ public class xevious
 				}
 	
 				color = spriteram.read(offs+1)& 0x7f;
-				flipx = spriteram_3[offs] & 4;
-				flipy = spriteram_3[offs] & 8;
+				flipx = spriteram_3.read(offs)& 4;
+				flipy = spriteram_3.read(offs)& 8;
 				if (flip_screen != 0)
 				{
 					flipx = !flipx;
 					flipy = !flipy;
 				}
-				sx = spriteram_2[offs + 1] - 40 + 0x100*(spriteram_3[offs + 1] & 1);
-				sy = 28*8-spriteram_2[offs]-1;
-				if (spriteram_3[offs] & 2)  /* double height (?) */
+				sx = spriteram_2.read(offs+1)- 40 + 0x100*(spriteram_3.read(offs+1)& 1);
+				sy = 28*8-spriteram_2.read(offs)-1;
+				if (spriteram_3.read(offs)& 2)  /* double height (?) */
 				{
-					if (spriteram_3[offs] & 1)  /* double width, double height */
+					if (spriteram_3.read(offs)& 1)  /* double width, double height */
 					{
 						code &= 0x7c;
 						drawgfx(bitmap,Machine.gfx[bank],
@@ -351,7 +351,7 @@ public class xevious
 							flipx ? sx+16 : sx,flipy ? sy : sy-16,
 							&Machine.visible_area,TRANSPARENCY_COLOR,0x80);
 				}
-				else if (spriteram_3[offs] & 1) /* double width */
+				else if (spriteram_3.read(offs)& 1) /* double width */
 				{
 					code &= 0x7e;
 					drawgfx(bitmap,Machine.gfx[bank],

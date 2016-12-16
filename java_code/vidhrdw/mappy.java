@@ -277,14 +277,14 @@ public class mappy
 		for (offs = 0;offs < spriteram_size;offs += 2)
 		{
 			/* is it on? */
-			if ((spriteram_3[offs+1] & 2) == 0)
+			if ((spriteram_3.read(offs+1)& 2) == 0)
 			{
 				int sprite = spriteram.read(offs);
 				int color = spriteram.read(offs+1);
-				int x = (spriteram_2[offs+1]-40) + 0x100*(spriteram_3[offs+1] & 1);
-				int y = 28*8-spriteram_2[offs];
-				int flipx = spriteram_3[offs] & 1;
-				int flipy = spriteram_3[offs] & 2;
+				int x = (spriteram_2.read(offs+1)-40) + 0x100*(spriteram_3.read(offs+1)& 1);
+				int y = 28*8-spriteram_2.read(offs);
+				int flipx = spriteram_3.read(offs)& 1;
+				int flipy = spriteram_3.read(offs)& 2;
 	
 				if (flipscreen != 0)
 				{
@@ -292,7 +292,7 @@ public class mappy
 					flipy = !flipy;
 				}
 	
-				switch (spriteram_3[offs] & 0x0c)
+				switch (spriteram_3.read(offs)& 0x0c)
 				{
 					case 0:		/* normal size */
 						mappy_draw_sprite(bitmap,sprite,color,flipx,flipy,x,y);

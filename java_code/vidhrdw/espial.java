@@ -142,11 +142,11 @@ public class espial
 	
 	
 			sx = spriteram.read(offs+16);
-			sy = 240 - spriteram_2[offs];
+			sy = 240 - spriteram_2.read(offs);
 			code = spriteram.read(offs)>> 1;
-			color = spriteram_2[offs + 16];
-			flipx = spriteram_3[offs] & 0x04;
-			flipy = spriteram_3[offs] & 0x08;
+			color = spriteram_2.read(offs+16);
+			flipx = spriteram_3.read(offs)& 0x04;
+			flipy = spriteram_3.read(offs)& 0x08;
 	
 			if (spriteram.read(offs)& 1)	/* double height */
 			{

@@ -508,15 +508,15 @@ public class m72
 			int code,color,sx,sy,flipx,flipy,w,h,x,y;
 	
 	
-			code = spriteram_2[offs+2] | (spriteram_2[offs+3] << 8);
-			color = spriteram_2[offs+4] & 0x0f;
-			sx = -256+(spriteram_2[offs+6] | ((spriteram_2[offs+7] & 0x03) << 8));
-			sy = 512-(spriteram_2[offs+0] | ((spriteram_2[offs+1] & 0x01) << 8));
-			flipx = spriteram_2[offs+5] & 0x08;
-			flipy = spriteram_2[offs+5] & 0x04;
+			code = spriteram_2.read(offs+2)| (spriteram_2.read(offs+3)<< 8);
+			color = spriteram_2.read(offs+4)& 0x0f;
+			sx = -256+(spriteram_2.read(offs+6)| ((spriteram_2.read(offs+7)& 0x03) << 8));
+			sy = 512-(spriteram_2.read(offs+0)| ((spriteram_2.read(offs+1)& 0x01) << 8));
+			flipx = spriteram_2.read(offs+5)& 0x08;
+			flipy = spriteram_2.read(offs+5)& 0x04;
 	
-			w = 1;// << ((spriteram_2[offs+5] & 0xc0) >> 6);
-			h = 1 << ((spriteram_2[offs+5] & 0x30) >> 4);
+			w = 1;// << ((spriteram_2.read(offs+5)& 0xc0) >> 6);
+			h = 1 << ((spriteram_2.read(offs+5)& 0x30) >> 4);
 			sy -= 16 * h;
 	
 			for (x = 0;x < w;x++)

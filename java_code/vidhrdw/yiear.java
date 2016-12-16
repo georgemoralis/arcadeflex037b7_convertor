@@ -154,7 +154,7 @@ public class yiear
 	
 	
 			sy    =  240 - spriteram.read(offs+1);
-			sx    =  spriteram_2[offs];
+			sx    =  spriteram_2.read(offs);
 			flipx = ~spriteram.read(offs)& 0x40;
 			flipy =  spriteram.read(offs)& 0x80;
 	
@@ -170,7 +170,7 @@ public class yiear
 			}
 	
 			drawgfx(bitmap,Machine.gfx[1],
-				spriteram_2[offs + 1] + 256 * (spriteram.read(offs)& 1),
+				spriteram_2.read(offs+1)+ 256 * (spriteram.read(offs)& 1),
 				0,
 				flipx,flipy,
 				sx,sy,

@@ -149,9 +149,9 @@ public class pooyan
 			/* TRANSPARENCY_COLOR is needed for the scores */
 			drawgfx(bitmap,Machine.gfx[1],
 					spriteram.read(offs+1),
-					spriteram_2[offs] & 0x0f,
-					spriteram_2[offs] & 0x40,~spriteram_2[offs] & 0x80,
-					240-spriteram.read(offs),spriteram_2[offs + 1],
+					spriteram_2.read(offs)& 0x0f,
+					spriteram_2.read(offs)& 0x40,~spriteram_2.read(offs)& 0x80,
+					240-spriteram.read(offs),spriteram_2.read(offs+1),
 					&Machine.visible_area,TRANSPARENCY_COLOR,0);
 		}
 	} };

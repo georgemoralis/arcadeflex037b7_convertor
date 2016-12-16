@@ -113,14 +113,14 @@ public class olibochu
 		{
 			int sx,sy,attr,flipx,flipy;
 	
-			sx = spriteram_2[offs+3];
-			sy = spriteram_2[offs+2];
-			attr = spriteram_2[offs+1];
+			sx = spriteram_2.read(offs+3);
+			sy = spriteram_2.read(offs+2);
+			attr = spriteram_2.read(offs+1);
 			flipx = attr & 0x40;
 			flipy = attr & 0x80;
 	
 			drawgfx(bitmap,Machine.gfx[0],
-					spriteram_2[offs],
+					spriteram_2.read(offs),
 					attr & 0x3f,
 					flipx,flipy,
 					sx,sy,

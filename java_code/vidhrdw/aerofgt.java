@@ -176,12 +176,12 @@ public class aerofgt
 	
 	public static ReadHandlerPtr aerofgt_spriteram_2_r  = new ReadHandlerPtr() { public int handler(int offset)
 	{
-		return READ_WORD(&spriteram_2[offset]);
+		return READ_WORD(&spriteram_2.read(offset));
 	} };
 	
 	public static WriteHandlerPtr aerofgt_spriteram_2_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		COMBINE_WORD_MEM(&spriteram_2[offset],data);
+		COMBINE_WORD_MEM(&spriteram_2.read(offset),data);
 	} };
 	
 	public static ReadHandlerPtr aerofgt_bg1videoram_r  = new ReadHandlerPtr() { public int handler(int offset)
@@ -332,14 +332,14 @@ public class aerofgt
 		for (color = 0;color < 32;color++) colmask[color] = 0;
 	
 		offs = 0;
-		while (offs < 0x0800 && (READ_WORD(&spriteram_2[offs]) & 0x8000) == 0)
+		while (offs < 0x0800 && (READ_WORD(&spriteram_2.read(offs)) & 0x8000) == 0)
 		{
 			int attr_start,map_start;
 	
-			attr_start = 8 * (READ_WORD(&spriteram_2[offs]) & 0x03ff);
+			attr_start = 8 * (READ_WORD(&spriteram_2.read(offs)) & 0x03ff);
 	
-			color = (READ_WORD(&spriteram_2[attr_start + 4]) & 0x0f00) >> 8;
-			map_start = 2 * (READ_WORD(&spriteram_2[attr_start + 6]) & 0x3fff);
+			color = (READ_WORD(&spriteram_2.read(attr_start+4)) & 0x0f00) >> 8;
+			map_start = 2 * (READ_WORD(&spriteram_2.read(attr_start+6)) & 0x3fff);
 			if (map_start >= 0x4000) color += 16;
 	
 			colmask[color] |= 0xffff;
@@ -380,10 +380,10 @@ public class aerofgt
 		pal_base = Machine.drv.gfxdecodeinfo[sprite_gfx].color_codes_start;
 	
 		base = 0;
-		first = 8*READ_WORD(&spriteram_2[0x3fc + base]);
+		first = 8*READ_WORD(&spriteram_2.read(0x3fc+base));
 		for (attr_start = first + base;attr_start < base + 0x0400-8;attr_start += 8)
 		{
-			color = (READ_WORD(&spriteram_2[attr_start + 4]) & 0x000f) + 16 * spritepalettebank;
+			color = (READ_WORD(&spriteram_2.read(attr_start+4)) & 0x000f) + 16 * spritepalettebank;
 			colmask[color] |= 0xffff;
 		}
 	
@@ -404,10 +404,10 @@ public class aerofgt
 			pal_base = Machine.drv.gfxdecodeinfo[sprite_gfx+1].color_codes_start;
 	
 			base = 0x0400;
-			first = 8*READ_WORD(&spriteram_2[0x3fc + base]);
+			first = 8*READ_WORD(&spriteram_2.read(0x3fc+base));
 			for (attr_start = first + base;attr_start < base + 0x0400-8;attr_start += 8)
 			{
-				color = (READ_WORD(&spriteram_2[attr_start + 4]) & 0x000f) + 16 * spritepalettebank;
+				color = (READ_WORD(&spriteram_2.read(attr_start+4)) & 0x000f) + 16 * spritepalettebank;
 				colmask[color] |= 0xffff;
 			}
 	
@@ -431,14 +431,14 @@ public class aerofgt
 		priority <<= 12;
 	
 		offs = 0;
-		while (offs < 0x0800 && (READ_WORD(&spriteram_2[offs]) & 0x8000) == 0)
+		while (offs < 0x0800 && (READ_WORD(&spriteram_2.read(offs)) & 0x8000) == 0)
 		{
 			int attr_start;
 	
-			attr_start = 8 * (READ_WORD(&spriteram_2[offs]) & 0x03ff);
+			attr_start = 8 * (READ_WORD(&spriteram_2.read(offs)) & 0x03ff);
 	
 			/* is the way I handle priority correct? Or should I just check bit 13? */
-			if ((READ_WORD(&spriteram_2[attr_start + 4]) & 0x3000) == priority)
+			if ((READ_WORD(&spriteram_2.read(attr_start+4)) & 0x3000) == priority)
 			{
 				int map_start;
 				int ox,oy,x,y,xsize,ysize,zoomx,zoomy,flipx,flipy,color;
@@ -446,16 +446,16 @@ public class aerofgt
 				/* it's almost a logarithmic scale but not exactly */
 				int zoomtable[16] = { 0,7,14,20,25,30,34,38,42,46,49,52,54,57,59,61 };
 	
-				ox = READ_WORD(&spriteram_2[attr_start + 2]) & 0x01ff;
-				xsize = (READ_WORD(&spriteram_2[attr_start + 2]) & 0x0e00) >> 9;
-				zoomx = (READ_WORD(&spriteram_2[attr_start + 2]) & 0xf000) >> 12;
-				oy = READ_WORD(&spriteram_2[attr_start + 0]) & 0x01ff;
-				ysize = (READ_WORD(&spriteram_2[attr_start + 0]) & 0x0e00) >> 9;
-				zoomy = (READ_WORD(&spriteram_2[attr_start + 0]) & 0xf000) >> 12;
-				flipx = READ_WORD(&spriteram_2[attr_start + 4]) & 0x4000;
-				flipy = READ_WORD(&spriteram_2[attr_start + 4]) & 0x8000;
-				color = (READ_WORD(&spriteram_2[attr_start + 4]) & 0x0f00) >> 8;
-				map_start = 2 * (READ_WORD(&spriteram_2[attr_start + 6]) & 0x3fff);
+				ox = READ_WORD(&spriteram_2.read(attr_start+2)) & 0x01ff;
+				xsize = (READ_WORD(&spriteram_2.read(attr_start+2)) & 0x0e00) >> 9;
+				zoomx = (READ_WORD(&spriteram_2.read(attr_start+2)) & 0xf000) >> 12;
+				oy = READ_WORD(&spriteram_2.read(attr_start+0)) & 0x01ff;
+				ysize = (READ_WORD(&spriteram_2.read(attr_start+0)) & 0x0e00) >> 9;
+				zoomy = (READ_WORD(&spriteram_2.read(attr_start+0)) & 0xf000) >> 12;
+				flipx = READ_WORD(&spriteram_2.read(attr_start+4)) & 0x4000;
+				flipy = READ_WORD(&spriteram_2.read(attr_start+4)) & 0x8000;
+				color = (READ_WORD(&spriteram_2.read(attr_start+4)) & 0x0f00) >> 8;
+				map_start = 2 * (READ_WORD(&spriteram_2.read(attr_start+6)) & 0x3fff);
 	
 				zoomx = 16 - zoomtable[zoomx]/8;
 				zoomy = 16 - zoomtable[zoomy]/8;
@@ -509,7 +509,7 @@ public class aerofgt
 	
 	
 		base = chip * 0x0400;
-		first = 8*READ_WORD(&spriteram_2[0x3fc + base]);
+		first = 8*READ_WORD(&spriteram_2.read(0x3fc+base));
 	
 		for (attr_start = base + 0x0400-16;attr_start >= first + base;attr_start -= 8)
 		{
@@ -519,19 +519,19 @@ public class aerofgt
 			/* it's almost a logarithmic scale but not exactly */
 			int zoomtable[16] = { 0,7,14,20,25,30,34,38,42,46,49,52,54,57,59,61 };
 	
-			if (!(READ_WORD(&spriteram_2[attr_start + 4]) & 0x0080)) continue;
+			if (!(READ_WORD(&spriteram_2.read(attr_start+4)) & 0x0080)) continue;
 	
-			ox = READ_WORD(&spriteram_2[attr_start + 2]) & 0x01ff;
-			xsize = (READ_WORD(&spriteram_2[attr_start + 4]) & 0x0700) >> 8;
-			zoomx = (READ_WORD(&spriteram_2[attr_start + 2]) & 0xf000) >> 12;
-			oy = READ_WORD(&spriteram_2[attr_start + 0]) & 0x01ff;
-			ysize = (READ_WORD(&spriteram_2[attr_start + 4]) & 0x7000) >> 12;
-			zoomy = (READ_WORD(&spriteram_2[attr_start + 0]) & 0xf000) >> 12;
-			flipx = READ_WORD(&spriteram_2[attr_start + 4]) & 0x0800;
-			flipy = READ_WORD(&spriteram_2[attr_start + 4]) & 0x8000;
-			color = (READ_WORD(&spriteram_2[attr_start + 4]) & 0x000f) + 16 * spritepalettebank;
-			pri = READ_WORD(&spriteram_2[attr_start + 4]) & 0x0010;
-			map_start = 2 * READ_WORD(&spriteram_2[attr_start + 6]);
+			ox = READ_WORD(&spriteram_2.read(attr_start+2)) & 0x01ff;
+			xsize = (READ_WORD(&spriteram_2.read(attr_start+4)) & 0x0700) >> 8;
+			zoomx = (READ_WORD(&spriteram_2.read(attr_start+2)) & 0xf000) >> 12;
+			oy = READ_WORD(&spriteram_2.read(attr_start+0)) & 0x01ff;
+			ysize = (READ_WORD(&spriteram_2.read(attr_start+4)) & 0x7000) >> 12;
+			zoomy = (READ_WORD(&spriteram_2.read(attr_start+0)) & 0xf000) >> 12;
+			flipx = READ_WORD(&spriteram_2.read(attr_start+4)) & 0x0800;
+			flipy = READ_WORD(&spriteram_2.read(attr_start+4)) & 0x8000;
+			color = (READ_WORD(&spriteram_2.read(attr_start+4)) & 0x000f) + 16 * spritepalettebank;
+			pri = READ_WORD(&spriteram_2.read(attr_start+4)) & 0x0010;
+			map_start = 2 * READ_WORD(&spriteram_2.read(attr_start+6));
 	
 			zoomx = 16 - zoomtable[zoomx]/8;
 			zoomy = 16 - zoomtable[zoomy]/8;

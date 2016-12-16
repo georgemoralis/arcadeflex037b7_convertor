@@ -161,27 +161,27 @@ public class phozon
 		/* Draw the sprites. */
 		for (offs = 0;offs < spriteram_size;offs += 2){
 			/* is it on? */
-			if ((spriteram_3[offs+1] & 2) == 0){
+			if ((spriteram_3.read(offs+1)& 2) == 0){
 				int sprite = spriteram.read(offs);
 				int color = spriteram.read(offs+1);
-				int x = (spriteram_2[offs+1]-69) + 0x100*(spriteram_3[offs+1] & 1);
-				int y = ( Machine.drv.screen_height ) - spriteram_2[offs] - 8;
-				int flipx = spriteram_3[offs] & 1;
-				int flipy = spriteram_3[offs] & 2;
+				int x = (spriteram_2.read(offs+1)-69) + 0x100*(spriteram_3.read(offs+1)& 1);
+				int y = ( Machine.drv.screen_height ) - spriteram_2.read(offs)- 8;
+				int flipx = spriteram_3.read(offs)& 1;
+				int flipy = spriteram_3.read(offs)& 2;
 	
-				switch (spriteram_3[offs] & 0x3c)
+				switch (spriteram_3.read(offs)& 0x3c)
 				{
 					case 0x00:		/* 16x16 */
 						phozon_draw_sprite(bitmap,sprite,color,flipx,flipy,x,y);
 						break;
 	
 					case 0x14:		/* 8x8 */
-						sprite = (sprite << 2) | ((spriteram_3[offs] & 0xc0) >> 6);
+						sprite = (sprite << 2) | ((spriteram_3.read(offs)& 0xc0) >> 6);
 						phozon_draw_sprite8(bitmap,sprite,color,flipx,flipy,x,y+8);
 						break;
 	
 					case 0x04:		/* 8x16 */
-						sprite = (sprite << 2) | ((spriteram_3[offs] & 0xc0) >> 6);
+						sprite = (sprite << 2) | ((spriteram_3.read(offs)& 0xc0) >> 6);
 						if (!flipy){
 							phozon_draw_sprite8(bitmap,2+sprite,color,flipx,flipy,x,y+8);
 							phozon_draw_sprite8(bitmap,sprite,color,flipx,flipy,x,y);
@@ -193,7 +193,7 @@ public class phozon
 						break;
 	
 					case 0x24:		/* 8x32 */
-						sprite = (sprite << 2) | ((spriteram_3[offs] & 0xc0) >> 6);
+						sprite = (sprite << 2) | ((spriteram_3.read(offs)& 0xc0) >> 6);
 						if (!flipy){
 							phozon_draw_sprite8(bitmap,10+sprite,color,flipx,flipy,x,y+8);
 							phozon_draw_sprite8(bitmap,8+sprite,color,flipx,flipy,x,y);
@@ -212,7 +212,7 @@ public class phozon
 	#ifdef MAME_DEBUG
 	{
 	char buf[40];
-	sprintf(buf,"%02x",spriteram_3[offs] & 0x3c);
+	sprintf(buf,"%02x",spriteram_3.read(offs)& 0x3c);
 	usrintf_showmessage(buf);
 	}
 	#endif

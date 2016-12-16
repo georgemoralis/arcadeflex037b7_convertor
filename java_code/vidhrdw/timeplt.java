@@ -199,11 +199,11 @@ public class timeplt
 			int code,color,sx,sy,flipx,flipy;
 	
 			code = spriteram.read(offs+1);
-			color = spriteram_2[offs] & 0x3f;
+			color = spriteram_2.read(offs)& 0x3f;
 			sx = 240 - spriteram.read(offs);
-			sy = spriteram_2[offs + 1]-1;
-			flipx = spriteram_2[offs] & 0x40;
-			flipy = !(spriteram_2[offs] & 0x80);
+			sy = spriteram_2.read(offs+1)-1;
+			flipx = spriteram_2.read(offs)& 0x40;
+			flipy = !(spriteram_2.read(offs)& 0x80);
 	
 			drawgfx(bitmap,gfx,
 					code,

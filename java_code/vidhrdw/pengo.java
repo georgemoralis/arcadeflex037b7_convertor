@@ -259,8 +259,8 @@ public class pengo
 			int sx,sy;
 	
 	
-			sx = 272 - spriteram_2[offs + 1];
-			sy = spriteram_2[offs] - 31;
+			sx = 272 - spriteram_2.read(offs+1);
+			sy = spriteram_2.read(offs)- 31;
 	
 			drawgfx(bitmap,Machine.gfx[gfx_bank*2+1],
 					spriteram.read(offs)>> 2,
@@ -284,8 +284,8 @@ public class pengo
 			int sx,sy;
 	
 	
-			sx = 272 - spriteram_2[offs + 1];
-			sy = spriteram_2[offs] - 31;
+			sx = 272 - spriteram_2.read(offs+1);
+			sy = spriteram_2.read(offs)- 31;
 	
 	        drawgfx(bitmap,Machine.gfx[gfx_bank*2+1],
 					spriteram.read(offs)>> 2,
