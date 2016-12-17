@@ -15,8 +15,8 @@ package vidhrdw;
 public class madmotor
 {
 	
-	unsigned char *madmotor_pf1_rowscroll;
-	unsigned char *madmotor_pf1_data,*madmotor_pf2_data,*madmotor_pf3_data;
+	UBytePtr madmotor_pf1_rowscroll;
+	UBytePtr madmotor_pf1_data,*madmotor_pf2_data,*madmotor_pf3_data;
 	
 	static unsigned char madmotor_pf1_control[32];
 	static unsigned char madmotor_pf2_control[32];

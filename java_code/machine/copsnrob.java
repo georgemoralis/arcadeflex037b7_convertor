@@ -18,7 +18,7 @@ public class copsnrob
 	
 	static int gun_mask[] = {0x7e, 0x7d, 0x7b, 0x77, 0x6f, 0x5f, 0x3f};
 	
-	extern unsigned char *copsnrob_carimage;
+	extern UBytePtr copsnrob_carimage;
 	
 	// The gun control is a 7 position switch. I'm doing the following to
 	// emulate it:

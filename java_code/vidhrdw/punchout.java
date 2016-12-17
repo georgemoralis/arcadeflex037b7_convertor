@@ -24,17 +24,17 @@ public class punchout
 	#define ARMWREST_BIGSPRITE_WIDTH 256
 	#define ARMWREST_BIGSPRITE_HEIGHT 128
 	
-	unsigned char *punchout_videoram2;
+	UBytePtr punchout_videoram2;
 	size_t punchout_videoram2_size;
-	unsigned char *punchout_bigsprite1ram;
+	UBytePtr punchout_bigsprite1ram;
 	size_t punchout_bigsprite1ram_size;
-	unsigned char *punchout_bigsprite2ram;
+	UBytePtr punchout_bigsprite2ram;
 	size_t punchout_bigsprite2ram_size;
-	unsigned char *punchout_scroll;
-	unsigned char *punchout_bigsprite1;
-	unsigned char *punchout_bigsprite2;
-	unsigned char *punchout_palettebank;
-	static unsigned char *dirtybuffer2,*bs1dirtybuffer,*bs2dirtybuffer;
+	UBytePtr punchout_scroll;
+	UBytePtr punchout_bigsprite1;
+	UBytePtr punchout_bigsprite2;
+	UBytePtr punchout_palettebank;
+	static UBytePtr dirtybuffer2,*bs1dirtybuffer,*bs2dirtybuffer;
 	static struct osd_bitmap *bs1tmpbitmap,*bs2tmpbitmap;
 	
 	static int top_palette_bank,bottom_palette_bank;
@@ -71,7 +71,7 @@ public class punchout
 	  bit 0 -- 2  kohm resistor -- inverter  -- RED/GREEN/BLUE
 	
 	***************************************************************************/
-	static void convert_palette(unsigned char *palette,const unsigned char *color_prom)
+	static void convert_palette(UBytePtr palette,const UBytePtr color_prom)
 	{
 		int i;
 	
@@ -111,7 +111,7 @@ public class punchout
 	/* these depend on jumpers on the board and change from game to game */
 	static int gfx0inv,gfx1inv,gfx2inv,gfx3inv;
 	
-	void punchout_vh_convert_color_prom(unsigned char *palette,unsigned short *colortable,const unsigned char *color_prom)
+	void punchout_vh_convert_color_prom(UBytePtr palette,unsigned short *colortable,const UBytePtr color_prom)
 	{
 		int i;
 		#define TOTAL_COLORS(gfxn) (Machine.gfx[gfxn].total_colors * Machine.gfx[gfxn].color_granularity)
@@ -144,7 +144,7 @@ public class punchout
 		}
 	}
 	
-	void armwrest_vh_convert_color_prom(unsigned char *palette,unsigned short *colortable,const unsigned char *color_prom)
+	void armwrest_vh_convert_color_prom(UBytePtr palette,unsigned short *colortable,const UBytePtr color_prom)
 	{
 		int i;
 		#define TOTAL_COLORS(gfxn) (Machine.gfx[gfxn].total_colors * Machine.gfx[gfxn].color_granularity)

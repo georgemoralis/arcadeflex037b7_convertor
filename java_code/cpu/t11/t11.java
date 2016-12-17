@@ -300,7 +300,7 @@ public class t11
 	/****************************************************************************
 	 * Sets the banking
 	 ****************************************************************************/
-	void t11_SetBank(int offset, unsigned char *base)
+	void t11_SetBank(int offset, UBytePtr base)
 	{
 		t11.bank[offset >> 13] = base;
 	}

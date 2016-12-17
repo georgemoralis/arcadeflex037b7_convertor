@@ -72,10 +72,10 @@ public class zaxxon
 	
 	
 	
-	extern unsigned char *zaxxon_char_color_bank;
-	extern unsigned char *zaxxon_background_position;
-	extern unsigned char *zaxxon_background_color_bank;
-	extern unsigned char *zaxxon_background_enable;
+	extern UBytePtr zaxxon_char_color_bank;
+	extern UBytePtr zaxxon_background_position;
+	extern UBytePtr zaxxon_background_color_bank;
+	extern UBytePtr zaxxon_background_enable;
 	extern int zaxxon_vid_type;
 	
 	
@@ -988,7 +988,7 @@ public class zaxxon
 			{ 0x02,0x08,0x2a,0x20,0x20,0x2a,0x08,0x02 } 	/* .......1...1...1 */
 		};
 		int A;
-		unsigned char *rom = memory_region(REGION_CPU1);
+		UBytePtr rom = memory_region(REGION_CPU1);
 		int diff = memory_region_length(REGION_CPU1) / 2;
 	
 	

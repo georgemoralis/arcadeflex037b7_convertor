@@ -44,10 +44,10 @@ public class wiping
 	
 	
 	
-	extern unsigned char *wiping_soundregs;
+	extern UBytePtr wiping_soundregs;
 	
 	
-	static unsigned char *sharedram1,*sharedram2;
+	static UBytePtr sharedram1,*sharedram2;
 	
 	public static ReadHandlerPtr shared1_r  = new ReadHandlerPtr() { public int handler(int offset)
 	{

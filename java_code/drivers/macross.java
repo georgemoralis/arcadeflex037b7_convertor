@@ -33,10 +33,10 @@ package drivers;
 public class macross
 {
 	
-	extern unsigned char *macross_workram;
-	extern unsigned char *macross_spriteram;
-	extern unsigned char *macross_txvideoram;
-	extern unsigned char *macross_videocontrol;
+	extern UBytePtr macross_workram;
+	extern UBytePtr macross_spriteram;
+	extern UBytePtr macross_txvideoram;
+	extern UBytePtr macross_videocontrol;
 	extern size_t macross_txvideoram_size;
 	
 	
@@ -345,7 +345,7 @@ public class macross
 	
 	
 	
-	static unsigned char decode_byte(unsigned char src, unsigned char *bitp)
+	static unsigned char decode_byte(unsigned char src, UBytePtr bitp)
 	{
 		unsigned char ret, i;
 	
@@ -362,7 +362,7 @@ public class macross
 	}
 	
 	
-	static unsigned short decode_word(unsigned short src, unsigned char *bitp)
+	static unsigned short decode_word(unsigned short src, UBytePtr bitp)
 	{
 		unsigned short ret, i;
 	
@@ -383,7 +383,7 @@ public class macross
 	public static InitDriverPtr init_macross = new InitDriverPtr() { public void handler() 
 	{
 		/* GFX are scrambled.  We decode them here.  (BIG Thanks to Antiriad for descrambling info) */
-		unsigned char *rom;
+		UBytePtr rom;
 	
 		static unsigned char decode_data_bg[8][8] =
 		{

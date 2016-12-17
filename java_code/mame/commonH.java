@@ -178,7 +178,7 @@ void freesamples(struct GameSamples *samples);
 
 /* return a pointer to the specified memory region - num can be either an absolute */
 /* number, or one of the REGION_XXX identifiers defined above */
-unsigned char *memory_region(int num);
+UBytePtr memory_region(int num);
 int memory_region_length(int num);
 /* allocate a new memory region - num can be either an absolute */
 /* number, or one of the REGION_XXX identifiers defined above */

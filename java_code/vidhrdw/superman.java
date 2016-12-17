@@ -18,10 +18,10 @@ public class superman
 	size_t supes_videoram_size;
 	size_t supes_attribram_size;
 	
-	unsigned char *supes_videoram;
-	unsigned char *supes_attribram;
-	//static unsigned char *dirtybuffer;		/* foreground */
-	//static unsigned char *dirtybuffer2;		/* background */
+	UBytePtr supes_videoram;
+	UBytePtr supes_attribram;
+	//static UBytePtr dirtybuffer;		/* foreground */
+	//static UBytePtr dirtybuffer2;		/* background */
 	
 	public static VhStartPtr superman_vh_start = new VhStartPtr() { public int handler() 
 	{

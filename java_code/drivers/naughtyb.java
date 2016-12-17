@@ -114,8 +114,8 @@ public class naughtyb
 	
 	
 	
-	extern unsigned char *naughtyb_videoram2;
-	extern unsigned char *naughtyb_scrollreg;
+	extern UBytePtr naughtyb_videoram2;
+	extern UBytePtr naughtyb_scrollreg;
 	
 	
 	

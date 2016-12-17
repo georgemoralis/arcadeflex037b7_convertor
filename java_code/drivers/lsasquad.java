@@ -32,7 +32,7 @@ public class lsasquad
 {
 	
 	/* in vidhrdw/lsasquad.c */
-	extern unsigned char *lsasquad_scrollram,*lsasquad_videoram,*lsasquad_spriteram;
+	extern UBytePtr lsasquad_scrollram,*lsasquad_videoram,*lsasquad_spriteram;
 	extern size_t lsasquad_spriteram_size;
 	
 	/* in machine/lsasquad.c */
@@ -44,7 +44,7 @@ public class lsasquad
 	
 	public static WriteHandlerPtr lsasquad_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		unsigned char *ROM = memory_region(REGION_CPU1);
+		UBytePtr ROM = memory_region(REGION_CPU1);
 	
 		/* bits 0-2 select ROM bank */
 		cpu_setbank(1,&ROM[0x10000 + 0x2000 * (data & 7)]);

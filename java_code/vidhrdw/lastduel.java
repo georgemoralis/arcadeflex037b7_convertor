@@ -15,11 +15,11 @@ package vidhrdw;
 public class lastduel
 {
 	
-	unsigned char *lastduel_vram,*lastduel_scroll2,*lastduel_scroll1;
+	UBytePtr lastduel_vram,*lastduel_scroll2,*lastduel_scroll1;
 	static int scroll[16];
 	
 	static struct tilemap *bg_tilemap,*fg_tilemap,*tx_tilemap;
-	static unsigned char *gfx_base;
+	static UBytePtr gfx_base;
 	static int gfx_bank,flipscreen;
 	
 	public static WriteHandlerPtr lastduel_flip_w = new WriteHandlerPtr() {public void handler(int offset, int data)

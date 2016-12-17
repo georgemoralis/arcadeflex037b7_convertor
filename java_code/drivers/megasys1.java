@@ -130,7 +130,7 @@ public class megasys1
 	/* Variables defined in vidhrdw: */
 	
 	/* Functions defined in vidhrdw: */
-	void megasys1_convert_prom(unsigned char *palette, unsigned short *colortable,const unsigned char *prom);
+	void megasys1_convert_prom(UBytePtr palette, unsigned short *colortable,const UBytePtr prom);
 	
 	
 	
@@ -1136,7 +1136,7 @@ public class megasys1
 	
 	static public static InitDriverPtr init_64street = new InitDriverPtr() { public void handler() 
 	{
-	//	unsigned char *RAM = memory_region(REGION_CPU1);
+	//	UBytePtr RAM = memory_region(REGION_CPU1);
 	//	WRITE_WORD (&RAM[0x006b8],0x6004);		// d8001 test
 	//	WRITE_WORD (&RAM[0x10EDE],0x6012);		// watchdog
 	
@@ -1285,7 +1285,7 @@ public class megasys1
 	
 	void astyanax_rom_decode(int cpu)
 	{
-		unsigned char	*RAM	=	memory_region(REGION_CPU1+cpu);
+		UBytePtr RAM	=	memory_region(REGION_CPU1+cpu);
 		int i,			size	=	memory_region_length(REGION_CPU1+cpu);
 		if (size > 0x40000)	size = 0x40000;
 	
@@ -1320,7 +1320,7 @@ public class megasys1
 	
 	static public static InitDriverPtr init_astyanax = new InitDriverPtr() { public void handler() 
 	{
-		unsigned char *RAM;
+		UBytePtr RAM;
 	
 		astyanax_rom_decode(0);
 	
@@ -1493,7 +1493,7 @@ public class megasys1
 	
 	void phantasm_rom_decode(int cpu)
 	{
-		unsigned char	*RAM	=	memory_region(REGION_CPU1+cpu);
+		UBytePtr RAM	=	memory_region(REGION_CPU1+cpu);
 		int i,			size	=	memory_region_length(REGION_CPU1+cpu);
 		if (size > 0x40000)	size = 0x40000;
 	
@@ -2091,7 +2091,7 @@ public class megasys1
 	
 	static public static InitDriverPtr init_hachoo = new InitDriverPtr() { public void handler() 
 	{
-		unsigned char *RAM;
+		UBytePtr RAM;
 	
 		astyanax_rom_decode(0);
 	
@@ -2214,7 +2214,7 @@ public class megasys1
 	
 	static public static InitDriverPtr init_iganinju = new InitDriverPtr() { public void handler() 
 	{
-		unsigned char *RAM;
+		UBytePtr RAM;
 	
 		phantasm_rom_decode(0);
 	
@@ -2822,7 +2822,7 @@ public class megasys1
 	
 		if ((protection_val & 0x90) == 0x90)
 		{
-			unsigned char *RAM = memory_region(okim6295_interface_peekaboo.region[0]);
+			UBytePtr RAM = memory_region(okim6295_interface_peekaboo.region[0]);
 			int new_bank = (protection_val & 0x7) % 7;
 	
 			if (bank != new_bank)
@@ -2935,7 +2935,7 @@ public class megasys1
 	
 	static public static InitDriverPtr init_plusalph = new InitDriverPtr() { public void handler() 
 	{
-		unsigned char *RAM;
+		UBytePtr RAM;
 	
 		astyanax_rom_decode(0);
 	
@@ -3104,7 +3104,7 @@ public class megasys1
 	
 	void rodland_rom_decode(int cpu)
 	{
-		unsigned char	*RAM	=	memory_region(REGION_CPU1+cpu);
+		UBytePtr RAM	=	memory_region(REGION_CPU1+cpu);
 		int i,			size	=	memory_region_length(REGION_CPU1+cpu);
 		if (size > 0x40000)	size = 0x40000;
 	
@@ -3139,7 +3139,7 @@ public class megasys1
 	
 	static public static InitDriverPtr init_rodland = new InitDriverPtr() { public void handler() 
 	{
-		unsigned char *RAM = memory_region(REGION_GFX3);	// scroll 2
+		UBytePtr RAM = memory_region(REGION_GFX3);	// scroll 2
 	
 		/* Second half of the text gfx should be all FF's, not 0's
 		   (is this right ? Otherwise the subtitle is wrong) */
@@ -3150,7 +3150,7 @@ public class megasys1
 	
 	static public static InitDriverPtr init_rodlandj = new InitDriverPtr() { public void handler() 
 	{
-		unsigned char *RAM = memory_region(REGION_GFX3);	// scroll 2
+		UBytePtr RAM = memory_region(REGION_GFX3);	// scroll 2
 	
 		/* Second half of the text gfx should be all FF's, not 0's
 		   (is this right ? Otherwise the subtitle is wrong) */
@@ -3254,7 +3254,7 @@ public class megasys1
 	
 	static public static InitDriverPtr init_stdragon = new InitDriverPtr() { public void handler() 
 	{
-		unsigned char *RAM;
+		UBytePtr RAM;
 	
 		phantasm_rom_decode(0);
 	

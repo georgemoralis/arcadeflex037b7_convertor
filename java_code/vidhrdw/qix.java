@@ -17,8 +17,8 @@ public class qix
 	
 	
 	
-	unsigned char *qix_palettebank;
-	unsigned char *qix_videoaddress;
+	UBytePtr qix_palettebank;
+	UBytePtr qix_videoaddress;
 	
 	/*#define DEBUG_LEDS*/
 	
@@ -198,7 +198,7 @@ public class qix
 	{
 		if ((*qix_palettebank & 0x03) != (data & 0x03))
 		{
-			unsigned char *pram = &paletteram[256 * (data & 0x03)];
+			UBytePtr pram = &paletteram[256 * (data & 0x03)];
 			int i;
 	
 			for (i = 0;i < 256;i++)

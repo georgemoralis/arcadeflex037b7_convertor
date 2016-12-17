@@ -46,7 +46,7 @@ public class fileio
 	typedef struct
 	{
 		FILE *file;
-		unsigned char *data;
+		UBytePtr data;
 		unsigned int offset;
 		unsigned int length;
 		eFileType type;
@@ -54,8 +54,8 @@ public class fileio
 	}	FakeFileHandle;
 	
 	
-	extern unsigned int crc32 (unsigned int crc, const unsigned char *buf, unsigned int len);
-	static int checksum_file (const char *file, unsigned char **p, unsigned int *size, unsigned int *crc);
+	extern unsigned int crc32 (unsigned int crc, const UBytePtr buf, unsigned int len);
+	static int checksum_file (const char *file, UBytePtr *p, unsigned int *size, unsigned int *crc);
 	
 	/*
 	 * File stat cache LRU (Last Recently Used)
@@ -1034,7 +1034,7 @@ public class fileio
 	int osd_fread_swap (void *file, void *buffer, int length)
 	{
 		int i;
-		unsigned char *buf;
+		UBytePtr buf;
 		unsigned char temp;
 		int res;
 	
@@ -1070,12 +1070,12 @@ public class fileio
 	int osd_fwrite_swap (void *file, const void *buffer, int length)
 	{
 		int i;
-		unsigned char *buf;
+		UBytePtr buf;
 		unsigned char temp;
 		int res;
 	
 	
-		buf = (unsigned char *) buffer;
+		buf = (UBytePtr ) buffer;
 		for( i = 0; i < length; i += 2 )
 		{
 			temp = buf[i];
@@ -1097,7 +1097,7 @@ public class fileio
 	
 	int osd_fread_scatter (void *file, void *buffer, int length, int increment)
 	{
-		unsigned char *buf = buffer;
+		UBytePtr buf = buffer;
 		FakeFileHandle *f = (FakeFileHandle *) file;
 		unsigned char tempbuf[4096];
 		int totread, r, i;
@@ -1199,10 +1199,10 @@ public class fileio
 	
 	/* JB 980920 update */
 	/* AM 980919 */
-	static int checksum_file (const char *file, unsigned char **p, unsigned int *size, unsigned int *crc)
+	static int checksum_file (const char *file, UBytePtr *p, unsigned int *size, unsigned int *crc)
 	{
 		int length;
-		unsigned char *data;
+		UBytePtr data;
 		FILE *f;
 	
 		f = fopen (file, "rb");
@@ -1224,7 +1224,7 @@ public class fileio
 		}
 	
 		/* allocate space for entire file */
-		data = (unsigned char *) malloc (length);
+		data = (UBytePtr ) malloc (length);
 		if( !data )
 		{
 			fclose (f);

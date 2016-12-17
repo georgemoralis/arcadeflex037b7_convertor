@@ -89,7 +89,7 @@ public class k051649
 			k=voice[j].key;
 			if (v && f && k)
 			{
-				/*const unsigned char *w = voice[j].waveform;*/
+				/*const UBytePtr w = voice[j].waveform;*/
 				const signed char *w = voice[j].waveform;			/* 19991207.CAB */
 				int c=voice[j].counter;
 	

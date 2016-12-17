@@ -29,9 +29,9 @@ public class powerins
 	/* Variables that vidhrdw has access to */
 	
 	/* Variables defined in vidhrdw */
-	extern unsigned char *powerins_vram_0, *powerins_vctrl_0;
-	extern unsigned char *powerins_vram_1, *powerins_vctrl_1;
-	extern unsigned char *powerins_vregs;
+	extern UBytePtr powerins_vram_0, *powerins_vctrl_0;
+	extern UBytePtr powerins_vram_1, *powerins_vctrl_1;
+	extern UBytePtr powerins_vregs;
 	
 	/* Functions defined in vidhrdw */
 	READ_HANDLER ( powerins_vregs_r );

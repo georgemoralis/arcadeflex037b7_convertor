@@ -7,7 +7,7 @@ package vidhrdw;
 public class jailbrek
 {
 	
-	unsigned char *jailbrek_scroll_x;
+	UBytePtr jailbrek_scroll_x;
 	
 	public static VhConvertColorPromPtr jailbrek_vh_convert_color_prom = new VhConvertColorPromPtr() { public void handler(char []palette, char []colortable, UBytePtr color_prom)  {
 		#define TOTAL_COLORS(gfxn) (Machine.gfx[gfxn].total_colors * Machine.gfx[gfxn].color_granularity)

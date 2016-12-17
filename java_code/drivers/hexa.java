@@ -207,7 +207,7 @@ public class hexa
 	
 	static public static InitDriverPtr init_hexa = new InitDriverPtr() { public void handler() 
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 	
 		/* Hexa is not protected or anything, but it keeps writing 0x3f to register */

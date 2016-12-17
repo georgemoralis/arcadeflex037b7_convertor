@@ -16,10 +16,10 @@ public class segar
 {
 	
 	
-	unsigned char *segar_characterram;
-	unsigned char *segar_characterram2;
-	unsigned char *segar_mem_colortable;
-	unsigned char *segar_mem_bcolortable;
+	UBytePtr segar_characterram;
+	UBytePtr segar_characterram2;
+	UBytePtr segar_mem_colortable;
+	UBytePtr segar_mem_bcolortable;
 	
 	typedef struct
 	{
@@ -63,7 +63,7 @@ public class segar
 	
 	***************************************************************************/
 	
-	void segar_init_colors(unsigned char *palette, unsigned short *colortable, const unsigned char *color_prom)
+	void segar_init_colors(UBytePtr palette, unsigned short *colortable, const UBytePtr color_prom)
 	{
 		static unsigned char color_scale[] = {0x00, 0x40, 0x80, 0xC0 };
 		int i;
@@ -438,7 +438,7 @@ public class segar
 		int sprite_transparency;
 		int vert_scene;
 	
-		unsigned char *back_charmap = memory_region(REGION_USER1);
+		UBytePtr back_charmap = memory_region(REGION_USER1);
 	
 		if (palette_recalc() || full_refresh)
 			sv.refresh = 1;
@@ -599,7 +599,7 @@ public class segar
 		int charcode;
 		int sprite_transparency;
 	
-		unsigned char *back_charmap = memory_region(REGION_USER1);
+		UBytePtr back_charmap = memory_region(REGION_USER1);
 	
 		if (palette_recalc() || full_refresh)
 			sv.refresh = 1;
@@ -775,7 +775,7 @@ public class segar
 		unsigned long backoffs;
 		unsigned long back_scene;
 	
-		unsigned char *back_charmap = memory_region(REGION_USER1);
+		UBytePtr back_charmap = memory_region(REGION_USER1);
 	
 		if (palette_recalc() || full_refresh)
 			sv.refresh = 1;

@@ -40,8 +40,8 @@ public class mitchell
 	
 	
 	
-	extern unsigned char *pang_videoram;
-	extern unsigned char *pang_colorram;
+	extern UBytePtr pang_videoram;
+	extern UBytePtr pang_colorram;
 	
 	extern size_t pang_videoram_size;
 	
@@ -50,7 +50,7 @@ public class mitchell
 	public static WriteHandlerPtr pang_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
 		int bankaddress;
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 		bankaddress = 0x10000 + (data & 0x0f) * 0x4000;
 	
@@ -74,7 +74,7 @@ public class mitchell
 		"0111"	/* erase command */
 	);
 	
-	static unsigned char *nvram;
+	static UBytePtr nvram;
 	static size_t nvram_size;
 	static int init_eeprom_count;
 	
@@ -1482,7 +1482,7 @@ public class mitchell
 	
 	static void bootleg_decode(void)
 	{
-		unsigned char *rom = memory_region(REGION_CPU1);
+		UBytePtr rom = memory_region(REGION_CPU1);
 		int diff = memory_region_length(REGION_CPU1) / 2;
 	
 		memory_set_opcode_base(0,rom+diff);

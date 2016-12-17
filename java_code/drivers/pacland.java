@@ -37,7 +37,7 @@ public class pacland
 {
 	
 	
-	static unsigned char *sharedram1;
+	static UBytePtr sharedram1;
 	
 	
 	

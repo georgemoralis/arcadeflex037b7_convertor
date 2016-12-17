@@ -23,9 +23,9 @@ public class tumblep
 {
 	
 	static unsigned char tumblep_control_0[16];
-	unsigned char *tumblep_pf1_data,*tumblep_pf2_data;
+	UBytePtr tumblep_pf1_data,*tumblep_pf2_data;
 	static struct tilemap *pf1_tilemap,*pf1_alt_tilemap,*pf2_tilemap;
-	static unsigned char *gfx_base;
+	static UBytePtr gfx_base;
 	static int gfx_bank,flipscreen;
 	
 	/******************************************************************************/

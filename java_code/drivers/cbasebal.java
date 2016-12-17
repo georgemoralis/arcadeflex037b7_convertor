@@ -32,7 +32,7 @@ public class cbasebal
 	public static WriteHandlerPtr cbasebal_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
 		int bankaddress;
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 		/* bits 0-4 select ROM bank */
 	//logerror("%04x: bankswitch %02x\n",cpu_get_pc(),data);

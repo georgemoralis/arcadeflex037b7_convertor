@@ -36,7 +36,7 @@ public class cop01
 {
 	
 	
-	extern unsigned char *cop01_videoram;
+	extern UBytePtr cop01_videoram;
 	extern size_t cop01_videoram_size;
 	
 	

@@ -19,7 +19,7 @@ public class tail2nos
 {
 	
 	
-	extern unsigned char *tail2nos_bgvideoram;
+	extern UBytePtr tail2nos_bgvideoram;
 	
 	
 	

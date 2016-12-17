@@ -20,14 +20,14 @@ public class taitosj
 	#endif
 	
 	
-	unsigned char *taitosj_videoram2,*taitosj_videoram3;
-	unsigned char *taitosj_characterram;
-	unsigned char *taitosj_scroll;
-	unsigned char *taitosj_colscrolly;
-	unsigned char *taitosj_gfxpointer;
-	unsigned char *taitosj_colorbank,*taitosj_video_priority;
+	UBytePtr taitosj_videoram2,*taitosj_videoram3;
+	UBytePtr taitosj_characterram;
+	UBytePtr taitosj_scroll;
+	UBytePtr taitosj_colscrolly;
+	UBytePtr taitosj_gfxpointer;
+	UBytePtr taitosj_colorbank,*taitosj_video_priority;
 	static unsigned char taitosj_collision_reg[4];
-	static unsigned char *dirtybuffer2,*dirtybuffer3;
+	static UBytePtr dirtybuffer2,*dirtybuffer3;
 	static struct osd_bitmap *taitosj_tmpbitmap[3];
 	static struct osd_bitmap *sprite_sprite_collbitmap1,*sprite_sprite_collbitmap2;
 	static struct osd_bitmap *sprite_plane_collbitmap1;

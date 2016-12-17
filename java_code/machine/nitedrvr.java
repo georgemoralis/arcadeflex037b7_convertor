@@ -15,7 +15,7 @@ package machine;
 public class nitedrvr
 {
 	
-	unsigned char *nitedrvr_ram;
+	UBytePtr nitedrvr_ram;
 	
 	int nitedrvr_gear = 1;
 	int nitedrvr_track = 0;

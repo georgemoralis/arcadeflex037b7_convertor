@@ -18,10 +18,10 @@ public class appoooh
 	#define CHR1_OFST 0x00  /* palette page of char set #1 */
 	#define CHR2_OFST 0x10  /* palette page of char set #2 */
 	
-	unsigned char *appoooh_videoram2;
-	unsigned char *appoooh_colorram2;
-	unsigned char *appoooh_spriteram2;
-	static unsigned char *dirtybuffer2;
+	UBytePtr appoooh_videoram2;
+	UBytePtr appoooh_colorram2;
+	UBytePtr appoooh_spriteram2;
+	static UBytePtr dirtybuffer2;
 	static struct osd_bitmap *tmpbitmap2;
 	
 	static int scroll_x;
@@ -174,7 +174,7 @@ public class appoooh
 	
 		/* bit 6 ROM bank select */
 		{
-			unsigned char *RAM = memory_region(REGION_CPU1);
+			UBytePtr RAM = memory_region(REGION_CPU1);
 	
 			cpu_setbank(1,&RAM[data&0x40 ? 0x10000 : 0x0a000]);
 		}
@@ -184,7 +184,7 @@ public class appoooh
 	
 	static void appoooh_draw_sprites(struct osd_bitmap *dest_bmp,
 	        const struct GfxElement *gfx,
-	        unsigned char *sprite)
+	        UBytePtr sprite)
 	{
 		int offs;
 	

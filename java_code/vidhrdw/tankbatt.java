@@ -15,7 +15,7 @@ package vidhrdw;
 public class tankbatt
 {
 	
-	unsigned char *tankbatt_bulletsram;
+	UBytePtr tankbatt_bulletsram;
 	size_t tankbatt_bulletsram_size;
 	
 	/***************************************************************************

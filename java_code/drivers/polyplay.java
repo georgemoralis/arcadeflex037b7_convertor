@@ -87,11 +87,11 @@ package drivers;
 public class polyplay
 {
 	
-	static unsigned char *polyplay_ram;
+	static UBytePtr polyplay_ram;
 	
 	
 	/* video hardware access */
-	extern unsigned char *polyplay_characterram;
+	extern UBytePtr polyplay_characterram;
 	
 	/* I/O Port handling */
 	

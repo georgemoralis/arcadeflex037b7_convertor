@@ -47,8 +47,8 @@ public class commando
 {
 	
 	
-	extern unsigned char *commando_fgvideoram;
-	extern unsigned char *commando_bgvideoram;
+	extern UBytePtr commando_fgvideoram;
+	extern UBytePtr commando_bgvideoram;
 	
 	
 	
@@ -529,7 +529,7 @@ public class commando
 	static public static InitDriverPtr init_commando = new InitDriverPtr() { public void handler() 
 	{
 		int A;
-		unsigned char *rom = memory_region(REGION_CPU1);
+		UBytePtr rom = memory_region(REGION_CPU1);
 		int diff = memory_region_length(REGION_CPU1) / 2;
 	
 	
@@ -549,7 +549,7 @@ public class commando
 	static public static InitDriverPtr init_spaceinv = new InitDriverPtr() { public void handler() 
 	{
 		int A;
-		unsigned char *rom = memory_region(REGION_CPU1);
+		UBytePtr rom = memory_region(REGION_CPU1);
 		int diff = memory_region_length(REGION_CPU1) / 2;
 	
 	

@@ -69,8 +69,8 @@ public class espial
 	
 	
 	
-	extern unsigned char *espial_attributeram;
-	extern unsigned char *espial_column_scroll;
+	extern UBytePtr espial_attributeram;
+	extern UBytePtr espial_column_scroll;
 	
 	
 	public static InitMachinePtr espial_init_machine = new InitMachinePtr() { public void handler() 

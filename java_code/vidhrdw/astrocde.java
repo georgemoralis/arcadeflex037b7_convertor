@@ -22,7 +22,7 @@ public class astrocde
 	
 	#define MAX_INT_PER_FRAME 256
 	
-	unsigned char *wow_videoram;
+	UBytePtr wow_videoram;
 	static int magic_expand_color, magic_control, magic_expand_count, magic_shift_leftover;
 	static int collision;
 	
@@ -53,7 +53,7 @@ public class astrocde
 	
 	
 	
-	void astrocde_init_palette(unsigned char *palette, unsigned short *colortable,const unsigned char *color_prom)
+	void astrocde_init_palette(UBytePtr palette, unsigned short *colortable,const UBytePtr color_prom)
 	{
 		/* This routine builds a palette using a transformation from */
 		/* the YUV (Y, B-Y, R-Y) to the RGB color space */
@@ -431,7 +431,7 @@ public class astrocde
 		static int dest;
 		static int length;	/* row length */
 		static int loops;	/* rows to copy - 1 */
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 	
 		switch (offset)
@@ -810,7 +810,7 @@ public class astrocde
 	public static VhUpdatePtr seawolf2_vh_screenrefresh = new VhUpdatePtr() { public void handler(osd_bitmap bitmap,int full_refresh) 
 	{
 		int x,y,centre;
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 	
 		astrocde_vh_screenrefresh(bitmap,full_refresh);

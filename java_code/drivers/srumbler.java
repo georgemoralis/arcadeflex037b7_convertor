@@ -17,7 +17,7 @@ package drivers;
 public class srumbler
 {
 	
-	extern unsigned char *srumbler_backgroundram,*srumbler_foregroundram;
+	extern UBytePtr srumbler_backgroundram,*srumbler_foregroundram;
 	
 	
 	
@@ -34,9 +34,9 @@ public class srumbler
 		  that as well to be 100% accurate.
 		 */
 		int i;
-		unsigned char *ROM = memory_region(REGION_USER1);
-		unsigned char *prom1 = memory_region(REGION_PROMS) + (data & 0xf0);
-		unsigned char *prom2 = memory_region(REGION_PROMS) + 0x100 + ((data & 0x0f) << 4);
+		UBytePtr ROM = memory_region(REGION_USER1);
+		UBytePtr prom1 = memory_region(REGION_PROMS) + (data & 0xf0);
+		UBytePtr prom2 = memory_region(REGION_PROMS) + 0x100 + ((data & 0x0f) << 4);
 	
 		for (i = 0x05;i < 0x10;i++)
 		{

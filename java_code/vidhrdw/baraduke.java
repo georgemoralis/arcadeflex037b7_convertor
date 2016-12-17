@@ -7,7 +7,7 @@ package vidhrdw;
 public class baraduke
 {
 	
-	unsigned char *baraduke_textram, *baraduke_videoram;
+	UBytePtr baraduke_textram, *baraduke_videoram;
 	
 	static struct tilemap *tilemap[2];	/* backgrounds */
 	static int xscroll[2], yscroll[2];	/* scroll registers */
@@ -169,8 +169,8 @@ public class baraduke
 	{
 		const struct rectangle *clip = &Machine.visible_area;
 	
-		const unsigned char *source = &spriteram.read(0);
-		const unsigned char *finish = &spriteram[0x0800-16];/* the last is NOT a sprite */
+		const UBytePtr source = &spriteram.read(0);
+		const UBytePtr finish = &spriteram[0x0800-16];/* the last is NOT a sprite */
 	
 		int sprite_xoffs = spriteram.read(0x07f5)- 256 * (spriteram.read(0x07f4)& 1) + 16;
 		int sprite_yoffs = spriteram.read(0x07f7)- 256 * (spriteram.read(0x07f6)& 1);
@@ -276,8 +276,8 @@ public class baraduke
 	static void mark_sprites_colors(void)
 	{
 		int i;
-		const unsigned char *source = &spriteram.read(0);
-		const unsigned char *finish = &spriteram[0x0800-16];/* the last is NOT a sprite */
+		const UBytePtr source = &spriteram.read(0);
+		const UBytePtr finish = &spriteram[0x0800-16];/* the last is NOT a sprite */
 	
 		unsigned short palette_map[128];
 	

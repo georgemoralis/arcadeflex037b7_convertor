@@ -19,7 +19,7 @@ package drivers;
 public class ajax
 {
 	
-	extern unsigned char *ajax_sharedram;
+	extern UBytePtr ajax_sharedram;
 	
 	
 	/* from machine/ajax.c */
@@ -234,7 +234,7 @@ public class ajax
 	
 	public static WriteHandlerPtr sound_bank_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		unsigned char *RAM;
+		UBytePtr RAM;
 		int bank_A, bank_B;
 	
 		/* banks # for the 007232 (chip 1) */

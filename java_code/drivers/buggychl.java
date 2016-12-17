@@ -90,9 +90,9 @@ public class buggychl
 	/* in machine */
 	
 	/* in vidhrdw */
-	extern unsigned char *buggychl_scrollv,*buggychl_scrollh;
+	extern UBytePtr buggychl_scrollv,*buggychl_scrollh;
 	extern unsigned char buggychl_sprite_lookup[0x2000];
-	extern unsigned char *buggychl_character_ram;
+	extern UBytePtr buggychl_character_ram;
 	
 	
 	

@@ -42,7 +42,7 @@ public class atetris
 	
 	
 	
-	static unsigned char *nvram;
+	static UBytePtr nvram;
 	static size_t nvram_size;
 	
 	public static nvramPtr nvram_handler  = new nvramPtr() { public void handler(Object file, int read_or_write) 
@@ -274,7 +274,7 @@ public class atetris
 	
 	static public static InitDriverPtr init_atetris = new InitDriverPtr() { public void handler() 
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 	
 	    // Move the lower 16k to 0x10000

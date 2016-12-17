@@ -195,8 +195,8 @@ public class twincobr
 	
 	/**************** Machine stuff ******************/
 	
-	extern unsigned char *twincobr_68k_dsp_ram;
-	extern unsigned char *twincobr_sharedram;
+	extern UBytePtr twincobr_68k_dsp_ram;
+	extern UBytePtr twincobr_sharedram;
 	extern int twincobr_intenable;
 	
 	
@@ -1125,7 +1125,7 @@ public class twincobr
 		unsigned char datamsb;
 		unsigned char datalsb;
 	
-		unsigned char *DSP_ROMS = memory_region(REGION_CPU3);
+		UBytePtr DSP_ROMS = memory_region(REGION_CPU3);
 	
 		/* The ROM loader fixes the nibble images. Here we fix the byte ordering. */
 	

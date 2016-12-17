@@ -57,7 +57,7 @@ public class bssoccer
 	
 	/* Variables that driver has access to */
 	
-	unsigned char *bssoccer_vregs;
+	UBytePtr bssoccer_vregs;
 	static int flipscreen;
 	
 	/* Variables and functions defined in driver */

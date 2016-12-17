@@ -70,9 +70,9 @@ public class gberet
 	
 	
 	
-	extern unsigned char *gberet_videoram,*gberet_colorram;
-	extern unsigned char *gberet_spritebank;
-	extern unsigned char *gberet_scrollram;
+	extern UBytePtr gberet_videoram,*gberet_colorram;
+	extern UBytePtr gberet_spritebank;
+	extern UBytePtr gberet_scrollram;
 	
 	
 	
@@ -85,7 +85,7 @@ public class gberet
 	
 	public static WriteHandlerPtr mrgoemon_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 		int offs;
 	
 		/* bits 0/1 = coin counters */

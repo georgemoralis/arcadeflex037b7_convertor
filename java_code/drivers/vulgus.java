@@ -50,9 +50,9 @@ public class vulgus
 	
 	
 	
-	extern unsigned char *vulgus_fgvideoram;
-	extern unsigned char *vulgus_bgvideoram;
-	extern unsigned char *vulgus_scroll_low,*vulgus_scroll_high;
+	extern UBytePtr vulgus_fgvideoram;
+	extern UBytePtr vulgus_bgvideoram;
+	extern UBytePtr vulgus_scroll_low,*vulgus_scroll_high;
 	
 	
 	

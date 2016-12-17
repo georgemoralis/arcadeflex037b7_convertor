@@ -16,8 +16,8 @@ public class pbaction
 {
 	
 	
-	unsigned char *pbaction_videoram2,*pbaction_colorram2;
-	static unsigned char *dirtybuffer2;
+	UBytePtr pbaction_videoram2,*pbaction_colorram2;
+	static UBytePtr dirtybuffer2;
 	static struct osd_bitmap *tmpbitmap2;
 	static int scroll;
 	static int flipscreen;

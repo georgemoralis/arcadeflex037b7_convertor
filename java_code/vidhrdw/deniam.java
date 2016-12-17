@@ -8,7 +8,7 @@ public class deniam
 {
 	
 	
-	unsigned char *deniam_videoram,*deniam_textram;
+	UBytePtr deniam_videoram,*deniam_textram;
 	static int display_enable;
 	static int bg_scrollx_offs,bg_scrolly_offs,fg_scrollx_offs,fg_scrolly_offs;
 	static int bg_scrollx_reg,bg_scrolly_reg,bg_page_reg;

@@ -7,7 +7,7 @@ package vidhrdw;
 public class skykid
 {
 	
-	unsigned char *skykid_textram, *skykid_videoram;
+	UBytePtr skykid_textram, *skykid_videoram;
 	
 	static struct tilemap *background;
 	static int priority;
@@ -104,7 +104,7 @@ public class skykid
 			return 1;
 	
 		{
-			unsigned char *RAM = memory_region(REGION_CPU1);
+			UBytePtr RAM = memory_region(REGION_CPU1);
 	
 			spriteram	= &RAM[0x4f80];
 			spriteram_2	= &RAM[0x4f80+0x0800];

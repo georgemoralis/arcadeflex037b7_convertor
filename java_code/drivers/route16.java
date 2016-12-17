@@ -56,9 +56,9 @@ package drivers;
 public class route16
 {
 	
-	extern unsigned char *route16_sharedram;
-	extern unsigned char *route16_videoram1;
-	extern unsigned char *route16_videoram2;
+	extern UBytePtr route16_sharedram;
+	extern UBytePtr route16_videoram1;
+	extern UBytePtr route16_videoram2;
 	extern size_t route16_videoram_size;
 	
 	

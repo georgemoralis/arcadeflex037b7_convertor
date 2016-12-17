@@ -141,7 +141,7 @@ public class xmen
 	public static WriteHandlerPtr sound_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
 		int bankaddress;
-		unsigned char *RAM = memory_region(REGION_CPU2);
+		UBytePtr RAM = memory_region(REGION_CPU2);
 	
 	
 		bankaddress = 0x10000 + (data & 0x07) * 0x4000;
@@ -470,7 +470,7 @@ public class xmen
 	
 	static public static InitDriverPtr init_xmen6p = new InitDriverPtr() { public void handler() 
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 		WRITE_WORD(&RAM[0x21a6],0x4e71);
 		WRITE_WORD(&RAM[0x21a8],0x4e71);

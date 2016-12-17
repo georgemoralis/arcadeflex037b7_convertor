@@ -61,17 +61,17 @@ public class segar
 	
 	void sega_security(int chip);
 	
-	extern unsigned char *segar_mem;
+	extern UBytePtr segar_mem;
 	
 	/* machine/segacrpt.c */
 	
 	
 	/* vidhrdw/segar.c */
 	
-	extern unsigned char *segar_characterram;
-	extern unsigned char *segar_characterram2;
-	extern unsigned char *segar_mem_colortable;
-	extern unsigned char *segar_mem_bcolortable;
+	extern UBytePtr segar_characterram;
+	extern UBytePtr segar_characterram2;
+	extern UBytePtr segar_mem_colortable;
+	extern UBytePtr segar_mem_bcolortable;
 	
 	
 	

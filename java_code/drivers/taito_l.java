@@ -86,17 +86,17 @@ public class taito_l
 	};
 	
 	static void (*current_notifier[4])(int);
-	static unsigned char *current_base[4];
+	static UBytePtr current_base[4];
 	
 	static int cur_rombank, cur_rombank2, cur_rambank[4];
 	static int irq_adr_table[3];
 	static int irq_enable = 0;
 	
-	unsigned char *taitol_rambanks;
+	UBytePtr taitol_rambanks;
 	
-	static unsigned char *palette_ram;
-	static unsigned char *empty_ram;
-	static unsigned char *shared_ram;
+	static UBytePtr palette_ram;
+	static UBytePtr empty_ram;
+	static UBytePtr shared_ram;
 	
 	static mem_read_handler porte0_r;
 	static mem_read_handler porte1_r;
@@ -105,7 +105,7 @@ public class taito_l
 	
 	static void palette_notifier(int addr)
 	{
-		unsigned char *p = palette_ram + (addr & ~1);
+		UBytePtr p = palette_ram + (addr & ~1);
 		unsigned char byte0 = *p++;
 		unsigned char byte1 = *p;
 	
@@ -735,7 +735,7 @@ public class taito_l
 	
 	public static WriteHandlerPtr sound_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		unsigned char *RAM = memory_region(REGION_CPU2);
+		UBytePtr RAM = memory_region(REGION_CPU2);
 		int banknum = (data - 1) & 3;
 	
 		cpu_setbank (7, &RAM [0x10000 + (banknum * 0x4000)]);
@@ -2039,7 +2039,7 @@ public class taito_l
 		if (cur_bank != (data & 0x03) )
 		{
 			int bankaddress;
-			unsigned char *RAM = memory_region(REGION_CPU2);
+			UBytePtr RAM = memory_region(REGION_CPU2);
 	
 			cur_bank = data & 0x03;
 			bankaddress = 0x10000 + (cur_bank-1) * 0x4000;
@@ -2518,7 +2518,7 @@ public class taito_l
 	static public static InitDriverPtr init_plotting = new InitDriverPtr() { public void handler() 
 	{
 		unsigned char tab[256];
-		unsigned char *p;
+		UBytePtr p;
 		int i;
 	
 		for(i=0;i<256;i++)

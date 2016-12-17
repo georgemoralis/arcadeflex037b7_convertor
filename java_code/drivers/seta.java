@@ -43,7 +43,7 @@ public class seta
 	
 	/* Variables and functions only used here */
 	
-	static unsigned char *sharedram;
+	static UBytePtr sharedram;
 	
 	
 	/* Variables that vidhrdw has access to */
@@ -53,9 +53,9 @@ public class seta
 	
 	/* Variables and functions defined in vidhrdw */
 	
-	extern unsigned char *seta_vram_0, *seta_vram_1, *seta_vctrl_0;
-	extern unsigned char *seta_vram_2, *seta_vram_3, *seta_vctrl_2;
-	extern unsigned char *seta_vregs;
+	extern UBytePtr seta_vram_0, *seta_vram_1, *seta_vctrl_0;
+	extern UBytePtr seta_vram_2, *seta_vram_3, *seta_vctrl_2;
+	extern UBytePtr seta_vregs;
 	
 	extern int seta_tiles_offset;
 	
@@ -67,7 +67,7 @@ public class seta
 	
 	/* Variables and functions defined in sndhrdw */
 	
-	extern unsigned char *seta_sound_ram;
+	extern UBytePtr seta_sound_ram;
 	
 	READ_HANDLER ( seta_sound_r );
 	READ_HANDLER ( seta_sound_word_r );
@@ -343,7 +343,7 @@ public class seta
 	   writing to sharedram! */
 	
 	
-	static unsigned char *mirror_ram;
+	static UBytePtr mirror_ram;
 	
 	public static ReadHandlerPtr mirror_ram_r  = new ReadHandlerPtr() { public int handler(int offset)
 	{
@@ -549,7 +549,7 @@ public class seta
 	
 	public static WriteHandlerPtr sub_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		unsigned char *RAM = memory_region(REGION_CPU2);
+		UBytePtr RAM = memory_region(REGION_CPU2);
 		int bank = data >> 4;
 	
 		coin_lockout_w.handler(0, ((~data) >> 2) & 1 );
@@ -3041,7 +3041,7 @@ public class seta
 	
 	public static InitDriverPtr init_metafox = new InitDriverPtr() { public void handler() 
 	{
-		unsigned char *RAM;
+		UBytePtr RAM;
 	
 		/* This game uses the 21c000-21cfff area for protecton? */
 		install_mem_read_handler (0, 0x200000, 0x2001ff, MRA_NOP);
@@ -3248,7 +3248,7 @@ public class seta
 	public static InitDriverPtr init_twineagl = new InitDriverPtr() { public void handler() 
 	{
 		int i;
-		unsigned char *RAM;
+		UBytePtr RAM;
 	
 		/* Protection? */
 		install_mem_read_handler(0, 0x800000, 0x8000ff, twineagl_protection_r);
@@ -3435,7 +3435,7 @@ public class seta
 	
 	public static InitDriverPtr init_wrofaero = new InitDriverPtr() { public void handler() 
 	{
-		unsigned char *RAM;
+		UBytePtr RAM;
 	
 		RAM	= memory_region(REGION_GFX3);	// layer 2's tile 0 has some
 		RAM[0] = 0;							// opaque pixels (bad dump)

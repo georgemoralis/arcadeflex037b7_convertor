@@ -54,13 +54,13 @@ public class skychut
 		0,1,0,2,0,3,0,4,0,5,0,6
 	};
 	
-	static void init_palette(unsigned char *game_palette, unsigned short *game_colortable,const unsigned char *color_prom)
+	static void init_palette(UBytePtr game_palette, unsigned short *game_colortable,const UBytePtr color_prom)
 	{
 		memcpy(game_palette,palette,sizeof(palette));
 		memcpy(game_colortable,colortable,sizeof(colortable));
 	}
 	
-	static void init_greenber_palette(unsigned char *game_palette, unsigned short *game_colortable,const unsigned char *color_prom)
+	static void init_greenber_palette(UBytePtr game_palette, unsigned short *game_colortable,const UBytePtr color_prom)
 	{
 		memcpy(game_palette,spacebeam_palette,sizeof(spacebeam_palette));
 	}

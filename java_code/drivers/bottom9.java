@@ -65,7 +65,7 @@ public class bottom9
 	
 	public static WriteHandlerPtr bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 		int offs;
 	
 		/* bit 0 = RAM bank */
@@ -116,7 +116,7 @@ public class bottom9
 	
 	public static WriteHandlerPtr sound_bank_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		unsigned char *RAM;
+		UBytePtr RAM;
 		int bank_A,bank_B;
 	
 		RAM = memory_region(REGION_SOUND1);

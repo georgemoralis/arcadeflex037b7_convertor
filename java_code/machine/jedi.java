@@ -23,7 +23,7 @@ public class jedi
 	
 	public static WriteHandlerPtr jedi_rom_banksel_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 	    if ((data & 0x01) != 0) cpu_setbank (1, &RAM[0x10000]);
 	    if ((data & 0x02) != 0) cpu_setbank (1, &RAM[0x14000]);

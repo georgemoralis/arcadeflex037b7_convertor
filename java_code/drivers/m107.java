@@ -23,8 +23,8 @@ package drivers;
 public class m107
 {
 	
-	extern unsigned char *m107_vram_data;
-	static unsigned char *m107_ram;
+	extern UBytePtr m107_vram_data;
+	static UBytePtr m107_ram;
 	static int m107_irq_vectorbase,m107_vblank,raster_enable;
 	extern int m107_raster_irq_position,m107_sprite_list;
 	
@@ -40,7 +40,7 @@ public class m107
 	
 	public static WriteHandlerPtr bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 		if (offset==1) return; /* Unused top byte */
 		cpu_setbank(1,&RAM[0x100000 + ((data&0x7)*0x10000)]);
@@ -505,7 +505,7 @@ public class m107
 	
 	static public static InitDriverPtr init_m107 = new InitDriverPtr() { public void handler() 
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 		memcpy(RAM+0xffff0,RAM+0x7fff0,0x10); /* Start vector */
 		cpu_setbank(1,&RAM[0xa0000]); /* Initial bank */
@@ -519,7 +519,7 @@ public class m107
 	
 	static public static InitDriverPtr init_dsoccr94 = new InitDriverPtr() { public void handler() 
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 		memcpy(RAM+0xffff0,RAM+0x7fff0,0x10); /* Start vector */
 		cpu_setbank(1,&RAM[0xa0000]); /* Initial bank */

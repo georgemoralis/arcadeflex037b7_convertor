@@ -7,13 +7,13 @@ package vidhrdw;
 public class macross
 {
 	
-	unsigned char *macross_workram;
-	unsigned char *macross_spriteram;
-	unsigned char *macross_txvideoram;
-	unsigned char *macross_videocontrol;
+	UBytePtr macross_workram;
+	UBytePtr macross_spriteram;
+	UBytePtr macross_txvideoram;
+	UBytePtr macross_videocontrol;
 	size_t macross_txvideoram_size;
 	
-	static unsigned char * dirtybuffer;
+	static UBytePtr  dirtybuffer;
 	static struct osd_bitmap *tmpbitmap;
 	static int flipscreen = 0;
 	

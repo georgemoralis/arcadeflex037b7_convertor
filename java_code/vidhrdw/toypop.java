@@ -15,11 +15,11 @@ package vidhrdw;
 public class toypop
 {
 	
-	extern unsigned char *toypop_sharedram_2;
+	extern UBytePtr toypop_sharedram_2;
 	
-	unsigned char *bg_image;
+	UBytePtr bg_image;
 	static struct osd_bitmap *bgbitmap;
-	static unsigned char *dirtybackground;
+	static UBytePtr dirtybackground;
 	static int flipscreen;
 	
 	/***************************************************************************

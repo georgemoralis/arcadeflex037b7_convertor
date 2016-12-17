@@ -37,7 +37,7 @@ public class exctsccr
 	/* from vidhrdw */
 	extern extern extern extern 
 	/* from machine */
-	extern unsigned char *exctsccr_mcu_ram;
+	extern UBytePtr exctsccr_mcu_ram;
 	
 	
 	public static WriteHandlerPtr exctsccr_DAC_data_w = new WriteHandlerPtr() {public void handler(int offset, int data)

@@ -153,7 +153,7 @@ public class videopin
 		0x00, 0x01
 	};
 	
-	static void init_palette(unsigned char *game_palette, unsigned short *game_colortable,const unsigned char *color_prom)
+	static void init_palette(UBytePtr game_palette, unsigned short *game_colortable,const UBytePtr color_prom)
 	{
 		memcpy(game_palette,videopin_palette,sizeof(videopin_palette));
 		memcpy(game_colortable,videopin_colortable,sizeof(videopin_colortable));

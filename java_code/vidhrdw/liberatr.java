@@ -23,7 +23,7 @@ public class liberatr
 {
 	
 	
-	unsigned char *liberatr_bitmapram;
+	UBytePtr liberatr_bitmapram;
 	
 	
 	

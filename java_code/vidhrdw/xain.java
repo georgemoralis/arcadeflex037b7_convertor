@@ -15,7 +15,7 @@ package vidhrdw;
 public class xain
 {
 	
-	unsigned char *xain_charram, *xain_bgram0, *xain_bgram1;
+	UBytePtr xain_charram, *xain_bgram0, *xain_bgram1;
 	
 	static struct tilemap *char_tilemap, *bgram0_tilemap, *bgram1_tilemap;
 	

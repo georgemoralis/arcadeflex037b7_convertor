@@ -14,7 +14,7 @@ public class ultraman
 	
 	static int sprite_colorbase, zoom_colorbase[3];
 	
-	extern unsigned char* ultraman_regs;
+	extern UBytePtr  ultraman_regs;
 	
 	/***************************************************************************
 	

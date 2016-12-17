@@ -205,7 +205,7 @@ public class bking2
 	   what the code expects, otherwise the collision detection is skipped */
 	public static ReadHandlerPtr bking2_pos_r  = new ReadHandlerPtr() { public int handler(int offset)
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 		UINT16 pos, x, y;
 	

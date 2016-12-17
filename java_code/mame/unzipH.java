@@ -129,7 +129,7 @@ public class unzipH
 	
 	/* public functions */
 	int /* error */ load_zipped_file (const char *zipfile, const char *filename,
-		unsigned char **buf, unsigned int *length);
+		UBytePtr *buf, unsigned int *length);
 	int /* error */ checksum_zipped_file (const char *zipfile, const char *filename, unsigned int *length, unsigned int *sum);
 	
 	

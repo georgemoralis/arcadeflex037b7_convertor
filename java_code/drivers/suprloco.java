@@ -21,10 +21,10 @@ public class suprloco
 {
 	
 	
-	extern unsigned char *spriteram;
+	extern UBytePtr spriteram;
 	extern size_t spriteram_size;
 	
-	extern unsigned char *suprloco_videoram;
+	extern UBytePtr suprloco_videoram;
 	
 	
 	
@@ -285,7 +285,7 @@ public class suprloco
 		/* convert graphics to 4bpp from 3bpp */
 	
 		int i, j, k, color_source, color_dest;
-		unsigned char *source, *dest, *lookup;
+		UBytePtr source, *dest, *lookup;
 	
 		source = memory_region(REGION_GFX1);
 		dest   = source + 0x6000;

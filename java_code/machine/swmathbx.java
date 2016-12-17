@@ -44,7 +44,7 @@ public class swmathbx
 	public static InitDriverPtr init_starwars = new InitDriverPtr() { public void handler() 
 	{
 		int cnt,val;
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 		for (cnt=0;cnt<1024;cnt++)
 		{
@@ -79,7 +79,7 @@ public class swmathbx
 		int MA;
 		int IP15_8, IP7, IP6_0; /* Instruction PROM values */
 	
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 	logerror("Running Mathbox...\n");
 	

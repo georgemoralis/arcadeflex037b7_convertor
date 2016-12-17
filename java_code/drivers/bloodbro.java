@@ -32,9 +32,9 @@ public class bloodbro
 	
 	extern extern extern extern 
 	
-	extern unsigned char *bloodbro_videoram2;
-	extern unsigned char *textlayoutram;
-	extern unsigned char *bloodbro_scroll;
+	extern UBytePtr bloodbro_videoram2;
+	extern UBytePtr textlayoutram;
+	extern UBytePtr bloodbro_scroll;
 	
 	/***************************************************************************/
 	
@@ -507,7 +507,7 @@ public class bloodbro
 	
 	static void gfx_untangle( void )
 	{
-		unsigned char *gfx = memory_region(REGION_GFX3);
+		UBytePtr gfx = memory_region(REGION_GFX3);
 		int i;
 		for( i=0; i< 0x100000; i++ ){
 			gfx[i] = ~gfx[i];

@@ -18,13 +18,13 @@ public class ddrible
 	int ddrible_int_enable_0;
 	int ddrible_int_enable_1;
 	
-	static unsigned char *ddrible_sharedram;
-	static unsigned char *ddrible_snd_sharedram;
+	static UBytePtr ddrible_sharedram;
+	static UBytePtr ddrible_snd_sharedram;
 	
-	extern unsigned char *ddrible_spriteram_1;
-	extern unsigned char *ddrible_spriteram_2;
-	extern unsigned char *ddrible_fg_videoram;
-	extern unsigned char *ddrible_bg_videoram;
+	extern UBytePtr ddrible_spriteram_1;
+	extern UBytePtr ddrible_spriteram_2;
+	extern UBytePtr ddrible_fg_videoram;
+	extern UBytePtr ddrible_bg_videoram;
 	
 	/* video hardware memory handlers */
 	
@@ -49,7 +49,7 @@ public class ddrible
 	public static WriteHandlerPtr ddrible_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
 		int bankaddress;
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 		bankaddress = 0x10000 + (data & 0x0f)*0x2000;
 		cpu_setbank(1,&RAM[bankaddress]);
@@ -95,7 +95,7 @@ public class ddrible
 	
 	public static WriteHandlerPtr ddrible_vlm5030_ctrl_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		unsigned char *SPEECH_ROM = memory_region(REGION_SOUND1);
+		UBytePtr SPEECH_ROM = memory_region(REGION_SOUND1);
 		/* b7 : vlm data bus OE   */
 		/* b6 : VLM5030-RST       */
 		/* b5 : VLM5030-ST        */

@@ -1366,6 +1366,20 @@ public class convertMame {
                     Convertor.inpos = j;
                 }
                 break;
+                case 'u':
+                {
+                    i = Convertor.inpos;
+                    if (sUtil.getToken("unsigned char")) {
+                        sUtil.skipSpace();
+                        if (sUtil.parseChar() != '*') {
+                            Convertor.inpos = i;
+                        } else {
+                            sUtil.putString((new StringBuilder()).append("UBytePtr ").toString());
+                            continue;
+                        }
+                    }
+                }
+                break;
                 case 'R': {
                     i = Convertor.inpos;
                     if (sUtil.getToken("ROM_START")) {

@@ -16,10 +16,10 @@ public class stfight
 {
 	
 	// Real stuff
-	unsigned char *stfight_text_char_ram;
-	unsigned char *stfight_text_attr_ram;
-	unsigned char *stfight_vh_latch_ram;
-	unsigned char *stfight_sprite_ram;
+	UBytePtr stfight_text_char_ram;
+	UBytePtr stfight_text_attr_ram;
+	UBytePtr stfight_vh_latch_ram;
+	UBytePtr stfight_sprite_ram;
 	
 	static struct tilemap *fg_tilemap,*bg_tilemap,*tx_tilemap;
 	static int stfight_sprite_base = 0;
@@ -104,7 +104,7 @@ public class stfight
 	
 	static void get_fg_tile_info(int tile_index)
 	{
-		unsigned char   *fgMap = memory_region(REGION_GFX5);
+		UBytePtr fgMap = memory_region(REGION_GFX5);
 		int attr,tile_base;
 	
 		attr = fgMap[0x8000+tile_index];
@@ -123,7 +123,7 @@ public class stfight
 	
 	static void get_bg_tile_info(int tile_index)
 	{
-		unsigned char   *bgMap = memory_region(REGION_GFX6);
+		UBytePtr bgMap = memory_region(REGION_GFX6);
 		int attr,tile_bank,tile_base;
 	
 		attr = bgMap[0x8000+tile_index];

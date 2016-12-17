@@ -143,11 +143,11 @@ public class gsword
 	extern size_t gs_videoram_size;
 	extern size_t gs_spritexy_size;
 	
-	extern unsigned char *gs_videoram;
-	extern unsigned char *gs_scrolly_ram;
-	extern unsigned char *gs_spritexy_ram;
-	extern unsigned char *gs_spritetile_ram;
-	extern unsigned char *gs_spriteattrib_ram;
+	extern UBytePtr gs_videoram;
+	extern UBytePtr gs_scrolly_ram;
+	extern UBytePtr gs_spritexy_ram;
+	extern UBytePtr gs_spritetile_ram;
+	extern UBytePtr gs_spriteattrib_ram;
 	
 	static int coins;
 	static int fake8910_0,fake8910_1;
@@ -209,7 +209,7 @@ public class gsword
 	
 	public static InitMachinePtr machine_init = new InitMachinePtr() { public void handler() 
 	{
-		unsigned char *ROM2 = memory_region(REGION_CPU2);
+		UBytePtr ROM2 = memory_region(REGION_CPU2);
 	
 		ROM2[0x1da] = 0xc3; /* patch for rom self check */
 		ROM2[0x726] = 0;    /* patch for sound protection or time out function */

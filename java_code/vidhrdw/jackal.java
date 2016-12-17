@@ -17,7 +17,7 @@ package vidhrdw;
 public class jackal
 {
 	
-	unsigned char *jackal_scrollram,*jackal_videoctrl;
+	UBytePtr jackal_scrollram,*jackal_videoctrl;
 	
 	
 	
@@ -83,9 +83,9 @@ public class jackal
 	***************************************************************************/
 	public static VhUpdatePtr jackal_vh_screenrefresh = new VhUpdatePtr() { public void handler(osd_bitmap bitmap,int full_refresh) 
 	{
-		unsigned char *sr, *ss;
+		UBytePtr sr, *ss;
 		int offs,i;
-		unsigned char *RAM = (memory_region(REGION_CPU1));
+		UBytePtr RAM = (memory_region(REGION_CPU1));
 	
 	
 		if (palette_recalc())

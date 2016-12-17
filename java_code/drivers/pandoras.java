@@ -30,8 +30,8 @@ public class pandoras
 	static int firq_old_data_a, firq_old_data_b;
 	static int 	i8039_irqenable;
 	
-	unsigned char *pandoras_sharedram;
-	static unsigned char *pandoras_sharedram2;
+	UBytePtr pandoras_sharedram;
+	static UBytePtr pandoras_sharedram2;
 	
 	/* from vidhrdw */
 	

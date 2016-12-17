@@ -54,7 +54,7 @@ public class t11H
 	extern const char *t11_info(void *context, int regnum);
 	extern unsigned t11_dasm(char *buffer, unsigned pc);
 	
-	extern void t11_SetBank(int banknum, unsigned char *address);
+	extern void t11_SetBank(int banknum, UBytePtr address);
 	
 	/****************************************************************************/
 	/* Read a byte from given memory location                                   */

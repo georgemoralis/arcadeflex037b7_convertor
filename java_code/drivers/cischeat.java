@@ -144,13 +144,13 @@ public class cischeat
 {
 	
 	/* Variables only used here: */
-	static unsigned char *rom_1, *rom_2, *rom_3;
-	static unsigned char *sharedram1, *sharedram2;
+	static UBytePtr rom_1, *rom_2, *rom_3;
+	static UBytePtr sharedram1, *sharedram2;
 	
 	/* Variables that vidhrdw has access to: */
 	
 	/* Variables defined in vidhrdw: */
-	extern unsigned char *cischeat_roadram[2];
+	extern UBytePtr cischeat_roadram[2];
 	
 	/* Functions defined in vidhrdw: */
 	
@@ -1058,8 +1058,8 @@ public class cischeat
 	*/
 	void cischeat_untangle_sprites(int region)
 	{
-		unsigned char		*src = memory_region(region);
-		const unsigned char	*end = memory_region(region) + memory_region_length(region);
+		UBytePtr src = memory_region(region);
+		const UBytePtr end = memory_region(region) + memory_region_length(region);
 	
 		while (src < end)
 		{

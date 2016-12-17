@@ -75,16 +75,16 @@ package drivers;
 public class bosco
 {
 	
-	extern unsigned char *bosco_sharedram;
+	extern UBytePtr bosco_sharedram;
 	
 	
-	extern unsigned char *bosco_videoram2,*bosco_colorram2;
-	extern unsigned char *bosco_radarx,*bosco_radary,*bosco_radarattr;
+	extern UBytePtr bosco_videoram2,*bosco_colorram2;
+	extern UBytePtr bosco_radarx,*bosco_radary,*bosco_radarattr;
 	extern size_t bosco_radarram_size;
-	extern unsigned char *bosco_staronoff;
-	extern unsigned char *bosco_starblink;
+	extern UBytePtr bosco_staronoff;
+	extern UBytePtr bosco_starblink;
 	
-	extern unsigned char *pengo_soundregs;
+	extern UBytePtr pengo_soundregs;
 	
 	
 	static MemoryReadAddress readmem_cpu1[] =

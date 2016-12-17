@@ -12,9 +12,9 @@ package drivers;
 public class ttmahjng
 {
 	
-	extern unsigned char *ttmahjng_sharedram;
-	extern unsigned char *ttmahjng_videoram1;
-	extern unsigned char *ttmahjng_videoram2;
+	extern UBytePtr ttmahjng_sharedram;
+	extern UBytePtr ttmahjng_videoram1;
+	extern UBytePtr ttmahjng_videoram2;
 	extern size_t ttmahjng_videoram_size;
 	
 	

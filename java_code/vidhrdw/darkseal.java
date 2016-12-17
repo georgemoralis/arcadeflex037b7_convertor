@@ -94,14 +94,14 @@ package vidhrdw;
 public class darkseal
 {
 	
-	unsigned char *darkseal_pf12_row,*darkseal_pf34_row;
-	unsigned char *darkseal_pf1_data,*darkseal_pf2_data,*darkseal_pf3_data;
+	UBytePtr darkseal_pf12_row,*darkseal_pf34_row;
+	UBytePtr darkseal_pf1_data,*darkseal_pf2_data,*darkseal_pf3_data;
 	
 	static unsigned char darkseal_control_0[16];
 	static unsigned char darkseal_control_1[16];
 	
 	static struct tilemap *pf1_tilemap,*pf2_tilemap,*pf3_tilemap;
-	static unsigned char *gfx_base;
+	static UBytePtr gfx_base;
 	static int gfx_bank,flipscreen;
 	
 	/***************************************************************************/

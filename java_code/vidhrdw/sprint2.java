@@ -21,8 +21,8 @@ public class sprint2
 	extern int sprint2_gear1;
 	extern int sprint2_gear2;
 	
-	unsigned char *sprint2_horiz_ram;
-	unsigned char *sprint2_vert_car_ram;
+	UBytePtr sprint2_horiz_ram;
+	UBytePtr sprint2_vert_car_ram;
 	
 	static struct osd_bitmap *back_vid;
 	static struct osd_bitmap *grey_cars_vid;

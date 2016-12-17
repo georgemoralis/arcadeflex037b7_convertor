@@ -24,7 +24,7 @@ public class cps2
 	{
 		UINT32 dwval;
 	    int size=memory_region_length(REGION_GFX1);
-	    unsigned char *data = memory_region(REGION_GFX1);
+	    UBytePtr data = memory_region(REGION_GFX1);
 		int i,j,nchar,penusage,gfxsize;
 	
 	    gfxsize=size/4;

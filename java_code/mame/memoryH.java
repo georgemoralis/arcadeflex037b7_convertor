@@ -85,7 +85,7 @@ public class memoryH
 	{
 		offs_t start, end;
 		mem_write_handler handler;				/* see special values below */
-		unsigned char **base;					/* optional (see explanation above) */
+		UBytePtr *base;					/* optional (see explanation above) */
 		size_t *size;							/* optional (see explanation above) */
 	};
 	
@@ -156,7 +156,7 @@ public class memoryH
 	struct ExtMemory
 	{
 		int start,end,region;
-		unsigned char *data;
+		UBytePtr data;
 	};
 	
 	extern struct ExtMemory ext_memory[MAX_EXT_MEMORY];
@@ -238,9 +238,9 @@ public class memoryH
 	extern MHELE *cur_mrhard;				/* current set of read handlers */
 	extern MHELE *cur_mwhard;				/* current set of write handlers */
 	
-	extern unsigned char *OP_RAM;			/* opcode RAM base */
-	extern unsigned char *OP_ROM;			/* opcode ROM base */
-	extern unsigned char *cpu_bankbase[];	/* array of bank bases */
+	extern UBytePtr OP_RAM;			/* opcode RAM base */
+	extern UBytePtr OP_ROM;			/* opcode ROM base */
+	extern UBytePtr cpu_bankbase[];	/* array of bank bases */
 	
 	
 	
@@ -390,7 +390,7 @@ public class memoryH
 	
 	/* use this to set the a different opcode base address when using a CPU with
 	   opcodes and data encrypted separately */
-	void memory_set_opcode_base(int cpu, unsigned char *base);
+	void memory_set_opcode_base(int cpu, UBytePtr base);
 	
 	/* look up a chunk of memory and get its start/end addresses, and its base.
 	Pass in the cpu number and the offset. It will find the chunk containing
@@ -398,7 +398,7 @@ public class memoryH
 	the base of the memory.
 	This can be used (carefully!) by drivers that wish to access memory directly
 	without going through the readmem/writemem accessors (e.g., blitters). */
-	unsigned char *findmemorychunk(int cpu, int offset, int *chunkstart, int *chunkend);
+	UBytePtr findmemorychunk(int cpu, int offset, int *chunkstart, int *chunkend);
 	
 	#ifdef __cplusplus
 	}

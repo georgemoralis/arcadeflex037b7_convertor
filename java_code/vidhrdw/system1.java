@@ -16,19 +16,19 @@ package vidhrdw;
 public class system1
 {
 	
-	unsigned char *system1_scroll_y;
-	unsigned char *system1_scroll_x;
-	unsigned char *system1_videoram;
-	unsigned char *system1_backgroundram;
-	unsigned char *system1_sprites_collisionram;
-	unsigned char *system1_background_collisionram;
-	unsigned char *system1_scrollx_ram;
+	UBytePtr system1_scroll_y;
+	UBytePtr system1_scroll_x;
+	UBytePtr system1_videoram;
+	UBytePtr system1_backgroundram;
+	UBytePtr system1_sprites_collisionram;
+	UBytePtr system1_background_collisionram;
+	UBytePtr system1_scrollx_ram;
 	size_t system1_videoram_size;
 	size_t system1_backgroundram_size;
 	
-	static unsigned char *sprite_onscreen_map;
+	static UBytePtr sprite_onscreen_map;
 	static int background_scrollx=0,background_scrolly=0;
-	static unsigned char *bg_dirtybuffer;
+	static UBytePtr bg_dirtybuffer;
 	
 	static int scrollx_row[32];
 	static struct osd_bitmap *tmp_bitmap;
@@ -36,9 +36,9 @@ public class system1
 	//static int system1_pixel_mode = 0
 	static int system1_background_memory,system1_video_mode=0;
 	
-	static const unsigned char *system1_color_prom;
+	static const UBytePtr system1_color_prom;
 	
-	static unsigned char *wbml_paged_videoram;
+	static UBytePtr wbml_paged_videoram;
 	static unsigned char wbml_videoram_bank=0,wbml_videoram_bank_latch=0;
 	
 	/***************************************************************************
@@ -261,10 +261,10 @@ public class system1
 	static void draw_sprite(struct osd_bitmap *bitmap,int spr_number)
 	{
 		int sy,row,height,src,bank;
-		unsigned char *sprite_base;
+		UBytePtr sprite_base;
 		unsigned short *sprite_palette;
 		INT16 skip;	/* bytes to skip before drawing each row (can be negative) */
-		unsigned char *gfx;
+		UBytePtr gfx;
 	
 	
 		sprite_base	= spriteram + 0x10 * spr_number;
@@ -348,7 +348,7 @@ public class system1
 	static void draw_sprites(struct osd_bitmap *bitmap)
 	{
 		int spr_number,sprite_bottom_y,sprite_top_y;
-		unsigned char *sprite_base;
+		UBytePtr sprite_base;
 	
 	
 		memset(sprite_onscreen_map,255,256*256);
@@ -394,7 +394,7 @@ public class system1
 	
 		for (i=0; i<32; i++)
 		{
-			unsigned char *reg;
+			UBytePtr reg;
 			int top, bottom;
 	
 			reg 	= spriteram + 0x10 * i;
@@ -802,7 +802,7 @@ public class system1
 	
 		for (page=0; page < 4; page++)
 		{
-			const unsigned char *source = wbml_paged_videoram + (wbml_paged_videoram[0x0740 + page*2] & 0x07)*0x800;
+			const UBytePtr source = wbml_paged_videoram + (wbml_paged_videoram[0x0740 + page*2] & 0x07)*0x800;
 			int startx = (page&1)*256+xscroll;
 			int starty = (page>>1)*256+yscroll;
 			int row,col;

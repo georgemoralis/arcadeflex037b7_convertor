@@ -13,14 +13,14 @@ package vidhrdw;
 public class ddragon3
 {
 	
-	unsigned char *ddragon3_bg_videoram;
+	UBytePtr ddragon3_bg_videoram;
 	static UINT16 ddragon3_bg_scrollx;
 	static UINT16 ddragon3_bg_scrolly;
 	
 	static UINT16 ddragon3_bg_tilebase;
 	static UINT16 old_ddragon3_bg_tilebase;
 	
-	unsigned char *ddragon3_fg_videoram;
+	UBytePtr ddragon3_fg_videoram;
 	static UINT16 ddragon3_fg_scrollx;
 	static UINT16 ddragon3_fg_scrolly;
 	UINT16 ddragon3_vreg;

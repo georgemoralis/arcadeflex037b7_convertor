@@ -64,8 +64,8 @@ package drivers;
 public class thepit
 {
 	
-	extern unsigned char *galaxian_attributesram;
-	extern unsigned char *intrepid_sprite_bank_select;
+	extern UBytePtr galaxian_attributesram;
+	extern UBytePtr intrepid_sprite_bank_select;
 	
 	
 	

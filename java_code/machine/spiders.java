@@ -152,7 +152,7 @@ public class spiders
 	public static ReadHandlerPtr spiders_vrom_r  = new ReadHandlerPtr() { public int handler(int offset)
 	{
 		int retval;
-		unsigned char *RAM = memory_region(REGION_GFX1);
+		UBytePtr RAM = memory_region(REGION_GFX1);
 	
 		if (vrom_ctrl_mode != 0)
 		{

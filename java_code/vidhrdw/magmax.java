@@ -16,7 +16,7 @@ package vidhrdw;
 public class magmax
 {
 	
-	unsigned char *magmax_videoram;
+	UBytePtr magmax_videoram;
 	int magmax_videoram_size;
 	
 	unsigned char magmax_scroll_x[2];
@@ -38,7 +38,7 @@ public class magmax
 	  bit 0 -- 2.2kohm resistor  -- RED/GREEN/BLUE
 	
 	***************************************************************************/
-	void magmax_vh_convert_color_prom(unsigned char *palette, unsigned short *colortable, const unsigned char *color_prom)
+	void magmax_vh_convert_color_prom(UBytePtr palette, unsigned short *colortable, const UBytePtr color_prom)
 	{
 		int i;
 		#define TOTAL_COLORS(gfxn) (Machine.gfx[gfxn].total_colors * Machine.gfx[gfxn].color_granularity)
@@ -116,10 +116,10 @@ public class magmax
 	
 			int h,v;
 	
-			unsigned char * rom18B = memory_region(REGION_USER1); /*rom 20B starts at offset 0x2000*/
-			unsigned char * rom18D = memory_region(REGION_USER2); /*rom 20D starts at offset 0x2000*/
-			unsigned char * prom14D= memory_region(REGION_USER3); /*prom 15D starts at offset 0x100*/
-			unsigned char * rom15F = memory_region(REGION_GFX3);  /*rom 15F offs=0x0; 17F offs=0x2000; 18F offs=0x4000; 20F offs=0x6000*/
+			UBytePtr  rom18B = memory_region(REGION_USER1); /*rom 20B starts at offset 0x2000*/
+			UBytePtr  rom18D = memory_region(REGION_USER2); /*rom 20D starts at offset 0x2000*/
+			UBytePtr  prom14D= memory_region(REGION_USER3); /*prom 15D starts at offset 0x100*/
+			UBytePtr  rom15F = memory_region(REGION_GFX3);  /*rom 15F offs=0x0; 17F offs=0x2000; 18F offs=0x4000; 20F offs=0x6000*/
 	
 			int scroll_h = READ_WORD(magmax_scroll_x) & 0x3fff;
 			int scroll_v = READ_WORD(magmax_scroll_y) & 0xff;

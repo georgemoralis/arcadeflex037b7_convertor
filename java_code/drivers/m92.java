@@ -105,7 +105,7 @@ public class m92
 {
 	
 	static int m92_irq_vectorbase,m92_vblank;
-	static unsigned char *m92_eeprom,*m92_ram;
+	static UBytePtr m92_eeprom,*m92_ram;
 	
 	#define M92_IRQ_0 ((m92_irq_vectorbase+0)/4)  /* VBL interrupt*/
 	#define M92_IRQ_1 ((m92_irq_vectorbase+4)/4)  /* End of VBL interrupt?? */
@@ -116,7 +116,7 @@ public class m92
 	void m92_vh_raster_partial_refresh(struct osd_bitmap *bitmap,int start_line,int end_line);
 	
 	extern int m92_raster_irq_position,m92_spritechip,m92_raster_machine,m92_raster_enable;
-	extern unsigned char *m92_vram_data,*m92_spritecontrol;
+	extern UBytePtr m92_vram_data,*m92_spritecontrol;
 	
 	extern int m92_game_kludge;
 	
@@ -147,7 +147,7 @@ public class m92
 	
 	public static ReadHandlerPtr m92_eeprom_r  = new ReadHandlerPtr() { public int handler(int offset)
 	{
-		unsigned char *RAM = memory_region(REGION_USER1);
+		UBytePtr RAM = memory_region(REGION_USER1);
 	//	logerror("%05x: EEPROM RE %04x\n",cpu_get_pc(),offset);
 	
 		return RAM[offset/2];
@@ -155,7 +155,7 @@ public class m92
 	
 	public static WriteHandlerPtr m92_eeprom_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		unsigned char *RAM = memory_region(REGION_USER1);
+		UBytePtr RAM = memory_region(REGION_USER1);
 	//	logerror("%05x: EEPROM WR %04x\n",cpu_get_pc(),offset);
 		RAM[offset/2]=data;
 	} };
@@ -167,7 +167,7 @@ public class m92
 			coin_counter_w.handler(1,data & 0x02);
 	
 			if (m92_game_kludge==2) {
-				unsigned char *RAM = memory_region(REGION_CPU1);
+				UBytePtr RAM = memory_region(REGION_CPU1);
 				RAM[0x1840]=0x90; /* For Leagueman */
 				RAM[0x1841]=0x90;
 				RAM[0x830]=0x90;
@@ -202,7 +202,7 @@ public class m92
 	
 	public static WriteHandlerPtr m92_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 		logerror("%04x: Bank %04x (%02x)\n",cpu_get_pc(),data,offset);
 		if (offset==1) return; /* Unused top byte */
@@ -1940,7 +1940,7 @@ public class m92
 	
 	static void m92_startup(void)
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 		memcpy(RAM+0xffff0,RAM+0x7fff0,0x10); /* Start vector */
 		cpu_setbank(1,&RAM[0xa0000]); /* Initial bank */

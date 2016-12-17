@@ -16,7 +16,7 @@ package machine;
 public class toypop
 {
 	
-	unsigned char *toypop_sharedram_1, *toypop_sharedram_2, *toypop_customio, *toypop_speedup;
+	UBytePtr toypop_sharedram_1, *toypop_sharedram_2, *toypop_customio, *toypop_speedup;
 	static unsigned char interrupt_enable_68k;
 	
 	public static InitMachinePtr toypop_init_machine = new InitMachinePtr() { public void handler() 

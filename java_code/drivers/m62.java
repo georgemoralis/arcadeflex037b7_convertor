@@ -60,7 +60,7 @@ public class m62
 	void spelunkr_vh_screenrefresh(struct osd_bitmap *bitmap,int fullrefresh);
 	void spelunk2_vh_screenrefresh(struct osd_bitmap *bitmap,int fullrefresh);
 	
-	extern unsigned char *irem_textram;
+	extern UBytePtr irem_textram;
 	extern size_t irem_textram_size;
 	
 	
@@ -78,7 +78,7 @@ public class m62
 	{
 		if (ldrun2_bankswap != 0)
 		{
-			unsigned char *RAM = memory_region(REGION_CPU1);
+			UBytePtr RAM = memory_region(REGION_CPU1);
 	
 	
 			ldrun2_bankswap--;
@@ -100,7 +100,7 @@ public class m62
 			0,1,1,1,1,1,0,0,0,0,
 			1,0,1,1,1,1,1,1,1,1
 		};
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 	
 		bankcontrol[offset] = data;
@@ -141,7 +141,7 @@ public class m62
 	public static WriteHandlerPtr ldrun4_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
 		int bankaddress;
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 	
 		bankaddress = 0x10000 + ((data & 0x01) * 0x4000);
@@ -151,7 +151,7 @@ public class m62
 	public static WriteHandlerPtr kidniki_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
 		int bankaddress;
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 	
 		bankaddress = 0x10000 + (data & 0x0f) * 0x2000;
@@ -163,7 +163,7 @@ public class m62
 	public static WriteHandlerPtr spelunkr_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
 		int bankaddress;
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 	
 		bankaddress = 0x10000 + (data & 0x03) * 0x2000;
@@ -172,7 +172,7 @@ public class m62
 	
 	public static WriteHandlerPtr spelunk2_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 	
 		cpu_setbank(1,&RAM[0x20000 + 0x1000 * ((data & 0xc0)>>6)]);

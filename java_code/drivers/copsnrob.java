@@ -50,11 +50,11 @@ package drivers;
 public class copsnrob
 {
 	
-	extern unsigned char *copsnrob_bulletsram;
-	extern unsigned char *copsnrob_carimage;
-	extern unsigned char *copsnrob_cary;
-	extern unsigned char *copsnrob_trucky;
-	extern unsigned char *copsnrob_truckram;
+	extern UBytePtr copsnrob_bulletsram;
+	extern UBytePtr copsnrob_carimage;
+	extern UBytePtr copsnrob_cary;
+	extern UBytePtr copsnrob_trucky;
+	extern UBytePtr copsnrob_truckram;
 	
 	
 	static MemoryReadAddress readmem[] =
@@ -204,7 +204,7 @@ public class copsnrob
 	{
 		0x00, 0x01
 	};
-	static void init_palette(unsigned char *game_palette, unsigned short *game_colortable,const unsigned char *color_prom)
+	static void init_palette(UBytePtr game_palette, unsigned short *game_colortable,const UBytePtr color_prom)
 	{
 		memcpy(game_palette,palette,sizeof(palette));
 		memcpy(game_colortable,colortable,sizeof(colortable));

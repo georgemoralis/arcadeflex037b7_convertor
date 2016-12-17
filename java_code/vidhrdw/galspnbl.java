@@ -8,12 +8,12 @@ public class galspnbl
 {
 	
 	
-	unsigned char *galspnbl_bgvideoram;
+	UBytePtr galspnbl_bgvideoram;
 	static int screenscroll;
 	
 	
 	
-	void galspnbl_init_palette(unsigned char *palette, unsigned short *colortable,const unsigned char *color_prom)
+	void galspnbl_init_palette(UBytePtr palette, unsigned short *colortable,const UBytePtr color_prom)
 	{
 		int i;
 	

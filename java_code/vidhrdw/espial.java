@@ -17,8 +17,8 @@ public class espial
 	
 	
 	
-	unsigned char *espial_attributeram;
-	unsigned char *espial_column_scroll;
+	UBytePtr espial_attributeram;
+	UBytePtr espial_column_scroll;
 	
 	
 	

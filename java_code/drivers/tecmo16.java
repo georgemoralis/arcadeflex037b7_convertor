@@ -22,11 +22,11 @@ public class tecmo16
 {
 	
 	
-	extern unsigned char *tecmo16_videoram;
-	extern unsigned char *tecmo16_colorram;
-	extern unsigned char *tecmo16_videoram2;
-	extern unsigned char *tecmo16_colorram2;
-	extern unsigned char *tecmo16_charram;
+	extern UBytePtr tecmo16_videoram;
+	extern UBytePtr tecmo16_colorram;
+	extern UBytePtr tecmo16_videoram2;
+	extern UBytePtr tecmo16_colorram2;
+	extern UBytePtr tecmo16_charram;
 	
 	
 	

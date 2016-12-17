@@ -58,8 +58,8 @@ package drivers;
 public class dday
 {
 	
-	extern unsigned char *dday_videoram2;
-	extern unsigned char *dday_videoram3;
+	extern UBytePtr dday_videoram2;
+	extern UBytePtr dday_videoram3;
 	
 	
 	

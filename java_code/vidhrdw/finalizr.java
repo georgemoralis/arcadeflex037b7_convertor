@@ -17,8 +17,8 @@ public class finalizr
 	
 	
 	
-	unsigned char *finalizr_scroll;
-	unsigned char *finalizr_videoram2,*finalizr_colorram2;
+	UBytePtr finalizr_scroll;
+	UBytePtr finalizr_videoram2,*finalizr_colorram2;
 	static int spriterambank;
 	
 	
@@ -159,7 +159,7 @@ public class finalizr
 	
 		/* Draw the sprites. */
 		{
-			unsigned char *sr;
+			UBytePtr sr;
 	
 	
 			if (spriterambank != 0)

@@ -32,7 +32,7 @@ public class capbowl
 	public static WriteHandlerPtr capbowl_rom_select_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
 		int bankaddress = 0x10000 + ((data & 0x0c) << 13) + ((data & 0x01) << 14);
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 	
 		cpu_setbank(1,&RAM[bankaddress]);

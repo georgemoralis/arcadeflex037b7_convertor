@@ -28,9 +28,9 @@ public class zodiack
 {
 	
 	
-	extern unsigned char *zodiack_videoram2;
-	extern unsigned char *galaxian_attributesram;
-	extern unsigned char *galaxian_bulletsram;
+	extern UBytePtr zodiack_videoram2;
+	extern UBytePtr galaxian_attributesram;
+	extern UBytePtr galaxian_bulletsram;
 	extern size_t galaxian_bulletsram_size;
 	
 	int percuss_hardware;

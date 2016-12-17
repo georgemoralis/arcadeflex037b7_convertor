@@ -49,7 +49,7 @@ public class konami
 	
 	static void decode(int cpu)
 	{
-		unsigned char *rom = memory_region(REGION_CPU1+cpu);
+		UBytePtr rom = memory_region(REGION_CPU1+cpu);
 		int diff = memory_region_length(REGION_CPU1+cpu) / 2;
 		int A;
 	

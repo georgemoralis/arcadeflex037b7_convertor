@@ -49,7 +49,7 @@ public class funkybee
 	
 	
 	
-	extern unsigned char *funkyb_row_scroll;
+	extern UBytePtr funkyb_row_scroll;
 	
 	
 	

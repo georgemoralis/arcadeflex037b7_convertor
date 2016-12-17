@@ -209,7 +209,7 @@ public class blit
 		int x, y, i, outval, dirty_page, triple_page, write_triple;
 		int plane, planeval, iloop, page;
 		unsigned long *lb, address, triple_address;
-		unsigned char *lbsave;
+		UBytePtr lbsave;
 		unsigned long asave, triple_save;
 		static int width4, word_blit, dirty_height;
 		static int source_width, source_line_width, dest_width, dest_line_width;
@@ -273,7 +273,7 @@ public class blit
 								{
 									asave = address0;
 									triple_save = address1;
-									lbsave = (unsigned char *)lb0;
+									lbsave = (UBytePtr )lb0;
 									for(i = 0; i < iloop; i++)
 									{
 										outval = *lbsave | (lbsave[4] << 8);
@@ -307,7 +307,7 @@ public class blit
 								{
 									asave = address0;
 									triple_save = address1;
-									lbsave = (unsigned char *)lb0;
+									lbsave = (UBytePtr )lb0;
 									for(i = 0; i < iloop; i++)
 									{
 										outval = *lbsave | (lbsave[4] << 8) | (lbsave[8] << 16) | (lbsave[12] << 24);
@@ -539,7 +539,7 @@ public class blit
 		unchained = 1;
 	}
 	
-	INLINE void copyline_1x_8bpp(unsigned char *src,short seg,unsigned long address,int width4)
+	INLINE void copyline_1x_8bpp(UBytePtr src,short seg,unsigned long address,int width4)
 	{
 		short src_seg;
 	
@@ -548,7 +548,7 @@ public class blit
 		_movedatal(src_seg,(unsigned long)src,seg,address,width4);
 	}
 	
-	INLINE void copyline_1x_16bpp(unsigned char *src,short seg,unsigned long address,int width2)
+	INLINE void copyline_1x_16bpp(UBytePtr src,short seg,unsigned long address,int width2)
 	{
 		short src_seg;
 	
@@ -558,7 +558,7 @@ public class blit
 	}
 	
 	#if 1 /* use the C approach instead */
-	INLINE void copyline_2x_8bpp(unsigned char *src,short seg,unsigned long address,int width4)
+	INLINE void copyline_2x_8bpp(UBytePtr src,short seg,unsigned long address,int width4)
 	{
 		__asm__ __volatile__ (
 		"pushw %%es              \n"
@@ -591,7 +591,7 @@ public class blit
 		"ax", "bx", "cc", "memory");
 	}
 	#else
-	INLINE void copyline_2x_8bpp(unsigned char *src,short seg,unsigned long address,int width4)
+	INLINE void copyline_2x_8bpp(UBytePtr src,short seg,unsigned long address,int width4)
 	{
 		int i;
 	
@@ -608,7 +608,7 @@ public class blit
 	}
 	#endif
 	
-	INLINE void copyline_2x_16bpp(unsigned char *src,short seg,unsigned long address,int width2)
+	INLINE void copyline_2x_16bpp(UBytePtr src,short seg,unsigned long address,int width2)
 	{
 		__asm__ __volatile__ (
 		"pushw %%es              \n"
@@ -639,7 +639,7 @@ public class blit
 		"ax", "bx", "cc", "memory");
 	}
 	
-	INLINE void copyline_3x_16bpp(unsigned char *src,short seg,unsigned long address,int width2)
+	INLINE void copyline_3x_16bpp(UBytePtr src,short seg,unsigned long address,int width2)
 	{
 		__asm__ __volatile__ (
 		"pushw %%es              \n"
@@ -672,7 +672,7 @@ public class blit
 		"ax", "bx", "cc", "memory");
 	}
 	
-	INLINE void copyline_4x_16bpp(unsigned char *src,short seg,unsigned long address,int width2)
+	INLINE void copyline_4x_16bpp(UBytePtr src,short seg,unsigned long address,int width2)
 	{
 		__asm__ __volatile__ (
 		"pushw %%es              \n"
@@ -707,7 +707,7 @@ public class blit
 		"ax", "bx", "cc", "memory");
 	}
 	
-	INLINE void copyline_3x_8bpp(unsigned char *src,short seg,unsigned long address,int width4)
+	INLINE void copyline_3x_8bpp(UBytePtr src,short seg,unsigned long address,int width4)
 	{
 		int i;
 	
@@ -724,7 +724,7 @@ public class blit
 		}
 	}
 	
-	INLINE void copyline_4x_8bpp(unsigned char *src,short seg,unsigned long address,int width4)
+	INLINE void copyline_4x_8bpp(UBytePtr src,short seg,unsigned long address,int width4)
 	{
 		int i;
 	
@@ -745,7 +745,7 @@ public class blit
 	
 	
 	
-	INLINE void copyline_1x_16bpp_palettized(unsigned char *src,short seg,unsigned long address,int width2)
+	INLINE void copyline_1x_16bpp_palettized(UBytePtr src,short seg,unsigned long address,int width2)
 	{
 		int i;
 		unsigned short *s=(unsigned short *)src;
@@ -764,7 +764,7 @@ public class blit
 		}
 	}
 	
-	INLINE void copyline_2x_16bpp_palettized(unsigned char *src,short seg,unsigned long address,int width2)
+	INLINE void copyline_2x_16bpp_palettized(UBytePtr src,short seg,unsigned long address,int width2)
 	{
 		int i;
 		unsigned short *s=(unsigned short *)src;
@@ -779,7 +779,7 @@ public class blit
 		}
 	}
 	
-	INLINE void copyline_3x_16bpp_palettized(unsigned char *src,short seg,unsigned long address,int width2)
+	INLINE void copyline_3x_16bpp_palettized(UBytePtr src,short seg,unsigned long address,int width2)
 	{
 		int i;
 		unsigned short *s=(unsigned short *)src;
@@ -800,7 +800,7 @@ public class blit
 		}
 	}
 	
-	INLINE void copyline_4x_16bpp_palettized(unsigned char *src,short seg,unsigned long address,int width2)
+	INLINE void copyline_4x_16bpp_palettized(UBytePtr src,short seg,unsigned long address,int width2)
 	{
 		int i;
 		unsigned short *s=(unsigned short *)src;
@@ -825,7 +825,7 @@ public class blit
 	#define DIRTY1(MX,MY,SL,BPP,PALETTIZED) \
 		short dest_seg; \
 		int x,y,vesa_line,line_offs,xoffs; \
-		unsigned char *lb; \
+		UBytePtr lb; \
 		unsigned long address; \
 		dest_seg = screen.seg; \
 		vesa_line = gfx_yoffset; \
@@ -839,7 +839,7 @@ public class blit
 				int w = 16; \
 				if (ISDIRTY(x,y)) \
 	            { \
-					unsigned char *src = lb + (BPP/8)*x; \
+					UBytePtr src = lb + (BPP/8)*x; \
 	                int vesa_line0 = vesa_line, h; \
 					while (x + w < gfx_display_columns && ISDIRTY(x+w,y)) \
 	                    w += 16; \
@@ -870,7 +870,7 @@ public class blit
 	#define DIRTY0(MX,MY,SL,BPP,PALETTIZED) \
 		short dest_seg; \
 		int y,vesa_line,line_offs,xoffs,width; \
-		unsigned char *src; \
+		UBytePtr src; \
 		unsigned long address, address_offset; \
 		dest_seg = screen.seg; \
 		vesa_line = gfx_yoffset; \
@@ -885,7 +885,7 @@ public class blit
 			address += xoffs; \
 			{ \
 			extern void asmblit_##MX##x_##MY##y_##SL##sl_##BPP##bpp##PALETTIZED \
-				(int, int, unsigned char *, int, unsigned long, unsigned long); \
+				(int, int, UBytePtr , int, unsigned long, unsigned long); \
 			asmblit_##MX##x_##MY##y_##SL##sl_##BPP##bpp##PALETTIZED \
 				(width, gfx_display_lines, src, line_offs, address, address_offset); \
 			} \

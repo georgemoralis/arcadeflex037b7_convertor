@@ -18,8 +18,8 @@ package vidhrdw;
 public class stadhero
 {
 	
-	unsigned char *stadhero_pf1_data,*stadhero_pf2_data;
-	static unsigned char *stadhero_pf2_dirty;
+	UBytePtr stadhero_pf1_data,*stadhero_pf2_data;
+	static UBytePtr stadhero_pf2_dirty;
 	static struct osd_bitmap *stadhero_pf2_bitmap;
 	
 	static unsigned char stadhero_pf2_control_0[8];

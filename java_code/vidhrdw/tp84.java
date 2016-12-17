@@ -17,13 +17,13 @@ public class tp84
 	
 	
 	
-	unsigned char *tp84_videoram2;
-	unsigned char *tp84_colorram2;
+	UBytePtr tp84_videoram2;
+	UBytePtr tp84_colorram2;
 	static struct osd_bitmap *tmpbitmap2;
-	static unsigned char *dirtybuffer2;
+	static UBytePtr dirtybuffer2;
 	
-	unsigned char *tp84_scrollx;
-	unsigned char *tp84_scrolly;
+	UBytePtr tp84_scrollx;
+	UBytePtr tp84_scrolly;
 	
 	int col0;
 	

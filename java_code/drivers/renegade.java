@@ -110,7 +110,7 @@ public class renegade
 {
 	
 	extern extern 
-	extern unsigned char *renegade_textram;
+	extern UBytePtr renegade_textram;
 	
 	/********************************************************************************************/
 	
@@ -132,7 +132,7 @@ public class renegade
 	*/
 	
 	static int mcu_type;
-	static const unsigned char *mcu_encrypt_table;
+	static const UBytePtr mcu_encrypt_table;
 	static int mcu_encrypt_table_len;
 	
 	static const UINT8 renegade_xor_table[0x37] = {
@@ -338,7 +338,7 @@ public class renegade
 	
 	public static WriteHandlerPtr bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		if( (data&1)!=bank ){
-			unsigned char *RAM = memory_region(REGION_CPU1);
+			UBytePtr RAM = memory_region(REGION_CPU1);
 			bank = data&1;
 			cpu_setbank(1,&RAM[ bank?0x10000:0x4000 ]);
 		}

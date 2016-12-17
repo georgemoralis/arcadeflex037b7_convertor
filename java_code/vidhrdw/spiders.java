@@ -79,7 +79,7 @@ public class spiders
 		size_t crtc6845_mem_size;
 		int video_addr,increment;
 	
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 	
 		crtc6845_mem_size=crtc6845_horiz_disp*crtc6845_vert_disp*8;

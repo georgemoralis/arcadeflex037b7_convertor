@@ -15,10 +15,10 @@ package vidhrdw;
 public class splash
 {
 	
-	unsigned char *splash_vregs;
-	unsigned char *splash_videoram;
-	unsigned char *splash_spriteram;
-	unsigned char *splash_pixelram;
+	UBytePtr splash_vregs;
+	UBytePtr splash_videoram;
+	UBytePtr splash_spriteram;
+	UBytePtr splash_pixelram;
 	
 	static struct tilemap *screen[2];
 	static struct osd_bitmap *screen2;

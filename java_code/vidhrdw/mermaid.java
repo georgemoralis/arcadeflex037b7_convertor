@@ -17,11 +17,11 @@ public class mermaid
 	
 	
 	
-	unsigned char* mermaid_background_videoram;
-	unsigned char* mermaid_foreground_videoram;
-	unsigned char* mermaid_foreground_colorram;
-	unsigned char* mermaid_background_scrollram;
-	unsigned char* mermaid_foreground_scrollram;
+	UBytePtr  mermaid_background_videoram;
+	UBytePtr  mermaid_foreground_videoram;
+	UBytePtr  mermaid_foreground_colorram;
+	UBytePtr  mermaid_background_scrollram;
+	UBytePtr  mermaid_foreground_scrollram;
 	
 	
 	static struct rectangle spritevisiblearea =

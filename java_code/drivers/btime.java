@@ -55,11 +55,11 @@ package drivers;
 public class btime
 {
 	
-	extern unsigned char *lnc_charbank;
-	extern unsigned char *bnj_backgroundram;
+	extern UBytePtr lnc_charbank;
+	extern UBytePtr bnj_backgroundram;
 	extern size_t bnj_backgroundram_size;
-	extern unsigned char *zoar_scrollram;
-	extern unsigned char *deco_charram;
+	extern UBytePtr zoar_scrollram;
+	extern UBytePtr deco_charram;
 	
 	
 	
@@ -81,7 +81,7 @@ public class btime
 	static void btime_decrypt(void)
 	{
 		int A,A1;
-		unsigned char *rom = memory_region(REGION_CPU1);
+		UBytePtr rom = memory_region(REGION_CPU1);
 		int diff = memory_region_length(REGION_CPU1) / 2;
 	
 	
@@ -110,7 +110,7 @@ public class btime
 	
 	public static WriteHandlerPtr lnc_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		unsigned char *rom = memory_region(REGION_CPU1);
+		UBytePtr rom = memory_region(REGION_CPU1);
 		int diff = memory_region_length(REGION_CPU1) / 2;
 	
 		if      (offset <= 0x3bff)                       ;
@@ -132,7 +132,7 @@ public class btime
 	
 	public static WriteHandlerPtr mmonkey_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		unsigned char *rom = memory_region(REGION_CPU1);
+		UBytePtr rom = memory_region(REGION_CPU1);
 		int diff = memory_region_length(REGION_CPU1) / 2;
 	
 		if      (offset <= 0x3bff)                       ;
@@ -153,7 +153,7 @@ public class btime
 	
 	public static WriteHandlerPtr btime_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 		if      (offset <= 0x07ff)                     RAM[offset] = data;
 		else if (offset >= 0x0c00 && offset <= 0x0c0f) btime_paletteram_w(offset - 0x0c00,data);
@@ -171,7 +171,7 @@ public class btime
 	
 	public static WriteHandlerPtr zoar_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 		if      (offset <= 0x07ff) 					   RAM[offset] = data;
 		else if (offset >= 0x8000 && offset <= 0x83ff) videoram_w(offset - 0x8000,data);
@@ -191,7 +191,7 @@ public class btime
 	
 	public static WriteHandlerPtr disco_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 		if      (offset <= 0x04ff)                     RAM[offset] = data;
 		else if (offset >= 0x2000 && offset <= 0x7fff) deco_charram_w(offset - 0x2000,data);
@@ -1678,7 +1678,7 @@ public class btime
 	
 	public static ReadHandlerPtr wtennis_reset_hack_r  = new ReadHandlerPtr() { public int handler(int offset)
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 		/* Otherwise the game goes into test mode and there is no way out that I
 		   can see.  I'm not sure how it can work, it probably somehow has to do
@@ -1691,7 +1691,7 @@ public class btime
 	
 	static public static InitDriverPtr init_btime = new InitDriverPtr() { public void handler() 
 	{
-		unsigned char *rom = memory_region(REGION_CPU1);
+		UBytePtr rom = memory_region(REGION_CPU1);
 		int diff = memory_region_length(REGION_CPU1) / 2;
 	
 		memory_set_opcode_base(0,rom+diff);
@@ -1704,7 +1704,7 @@ public class btime
 	
 	static public static InitDriverPtr init_zoar = new InitDriverPtr() { public void handler() 
 	{
-		unsigned char *rom = memory_region(REGION_CPU1);
+		UBytePtr rom = memory_region(REGION_CPU1);
 	
 	
 		/* At location 0xD50A is what looks like an undocumented opcode. I tried
@@ -1719,7 +1719,7 @@ public class btime
 	static public static InitDriverPtr init_lnc = new InitDriverPtr() { public void handler() 
 	{
 		int A;
-		unsigned char *rom = memory_region(REGION_CPU1);
+		UBytePtr rom = memory_region(REGION_CPU1);
 		int diff = memory_region_length(REGION_CPU1) / 2;
 	
 		memory_set_opcode_base(0,rom+diff);

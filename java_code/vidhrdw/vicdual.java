@@ -17,7 +17,7 @@ public class vicdual
 	
 	
 	
-	unsigned char *vicdual_characterram;
+	UBytePtr vicdual_characterram;
 	static unsigned char dirtycharacter[256];
 	
 	static int palette_bank;

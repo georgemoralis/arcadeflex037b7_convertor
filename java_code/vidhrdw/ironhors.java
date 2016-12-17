@@ -17,7 +17,7 @@ public class ironhors
 	
 	
 	
-	unsigned char *ironhors_scroll;
+	UBytePtr ironhors_scroll;
 	static int palettebank,charbank,spriterambank;
 	
 	
@@ -175,7 +175,7 @@ public class ironhors
 	
 		/* Draw the sprites. */
 		{
-			unsigned char *sr;
+			UBytePtr sr;
 	
 	
 			if (spriterambank != 0)

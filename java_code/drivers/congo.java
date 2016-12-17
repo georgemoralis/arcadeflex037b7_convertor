@@ -58,8 +58,8 @@ public class congo
 	extern struct GfxLayout zaxxon_charlayout2;
 	
 	extern int zaxxon_vid_type;
-	extern unsigned char *zaxxon_background_position;
-	extern unsigned char *zaxxon_background_enable;
+	extern UBytePtr zaxxon_background_position;
+	extern UBytePtr zaxxon_background_enable;
 	
 	
 	

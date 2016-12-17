@@ -45,8 +45,8 @@ public class m107
 	
 	static struct tilemap *pf4_layer,*pf3_layer,*pf2_layer,*pf1_layer;
 	static int m107_control[0x20];
-	static unsigned char *m107_spriteram;
-	unsigned char *m107_vram_data;
+	static UBytePtr m107_spriteram;
+	UBytePtr m107_vram_data;
 	int m107_raster_irq_position,m107_sprite_list;
 	
 	static int pf1_vram_ptr,pf2_vram_ptr,pf3_vram_ptr,pf4_vram_ptr;

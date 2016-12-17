@@ -19,7 +19,7 @@ public class astrocde
 	public static ReadHandlerPtr gorf_timer_r  = new ReadHandlerPtr() { public int handler(int offset)
 	{
 		static int Skip=0;
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 	
 		if ((RAM[0x5A93]==160) || (RAM[0x5A93]==4)) 	/* INVADERS AND    */

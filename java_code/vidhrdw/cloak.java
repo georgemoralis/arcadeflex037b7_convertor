@@ -18,7 +18,7 @@ public class cloak
 	
 	static struct osd_bitmap *tmpbitmap2,*charbitmap;
 	static unsigned char x,y,bmap;
-	static unsigned char *tmpvideoram,*tmpvideoram2;
+	static UBytePtr tmpvideoram,*tmpvideoram2;
 	
 	
 	

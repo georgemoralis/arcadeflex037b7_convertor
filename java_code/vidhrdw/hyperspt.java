@@ -16,7 +16,7 @@ public class hyperspt
 {
 	
 	
-	unsigned char *hyperspt_scroll;
+	UBytePtr hyperspt_scroll;
 	static int flipscreen;
 	
 	

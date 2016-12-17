@@ -220,8 +220,8 @@ public class megasys1
 	
 	/* Variables defined here, that have to be shared: */
 	struct tilemap *megasys1_tmap_0, *megasys1_tmap_1, *megasys1_tmap_2;
-	unsigned char *megasys1_scrollram_0, *megasys1_scrollram_1, *megasys1_scrollram_2;
-	unsigned char *megasys1_objectram, *megasys1_vregs, *megasys1_ram;
+	UBytePtr megasys1_scrollram_0, *megasys1_scrollram_1, *megasys1_scrollram_2;
+	UBytePtr megasys1_objectram, *megasys1_vregs, *megasys1_ram;
 	int megasys1_scroll_flag[3], megasys1_scrollx[3], megasys1_scrolly[3], megasys1_pages_per_tmap_x[3], megasys1_pages_per_tmap_y[3];
 	int megasys1_active_layers, megasys1_sprite_bank;
 	int megasys1_screen_flag, megasys1_sprite_flag;
@@ -637,8 +637,8 @@ public class megasys1
 			{
 				for (sprite = 0; sprite < 4 ; sprite ++)
 				{
-					unsigned char *objectdata = &megasys1_objectram[offs + 0x800 * sprite];
-					unsigned char *spritedata = &spriteram[(READ_WORD(&objectdata[0x00])&0x7f)*0x10];
+					UBytePtr objectdata = &megasys1_objectram[offs + 0x800 * sprite];
+					UBytePtr spritedata = &spriteram[(READ_WORD(&objectdata[0x00])&0x7f)*0x10];
 	
 					attr = READ_WORD(&spritedata[0x08]);
 					if ( (attr & 0x08) == priority )	continue;	// priority
@@ -686,7 +686,7 @@ public class megasys1
 	
 			for (sprite = 0; sprite < 0x80 ; sprite ++)
 			{
-				unsigned char *spritedata = &spriteram[sprite*0x10];
+				UBytePtr spritedata = &spriteram[sprite*0x10];
 	
 				attr = READ_WORD(&spritedata[0x08]);
 				if ( (attr & 0x08) == priority ) continue;
@@ -757,7 +757,7 @@ public class megasys1
 			for (offs = 0; offs < 0x2000 ; offs += 8)
 			{
 				int sprite = READ_WORD(&megasys1_objectram[offs+0x00]);
-				unsigned char *spritedata = &spriteram[(sprite&0x7F)*16];
+				UBytePtr spritedata = &spriteram[(sprite&0x7F)*16];
 	
 				attr = READ_WORD(&spritedata[0x08]);
 				if ( (attr & 0xc0) != ((offs/0x800)<<6) ) continue;
@@ -786,7 +786,7 @@ public class megasys1
 	
 			for (sprite = 0; sprite < 0x80 ; sprite++)
 			{
-				unsigned char* spritedata = &spriteram[sprite*16];
+				UBytePtr  spritedata = &spriteram[sprite*16];
 	
 				sx		=	READ_WORD(&spritedata[0x0A]) % 512;
 				sy		=	READ_WORD(&spritedata[0x0C]) % 512;
@@ -944,7 +944,7 @@ public class megasys1
 		pens.
 	*/
 	
-	void megasys1_convert_prom(unsigned char *palette, unsigned short *colortable,const unsigned char *prom)
+	void megasys1_convert_prom(UBytePtr palette, unsigned short *colortable,const UBytePtr prom)
 	{
 		int pri_code, offset, i, order;
 	

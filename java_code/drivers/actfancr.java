@@ -25,8 +25,8 @@ public class actfancr
 {
 	
 	
-	extern unsigned char *actfancr_pf1_data,*actfancr_pf2_data,*actfancr_pf1_rowscroll_data;
-	static unsigned char *actfancr_ram;
+	extern UBytePtr actfancr_pf1_data,*actfancr_pf2_data,*actfancr_pf1_rowscroll_data;
+	static UBytePtr actfancr_ram;
 	
 	/******************************************************************************/
 	

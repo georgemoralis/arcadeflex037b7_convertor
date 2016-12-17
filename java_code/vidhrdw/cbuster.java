@@ -13,19 +13,19 @@ package vidhrdw;
 public class cbuster
 {
 	
-	unsigned char *twocrude_pf1_data,*twocrude_pf2_data,*twocrude_pf3_data,*twocrude_pf4_data;
+	UBytePtr twocrude_pf1_data,*twocrude_pf2_data,*twocrude_pf3_data,*twocrude_pf4_data;
 	
 	static struct tilemap *pf1_tilemap,*pf2_tilemap,*pf3_tilemap,*pf4_tilemap;
-	static unsigned char *gfx_base;
+	static UBytePtr gfx_base;
 	static int gfx_bank,twocrude_pri,flipscreen,last_flip;
 	
 	static unsigned char twocrude_control_0[16];
 	static unsigned char twocrude_control_1[16];
 	
-	unsigned char *twocrude_pf1_rowscroll,*twocrude_pf2_rowscroll;
-	unsigned char *twocrude_pf3_rowscroll,*twocrude_pf4_rowscroll;
+	UBytePtr twocrude_pf1_rowscroll,*twocrude_pf2_rowscroll;
+	UBytePtr twocrude_pf3_rowscroll,*twocrude_pf4_rowscroll;
 	
-	static unsigned char *twocrude_spriteram;
+	static UBytePtr twocrude_spriteram;
 	
 	
 	

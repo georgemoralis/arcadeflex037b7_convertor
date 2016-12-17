@@ -17,9 +17,9 @@ public class bankp
 	
 	
 	
-	unsigned char *bankp_videoram2;
-	unsigned char *bankp_colorram2;
-	static unsigned char *dirtybuffer2;
+	UBytePtr bankp_videoram2;
+	UBytePtr bankp_colorram2;
+	static UBytePtr dirtybuffer2;
 	static struct osd_bitmap *tmpbitmap2;
 	static int scroll_x;
 	static int flipscreen;

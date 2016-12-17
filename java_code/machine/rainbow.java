@@ -64,7 +64,7 @@ public class rainbow
 	
 	public static ReadHandlerPtr rainbow_c_chip_r  = new ReadHandlerPtr() { public int handler(int offset)
 	{
-	  unsigned char *CROM = memory_region(REGION_USER1);	/* C-Chip Dump */
+	  UBytePtr CROM = memory_region(REGION_USER1);	/* C-Chip Dump */
 	
 	  int Address;
 	  int Data1,Data2;

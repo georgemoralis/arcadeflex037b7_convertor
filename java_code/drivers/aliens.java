@@ -22,7 +22,7 @@ public class aliens
 	
 	
 	static int palette_selected;
-	static unsigned char *ram;
+	static UBytePtr ram;
 	
 	
 	public static InterruptPtr aliens_interrupt = new InterruptPtr() { public int handler() 
@@ -77,7 +77,7 @@ public class aliens
 	
 	public static WriteHandlerPtr aliens_snd_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		unsigned char *RAM = memory_region(REGION_SOUND1);
+		UBytePtr RAM = memory_region(REGION_SOUND1);
 		/* b1: bank for chanel A */
 		/* b0: bank for chanel B */
 	
@@ -461,7 +461,7 @@ public class aliens
 	
 	public static konami_cpu_setlines_callbackPtr aliens_banking = new konami_cpu_setlines_callbackPtr() { public void handler(int lines) 
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 		int offs = 0x18000;
 	
 	
@@ -473,7 +473,7 @@ public class aliens
 	
 	static public static InitMachinePtr aliens_init_machine = new InitMachinePtr() { public void handler() 
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 		konami_cpu_setlines_callback = aliens_banking;
 	

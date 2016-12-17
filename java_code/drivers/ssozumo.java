@@ -16,11 +16,11 @@ package drivers;
 public class ssozumo
 {
 	
-	extern unsigned char *ssozumo_videoram2, *ssozumo_colorram2;
+	extern UBytePtr ssozumo_videoram2, *ssozumo_colorram2;
 	extern size_t ssozumo_videoram2_size;
-	extern unsigned char *ssozumo_scroll;
+	extern UBytePtr ssozumo_scroll;
 	
-	void ssozumo_vh_convert_color_prom(unsigned char *palette, unsigned short *colortable, const unsigned char *color_prom);
+	void ssozumo_vh_convert_color_prom(UBytePtr palette, unsigned short *colortable, const UBytePtr color_prom);
 	
 	
 	public static InterruptPtr ssozumo_interrupt = new InterruptPtr() { public int handler() 

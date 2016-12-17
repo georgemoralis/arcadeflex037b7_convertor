@@ -41,7 +41,7 @@ public class psikyo
 	
 	/* Variables defined in vidhrdw */
 	
-	extern unsigned char *psikyo_vram_0, *psikyo_vram_1, *psikyo_vregs;
+	extern UBytePtr psikyo_vram_0, *psikyo_vram_1, *psikyo_vregs;
 	
 	/* Functions defined in vidhrdw */
 	
@@ -202,7 +202,7 @@ public class psikyo
 	
 	public static WriteHandlerPtr gunbird_sound_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		unsigned char *RAM = memory_region(REGION_CPU2);
+		UBytePtr RAM = memory_region(REGION_CPU2);
 		int bank = (data >> 4) & 3;
 	
 		/* I'm not sure here: since the banked rom is seen at 8200-ffff
@@ -255,7 +255,7 @@ public class psikyo
 	
 	public static WriteHandlerPtr sngkace_sound_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		unsigned char *RAM = memory_region(REGION_CPU2);
+		UBytePtr RAM = memory_region(REGION_CPU2);
 		int bank = data & 3;
 		cpu_setbank(15, &RAM[bank * 0x8000 + 0x10000]);
 	} };
@@ -822,7 +822,7 @@ public class psikyo
 	/* Untangle the 68020 code */
 	public static InitDriverPtr init_psikyo = new InitDriverPtr() { public void handler() 
 	{
-		unsigned char *RAM	=	memory_region(REGION_CPU1);
+		UBytePtr RAM	=	memory_region(REGION_CPU1);
 		int len				=	memory_region_length(REGION_CPU1);
 		int i;
 	
@@ -950,7 +950,7 @@ public class psikyo
 	
 	public static InitDriverPtr init_sngkace = new InitDriverPtr() { public void handler() 
 	{
-		unsigned char *RAM	=	memory_region(REGION_SOUND1);
+		UBytePtr RAM	=	memory_region(REGION_SOUND1);
 		int len				=	memory_region_length(REGION_SOUND1);
 		int i;
 	
@@ -1023,7 +1023,7 @@ public class psikyo
 	
 	public static InitDriverPtr init_sngkblad = new InitDriverPtr() { public void handler() 
 	{
-		unsigned char *RAM	= memory_region(REGION_CPU1);
+		UBytePtr RAM	= memory_region(REGION_CPU1);
 	
 		init_psikyo();	// untangle code first!
 	
@@ -1100,7 +1100,7 @@ public class psikyo
 	
 	public static InitDriverPtr init_s1945 = new InitDriverPtr() { public void handler() 
 	{
-		unsigned char *RAM	= memory_region(REGION_CPU1);
+		UBytePtr RAM	= memory_region(REGION_CPU1);
 	
 		init_psikyo();	// untangle code first!
 	

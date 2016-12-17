@@ -87,22 +87,22 @@ public class system16
 	
 	int sys18_bg2_active;
 	int sys18_fg2_active;
-	unsigned char *sys18_splittab_bg_x;
-	unsigned char *sys18_splittab_bg_y;
-	unsigned char *sys18_splittab_fg_x;
-	unsigned char *sys18_splittab_fg_y;
+	UBytePtr sys18_splittab_bg_x;
+	UBytePtr sys18_splittab_bg_y;
+	UBytePtr sys18_splittab_fg_x;
+	UBytePtr sys18_splittab_fg_y;
 	
 	#ifdef SPACEHARRIER_OFFSETS
-	unsigned char *spaceharrier_patternoffsets;
+	UBytePtr spaceharrier_patternoffsets;
 	#endif
-	unsigned char *gr_ver;
-	unsigned char *gr_hor;
-	unsigned char *gr_pal;
-	unsigned char *gr_flip;
+	UBytePtr gr_ver;
+	UBytePtr gr_hor;
+	UBytePtr gr_pal;
+	UBytePtr gr_flip;
 	int gr_palette;
 	int gr_palette_default;
 	unsigned char gr_colorflip[2][4];
-	unsigned char *gr_second_road;
+	UBytePtr gr_second_road;
 	
 	static struct tilemap *background, *foreground, *text_layer;
 	static struct tilemap *background2, *foreground2;
@@ -625,7 +625,7 @@ public class system16
 	
 	static void get_sprite_info( void ){
 		const unsigned short *base_pal = Machine.gfx[0].colortable + 1024;
-		const unsigned char *base_gfx = memory_region(REGION_GFX2);
+		const UBytePtr base_gfx = memory_region(REGION_GFX2);
 	
 		UINT16 *source = (UINT16 *)sys16_spriteram;
 		struct sprite *sprite = sprite_list.sprite;
@@ -1594,7 +1594,7 @@ public class system16
 		}
 	
 		{
-			unsigned char *pal = &palette_used_colors[pal_start];
+			UBytePtr pal = &palette_used_colors[pal_start];
 			int i;
 			for (i = 0; i < pal_size; i++){
 				if ( used[i] ){
@@ -2771,7 +2771,7 @@ public class system16
 	// hideous kludge to display quartet title screen correctly
 	static void draw_quartet_title_screen( struct osd_bitmap *bitmap,int playfield )
 	{
-		unsigned char *xscroll,*yscroll;
+		UBytePtr xscroll,*yscroll;
 		int r,c,scroll;
 		struct tilemap *tilemap;
 		struct rectangle clip;

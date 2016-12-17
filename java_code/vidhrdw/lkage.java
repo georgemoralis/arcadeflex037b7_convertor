@@ -7,7 +7,7 @@ package vidhrdw;
 public class lkage
 {
 	
-	unsigned char *lkage_scroll, *lkage_vreg;
+	UBytePtr lkage_scroll, *lkage_vreg;
 	static unsigned char bg_tile_bank, fg_tile_bank;
 	
 	/*
@@ -97,8 +97,8 @@ public class lkage
 	static void draw_sprites( struct osd_bitmap *bitmap, int priority )
 	{
 		const struct rectangle *clip = &Machine.visible_area;
-		const unsigned char *finish = spriteram;
-		const unsigned char *source = spriteram+0x60-4;
+		const UBytePtr finish = spriteram;
+		const UBytePtr source = spriteram+0x60-4;
 		const struct GfxElement *gfx = Machine.gfx[1];
 	
 		while( source>=finish )
@@ -158,7 +158,7 @@ public class lkage
 	
 	void lkage_set_palette_row( int virtual_row, int logical_row, int len )
 	{
-		unsigned char *source = &paletteram[logical_row*32];
+		UBytePtr source = &paletteram[logical_row*32];
 		int indx = virtual_row*16;
 		while( len-- )
 		{

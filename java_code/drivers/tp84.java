@@ -91,13 +91,13 @@ public class tp84
 {
 	
 	
-	extern unsigned char *tp84_videoram2;
-	extern unsigned char *tp84_colorram2;
-	extern unsigned char *tp84_scrollx;
-	extern unsigned char *tp84_scrolly;
+	extern UBytePtr tp84_videoram2;
+	extern UBytePtr tp84_colorram2;
+	extern UBytePtr tp84_scrollx;
+	extern UBytePtr tp84_scrolly;
 	
 	
-	static unsigned char *sharedram;
+	static UBytePtr sharedram;
 	
 	public static ReadHandlerPtr sharedram_r  = new ReadHandlerPtr() { public int handler(int offset)
 	{

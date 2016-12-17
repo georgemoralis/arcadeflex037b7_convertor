@@ -15,13 +15,13 @@ public class _88games
 	
 	
 	static 
-	static unsigned char *ram;
+	static UBytePtr ram;
 	static int videobank;
 	
 	extern int k88games_priority;
 	
 	
-	static unsigned char *nvram;
+	static UBytePtr nvram;
 	static size_t nvram_size;
 	
 	public static nvramPtr nvram_handler  = new nvramPtr() { public void handler(Object file, int read_or_write) 
@@ -534,7 +534,7 @@ public class _88games
 	
 	public static konami_cpu_setlines_callbackPtr k88games_banking = new konami_cpu_setlines_callbackPtr() { public void handler(int lines) 
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 		int offs;
 	
 	logerror("%04x: bank select %02x\n",cpu_get_pc(),lines);

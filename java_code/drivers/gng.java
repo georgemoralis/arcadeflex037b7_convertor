@@ -28,14 +28,14 @@ public class gng
 	
 	
 	
-	extern unsigned char *gng_fgvideoram;
-	extern unsigned char *gng_bgvideoram;
+	extern UBytePtr gng_fgvideoram;
+	extern UBytePtr gng_bgvideoram;
 	
 	
 	
 	public static WriteHandlerPtr gng_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		unsigned char *rom = memory_region(REGION_CPU1);
+		UBytePtr rom = memory_region(REGION_CPU1);
 	
 	
 		if (data == 4)

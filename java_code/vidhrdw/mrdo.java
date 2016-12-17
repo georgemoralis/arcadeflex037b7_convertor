@@ -16,7 +16,7 @@ public class mrdo
 {
 	
 	
-	unsigned char *mrdo_bgvideoram,*mrdo_fgvideoram;
+	UBytePtr mrdo_bgvideoram,*mrdo_fgvideoram;
 	static struct tilemap *bg_tilemap,*fg_tilemap;
 	static int flipscreen;
 	

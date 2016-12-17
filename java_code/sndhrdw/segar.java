@@ -471,7 +471,7 @@ public class segar
 	/* read from BUS */
 	public static ReadHandlerPtr monsterb_sh_rom_r  = new ReadHandlerPtr() { public int handler(int offset)
 	{
-		unsigned char *sound_rom = memory_region(REGION_SOUND1);
+		UBytePtr sound_rom = memory_region(REGION_SOUND1);
 	
 		return sound_rom[rom_offset];
 	} };

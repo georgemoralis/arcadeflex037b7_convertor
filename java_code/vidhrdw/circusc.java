@@ -17,8 +17,8 @@ public class circusc
 	
 	
 	
-	unsigned char *circusc_spritebank;
-	unsigned char *circusc_scroll;
+	UBytePtr circusc_spritebank;
+	UBytePtr circusc_scroll;
 	static int flipscreen;
 	
 	
@@ -165,7 +165,7 @@ public class circusc
 	
 		/* Draw the sprites. */
 		{
-			unsigned char *sr;
+			UBytePtr sr;
 	
 	
 			if ((*circusc_spritebank & 0x01) != 0)

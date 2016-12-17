@@ -1281,7 +1281,7 @@ public class inptport
 			writeword(record,input_port_value[port]);
 	#ifdef MAME_NET
 		if ( net_active() && (default_player != NET_SPECTATOR) )
-			net_analog_sync((unsigned char *) input_port_value, port, analog_player_port, default_player);
+			net_analog_sync((UBytePtr ) input_port_value, port, analog_player_port, default_player);
 	#endif /* MAME_NET */
 	profiler_mark(PROFILER_END);
 	}
@@ -1593,7 +1593,7 @@ public class inptport
 		}
 	#ifdef MAME_NET
 		if ( net_active() && (default_player != NET_SPECTATOR) )
-			net_input_sync((unsigned char *) input_port_value, (unsigned char *) input_port_defaults, MAX_INPUT_PORTS);
+			net_input_sync((UBytePtr ) input_port_value, (UBytePtr ) input_port_defaults, MAX_INPUT_PORTS);
 	#endif /* MAME_NET */
 	
 	profiler_mark(PROFILER_END);

@@ -28,8 +28,8 @@ public class zerozone
 {
 	
 	
-	extern unsigned char *zerozone_videoram;
-	static unsigned char *ram; /* for high score save */
+	extern UBytePtr zerozone_videoram;
+	static UBytePtr ram; /* for high score save */
 	
 	public static ReadHandlerPtr zerozone_input_r  = new ReadHandlerPtr() { public int handler(int offset)
 	{

@@ -23,7 +23,7 @@ public class tumblep
 	
 	
 	
-	extern unsigned char *tumblep_pf1_data,*tumblep_pf2_data;
+	extern UBytePtr tumblep_pf1_data,*tumblep_pf2_data;
 	
 	/******************************************************************************/
 	
@@ -508,7 +508,7 @@ public class tumblep
 	
 	static public static InitDriverPtr init_tumblep = new InitDriverPtr() { public void handler() 
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 		int i,x,a;
 	    char z[64];
 	

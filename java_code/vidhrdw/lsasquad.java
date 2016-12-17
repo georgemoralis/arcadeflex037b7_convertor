@@ -8,7 +8,7 @@ public class lsasquad
 {
 	
 	
-	unsigned char *lsasquad_scrollram,*lsasquad_videoram,*lsasquad_spriteram;
+	UBytePtr lsasquad_scrollram,*lsasquad_videoram,*lsasquad_spriteram;
 	size_t lsasquad_spriteram_size;
 	
 	
@@ -53,7 +53,7 @@ public class lsasquad
 	
 	
 	
-	static void draw_layer(struct osd_bitmap *bitmap,unsigned char *scrollram)
+	static void draw_layer(struct osd_bitmap *bitmap,UBytePtr scrollram)
 	{
 		int offs,scrollx,scrolly;
 	

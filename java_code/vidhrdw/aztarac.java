@@ -96,7 +96,7 @@ public class aztarac
 	    return 4;
 	} };
 	
-	void aztarac_init_colors (unsigned char *palette, unsigned short *colortable,const unsigned char *color_prom)
+	void aztarac_init_colors (UBytePtr palette, unsigned short *colortable,const UBytePtr color_prom)
 	{
 	    int r, g, b, i;
 	

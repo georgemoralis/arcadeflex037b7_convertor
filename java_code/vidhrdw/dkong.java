@@ -18,7 +18,7 @@ public class dkong
 	
 	static data_t gfx_bank,palette_bank;
 	static int grid_on;
-	static const unsigned char *color_codes;
+	static const UBytePtr color_codes;
 	
 	
 	
@@ -318,7 +318,7 @@ public class dkong
 	
 	static void draw_grid(struct osd_bitmap *bitmap)
 	{
-		const unsigned char *table = memory_region(REGION_GFX3);
+		const UBytePtr table = memory_region(REGION_GFX3);
 		int x,y,counter;
 	
 		counter = flip_screen ? 0x000 : 0x400;

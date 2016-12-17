@@ -19,7 +19,7 @@ public class fastlane
 {
 	
 	/* from vidhrdw/fastlane.c */
-	extern unsigned char *fastlane_k007121_regs,*fastlane_videoram1,*fastlane_videoram2;
+	extern UBytePtr fastlane_k007121_regs,*fastlane_videoram1,*fastlane_videoram2;
 	
 	public static InterruptPtr fastlane_interrupt = new InterruptPtr() { public int handler() 
 	{
@@ -45,7 +45,7 @@ public class fastlane
 	public static WriteHandlerPtr fastlane_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
 		int bankaddress;
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 		/* bits 0 & 1 coin counters */
 		coin_counter_w.handler(0,data & 0x01);

@@ -58,10 +58,10 @@ public class m72
 	
 	
 	/* in vidhrdw/m72.c */
-	extern unsigned char *m72_videoram1,*m72_videoram2,*majtitle_rowscrollram;
+	extern UBytePtr m72_videoram1,*m72_videoram2,*majtitle_rowscrollram;
 	
 	
-	static unsigned char *protection_ram;
+	static UBytePtr protection_ram;
 	
 	
 	
@@ -310,7 +310,7 @@ public class m72
 													0x00,0x00 };
 	
 	
-	unsigned char *protection_code,*protection_crc;
+	UBytePtr protection_code,*protection_crc;
 	
 	public static ReadHandlerPtr protection_r  = new ReadHandlerPtr() { public int handler(int offset)
 	{
@@ -328,7 +328,7 @@ public class m72
 			memcpy(&protection_ram[0x0fe0],protection_crc,CRC_LEN);
 	} };
 	
-	static void install_protection_handler(unsigned char *code,unsigned char *crc)
+	static void install_protection_handler(UBytePtr code,UBytePtr crc)
 	{
 		protection_code = code;
 		protection_crc =  crc;
@@ -408,7 +408,7 @@ public class m72
 	
 	
 	
-	static unsigned char *soundram;
+	static UBytePtr soundram;
 	
 	
 	public static ReadHandlerPtr soundram_r  = new ReadHandlerPtr() { public int handler(int offset)

@@ -72,7 +72,7 @@ public class taito_f2
 	
 	extern int TC0480SCP_pri_reg;
 	
-	unsigned char *f2_sprite_extension;
+	UBytePtr f2_sprite_extension;
 	size_t f2_spriteext_size;
 	int sprites_disabled,sprites_active_area,sprites_master_scrollx,sprites_master_scrolly;
 	static UINT16 *spriteram_buffered,*spriteram_delayed;

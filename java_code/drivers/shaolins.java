@@ -17,8 +17,8 @@ public class shaolins
 	
 	
 	
-	unsigned char *shaolins_nmi_enable;
-	extern unsigned char *shaolins_scroll;
+	UBytePtr shaolins_nmi_enable;
+	extern UBytePtr shaolins_scroll;
 	
 	
 	

@@ -17,9 +17,9 @@ public class _1942
 	
 	
 	
-	unsigned char *c1942_fgvideoram;
-	unsigned char *c1942_bgvideoram;
-	unsigned char *c1942_spriteram;
+	UBytePtr c1942_fgvideoram;
+	UBytePtr c1942_bgvideoram;
+	UBytePtr c1942_spriteram;
 	size_t c1942_spriteram_size;
 	
 	static data_t c1942_palette_bank;

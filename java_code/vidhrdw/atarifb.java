@@ -18,11 +18,11 @@ public class atarifb
 	/* local */
 	size_t atarifb_alphap1_vram_size;
 	size_t atarifb_alphap2_vram_size;
-	unsigned char *atarifb_alphap1_vram;
-	unsigned char *atarifb_alphap2_vram;
-	unsigned char *atarifb_scroll_register;
-	unsigned char *alphap1_dirtybuffer;
-	unsigned char *alphap2_dirtybuffer;
+	UBytePtr atarifb_alphap1_vram;
+	UBytePtr atarifb_alphap2_vram;
+	UBytePtr atarifb_scroll_register;
+	UBytePtr alphap1_dirtybuffer;
+	UBytePtr alphap2_dirtybuffer;
 	
 	extern int atarifb_game;
 	

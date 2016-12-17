@@ -26,9 +26,9 @@ public class ddragon3
 	
 	
 	extern 
-	extern unsigned char *ddragon3_bg_videoram;
+	extern UBytePtr ddragon3_bg_videoram;
 	
-	extern unsigned char *ddragon3_fg_videoram;
+	extern UBytePtr ddragon3_fg_videoram;
 	
 	/***************************************************************************/
 	

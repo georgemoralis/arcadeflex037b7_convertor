@@ -7,7 +7,7 @@ package drivers;
 public class kopunch
 {
 	
-	unsigned char *bsvideoram;
+	UBytePtr bsvideoram;
 	size_t bsvideoram_size;
 	
 	public static VhConvertColorPromPtr kopunch_vh_convert_color_prom = new VhConvertColorPromPtr() { public void handler(char []palette, char []colortable, UBytePtr color_prom) 
@@ -238,7 +238,7 @@ public class kopunch
 	
 	static public static InitDriverPtr init_kopunch = new InitDriverPtr() { public void handler() 
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 		/* patch out bad instruction, either the ROM is bad, or there is */
 		/* a security chip */

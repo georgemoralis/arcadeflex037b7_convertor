@@ -17,11 +17,11 @@ public class ddragon
 {
 	
 	/* from vidhrdw */
-	extern unsigned char *ddragon_bgvideoram,*ddragon_fgvideoram;
+	extern UBytePtr ddragon_bgvideoram,*ddragon_fgvideoram;
 	extern int ddragon_scrollx_hi, ddragon_scrolly_hi;
-	extern unsigned char *ddragon_scrollx_lo;
-	extern unsigned char *ddragon_scrolly_lo;
-	extern unsigned char *ddragon_spriteram;
+	extern UBytePtr ddragon_scrollx_lo;
+	extern UBytePtr ddragon_scrolly_lo;
+	extern UBytePtr ddragon_spriteram;
 	extern int dd2_video;
 	/* end of extern code & data */
 	
@@ -62,7 +62,7 @@ public class ddragon
 	
 	public static WriteHandlerPtr ddragon_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 		ddragon_scrolly_hi = ( ( data & 0x02 ) << 7 );
 		ddragon_scrollx_hi = ( ( data & 0x01 ) << 8 );
@@ -152,7 +152,7 @@ public class ddragon
 		}
 		else
 		{
-			unsigned char *ROM = memory_region(REGION_SOUND1) + 0x10000 * chip;
+			UBytePtr ROM = memory_region(REGION_SOUND1) + 0x10000 * chip;
 	
 			adpcm_data[chip] = ROM[adpcm_pos[chip]++];
 			MSM5205_data_w(chip,adpcm_data[chip] >> 4);

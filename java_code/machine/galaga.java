@@ -17,7 +17,7 @@ public class galaga
 {
 	
 	
-	unsigned char *galaga_sharedram;
+	UBytePtr galaga_sharedram;
 	static unsigned char interrupt_enable_1,interrupt_enable_2,interrupt_enable_3;
 	
 	static void *nmi_timer;

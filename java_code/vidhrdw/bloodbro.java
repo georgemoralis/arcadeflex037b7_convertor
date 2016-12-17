@@ -15,12 +15,12 @@ public class bloodbro
 	
 	#define NUM_SPRITES 128
 	
-	unsigned char *textlayoutram;
-	static unsigned char *dirtybuffer2;
+	UBytePtr textlayoutram;
+	static UBytePtr dirtybuffer2;
 	static struct osd_bitmap *tmpbitmap2;
-	extern unsigned char *dirtybuffer2;
-	unsigned char *bloodbro_videoram2;
-	unsigned char *bloodbro_scroll;
+	extern UBytePtr dirtybuffer2;
+	UBytePtr bloodbro_videoram2;
+	UBytePtr bloodbro_scroll;
 	static struct sprite_list *sprite_list;
 	
 	

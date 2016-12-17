@@ -13,10 +13,10 @@ package vidhrdw;
 public class zerozone
 {
 	
-	unsigned char *zerozone_videoram;
+	UBytePtr zerozone_videoram;
 	
 	extern size_t videoram_size;
-	static unsigned char *video_dirty;
+	static UBytePtr video_dirty;
 	
 	
 	

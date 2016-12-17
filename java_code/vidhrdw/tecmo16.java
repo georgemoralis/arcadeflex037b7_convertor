@@ -17,11 +17,11 @@ public class tecmo16
 {
 	
 	
-	unsigned char *tecmo16_videoram;
-	unsigned char *tecmo16_colorram;
-	unsigned char *tecmo16_videoram2;
-	unsigned char *tecmo16_colorram2;
-	unsigned char *tecmo16_charram;
+	UBytePtr tecmo16_videoram;
+	UBytePtr tecmo16_colorram;
+	UBytePtr tecmo16_videoram2;
+	UBytePtr tecmo16_colorram2;
+	UBytePtr tecmo16_charram;
 	
 	static struct tilemap *fg_tilemap,*bg_tilemap,*tx_tilemap;
 	

@@ -30,8 +30,8 @@ public class mame
 	
 	
 	/* Used in vh_open */
-	extern unsigned char *spriteram,*spriteram_2;
-	extern unsigned char *buffered_spriteram,*buffered_spriteram_2;
+	extern UBytePtr spriteram,*spriteram_2;
+	extern UBytePtr buffered_spriteram,*buffered_spriteram_2;
 	extern int spriteram_size,spriteram_2_size;
 	
 	

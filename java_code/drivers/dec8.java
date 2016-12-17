@@ -51,8 +51,8 @@ public class dec8
 	
 	/******************************************************************************/
 	
-	static unsigned char *dec8_shared_ram,*dec8_shared2_ram;
-	extern unsigned char *dec8_pf0_data,*dec8_pf1_data,*dec8_row;
+	static UBytePtr dec8_shared_ram,*dec8_shared2_ram;
+	extern UBytePtr dec8_pf0_data,*dec8_pf1_data,*dec8_row;
 	
 	static int nmi_enable,int_enable;
 	static int i8751_return, i8751_value;
@@ -341,7 +341,7 @@ public class dec8
 	public static WriteHandlerPtr dec8_bank_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
 	 	int bankaddress;
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 		bankaddress = 0x10000 + (data & 0x0f) * 0x4000;
 		cpu_setbank(1,&RAM[bankaddress]);
@@ -351,7 +351,7 @@ public class dec8
 	public static WriteHandlerPtr ghostb_bank_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
 	 	int bankaddress;
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 		/* Bit 0: Interrupt enable/disable (I think..)
 		   Bit 1: NMI enable/disable
@@ -371,7 +371,7 @@ public class dec8
 	public static WriteHandlerPtr csilver_control_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
 		int bankaddress;
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 		/* Bottom 4 bits - bank switch */
 		bankaddress = 0x10000 + (data & 0x0f) * 0x4000;
@@ -418,7 +418,7 @@ public class dec8
 	
 	public static WriteHandlerPtr csilver_sound_bank_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		unsigned char *RAM = memory_region(REGION_CPU3);
+		UBytePtr RAM = memory_region(REGION_CPU3);
 	
 		if ((data & 8) != 0) { cpu_setbank(3,&RAM[0x14000]); }
 		else { cpu_setbank(3,&RAM[0x10000]); }
@@ -3086,7 +3086,7 @@ public class dec8
 	static public static InitDriverPtr init_deco222 = new InitDriverPtr() { public void handler() 
 	{
 		int A,sound_cpu,diff;
-		unsigned char *rom;
+		UBytePtr rom;
 	
 		sound_cpu = 1;
 		/* Oscar has three CPUs */
@@ -3105,7 +3105,7 @@ public class dec8
 	static public static InitDriverPtr init_meikyuh = new InitDriverPtr() { public void handler() 
 	{
 		/* Blank out unused garbage in colour prom to avoid colour overflow */
-		unsigned char *RAM = memory_region(REGION_PROMS);
+		UBytePtr RAM = memory_region(REGION_PROMS);
 		memset(RAM+0x20,0,0xe0);
 	} };
 	

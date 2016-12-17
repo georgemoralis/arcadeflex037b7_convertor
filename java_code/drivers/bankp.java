@@ -43,8 +43,8 @@ public class bankp
 {
 	
 	
-	extern unsigned char *bankp_videoram2;
-	extern unsigned char *bankp_colorram2;
+	extern UBytePtr bankp_videoram2;
+	extern UBytePtr bankp_colorram2;
 	
 	
 	

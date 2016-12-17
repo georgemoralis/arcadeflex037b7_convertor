@@ -104,13 +104,13 @@ package vidhrdw;
 public class cninja
 {
 	
-	unsigned char *cninja_pf1_data,*cninja_pf2_data;
-	unsigned char *cninja_pf3_data,*cninja_pf4_data;
-	unsigned char *cninja_pf1_rowscroll,*cninja_pf2_rowscroll;
-	unsigned char *cninja_pf3_rowscroll,*cninja_pf4_rowscroll;
+	UBytePtr cninja_pf1_data,*cninja_pf2_data;
+	UBytePtr cninja_pf3_data,*cninja_pf4_data;
+	UBytePtr cninja_pf1_rowscroll,*cninja_pf2_rowscroll;
+	UBytePtr cninja_pf3_rowscroll,*cninja_pf4_rowscroll;
 	
 	static struct tilemap *pf1_tilemap,*pf2_tilemap,*pf3_tilemap,*pf4_tilemap;
-	static unsigned char *gfx_base;
+	static UBytePtr gfx_base;
 	static int gfx_bank;
 	
 	static unsigned char cninja_control_0[16];

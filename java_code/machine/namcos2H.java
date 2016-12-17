@@ -81,13 +81,13 @@ extern int namcos2_gametype;
 /* Dual port memory handlers								  */
 /**************************************************************/
 
-extern unsigned char *namcos2_dpram;
+extern UBytePtr namcos2_dpram;
 
 /**************************************************************/
 /* Sprite memory handlers									  */
 /**************************************************************/
 
-extern unsigned char *namcos2_sprite_ram;
+extern UBytePtr namcos2_sprite_ram;
 extern int namcos2_sprite_bank;
 
 
@@ -96,7 +96,7 @@ extern int namcos2_sprite_bank;
 /**************************************************************/
 #define NAMCOS2_68K_EEPROM_W	namcos2_68k_eeprom_w, &namcos2_eeprom, &namcos2_eeprom_size
 #define NAMCOS2_68K_EEPROM_R	namcos2_68k_eeprom_r
-extern unsigned char *namcos2_eeprom;
+extern UBytePtr namcos2_eeprom;
 extern size_t namcos2_eeprom_size;
 
 /**************************************************************/
@@ -127,7 +127,7 @@ extern int namcos2_tilemap5_flip;
 /**************************************************************/
 
 #define NAMCOS2_COLOUR_CODES	0x20
-extern unsigned char *namcos2_68k_palette_ram;
+extern UBytePtr namcos2_68k_palette_ram;
 extern size_t namcos2_68k_palette_size;
 
 
@@ -141,7 +141,7 @@ extern size_t namcos2_68k_palette_size;
 /**************************************************************/
 
 extern unsigned char  namcos2_68k_serial_comms_ctrl[0x10];
-extern unsigned char *namcos2_68k_serial_comms_ram;
+extern UBytePtr namcos2_68k_serial_comms_ram;
 
 
 
@@ -181,7 +181,7 @@ void namcos2_68k_slave_posirq( int moog );
 /* MASTER CPU RAM MEMORY									  */
 /**************************************************************/
 
-extern unsigned char *namcos2_68k_master_ram;
+extern UBytePtr namcos2_68k_master_ram;
 
 #define NAMCOS2_68K_MASTER_RAM_W	MWA_BANK3, &namcos2_68k_master_ram
 #define NAMCOS2_68K_MASTER_RAM_R	MRA_BANK3
@@ -191,7 +191,7 @@ extern unsigned char *namcos2_68k_master_ram;
 /* SLAVE CPU RAM MEMORY 									  */
 /**************************************************************/
 
-extern unsigned char *namcos2_68k_slave_ram;
+extern UBytePtr namcos2_68k_slave_ram;
 
 #define NAMCOS2_68K_SLAVE_RAM_W 	MWA_BANK4, &namcos2_68k_slave_ram
 #define NAMCOS2_68K_SLAVE_RAM_R 	MRA_BANK4
@@ -204,17 +204,17 @@ extern unsigned char *namcos2_68k_slave_ram;
 extern unsigned char namcos2_68k_roz_ctrl[];
 
 extern size_t namcos2_68k_roz_ram_size;
-extern unsigned char *namcos2_68k_roz_ram;
+extern UBytePtr namcos2_68k_roz_ram;
 
 
 /**************************************************************/
 /* FINAL LAP road generator definitions.....				  */
 /**************************************************************/
 
-extern unsigned char *namcos2_68k_roadtile_ram;
+extern UBytePtr namcos2_68k_roadtile_ram;
 extern size_t namcos2_68k_roadtile_ram_size;
 
-extern unsigned char *namcos2_68k_roadgfx_ram;
+extern UBytePtr namcos2_68k_roadgfx_ram;
 extern size_t namcos2_68k_roadgfx_ram_size;
 
 

@@ -64,7 +64,7 @@ package drivers;
 public class tankbatt
 {
 	
-	extern unsigned char *tankbatt_bulletsram;
+	extern UBytePtr tankbatt_bulletsram;
 	extern size_t tankbatt_bulletsram_size;
 	
 	static int tankbatt_nmi_enable; /* No need to init this - the game will set it on reset */

@@ -8,7 +8,7 @@ public class ohmygod
 {
 	
 	
-	unsigned char *ohmygod_videoram;
+	UBytePtr ohmygod_videoram;
 	
 	static int spritebank;
 	static struct tilemap *bg_tilemap;
@@ -96,7 +96,7 @@ public class ohmygod
 		for (offs = 0;offs < spriteram_size;offs += 8)
 		{
 			int sx,sy,code,color,flipx;
-			unsigned char *sr;
+			UBytePtr sr;
 	
 			sr = spritebank ? spriteram_2 : spriteram;
 	

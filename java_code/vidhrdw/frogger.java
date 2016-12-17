@@ -18,7 +18,7 @@ public class frogger
 	
 	static int flipscreen;
 	
-	unsigned char *frogger_attributesram;
+	UBytePtr frogger_attributesram;
 	
 	/* Cocktail mode implemented by Chad Hendrickson, July 26, 1999           */
 	

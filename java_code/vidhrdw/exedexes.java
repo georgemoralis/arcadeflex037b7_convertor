@@ -17,10 +17,10 @@ public class exedexes
 	
 	
 	
-	unsigned char *exedexes_bg_scroll;
+	UBytePtr exedexes_bg_scroll;
 	
-	unsigned char *exedexes_nbg_yscroll;
-	unsigned char *exedexes_nbg_xscroll;
+	UBytePtr exedexes_nbg_yscroll;
+	UBytePtr exedexes_nbg_xscroll;
 	
 	static int chon,objon,sc1on,sc2on;
 	

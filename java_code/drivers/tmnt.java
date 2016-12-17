@@ -237,7 +237,7 @@ public class tmnt
 	{
 		int i;
 		signed short *dest;
-		unsigned char *source = memory_region(REGION_SOUND3);
+		UBytePtr source = memory_region(REGION_SOUND3);
 		struct GameSamples *samples;
 	
 	
@@ -759,7 +759,7 @@ public class tmnt
 		new MemoryReadAddress( -1 )	/* end of table */
 	};
 	
-	static unsigned char *tmnt2_1c0800,*sunset_104000;
+	static UBytePtr tmnt2_1c0800,*sunset_104000;
 	
 	public static WriteHandlerPtr tmnt2_1c0800_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
@@ -768,7 +768,7 @@ public class tmnt
 		{
 			unsigned int CellSrc;
 			unsigned int CellVar;
-			unsigned char *src;
+			UBytePtr src;
 			int dst;
 			int x,y;
 	
@@ -3342,11 +3342,11 @@ public class tmnt
 	
 	static public static InitDriverPtr init_mia = new InitDriverPtr() { public void handler() 
 	{
-		unsigned char *gfxdata;
+		UBytePtr gfxdata;
 		int len;
 		int i,j,k,A,B;
 		int bits[32];
-		unsigned char *temp;
+		UBytePtr temp;
 	
 	
 		init_gfx();
@@ -3438,11 +3438,11 @@ public class tmnt
 	
 	static public static InitDriverPtr init_tmnt = new InitDriverPtr() { public void handler() 
 	{
-		unsigned char *gfxdata;
+		UBytePtr gfxdata;
 		int len;
 		int i,j,k,A,B,entry;
 		int bits[32];
-		unsigned char *temp;
+		UBytePtr temp;
 	
 	
 		init_gfx();
@@ -3494,7 +3494,7 @@ public class tmnt
 		memcpy(temp,gfxdata,len);
 		for (A = 0;A < len/4;A++)
 		{
-			unsigned char *code_conv_table = &memory_region(REGION_PROMS)[0x0000];
+			UBytePtr code_conv_table = &memory_region(REGION_PROMS)[0x0000];
 	#define CA0 0
 	#define CA1 1
 	#define CA2 2

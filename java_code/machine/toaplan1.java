@@ -25,7 +25,7 @@ public class toaplan1
 	static int dsp_execute;
 	static unsigned int dsp_addr_w, main_ram_seg;
 	
-	extern unsigned char *toaplan1_sharedram;
+	extern UBytePtr toaplan1_sharedram;
 	
 	
 	

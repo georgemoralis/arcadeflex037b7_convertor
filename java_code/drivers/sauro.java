@@ -77,8 +77,8 @@ public class sauro
 {
 	
 	
-	unsigned char *sauro_videoram2;
-	unsigned char *sauro_colorram2;
+	UBytePtr sauro_videoram2;
+	UBytePtr sauro_colorram2;
 	
 	
 	
@@ -357,7 +357,7 @@ public class sauro
 		/* This game doesn't like all memory to be initialized to zero, it won't
 		   initialize the high scores */
 	
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 		memset(&RAM[0xe000], 0, 0x100);
 		RAM[0xe000] = 1;

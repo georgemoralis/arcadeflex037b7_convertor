@@ -16,11 +16,11 @@ public class mitchell
 	
 	/* Globals */
 	size_t pang_videoram_size;
-	unsigned char *pang_videoram;
-	unsigned char *pang_colorram;
+	UBytePtr pang_videoram;
+	UBytePtr pang_colorram;
 	
 	/* Private */
-	static unsigned char *pang_objram;           /* Sprite RAM */
+	static UBytePtr pang_objram;           /* Sprite RAM */
 	
 	static struct tilemap *bg_tilemap;
 	static int flipscreen;

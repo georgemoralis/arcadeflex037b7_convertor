@@ -17,8 +17,8 @@ public class funkyjet
 	
 	#define TILERAM_SIZE	0x2000
 	
-	unsigned char *funkyjet_pf2_data,*funkyjet_pf1_data,*funkyjet_pf1_row;
-	static unsigned char *funkyjet_pf1_dirty,*funkyjet_pf2_dirty;
+	UBytePtr funkyjet_pf2_data,*funkyjet_pf1_data,*funkyjet_pf1_row;
+	static UBytePtr funkyjet_pf1_dirty,*funkyjet_pf2_dirty;
 	static struct osd_bitmap *funkyjet_pf1_bitmap;
 	static struct osd_bitmap *funkyjet_pf2_bitmap;
 	

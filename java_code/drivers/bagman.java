@@ -68,8 +68,8 @@ public class bagman
 	
 	
 	
-	extern unsigned char *bagman_video_enable;
-	void bagman_vh_convert_color_prom(unsigned char *palette, unsigned short *colortable, const unsigned char *color_prom);
+	extern UBytePtr bagman_video_enable;
+	void bagman_vh_convert_color_prom(UBytePtr palette, unsigned short *colortable, const UBytePtr color_prom);
 	
 	
 	
@@ -122,7 +122,7 @@ public class bagman
 	
 	int bagman_speech_rom_read_bit(void)
 	{
-	unsigned char *ROM = memory_region(REGION_SOUND1);
+	UBytePtr ROM = memory_region(REGION_SOUND1);
 	int bit_no = (ls259_buf[0]<<2) | (ls259_buf[1]<<1) | (ls259_buf[2]<<0);
 	int byte = 0;
 	

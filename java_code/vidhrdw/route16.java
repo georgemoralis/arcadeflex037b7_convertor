@@ -15,9 +15,9 @@ package vidhrdw;
 public class route16
 {
 	
-	unsigned char *route16_sharedram;
-	unsigned char *route16_videoram1;
-	unsigned char *route16_videoram2;
+	UBytePtr route16_sharedram;
+	UBytePtr route16_videoram1;
+	UBytePtr route16_videoram2;
 	size_t route16_videoram_size;
 	
 	static struct osd_bitmap *tmpbitmap1;
@@ -30,7 +30,7 @@ public class route16
 	static int video_disable_2 = 0;
 	static int video_remap_1;
 	static int video_remap_2;
-	static const unsigned char *route16_color_prom;
+	static const UBytePtr route16_color_prom;
 	static int route16_hardware;
 	
 	/* Local functions */
@@ -58,7 +58,7 @@ public class route16
 	
 	public static InitDriverPtr init_route16 = new InitDriverPtr() { public void handler() 
 	{
-		unsigned char *rom = memory_region(REGION_CPU1);
+		UBytePtr rom = memory_region(REGION_CPU1);
 	
 	
 		/* patch the protection */

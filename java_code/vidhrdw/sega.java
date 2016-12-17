@@ -122,7 +122,7 @@ public class sega
 	***************************************************************************/
 	
 	
-	void sega_init_colors (unsigned char *palette, unsigned short *colortable,const unsigned char *color_prom)
+	void sega_init_colors (UBytePtr palette, unsigned short *colortable,const UBytePtr color_prom)
 	{
 		int i,r,g,b;
 	

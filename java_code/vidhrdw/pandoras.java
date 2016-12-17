@@ -9,7 +9,7 @@ public class pandoras
 	
 	static int flipscreen;
 	static struct tilemap *layer0;
-	extern unsigned char *pandoras_sharedram;
+	extern UBytePtr pandoras_sharedram;
 	
 	/***********************************************************************
 	
@@ -152,7 +152,7 @@ public class pandoras
 	
 	***************************************************************************/
 	
-	static void draw_sprites(struct osd_bitmap *bitmap, unsigned char* sr)
+	static void draw_sprites(struct osd_bitmap *bitmap, UBytePtr  sr)
 	{
 		int offs;
 	

@@ -33,7 +33,7 @@ public class spy
 	
 	
 	static int rambank;
-	static unsigned char *ram;
+	static UBytePtr ram;
 	
 	public static ReadHandlerPtr spy_bankedram1_r  = new ReadHandlerPtr() { public int handler(int offset)
 	{
@@ -49,7 +49,7 @@ public class spy
 	
 	public static WriteHandlerPtr bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		unsigned char *rom = memory_region(REGION_CPU1);
+		UBytePtr rom = memory_region(REGION_CPU1);
 		int offs;
 	
 		/* bit 0 = RAM bank? */
@@ -84,7 +84,7 @@ public class spy
 	
 	public static WriteHandlerPtr sound_bank_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		unsigned char *rom;
+		UBytePtr rom;
 		int bank_A,bank_B;
 	
 		rom = memory_region(REGION_SOUND1);

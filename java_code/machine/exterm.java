@@ -7,8 +7,8 @@ package machine;
 public class exterm
 {
 	
-	extern unsigned char *exterm_code_rom;
-	unsigned char *exterm_master_speedup, *exterm_slave_speedup;
+	extern UBytePtr exterm_code_rom;
+	UBytePtr exterm_master_speedup, *exterm_slave_speedup;
 	
 	static int aimpos1, aimpos2;
 	
@@ -108,7 +108,7 @@ public class exterm
 	
 	public static ReadHandlerPtr exterm_sound_dac_speedup_r  = new ReadHandlerPtr() { public int handler(int offset)
 	{
-		unsigned char *RAM = memory_region(REGION_CPU3);
+		UBytePtr RAM = memory_region(REGION_CPU3);
 		int value = RAM[0x0007];
 	
 		/* Suspend cpu if it's waiting for an interrupt */
@@ -125,7 +125,7 @@ public class exterm
 		/* Doing this won't flash the LED, but we're not emulating that anyhow, so
 		   it doesn't matter */
 	
-		unsigned char *RAM = memory_region(REGION_CPU4);
+		UBytePtr RAM = memory_region(REGION_CPU4);
 		int value = RAM[0x02b6];
 	
 		/* Suspend cpu if it's waiting for an interrupt */

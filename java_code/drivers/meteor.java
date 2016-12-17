@@ -34,7 +34,7 @@ public class meteor
 {
 	
 	
-	extern unsigned char *meteor_scrollram;
+	extern UBytePtr meteor_scrollram;
 	
 	
 	
@@ -224,7 +224,7 @@ public class meteor
 		0, 7, 0, 1, 2, 3, 4, 5,
 		0, 0, 1, 2, 3, 4, 5, 6,
 	};
-	static void init_palette(unsigned char *game_palette, unsigned short *game_colortable,const unsigned char *color_prom)
+	static void init_palette(UBytePtr game_palette, unsigned short *game_colortable,const UBytePtr color_prom)
 	{
 		memcpy(game_palette,palette,sizeof(palette));
 		memcpy(game_colortable,colortable,sizeof(colortable));

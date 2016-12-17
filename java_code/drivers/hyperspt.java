@@ -15,7 +15,7 @@ public class hyperspt
 	
 	
 	
-	extern unsigned char *hyperspt_scroll;
+	extern UBytePtr hyperspt_scroll;
 	
 	
 	
@@ -48,7 +48,7 @@ public class hyperspt
 	/*
 	 Track'n'Field has 1k of battery backed RAM which can be erased by setting a dipswitch
 	*/
-	static unsigned char *nvram;
+	static UBytePtr nvram;
 	static size_t nvram_size;
 	static int we_flipped_the_switch;
 	

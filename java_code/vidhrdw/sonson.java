@@ -16,7 +16,7 @@ public class sonson
 {
 	
 	
-	unsigned char *sonson_scrollx;
+	UBytePtr sonson_scrollx;
 	
 	
 	

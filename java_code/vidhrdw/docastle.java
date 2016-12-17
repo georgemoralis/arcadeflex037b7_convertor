@@ -40,7 +40,7 @@ public class docastle
 	  bit 0 -- 390 ohm resistor  -- BLUE
 	
 	***************************************************************************/
-	static void convert_color_prom(unsigned char *palette, unsigned short *colortable,const unsigned char *color_prom,
+	static void convert_color_prom(UBytePtr palette, unsigned short *colortable,const UBytePtr color_prom,
 			int priority)
 	{
 		int i,j;
@@ -136,7 +136,7 @@ public class docastle
 		{
 			struct GfxElement *gfx;
 			int x,y;
-			unsigned char *dp;
+			UBytePtr dp;
 	
 			gfx = Machine.gfx[1];
 			for (i=0;i<gfx.total_elements;i++)
@@ -162,12 +162,12 @@ public class docastle
 	
 	
 	
-	void docastle_vh_convert_color_prom(unsigned char *palette,unsigned short *colortable,const unsigned char *color_prom)
+	void docastle_vh_convert_color_prom(UBytePtr palette,unsigned short *colortable,const UBytePtr color_prom)
 	{
 		convert_color_prom(palette,colortable,color_prom,0);
 	}
 	
-	void dorunrun_vh_convert_color_prom(unsigned char *palette,unsigned short *colortable,const unsigned char *color_prom)
+	void dorunrun_vh_convert_color_prom(UBytePtr palette,unsigned short *colortable,const UBytePtr color_prom)
 	{
 		convert_color_prom(palette,colortable,color_prom,1);
 	}

@@ -56,7 +56,7 @@ public class system1
 	public static WriteHandlerPtr hvymetal_videomode_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
 		int bankaddress;
-		unsigned char *rom = memory_region(REGION_CPU1);
+		UBytePtr rom = memory_region(REGION_CPU1);
 	
 		/* patch out the obnoxiously long startup RAM tests */
 	//	rom[0x4a55 + memory_region_length(REGION_CPU1) / 2] = 0xc3;
@@ -72,7 +72,7 @@ public class system1
 	public static WriteHandlerPtr brain_videomode_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
 		int bankaddress;
-		unsigned char *rom = memory_region(REGION_CPU1);
+		UBytePtr rom = memory_region(REGION_CPU1);
 	
 	
 		bankaddress = 0x10000 + (((data & 0x04)>>2) * 0x4000) + (((data & 0x40)>>5) * 0x4000);
@@ -84,7 +84,7 @@ public class system1
 	public static WriteHandlerPtr chplft_videomode_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
 		int bankaddress;
-		unsigned char *rom = memory_region(REGION_CPU1);
+		UBytePtr rom = memory_region(REGION_CPU1);
 	
 	
 		bankaddress = 0x10000 + (((data & 0x0c)>>2) * 0x4000);
@@ -242,7 +242,7 @@ public class system1
 	};
 	
 	
-	static unsigned char *work_ram;
+	static UBytePtr work_ram;
 	
 	public static ReadHandlerPtr work_ram_r  = new ReadHandlerPtr() { public int handler(int offset)
 	{
@@ -3288,7 +3288,7 @@ public class system1
 	public static InitDriverPtr init_myherok = new InitDriverPtr() { public void handler() 
 	{
 		int A;
-		unsigned char *rom;
+		UBytePtr rom;
 	
 		/* additionally to the usual protection, all the program ROMs have data lines */
 		/* D0 and D1 swapped. */
@@ -3331,7 +3331,7 @@ public class system1
 	
 	static public static InitDriverPtr init_bootleg = new InitDriverPtr() { public void handler() 
 	{
-		unsigned char *rom = memory_region(REGION_CPU1);
+		UBytePtr rom = memory_region(REGION_CPU1);
 		int diff = memory_region_length(REGION_CPU1) / 2;
 	
 		memory_set_opcode_base(0,rom+diff);

@@ -7,7 +7,7 @@ package vidhrdw;
 public class fastlane
 {
 	
-	unsigned char *fastlane_k007121_regs,*fastlane_videoram1,*fastlane_videoram2;
+	UBytePtr fastlane_k007121_regs,*fastlane_videoram1,*fastlane_videoram2;
 	static struct tilemap *layer0, *layer1;
 	
 	/***************************************************************************

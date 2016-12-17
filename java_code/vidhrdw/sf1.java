@@ -7,7 +7,7 @@ package vidhrdw;
 public class sf1
 {
 	
-	unsigned char *sf1_objectram;
+	UBytePtr sf1_objectram;
 	
 	int sf1_active = 0;
 	
@@ -22,7 +22,7 @@ public class sf1
 	
 	static void get_bgb_tile_info(int tile_index)
 	{
-		unsigned char *base = memory_region(REGION_GFX5) + 2*tile_index;
+		UBytePtr base = memory_region(REGION_GFX5) + 2*tile_index;
 		int attr = base[0x10000];
 		int color = base[0];
 		int code = (base[0x10000+1]<<8) | base[1];
@@ -32,7 +32,7 @@ public class sf1
 	
 	static void get_bgm_tile_info(int tile_index)
 	{
-		unsigned char *base = memory_region(REGION_GFX5) + 0x20000 + 2*tile_index;
+		UBytePtr base = memory_region(REGION_GFX5) + 0x20000 + 2*tile_index;
 		int attr = base[0x10000];
 		int color = base[0];
 		int code = (base[0x10000+1]<<8) | base[1];
@@ -129,9 +129,9 @@ public class sf1
 	
 	static void mark_sprites_palette(void)
 	{
-		unsigned char *umap = &palette_used_colors[Machine.drv.gfxdecodeinfo[2].color_codes_start];
+		UBytePtr umap = &palette_used_colors[Machine.drv.gfxdecodeinfo[2].color_codes_start];
 		unsigned int cmap = 0;
-		unsigned char *pt = sf1_objectram + 0x2000-0x40;
+		UBytePtr pt = sf1_objectram + 0x2000-0x40;
 		int i, j;
 	
 		while(pt>=sf1_objectram)
@@ -164,7 +164,7 @@ public class sf1
 	
 	static void draw_sprites(struct osd_bitmap *bitmap)
 	{
-		unsigned char *pt = sf1_objectram + 0x2000-0x40;
+		UBytePtr pt = sf1_objectram + 0x2000-0x40;
 	
 		while(pt>=sf1_objectram) {
 			int c = READ_WORD(pt);

@@ -12,21 +12,21 @@ public class mnight
 	#define GFX_COLOR_CODES(gfxn) 		Machine.gfx[gfxn].total_colors
 	#define GFX_ELEM_COLORS(gfxn) 		Machine.gfx[gfxn].color_granularity
 	
-	unsigned char   *mnight_scrolly_ram;
-	unsigned char   *mnight_scrollx_ram;
-	unsigned char   *mnight_bgenable_ram;
-	unsigned char   *mnight_spoverdraw_ram;
-	unsigned char   *mnight_spriteram;
+	UBytePtr mnight_scrolly_ram;
+	UBytePtr mnight_scrollx_ram;
+	UBytePtr mnight_bgenable_ram;
+	UBytePtr mnight_spoverdraw_ram;
+	UBytePtr mnight_spriteram;
 	size_t mnight_spriteram_size;
-	unsigned char   *mnight_background_videoram;
+	UBytePtr mnight_background_videoram;
 	size_t mnight_backgroundram_size;
-	unsigned char   *mnight_foreground_videoram;
+	UBytePtr mnight_foreground_videoram;
 	size_t mnight_foregroundram_size;
 	
 	static struct osd_bitmap *bitmap_bg;
 	static struct osd_bitmap *bitmap_sp;
 	
-	static unsigned char     *bg_dirtybuffer;
+	static UBytePtr bg_dirtybuffer;
 	static int       bg_enable = 1;
 	static int       sp_overdraw = 0;
 	

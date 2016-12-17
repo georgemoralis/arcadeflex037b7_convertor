@@ -16,7 +16,7 @@ public class marineb
 {
 	
 	
-	unsigned char *marineb_column_scroll;
+	UBytePtr marineb_column_scroll;
 	int marineb_active_low_flipscreen;
 	static data_t palbank;
 	

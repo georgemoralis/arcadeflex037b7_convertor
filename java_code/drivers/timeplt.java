@@ -50,7 +50,7 @@ public class timeplt
 {
 	
 	
-	extern unsigned char *timeplt_videoram,*timeplt_colorram;
+	extern UBytePtr timeplt_videoram,*timeplt_colorram;
 	
 	
 	/* defined in sndhrdw/timeplt.c */

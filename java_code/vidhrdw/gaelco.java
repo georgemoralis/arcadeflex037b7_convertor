@@ -15,9 +15,9 @@ package vidhrdw;
 public class gaelco
 {
 	
-	unsigned char *gaelco_vregs;
-	unsigned char *gaelco_videoram;
-	unsigned char *gaelco_spriteram;
+	UBytePtr gaelco_vregs;
+	UBytePtr gaelco_videoram;
+	UBytePtr gaelco_spriteram;
 	
 	int sprite_count[5];
 	int *sprite_table[5];

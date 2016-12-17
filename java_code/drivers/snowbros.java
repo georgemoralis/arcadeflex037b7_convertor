@@ -15,9 +15,9 @@ package drivers;
 public class snowbros
 {
 	
-	static unsigned char *ram;
+	static UBytePtr ram;
 	
-	extern unsigned char *snowbros_spriteram;
+	extern UBytePtr snowbros_spriteram;
 	
 	
 	

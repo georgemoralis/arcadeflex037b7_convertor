@@ -17,9 +17,9 @@ public class jrpacman
 	
 	
 	
-	unsigned char *jrpacman_scroll,*jrpacman_bgpriority;
-	unsigned char *jrpacman_charbank,*jrpacman_spritebank;
-	unsigned char *jrpacman_palettebank,*jrpacman_colortablebank;
+	UBytePtr jrpacman_scroll,*jrpacman_bgpriority;
+	UBytePtr jrpacman_charbank,*jrpacman_spritebank;
+	UBytePtr jrpacman_palettebank,*jrpacman_colortablebank;
 	static int flipscreen;
 	
 	

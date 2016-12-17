@@ -81,7 +81,7 @@ public class mario
 	static int t[2] = { 0,0 };
 	
 	
-	extern unsigned char *mario_scrolly;
+	extern UBytePtr mario_scrolly;
 	
 	
 	/*

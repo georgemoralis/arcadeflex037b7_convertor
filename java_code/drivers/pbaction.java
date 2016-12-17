@@ -43,7 +43,7 @@ public class pbaction
 {
 	
 	
-	extern unsigned char *pbaction_videoram2,*pbaction_colorram2;
+	extern UBytePtr pbaction_videoram2,*pbaction_colorram2;
 	
 	
 	

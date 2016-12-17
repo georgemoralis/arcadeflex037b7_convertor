@@ -9,12 +9,12 @@ public class galpanic
 	
 	
 	
-	unsigned char *galpanic_bgvideoram,*galpanic_fgvideoram;
+	UBytePtr galpanic_bgvideoram,*galpanic_fgvideoram;
 	size_t galpanic_fgvideoram_size;
 	
 	
 	
-	void galpanic_init_palette(unsigned char *palette, unsigned short *colortable,const unsigned char *color_prom)
+	void galpanic_init_palette(UBytePtr palette, unsigned short *colortable,const UBytePtr color_prom)
 	{
 		int i;
 	

@@ -12,21 +12,21 @@ public class ninjakd2
 	#define GFX_COLOR_CODES(gfxn) 		Machine.gfx[gfxn].total_colors
 	#define GFX_ELEM_COLORS(gfxn) 		Machine.gfx[gfxn].color_granularity
 	
-	unsigned char 	*ninjakd2_scrolly_ram;
-	unsigned char 	*ninjakd2_scrollx_ram;
-	unsigned char 	*ninjakd2_bgenable_ram;
-	unsigned char 	*ninjakd2_spoverdraw_ram;
-	unsigned char 	*ninjakd2_spriteram;
+	UBytePtr ninjakd2_scrolly_ram;
+	UBytePtr ninjakd2_scrollx_ram;
+	UBytePtr ninjakd2_bgenable_ram;
+	UBytePtr ninjakd2_spoverdraw_ram;
+	UBytePtr ninjakd2_spriteram;
 	size_t ninjakd2_spriteram_size;
-	unsigned char 	*ninjakd2_background_videoram;
+	UBytePtr ninjakd2_background_videoram;
 	size_t ninjakd2_backgroundram_size;
-	unsigned char 	*ninjakd2_foreground_videoram;
+	UBytePtr ninjakd2_foreground_videoram;
 	size_t ninjakd2_foregroundram_size;
 	
 	static struct osd_bitmap *bitmap_bg;
 	static struct osd_bitmap *bitmap_sp;
 	
-	static unsigned char 	 *bg_dirtybuffer;
+	static UBytePtr bg_dirtybuffer;
 	static int 		 bg_enable = 1;
 	static int 		 sp_overdraw = 0;
 	

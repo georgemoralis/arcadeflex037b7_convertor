@@ -29,12 +29,12 @@ package drivers;
 public class matmania
 {
 	
-	extern unsigned char *matmania_videoram2,*matmania_colorram2;
+	extern UBytePtr matmania_videoram2,*matmania_colorram2;
 	extern size_t matmania_videoram2_size;
-	extern unsigned char *matmania_videoram3,*matmania_colorram3;
+	extern UBytePtr matmania_videoram3,*matmania_colorram3;
 	extern size_t matmania_videoram3_size;
-	extern unsigned char *matmania_scroll;
-	extern unsigned char *matmania_pageselect;
+	extern UBytePtr matmania_scroll;
+	extern UBytePtr matmania_pageselect;
 	
 	
 	

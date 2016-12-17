@@ -15,7 +15,7 @@ package vidhrdw;
 public class cop01
 {
 	
-	unsigned char *cop01_videoram;
+	UBytePtr cop01_videoram;
 	size_t cop01_videoram_size;
 	
 	static unsigned char cop01_scrollx[1];

@@ -20,8 +20,8 @@ public class vaportra
 	
 	
 	
-	extern unsigned char *vaportra_pf1_data,*vaportra_pf2_data,*vaportra_pf3_data,*vaportra_pf4_data;
-	static unsigned char *vaportra_ram;
+	extern UBytePtr vaportra_pf1_data,*vaportra_pf2_data,*vaportra_pf3_data,*vaportra_pf4_data;
+	static UBytePtr vaportra_ram;
 	
 	
 	/******************************************************************************/
@@ -464,7 +464,7 @@ public class vaportra
 	
 	static void vaportra_decrypt(void)
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 		int i;
 	
 		for (i=0x00000; i<0x80000; i++)

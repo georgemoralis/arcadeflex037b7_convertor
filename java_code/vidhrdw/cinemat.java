@@ -91,7 +91,7 @@ public class cinemat
 		cinemat_simple_overlay = simple_overlay;
 	}
 	
-	static void shade_fill (unsigned char *palette, int rgb, int start_index, int end_index, int start_inten, int end_inten)
+	static void shade_fill (UBytePtr palette, int rgb, int start_index, int end_index, int start_inten, int end_inten)
 	{
 		int i, inten, index_range, inten_range;
 	
@@ -107,7 +107,7 @@ public class cinemat
 	}
 	
 	
-	void cinemat_init_colors (unsigned char *palette, unsigned short *colortable,const unsigned char *color_prom)
+	void cinemat_init_colors (UBytePtr palette, unsigned short *colortable,const UBytePtr color_prom)
 	{
 		int i,j,k, nextcol;
 		char filename[1024];
@@ -202,7 +202,7 @@ public class cinemat
 	}
 	
 	
-	void spacewar_init_colors (unsigned char *palette, unsigned short *colortable,const unsigned char *color_prom)
+	void spacewar_init_colors (UBytePtr palette, unsigned short *colortable,const UBytePtr color_prom)
 	{
 		int width, height, i, nextcol;
 	

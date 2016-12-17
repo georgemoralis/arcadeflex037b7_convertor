@@ -40,7 +40,7 @@ public class zaccaria
 {
 	
 	
-	extern unsigned char *zaccaria_attributesram;
+	extern UBytePtr zaccaria_attributesram;
 	
 	
 	

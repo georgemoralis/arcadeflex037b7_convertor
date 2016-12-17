@@ -185,8 +185,8 @@ public class tnzs
 	
 	
 	/* prototypes for functions in ../machine/tnzs.c */
-	unsigned char *tnzs_objram, *tnzs_workram;
-	unsigned char *tnzs_vdcram, *tnzs_scrollram;
+	UBytePtr tnzs_objram, *tnzs_workram;
+	UBytePtr tnzs_vdcram, *tnzs_scrollram;
 	
 	
 	/* prototypes for functions in ../vidhrdw/tnzs.c */
@@ -199,7 +199,7 @@ public class tnzs
 	int kageki_init_samples(const struct MachineSound *msound)
 	{
 		struct GameSamples *samples;
-		unsigned char *scan, *src, *dest;
+		UBytePtr scan, *src, *dest;
 		int start, size;
 		int i, n;
 	
@@ -236,7 +236,7 @@ public class tnzs
 			samples.sample[i].length = size;
 	
 			// signed 8-bit sample to unsigned 8-bit sample convert
-			dest = (unsigned char *)samples.sample[i].data;
+			dest = (UBytePtr )samples.sample[i].data;
 			scan = &src[start];
 			for (n = 0; n < size; n++)
 			{

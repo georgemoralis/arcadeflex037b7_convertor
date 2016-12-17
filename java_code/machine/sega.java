@@ -24,7 +24,7 @@ public class sega
 {
 	
 	extern void (*sega_decrypt)(int,unsigned int *);
-	unsigned char *sega_mem;
+	UBytePtr sega_mem;
 	
 	unsigned char mult1;
 	unsigned short result;

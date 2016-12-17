@@ -17,9 +17,9 @@ public class _1943
 	
 	
 	
-	unsigned char *c1943_scrollx;
-	unsigned char *c1943_scrolly;
-	unsigned char *c1943_bgscrolly;
+	UBytePtr c1943_scrollx;
+	UBytePtr c1943_scrolly;
+	UBytePtr c1943_bgscrolly;
 	static int chon,objon,sc1on,sc2on;
 	static int flipscreen;
 	
@@ -152,7 +152,7 @@ public class _1943
 	public static WriteHandlerPtr c1943_c804_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
 		int bankaddress;
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 	
 		/* bits 0 and 1 are coin counters */
@@ -203,7 +203,7 @@ public class _1943
 	{
 		int offs,sx,sy;
 		int bg_scrolly, bg_scrollx;
-		unsigned char *p;
+		UBytePtr p;
 		int top,left,xscroll,yscroll;
 	
 	/* TODO: support flipscreen */
@@ -220,7 +220,7 @@ public class _1943
 			for (sy = 0;sy <9;sy++)
 			{
 				int ty = (sy + top) % 9;
-				unsigned char *map = &sc2map[ty][0][0];
+				UBytePtr map = &sc2map[ty][0][0];
 				offs &= 0x7fff; /* Enforce limits (for top of scroll) */
 	
 				for (sx = 0;sx < 8;sx++)
@@ -315,7 +315,7 @@ public class _1943
 				{
 					int tile, attr, offset;
 					int tx = (sx + left) % 9;
-					unsigned char *map = &sc1map[ty][tx][0];
+					UBytePtr map = &sc1map[ty][tx][0];
 					offset=offs+(sx*2);
 	
 					tile=p[offset];

@@ -23,7 +23,7 @@ public class gbusters
 	
 	
 	static int palette_selected;
-	static unsigned char *ram;
+	static UBytePtr ram;
 	
 	public static InterruptPtr gbusters_interrupt = new InterruptPtr() { public int handler() 
 	{
@@ -106,7 +106,7 @@ public class gbusters
 	
 	public static WriteHandlerPtr gbusters_snd_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		unsigned char *RAM = memory_region(REGION_SOUND1);
+		UBytePtr RAM = memory_region(REGION_SOUND1);
 	
 		int bank_B = 0x20000*((data >> 2) & 0x01);	/* ?? */
 		int bank_A = 0x20000*((data) & 0x01);		/* ?? */
@@ -421,7 +421,7 @@ public class gbusters
 	
 	public static konami_cpu_setlines_callbackPtr gbusters_banking = new konami_cpu_setlines_callbackPtr() { public void handler(int lines) 
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 		int offs = 0x10000;
 	
 		/* bits 0-3 ROM bank */
@@ -438,7 +438,7 @@ public class gbusters
 	
 	static public static InitMachinePtr gbusters_init_machine = new InitMachinePtr() { public void handler() 
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 		konami_cpu_setlines_callback = gbusters_banking;
 	

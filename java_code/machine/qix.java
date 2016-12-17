@@ -161,7 +161,7 @@ public class qix
 	#endif
 	
 	
-	unsigned char *qix_sharedram;
+	UBytePtr qix_sharedram;
 	
 	
 	public static ReadHandlerPtr qix_sharedram_r  = new ReadHandlerPtr() { public int handler(int offset)
@@ -178,7 +178,7 @@ public class qix
 	
 	public static WriteHandlerPtr zoo_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		unsigned char *RAM = memory_region(REGION_CPU2);
+		UBytePtr RAM = memory_region(REGION_CPU2);
 	
 	
 		if ((data & 0x04) != 0) cpu_setbank (1, &RAM[0x10000])

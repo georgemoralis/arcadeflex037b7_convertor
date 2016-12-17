@@ -89,9 +89,9 @@ public class toaplan2
 	#define CPU_2_HD647180	0xa5
 	#define CPU_2_Zx80		0xff
 	
-	static unsigned char *toaplan2_shared_ram;
-	static unsigned char *raizing_shared_ram;	/* Added by Yochizo */
-	static unsigned char *Zx80_shared_ram;
+	static UBytePtr toaplan2_shared_ram;
+	static UBytePtr raizing_shared_ram;	/* Added by Yochizo */
+	static UBytePtr Zx80_shared_ram;
 	
 	static int mcu_data = 0;
 	int toaplan2_sub_cpu = 0;
@@ -116,7 +116,7 @@ public class toaplan2
 	
 	
 	/* Added by Yochizo 2000/08/19 */
-	extern unsigned char *textvideoram;			 /* Video ram for extra-text layer */
+	extern UBytePtr textvideoram;			 /* Video ram for extra-text layer */
 	/* --------------------------- */
 	
 	static int video_status = 0;
@@ -148,7 +148,7 @@ public class toaplan2
 		int A;
 		int oldword, newword;
 	
-		unsigned char *pipibibi_68k_rom = memory_region(REGION_CPU1);
+		UBytePtr pipibibi_68k_rom = memory_region(REGION_CPU1);
 	
 		toaplan2_sub_cpu = CPU_2_Z80;
 	
@@ -227,7 +227,7 @@ public class toaplan2
 	/* Added by Yochizo 2000/08/16 */
 	static public static InitDriverPtr init_tatsujn2 = new InitDriverPtr() { public void handler() 
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 		/* Fix checksum from the source of Raine. */
 		WRITE_WORD(&RAM[0x2EC10],0x4E71);		// NOP

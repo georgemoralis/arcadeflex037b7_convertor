@@ -8,7 +8,7 @@ public class taito_l
 {
 	
 	
-	extern unsigned char *taitol_rambanks;
+	extern UBytePtr taitol_rambanks;
 	
 	static struct tilemap *bg18_tilemap;
 	static struct tilemap *bg19_tilemap;
@@ -355,7 +355,7 @@ public class taito_l
 	
 	public static VhEofCallbackPtr taitol_eof_callback = new VhEofCallbackPtr() { public void handler() 
 	{
-		unsigned char *spriteram = taitol_rambanks + 0x7000;
+		UBytePtr spriteram = taitol_rambanks + 0x7000;
 	
 		memcpy(buffered_spriteram,spriteram,SPRITERAM_SIZE);
 	} };

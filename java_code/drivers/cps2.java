@@ -36,7 +36,7 @@ public static WriteHandlerPtr cps2_qsound_sharedram_w = new WriteHandlerPtr() {p
 
 public static InitDriverPtr init_cps2 = new InitDriverPtr() { public void handler() 
 {
-	unsigned char *RAM = memory_region(REGION_CPU1);
+	UBytePtr RAM = memory_region(REGION_CPU1);
 	FILE *fp;
 	int i;
 	const int decode=CODE_SIZE/2;

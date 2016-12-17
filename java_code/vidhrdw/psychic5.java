@@ -27,16 +27,16 @@ public class psychic5
 	static int		 bg_clip_mode;
 	
 	static struct osd_bitmap *bitmap_bg;
-	static unsigned char 	 *bg_dirtybuffer;
+	static UBytePtr bg_dirtybuffer;
 	
 	/* Paged RAM 0 */
-	static unsigned char  	 *ps5_background_videoram;
-	static unsigned char  	 *ps5_dummy_bg_ram;
+	static UBytePtr ps5_background_videoram;
+	static UBytePtr ps5_dummy_bg_ram;
 	
 	/* Paged RAM 1 */
-	static unsigned char 	 *ps5_io_ram;
-	static unsigned char 	 *ps5_palette_ram;
-	static unsigned char 	 *ps5_foreground_videoram;
+	static UBytePtr ps5_io_ram;
+	static UBytePtr ps5_palette_ram;
+	static UBytePtr ps5_foreground_videoram;
 	
 	
 	int is_psychic5_title_mode(void)

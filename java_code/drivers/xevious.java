@@ -207,13 +207,13 @@ public class xevious
 {
 	
 	
-	extern unsigned char *xevious_sharedram;
+	extern UBytePtr xevious_sharedram;
 	
 	
-	extern unsigned char *xevious_fg_videoram,*xevious_fg_colorram;
-	extern unsigned char *xevious_bg_videoram,*xevious_bg_colorram;
+	extern UBytePtr xevious_fg_videoram,*xevious_fg_colorram;
+	extern UBytePtr xevious_bg_videoram,*xevious_bg_colorram;
 	
-	extern unsigned char *pengo_soundregs;
+	extern UBytePtr pengo_soundregs;
 	
 	
 	
@@ -891,7 +891,7 @@ public class xevious
 		for (A = 0x2000;A < 0x4000;A++)
 		{
 			int bit[8];
-			unsigned char *RAM = memory_region(REGION_GFX3);
+			UBytePtr RAM = memory_region(REGION_GFX3);
 	
 			/* 76543210 . 13570246 bit rotation */
 			for (i = 0;i < 8;i++)
@@ -912,7 +912,7 @@ public class xevious
 		for (A = 0x0000;A < 0x1000;A++)
 		{
 			int bit[8];
-			unsigned char *RAM = memory_region(REGION_GFX4);
+			UBytePtr RAM = memory_region(REGION_GFX4);
 	
 			/* 76543210 . 37512640 bit rotation */
 			for (i = 0;i < 8;i++)

@@ -22,7 +22,7 @@ public class bogeyman
 	
 	/******************************************************************************/
 	
-	extern unsigned char *bogeyman_videoram;
+	extern UBytePtr bogeyman_videoram;
 	
 	public static ReadHandlerPtr bogeyman_videoram_r  = new ReadHandlerPtr() { public int handler(int offset) { return bogeyman_videoram[offset]; } };
 	

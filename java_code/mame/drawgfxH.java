@@ -52,7 +52,7 @@ struct GfxElement
 								/* (bit 0 = pen 0, and so on). This is used by */
 								/* drawgfgx() to do optimizations like skipping */
 								/* drawing of a totally transparent characters */
-	unsigned char *gfxdata;	/* pixel data */
+	UBytePtr gfxdata;	/* pixel data */
 	int line_modulo;	/* amount to add to get to the next line (usually = width) */
 	int char_modulo;	/* = line_modulo * height */
 };
@@ -115,8 +115,8 @@ extern read_pixel_proc read_pixel;
 extern plot_box_proc plot_box;
 
 
-void decodechar(struct GfxElement *gfx,int num,const unsigned char *src,const struct GfxLayout *gl);
-struct GfxElement *decodegfx(const unsigned char *src,const struct GfxLayout *gl);
+void decodechar(struct GfxElement *gfx,int num,const UBytePtr src,const struct GfxLayout *gl);
+struct GfxElement *decodegfx(const UBytePtr src,const struct GfxLayout *gl);
 void freegfx(struct GfxElement *gfx);
 void drawgfx(struct osd_bitmap *dest,const struct GfxElement *gfx,
 		unsigned int code,unsigned int color,int flipx,int flipy,int sx,int sy,

@@ -10,20 +10,20 @@ public class wc90
 	/* prototype */
 	static void wc90_draw_sprites( struct osd_bitmap *bitmap, int priority );
 	
-	unsigned char *wc90_shared;
-	unsigned char *wc90_tile_colorram, *wc90_tile_videoram;
-	unsigned char *wc90_tile_colorram2, *wc90_tile_videoram2;
-	unsigned char *wc90_scroll0xlo, *wc90_scroll0xhi;
-	unsigned char *wc90_scroll1xlo, *wc90_scroll1xhi;
-	unsigned char *wc90_scroll2xlo, *wc90_scroll2xhi;
-	unsigned char *wc90_scroll0ylo, *wc90_scroll0yhi;
-	unsigned char *wc90_scroll1ylo, *wc90_scroll1yhi;
-	unsigned char *wc90_scroll2ylo, *wc90_scroll2yhi;
+	UBytePtr wc90_shared;
+	UBytePtr wc90_tile_colorram, *wc90_tile_videoram;
+	UBytePtr wc90_tile_colorram2, *wc90_tile_videoram2;
+	UBytePtr wc90_scroll0xlo, *wc90_scroll0xhi;
+	UBytePtr wc90_scroll1xlo, *wc90_scroll1xhi;
+	UBytePtr wc90_scroll2xlo, *wc90_scroll2xhi;
+	UBytePtr wc90_scroll0ylo, *wc90_scroll0yhi;
+	UBytePtr wc90_scroll1ylo, *wc90_scroll1yhi;
+	UBytePtr wc90_scroll2ylo, *wc90_scroll2yhi;
 	
 	size_t wc90_tile_videoram_size;
 	size_t wc90_tile_videoram_size2;
 	
-	static unsigned char *dirtybuffer1 = 0, *dirtybuffer2 = 0;
+	static UBytePtr dirtybuffer1 = 0, *dirtybuffer2 = 0;
 	static struct osd_bitmap *tmpbitmap1 = 0,*tmpbitmap2 = 0;
 	
 	public static VhStartPtr wc90_vh_start = new VhStartPtr() { public int handler()  {

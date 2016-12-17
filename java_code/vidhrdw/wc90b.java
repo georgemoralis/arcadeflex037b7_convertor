@@ -7,19 +7,19 @@ package vidhrdw;
 public class wc90b
 {
 	
-	unsigned char *wc90b_shared;
+	UBytePtr wc90b_shared;
 	
-	unsigned char *wc90b_tile_colorram, *wc90b_tile_videoram;
-	unsigned char *wc90b_tile_colorram2, *wc90b_tile_videoram2;
-	unsigned char *wc90b_scroll1xlo, *wc90b_scroll1xhi;
-	unsigned char *wc90b_scroll2xlo, *wc90b_scroll2xhi;
-	unsigned char *wc90b_scroll1ylo, *wc90b_scroll1yhi;
-	unsigned char *wc90b_scroll2ylo, *wc90b_scroll2yhi;
+	UBytePtr wc90b_tile_colorram, *wc90b_tile_videoram;
+	UBytePtr wc90b_tile_colorram2, *wc90b_tile_videoram2;
+	UBytePtr wc90b_scroll1xlo, *wc90b_scroll1xhi;
+	UBytePtr wc90b_scroll2xlo, *wc90b_scroll2xhi;
+	UBytePtr wc90b_scroll1ylo, *wc90b_scroll1yhi;
+	UBytePtr wc90b_scroll2ylo, *wc90b_scroll2yhi;
 	
 	size_t wc90b_tile_videoram_size;
 	size_t wc90b_tile_videoram_size2;
 	
-	static unsigned char *dirtybuffer1 = 0, *dirtybuffer2 = 0;
+	static UBytePtr dirtybuffer1 = 0, *dirtybuffer2 = 0;
 	static struct osd_bitmap *tmpbitmap1 = 0,*tmpbitmap2 = 0;
 	
 	public static VhStartPtr wc90b_vh_start = new VhStartPtr() { public int handler()  {

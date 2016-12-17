@@ -17,7 +17,7 @@ public class fronthlp
 	#define KNOWN_NONE  2
 	#define KNOWN_SOME  3
 	
-	extern unsigned int crc32 (unsigned int crc, const unsigned char *buf, unsigned int len);
+	extern unsigned int crc32 (unsigned int crc, const UBytePtr buf, unsigned int len);
 	
 	
 	void get_rom_sample_path (int argc, char **argv, int game_index, char *override_default_rompath);
@@ -232,7 +232,7 @@ public class fronthlp
 	
 		fclose(f);
 	
-		identify_rom(name, crc32(0L,(const unsigned char*)data,length),length);
+		identify_rom(name, crc32(0L,(const UBytePtr )data,length),length);
 	
 		free(data);
 	}

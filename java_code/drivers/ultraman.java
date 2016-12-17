@@ -15,7 +15,7 @@ package drivers;
 public class ultraman
 {
 	
-	unsigned char* ultraman_regs;
+	UBytePtr  ultraman_regs;
 	
 	/* from vidhrdw/ultraman.c */
 	

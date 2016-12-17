@@ -254,7 +254,7 @@ public class gaplus
 		gaplus_starfield_control[offset] = data;
 	} };
 	
-	extern unsigned char *gaplus_sharedram;
+	extern UBytePtr gaplus_sharedram;
 	
 	public static VhStartPtr gaplus_vh_start = new VhStartPtr() { public int handler()  {
 	

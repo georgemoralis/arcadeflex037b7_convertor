@@ -15,9 +15,9 @@ package drivers;
 public class grobda
 {
 	
-	extern unsigned char *grobda_snd_sharedram;
-	extern unsigned char *grobda_customio_1, *grobda_customio_2;
-	extern unsigned char *mappy_soundregs;
+	extern UBytePtr grobda_snd_sharedram;
+	extern UBytePtr grobda_customio_1, *grobda_customio_2;
+	extern UBytePtr mappy_soundregs;
 	
 	/* memory functions */
 	

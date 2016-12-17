@@ -9,7 +9,7 @@ public class pingpong
 	
 	
 	
-	static unsigned char *intenable;
+	static UBytePtr intenable;
 	
 	
 	public static InterruptPtr pingpong_interrupt = new InterruptPtr() { public int handler() 

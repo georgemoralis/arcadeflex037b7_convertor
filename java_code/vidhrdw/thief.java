@@ -97,7 +97,7 @@ public class thief
 	} };
 	
 	public static ReadHandlerPtr thief_videoram_r  = new ReadHandlerPtr() { public int handler(int offset){
-		unsigned char *source = &videoram.read(offset);
+		UBytePtr source = &videoram.read(offset);
 		if ((thief_video_control & 0x02) != 0) source+=0x2000*4; /* foreground/background */
 		return source[thief_read_mask*0x2000];
 	} };

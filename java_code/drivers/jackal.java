@@ -114,7 +114,7 @@ public class jackal
 {
 	
 	
-	extern unsigned char *jackal_videoctrl;
+	extern UBytePtr jackal_videoctrl;
 	
 	
 	

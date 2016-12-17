@@ -88,7 +88,7 @@ public class junofrst
 	
 	
 	
-	extern unsigned char *tutankhm_scrollx;
+	extern UBytePtr tutankhm_scrollx;
 	
 	
 	
@@ -97,7 +97,7 @@ public class junofrst
 	public static WriteHandlerPtr junofrst_bankselect_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
 		int bankaddress;
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 		bankaddress = 0x10000 + (data & 0x0f) * 0x1000;
 		cpu_setbank(1,&RAM[bankaddress]);

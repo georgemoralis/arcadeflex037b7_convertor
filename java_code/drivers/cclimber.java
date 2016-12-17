@@ -136,10 +136,10 @@ public class cclimber
 	
 	
 	
-	extern unsigned char *cclimber_bsvideoram;
+	extern UBytePtr cclimber_bsvideoram;
 	extern size_t cclimber_bsvideoram_size;
-	extern unsigned char *cclimber_bigspriteram;
-	extern unsigned char *cclimber_column_scroll;
+	extern UBytePtr cclimber_bigspriteram;
+	extern UBytePtr cclimber_column_scroll;
 	
 	
 	
@@ -562,7 +562,7 @@ public class cclimber
 			}
 		};
 		int A;
-		unsigned char *rom = memory_region(REGION_CPU1);
+		UBytePtr rom = memory_region(REGION_CPU1);
 		int diff = memory_region_length(REGION_CPU1) / 2;
 	
 	
@@ -734,7 +734,7 @@ public class cclimber
 			}
 		};
 		int A;
-		unsigned char *rom = memory_region(REGION_CPU1);
+		UBytePtr rom = memory_region(REGION_CPU1);
 		int diff = memory_region_length(REGION_CPU1) / 2;
 	
 	

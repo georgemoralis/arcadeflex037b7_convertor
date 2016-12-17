@@ -22,7 +22,7 @@ public class vigilant
 	public static WriteHandlerPtr vigilant_bank_select_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
 		int bankaddress;
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 		bankaddress = 0x10000 + (data & 0x07) * 0x4000;
 		cpu_setbank(1,&RAM[bankaddress]);

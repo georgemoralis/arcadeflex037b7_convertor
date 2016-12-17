@@ -57,7 +57,7 @@ public class alpha68k
 {
 	
 	
-	static unsigned char *shared_ram,*sound_ram;
+	static UBytePtr shared_ram,*sound_ram;
 	static int invert_controls,microcontroller_id;
 	
 	/******************************************************************************/
@@ -432,7 +432,7 @@ public class alpha68k
 	public static WriteHandlerPtr sound_bank_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
 		int bankaddress;
-		unsigned char *RAM = memory_region(REGION_CPU2);
+		UBytePtr RAM = memory_region(REGION_CPU2);
 	
 		bankaddress = 0x10000 + (data) * 0x4000;
 		cpu_setbank(7,&RAM[bankaddress]);
@@ -2295,7 +2295,7 @@ public class alpha68k
 	
 	static public static InitDriverPtr init_sbasebal = new InitDriverPtr() { public void handler() 
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 		/* Game hangs on divide by zero?!  Patch it */
 		WRITE_WORD (&RAM[0xb672],0x4E71);

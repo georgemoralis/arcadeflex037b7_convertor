@@ -16,10 +16,10 @@ public class splash
 {
 	
 	
-	extern unsigned char *splash_vregs;
-	extern unsigned char *splash_videoram;
-	extern unsigned char *splash_spriteram;
-	extern unsigned char *splash_pixelram;
+	extern UBytePtr splash_vregs;
+	extern UBytePtr splash_videoram;
+	extern UBytePtr splash_spriteram;
+	extern UBytePtr splash_pixelram;
 	
 	/* from vidhrdw/gaelco.c */
 	

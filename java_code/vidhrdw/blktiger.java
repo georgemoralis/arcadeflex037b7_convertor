@@ -7,13 +7,13 @@ package vidhrdw;
 public class blktiger
 {
 	
-	unsigned char *blktiger_txvideoram;
+	UBytePtr blktiger_txvideoram;
 	
 	#define BGRAM_BANK_SIZE 0x1000
 	#define BGRAM_BANKS 4
 	
 	static int blktiger_scroll_bank;
-	static unsigned char *scroll_ram;
+	static UBytePtr scroll_ram;
 	static int screen_layout;
 	static int chon,objon,bgon;
 	

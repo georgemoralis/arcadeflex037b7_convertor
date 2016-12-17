@@ -60,7 +60,7 @@ public class pengo
 	
 	
 	
-	extern unsigned char *pengo_soundregs;
+	extern UBytePtr pengo_soundregs;
 	
 	/* in machine/segacrpt.c */
 	
@@ -436,7 +436,7 @@ public class pengo
 			{ 0x88,0x0a,0x82,0x00,0xa0,0x22,0xaa,0x28 }		/* ...1...1...1.... */
 		};
 		int A;
-		unsigned char *rom = memory_region(REGION_CPU1);
+		UBytePtr rom = memory_region(REGION_CPU1);
 		int diff = memory_region_length(REGION_CPU1) / 2;
 	
 	

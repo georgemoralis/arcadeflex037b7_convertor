@@ -18,12 +18,12 @@ public class ccastles
 	static struct osd_bitmap *sprite_bm;
 	static struct osd_bitmap *maskbitmap;
 	
-	unsigned char *ccastles_screen_addr;
-	unsigned char *ccastles_screen_inc;
-	unsigned char *ccastles_screen_inc_enable;
-	unsigned char *ccastles_sprite_bank;
-	unsigned char *ccastles_scrollx;
-	unsigned char *ccastles_scrolly;
+	UBytePtr ccastles_screen_addr;
+	UBytePtr ccastles_screen_inc;
+	UBytePtr ccastles_screen_inc_enable;
+	UBytePtr ccastles_sprite_bank;
+	UBytePtr ccastles_scrollx;
+	UBytePtr ccastles_scrolly;
 	
 	/***************************************************************************
 	
@@ -292,7 +292,7 @@ public class ccastles
 	public static VhUpdatePtr ccastles_vh_screenrefresh = new VhUpdatePtr() { public void handler(osd_bitmap bitmap,int full_refresh) 
 	{
 		int offs;
-		unsigned char *spriteaddr;
+		UBytePtr spriteaddr;
 		int scrollx,scrolly;
 	
 	

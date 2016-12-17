@@ -17,7 +17,7 @@ public class slapfght
 {
 	
 	
-	unsigned char *slapfight_dpram;
+	UBytePtr slapfight_dpram;
 	size_t slapfight_dpram_size;
 	
 	int slapfight_status;
@@ -25,7 +25,7 @@ public class slapfght
 	int getstar_sh_intenabled;
 	
 	static int slapfight_status_state;
-	extern unsigned char *getstar_e803;
+	extern UBytePtr getstar_e803;
 	
 	/* Perform basic machine initialisation */
 	
@@ -106,14 +106,14 @@ public class slapfght
 	
 	public static WriteHandlerPtr slapfight_port_08_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 		cpu_setbank(1,&RAM[0x10000]);
 	} };
 	
 	public static WriteHandlerPtr slapfight_port_09_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 		cpu_setbank(1,&RAM[0x14000]);
 	} };

@@ -140,7 +140,7 @@ public class namcos1
 	extern 
 	extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern extern 
 	
-	static unsigned char *nvram;
+	static UBytePtr nvram;
 	static size_t nvram_size;
 	
 	public static nvramPtr nvram_handler  = new nvramPtr() { public void handler(Object file, int read_or_write) 

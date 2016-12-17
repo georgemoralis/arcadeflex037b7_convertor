@@ -16,7 +16,7 @@ public class srumbler
 {
 	
 	
-	unsigned char *srumbler_backgroundram,*srumbler_foregroundram;
+	UBytePtr srumbler_backgroundram,*srumbler_foregroundram;
 	static struct tilemap *bg_tilemap,*fg_tilemap;
 	
 	

@@ -16,12 +16,12 @@ package machine;
 public class xevious
 {
 	
-	unsigned char *xevious_sharedram;
+	UBytePtr xevious_sharedram;
 	static unsigned char interrupt_enable_1,interrupt_enable_2,interrupt_enable_3;
 	
-	static unsigned char *rom2a;
-	static unsigned char *rom2b;
-	static unsigned char *rom2c;
+	static UBytePtr rom2a;
+	static UBytePtr rom2b;
+	static UBytePtr rom2c;
 	static int xevious_bs[2];
 	
 	static void *nmi_timer;

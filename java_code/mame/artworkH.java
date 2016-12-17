@@ -87,7 +87,7 @@ void backdrop_refresh(struct artwork_info *a);
 /*********************************************************************
   functions that are overlay-specific
 *********************************************************************/
-int overlay_set_palette (unsigned char *palette, int num_shades);
+int overlay_set_palette (UBytePtr palette, int num_shades);
 
 #ifdef __cplusplus
 }

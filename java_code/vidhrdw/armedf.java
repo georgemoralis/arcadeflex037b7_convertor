@@ -17,11 +17,11 @@ public class armedf
 	
 	UINT16 armedf_vreg;
 	
-	unsigned char *armedf_bg_videoram;
+	UBytePtr armedf_bg_videoram;
 	UINT16 armedf_bg_scrollx;
 	UINT16 armedf_bg_scrolly;
 	
-	unsigned char *armedf_fg_videoram;
+	UBytePtr armedf_fg_videoram;
 	UINT16 armedf_fg_scrollx;
 	UINT16 armedf_fg_scrolly;
 	
@@ -259,7 +259,7 @@ public class armedf
 		}
 	
 		{
-			unsigned char *pen_ptr = &palette_used_colors[Machine.drv.gfxdecodeinfo[3].color_codes_start];
+			UBytePtr pen_ptr = &palette_used_colors[Machine.drv.gfxdecodeinfo[3].color_codes_start];
 			int pen;
 			for( i = 0; i<32; i++ )
 			{
@@ -355,7 +355,7 @@ public class armedf
 	
 	public static VhUpdatePtr cclimbr2_vh_screenrefresh = new VhUpdatePtr() { public void handler(osd_bitmap bitmap,int full_refresh) 
 	{
-		unsigned char *RAM;
+		UBytePtr RAM;
 		int sprite_enable = armedf_vreg & 0x200;
 	
 		tilemap_set_enable( background, armedf_vreg&0x800 );

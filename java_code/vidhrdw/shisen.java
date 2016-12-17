@@ -13,7 +13,7 @@ public class shisen
 	public static WriteHandlerPtr sichuan2_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
 		int bankaddress;
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 	if ((data & 0xc0) != 0) logerror("bank switch %02x\n",data);
 	

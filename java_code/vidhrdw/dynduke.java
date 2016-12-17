@@ -9,7 +9,7 @@ public class dynduke
 {
 	
 	static struct tilemap *bg_layer,*fg_layer,*tx_layer;
-	unsigned char *dynduke_back_data,*dynduke_fore_data,*dynduke_scroll_ram,*dynduke_control_ram;
+	UBytePtr dynduke_back_data,*dynduke_fore_data,*dynduke_scroll_ram,*dynduke_control_ram;
 	
 	static int flipscreen,back_bankbase,fore_bankbase,back_palbase;
 	static int back_enable,fore_enable,sprite_enable;

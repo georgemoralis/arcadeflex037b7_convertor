@@ -14,7 +14,7 @@ package drivers;
 public class berzerk
 {
 	
-	extern unsigned char* berzerk_magicram;
+	extern UBytePtr  berzerk_magicram;
 	
 	
 	
@@ -22,7 +22,7 @@ public class berzerk
 	
 	
 	
-	static unsigned char *nvram;
+	static UBytePtr nvram;
 	static size_t nvram_size;
 	
 	public static nvramPtr berzerk_nvram_handler  = new nvramPtr() { public void handler(Object file, int read_or_write) 
@@ -356,7 +356,7 @@ public class berzerk
 		0x40, 0xff, 0xff,
 		0xff, 0xff, 0xff
 	};
-	static void init_palette(unsigned char *game_palette, unsigned short *game_colortable,const unsigned char *color_prom)
+	static void init_palette(UBytePtr game_palette, unsigned short *game_colortable,const UBytePtr color_prom)
 	{
 		memcpy(game_palette,palette,sizeof(palette));
 	}

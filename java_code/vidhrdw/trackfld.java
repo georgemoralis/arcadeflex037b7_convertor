@@ -16,8 +16,8 @@ public class trackfld
 {
 	
 	
-	unsigned char *trackfld_scroll;
-	unsigned char *trackfld_scroll2;
+	UBytePtr trackfld_scroll;
+	UBytePtr trackfld_scroll2;
 	
 	
 	

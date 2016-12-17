@@ -21,7 +21,7 @@ public class surpratk
 	static 
 	
 	static int videobank;
-	static unsigned char *ram;
+	static UBytePtr ram;
 	
 	public static InterruptPtr surpratk_interrupt = new InterruptPtr() { public int handler() 
 	{
@@ -307,7 +307,7 @@ public class surpratk
 	
 	public static konami_cpu_setlines_callbackPtr surpratk_banking = new konami_cpu_setlines_callbackPtr() { public void handler(int lines) 
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 		int offs = 0;
 	
 	logerror("%04x: setlines %02x\n",cpu_get_pc(),lines);

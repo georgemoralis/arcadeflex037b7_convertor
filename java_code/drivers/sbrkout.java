@@ -26,8 +26,8 @@ public class sbrkout
 {
 	
 	/* vidhrdw/sbrkout.c */
-	extern unsigned char *sbrkout_horiz_ram;
-	extern unsigned char *sbrkout_vert_ram;
+	extern UBytePtr sbrkout_horiz_ram;
+	extern UBytePtr sbrkout_vert_ram;
 	
 	/* machine/sbrkout.c */
 	extern 
@@ -39,7 +39,7 @@ public class sbrkout
 	
 	#define TIME_4V 4.075/4
 	
-	unsigned char *sbrkout_sound;
+	UBytePtr sbrkout_sound;
 	
 	public static WriteHandlerPtr sbrkout_dac_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
@@ -202,7 +202,7 @@ public class sbrkout
 		0, 1,  /* Draw */
 	};
 	
-	static void init_palette(unsigned char *game_palette, unsigned short *game_colortable,const unsigned char *color_prom)
+	static void init_palette(UBytePtr game_palette, unsigned short *game_colortable,const UBytePtr color_prom)
 	{
 		memcpy(game_palette,palette,sizeof(palette));
 		memcpy(game_colortable,colortable,sizeof(colortable));

@@ -13,7 +13,7 @@ package vidhrdw;
 public class karnov
 {
 	
-	static unsigned char *karnov_foreground,*dirty_f;
+	static UBytePtr karnov_foreground,*dirty_f;
 	static struct osd_bitmap *bitmap_f;
 	int karnov_scroll[4];
 	

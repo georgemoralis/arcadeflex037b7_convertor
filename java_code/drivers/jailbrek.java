@@ -18,9 +18,9 @@ public class jailbrek
 	
 	
 	/* from vidhrdw */
-	extern unsigned char *jailbrek_scroll_x;
+	extern UBytePtr jailbrek_scroll_x;
 	extern extern extern extern 
-	static unsigned char *interrupt_control;
+	static UBytePtr interrupt_control;
 	
 	static public static InitMachinePtr jailbrek_machine_init = new InitMachinePtr() { public void handler() 
 	{

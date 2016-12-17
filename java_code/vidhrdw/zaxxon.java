@@ -16,12 +16,12 @@ public class zaxxon
 {
 	
 	
-	unsigned char *zaxxon_char_color_bank;
-	unsigned char *zaxxon_background_position;
-	unsigned char *zaxxon_background_color_bank;
-	unsigned char *zaxxon_background_enable;
+	UBytePtr zaxxon_char_color_bank;
+	UBytePtr zaxxon_background_position;
+	UBytePtr zaxxon_background_color_bank;
+	UBytePtr zaxxon_background_enable;
 	static struct osd_bitmap *backgroundbitmap1,*backgroundbitmap2;
-	static const unsigned char *color_codes;
+	static const UBytePtr color_codes;
 	
 	int zaxxon_vid_type;	/* set by init_machine; 0 = zaxxon; 1 = congobongo */
 	

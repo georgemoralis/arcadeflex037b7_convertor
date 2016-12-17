@@ -33,8 +33,8 @@ public class supbtime
 	
 	
 	
-	extern unsigned char *supbtime_pf2_data,*supbtime_pf1_data,*supbtime_pf1_row;
-	static unsigned char *supbtime_ram;
+	extern UBytePtr supbtime_pf2_data,*supbtime_pf1_data,*supbtime_pf1_row;
+	static UBytePtr supbtime_ram;
 	
 	/******************************************************************************/
 	

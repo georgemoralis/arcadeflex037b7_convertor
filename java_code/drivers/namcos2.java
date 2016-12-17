@@ -3350,7 +3350,7 @@ public class namcos2
 	
 	public static InitDriverPtr init_burnforc = new InitDriverPtr() { public void handler() 
 	{
-		unsigned char *RAM=memory_region(REGION_CPU1 );
+		UBytePtr RAM=memory_region(REGION_CPU1 );
 		namcos2_gametype=NAMCOS2_BURNING_FORCE;
 		WRITE_WORD( &RAM[0x001e18], 0x4e75 );	// Patch $d00000 checks
 		WRITE_WORD( &RAM[0x003a9c], 0x4e75 );	// Patch $d00000 checks
@@ -3358,7 +3358,7 @@ public class namcos2
 	
 	public static InitDriverPtr init_cosmogng = new InitDriverPtr() { public void handler() 
 	{
-		unsigned char *RAM=memory_region(REGION_CPU1 );
+		UBytePtr RAM=memory_region(REGION_CPU1 );
 		namcos2_gametype=NAMCOS2_COSMO_GANG;
 		WRITE_WORD( &RAM[0x0034d2], 0x4e75 );	// Patch $d00000 checks
 	} };
@@ -3366,7 +3366,7 @@ public class namcos2
 	
 	public static InitDriverPtr init_dsaber = new InitDriverPtr() { public void handler() 
 	{
-		unsigned char *RAM=memory_region(REGION_CPU1 );
+		UBytePtr RAM=memory_region(REGION_CPU1 );
 		namcos2_gametype=NAMCOS2_DRAGON_SABER;
 		WRITE_WORD( &RAM[0x001172], 0x4e75 );	// Patch $d00000 checks
 		WRITE_WORD( &RAM[0x00119c], 0x4e75 );	// Patch $d00000 checks
@@ -3375,7 +3375,7 @@ public class namcos2
 	
 	public static InitDriverPtr init_dsaberj = new InitDriverPtr() { public void handler() 
 	{
-		unsigned char *RAM=memory_region(REGION_CPU1 );
+		UBytePtr RAM=memory_region(REGION_CPU1 );
 		namcos2_gametype=NAMCOS2_DRAGON_SABER_JP;
 		WRITE_WORD( &RAM[0x001172], 0x4e75 );	// Patch $d00000 checks
 		WRITE_WORD( &RAM[0x0011a4], 0x4e75 );	// Patch $d00000 checks
@@ -3384,7 +3384,7 @@ public class namcos2
 	
 	public static InitDriverPtr init_dirtfoxj = new InitDriverPtr() { public void handler() 
 	{
-		unsigned char *RAM=memory_region(REGION_CPU1 );
+		UBytePtr RAM=memory_region(REGION_CPU1 );
 		namcos2_gametype=NAMCOS2_DIRT_FOX_JP;
 		WRITE_WORD( &RAM[0x008876], 0x4e75 );	// Patch $d00000 checks
 	
@@ -3399,7 +3399,7 @@ public class namcos2
 	
 	public static InitDriverPtr init_finalap2 = new InitDriverPtr() { public void handler() 
 	{
-		unsigned char *RAM=memory_region(REGION_CPU1 );
+		UBytePtr RAM=memory_region(REGION_CPU1 );
 		namcos2_gametype=NAMCOS2_FINAL_LAP_2;
 		WRITE_WORD( &RAM[0x004028], 0x4e71 );	// Patch some protection checks
 		WRITE_WORD( &RAM[0x00402a], 0x4e71 );
@@ -3409,7 +3409,7 @@ public class namcos2
 	
 	public static InitDriverPtr init_finalp2j = new InitDriverPtr() { public void handler() 
 	{
-		unsigned char *RAM=memory_region(REGION_CPU1 );
+		UBytePtr RAM=memory_region(REGION_CPU1 );
 		namcos2_gametype=NAMCOS2_FINAL_LAP_2;
 		WRITE_WORD( &RAM[0x003de2], 0x4e71 );	// Patch some protection checks
 		WRITE_WORD( &RAM[0x003de4], 0x4e71 );
@@ -3423,7 +3423,7 @@ public class namcos2
 	
 	public static InitDriverPtr init_finalap3 = new InitDriverPtr() { public void handler() 
 	{
-		unsigned char *RAM=memory_region(REGION_CPU1 );
+		UBytePtr RAM=memory_region(REGION_CPU1 );
 		namcos2_gametype=NAMCOS2_FINAL_LAP_3;
 		WRITE_WORD( &RAM[0x003f36], 0x4e71 );	// Patch some nasty protection
 		WRITE_WORD( &RAM[0x003f38], 0x4e71 );	// this stuff runs in the IRQ
@@ -3437,7 +3437,7 @@ public class namcos2
 	
 	public static InitDriverPtr init_finehour = new InitDriverPtr() { public void handler() 
 	{
-		unsigned char *RAM=memory_region(REGION_CPU1 );
+		UBytePtr RAM=memory_region(REGION_CPU1 );
 		namcos2_gametype=NAMCOS2_FINEST_HOUR;
 		WRITE_WORD( &RAM[0x001892], 0x4e75 );	// Patch $d00000 checks
 		WRITE_WORD( &RAM[0x003ac0], 0x4e71 );	// Patch $d00000 checks
@@ -3456,7 +3456,7 @@ public class namcos2
 	
 	public static InitDriverPtr init_marvlanj = new InitDriverPtr() { public void handler() 
 	{
-		unsigned char *RAM=memory_region(REGION_CPU1 );
+		UBytePtr RAM=memory_region(REGION_CPU1 );
 		namcos2_gametype=NAMCOS2_MARVEL_LAND;
 		WRITE_WORD( &RAM[0x000f24], 0x4e71 );	// Patch $d00000 checks
 		WRITE_WORD( &RAM[0x001fb2], 0x4e75 );	// Patch $d00000 checks
@@ -3466,7 +3466,7 @@ public class namcos2
 	
 	public static InitDriverPtr init_marvland = new InitDriverPtr() { public void handler() 
 	{
-		unsigned char *RAM=memory_region(REGION_CPU1 );
+		UBytePtr RAM=memory_region(REGION_CPU1 );
 		namcos2_gametype=NAMCOS2_MARVEL_LAND;
 		WRITE_WORD( &RAM[0x00101e], 0x4e71 );	// Patch $d00000 checks
 		WRITE_WORD( &RAM[0x00223a], 0x4e75 );	// Patch $d00000 checks
@@ -3481,7 +3481,7 @@ public class namcos2
 	
 	public static InitDriverPtr init_mirninja = new InitDriverPtr() { public void handler() 
 	{
-		unsigned char *RAM=memory_region(REGION_CPU1 );
+		UBytePtr RAM=memory_region(REGION_CPU1 );
 		namcos2_gametype=NAMCOS2_MIRAI_NINJA;
 		WRITE_WORD( &RAM[0x00052a], 0x4e71 );	// Patch $d00000 checks
 		WRITE_WORD( &RAM[0x01de68], 0x4e75 );	// Patch $d00000 checks
@@ -3489,7 +3489,7 @@ public class namcos2
 	
 	public static InitDriverPtr init_ordyne = new InitDriverPtr() { public void handler() 
 	{
-		unsigned char *RAM=memory_region(REGION_CPU1 );
+		UBytePtr RAM=memory_region(REGION_CPU1 );
 		namcos2_gametype=NAMCOS2_ORDYNE;
 		WRITE_WORD( &RAM[0x0025a4], 0x4e75 );	// Patch $d00000 checks
 		WRITE_WORD( &RAM[0x0025c2], 0x4e75 );	// Patch $d00000 checks
@@ -3497,7 +3497,7 @@ public class namcos2
 	
 	public static InitDriverPtr init_phelios = new InitDriverPtr() { public void handler() 
 	{
-		unsigned char *RAM=memory_region(REGION_CPU1 );
+		UBytePtr RAM=memory_region(REGION_CPU1 );
 		namcos2_gametype=NAMCOS2_PHELIOS;
 		WRITE_WORD( &RAM[0x0011ea], 0x4e71 );	// Patch $d00000 checks
 		WRITE_WORD( &RAM[0x0011ec], 0x4e71 );	// Patch $d00000 checks
@@ -3516,7 +3516,7 @@ public class namcos2
 	
 	public static InitDriverPtr init_rthun2 = new InitDriverPtr() { public void handler() 
 	{
-		unsigned char *RAM=memory_region(REGION_CPU1 );
+		UBytePtr RAM=memory_region(REGION_CPU1 );
 		namcos2_gametype=NAMCOS2_ROLLING_THUNDER_2;
 		WRITE_WORD( &RAM[0x0042b0], 0x4e71 );	// Patch $d00000 checks
 	
@@ -3529,7 +3529,7 @@ public class namcos2
 	
 	public static InitDriverPtr init_rthun2j = new InitDriverPtr() { public void handler() 
 	{
-		unsigned char *RAM=memory_region(REGION_CPU1 );
+		UBytePtr RAM=memory_region(REGION_CPU1 );
 		namcos2_gametype=NAMCOS2_ROLLING_THUNDER_2;
 		WRITE_WORD( &RAM[0x0040d2], 0x4e71 );	// Patch $d00000 checks
 		WRITE_WORD( &RAM[0x0149cc], 0x4e75 );	// Patch $d00000 checks
@@ -3543,14 +3543,14 @@ public class namcos2
 	
 	public static InitDriverPtr init_sgunner2 = new InitDriverPtr() { public void handler() 
 	{
-		unsigned char *RAM=memory_region(REGION_CPU1 );
+		UBytePtr RAM=memory_region(REGION_CPU1 );
 		namcos2_gametype=NAMCOS2_STEEL_GUNNER_2;
 		WRITE_WORD( &RAM[0x001162], 0x4e71 );	// Patch $a00000 checks
 	} };
 	
 	public static InitDriverPtr init_sws92 = new InitDriverPtr() { public void handler() 
 	{
-		unsigned char *RAM=memory_region(REGION_CPU1 );
+		UBytePtr RAM=memory_region(REGION_CPU1 );
 		namcos2_gametype=NAMCOS2_SUPER_WSTADIUM_92;
 		WRITE_WORD( &RAM[0x0011fc], 0x4e71 );	// Patch $d00000 checks
 		WRITE_WORD( &RAM[0x0011fe], 0x4e71 );	// Patch $d00000 checks
@@ -3558,7 +3558,7 @@ public class namcos2
 	
 	public static InitDriverPtr init_sws93 = new InitDriverPtr() { public void handler() 
 	{
-		unsigned char *RAM=memory_region(REGION_CPU1 );
+		UBytePtr RAM=memory_region(REGION_CPU1 );
 		namcos2_gametype=NAMCOS2_SUPER_WSTADIUM_93;
 		WRITE_WORD( &RAM[0x0013ae], 0x4e71 );	// Patch $d00000 checks
 		WRITE_WORD( &RAM[0x0013b0], 0x4e71 );	// Patch $d00000 checks
@@ -3571,7 +3571,7 @@ public class namcos2
 	
 	public static InitDriverPtr init_suzuk8h2 = new InitDriverPtr() { public void handler() 
 	{
-		unsigned char *RAM=memory_region(REGION_CPU1);
+		UBytePtr RAM=memory_region(REGION_CPU1);
 		namcos2_gametype=NAMCOS2_SUZUKA_8_HOURS_2;
 		WRITE_WORD( &RAM[0x003ec8], 0x4e71 );	// Patch some protection checks
 		WRITE_WORD( &RAM[0x003ede], 0x4e71 );

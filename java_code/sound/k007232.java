@@ -44,7 +44,7 @@ public class k007232
 		int loop[KDAC_A_PCM_MAX];
 	
 		unsigned char wreg[0x10];	/* write data */
-		unsigned char *pcmbuf[2];	/* Channel A & B pointers */
+		UBytePtr pcmbuf[2];	/* Channel A & B pointers */
 	
 	} KDAC_A_PCM;
 	
@@ -292,8 +292,8 @@ public class k007232
 			const char *name[2];
 			int vol[2];
 	
-			kpcm[j].pcmbuf[0] = (unsigned char *)memory_region(intf.bank[j]);
-			kpcm[j].pcmbuf[1] = (unsigned char *)memory_region(intf.bank[j]);
+			kpcm[j].pcmbuf[0] = (UBytePtr )memory_region(intf.bank[j]);
+			kpcm[j].pcmbuf[1] = (UBytePtr )memory_region(intf.bank[j]);
 	
 			for( i = 0; i < KDAC_A_PCM_MAX; i++ )
 			{
@@ -467,7 +467,7 @@ public class k007232
 		return K007232_ReadReg(offset,2);
 	} };
 	
-	void K007232_bankswitch(int chip,unsigned char *ptr_A,unsigned char *ptr_B)
+	void K007232_bankswitch(int chip,UBytePtr ptr_A,UBytePtr ptr_B)
 	{
 		kpcm[chip].pcmbuf[0] = ptr_A;
 		kpcm[chip].pcmbuf[1] = ptr_B;

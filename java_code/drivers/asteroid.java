@@ -152,7 +152,7 @@ public class asteroid
 	
 	
 	/* Lunar Lander mirrors page 0 and page 1. */
-	static unsigned char *llander_zeropage;
+	static UBytePtr llander_zeropage;
 	
 	public static ReadHandlerPtr llander_zeropage_r  = new ReadHandlerPtr() { public int handler(int offset)
 	{
@@ -537,7 +537,7 @@ public class asteroid
 	static void asteroid1_hisave(void)
 	{
 		void *f;
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 	
 		if ((f = osd_fopen(Machine.gamedrv.name,0,OSD_FILETYPE_HIGHSCORE,1)) != 0)
@@ -550,7 +550,7 @@ public class asteroid
 	static void asteroid_hisave(void)
 	{
 		void *f;
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 	
 		if ((f = osd_fopen(Machine.gamedrv.name,0,OSD_FILETYPE_HIGHSCORE,1)) != 0)

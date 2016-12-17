@@ -17,7 +17,7 @@ public class gyruss
 	
 	
 	
-	unsigned char *gyruss_spritebank,*gyruss_6809_drawplanet,*gyruss_6809_drawship;
+	UBytePtr gyruss_spritebank,*gyruss_6809_drawplanet,*gyruss_6809_drawship;
 	static int flipscreen;
 	
 	
@@ -100,7 +100,7 @@ public class gyruss
 	#define COSTABLE_START (0xe600)
 		int ro;
 		int theta2;
-		unsigned char *table;
+		UBytePtr table;
 	
 	
 		ro = memory_region(REGION_CPU4)[YTABLE_START + u.y];
@@ -173,7 +173,7 @@ public class gyruss
 		if (data == 1)
 		{
 	        int n;
-			unsigned char *sr;
+			UBytePtr sr;
 	
 	
 	        /* Gyruss hardware stores alternatively sprites at position
@@ -324,7 +324,7 @@ public class gyruss
 		/* Draw the sprites. Note that it is important to draw them exactly in this */
 		/* order, to have the correct priorities. */
 		{
-			unsigned char *sr;
+			UBytePtr sr;
 	
 	
 			if (*gyruss_spritebank == 0)

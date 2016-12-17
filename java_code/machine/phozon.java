@@ -16,9 +16,9 @@ package machine;
 public class phozon
 {
 	
-	unsigned char *phozon_snd_sharedram;
-	unsigned char *phozon_spriteram;
-	unsigned char *phozon_customio_1, *phozon_customio_2;
+	UBytePtr phozon_snd_sharedram;
+	UBytePtr phozon_spriteram;
+	UBytePtr phozon_customio_1, *phozon_customio_2;
 	static int credits, coincounter1, coincounter2;
 	
 	public static InitMachinePtr phozon_init_machine = new InitMachinePtr() { public void handler() 

@@ -40,7 +40,7 @@ package vidhrdw;
 public class nova2001
 {
 	
-	unsigned char *nova2001_videoram,*nova2001_colorram;
+	UBytePtr nova2001_videoram,*nova2001_colorram;
 	size_t nova2001_videoram_size;
 	
 	static int nova2001_xscroll;

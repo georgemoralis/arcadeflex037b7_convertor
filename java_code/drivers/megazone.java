@@ -15,13 +15,13 @@ public class megazone
 	
 	
 	
-	extern unsigned char *megazone_scrollx;
-	extern unsigned char *megazone_scrolly;
+	extern UBytePtr megazone_scrollx;
+	extern UBytePtr megazone_scrolly;
 	
-	static unsigned char *megazone_sharedram;
+	static UBytePtr megazone_sharedram;
 	
-	extern unsigned char *megazone_videoram2;
-	extern unsigned char *megazone_colorram2;
+	extern UBytePtr megazone_videoram2;
+	extern UBytePtr megazone_colorram2;
 	extern size_t megazone_videoram2_size;
 	
 	static int i8039_irqenable;

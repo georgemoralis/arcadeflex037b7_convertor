@@ -47,10 +47,10 @@ public class safarir
 {
 	
 	
-	unsigned char *safarir_ram1, *safarir_ram2;
+	UBytePtr safarir_ram1, *safarir_ram2;
 	size_t safarir_ram_size;
 	
-	static unsigned char *safarir_ram;
+	static UBytePtr safarir_ram;
 	static int safarir_scroll;
 	
 	
@@ -141,7 +141,7 @@ public class safarir
 		0x00, 0x02,
 	};
 	
-	static void init_palette(unsigned char *game_palette, unsigned short *game_colortable,const unsigned char *color_prom)
+	static void init_palette(UBytePtr game_palette, unsigned short *game_colortable,const UBytePtr color_prom)
 	{
 		memcpy(game_palette,palette,sizeof(palette));
 		memcpy(game_colortable,colortable,sizeof(colortable));

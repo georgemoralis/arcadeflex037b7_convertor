@@ -15,8 +15,8 @@ public class hcastle
 	
 	static struct osd_bitmap *pf1_bitmap;
 	static struct osd_bitmap *pf2_bitmap;
-	static unsigned char *dirty_pf1,*dirty_pf2;
-	unsigned char *hcastle_pf1_videoram,*hcastle_pf2_videoram;
+	static UBytePtr dirty_pf1,*dirty_pf2;
+	UBytePtr hcastle_pf1_videoram,*hcastle_pf2_videoram;
 	static int gfx_bank;
 	
 	
@@ -123,7 +123,7 @@ public class hcastle
 	
 	/*****************************************************************************/
 	
-	static void draw_sprites( struct osd_bitmap *bitmap, unsigned char *sbank, int bank )
+	static void draw_sprites( struct osd_bitmap *bitmap, UBytePtr sbank, int bank )
 	{
 		int bank_base = (bank == 0) ? 0x4000 * (gfx_bank & 1) : 0;
 		K007121_sprites_draw(bank,bitmap,sbank,(K007121_ctrlram[bank][6]&0x30)*2,0,bank_base,-1);

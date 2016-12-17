@@ -107,7 +107,7 @@ public class asteroid
 	{
 		static int asteroid_bank = 0;
 		int asteroid_newbank;
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 	
 		asteroid_newbank = (data >> 2) & 1;
@@ -131,7 +131,7 @@ public class asteroid
 	{
 		static int astdelux_bank = 0;
 		int astdelux_newbank;
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 	
 		astdelux_newbank = (data >> 7) & 1;

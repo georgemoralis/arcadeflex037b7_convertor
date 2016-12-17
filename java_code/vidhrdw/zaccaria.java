@@ -17,7 +17,7 @@ public class zaccaria
 	
 	
 	
-	unsigned char *zaccaria_attributesram;
+	UBytePtr zaccaria_attributesram;
 	
 	static struct rectangle spritevisiblearea =
 	{

@@ -44,7 +44,7 @@ public class vector
 	#define VDIRTY  1
 	#define VCLIP   2
 	
-	unsigned char *vectorram;
+	UBytePtr vectorram;
 	size_t vectorram_size;
 	
 	int antialias;                            /* flag for anti-aliasing */

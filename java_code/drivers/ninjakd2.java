@@ -231,13 +231,13 @@ public class ninjakd2
 {
 	
 	
-	extern unsigned char 	*ninjakd2_scrolly_ram;
-	extern unsigned char 	*ninjakd2_scrollx_ram;
-	extern unsigned char 	*ninjakd2_bgenable_ram;
-	extern unsigned char 	*ninjakd2_spoverdraw_ram;
-	extern unsigned char 	*ninjakd2_spriteram;
-	extern unsigned char 	*ninjakd2_background_videoram;
-	extern unsigned char 	*ninjakd2_foreground_videoram;
+	extern UBytePtr ninjakd2_scrolly_ram;
+	extern UBytePtr ninjakd2_scrollx_ram;
+	extern UBytePtr ninjakd2_bgenable_ram;
+	extern UBytePtr ninjakd2_spoverdraw_ram;
+	extern UBytePtr ninjakd2_spriteram;
+	extern UBytePtr ninjakd2_background_videoram;
+	extern UBytePtr ninjakd2_foreground_videoram;
 	extern size_t ninjakd2_spriteram_size;
 	extern size_t ninjakd2_backgroundram_size;
 	extern size_t ninjakd2_foregroundram_size;
@@ -249,7 +249,7 @@ public class ninjakd2
 	int ninjakd2_init_samples(const struct MachineSound *msound)
 	{
 		int i,n;
-		unsigned char *source = memory_region(REGION_SOUND1);
+		UBytePtr source = memory_region(REGION_SOUND1);
 		struct GameSamples *samples;
 		int sample_info [9][2] = { {0x0000,0x0A00},{0x0A00,0x1D00},{0x2700,0x1700},
 		{0x3E00,0x1500},{0x5300,0x0B00},{0x5E00,0x0A00},{0x6800,0x0E00},{0x7600,0x1E00},{0xF000,0x0400} };
@@ -290,7 +290,7 @@ public class ninjakd2
 	
 	public static WriteHandlerPtr ninjakd2_bankselect_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 		int bankaddress;
 	
 		if (data != ninjakd2_bank_latch)
@@ -788,7 +788,7 @@ public class ninjakd2
 	
 	public static InitDriverPtr init_ninjak2a = new InitDriverPtr() { public void handler() 
 	{
-		unsigned char *rom = memory_region(REGION_CPU2);
+		UBytePtr rom = memory_region(REGION_CPU2);
 		int diff = memory_region_length(REGION_CPU2) / 2;
 	
 		memory_set_opcode_base(1,rom+diff);

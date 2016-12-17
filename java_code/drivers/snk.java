@@ -76,7 +76,7 @@ public class snk
 	#define SNK_NMI_PENDING	2
 	static int cpuA_latch, cpuB_latch;
 	
-	static unsigned char *shared_ram, *io_ram, *shared_ram2;
+	static UBytePtr shared_ram, *io_ram, *shared_ram2;
 	extern int snk_bg_tilemap_baseaddr, gwar_sprite_placement;
 	
 	/*********************************************************************/
@@ -3375,7 +3375,7 @@ public class snk
 	};
 	
 	static public static InitDriverPtr init_ikari = new InitDriverPtr() { public void handler() {
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 		/*  Hack ROM test */
 		RAM[0x11a6] = 0x00;
 		RAM[0x11a7] = 0x00;
@@ -3394,7 +3394,7 @@ public class snk
 	} };
 	
 	static public static InitDriverPtr init_ikarijp = new InitDriverPtr() { public void handler() {
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 		RAM[0x190b] = 0xc9; /* faster test */
 	
 		snk_sound_busy_bit = 0x20;
@@ -3405,7 +3405,7 @@ public class snk
 	} };
 	
 	static public static InitDriverPtr init_ikarijpb = new InitDriverPtr() { public void handler() {
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 		RAM[0x190b] = 0xc9; /* faster test */
 	
 		snk_sound_busy_bit = 0x20;
@@ -3416,7 +3416,7 @@ public class snk
 	} };
 	
 	static public static InitDriverPtr init_victroad = new InitDriverPtr() { public void handler() {
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 		/* Hack ROM test */
 		RAM[0x17bd] = 0x00;
 		RAM[0x17be] = 0x00;
@@ -3435,7 +3435,7 @@ public class snk
 	} };
 	
 	static public static InitDriverPtr init_dogosoke = new InitDriverPtr() { public void handler() {
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 		/* Hack ROM test */
 		RAM[0x179f] = 0x00;
 		RAM[0x17a0] = 0x00;
@@ -3478,7 +3478,7 @@ public class snk
 	} };
 	
 	static public static InitDriverPtr init_bermudat = new InitDriverPtr() { public void handler() {
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 		// Patch "Turbo Error"
 		RAM[0x127e] = 0xc9;

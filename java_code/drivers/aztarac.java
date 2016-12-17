@@ -196,7 +196,7 @@ public class aztarac
 	
 	static public static InitDriverPtr init_aztarac = new InitDriverPtr() { public void handler() 
 	{
-		unsigned char *rom = memory_region(REGION_CPU1);
+		UBytePtr rom = memory_region(REGION_CPU1);
 	
 		/* patch IRQ vector 4 to autovector location */
 		WRITE_WORD(&rom[0x70], 0);

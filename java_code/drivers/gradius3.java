@@ -29,7 +29,7 @@ public class gradius3
 {
 	
 	
-	extern unsigned char *gradius3_gfxram;
+	extern UBytePtr gradius3_gfxram;
 	extern int gradius3_priority;
 	
 	
@@ -85,7 +85,7 @@ public class gradius3
 		irqBmask = 0;
 	}
 	
-	static unsigned char *sharedram;
+	static UBytePtr sharedram;
 	
 	public static ReadHandlerPtr sharedram_r  = new ReadHandlerPtr() { public int handler(int offset)
 	{
@@ -170,7 +170,7 @@ public class gradius3
 	
 	public static WriteHandlerPtr sound_bank_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		unsigned char *RAM = memory_region(REGION_SOUND1);
+		UBytePtr RAM = memory_region(REGION_SOUND1);
 		int bank_A, bank_B;
 	
 		/* banks # for the 007232 (chip 1) */

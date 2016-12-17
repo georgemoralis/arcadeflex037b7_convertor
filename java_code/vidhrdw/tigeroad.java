@@ -43,7 +43,7 @@ public class tigeroad
 		int scrollx = 	READ_WORD(&tigeroad_scrollram[0]) & 0xfff; /* 0..4096 */
 		int scrolly =	READ_WORD(&tigeroad_scrollram[2]) & 0xfff; /* 0..4096 */
 	
-		unsigned char *p = memory_region(REGION_GFX4);
+		UBytePtr p = memory_region(REGION_GFX4);
 	
 		int alignx = scrollx%32;
 		int aligny = scrolly%32;
@@ -105,8 +105,8 @@ public class tigeroad
 	
 	static void render_sprites( struct osd_bitmap *bitmap )
 	{
-		unsigned char *source = &buffered_spriteram[spriteram_size] - 8;
-		unsigned char *finish = buffered_spriteram;
+		UBytePtr source = &buffered_spriteram[spriteram_size] - 8;
+		UBytePtr finish = buffered_spriteram;
 	
 		while( source>=finish )
 		{

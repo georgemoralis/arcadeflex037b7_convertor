@@ -18,8 +18,8 @@ public class gladiatr
 	static int background_scroll;
 	static int sprite_bank;
 	
-	unsigned char *gladiatr_scroll;
-	unsigned char *gladiator_text;
+	UBytePtr gladiatr_scroll;
+	UBytePtr gladiator_text;
 	
 	
 	static void update_color(int offset)
@@ -175,7 +175,7 @@ public class gladiatr
 	
 		int tile_bank_offset = (video_attributes&3)*256;
 	
-		unsigned char *source = gladiator_text;
+		UBytePtr source = gladiator_text;
 	
 		int sx,sy;
 	
@@ -238,8 +238,8 @@ public class gladiatr
 	
 	static void render_sprites(struct osd_bitmap *bitmap);
 	static void render_sprites(struct osd_bitmap *bitmap){
-		unsigned char *source = spriteram;
-		unsigned char *finish = source+0x400;
+		UBytePtr source = spriteram;
+		UBytePtr finish = source+0x400;
 	
 		do{
 			int attributes = source[0x800];

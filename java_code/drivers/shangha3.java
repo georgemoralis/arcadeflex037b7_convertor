@@ -29,7 +29,7 @@ public class shangha3
 {
 	
 	
-	extern unsigned char *shangha3_ram;
+	extern UBytePtr shangha3_ram;
 	extern size_t shangha3_ram_size;
 	extern int shangha3_do_shadows;
 	

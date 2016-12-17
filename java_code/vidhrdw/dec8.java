@@ -53,8 +53,8 @@ public class dec8
 	static struct tilemap *dec8_pf0_tilemap,*dec8_pf1_tilemap,*dec8_fix_tilemap;
 	static int dec8_pf0_control[0x20],dec8_pf1_control[0x20];
 	static int gfx_bank,gfx_mask,game_uses_priority;
-	static unsigned char *gfx_base;
-	unsigned char *dec8_pf0_data,*dec8_pf1_data,*dec8_row;
+	static UBytePtr gfx_base;
+	UBytePtr dec8_pf0_data,*dec8_pf1_data,*dec8_row;
 	
 	/***************************************************************************
 	
@@ -168,7 +168,7 @@ public class dec8
 	public static WriteHandlerPtr srdarwin_control_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
 		int bankaddress;
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 		switch (offset) {
 	    	case 0: /* Top 3 bits - bank switch, bottom 4 - scroll MSB */
@@ -186,7 +186,7 @@ public class dec8
 	public static WriteHandlerPtr lastmiss_control_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
 		int bankaddress;
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 		/* Bottom 4 bits - bank switch, Bits 4 & 5 - Scroll MSBs */
 		bankaddress = 0x10000 + (data & 0x0f) * 0x4000;

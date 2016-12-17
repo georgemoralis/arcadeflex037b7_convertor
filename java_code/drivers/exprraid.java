@@ -60,7 +60,7 @@ public class exprraid
 {
 	
 	/* from vidhrdw */
-	extern unsigned char *exprraid_bgcontrol;
+	extern UBytePtr exprraid_bgcontrol;
 	
 	
 	/*****************************************************************************************/
@@ -69,7 +69,7 @@ public class exprraid
 	
 	public static ReadHandlerPtr exprraid_prot_0_r  = new ReadHandlerPtr() { public int handler(int offset)
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 		return RAM[0x02a9];
 	} };
@@ -489,7 +489,7 @@ public class exprraid
 	{
 		/* Expand the background rom so we can use regular decode routines */
 	
-		unsigned char	*gfx = memory_region(REGION_GFX3);
+		UBytePtr gfx = memory_region(REGION_GFX3);
 		int				offs = 0x10000-0x1000;
 		int				i;
 	
@@ -509,7 +509,7 @@ public class exprraid
 	
 	static public static InitDriverPtr init_wexpress = new InitDriverPtr() { public void handler() 
 	{
-		unsigned char *rom = memory_region(REGION_CPU1);
+		UBytePtr rom = memory_region(REGION_CPU1);
 		int i;
 	
 	
@@ -531,7 +531,7 @@ public class exprraid
 	
 	static public static InitDriverPtr init_exprraid = new InitDriverPtr() { public void handler() 
 	{
-		unsigned char *rom = memory_region(REGION_CPU1);
+		UBytePtr rom = memory_region(REGION_CPU1);
 	
 	
 		/* decode vectors */

@@ -40,7 +40,7 @@ public class stfight
 	
 	public static InitDriverPtr init_empcity = new InitDriverPtr() { public void handler() 
 	{
-		unsigned char *rom = memory_region(REGION_CPU1);
+		UBytePtr rom = memory_region(REGION_CPU1);
 		int diff = memory_region_length(REGION_CPU1) / 2;
 		int A;
 	
@@ -71,7 +71,7 @@ public class stfight
 	
 	public static InitDriverPtr init_stfight = new InitDriverPtr() { public void handler() 
 	{
-		unsigned char *rom = memory_region(REGION_CPU1);
+		UBytePtr rom = memory_region(REGION_CPU1);
 		int diff = memory_region_length(REGION_CPU1) / 2;
 	
 	
@@ -96,7 +96,7 @@ public class stfight
 	// - in fact I don't even know how/where it's switched in!
 	public static WriteHandlerPtr stfight_bank_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		unsigned char   *ROM2 = memory_region(REGION_CPU1) + 0x10000;
+		UBytePtr ROM2 = memory_region(REGION_CPU1) + 0x10000;
 	
 		cpu_setbank( 1, &ROM2[data<<14] );
 	} };
@@ -204,7 +204,7 @@ public class stfight
 	void stfight_adpcm_int( int data )
 	{
 		static int toggle;
-		unsigned char *SAMPLES = memory_region(REGION_SOUND1);
+		UBytePtr SAMPLES = memory_region(REGION_SOUND1);
 		int adpcm_data = SAMPLES[adpcm_data_offs & 0x7fff];
 	
 	    // finished playing sample?

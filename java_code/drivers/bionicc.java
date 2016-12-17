@@ -47,13 +47,13 @@ package drivers;
 public class bionicc
 {
 	
-	static unsigned char *ram_bc; /* used by high scores */
+	static UBytePtr ram_bc; /* used by high scores */
 	
 	
-	extern unsigned char *bionicc_bgvideoram;
-	extern unsigned char *bionicc_fgvideoram;
-	extern unsigned char *bionicc_txvideoram;
-	extern unsigned char *spriteram;
+	extern UBytePtr bionicc_bgvideoram;
+	extern UBytePtr bionicc_fgvideoram;
+	extern UBytePtr bionicc_txvideoram;
+	extern UBytePtr spriteram;
 	extern size_t spriteram_size;
 	
 	

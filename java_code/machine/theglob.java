@@ -78,7 +78,7 @@ public class theglob
 	{
 		int oldbyte,inverted_oldbyte,newbyte;
 		int mem;
-		unsigned char *RAM;
+		UBytePtr RAM;
 	
 		RAM = memory_region(REGION_CPU1);
 	
@@ -115,7 +115,7 @@ public class theglob
 	{
 		int oldbyte,inverted_oldbyte,newbyte;
 		int mem;
-		unsigned char *RAM;
+		UBytePtr RAM;
 	
 		RAM = memory_region(REGION_CPU1);
 	
@@ -150,7 +150,7 @@ public class theglob
 	{
 		int oldbyte,inverted_oldbyte,newbyte;
 		int mem;
-		unsigned char *RAM;
+		UBytePtr RAM;
 	
 		RAM = memory_region(REGION_CPU1);
 	
@@ -185,7 +185,7 @@ public class theglob
 	{
 		int oldbyte,inverted_oldbyte,newbyte;
 		int mem;
-		unsigned char *RAM;
+		UBytePtr RAM;
 	
 		RAM = memory_region(REGION_CPU1);
 	
@@ -219,7 +219,7 @@ public class theglob
 	
 	public static ReadHandlerPtr theglob_decrypt_rom  = new ReadHandlerPtr() { public int handler(int offset)
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 		if ((offset & 0x01) != 0)
 		{
@@ -249,7 +249,7 @@ public class theglob
 	
 	public static InitMachinePtr theglob_init_machine = new InitMachinePtr() { public void handler() 
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 		/* While the PAL supports up to 16 decryption methods, only four
 			are actually used in the PAL.  Therefore, we'll take a little

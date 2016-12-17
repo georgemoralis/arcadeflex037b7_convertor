@@ -155,12 +155,12 @@ public class toaplan2
 	#define CPU_2_Zx80		0xff
 	
 	
-	static unsigned char *bgvideoram[2];
-	static unsigned char *fgvideoram[2];
-	static unsigned char *topvideoram[2];
-	static unsigned char *spriteram_now[2];	 /* Sprites to draw this frame */
-	static unsigned char *spriteram_next[2]; /* Sprites to draw next frame */
-	static unsigned char *spriteram_new[2];	 /* Sprites to add to next frame */
+	static UBytePtr bgvideoram[2];
+	static UBytePtr fgvideoram[2];
+	static UBytePtr topvideoram[2];
+	static UBytePtr spriteram_now[2];	 /* Sprites to draw this frame */
+	static UBytePtr spriteram_next[2]; /* Sprites to draw next frame */
+	static UBytePtr spriteram_new[2];	 /* Sprites to add to next frame */
 	static int toaplan2_unk_vram;			 /* Video RAM tested but not used (for Teki Paki)*/
 	
 	static int toaplan2_scroll_reg[2];
@@ -197,7 +197,7 @@ public class toaplan2
 	static struct tilemap *top_tilemap[2], *fg_tilemap[2], *bg_tilemap[2];
 	
 	/* Added by Yochizo 2000/08/19 */
-	unsigned char *textvideoram;			 /* Video ram for extra-text-layer */
+	UBytePtr textvideoram;			 /* Video ram for extra-text-layer */
 	static struct tilemap *text_tilemap;	 /* Tilemap for extra-text-layer */
 	
 	

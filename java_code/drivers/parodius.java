@@ -18,7 +18,7 @@ public class parodius
 	/* prototypes */
 	static 
 	static int videobank;
-	static unsigned char *ram;
+	static UBytePtr ram;
 	
 	public static InterruptPtr parodius_interrupt = new InterruptPtr() { public int handler() 
 	{
@@ -407,7 +407,7 @@ public class parodius
 	
 	public static konami_cpu_setlines_callbackPtr parodius_banking = new konami_cpu_setlines_callbackPtr() { public void handler(int lines) 
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 		int offs = 0;
 	
 		if ((lines & 0xf0) != 0) logerror("%04x: setlines %02x\n",cpu_get_pc(),lines);
@@ -419,7 +419,7 @@ public class parodius
 	
 	static public static InitMachinePtr parodius_init_machine = new InitMachinePtr() { public void handler() 
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 		konami_cpu_setlines_callback = parodius_banking;
 	

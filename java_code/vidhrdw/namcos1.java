@@ -30,7 +30,7 @@ public class namcos1
 	  7810-7fef : fixed playfield (5)  : 36*28*2
 	  7ff0-7fff : ?
 	*/
-	static unsigned char *namcos1_videoram;
+	static UBytePtr namcos1_videoram;
 	/*
 	  paletteram map (s1ram  0x0000-0x7fff)
 	  0000-17ff : palette page0 : sprite
@@ -38,7 +38,7 @@ public class namcos1
 	  4000-57ff : palette page2 : playfield (shadow)
 	  6000-7fff : work ram ?
 	*/
-	static unsigned char *namcos1_paletteram;
+	static UBytePtr namcos1_paletteram;
 	/*
 	  controlram map (s1ram 0x8000-0x9fff)
 	  0000-07ff : work ram
@@ -46,7 +46,7 @@ public class namcos1
 	  0ff0-0fff : display control register
 	  1000-1fff : playfield control register
 	*/
-	static unsigned char *namcos1_controlram;
+	static UBytePtr namcos1_controlram;
 	
 	#define FG_OFFSET 0x7000
 	
@@ -71,14 +71,14 @@ public class namcos1
 	static int namcos1_tilemap_need = 0;
 	static int namcos1_tilemap_used;
 	
-	static unsigned char *char_state;
+	static UBytePtr char_state;
 	#define CHAR_BLANK	0
 	#define CHAR_FULL	1
 	#endif
 	
 	/* playfields maskdata for tilemap */
-	static unsigned char **mask_ptr;
-	static unsigned char *mask_data;
+	static UBytePtr *mask_ptr;
+	static UBytePtr mask_data;
 	
 	/* graphic object */
 	static struct gfx_object_list *objectlist;
@@ -279,7 +279,7 @@ public class namcos1
 		static const int sprite_sizemap[4] = {16,8,32,4};
 		int num = offset / 0x10;
 		struct gfx_object *object = &objectlist.objects[num+MAX_PLAYFIELDS];
-		unsigned char *base = &namcos1_controlram[0x0800 + num*0x10];
+		UBytePtr base = &namcos1_controlram[0x0800 + num*0x10];
 		int sx, sy;
 		int resize_x=0,resize_y=0;
 	
@@ -367,7 +367,7 @@ public class namcos1
 	*/
 	public static WriteHandlerPtr namcos1_displaycontrol_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		unsigned char *disp_reg = &namcos1_controlram[0xff0];
+		UBytePtr disp_reg = &namcos1_controlram[0xff0];
 		int newflip;
 	
 		switch(offset)
@@ -442,7 +442,7 @@ public class namcos1
 	#if NAMCOS1_DIRECT_DRAW
 	static void draw_background( struct osd_bitmap *bitmap, int layer )
 	{
-		unsigned char *vid = playfields[layer].base;
+		UBytePtr vid = playfields[layer].base;
 		int width	= playfields[layer].width;
 		int height	= playfields[layer].height;
 		int color	= objects[layer].color;
@@ -515,7 +515,7 @@ public class namcos1
 	static void draw_foreground( struct osd_bitmap *bitmap, int layer )
 	{
 		int offs;
-		unsigned char *vid = playfields[layer].base;
+		UBytePtr vid = playfields[layer].base;
 		int color = objects[layer].color;
 		int max_x = Machine.visible_area.max_x;
 		int max_y = Machine.visible_area.max_y;
@@ -548,7 +548,7 @@ public class namcos1
 	#endif
 	
 	/* tilemap callback */
-	static unsigned char *info_vram;
+	static UBytePtr info_vram;
 	static int info_color;
 	
 	static void background_get_info(int tile_index)
@@ -722,7 +722,7 @@ public class namcos1
 			int height = mask.height;
 			int line,x,c;
 	
-			mask_ptr = malloc(total * sizeof(unsigned char *));
+			mask_ptr = malloc(total * sizeof(UBytePtr ));
 			if(mask_ptr == 0)
 			{
 				free(namcos1_videoram);
@@ -738,10 +738,10 @@ public class namcos1
 	
 			for(c=0;c<total;c++)
 			{
-				unsigned char *src_mask = &mask_data[c*8];
+				UBytePtr src_mask = &mask_data[c*8];
 				for(line=0;line<height;line++)
 				{
-					unsigned char  *maskbm = get_gfx_pointer(mask,c,line);
+					UBytePtr maskbm = get_gfx_pointer(mask,c,line);
 					src_mask[line] = 0;
 					for (x=0;x<width;x++)
 					{
@@ -787,7 +787,7 @@ public class namcos1
 				unsigned char anddata = 0xff;
 				for(line=0;line<height;line++)
 				{
-					unsigned char  *maskbm = get_gfx_pointer(mask,c,line);
+					UBytePtr maskbm = get_gfx_pointer(mask,c,line);
 					for (x=0;x<width;x++)
 					{
 						ordata	|= maskbm[x];
@@ -804,7 +804,7 @@ public class namcos1
 					memset(penmap,0,256);
 					for(line=0;line<height;line++)
 					{
-						unsigned char  *pensbm = get_gfx_pointer(pens,c,line);
+						UBytePtr pensbm = get_gfx_pointer(pens,c,line);
 						for (x=0;x<width;x++)
 							penmap[pensbm[x]]=1;
 					}
@@ -816,8 +816,8 @@ public class namcos1
 					/* fill transparency color */
 					for(line=0;line<height;line++)
 					{
-						unsigned char  *maskbm = get_gfx_pointer(mask,c,line);
-						unsigned char  *pensbm = get_gfx_pointer(pens,c,line);
+						UBytePtr maskbm = get_gfx_pointer(mask,c,line);
+						UBytePtr pensbm = get_gfx_pointer(pens,c,line);
 						for (x=0;x<width;x++)
 						{
 							if(!maskbm[x]) pensbm[x] = trans_pen;
@@ -867,7 +867,7 @@ public class namcos1
 		int i;
 		struct gfx_object *object;
 		unsigned short palette_map[MAX_SPRITES+1];
-		const unsigned char *remapped;
+		const UBytePtr remapped;
 	
 		/* update all tilemaps */
 	#if NAMCOS1_DIRECT_DRAW
@@ -938,7 +938,7 @@ public class namcos1
 			for (i = 0;i < MAX_PLAYFIELDS;i++)
 			{
 				int j;
-				const unsigned char *remapped_layer = &remapped[128*16+256*i];
+				const UBytePtr remapped_layer = &remapped[128*16+256*i];
 				for (j = 0;j < 256;j++)
 				{
 					if (remapped_layer[j])

@@ -20,8 +20,8 @@ public class jackal
 	
 	extern unsigned char jackal_interrupt_enable;
 	
-	unsigned char *jackal_rambank = 0;
-	unsigned char *jackal_spritebank = 0;
+	UBytePtr jackal_rambank = 0;
+	UBytePtr jackal_spritebank = 0;
 	
 	
 	public static InitMachinePtr jackal_init_machine = new InitMachinePtr() { public void handler() 

@@ -63,7 +63,7 @@ public class bladestl
 	
 	public static WriteHandlerPtr bladestl_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 		int bankaddress;
 	
 		/* bits 0 & 1 = coin counters */

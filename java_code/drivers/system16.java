@@ -198,47 +198,47 @@ public class system16
 	
 	extern int sys18_bg2_active;
 	extern int sys18_fg2_active;
-	extern unsigned char *sys18_splittab_bg_x;
-	extern unsigned char *sys18_splittab_bg_y;
-	extern unsigned char *sys18_splittab_fg_x;
-	extern unsigned char *sys18_splittab_fg_y;
+	extern UBytePtr sys18_splittab_bg_x;
+	extern UBytePtr sys18_splittab_bg_y;
+	extern UBytePtr sys18_splittab_fg_x;
+	extern UBytePtr sys18_splittab_fg_y;
 	
 	#ifdef SPACEHARRIER_OFFSETS
-	extern unsigned char *spaceharrier_patternoffsets;
+	extern UBytePtr spaceharrier_patternoffsets;
 	#endif
-	extern unsigned char *gr_ver;
-	extern unsigned char *gr_hor;
-	extern unsigned char *gr_pal;
-	extern unsigned char *gr_flip;
+	extern UBytePtr gr_ver;
+	extern UBytePtr gr_hor;
+	extern UBytePtr gr_pal;
+	extern UBytePtr gr_flip;
 	extern int gr_palette;
 	extern int gr_palette_default;
 	extern unsigned char gr_colorflip[2][4];
-	extern unsigned char *gr_second_road;
+	extern UBytePtr gr_second_road;
 	
 	/* video driver has access to these memory regions */
-	unsigned char *sys16_tileram;
-	unsigned char *sys16_textram;
-	unsigned char *sys16_spriteram;
+	UBytePtr sys16_tileram;
+	UBytePtr sys16_textram;
+	UBytePtr sys16_spriteram;
 	
 	/* other memory regions */
-	static unsigned char *sys16_workingram;
-	static unsigned char *sys16_extraram;
-	static unsigned char *sys16_extraram2;
-	static unsigned char *sys16_extraram3;
-	static unsigned char *sys16_extraram4;
+	static UBytePtr sys16_workingram;
+	static UBytePtr sys16_extraram;
+	static UBytePtr sys16_extraram2;
+	static UBytePtr sys16_extraram3;
+	static UBytePtr sys16_extraram4;
 	
 	// 7751 emulation
 	    
 	
 	// encryption decoding
-	void endurob2_decode_data(unsigned char *dest,unsigned char *source,int size);
-	void endurob2_decode_data2(unsigned char *dest,unsigned char *source,int size);
-	void enduror_decode_data(unsigned char *dest,unsigned char *source,int size);
-	void enduror_decode_data2(unsigned char *dest,unsigned char *source,int size);
+	void endurob2_decode_data(UBytePtr dest,UBytePtr source,int size);
+	void endurob2_decode_data2(UBytePtr dest,UBytePtr source,int size);
+	void enduror_decode_data(UBytePtr dest,UBytePtr source,int size);
+	void enduror_decode_data2(UBytePtr dest,UBytePtr source,int size);
 	
-	void aurail_decode_data(unsigned char *dest,unsigned char *source,int size);
-	void aurail_decode_opcode1(unsigned char *dest,unsigned char *source,int size);
-	void aurail_decode_opcode2(unsigned char *dest,unsigned char *source,int size);
+	void aurail_decode_data(UBytePtr dest,UBytePtr source,int size);
+	void aurail_decode_opcode1(UBytePtr dest,UBytePtr source,int size);
+	void aurail_decode_opcode2(UBytePtr dest,UBytePtr source,int size);
 	
 	/***************************************************************************/
 	
@@ -620,7 +620,7 @@ public class system16
 	
 	// SYS18 Sound
 	
-	unsigned char *sys18_SoundMemBank;
+	UBytePtr sys18_SoundMemBank;
 	
 	public static ReadHandlerPtr system18_bank_r  = new ReadHandlerPtr() { public int handler(int offset)
 	{
@@ -657,7 +657,7 @@ public class system16
 	public static WriteHandlerPtr sys18_soundbank_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
 	// select access bank for a000~bfff
-		unsigned char *RAM = memory_region(REGION_CPU2);
+		UBytePtr RAM = memory_region(REGION_CPU2);
 		int Bank=0;
 	
 		switch (data&0xc0)
@@ -764,7 +764,7 @@ public class system16
 	// Super hang-on, outrun
 	
 	// hopefully this is endian safe!
-	static unsigned char *sound_shared_ram;
+	static UBytePtr sound_shared_ram;
 	public static ReadHandlerPtr sound_shared_ram_r  = new ReadHandlerPtr() { public int handler(int offset)
 	{
 		return (sound_shared_ram[offset] << 8) + sound_shared_ram[offset+1];
@@ -933,18 +933,18 @@ public class system16
 		into a byte, doubling the memory consumption. */
 	
 	static void sys16_sprite_decode( int num_banks, int bank_size ){
-		unsigned char *base = memory_region(REGION_GFX2);
-		unsigned char *temp = malloc( bank_size );
+		UBytePtr base = memory_region(REGION_GFX2);
+		UBytePtr temp = malloc( bank_size );
 		int i;
 	
 		if( !temp ) return;
 	
 		for( i = num_banks; i >0; i-- ){
-			unsigned char *finish	= base + 2*bank_size*i;
-			unsigned char *dest = finish - 2*bank_size;
+			UBytePtr finish	= base + 2*bank_size*i;
+			UBytePtr dest = finish - 2*bank_size;
 	
-			unsigned char *p1 = temp;
-			unsigned char *p2 = temp+bank_size/2;
+			UBytePtr p1 = temp;
+			UBytePtr p2 = temp+bank_size/2;
 	
 			unsigned char data;
 	
@@ -1020,20 +1020,20 @@ public class system16
 	}
 	
 	static void sys16_sprite_decode2( int num_banks, int bank_size, int side_markers ){
-		unsigned char *base = memory_region(REGION_GFX2);
-		unsigned char *temp = malloc( bank_size );
+		UBytePtr base = memory_region(REGION_GFX2);
+		UBytePtr temp = malloc( bank_size );
 		int i;
 	
 		if( !temp ) return;
 	
 		for( i = num_banks; i >0; i-- ){
-			unsigned char *finish	= base + 2*bank_size*i;
-			unsigned char *dest = finish - 2*bank_size;
+			UBytePtr finish	= base + 2*bank_size*i;
+			UBytePtr dest = finish - 2*bank_size;
 	
-			unsigned char *p1 = temp;
-			unsigned char *p2 = temp+bank_size/4;
-			unsigned char *p3 = temp+bank_size/2;
-			unsigned char *p4 = temp+bank_size/4*3;
+			UBytePtr p1 = temp;
+			UBytePtr p2 = temp+bank_size/4;
+			UBytePtr p3 = temp+bank_size/2;
+			UBytePtr p4 = temp+bank_size/4*3;
 	
 			unsigned char data;
 	
@@ -1284,7 +1284,7 @@ public class system16
 	
 	static void patch_codeX( int offset, int data, int cpu ){
 		int aligned_offset = offset&0xfffffe;
-		unsigned char *RAM = memory_region(REGION_CPU1+cpu);
+		UBytePtr RAM = memory_region(REGION_CPU1+cpu);
 		int old_word = READ_WORD( &RAM[aligned_offset] );
 	
 		if ((offset & 1) != 0)
@@ -1299,7 +1299,7 @@ public class system16
 	static void patch_code2( int offset, int data ) {patch_codeX(offset,data,2);}
 	
 	static void patch_z80code( int offset, int data ){
-		unsigned char *RAM = memory_region(REGION_CPU2);
+		UBytePtr RAM = memory_region(REGION_CPU2);
 		RAM[offset] = data;
 	}
 	
@@ -2300,7 +2300,7 @@ public class system16
 	
 	static public static InitDriverPtr init_astorm = new InitDriverPtr() { public void handler() 
 	{
-		unsigned char *RAM= memory_region(REGION_CPU2);
+		UBytePtr RAM= memory_region(REGION_CPU2);
 		sys16_onetime_init_machine();
 		sys18_splittab_fg_x=&sys16_textram[0x0f80];
 		sys18_splittab_bg_x=&sys16_textram[0x0fc0];
@@ -2764,7 +2764,7 @@ public class system16
 	
 	static public static InitDriverPtr init_auraila = new InitDriverPtr() { public void handler() 
 	{
-		unsigned char *rom = memory_region(REGION_CPU1);
+		UBytePtr rom = memory_region(REGION_CPU1);
 		int diff = 0x40000;	/* place decrypted opcodes in a empty hole */
 	
 		init_aurail();
@@ -5200,7 +5200,7 @@ public class system16
 	} };
 	
 	static public static InitDriverPtr init_moonwalk = new InitDriverPtr() { public void handler() {
-		unsigned char *RAM= memory_region(REGION_CPU2);
+		UBytePtr RAM= memory_region(REGION_CPU2);
 		sys16_onetime_init_machine();
 		sys18_splittab_fg_x=&sys16_textram[0x0f80];
 		sys18_splittab_bg_x=&sys16_textram[0x0fc0];
@@ -6541,7 +6541,7 @@ public class system16
 	} };
 	
 	static public static InitDriverPtr init_shdancer = new InitDriverPtr() { public void handler() {
-		unsigned char *RAM= memory_region(REGION_CPU2);
+		UBytePtr RAM= memory_region(REGION_CPU2);
 		sys16_onetime_init_machine();
 		sys18_splittab_fg_x=&sys16_textram[0x0f80];
 		sys18_splittab_bg_x=&sys16_textram[0x0fc0];
@@ -6759,7 +6759,7 @@ public class system16
 	} };
 	
 	static public static InitDriverPtr init_shdancbl = new InitDriverPtr() { public void handler() {
-		unsigned char *RAM= memory_region(REGION_CPU2);
+		UBytePtr RAM= memory_region(REGION_CPU2);
 		int i;
 	
 		sys16_onetime_init_machine();
@@ -6825,7 +6825,7 @@ public class system16
 	} };
 	
 	static public static InitDriverPtr init_shdancrj = new InitDriverPtr() { public void handler() {
-		unsigned char *RAM= memory_region(REGION_CPU2);
+		UBytePtr RAM= memory_region(REGION_CPU2);
 		sys16_onetime_init_machine();
 		sys18_splittab_fg_x=&sys16_textram[0x0f80];
 		sys18_splittab_bg_x=&sys16_textram[0x0fc0];
@@ -8755,7 +8755,7 @@ public class system16
 	
 	public static ReadHandlerPtr sh_io_joy_r  = new ReadHandlerPtr() { public int handler(int offset){ return (input_port_5_r.handler( offset ) << 8) + input_port_6_r.handler( offset ); } };
 	
-	static unsigned char *shared_ram;
+	static UBytePtr shared_ram;
 	public static ReadHandlerPtr shared_ram_r  = new ReadHandlerPtr() { public int handler(int offset) { return READ_WORD(&shared_ram[offset]); } };
 	public static WriteHandlerPtr shared_ram_w = new WriteHandlerPtr() {public void handler(int offset, int data) { COMBINE_WORD_MEM(&shared_ram[offset], data); } };
 	
@@ -9146,7 +9146,7 @@ public class system16
 	
 	/***************************************************************************/
 	
-	static unsigned char *shared_ram2;
+	static UBytePtr shared_ram2;
 	public static ReadHandlerPtr shared_ram2_r  = new ReadHandlerPtr() { public int handler(int offset) { return READ_WORD(&shared_ram2[offset]); } };
 	public static WriteHandlerPtr shared_ram2_w = new WriteHandlerPtr() {public void handler(int offset, int data) { COMBINE_WORD_MEM(&shared_ram2[offset], data); } };
 	
@@ -9886,7 +9886,7 @@ public class system16
 	
 	static public static InitDriverPtr init_outrunb = new InitDriverPtr() { public void handler() 
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 		int i;
 		int odd,even,word;
 		sys16_onetime_init_machine();
@@ -10549,7 +10549,7 @@ public class system16
 	
 	
 	static void enduror_sprite_decode( void ){
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 		sys16_sprite_decode2( 8,0x020000 ,1);
 		generate_gr_screen(512,1024,8,0,4,0x8000);
 	
@@ -10565,7 +10565,7 @@ public class system16
 	
 	static void endurora_opcode_decode( void )
 	{
-		unsigned char *rom = memory_region(REGION_CPU1);
+		UBytePtr rom = memory_region(REGION_CPU1);
 		int diff = 0x50000;	/* place decrypted opcodes in a hole after RAM */
 	
 	
@@ -10584,7 +10584,7 @@ public class system16
 	
 	static void endurob2_opcode_decode( void )
 	{
-		unsigned char *rom = memory_region(REGION_CPU1);
+		UBytePtr rom = memory_region(REGION_CPU1);
 		int diff = 0x50000;	/* place decrypted opcodes in a hole after RAM */
 	
 	

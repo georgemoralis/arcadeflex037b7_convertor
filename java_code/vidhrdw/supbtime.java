@@ -21,7 +21,7 @@ package vidhrdw;
 public class supbtime
 {
 	
-	unsigned char *supbtime_pf2_data,*supbtime_pf1_data,*supbtime_pf1_row;
+	UBytePtr supbtime_pf2_data,*supbtime_pf1_data,*supbtime_pf1_row;
 	static unsigned char supbtime_control_0[16];
 	static struct tilemap *pf1_tilemap,*pf2_tilemap;
 	static int flipscreen;

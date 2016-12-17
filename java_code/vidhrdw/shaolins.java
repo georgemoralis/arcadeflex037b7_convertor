@@ -16,7 +16,7 @@ public class shaolins
 {
 	
 	
-	unsigned char *shaolins_scroll;
+	UBytePtr shaolins_scroll;
 	static int palettebank;
 	
 	

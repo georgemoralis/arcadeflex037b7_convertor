@@ -133,7 +133,7 @@ public class upd7759
 	struct UPD7759voice
 	{
 		int playing;            /* 1 if we are actively playing */
-		unsigned char *base;    /* pointer to the base memory location */
+		UBytePtr base;    /* pointer to the base memory location */
 		int mask;               /* mask to keep us within the buffer */
 		int sample; 			/* current sample number (sample data in slave mode) */
 		int freq;				/* current sample playback freq */
@@ -220,9 +220,9 @@ public class upd7759
 	{
 		int j;
 		int nextoff = 0;
-		unsigned char *memrom;
-		unsigned char *header;   /* upd7759 has a 4 byte what we assume is an identifier (bytes 1-4)*/
-		unsigned char *data;
+		UBytePtr memrom;
+		UBytePtr header;   /* upd7759 has a 4 byte what we assume is an identifier (bytes 1-4)*/
+		UBytePtr data;
 	
 	
 		memrom = memory_region(upd7759_intf.region[num]);
@@ -383,7 +383,7 @@ public class upd7759
 				}
 				else
 				{
-					unsigned char *base = voice.base;
+					UBytePtr base = voice.base;
 	                int val;
 	#if OVERSAMPLING
 					int i, delta;

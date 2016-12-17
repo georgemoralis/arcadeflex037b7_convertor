@@ -40,7 +40,7 @@ public class llander
 	
 	***************************************************************************/
 	
-	void llander_init_colors (unsigned char *palette, unsigned short *colortable,const unsigned char *color_prom)
+	void llander_init_colors (UBytePtr palette, unsigned short *colortable,const UBytePtr color_prom)
 	{
 		int width, height, i, nextcol;
 	

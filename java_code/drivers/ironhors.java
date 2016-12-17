@@ -40,8 +40,8 @@ public class ironhors
 {
 	
 	
-	extern unsigned char *ironhors_scroll;
-	static unsigned char *ironhors_interrupt_enable;
+	extern UBytePtr ironhors_scroll;
+	static UBytePtr ironhors_interrupt_enable;
 	
 	
 	

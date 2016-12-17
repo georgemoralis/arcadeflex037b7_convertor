@@ -28,9 +28,9 @@ public class exterm
 	
 	
 	static struct osd_bitmap *tmpbitmap1, *tmpbitmap2;
-	unsigned char *exterm_master_videoram, *exterm_slave_videoram;
+	UBytePtr exterm_master_videoram, *exterm_slave_videoram;
 	
-	void exterm_init_palette(unsigned char *palette, unsigned short *colortable,const unsigned char *color_prom)
+	void exterm_init_palette(UBytePtr palette, unsigned short *colortable,const UBytePtr color_prom)
 	{
 		int i;
 	
@@ -179,8 +179,8 @@ public class exterm
 																			\
 	    for (i = 0; i < 256; i++)											\
 		{																	\
-			*(line1++) = pens[((unsigned char*)shiftreg)[i    ]];			\
-			*(line2++) = pens[((unsigned char*)shiftreg)[i+256]];			\
+			*(line1++) = pens[((UBytePtr )shiftreg)[i    ]];			\
+			*(line2++) = pens[((UBytePtr )shiftreg)[i+256]];			\
 		}																	\
 																			\
 		memcpy(&exterm_slave_videoram[address>>3], shiftreg, 256*2*sizeof(unsigned char));

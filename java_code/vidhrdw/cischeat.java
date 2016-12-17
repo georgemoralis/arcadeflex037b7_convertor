@@ -74,7 +74,7 @@ public class cischeat
 	#endif
 	
 	/* Variables that driver has access to: */
-	unsigned char *cischeat_roadram[2];
+	UBytePtr cischeat_roadram[2];
 	
 	/* Variables defined in driver: */
 	
@@ -390,7 +390,7 @@ public class cischeat
 		unsigned int *pen_usage		=	Machine.gfx[gfx_num].pen_usage;
 	//	int total_color_codes		=	gfx.total_color_codes;
 		int color_codes_start		=	gfx.color_codes_start;
-		unsigned char *roadram		=	cischeat_roadram[road_num & 1];
+		UBytePtr roadram		=	cischeat_roadram[road_num & 1];
 	
 		int min_y = Machine.visible_area. min_y;
 		int max_y = Machine.visible_area. max_y;
@@ -430,7 +430,7 @@ public class cischeat
 		int min_priority, max_priority;
 	
 		struct rectangle rect		=	Machine.visible_area;
-		unsigned char *roadram		=	cischeat_roadram[road_num & 1];
+		UBytePtr roadram		=	cischeat_roadram[road_num & 1];
 		struct GfxElement *gfx		=	Machine.gfx[(road_num & 1)?4:3];
 	
 		int min_y = rect.min_y;
@@ -527,7 +527,7 @@ public class cischeat
 		unsigned int *pen_usage		=	Machine.gfx[gfx_num].pen_usage;
 	//	int total_color_codes		=	gfx.total_color_codes;
 		int color_codes_start		=	gfx.color_codes_start;
-		unsigned char *roadram		=	cischeat_roadram[road_num & 1];
+		UBytePtr roadram		=	cischeat_roadram[road_num & 1];
 	
 		int min_y = Machine.visible_area.min_y;
 		int max_y = Machine.visible_area.max_y;
@@ -567,7 +567,7 @@ public class cischeat
 		int min_priority, max_priority;
 	
 		struct rectangle rect		=	Machine.visible_area;
-		unsigned char *roadram		=	cischeat_roadram[road_num & 1];
+		UBytePtr roadram		=	cischeat_roadram[road_num & 1];
 		struct GfxElement *gfx		=	Machine.gfx[(road_num & 1)?4:3];
 	
 		int min_y = rect.min_y;
@@ -663,8 +663,8 @@ public class cischeat
 		int ymin = Machine.visible_area.min_y;
 		int ymax = Machine.visible_area.max_y;
 	
-		unsigned char		*source	= spriteram;
-		const unsigned char *finish	= source + 0x1000;
+		UBytePtr source	= spriteram;
+		const UBytePtr finish	= source + 0x1000;
 	
 		for (color = 0 ; color < SPRITE_COLOR_CODES ; color++) colmask[color] = 0;
 	
@@ -764,8 +764,8 @@ public class cischeat
 	
 		int min_priority, max_priority, high_sprites;
 	
-		unsigned char		*source	= spriteram;
-		const unsigned char *finish	= source + 0x1000;
+		UBytePtr source	= spriteram;
+		const UBytePtr finish	= source + 0x1000;
 	
 	
 		/* Move the priority values in place */

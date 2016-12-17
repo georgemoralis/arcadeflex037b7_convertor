@@ -14,16 +14,16 @@ package vidhrdw;
 public class goindol
 {
 	
-	unsigned char 	 	 *goindol_bg_videoram;
-	unsigned char 	 	 *goindol_fg_videoram;
-	unsigned char 		 *goindol_spriteram1;
-	unsigned char 		 *goindol_spriteram2;
-	unsigned char 		 *goindol_fg_scrollx;
-	unsigned char 		 *goindol_fg_scrolly;
+	UBytePtr goindol_bg_videoram;
+	UBytePtr goindol_fg_videoram;
+	UBytePtr goindol_spriteram1;
+	UBytePtr goindol_spriteram2;
+	UBytePtr goindol_fg_scrollx;
+	UBytePtr goindol_fg_scrolly;
 	static struct osd_bitmap *bitmap_bg;
 	static struct osd_bitmap *bitmap_fg;
-	static unsigned char 	 *fg_dirtybuffer;
-	static unsigned char 	 *bg_dirtybuffer;
+	static UBytePtr fg_dirtybuffer;
+	static UBytePtr bg_dirtybuffer;
 	
 	size_t goindol_fg_videoram_size;
 	size_t goindol_bg_videoram_size;
@@ -194,7 +194,7 @@ public class goindol
 	
 	}
 	
-	void goindol_draw_sprites(struct osd_bitmap *bitmap, int gfxbank, unsigned char *sprite_ram)
+	void goindol_draw_sprites(struct osd_bitmap *bitmap, int gfxbank, UBytePtr sprite_ram)
 	{
 		int offs,sx,sy,tile,palette;
 	

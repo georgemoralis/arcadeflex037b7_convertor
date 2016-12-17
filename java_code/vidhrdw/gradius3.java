@@ -11,11 +11,11 @@ public class gradius3
 	#define TOTAL_CHARS 0x1000
 	#define TOTAL_SPRITES 0x4000
 	
-	unsigned char *gradius3_gfxram;
+	UBytePtr gradius3_gfxram;
 	int gradius3_priority;
 	static int layer_colorbase[3],sprite_colorbase;
 	static int dirtygfx;
-	static unsigned char *dirtychar;
+	static UBytePtr dirtychar;
 	
 	
 	
@@ -130,7 +130,7 @@ public class gradius3
 	
 	public static ReadHandlerPtr gradius3_gfxrom_r  = new ReadHandlerPtr() { public int handler(int offset)
 	{
-		unsigned char *gfxdata = memory_region(REGION_GFX2);
+		UBytePtr gfxdata = memory_region(REGION_GFX2);
 	
 		return (gfxdata[offset+1] << 8) | gfxdata[offset];
 	} };

@@ -8,11 +8,11 @@ public class aerofgt
 {
 	
 	
-	extern unsigned char *spriteram_2;
+	extern UBytePtr spriteram_2;
 	extern size_t spriteram_2_size;
-	unsigned char *aerofgt_rasterram;
-	unsigned char *aerofgt_bg1videoram,*aerofgt_bg2videoram;
-	unsigned char *aerofgt_spriteram1,*aerofgt_spriteram2;
+	UBytePtr aerofgt_rasterram;
+	UBytePtr aerofgt_bg1videoram,*aerofgt_bg2videoram;
+	UBytePtr aerofgt_spriteram1,*aerofgt_spriteram2;
 	size_t aerofgt_spriteram1_size,aerofgt_spriteram2_size;
 	
 	static unsigned char gfxbank[8];

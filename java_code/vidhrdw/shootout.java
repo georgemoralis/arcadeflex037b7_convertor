@@ -14,7 +14,7 @@ public class shootout
 	
 	#define NUM_SPRITES 128
 	
-	extern unsigned char *shootout_textram;
+	extern UBytePtr shootout_textram;
 	static struct sprite_list *sprite_list;
 	
 	
@@ -154,7 +154,7 @@ public class shootout
 		const struct GfxElement *gfx = Machine.gfx[0];
 		int sx,sy;
 	
-		unsigned char *source = shootout_textram;
+		UBytePtr source = shootout_textram;
 	
 		for( sy=0; sy<256; sy+=8 ){
 			for( sx=0; sx<256; sx+=8 ){

@@ -37,7 +37,7 @@ public class shootout
 {
 	
 	/* externals: from vidhrdw */
-	extern extern extern unsigned char *shootout_textram;
+	extern extern extern UBytePtr shootout_textram;
 	
 	extern 
 	/*******************************************************************************/
@@ -45,7 +45,7 @@ public class shootout
 	public static WriteHandlerPtr shootout_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
 		int bankaddress;
-		unsigned char *RAM;
+		UBytePtr RAM;
 	
 		RAM = memory_region(REGION_CPU1);
 		bankaddress = 0x10000 + ( 0x4000 * (data & 0x0f) );
@@ -465,7 +465,7 @@ public class shootout
 	
 	static public static InitDriverPtr init_shootout = new InitDriverPtr() { public void handler() 
 	{
-		unsigned char *rom = memory_region(REGION_CPU1);
+		UBytePtr rom = memory_region(REGION_CPU1);
 		int diff = memory_region_length(REGION_CPU1) / 2;
 		int A;
 	

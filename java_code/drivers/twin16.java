@@ -59,9 +59,9 @@ public class twin16
 	
 	UINT16 twin16_custom_vidhrdw;
 	UINT16 *twin16_gfx_rom;
-	unsigned char *twin16_sprite_gfx_ram;
-	unsigned char *twin16_tile_gfx_ram;
-	unsigned char *twin16_fixram; /* text layer */
+	UBytePtr twin16_sprite_gfx_ram;
+	UBytePtr twin16_tile_gfx_ram;
+	UBytePtr twin16_fixram; /* text layer */
 	
 	static UINT16 twin16_CPUA_register, twin16_CPUB_register;
 	#define CPUA_IRQ_ENABLE (twin16_CPUA_register&0x20)
@@ -70,7 +70,7 @@ public class twin16
 	static UINT8 twin16_soundlatch;
 	static UINT16 twin16_sound_command;
 	
-	static unsigned char *battery_backed_ram;
+	static UBytePtr battery_backed_ram;
 	
 	
 	

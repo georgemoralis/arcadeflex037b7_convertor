@@ -29,8 +29,8 @@ public class trackfld
 	
 	
 	
-	extern unsigned char *trackfld_scroll;
-	extern unsigned char *trackfld_scroll2;
+	extern UBytePtr trackfld_scroll;
+	extern UBytePtr trackfld_scroll2;
 	
 	
 	
@@ -63,7 +63,7 @@ public class trackfld
 	/*
 	 Track'n'Field has 1k of battery backed RAM which can be erased by setting a dipswitch
 	*/
-	static unsigned char *nvram;
+	static UBytePtr nvram;
 	static size_t nvram_size;
 	static int we_flipped_the_switch;
 	

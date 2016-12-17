@@ -17,14 +17,14 @@ package vidhrdw;
 public class jedi
 {
 	
-	unsigned char *jedi_backgroundram;
+	UBytePtr jedi_backgroundram;
 	size_t jedi_backgroundram_size;
-	unsigned char *jedi_PIXIRAM;
+	UBytePtr jedi_PIXIRAM;
 	static unsigned int jedi_vscroll;
 	static unsigned int jedi_hscroll;
 	static unsigned int jedi_alpha_bank;
 	static int video_off,smooth_table;
-	static unsigned char *dirtybuffer2;
+	static UBytePtr dirtybuffer2;
 	static struct osd_bitmap *tmpbitmap2,*tmpbitmap3;
 	
 	

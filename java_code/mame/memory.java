@@ -49,8 +49,8 @@ public class memory
 		#define BYTE_XOR_LE(a) ((a) ^ 1)
 	#endif
 	
-	unsigned char *OP_RAM;
-	unsigned char *OP_ROM;
+	UBytePtr OP_RAM;
+	UBytePtr OP_ROM;
 	
 	/* change bases preserving opcode/data shift for encrypted games */
 	#define SET_OP_RAMROM(base) 				\
@@ -62,7 +62,7 @@ public class memory
 	
 	struct ExtMemory ext_memory[MAX_EXT_MEMORY];
 	
-	static unsigned char *ramptr[MAX_CPU],*romptr[MAX_CPU];
+	static UBytePtr ramptr[MAX_CPU],*romptr[MAX_CPU];
 	
 	/* element shift bits, mask bits */
 	int mhshift[MAX_CPU][3], mhmask[MAX_CPU][3];
@@ -126,7 +126,7 @@ public class memory
 	int memorywriteoffset[MH_HARDMAX];
 	
 	/* bank ram base address; RAM is bank 0 */
-	unsigned char *cpu_bankbase[HT_BANKMAX + 1];
+	UBytePtr cpu_bankbase[HT_BANKMAX + 1];
 	static int bankreadoffset[HT_BANKMAX + 1];
 	static int bankwriteoffset[HT_BANKMAX + 1];
 	
@@ -431,7 +431,7 @@ public class memory
 	}
 	
 	
-	unsigned char *findmemorychunk(int cpu, int offset, int *chunkstart, int *chunkend)
+	UBytePtr findmemorychunk(int cpu, int offset, int *chunkstart, int *chunkend)
 	{
 		int region = REGION_CPU1+cpu;
 		struct ExtMemory *ext;
@@ -452,7 +452,7 @@ public class memory
 	}
 	
 	
-	unsigned char *memory_find_base (int cpu, int offset)
+	UBytePtr memory_find_base (int cpu, int offset)
 	{
 		int region = REGION_CPU1+cpu;
 		struct ExtMemory *ext;
@@ -693,7 +693,7 @@ public class memory
 		return 1;	/* ok */
 	}
 	
-	void memory_set_opcode_base(int cpu,unsigned char *base)
+	void memory_set_opcode_base(int cpu,UBytePtr base)
 	{
 		romptr[cpu] = base;
 	}

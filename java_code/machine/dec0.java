@@ -15,7 +15,7 @@ package machine;
 public class dec0
 {
 	
-	extern unsigned char *dec0_ram;
+	extern UBytePtr dec0_ram;
 	static int GAME,i8751_return,slyspy_state;
 	
 	
@@ -494,7 +494,7 @@ public class dec0
 	
 	public static WriteHandlerPtr sprite_mirror_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		extern unsigned char *spriteram;
+		extern UBytePtr spriteram;
 		WRITE_WORD (&spriteram.read(offset), data);
 	} };
 	
@@ -505,7 +505,7 @@ public class dec0
 		install_mem_read_handler(0, 0xff8010, 0xff8011, hbarrel_cycle_r);
 		GAME=1;
 	{ /* Remove this patch once processing time of i8751 is simulated */
-	unsigned char *RAM = memory_region(REGION_CPU1);
+	UBytePtr RAM = memory_region(REGION_CPU1);
 	WRITE_WORD (&RAM[0xb3e],0x8008);
 	}
 	}
@@ -516,7 +516,7 @@ public class dec0
 		GAME=1;
 	
 	{ /* Remove this patch once processing time of i8751 is simulated */
-	unsigned char *RAM = memory_region(REGION_CPU1);
+	UBytePtr RAM = memory_region(REGION_CPU1);
 	WRITE_WORD (&RAM[0xb68],0x8008);
 	}
 	}

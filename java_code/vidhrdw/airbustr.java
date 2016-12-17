@@ -42,10 +42,10 @@ public class airbustr
 	static struct tilemap *bg_tilemap,*fg_tilemap;
 	
 	/* Variables that drivers has access to */
-	unsigned char *airbustr_bgram, *airbustr_fgram;
+	UBytePtr airbustr_bgram, *airbustr_fgram;
 	
 	/* Variables defined in drivers */
-	extern unsigned char *spriteram;
+	extern UBytePtr spriteram;
 	extern int flipscreen;
 	
 	
@@ -177,7 +177,7 @@ public class airbustr
 		/* Let's draw the sprites */
 		for (i = 0 ; i < 2 ; i++)
 		{
-			unsigned char *ram = &spriteram[i * 0x800];
+			UBytePtr ram = &spriteram[i * 0x800];
 			int sx = 0;
 			int sy = 0;
 	
@@ -220,7 +220,7 @@ public class airbustr
 	
 	public static VhUpdatePtr airbustr_vh_screenrefresh = new VhUpdatePtr() { public void handler(osd_bitmap bitmap,int full_refresh) 
 	{
-	unsigned char *ram;
+	UBytePtr ram;
 	int i, offs;
 	
 	#if 0

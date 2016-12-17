@@ -43,8 +43,8 @@ public class galaxian
 	#define MAX_STARS 250
 	#define STARS_COLOR_BASE 32
 	
-	unsigned char *galaxian_attributesram;
-	unsigned char *galaxian_bulletsram;
+	UBytePtr galaxian_attributesram;
+	UBytePtr galaxian_bulletsram;
 	
 	size_t galaxian_bulletsram_size;
 	static int stars_on,stars_blink;
@@ -539,7 +539,7 @@ public class galaxian
 	public static VhStartPtr mariner_vh_start = new VhStartPtr() { public int handler() 
 	{
 		int x;
-		unsigned char *background_prom;
+		UBytePtr background_prom;
 	
 	
 		int ret = common_vh_start();

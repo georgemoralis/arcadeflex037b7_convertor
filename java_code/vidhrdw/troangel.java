@@ -8,7 +8,7 @@ public class troangel
 {
 	
 	
-	unsigned char *troangel_scroll;
+	UBytePtr troangel_scroll;
 	
 	static int flipscreen;
 	

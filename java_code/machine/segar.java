@@ -18,7 +18,7 @@ public class segar
 	
 	void (*sega_decrypt)(int,unsigned int *);
 	
-	unsigned char *segar_mem;
+	UBytePtr segar_mem;
 	
 	
 	

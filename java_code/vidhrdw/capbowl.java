@@ -15,9 +15,9 @@ package vidhrdw;
 public class capbowl
 {
 	
-	unsigned char *capbowl_rowaddress;
+	UBytePtr capbowl_rowaddress;
 	
-	static unsigned char *raw_video_ram;
+	static UBytePtr raw_video_ram;
 	static unsigned int  color_count[4096];
 	static unsigned char dirty_row[256];
 	
@@ -214,7 +214,7 @@ public class capbowl
 	public static VhUpdatePtr capbowl_vh_screenrefresh = new VhUpdatePtr() { public void handler(osd_bitmap bitmap,int full_refresh) 
 	{
 		int col, row;
-		const unsigned char *remapped;
+		const UBytePtr remapped;
 	
 	
 		if (full_refresh != 0)

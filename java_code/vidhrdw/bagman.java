@@ -17,7 +17,7 @@ public class bagman
 	
 	
 	
-	unsigned char *bagman_video_enable;
+	UBytePtr bagman_video_enable;
 	static int flipscreen[2];
 	
 	/***************************************************************************

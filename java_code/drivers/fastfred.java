@@ -67,7 +67,7 @@ package drivers;
 public class fastfred
 {
 	
-	extern unsigned char *galaxian_attributesram;
+	extern UBytePtr galaxian_attributesram;
 	
 	
 	public static ReadHandlerPtr jumpcoas_custom_io_r  = new ReadHandlerPtr() { public int handler(int offset)

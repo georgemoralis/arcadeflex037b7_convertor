@@ -14,8 +14,8 @@ public class brkthru
 {
 	
 	
-	unsigned char *brkthru_scroll;
-	unsigned char *brkthru_videoram;
+	UBytePtr brkthru_scroll;
+	UBytePtr brkthru_videoram;
 	size_t brkthru_videoram_size;
 	static int bgscroll;
 	static int bgbasecolor;
@@ -138,7 +138,7 @@ public class brkthru
 		else if (offset == 1)
 		{
 			int bankaddress;
-			unsigned char *RAM = memory_region(REGION_CPU1);
+			UBytePtr RAM = memory_region(REGION_CPU1);
 	
 	
 			/* bit 0-2 = ROM bank select */

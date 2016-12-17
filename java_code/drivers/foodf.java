@@ -66,8 +66,8 @@ public class foodf
 	extern size_t foodf_playfieldram_size;
 	extern size_t foodf_spriteram_size;
 	
-	extern unsigned char *foodf_spriteram;
-	extern unsigned char *foodf_playfieldram;
+	extern UBytePtr foodf_spriteram;
+	extern UBytePtr foodf_playfieldram;
 	
 	
 	

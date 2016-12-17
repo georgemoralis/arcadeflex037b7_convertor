@@ -16,7 +16,7 @@ public class meteor
 {
 	
 	
-	unsigned char *meteor_scrollram;
+	UBytePtr meteor_scrollram;
 	
 	
 	/***************************************************************************

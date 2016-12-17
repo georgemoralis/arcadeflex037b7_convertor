@@ -279,7 +279,7 @@ public class skyfox
 	
 	void skyfox_draw_background(struct osd_bitmap *bitmap)
 	{
-		unsigned char *RAM	=	memory_region(REGION_GFX2);
+		UBytePtr RAM	=	memory_region(REGION_GFX2);
 		int x,y,i;
 	
 		/* The foreground stars (sprites) move at twice this speed when

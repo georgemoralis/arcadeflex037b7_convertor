@@ -139,7 +139,7 @@ public class kabuki
 		return src;
 	}
 	
-	void kabuki_decode(unsigned char *src,unsigned char *dest_op,unsigned char *dest_data,
+	void kabuki_decode(UBytePtr src,UBytePtr dest_op,UBytePtr dest_data,
 			int base_addr,int length,int swap_key1,int swap_key2,int addr_key,int xor_key)
 	{
 		int A;
@@ -162,7 +162,7 @@ public class kabuki
 	static void mitchell_decode(int swap_key1,int swap_key2,int addr_key,int xor_key)
 	{
 		int i;
-		unsigned char *rom = memory_region(REGION_CPU1);
+		UBytePtr rom = memory_region(REGION_CPU1);
 		int diff = memory_region_length(REGION_CPU1) / 2;
 	
 		memory_set_opcode_base(0,rom+diff);
@@ -185,8 +185,8 @@ public class kabuki
 	
 	static void cps1_decode(int swap_key1,int swap_key2,int addr_key,int xor_key)
 	{
-		unsigned char *rom = memory_region(REGION_CPU2);
-		unsigned char *backup = memory_region(REGION_USER1);
+		UBytePtr rom = memory_region(REGION_CPU2);
+		UBytePtr backup = memory_region(REGION_USER1);
 		int diff = memory_region_length(REGION_CPU2) / 2;
 	
 		/* the main CPU can read the ROM and checksum it to verify that it hasn't been */

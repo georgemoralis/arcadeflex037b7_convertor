@@ -243,10 +243,10 @@ public class stfight
 	// vidhrdw
 	
 	// vidhrdw
-	extern unsigned char *stfight_text_char_ram;
-	extern unsigned char *stfight_text_attr_ram;
-	extern unsigned char *stfight_vh_latch_ram;
-	extern unsigned char *stfight_sprite_ram;
+	extern UBytePtr stfight_text_char_ram;
+	extern UBytePtr stfight_text_attr_ram;
+	extern UBytePtr stfight_vh_latch_ram;
+	extern UBytePtr stfight_sprite_ram;
 	
 	static MemoryReadAddress readmem_cpu1[] =
 	{

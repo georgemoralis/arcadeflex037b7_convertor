@@ -24,11 +24,11 @@ public class copsnrob
 		{{-1,-1,-1,-1},0,0,0,0}
 	};
 	
-	unsigned char *copsnrob_bulletsram;
-	unsigned char *copsnrob_carimage;
-	unsigned char *copsnrob_cary;
-	unsigned char *copsnrob_trucky;
-	unsigned char *copsnrob_truckram;
+	UBytePtr copsnrob_bulletsram;
+	UBytePtr copsnrob_carimage;
+	UBytePtr copsnrob_cary;
+	UBytePtr copsnrob_trucky;
+	UBytePtr copsnrob_truckram;
 	
 	
 	public static VhStartPtr copsnrob_vh_start = new VhStartPtr() { public int handler() 

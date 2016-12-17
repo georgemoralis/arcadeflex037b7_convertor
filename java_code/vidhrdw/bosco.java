@@ -19,8 +19,8 @@ public class bosco
 	#define MAX_STARS 250
 	#define STARS_COLOR_BASE 32
 	
-	unsigned char *bosco_staronoff;
-	unsigned char *bosco_starblink;
+	UBytePtr bosco_staronoff;
+	UBytePtr bosco_starblink;
 	static unsigned int stars_scrollx;
 	static unsigned int stars_scrolly;
 	static unsigned char bosco_scrollx,bosco_scrolly;
@@ -38,11 +38,11 @@ public class bosco
 	
 	#define VIDEO_RAM_SIZE 0x400
 	
-	unsigned char *bosco_videoram2,*bosco_colorram2;
-	unsigned char *bosco_radarx,*bosco_radary,*bosco_radarattr;
+	UBytePtr bosco_videoram2,*bosco_colorram2;
+	UBytePtr bosco_radarx,*bosco_radary,*bosco_radarattr;
 	size_t bosco_radarram_size;
 												/* to speed up video refresh */
-	static unsigned char *dirtybuffer2;	/* keep track of modified portions of the screen */
+	static UBytePtr dirtybuffer2;	/* keep track of modified portions of the screen */
 												/* to speed up video refresh */
 	static struct osd_bitmap *tmpbitmap1;
 	

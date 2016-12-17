@@ -87,7 +87,7 @@ public class frogger
 	
 	
 	
-	extern unsigned char *frogger_attributesram;
+	extern UBytePtr frogger_attributesram;
 	
 	
 	public static WriteHandlerPtr frogger_counterb_w = new WriteHandlerPtr() {public void handler(int offset, int data)
@@ -490,7 +490,7 @@ public class frogger
 	static public static InitDriverPtr init_frogger = new InitDriverPtr() { public void handler() 
 	{
 		int A;
-		unsigned char *RAM;
+		UBytePtr RAM;
 	
 	
 		/* the first ROM of the second CPU has data lines D0 and D1 swapped. Decode it. */
@@ -507,7 +507,7 @@ public class frogger
 	static public static InitDriverPtr init_froggrmc = new InitDriverPtr() { public void handler() 
 	{
 		int A;
-		unsigned char *RAM;
+		UBytePtr RAM;
 	
 	
 		/* the first ROM of the second CPU has data lines D0 and D1 swapped. Decode it. */

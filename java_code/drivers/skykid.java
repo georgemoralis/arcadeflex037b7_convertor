@@ -16,8 +16,8 @@ package drivers;
 public class skykid
 {
 	
-	static unsigned char *sharedram;
-	extern unsigned char *skykid_textram, *spriteram, *skykid_videoram;
+	static UBytePtr sharedram;
+	extern UBytePtr skykid_textram, *spriteram, *skykid_videoram;
 	
 	/* from vidhrdw/skykid.c */
 	
@@ -108,7 +108,7 @@ public class skykid
 	public static WriteHandlerPtr skykid_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
 		int bankaddress;
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 		bankaddress = 0x10000 + (offset ? 0 : 0x2000);
 		cpu_setbank(1,&RAM[bankaddress]);

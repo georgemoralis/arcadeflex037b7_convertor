@@ -90,10 +90,10 @@ public class kangaroo
 	
 	
 	/* vidhrdw */
-	extern unsigned char *kangaroo_video_control;
-	extern unsigned char *kangaroo_bank_select;
-	extern unsigned char *kangaroo_blitter;
-	extern unsigned char *kangaroo_scroll;
+	extern UBytePtr kangaroo_video_control;
+	extern UBytePtr kangaroo_bank_select;
+	extern UBytePtr kangaroo_blitter;
+	extern UBytePtr kangaroo_scroll;
 	
 	
 	

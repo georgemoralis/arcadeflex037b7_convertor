@@ -22,14 +22,14 @@ public class flkatck
 	/* from vidhrdw/flkatck.c */
 	void flkatck_vh_screenrefresh(struct osd_bitmap *bitmap,int fullrefresh);
 	
-	extern unsigned char *k007121_ram;
+	extern UBytePtr k007121_ram;
 	extern int flkatck_irq_enabled;
 	
 	/***************************************************************************/
 	
 	static public static InitMachinePtr flkatck_init_machine = new InitMachinePtr() { public void handler() 
 	{
-		unsigned char *RAM = memory_region(REGION_SOUND1);
+		UBytePtr RAM = memory_region(REGION_SOUND1);
 		int bank_A, bank_B;
 	
 		bank_A = 0x20000 * 0;
@@ -47,7 +47,7 @@ public class flkatck
 	
 	public static WriteHandlerPtr flkatck_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 		int bankaddress = 0;
 	
 		/* bits 3-4: coin counters */

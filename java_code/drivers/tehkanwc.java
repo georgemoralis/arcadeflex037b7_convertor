@@ -27,13 +27,13 @@ public class tehkanwc
 {
 	
 	
-	extern unsigned char *tehkanwc_videoram1;
+	extern UBytePtr tehkanwc_videoram1;
 	extern size_t tehkanwc_videoram1_size;
 	
 	/* from vidhrdw */
 	
 	
-	static unsigned char *shared_ram;
+	static UBytePtr shared_ram;
 	
 	public static ReadHandlerPtr shared_r  = new ReadHandlerPtr() { public int handler(int offset)
 	{
@@ -146,7 +146,7 @@ public class tehkanwc
 	{
 		static int toggle;
 	
-		unsigned char *SAMPLES = memory_region(REGION_SOUND1);
+		UBytePtr SAMPLES = memory_region(REGION_SOUND1);
 		int msm_data = SAMPLES[msm_data_offs & 0x7fff];
 	
 		if (toggle == 0)

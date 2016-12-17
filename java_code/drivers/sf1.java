@@ -16,12 +16,12 @@ public class sf1
 {
 	
 	
-	extern unsigned char *sf1_objectram;
+	extern UBytePtr sf1_objectram;
 	extern int sf1_deltaxb;
 	extern int sf1_deltaxm;
 	extern int sf1_active;
 	
-	static unsigned char *sharedram;
+	static UBytePtr sharedram;
 	
 	void sf1_active_w(int data);
 	
@@ -67,7 +67,7 @@ public class sf1
 		case 0x3a1d6:
 			if(!(cpu_get_reg(M68K_SR) & 0x0700)) {
 				int i;
-				unsigned char *adr = sharedram+6;
+				UBytePtr adr = sharedram+6;
 				for(i=0;i<16;i++) {
 					if(READ_WORD(adr) & 0x0300)
 						return;

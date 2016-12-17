@@ -13,9 +13,9 @@ package vidhrdw;
 public class gaiden
 {
 	
-	unsigned char *gaiden_videoram;
-	unsigned char *gaiden_videoram2;
-	unsigned char *gaiden_videoram3;
+	UBytePtr gaiden_videoram;
+	UBytePtr gaiden_videoram2;
+	UBytePtr gaiden_videoram3;
 	
 	static struct tilemap *text_layer,*foreground,*background;
 	

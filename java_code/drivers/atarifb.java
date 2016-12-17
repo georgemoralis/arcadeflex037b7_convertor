@@ -111,9 +111,9 @@ public class atarifb
 	/* vidhrdw/atarifb.c */
 	extern size_t atarifb_alphap1_vram_size;
 	extern size_t atarifb_alphap2_vram_size;
-	extern unsigned char *atarifb_alphap1_vram;
-	extern unsigned char *atarifb_alphap2_vram;
-	extern unsigned char *atarifb_scroll_register;
+	extern UBytePtr atarifb_alphap1_vram;
+	extern UBytePtr atarifb_alphap2_vram;
+	extern UBytePtr atarifb_scroll_register;
 	
 	extern extern extern 
 	/* machine/atarifb.c */
@@ -630,7 +630,7 @@ public class atarifb
 		0x03, 0x00,
 		0x03, 0x02,
 	};
-	static void init_palette(unsigned char *game_palette, unsigned short *game_colortable,const unsigned char *color_prom)
+	static void init_palette(UBytePtr game_palette, unsigned short *game_colortable,const UBytePtr color_prom)
 	{
 		memcpy(game_palette,palette,sizeof(palette));
 		memcpy(game_colortable,colortable,sizeof(colortable));

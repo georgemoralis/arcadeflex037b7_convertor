@@ -118,7 +118,7 @@ public class cheat
 	#endif
 	#endif
 	
-	extern unsigned char *memory_find_base (int cpu, int offset);
+	extern UBytePtr memory_find_base (int cpu, int offset);
 	
 	/******************************************
 	 *
@@ -1528,7 +1528,7 @@ public class cheat
 	static void backup_ram (struct ExtMemory *table, int cpu)
 	{
 		struct ExtMemory *ext;
-		unsigned char *gameram;
+		UBytePtr gameram;
 	
 		for (ext = table; ext.data; ext++)
 		{

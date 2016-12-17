@@ -8,7 +8,7 @@ public class simpsons
 {
 	
 	static int bg_colorbase,sprite_colorbase,layer_colorbase[3];
-	unsigned char *simpsons_xtraram;
+	UBytePtr simpsons_xtraram;
 	static int layerpri[3];
 	
 	

@@ -40,11 +40,11 @@ public class cave
 	
 	
 	/* Variables that driver has access to: */
-	unsigned char *cave_videoregs;
+	UBytePtr cave_videoregs;
 	
-	unsigned char *cave_vram_0, *cave_vctrl_0;
-	unsigned char *cave_vram_1, *cave_vctrl_1;
-	unsigned char *cave_vram_2, *cave_vctrl_2;
+	UBytePtr cave_vram_0, *cave_vctrl_0;
+	UBytePtr cave_vram_1, *cave_vctrl_1;
+	UBytePtr cave_vram_2, *cave_vctrl_2;
 	
 	/* Variables only used here: */
 	
@@ -387,7 +387,7 @@ public class cave
 	/* Function needed for games with 4 bit sprites, rather than 8 bit */
 	
 	
-	void dfeveron_vh_init_palette(unsigned char *palette, unsigned short *colortable,const unsigned char *color_prom)
+	void dfeveron_vh_init_palette(UBytePtr palette, unsigned short *colortable,const UBytePtr color_prom)
 	{
 		int color, pen;
 	
@@ -403,7 +403,7 @@ public class cave
 	
 	
 	
-	void ddonpach_vh_init_palette(unsigned char *palette, unsigned short *colortable,const unsigned char *color_prom)
+	void ddonpach_vh_init_palette(UBytePtr palette, unsigned short *colortable,const UBytePtr color_prom)
 	{
 		int color, pen;
 	
@@ -462,12 +462,12 @@ public class cave
 		const int region				=	REGION_GFX4;
 	
 		const unsigned short *base_pal	=	Machine.remapped_colortable + 0;
-		const unsigned char  *base_gfx	=	memory_region(region);
-		const unsigned char  *gfx_max	=	base_gfx + memory_region_length(region);
+		const UBytePtr base_gfx	=	memory_region(region);
+		const UBytePtr gfx_max	=	base_gfx + memory_region_length(region);
 	
 		int sprite_bank					=	READ_WORD(&cave_videoregs[8]) & 1;
 	
-		unsigned char *source			=	spriteram + (spriteram_size / 2) * sprite_bank;
+		UBytePtr source			=	spriteram + (spriteram_size / 2) * sprite_bank;
 		struct sprite *sprite			=	sprite_list.sprite;
 		const struct sprite *finish		=	sprite + spriteram_size / 0x10 / 2;
 	

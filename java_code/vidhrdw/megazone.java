@@ -15,12 +15,12 @@ package vidhrdw;
 public class megazone
 {
 	
-	unsigned char *megazone_scrollx;
-	unsigned char *megazone_scrolly;
+	UBytePtr megazone_scrollx;
+	UBytePtr megazone_scrolly;
 	static int flipscreen;
 	
-	unsigned char *megazone_videoram2;
-	unsigned char *megazone_colorram2;
+	UBytePtr megazone_videoram2;
+	UBytePtr megazone_colorram2;
 	size_t megazone_videoram2_size;
 	
 	/***************************************************************************

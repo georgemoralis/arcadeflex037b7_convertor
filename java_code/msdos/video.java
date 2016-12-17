@@ -428,7 +428,7 @@ public class video
 		{ 384, 256, scr384x256, sizeof(scr384x256)/sizeof(Register),  1, 1, 0 },
 		{ 0, 0 }
 	};
-	struct mode_adjust  {int x, y; unsigned char *hadjust; unsigned char *vadjust; int vertical_mode; };
+	struct mode_adjust  {int x, y; UBytePtr hadjust; UBytePtr vadjust; int vertical_mode; };
 	
 	/* horizontal and vertical total tweak values for above modes */
 	struct mode_adjust  pc_adjust[] = {
@@ -522,7 +522,7 @@ public class video
 		if ((bitmap = malloc(sizeof(struct osd_bitmap))) != 0)
 		{
 			int i,rowlen,rdwidth;
-			unsigned char *bm;
+			UBytePtr bm;
 	
 	
 			if (depth != 8 && depth != 16) depth = 8;
@@ -547,7 +547,7 @@ public class video
 			/* side of screen is width is not a multiple of 4 */
 			memset(bm,0,(height + 2 * safety) * rowlen);
 	
-			if ((bitmap.line = malloc((height + 2 * safety) * sizeof(unsigned char *))) == 0)
+			if ((bitmap.line = malloc((height + 2 * safety) * sizeof(UBytePtr ))) == 0)
 			{
 				free(bm);
 				free(bitmap);
@@ -1962,7 +1962,7 @@ public class video
 	
 	
 	
-	void osd_get_pen(int pen,unsigned char *red, unsigned char *green, unsigned char *blue)
+	void osd_get_pen(int pen,UBytePtr red, UBytePtr green, UBytePtr blue)
 	{
 		if (video_depth != 8 && modifiable_palette == 0)
 		{

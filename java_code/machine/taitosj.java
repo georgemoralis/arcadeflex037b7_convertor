@@ -40,7 +40,7 @@ public class taitosj
 	
 	public static WriteHandlerPtr taitosj_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 		cpu_setbank(1,&RAM[(data & 0x80) ? 0x10000 : 0x6000]);
 	} };

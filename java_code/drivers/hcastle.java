@@ -16,12 +16,12 @@ public class hcastle
 {
 	
 	
-	extern unsigned char *hcastle_pf1_videoram,*hcastle_pf2_videoram;
+	extern UBytePtr hcastle_pf1_videoram,*hcastle_pf2_videoram;
 	
 	
 	public static WriteHandlerPtr hcastle_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 		int bankaddress;
 	
 		bankaddress = 0x10000 + (data & 0x1f) * 0x2000;
@@ -41,7 +41,7 @@ public class hcastle
 	
 	public static ReadHandlerPtr speedup_r  = new ReadHandlerPtr() { public int handler(int offset)
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 		int data = ( RAM[0x18dc] << 8 ) | RAM[0x18dd];
 	
@@ -103,7 +103,7 @@ public class hcastle
 	
 	public static WriteHandlerPtr sound_bank_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		unsigned char *RAM = memory_region(REGION_SOUND1);
+		UBytePtr RAM = memory_region(REGION_SOUND1);
 		int bank_A=0x20000 * (data&0x3);
 		int bank_B=0x20000 * ((data>>2)&0x3);
 	

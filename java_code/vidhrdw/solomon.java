@@ -8,11 +8,11 @@ public class solomon
 {
 	
 	
-	unsigned char *solomon_bgvideoram;
-	unsigned char *solomon_bgcolorram;
+	UBytePtr solomon_bgvideoram;
+	UBytePtr solomon_bgcolorram;
 	
 	static struct osd_bitmap *tmpbitmap2;
-	static unsigned char *dirtybuffer2;
+	static UBytePtr dirtybuffer2;
 	static int flipscreen;
 	
 	

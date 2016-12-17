@@ -86,10 +86,10 @@ package drivers;
 public class bjtwin
 {
 	
-	extern unsigned char *bjtwin_workram;
-	extern unsigned char *bjtwin_spriteram;
-	extern unsigned char *bjtwin_txvideoram;
-	extern unsigned char *bjtwin_videocontrol;
+	extern UBytePtr bjtwin_workram;
+	extern UBytePtr bjtwin_spriteram;
+	extern UBytePtr bjtwin_txvideoram;
+	extern UBytePtr bjtwin_videocontrol;
 	extern size_t bjtwin_txvideoram_size;
 	
 	
@@ -348,7 +348,7 @@ public class bjtwin
 	
 	
 	
-	static unsigned char decode_byte(unsigned char src, unsigned char *bitp)
+	static unsigned char decode_byte(unsigned char src, UBytePtr bitp)
 	{
 		unsigned char ret, i;
 	
@@ -365,7 +365,7 @@ public class bjtwin
 	}
 	
 	
-	static unsigned short decode_word(unsigned short src, unsigned char *bitp)
+	static unsigned short decode_word(unsigned short src, UBytePtr bitp)
 	{
 		unsigned short ret, i;
 	
@@ -386,7 +386,7 @@ public class bjtwin
 	public static InitDriverPtr init_bjtwin = new InitDriverPtr() { public void handler() 
 	{
 		/* GFX are scrambled.  We decode them here.  (BIG Thanks to Antiriad for descrambling info) */
-		unsigned char *rom;
+		UBytePtr rom;
 	
 		static unsigned char decode_data_bg[8][8] =
 		{

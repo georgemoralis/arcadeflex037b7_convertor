@@ -20,11 +20,11 @@ public class cclimber
 	#define BIGSPRITE_WIDTH 128
 	#define BIGSPRITE_HEIGHT 128
 	
-	unsigned char *cclimber_bsvideoram;
+	UBytePtr cclimber_bsvideoram;
 	size_t cclimber_bsvideoram_size;
-	unsigned char *cclimber_bigspriteram;
-	unsigned char *cclimber_column_scroll;
-	static unsigned char *bsdirtybuffer;
+	UBytePtr cclimber_bigspriteram;
+	UBytePtr cclimber_column_scroll;
+	static UBytePtr bsdirtybuffer;
 	static struct osd_bitmap *bsbitmap;
 	static data_t palettebank;
 	static data_t sidepanel_enabled;

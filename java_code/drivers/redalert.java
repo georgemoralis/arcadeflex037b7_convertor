@@ -19,10 +19,10 @@ public class redalert
 {
 	
 	/* vidhrdw/redalert.c */
-	extern unsigned char *redalert_backram;
-	extern unsigned char *redalert_spriteram1;
-	extern unsigned char *redalert_spriteram2;
-	extern unsigned char *redalert_characterram;
+	extern UBytePtr redalert_backram;
+	extern UBytePtr redalert_spriteram1;
+	extern UBytePtr redalert_spriteram2;
+	extern UBytePtr redalert_characterram;
 	extern 
 	/* sndhrdw/redalert.c */
 	
@@ -228,7 +228,7 @@ public class redalert
 		0,8,5,1,
 	};
 	
-	static void init_palette(unsigned char *game_palette, unsigned short *game_colortable,const unsigned char *color_prom)
+	static void init_palette(UBytePtr game_palette, unsigned short *game_colortable,const UBytePtr color_prom)
 	{
 		memcpy(game_palette,palette,sizeof(palette));
 		memcpy(game_colortable,colortable,sizeof(colortable));

@@ -53,9 +53,9 @@ public class speedbal
 {
 	
 	
-	unsigned char *speedbal_foreground_videoram;
-	unsigned char *speedbal_background_videoram;
-	unsigned char *speedbal_sprites_dataram;
+	UBytePtr speedbal_foreground_videoram;
+	UBytePtr speedbal_background_videoram;
+	UBytePtr speedbal_sprites_dataram;
 	
 	size_t speedbal_foreground_videoram_size;
 	size_t speedbal_background_videoram_size;
@@ -63,7 +63,7 @@ public class speedbal
 	
 	
 	
-	unsigned char *speedbal_sharedram;
+	UBytePtr speedbal_sharedram;
 	
 	public static ReadHandlerPtr speedbal_sharedram_r  = new ReadHandlerPtr() { public int handler(int offset)
 	{

@@ -30,7 +30,7 @@ public class starwars
 	
 	
 	
-	static unsigned char *nvram;
+	static UBytePtr nvram;
 	static size_t nvram_size;
 	
 	static public static nvramPtr nvram_handler  = new nvramPtr() { public void handler(Object file, int read_or_write) 
@@ -50,7 +50,7 @@ public class starwars
 	
 	public static WriteHandlerPtr starwars_out_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 		switch (offset)
 		{
@@ -95,8 +95,8 @@ public class starwars
 	void slapstic_init (int chip);
 	int slapstic_tweak (offs_t offset);
 	
-	static unsigned char *slapstic_base;	/* ASG - made static */
-	static unsigned char *slapstic_area;
+	static UBytePtr slapstic_base;	/* ASG - made static */
+	static UBytePtr slapstic_area;
 	
 	/* ASG - added this (including the function) */
 	static int last_bank;

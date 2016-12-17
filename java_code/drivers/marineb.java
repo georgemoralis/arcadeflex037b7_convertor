@@ -46,7 +46,7 @@ public class marineb
 	
 	
 	
-	extern unsigned char *marineb_column_scroll;
+	extern UBytePtr marineb_column_scroll;
 	extern int marineb_active_low_flipscreen;
 	
 	

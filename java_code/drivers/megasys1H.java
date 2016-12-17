@@ -312,8 +312,8 @@ static GfxLayout _name_ = new GfxLayout\
 
 /* Variables */
 extern struct tilemap *megasys1_tmap_0, *megasys1_tmap_1, *megasys1_tmap_2;
-extern unsigned char *megasys1_scrollram_0, *megasys1_scrollram_1, *megasys1_scrollram_2;
-extern unsigned char *megasys1_objectram, *megasys1_vregs, *megasys1_ram;
+extern UBytePtr megasys1_scrollram_0, *megasys1_scrollram_1, *megasys1_scrollram_2;
+extern UBytePtr megasys1_objectram, *megasys1_vregs, *megasys1_ram;
 extern int megasys1_scroll_flag[3], megasys1_scrollx[3], megasys1_scrolly[3], megasys1_pages_per_tmap_x[3], megasys1_pages_per_tmap_y[3];
 extern int megasys1_active_layers, megasys1_sprite_bank;
 extern int megasys1_screen_flag, megasys1_sprite_flag;

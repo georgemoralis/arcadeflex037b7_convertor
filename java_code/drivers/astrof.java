@@ -44,8 +44,8 @@ package drivers;
 public class astrof
 {
 	
-	extern unsigned char *astrof_color;
-	extern unsigned char *tomahawk_protection;
+	extern UBytePtr astrof_color;
+	extern UBytePtr tomahawk_protection;
 	
 	
 	extern struct Samplesinterface astrof_samples_interface;

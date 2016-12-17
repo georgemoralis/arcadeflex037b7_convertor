@@ -1058,7 +1058,7 @@ public class cinemat
 	
 	public static InitMachinePtr demon_init_machine = new InitMachinePtr() { public void handler() 
 	{
-		unsigned char *RAM = memory_region(REGION_CPU2);
+		UBytePtr RAM = memory_region(REGION_CPU2);
 	
 		demon_z80ctc_interface.baseclock[0] = Machine.drv.cpu[1].cpu_clock;
 		z80ctc_init(&demon_z80ctc_interface);

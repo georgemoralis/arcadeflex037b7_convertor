@@ -104,21 +104,21 @@ public class punchout
 {
 	
 	
-	extern unsigned char *punchout_videoram2;
+	extern UBytePtr punchout_videoram2;
 	extern size_t punchout_videoram2_size;
-	extern unsigned char *punchout_bigsprite1ram;
+	extern UBytePtr punchout_bigsprite1ram;
 	extern size_t punchout_bigsprite1ram_size;
-	extern unsigned char *punchout_bigsprite2ram;
+	extern UBytePtr punchout_bigsprite2ram;
 	extern size_t punchout_bigsprite2ram_size;
-	extern unsigned char *punchout_scroll;
-	extern unsigned char *punchout_bigsprite1;
-	extern unsigned char *punchout_bigsprite2;
-	extern unsigned char *punchout_palettebank;
+	extern UBytePtr punchout_scroll;
+	extern UBytePtr punchout_bigsprite1;
+	extern UBytePtr punchout_bigsprite2;
+	extern UBytePtr punchout_palettebank;
 	
 	
 	
 	
-	static unsigned char *nvram;
+	static UBytePtr nvram;
 	static size_t nvram_size;
 	
 	public static nvramPtr nvram_handler  = new nvramPtr() { public void handler(Object file, int read_or_write) 

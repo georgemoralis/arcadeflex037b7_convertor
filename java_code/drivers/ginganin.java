@@ -60,7 +60,7 @@ public class ginganin
 	/* Variables only used here */
 	
 	/* Variables defined in vidhrdw */
-	extern unsigned char *ginganin_fgram, *ginganin_txtram, *ginganin_vregs;
+	extern UBytePtr ginganin_fgram, *ginganin_txtram, *ginganin_vregs;
 	
 	/* Functions defined in vidhrdw */
 	
@@ -463,7 +463,7 @@ public class ginganin
 	
 	public static InitDriverPtr init_ginganin = new InitDriverPtr() { public void handler() 
 	{
-		unsigned char *RAM;
+		UBytePtr RAM;
 	
 	/* main cpu patches */
 		RAM = memory_region(REGION_CPU1);

@@ -108,11 +108,11 @@ package drivers;
 public class combatsc
 {
 	
-	extern unsigned char* banked_area;
+	extern UBytePtr  banked_area;
 	
 	/* from vidhrdw/combasc.c */
-	void combasc_convert_color_prom( unsigned char *palette, unsigned short *colortable, const unsigned char *color_prom );
-	void combascb_convert_color_prom( unsigned char *palette, unsigned short *colortable, const unsigned char *color_prom );
+	void combasc_convert_color_prom( UBytePtr palette, unsigned short *colortable, const UBytePtr color_prom );
+	void combascb_convert_color_prom( UBytePtr palette, unsigned short *colortable, const UBytePtr color_prom );
 	
 	
 	
@@ -889,7 +889,7 @@ public class combatsc
 	
 	static public static InitDriverPtr init_combascb = new InitDriverPtr() { public void handler() 
 	{
-		unsigned char *gfx;
+		UBytePtr gfx;
 		int i;
 	
 		gfx = memory_region(REGION_GFX1);

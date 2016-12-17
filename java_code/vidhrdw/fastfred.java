@@ -16,8 +16,8 @@ public class fastfred
 {
 	
 	
-	extern unsigned char *galaxian_attributesram;
-	static const unsigned char *fastfred_color_prom;
+	extern UBytePtr galaxian_attributesram;
+	static const UBytePtr fastfred_color_prom;
 	
 	
 	static struct rectangle spritevisiblearea =
@@ -55,7 +55,7 @@ public class fastfred
 	static void convert_color(int i, int* r, int* g, int* b)
 	{
 		int bit0, bit1, bit2, bit3;
-		const unsigned char *prom = fastfred_color_prom;
+		const UBytePtr prom = fastfred_color_prom;
 		int total = Machine.drv.total_colors;
 	
 		bit0 = (prom[i + 0*total] >> 0) & 0x01;

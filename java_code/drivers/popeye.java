@@ -66,9 +66,9 @@ public class popeye
 	
 	
 	
-	extern unsigned char *popeye_videoram;
+	extern UBytePtr popeye_videoram;
 	extern size_t popeye_videoram_size;
-	extern unsigned char *popeye_background_pos,*popeye_palette_bank;
+	extern UBytePtr popeye_background_pos,*popeye_palette_bank;
 	
 	
 	

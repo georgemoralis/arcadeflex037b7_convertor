@@ -107,16 +107,16 @@ public class kaneko16
 	/* Variables only used here: */
 	
 	int shogwarr_mcu_status, shogwarr_mcu_command_offset;
-	unsigned char *mcu_ram, gtmr_mcu_com[8];
+	UBytePtr mcu_ram, gtmr_mcu_com[8];
 	
 	
 	/* Variables that vidhrdw has access to: */
 	
 	
 	/* Variables defined in vidhrdw: */
-	extern unsigned char *kaneko16_bgram, *kaneko16_fgram;
-	extern unsigned char *kaneko16_layers1_regs, *kaneko16_layers2_regs, *kaneko16_screen_regs;
-	extern unsigned char *kaneko16_bg15_select, *kaneko16_bg15_reg;
+	extern UBytePtr kaneko16_bgram, *kaneko16_fgram;
+	extern UBytePtr kaneko16_layers1_regs, *kaneko16_layers2_regs, *kaneko16_screen_regs;
+	extern UBytePtr kaneko16_bg15_select, *kaneko16_bg15_reg;
 	extern int kaneko16_spritetype;
 	
 	/* Functions defined in vidhrdw: */
@@ -1392,7 +1392,7 @@ public class kaneko16
 	*/
 	void kaneko16_unscramble_tiles(int region)
 	{
-		unsigned char *RAM	=	memory_region(region);
+		UBytePtr RAM	=	memory_region(region);
 		int size			=	memory_region_length(region);
 		int i;
 	
@@ -1771,7 +1771,7 @@ public class kaneko16
 	{
 		/* Code patches */
 	#if 0
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 		WRITE_WORD(&RAM[0x0039a], 0x4e71);	// 200000 test
 		WRITE_WORD(&RAM[0x003e6], 0x4e71);	// 20030a test
 		WRITE_WORD(&RAM[0x223a8], 0x6000);	// rom test

@@ -150,9 +150,9 @@ public class seta
 	static struct tilemap *tilemap_0,*tilemap_1, *tilemap_2,*tilemap_3;
 	
 	/* Variables that driver has access to */
-	unsigned char *seta_vram_0, *seta_vram_1, *seta_vctrl_0;
-	unsigned char *seta_vram_2, *seta_vram_3, *seta_vctrl_2;
-	unsigned char *seta_vregs;
+	UBytePtr seta_vram_0, *seta_vram_1, *seta_vctrl_0;
+	UBytePtr seta_vram_2, *seta_vram_3, *seta_vctrl_2;
+	UBytePtr seta_vregs;
 	
 	int seta_tiles_offset;	// tiles banking, can be 0 or $4000
 	
@@ -181,7 +181,7 @@ public class seta
 	
 			case 2:
 			{
-				unsigned char *RAM = memory_region(REGION_SOUND1);
+				UBytePtr RAM = memory_region(REGION_SOUND1);
 				int new_bank;
 	
 				// Handled in vh_screenrefresh:
@@ -411,7 +411,7 @@ public class seta
 	
 	   I think that's because this game's a prototype..
 	*/
-	void blandia_vh_init_palette(unsigned char *palette, unsigned short *colortable,const unsigned char *color_prom)
+	void blandia_vh_init_palette(UBytePtr palette, unsigned short *colortable,const UBytePtr color_prom)
 	{
 		int color, pen;
 		for( color = 0; color < 32; color++ )
@@ -425,7 +425,7 @@ public class seta
 	
 	
 	/* layer 0 is 6 bit per pixel, but the color code has a 16 colors granularity */
-	void zingzip_vh_init_palette(unsigned char *palette, unsigned short *colortable,const unsigned char *color_prom)
+	void zingzip_vh_init_palette(UBytePtr palette, unsigned short *colortable,const UBytePtr color_prom)
 	{
 		int color, pen;
 		for( color = 0; color < 32; color++ )
@@ -437,7 +437,7 @@ public class seta
 	
 	
 	/* 6 bit layer. The colors are still WRONG */
-	void usclssic_vh_init_palette(unsigned char *palette, unsigned short *colortable,const unsigned char *color_prom)
+	void usclssic_vh_init_palette(UBytePtr palette, unsigned short *colortable,const UBytePtr color_prom)
 	{
 		int color, pen;
 		for( color = 0; color < 32; color++ )
@@ -485,7 +485,7 @@ public class seta
 		int flip	=	ctrl & 0x40;
 		int numcol	=	ctrl2 & 0x000f;
 	
-		unsigned char *spriteram1 = spriteram_2 + ((ctrl2 & 0x40) ? 0x2000 : 0);
+		UBytePtr spriteram1 = spriteram_2 + ((ctrl2 & 0x40) ? 0x2000 : 0);
 	
 		/* Number of columns to draw - the value 1 seems special, meaning:
 		   draw every column */
@@ -542,7 +542,7 @@ public class seta
 		int flip	=	ctrl & 0x40;
 		int numcol	=	ctrl2 & 0x000f;
 	
-		unsigned char *spriteram1 = spriteram_2 + ((ctrl2 & 0x40) ? 0x2000 : 0);
+		UBytePtr spriteram1 = spriteram_2 + ((ctrl2 & 0x40) ? 0x2000 : 0);
 	
 		int upper	=	( READ_WORD(&spriteram.read(0x604)) & 0xFF ) +
 						( READ_WORD(&spriteram.read(0x606)) & 0xFF ) * 256;
@@ -624,7 +624,7 @@ public class seta
 		int ctrl2	=	READ_WORD(&spriteram.read(0x602));
 	
 		int flip	=	ctrl & 0x40;
-		unsigned char *spriteram1 = spriteram_2 + ((ctrl2 & 0x40) ? 0x2000 : 0);
+		UBytePtr spriteram1 = spriteram_2 + ((ctrl2 & 0x40) ? 0x2000 : 0);
 	
 	//	int max_x	=	Machine.drv.screen_width  - 16;
 	//	int max_y	=	Machine.visible_area.max_y+1;	// see pic of metafox

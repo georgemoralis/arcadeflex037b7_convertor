@@ -46,9 +46,9 @@ public class dec0
 	
 	/* Video emulation definitions */
 	
-	extern unsigned char *dec0_pf1_rowscroll,*dec0_pf2_rowscroll,*dec0_pf3_rowscroll;
-	extern unsigned char *dec0_pf1_colscroll,*dec0_pf2_colscroll,*dec0_pf3_colscroll;
-	extern unsigned char *dec0_pf1_data,*dec0_pf2_data,*dec0_pf3_data;
+	extern UBytePtr dec0_pf1_rowscroll,*dec0_pf2_rowscroll,*dec0_pf3_rowscroll;
+	extern UBytePtr dec0_pf1_colscroll,*dec0_pf2_colscroll,*dec0_pf3_colscroll;
+	extern UBytePtr dec0_pf1_data,*dec0_pf2_data,*dec0_pf3_data;
 	
 	
 	
@@ -57,7 +57,7 @@ public class dec0
 	extern 
 	extern void dec0_i8751_write(int data);
 	extern 
-	unsigned char *dec0_ram;
+	UBytePtr dec0_ram;
 	
 	/******************************************************************************/
 	
@@ -2106,7 +2106,7 @@ public class dec0
 	static void h6280_decrypt(int memory_area)
 	{
 		int i;
-		unsigned char *RAM = memory_region(memory_area);
+		UBytePtr RAM = memory_region(memory_area);
 	
 		/* Read each byte, decrypt it */
 		for (i=0x00000; i<0x10000; i++)
@@ -2120,7 +2120,7 @@ public class dec0
 	
 	static public static InitDriverPtr init_hippodrm = new InitDriverPtr() { public void handler() 
 	{
-		unsigned char *RAM = memory_region(REGION_CPU3);
+		UBytePtr RAM = memory_region(REGION_CPU3);
 	
 		dec0_custom_memory();
 	
@@ -2135,7 +2135,7 @@ public class dec0
 	
 	static public static InitDriverPtr init_slyspy = new InitDriverPtr() { public void handler() 
 	{
-		unsigned char *RAM = memory_region(REGION_CPU2);
+		UBytePtr RAM = memory_region(REGION_CPU2);
 	
 		dec0_custom_memory();
 	

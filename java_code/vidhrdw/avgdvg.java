@@ -119,7 +119,7 @@ public class avgdvg
 	#define BANK_SIZE (1<<BANK_BITS)
 	#define NUM_BANKS (0x4000/BANK_SIZE)
 	#define VECTORRAM(offset) (vectorbank[(offset)>>BANK_BITS][(offset)&(BANK_SIZE-1)])
-	static unsigned char *vectorbank[NUM_BANKS];
+	static UBytePtr vectorbank[NUM_BANKS];
 	
 	#define map_addr(n) (((n)<<1))
 	#define memrdwd(offset) (VECTORRAM(offset) | (VECTORRAM(offset+1)<<8))
@@ -876,7 +876,7 @@ public class avgdvg
 	#define BLUE  0x01
 	#define WHITE RED|GREEN|BLUE
 	
-	static void shade_fill (unsigned char *palette, int rgb, int start_index, int end_index, int start_inten, int end_inten)
+	static void shade_fill (UBytePtr palette, int rgb, int start_index, int end_index, int start_inten, int end_inten)
 	{
 		int i, inten, index_range, inten_range;
 	
@@ -901,7 +901,7 @@ public class avgdvg
 	/* Helper function to construct the color palette for the Atari vector
 	 * games. DO NOT reference this function from the Gamedriver or
 	 * MachineDriver. Use "avg_init_palette_XXXXX" instead. */
-	void avg_init_palette (int paltype, unsigned char *palette, unsigned short *colortable,const unsigned char *color_prom)
+	void avg_init_palette (int paltype, UBytePtr palette, unsigned short *colortable,const UBytePtr color_prom)
 	{
 		int i,j,k;
 	
@@ -1004,7 +1004,7 @@ public class avgdvg
 	
 	/* A macro for the palette_init functions */
 	#define VEC_PAL_INIT(name, paltype) \
-	void avg_init_palette_##name## (unsigned char *palette, unsigned short *colortable,const unsigned char *color_prom) \
+	void avg_init_palette_##name## (UBytePtr palette, unsigned short *colortable,const UBytePtr color_prom) \
 	{ avg_init_palette (##paltype##, palette, colortable, color_prom); }
 	
 	/* The functions referenced from gamedriver */

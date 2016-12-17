@@ -20,7 +20,7 @@ public class tutankhm
 {
 	
 	
-	unsigned char *tutankhm_scrollx;
+	UBytePtr tutankhm_scrollx;
 	
 	
 	
@@ -147,7 +147,7 @@ public class tutankhm
 			unsigned long destaddress;
 			unsigned char srcflag;
 			unsigned char destflag;
-			unsigned char *JunoBLTRom = memory_region(REGION_GFX1);
+			UBytePtr JunoBLTRom = memory_region(REGION_GFX1);
 	
 			srcaddress = (blitterdata[0x2]<<8) | (blitterdata[0x3]);
 			srcflag = srcaddress & 1;

@@ -17,8 +17,8 @@ public class gunsmoke
 	
 	
 	
-	unsigned char *gunsmoke_bg_scrolly;
-	unsigned char *gunsmoke_bg_scrollx;
+	UBytePtr gunsmoke_bg_scrolly;
+	UBytePtr gunsmoke_bg_scrollx;
 	static int chon,objon,bgon;
 	static int sprite3bank;
 	
@@ -125,7 +125,7 @@ public class gunsmoke
 	public static WriteHandlerPtr gunsmoke_c804_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
 		int bankaddress;
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 	
 		/* bits 0 and 1 are for coin counters */
@@ -172,7 +172,7 @@ public class gunsmoke
 	{
 		int offs,sx,sy;
 		int bg_scrolly, bg_scrollx;
-		unsigned char *p=memory_region(REGION_GFX4);
+		UBytePtr p=memory_region(REGION_GFX4);
 		int top,left;
 	
 	
@@ -202,7 +202,7 @@ public class gunsmoke
 				{
 					int offset;
 					int tx = (sx + left) % 9;
-					unsigned char *map = &bgmap[ty][tx][0];
+					UBytePtr map = &bgmap[ty][tx][0];
 					offset=offs+(sx*2);
 	
 					if (p[offset] != map[0] || p[offset+1] != map[1])

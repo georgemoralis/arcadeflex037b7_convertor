@@ -50,13 +50,13 @@ public class superman
 	extern size_t supes_videoram_size;
 	extern size_t supes_attribram_size;
 	
-	extern unsigned char *supes_videoram;
-	extern unsigned char *supes_attribram;
+	extern UBytePtr supes_videoram;
+	extern UBytePtr supes_attribram;
 	
 	/* Routines found in sndhrdw/rastan.c */
 	
 	
-	static unsigned char *ram; /* for high score save */
+	static UBytePtr ram; /* for high score save */
 	
 	
 	public static ReadHandlerPtr superman_input_r  = new ReadHandlerPtr() { public int handler(int offset)
@@ -81,7 +81,7 @@ public class superman
 	
 	public static WriteHandlerPtr taito68k_sound_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		unsigned char *RAM = memory_region(REGION_CPU2);
+		UBytePtr RAM = memory_region(REGION_CPU2);
 	
 		int banknum = ( data - 1 ) & 3;
 	

@@ -44,7 +44,7 @@ public class ppu2c03bH
 	};
 	
 	/* routines */
-	void ppu2c03b_init_palette( unsigned char *palette );
+	void ppu2c03b_init_palette( UBytePtr palette );
 	int ppu2c03b_init( struct ppu2c03b_interface *interface );
 	
 	void ppu2c03b_reset( int num, int scan_scale );

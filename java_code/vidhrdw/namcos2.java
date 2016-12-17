@@ -108,7 +108,7 @@ public class namcos2
 	}
 	
 	int namcos2_calc_used_pens(int gfx_zone,int tile,char *penused){
-		unsigned char* gfxdata=NULL;
+		UBytePtr  gfxdata=NULL;
 		int pix_y=0,pix_x=0;
 		int height=0,width=0;
 		int pencount=0;
@@ -606,7 +606,7 @@ public class namcos2
 	
 	INLINE unsigned char fetch_rotated_pixel(int xind, int yind)
 	{
-		unsigned char* gfxdata;
+		UBytePtr  gfxdata;
 		int ram_offset,pix_x,pix_y,tile;
 	
 		/* First reduce the x/y to tile & x/y subpixels */
@@ -715,7 +715,7 @@ public class namcos2
 		}
 		else
 		{
-			unsigned char *dest_line,pixel;
+			UBytePtr dest_line,pixel;
 	
 			if(Machine.orientation & ORIENTATION_SWAP_XY)
 			{
@@ -1156,7 +1156,7 @@ public class namcos2
 		if (0 != 0)
 		{
 			int loop,linel,data;
-			unsigned char *dest_line;
+			UBytePtr dest_line;
 			for(loop=0;loop<28*8;loop++)
 			{
 				dest_line = bitmap.line[loop];

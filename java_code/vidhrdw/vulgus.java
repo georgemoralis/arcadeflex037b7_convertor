@@ -15,8 +15,8 @@ package vidhrdw;
 public class vulgus
 {
 	
-	unsigned char *vulgus_fgvideoram,*vulgus_bgvideoram;
-	unsigned char *vulgus_scroll_low,*vulgus_scroll_high;
+	UBytePtr vulgus_fgvideoram,*vulgus_bgvideoram;
+	UBytePtr vulgus_scroll_low,*vulgus_scroll_high;
 	
 	static data_t vulgus_palette_bank;
 	static struct tilemap *fg_tilemap, *bg_tilemap;

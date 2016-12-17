@@ -92,14 +92,14 @@ public class jedi
 	
 	/* vidhrdw jedi.c */
 	
-	extern unsigned char *jedi_PIXIRAM;
-	extern unsigned char *jedi_backgroundram;
+	extern UBytePtr jedi_PIXIRAM;
+	extern UBytePtr jedi_backgroundram;
 	extern size_t jedi_backgroundram_size;
 	
 	
 	
 	
-	static unsigned char *nvram;
+	static UBytePtr nvram;
 	static size_t nvram_size;
 	
 	static public static nvramPtr nvram_handler  = new nvramPtr() { public void handler(Object file, int read_or_write) 

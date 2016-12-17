@@ -288,7 +288,7 @@ public class arabian
 	public static WriteHandlerPtr arabian_videoram_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
 		int plane1,plane2,plane3,plane4;
-		unsigned char *bm;
+		UBytePtr bm;
 	
 		UINT8 x,y;
 		INT8 dx=1, dy=0;

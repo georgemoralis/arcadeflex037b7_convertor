@@ -72,15 +72,15 @@ public class vastar
 	
 	
 	
-	extern unsigned char *vastar_bg1videoram;
-	extern unsigned char *vastar_bg2videoram;
-	extern unsigned char *vastar_fgvideoram;
-	extern unsigned char *vastar_sprite_priority;
-	extern unsigned char *vastar_bg1_scroll;
-	extern unsigned char *vastar_bg2_scroll;
+	extern UBytePtr vastar_bg1videoram;
+	extern UBytePtr vastar_bg2videoram;
+	extern UBytePtr vastar_fgvideoram;
+	extern UBytePtr vastar_sprite_priority;
+	extern UBytePtr vastar_bg1_scroll;
+	extern UBytePtr vastar_bg2_scroll;
 	
 	
-	static unsigned char *vastar_sharedram;
+	static UBytePtr vastar_sharedram;
 	
 	
 	

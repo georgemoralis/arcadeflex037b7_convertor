@@ -44,11 +44,11 @@ package drivers;
 public class terracre
 {
 	
-	unsigned char* terrac_ram;
+	UBytePtr  terrac_ram;
 	
 	//void terracre_vh_screenrefresh(struct osd_bitmap *bitmap);
 	
-	extern unsigned char *terrac_videoram;
+	extern UBytePtr terrac_videoram;
 	extern size_t terrac_videoram_size;
 	extern unsigned char terrac_scrolly[];
 	

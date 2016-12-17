@@ -14,12 +14,12 @@ public class goindol
 {
 	
 	
-	extern unsigned char	*goindol_fg_scrollx;
-	extern unsigned char	*goindol_fg_scrolly;
-	extern unsigned char 	*goindol_fg_videoram;
-	extern unsigned char 	*goindol_bg_videoram;
-	extern unsigned char 	*goindol_spriteram1;
-	extern unsigned char 	*goindol_spriteram2;
+	extern UBytePtr goindol_fg_scrollx;
+	extern UBytePtr goindol_fg_scrolly;
+	extern UBytePtr goindol_fg_videoram;
+	extern UBytePtr goindol_bg_videoram;
+	extern UBytePtr goindol_spriteram1;
+	extern UBytePtr goindol_spriteram2;
 	extern size_t goindol_spriteram_size;
 	extern size_t goindol_fg_videoram_size;
 	extern size_t goindol_bg_videoram_size;
@@ -29,7 +29,7 @@ public class goindol
 	public static WriteHandlerPtr goindol_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
 		int bankaddress;
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 		bankaddress = 0x10000 + ((data & 3) * 0x4000);
 		cpu_setbank(1,&RAM[bankaddress]);
@@ -380,7 +380,7 @@ public class goindol
 	
 	public static InitDriverPtr init_goindol = new InitDriverPtr() { public void handler() 
 	{
-		unsigned char *rom = memory_region(REGION_CPU1);
+		UBytePtr rom = memory_region(REGION_CPU1);
 	
 	
 		/* I hope that's all patches to avoid protection */
@@ -406,7 +406,7 @@ public class goindol
 	
 	public static InitDriverPtr init_homo = new InitDriverPtr() { public void handler() 
 	{
-		unsigned char *rom = memory_region(REGION_CPU1);
+		UBytePtr rom = memory_region(REGION_CPU1);
 	
 	
 		rom[0x218c] = 0x00;

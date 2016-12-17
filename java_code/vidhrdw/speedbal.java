@@ -20,16 +20,16 @@ public class speedbal
 	#define SPRITE_PALETTE	  2
 	#define SPRITE_Y		3
 	
-	extern unsigned char *speedbal_background_videoram;
-	extern unsigned char *speedbal_foreground_videoram;
-	extern unsigned char *speedbal_sprites_dataram;
+	extern UBytePtr speedbal_background_videoram;
+	extern UBytePtr speedbal_foreground_videoram;
+	extern UBytePtr speedbal_sprites_dataram;
 	
 	extern size_t speedbal_background_videoram_size;
 	extern size_t speedbal_foreground_videoram_size;
 	extern size_t speedbal_sprites_dataram_size;
 	
-	static unsigned char *bg_dirtybuffer;	  /* background tiles */
-	static unsigned char *ch_dirtybuffer;	  /* foreground char  */
+	static UBytePtr bg_dirtybuffer;	  /* background tiles */
+	static UBytePtr ch_dirtybuffer;	  /* foreground char  */
 	
 	static struct osd_bitmap *bitmap_bg;   /* background tiles */
 	static struct osd_bitmap *bitmap_ch;   /* foreground char  */
@@ -181,7 +181,7 @@ public class speedbal
 	{
 		int SPTX,SPTY,SPTTile,SPTColor,offset,f;
 		unsigned char carac;
-		unsigned char *SPTRegs;
+		UBytePtr SPTRegs;
 	
 		/* Drawing sprites: 64 in total */
 	
@@ -331,7 +331,7 @@ public class speedbal
 	
 		for (offs = 0;offs < speedbal_sprites_dataram_size;offs += 4)
 		{
-			unsigned char *SPTRegs;
+			UBytePtr SPTRegs;
 			int carac,f;
 	
 			SPTRegs = &speedbal_sprites_dataram[offs];

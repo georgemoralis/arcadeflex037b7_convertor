@@ -17,7 +17,7 @@ public class commando
 	
 	
 	
-	unsigned char *commando_fgvideoram,*commando_bgvideoram;
+	UBytePtr commando_fgvideoram,*commando_bgvideoram;
 	
 	static struct tilemap *fg_tilemap, *bg_tilemap;
 	

@@ -108,7 +108,7 @@ public class gladiatr
 {
 	
 	/*Video functions*/
-	extern unsigned char *gladiator_text;
+	extern UBytePtr gladiator_text;
 	extern extern extern 
 	/*Rom bankswitching*/
 	static int banka;
@@ -117,7 +117,7 @@ public class gladiatr
 	public static WriteHandlerPtr gladiatr_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		static int bank1[2] = { 0x10000, 0x12000 };
 		static int bank2[2] = { 0x14000, 0x18000 };
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 		banka = data;
 		cpu_setbank(1,&RAM[bank1[(data & 0x03)]]);
 		cpu_setbank(2,&RAM[bank2[(data & 0x03)]]);
@@ -191,7 +191,7 @@ public class gladiatr
 		TAITO8741_start(&gsword_8741interface);
 		/* 6809 bank memory set */
 		{
-			unsigned char *RAM = memory_region(REGION_CPU3);
+			UBytePtr RAM = memory_region(REGION_CPU3);
 			cpu_setbank(3,&RAM[0x10000]);
 			cpu_setbank(4,&RAM[0x18000]);
 			cpu_setbank(5,&RAM[0x20000]);
@@ -229,7 +229,7 @@ public class gladiatr
 	/*Sound Functions*/
 	public static WriteHandlerPtr glad_adpcm_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		unsigned char *RAM = memory_region(REGION_CPU3);
+		UBytePtr RAM = memory_region(REGION_CPU3);
 		/* bit6 = bank offset */
 		int bankoffset = data&0x40 ? 0x4000 : 0;
 		cpu_setbank(3,&RAM[0x10000+bankoffset]);
@@ -255,7 +255,7 @@ public class gladiatr
 	
 	
 	
-	static unsigned char *nvram;
+	static UBytePtr nvram;
 	static size_t nvram_size;
 	
 	public static nvramPtr nvram_handler  = new nvramPtr() { public void handler(Object file, int read_or_write) 

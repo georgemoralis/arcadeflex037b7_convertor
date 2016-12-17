@@ -76,12 +76,12 @@ public class galaga
 	
 	
 	
-	extern unsigned char *galaga_sharedram;
+	extern UBytePtr galaga_sharedram;
 	
 	
-	extern unsigned char *galaga_starcontrol;
+	extern UBytePtr galaga_starcontrol;
 	
-	extern unsigned char *pengo_soundregs;
+	extern UBytePtr pengo_soundregs;
 	
 	
 	

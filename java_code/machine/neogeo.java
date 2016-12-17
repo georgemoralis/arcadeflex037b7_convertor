@@ -7,9 +7,9 @@ package machine;
 public class neogeo
 {
 	
-	//static unsigned char *memcard;
-	unsigned char *neogeo_ram;
-	unsigned char *neogeo_sram;
+	//static UBytePtr memcard;
+	UBytePtr neogeo_ram;
+	UBytePtr neogeo_sram;
 	
 	static int sram_locked;
 	static int sram_protection_hack;
@@ -34,7 +34,7 @@ public class neogeo
 	int			memcard_status=0;	/* 1=Inserted 0=No card */
 	int			memcard_number=0;	/* 000...999, -1=None */
 	int			memcard_manager=0;	/* 0=Normal boot 1=Call memcard manager */
-	unsigned char	*neogeo_memcard;	/* Pointer to 2kb RAM zone */
+	UBytePtr neogeo_memcard;	/* Pointer to 2kb RAM zone */
 	
 	/*************** MEMCARD FUNCTION PROTOTYPES *****************/
 	int		neogeo_memcard_load(int);
@@ -91,7 +91,7 @@ public class neogeo
 	/* This function is only called once per game. */
 	public static InitDriverPtr init_neogeo = new InitDriverPtr() { public void handler() 
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 		extern struct YM2610interface neogeo_ym2610_interface;
 	
 		if (memory_region(REGION_SOUND2))
@@ -371,7 +371,7 @@ public class neogeo
 	 */
 	public static ReadHandlerPtr cycle_v3_sr  = new ReadHandlerPtr() { public int handler(int offset)
 	{
-		unsigned char *RAM = memory_region(REGION_CPU2);
+		UBytePtr RAM = memory_region(REGION_CPU2);
 	
 		if (cpu_get_pc()==0x0137) {
 			cpu_spinuntil_int();
@@ -385,7 +385,7 @@ public class neogeo
 	 */
 	public static ReadHandlerPtr ssideki_cycle_sr  = new ReadHandlerPtr() { public int handler(int offset)
 	{
-		unsigned char *RAM = memory_region(REGION_CPU2);
+		UBytePtr RAM = memory_region(REGION_CPU2);
 	
 		if (cpu_get_pc()==0x015A) {
 			cpu_spinuntil_int();
@@ -396,7 +396,7 @@ public class neogeo
 	
 	public static ReadHandlerPtr aof_cycle_sr  = new ReadHandlerPtr() { public int handler(int offset)
 	{
-		unsigned char *RAM = memory_region(REGION_CPU2);
+		UBytePtr RAM = memory_region(REGION_CPU2);
 	
 		if (cpu_get_pc()==0x0143) {
 			cpu_spinuntil_int();
@@ -414,7 +414,7 @@ public class neogeo
 	
 	public static ReadHandlerPtr cycle_v2_sr  = new ReadHandlerPtr() { public int handler(int offset)
 	{
-		unsigned char *RAM = memory_region(REGION_CPU2);
+		UBytePtr RAM = memory_region(REGION_CPU2);
 	
 		if (cpu_get_pc()==0x0143) {
 			cpu_spinuntil_int();
@@ -425,7 +425,7 @@ public class neogeo
 	
 	public static ReadHandlerPtr vwpoint_cycle_sr  = new ReadHandlerPtr() { public int handler(int offset)
 	{
-		unsigned char *RAM = memory_region(REGION_CPU2);
+		UBytePtr RAM = memory_region(REGION_CPU2);
 	
 		if (cpu_get_pc()==0x0143) {
 			cpu_spinuntil_int();
@@ -443,7 +443,7 @@ public class neogeo
 	/*
 	public static ReadHandlerPtr cycle_v15_sr  = new ReadHandlerPtr() { public int handler(int offset)
 	{
-		unsigned char *RAM = memory_region(REGION_CPU2);
+		UBytePtr RAM = memory_region(REGION_CPU2);
 	
 		if (cpu_get_pc()==0x013D) {
 			cpu_spinuntil_int();
@@ -460,7 +460,7 @@ public class neogeo
 	
 	public static ReadHandlerPtr maglord_cycle_sr  = new ReadHandlerPtr() { public int handler(int offset)
 	{
-		unsigned char *RAM = memory_region(REGION_CPU2);
+		UBytePtr RAM = memory_region(REGION_CPU2);
 	
 		if (cpu_get_pc()==0xd487) {
 			cpu_spinuntil_int();
@@ -686,7 +686,7 @@ public class neogeo
 			/* Fix a really weird problem. The game clears the video RAM but goes */
 			/* beyond the tile RAM, corrupting the zoom control RAM. After that it */
 			/* initializes the control RAM, but then corrupts it again! */
-			unsigned char *RAM = memory_region(REGION_CPU1);
+			UBytePtr RAM = memory_region(REGION_CPU1);
 			WRITE_WORD(&RAM[0x1328],0x4e71);
 			WRITE_WORD(&RAM[0x132a],0x4e71);
 			WRITE_WORD(&RAM[0x132c],0x4e71);
@@ -728,7 +728,7 @@ public class neogeo
 			/* patch out protection check */
 			/* the protection routines are at 0x25dcc and involve reading and writing */
 			/* addresses in the 0x2xxxxx range */
-			unsigned char *RAM = memory_region(REGION_CPU1);
+			UBytePtr RAM = memory_region(REGION_CPU1);
 			WRITE_WORD(&RAM[0x2240],0x4e71);
 		}
 	
@@ -741,7 +741,7 @@ public class neogeo
 			/* here (or maybe the SRAM location to protect is different), so I patch out */
 			/* the routine which trashes memory. Without this, the game goes nuts after */
 			/* the first bonus stage. */
-			unsigned char *RAM = memory_region(REGION_CPU1);
+			UBytePtr RAM = memory_region(REGION_CPU1);
 			WRITE_WORD(&RAM[0xb820],0x4e71);
 			WRITE_WORD(&RAM[0xb822],0x4e71);
 	
@@ -754,7 +754,7 @@ public class neogeo
 		if (!strcmp(Machine.gamedrv.name,"fatfury3"))
 		{
 			/* patch the first word, it must be 0x0010 not 0x0000 (initial stack pointer) */
-			unsigned char *RAM = memory_region(REGION_CPU1);
+			UBytePtr RAM = memory_region(REGION_CPU1);
 			WRITE_WORD(&RAM[0x0000],0x0010);
 		}
 	
@@ -762,7 +762,7 @@ public class neogeo
 		{
 			/* patch out protection checks */
 			int i;
-			unsigned char *RAM = memory_region(REGION_CPU1);
+			UBytePtr RAM = memory_region(REGION_CPU1);
 	
 			for (i = 0;i < 0x100000;i+=2)
 			{

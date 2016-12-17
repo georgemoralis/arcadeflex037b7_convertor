@@ -9,10 +9,10 @@ extern unsigned char K007121_ctrlram[MAX_K007121][8];
 
 void K007121_ctrl_w(int chip,int offset,int data);
 void K007121_sprites_draw(int chip,struct osd_bitmap *bitmap,
-		const unsigned char *source,int base_color,int global_x_offset,int bank_base,
+		const UBytePtr source,int base_color,int global_x_offset,int bank_base,
 		UINT32 pri_mask);
 void K007121_mark_sprites_colors(int chip,
-		const unsigned char *source,int base_color,int bank_base);
+		const UBytePtr source,int base_color,int bank_base);
 
 
 int K007342_vh_start(int gfx_index, void (*callback)(int layer,int bank,int *code,int *color));

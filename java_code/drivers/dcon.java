@@ -19,7 +19,7 @@ public class dcon
 	
 	
 	
-	extern unsigned char *dcon_back_data,*dcon_fore_data,*dcon_mid_data,*dcon_scroll_ram;
+	extern UBytePtr dcon_back_data,*dcon_fore_data,*dcon_mid_data,*dcon_scroll_ram;
 	
 	/***************************************************************************/
 	

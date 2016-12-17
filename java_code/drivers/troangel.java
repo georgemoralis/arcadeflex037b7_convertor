@@ -14,7 +14,7 @@ package drivers;
 public class troangel
 {
 	
-	extern unsigned char *troangel_scroll;
+	extern UBytePtr troangel_scroll;
 	
 	
 	

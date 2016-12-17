@@ -21,7 +21,7 @@
 void seibu_ym3812_irqhandler(int linestate);
 void install_seibu_sound_speedup(int cpu);
 
-extern unsigned char *seibu_shared_sound_ram;
+extern UBytePtr seibu_shared_sound_ram;
 
 /**************************************************************************/
 

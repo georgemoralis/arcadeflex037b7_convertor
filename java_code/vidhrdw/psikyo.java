@@ -49,7 +49,7 @@ public class psikyo
 	
 	/* Variables that driver has access to: */
 	
-	unsigned char *psikyo_vram_0, *psikyo_vram_1, *psikyo_vregs;
+	UBytePtr psikyo_vram_0, *psikyo_vram_1, *psikyo_vregs;
 	
 	
 	/* Variables only used here: */
@@ -175,7 +175,7 @@ public class psikyo
 	{
 		int offs;
 	
-		unsigned char *TILES	=	memory_region(REGION_USER1);	// Sprites LUT
+		UBytePtr TILES	=	memory_region(REGION_USER1);	// Sprites LUT
 		int TILES_LEN			=	memory_region_length(REGION_USER1);
 	
 		int width	=	Machine.drv.screen_width;
@@ -194,7 +194,7 @@ public class psikyo
 	
 		for ( ; offs >= 0 ; offs -= 2 )
 		{
-			unsigned char *source;
+			UBytePtr source;
 			int	sprite;
 	
 			int	x,y,attr,code,flipx,flipy,nx,ny;
@@ -288,7 +288,7 @@ public class psikyo
 		int count = 0;
 		int offs,i,col,colmask[0x100];
 	
-		unsigned char *TILES	=	memory_region(REGION_USER1);	// Sprites LUT
+		UBytePtr TILES	=	memory_region(REGION_USER1);	// Sprites LUT
 		int TILES_LEN			=	memory_region_length(REGION_USER1);
 	
 		unsigned int *pen_usage	=	Machine.gfx[0].pen_usage;
@@ -308,7 +308,7 @@ public class psikyo
 	
 		for ( offs = 0; offs < (0x800-2) ; offs += 2 )
 		{
-			unsigned char *source;
+			UBytePtr source;
 			int	sprite;
 	
 			int	x,y,attr,code,flipx,flipy,nx,ny;

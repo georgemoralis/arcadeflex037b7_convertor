@@ -40,9 +40,9 @@ package drivers;
 public class gaiden
 {
 	
-	extern unsigned char *gaiden_videoram;
-	extern unsigned char *gaiden_videoram2;
-	extern unsigned char *gaiden_videoram3;
+	extern UBytePtr gaiden_videoram;
+	extern UBytePtr gaiden_videoram2;
+	extern UBytePtr gaiden_videoram3;
 	
 	
 	

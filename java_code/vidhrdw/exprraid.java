@@ -8,7 +8,7 @@ public class exprraid
 {
 	
 	
-	unsigned char *exprraid_bgcontrol;
+	UBytePtr exprraid_bgcontrol;
 	
 	
 	public static VhConvertColorPromPtr exprraid_vh_convert_color_prom = new VhConvertColorPromPtr() { public void handler(char []palette, char []colortable, UBytePtr color_prom) 
@@ -46,8 +46,8 @@ public class exprraid
 	
 	static void drawbg(struct osd_bitmap *bitmap,int priority)
 	{
-		unsigned char *map1 = &memory_region(REGION_GFX4)[0x0000];
-		unsigned char *map2 = &memory_region(REGION_GFX4)[0x4000];
+		UBytePtr map1 = &memory_region(REGION_GFX4)[0x0000];
+		UBytePtr map2 = &memory_region(REGION_GFX4)[0x4000];
 		int offs,scrolly,scrollx1,scrollx2;
 	
 	

@@ -17,7 +17,7 @@ public class munchmo
 	static int mnchmobl_palette_bank;
 	static int flipscreen;
 	
-	void mnchmobl_convert_color_prom(unsigned char *palette, unsigned short *colortable,const unsigned char *color_prom)
+	void mnchmobl_convert_color_prom(UBytePtr palette, unsigned short *colortable,const UBytePtr color_prom)
 	{
 		int i;
 	
@@ -115,7 +115,7 @@ public class munchmo
 		for( row=0; row<4; row++ )
 		{
 			int sy,sx = (row&1)*8;
-			const unsigned char *source = mnchmobl_status_vram + (row&1)*32;
+			const UBytePtr source = mnchmobl_status_vram + (row&1)*32;
 			if( row<=1 )
 			{
 				source+=2*32;
@@ -140,7 +140,7 @@ public class munchmo
 		ROM B1.2C contains 256 tilemaps defining 4x4 configurations of
 		the tiles in ROM B2.2B
 	*/
-		unsigned char *tile_data = memory_region(REGION_GFX2);
+		UBytePtr tile_data = memory_region(REGION_GFX2);
 		const struct GfxElement *gfx = Machine.gfx[1];
 		int offs;
 	

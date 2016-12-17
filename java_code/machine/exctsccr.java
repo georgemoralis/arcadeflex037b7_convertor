@@ -27,7 +27,7 @@ public class exctsccr
 	#define MCU_KEY_TABLE_SIZE 16
 	
 	/* These are global */
-	unsigned char *exctsccr_mcu_ram;
+	UBytePtr exctsccr_mcu_ram;
 	
 	/* Local stuff */
 	static int mcu_code_latch;
@@ -92,7 +92,7 @@ public class exctsccr
 		0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
 	};
 	
-	static void mcu_sort_list( unsigned char *src, unsigned char *dst ) {
+	static void mcu_sort_list( UBytePtr src, UBytePtr dst ) {
 		int i;
 	
 		for ( i = 0; i < 0x20; i++ ) {

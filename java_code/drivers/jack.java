@@ -625,7 +625,7 @@ public class jack
 	static void treahunt_decode(void)
 	{
 		int A;
-		unsigned char *rom = memory_region(REGION_CPU1);
+		UBytePtr rom = memory_region(REGION_CPU1);
 		int diff = memory_region_length(REGION_CPU1) / 2;
 		int data;
 	

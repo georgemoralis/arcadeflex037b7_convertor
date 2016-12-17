@@ -7,10 +7,10 @@ package vidhrdw;
 public class kingobox
 {
 	
-	unsigned char *kingobox_videoram1;
-	unsigned char *kingobox_colorram1;
+	UBytePtr kingobox_videoram1;
+	UBytePtr kingobox_colorram1;
 	size_t kingobox_videoram1_size;
-	unsigned char *kingobox_scroll_y;
+	UBytePtr kingobox_scroll_y;
 	
 	extern int kingofb_nmi_enable;
 	
@@ -37,7 +37,7 @@ public class kingobox
 	  bit 3 --  51 ohm resistor  -- BLUE
 	
 	***************************************************************************/
-	void kingobox_vh_convert_color_prom(unsigned char *palette,unsigned short *colortable,const unsigned char *color_prom)
+	void kingobox_vh_convert_color_prom(UBytePtr palette,unsigned short *colortable,const UBytePtr color_prom)
 	{
 		int i;
 		#define TOTAL_COLORS(gfxn) (Machine.gfx[gfxn].total_colors * Machine.gfx[gfxn].color_granularity)
@@ -92,7 +92,7 @@ public class kingobox
 	
 	
 	/* Ring King has one 256x8 PROM instead of two 256x4 */
-	void ringking_vh_convert_color_prom(unsigned char *palette,unsigned short *colortable,const unsigned char *color_prom)
+	void ringking_vh_convert_color_prom(UBytePtr palette,unsigned short *colortable,const UBytePtr color_prom)
 	{
 		int i;
 		#define TOTAL_COLORS(gfxn) (Machine.gfx[gfxn].total_colors * Machine.gfx[gfxn].color_granularity)

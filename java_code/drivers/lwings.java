@@ -23,15 +23,15 @@ public class lwings
 {
 	
 	
-	extern unsigned char *lwings_fgvideoram;
-	extern unsigned char *lwings_bg1videoram;
+	extern UBytePtr lwings_fgvideoram;
+	extern UBytePtr lwings_bg1videoram;
 	
 	
 	
 	
 	public static WriteHandlerPtr lwings_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		unsigned char *RAM;
+		UBytePtr RAM;
 		int bank;
 	
 	

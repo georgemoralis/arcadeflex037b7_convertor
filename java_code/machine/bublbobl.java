@@ -18,7 +18,7 @@ public class bublbobl
 	
 	
 	
-	unsigned char *bublbobl_sharedram1,*bublbobl_sharedram2;
+	UBytePtr bublbobl_sharedram1,*bublbobl_sharedram2;
 	extern int bublbobl_video_enable;
 	
 	
@@ -43,7 +43,7 @@ public class bublbobl
 	
 	public static WriteHandlerPtr bublbobl_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		unsigned char *ROM = memory_region(REGION_CPU1);
+		UBytePtr ROM = memory_region(REGION_CPU1);
 	
 		/* bits 0-2 select ROM bank */
 		cpu_setbank(1,&ROM[0x10000 + 0x4000 * ((data ^ 4) & 7)]);
@@ -63,7 +63,7 @@ public class bublbobl
 	
 	public static WriteHandlerPtr tokio_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		unsigned char *ROM = memory_region(REGION_CPU1);
+		UBytePtr ROM = memory_region(REGION_CPU1);
 	
 		/* bits 0-2 select ROM bank */
 		cpu_setbank(1,&ROM[0x10000 + 0x4000 * (data & 7)]);

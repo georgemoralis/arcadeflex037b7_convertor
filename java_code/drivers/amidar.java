@@ -60,7 +60,7 @@ public class amidar
 	
 	
 	
-	extern unsigned char *amidar_attributesram;
+	extern UBytePtr amidar_attributesram;
 	
 	
 	public static WriteHandlerPtr amidar_coina_w = new WriteHandlerPtr() {public void handler(int offset, int data)

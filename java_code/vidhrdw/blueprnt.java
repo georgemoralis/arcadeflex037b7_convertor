@@ -16,7 +16,7 @@ public class blueprnt
 {
 	
 	
-	unsigned char *blueprnt_scrollram;
+	UBytePtr blueprnt_scrollram;
 	
 	static int gfx_bank,flipscreen;
 	

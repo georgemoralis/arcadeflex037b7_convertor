@@ -25,14 +25,14 @@ public class m62
 	
 	
 	static int flipscreen;
-	static const unsigned char *sprite_height_prom;
+	static const UBytePtr sprite_height_prom;
 	static int kidniki_background_bank;
 	static int irem_background_hscroll;
 	static int irem_background_vscroll;
 	static int kidniki_text_vscroll;
 	static int spelunk2_palbank;
 	
-	unsigned char *irem_textram;
+	UBytePtr irem_textram;
 	size_t irem_textram_size;
 	
 	

@@ -16,7 +16,7 @@ public class bublbobl
 	
 	
 	
-	unsigned char *bublbobl_objectram;
+	UBytePtr bublbobl_objectram;
 	size_t bublbobl_objectram_size;
 	int bublbobl_video_enable;
 	

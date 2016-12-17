@@ -15,8 +15,8 @@ public class circusc
 	
 	
 	
-	extern unsigned char *circusc_spritebank;
-	extern unsigned char *circusc_scroll;
+	extern UBytePtr circusc_spritebank;
+	extern UBytePtr circusc_scroll;
 	
 	
 	

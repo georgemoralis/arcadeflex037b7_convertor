@@ -79,14 +79,14 @@ public class senjyo
 	
 	
 	
-	extern unsigned char *senjyo_fgscroll;
-	extern unsigned char *senjyo_bgstripes;
-	extern unsigned char *senjyo_scrollx1,*senjyo_scrolly1;
-	extern unsigned char *senjyo_scrollx2,*senjyo_scrolly2;
-	extern unsigned char *senjyo_scrollx3,*senjyo_scrolly3;
-	extern unsigned char *senjyo_fgvideoram,*senjyo_fgcolorram;
-	extern unsigned char *senjyo_bg1videoram,*senjyo_bg2videoram,*senjyo_bg3videoram;
-	extern unsigned char *senjyo_radarram;
+	extern UBytePtr senjyo_fgscroll;
+	extern UBytePtr senjyo_bgstripes;
+	extern UBytePtr senjyo_scrollx1,*senjyo_scrolly1;
+	extern UBytePtr senjyo_scrollx2,*senjyo_scrolly2;
+	extern UBytePtr senjyo_scrollx3,*senjyo_scrolly3;
+	extern UBytePtr senjyo_fgvideoram,*senjyo_fgcolorram;
+	extern UBytePtr senjyo_bg1videoram,*senjyo_bg2videoram,*senjyo_bg3videoram;
+	extern UBytePtr senjyo_radarram;
 	
 	
 	

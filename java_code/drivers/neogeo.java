@@ -207,9 +207,9 @@ public class neogeo
 	#define RASTER_VBLANK_END (RASTER_LINES-(LAST_VISIBLE_LINE-FIRST_VISIBLE_LINE+1))
 	
 	
-	extern unsigned char *vidram;
-	extern unsigned char *neogeo_ram;
-	extern unsigned char *neogeo_sram;
+	extern UBytePtr vidram;
+	extern UBytePtr neogeo_ram;
+	extern UBytePtr neogeo_sram;
 	
 	
 	extern int	memcard_status;
@@ -407,7 +407,7 @@ public class neogeo
 	
 	public static WriteHandlerPtr neo_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 		int bankaddress;
 	
 	
@@ -705,7 +705,7 @@ public class neogeo
 	
 			case 0x08:
 				{
-					unsigned char *RAM = memory_region(REGION_CPU2);
+					UBytePtr RAM = memory_region(REGION_CPU2);
 					bank[3] = 0x0800 * ((offset >> 8) & 0x7f);
 					cpu_setbank(8,&RAM[bank[3]]);
 					return 0;
@@ -714,7 +714,7 @@ public class neogeo
 	
 			case 0x09:
 				{
-					unsigned char *RAM = memory_region(REGION_CPU2);
+					UBytePtr RAM = memory_region(REGION_CPU2);
 					bank[2] = 0x1000 * ((offset >> 8) & 0x3f);
 					cpu_setbank(7,&RAM[bank[2]]);
 					return 0;
@@ -723,7 +723,7 @@ public class neogeo
 	
 			case 0x0a:
 				{
-					unsigned char *RAM = memory_region(REGION_CPU2);
+					UBytePtr RAM = memory_region(REGION_CPU2);
 					bank[1] = 0x2000 * ((offset >> 8) & 0x1f);
 					cpu_setbank(6,&RAM[bank[1]]);
 					return 0;
@@ -732,7 +732,7 @@ public class neogeo
 	
 			case 0x0b:
 				{
-					unsigned char *RAM = memory_region(REGION_CPU2);
+					UBytePtr RAM = memory_region(REGION_CPU2);
 					bank[0] = 0x4000 * ((offset >> 8) & 0x0f);
 					cpu_setbank(5,&RAM[bank[0]]);
 					return 0;
@@ -4493,7 +4493,7 @@ public class neogeo
 	/******************************************************************************/
 	
 	/* For MGD-2 dumps */
-	static void shuffle(unsigned char *buf,int len)
+	static void shuffle(UBytePtr buf,int len)
 	{
 		int i;
 		unsigned char t;
@@ -4531,7 +4531,7 @@ public class neogeo
 	
 	public static InitDriverPtr init_mgd2 = new InitDriverPtr() { public void handler() 
 	{
-		unsigned char *gfxdata = memory_region(REGION_GFX2);
+		UBytePtr gfxdata = memory_region(REGION_GFX2);
 		int len = memory_region_length(REGION_GFX2);
 	
 	

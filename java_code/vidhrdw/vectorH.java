@@ -30,7 +30,7 @@ public class vectorH
 	
 	extern int translucency;  /* translucent vectors  */
 	
-	extern unsigned char *vectorram;
+	extern UBytePtr vectorram;
 	extern size_t vectorram_size;
 	
 	void vector_draw_to (int x2, int y2, int col, int intensity, int dirty);

@@ -258,7 +258,7 @@ public class taito_f2
 	
 	
 	
-	extern unsigned char *f2_sprite_extension;
+	extern UBytePtr f2_sprite_extension;
 	extern size_t f2_spriteext_size;
 	
 	int mjnquest_input;
@@ -268,7 +268,7 @@ public class taito_f2
 	
 	//
 	
-	extern unsigned char *cchip_ram;
+	extern UBytePtr cchip_ram;
 	
 	
 	
@@ -803,7 +803,7 @@ public class taito_f2
 	
 	public static WriteHandlerPtr bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		unsigned char *RAM = memory_region(REGION_CPU2);
+		UBytePtr RAM = memory_region(REGION_CPU2);
 		int banknum = (data - 1) & 7;
 	
 	#ifdef MAME_DEBUG

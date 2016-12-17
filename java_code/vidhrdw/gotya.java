@@ -8,8 +8,8 @@ public class gotya
 {
 	
 	
-	unsigned char *gotya_scroll;
-	unsigned char *gotya_foregroundram;
+	UBytePtr gotya_scroll;
+	UBytePtr gotya_foregroundram;
 	
 	static int scroll_bit_8;
 	

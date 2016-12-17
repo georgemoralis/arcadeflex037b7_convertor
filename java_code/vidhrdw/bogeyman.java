@@ -8,7 +8,7 @@ public class bogeyman
 {
 	
 	static int flipscreen;
-	unsigned char *bogeyman_videoram;
+	UBytePtr bogeyman_videoram;
 	
 	
 	

@@ -17,9 +17,9 @@ public class gottlieb
 	
 	
 	
-	unsigned char *gottlieb_characterram;
+	UBytePtr gottlieb_characterram;
 	#define MAX_CHARS 256
-	static unsigned char *dirtycharacter;
+	static UBytePtr dirtycharacter;
 	static int background_priority=0;
 	static unsigned char hflip=0;
 	static unsigned char vflip=0;

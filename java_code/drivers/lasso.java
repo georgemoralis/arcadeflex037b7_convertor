@@ -18,7 +18,7 @@ public class lasso
 	
 	void lasso_vh_convert_color_prom( UINT8 *palette, UINT16 *colortable, const UINT8 *color_prom );
 	
-	extern unsigned char *lasso_vram; /* 0x2000 bytes for a 256x256x1 bitmap */
+	extern UBytePtr lasso_vram; /* 0x2000 bytes for a 256x256x1 bitmap */
 	
 	
 	

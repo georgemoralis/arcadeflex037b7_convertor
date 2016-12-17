@@ -30,7 +30,7 @@ public class cheekyms
 	
 		for (i = 0; i < 3; i++)
 		{
-			const unsigned char* color_prom_save = color_prom;
+			const UBytePtr  color_prom_save = color_prom;
 	
 			/* lower nibble */
 			for (j = 0;j < Machine.drv.total_colors/6;j++)

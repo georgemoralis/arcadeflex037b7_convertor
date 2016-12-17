@@ -25,10 +25,10 @@ public class cbuster
 	
 	
 	
-	extern unsigned char *twocrude_pf1_rowscroll,*twocrude_pf2_rowscroll;
-	extern unsigned char *twocrude_pf3_rowscroll,*twocrude_pf4_rowscroll;
-	extern unsigned char *twocrude_pf1_data, *twocrude_pf2_data, *twocrude_pf3_data, *twocrude_pf4_data;
-	static unsigned char *twocrude_ram;
+	extern UBytePtr twocrude_pf1_rowscroll,*twocrude_pf2_rowscroll;
+	extern UBytePtr twocrude_pf3_rowscroll,*twocrude_pf4_rowscroll;
+	extern UBytePtr twocrude_pf1_data, *twocrude_pf2_data, *twocrude_pf3_data, *twocrude_pf4_data;
+	static UBytePtr twocrude_ram;
 	extern void twocrude_pri_w(int pri);
 	static int prot;
 	
@@ -602,8 +602,8 @@ public class cbuster
 	
 	static public static InitDriverPtr init_twocrude = new InitDriverPtr() { public void handler() 
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
-		unsigned char *PTR;
+		UBytePtr RAM = memory_region(REGION_CPU1);
+		UBytePtr PTR;
 		int i,j;
 	
 		/* Main cpu decrypt */

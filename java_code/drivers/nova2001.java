@@ -37,7 +37,7 @@ public class nova2001
 {
 	
 	/* From vidhrdw/nova2001.c */
-	extern unsigned char *nova2001_videoram,*nova2001_colorram;
+	extern UBytePtr nova2001_videoram,*nova2001_colorram;
 	extern size_t nova2001_videoram_size;
 	
 	

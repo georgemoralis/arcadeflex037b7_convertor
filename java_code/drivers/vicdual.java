@@ -83,9 +83,9 @@ public class vicdual
 	#define	PSG_CLOCK_CARNIVAL	( 3579545 / 3 )	/* Hz */
 	
 	
-	static unsigned char *vicdual_ram;
+	static UBytePtr vicdual_ram;
 	
-	extern unsigned char *vicdual_characterram;
+	extern UBytePtr vicdual_characterram;
 	
 	/* Carnival sound handlers */
 	extern const char *carnival_sample_names[];
@@ -1611,7 +1611,7 @@ public class vicdual
 	
 	static void vicdual_decode(void)
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 	
 		/* copy the ROMs to the mirror image */

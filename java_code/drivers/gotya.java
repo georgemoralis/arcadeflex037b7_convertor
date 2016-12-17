@@ -22,8 +22,8 @@ public class gotya
 {
 	
 	
-	extern unsigned char *gotya_scroll;
-	extern unsigned char *gotya_foregroundram;
+	extern UBytePtr gotya_scroll;
+	extern UBytePtr gotya_foregroundram;
 	
 	
 	

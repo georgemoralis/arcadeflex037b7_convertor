@@ -17,12 +17,12 @@ public class vastar
 	
 	
 	
-	unsigned char *vastar_bg1videoram;
-	unsigned char *vastar_bg2videoram;
-	unsigned char *vastar_fgvideoram;
-	unsigned char *vastar_sprite_priority;
-	unsigned char *vastar_bg1_scroll;
-	unsigned char *vastar_bg2_scroll;
+	UBytePtr vastar_bg1videoram;
+	UBytePtr vastar_bg2videoram;
+	UBytePtr vastar_fgvideoram;
+	UBytePtr vastar_sprite_priority;
+	UBytePtr vastar_bg1_scroll;
+	UBytePtr vastar_bg2_scroll;
 	
 	static struct tilemap *fg_tilemap, *bg1_tilemap, *bg2_tilemap;
 	

@@ -114,7 +114,7 @@ public class ppu2c03b
 	 *	PPU Palette Initialization
 	 *
 	 *************************************/
-	void ppu2c03b_init_palette( unsigned char *palette ) {
+	void ppu2c03b_init_palette( UBytePtr palette ) {
 	
 	#ifndef M_PI
 	#define M_PI 			(3.14159265358979323846L)

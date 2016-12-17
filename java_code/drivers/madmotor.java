@@ -22,9 +22,9 @@ public class madmotor
 {
 	
 	
-	extern unsigned char *madmotor_pf1_rowscroll;
-	extern unsigned char *madmotor_pf1_data,*madmotor_pf2_data,*madmotor_pf3_data;
-	static unsigned char *madmotor_ram;
+	extern UBytePtr madmotor_pf1_rowscroll;
+	extern UBytePtr madmotor_pf1_data,*madmotor_pf2_data,*madmotor_pf3_data;
+	static UBytePtr madmotor_ram;
 	
 	/******************************************************************************/
 	
@@ -420,7 +420,7 @@ public class madmotor
 	
 	static void madmotor_decrypt(void)
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 		int i;
 	
 		for (i=0x00000; i<0x80000; i++) {

@@ -479,7 +479,7 @@ public class network
 	}
 	
 	/* format packet and pass to os-specific sender */
-	int net_send( int player, char type, unsigned char *msg, int size )
+	int net_send( int player, char type, UBytePtr msg, int size )
 	{
 		/* format packet */
 		static unsigned char buf[NET_MAX_PACKET];
@@ -513,7 +513,7 @@ public class network
 	}
 	
 	/* receive from os-specific sender and check packet format */
-	int net_recv( int player, char type, unsigned char *msg, int size )
+	int net_recv( int player, char type, UBytePtr msg, int size )
 	{
 		/* decode packet and check against expected*/
 		static unsigned char buf[NET_MAX_PACKET];
@@ -732,13 +732,13 @@ public class network
 		}
 	}
 	
-	int net_chat_send( unsigned char *msg, int *size )
+	int net_chat_send( UBytePtr msg, int *size )
 	{
 		net_send( 0, NET_CHAT_CHAT, msg, *size );
 		return 0;
 	}
 	
-	int net_chat_recv(int player, unsigned char *msg, int *size )
+	int net_chat_recv(int player, UBytePtr msg, int *size )
 	{
 		net_recv( player, NET_CHAT_CHAT, msg, *size );
 		return 0;

@@ -63,7 +63,7 @@ enum SEGAPCM_samplerate
 /**************** prottype ****************/
 int SEGAPCM_sh_start( const struct MachineSound *msound );
 
-int SEGAPCMInit( const struct MachineSound *msound, int banksize, int mode, unsigned char *inpcm, int volume );
+int SEGAPCMInit( const struct MachineSound *msound, int banksize, int mode, UBytePtr inpcm, int volume );
 
 /************************************************/
 #endif

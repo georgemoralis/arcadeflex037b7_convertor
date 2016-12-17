@@ -35,7 +35,7 @@ public class crimfght
 	
 	public static WriteHandlerPtr crimfght_snd_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		unsigned char *RAM = memory_region(REGION_SOUND1);
+		UBytePtr RAM = memory_region(REGION_SOUND1);
 		/* b1: bank for channel A */
 		/* b0: bank for channel B */
 	
@@ -50,7 +50,7 @@ public class crimfght
 	
 	public static ReadHandlerPtr speedup_r  = new ReadHandlerPtr() { public int handler(int offset)
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 		int data = ( RAM[0x0414] << 8 ) | RAM[0x0415];
 	
@@ -524,7 +524,7 @@ public class crimfght
 	
 	public static konami_cpu_setlines_callbackPtr crimfght_banking = new konami_cpu_setlines_callbackPtr() { public void handler(int lines) 
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 		int offs = 0;
 	
 		/* bit 5 = select work RAM or palette */
@@ -546,7 +546,7 @@ public class crimfght
 	
 	static public static InitMachinePtr crimfght_init_machine = new InitMachinePtr() { public void handler() 
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 		konami_cpu_setlines_callback = crimfght_banking;
 	

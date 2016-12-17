@@ -16,7 +16,7 @@ public class digdug
 {
 	
 	
-	unsigned char *digdug_vlatches;
+	UBytePtr digdug_vlatches;
 	static int playfield, alphacolor, playenable, playcolor;
 	
 	static int pflastindex = -1, pflastcolor = -1;
@@ -167,7 +167,7 @@ public class digdug
 	public static VhUpdatePtr digdug_vh_screenrefresh = new VhUpdatePtr() { public void handler(osd_bitmap bitmap,int full_refresh) 
 	{
 		int offs,pfindex,pfcolor;
-		unsigned char *pf;
+		UBytePtr pf;
 	
 		/* determine the playfield */
 		if (playenable != 0)

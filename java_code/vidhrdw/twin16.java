@@ -22,9 +22,9 @@ public class twin16
 	
 	extern UINT16 twin16_custom_vidhrdw;
 	extern UINT16 *twin16_gfx_rom;
-	extern unsigned char *twin16_fixram;
-	extern unsigned char *twin16_sprite_gfx_ram;
-	extern unsigned char *twin16_tile_gfx_ram;
+	extern UBytePtr twin16_fixram;
+	extern UBytePtr twin16_sprite_gfx_ram;
+	extern UBytePtr twin16_tile_gfx_ram;
 	extern extern 
 	static int need_process_spriteram;
 	static UINT16 gfx_bank;

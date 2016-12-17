@@ -50,7 +50,7 @@ public class galivan
 	
 	static struct tilemap *bg_tilemap, *tx_tilemap;
 	
-	static const unsigned char *spritepalettebank;
+	static const UBytePtr spritepalettebank;
 	static int ninjemak_dispdisable;
 	
 	
@@ -143,7 +143,7 @@ public class galivan
 	
 	static void get_bg_tile_info(int tile_index)
 	{
-		unsigned char *BGROM = memory_region(REGION_GFX4);
+		UBytePtr BGROM = memory_region(REGION_GFX4);
 		int attr = BGROM[tile_index + 0x4000];
 		int code = BGROM[tile_index] | ((attr & 0x03) << 8);
 		SET_TILE_INFO(1,code,(attr & 0x78) >> 3);	/* seems correct */
@@ -159,7 +159,7 @@ public class galivan
 	
 	static void ninjemak_get_bg_tile_info(int tile_index)
 	{
-		unsigned char *BGROM = memory_region(REGION_GFX4);
+		UBytePtr BGROM = memory_region(REGION_GFX4);
 		int attr = BGROM[tile_index + 0x4000];
 		int code = BGROM[tile_index] | ((attr & 0x03) << 8);
 		SET_TILE_INFO(1,code,((attr & 0x60) >> 3) | ((attr & 0x0c) >> 2));	/* seems correct */
@@ -247,7 +247,7 @@ public class galivan
 		/* bit 7 selects one of two ROM banks for c000-dfff */
 		{
 			int bank = (data & 0x80) >> 7;
-			unsigned char *RAM = memory_region(REGION_CPU1);
+			UBytePtr RAM = memory_region(REGION_CPU1);
 	
 			cpu_setbank(1,&RAM[0x10000 + 0x2000 * bank]);
 		}
@@ -293,7 +293,7 @@ public class galivan
 		/* bit 6, 7 ROM bank select */
 		{
 			int bank = (data & 0xc0) >> 6;
-			unsigned char *RAM = memory_region(REGION_CPU1);
+			UBytePtr RAM = memory_region(REGION_CPU1);
 	
 			cpu_setbank(1,&RAM[0x10000 + 0x2000 * bank]);
 		}

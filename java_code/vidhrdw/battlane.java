@@ -19,7 +19,7 @@ public class battlane
 	static struct osd_bitmap *screen_bitmap;
 	
 	size_t battlane_bitmap_size;
-	unsigned char *battlane_bitmap;
+	UBytePtr battlane_bitmap;
 	static int battlane_video_ctrl;
 	
 	const int battlane_spriteram_size=0x100;
@@ -234,7 +234,7 @@ public class battlane
 	INLINE void battlane_build_palette(void)
 	{
 		int offset;
-	    unsigned char *PALETTE =
+	    UBytePtr PALETTE =
 	        memory_region(REGION_PROMS);
 	
 	    for (offset = 0; offset < 0x40; offset++)

@@ -150,7 +150,7 @@ public class pacplus
 	void pacplus_decode(void)
 	{
 		int i;
-		unsigned char *RAM;
+		UBytePtr RAM;
 	
 		/* CPU ROMs */
 	

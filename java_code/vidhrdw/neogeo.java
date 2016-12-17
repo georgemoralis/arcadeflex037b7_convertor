@@ -63,19 +63,19 @@ public class neogeo
 	
 	//#define NEO_DEBUG
 	
-	static unsigned char *vidram;
-	static unsigned char *neogeo_paletteram;	   /* pointer to 1 of the 2 palette banks */
-	static unsigned char *pal_bank1;		/* 0x100*16 2 byte palette entries */
-	static unsigned char *pal_bank2;		/* 0x100*16 2 byte palette entries */
+	static UBytePtr vidram;
+	static UBytePtr neogeo_paletteram;	   /* pointer to 1 of the 2 palette banks */
+	static UBytePtr pal_bank1;		/* 0x100*16 2 byte palette entries */
+	static UBytePtr pal_bank2;		/* 0x100*16 2 byte palette entries */
 	static int palno,modulo,where,high_tile,vhigh_tile,vvhigh_tile;
 	int no_of_tiles;
 	static int palette_swap_pending,fix_bank;
 	
-	extern unsigned char *neogeo_ram;
+	extern UBytePtr neogeo_ram;
 	extern unsigned int neogeo_frame_counter;
 	extern int neogeo_game_fix;
 	
-	void NeoMVSDrawGfx(unsigned char **line,const struct GfxElement *gfx,
+	void NeoMVSDrawGfx(UBytePtr *line,const struct GfxElement *gfx,
 			unsigned int code,unsigned int color,int flipx,int flipy,int sx,int sy,
 			int zx,int zy,const struct rectangle *clip);
 	
@@ -272,7 +272,7 @@ public class neogeo
 	
 	/******************************************************************************/
 	
-	static const unsigned char *neogeo_palette(const struct rectangle *clip)
+	static const UBytePtr neogeo_palette(const struct rectangle *clip)
 	{
 		int color,code,pal_base,y,my=0,count,offs,i;
 	 	int colmask[256];
@@ -508,12 +508,12 @@ public class neogeo
 	/******************************************************************************/
 	
 	
-	void NeoMVSDrawGfx(unsigned char **line,const struct GfxElement *gfx, /* AJP */
+	void NeoMVSDrawGfx(UBytePtr *line,const struct GfxElement *gfx, /* AJP */
 			unsigned int code,unsigned int color,int flipx,int flipy,int sx,int sy,
 			int zx,int zy,const struct rectangle *clip)
 	{
 		int /*ox,*/oy,ey,y,dy;
-		unsigned char *bm;
+		UBytePtr bm;
 		int col;
 		int l; /* Line skipping counter */
 	
@@ -693,7 +693,7 @@ public class neogeo
 		}
 	}
 	
-	void NeoMVSDrawGfx16(unsigned char **line,const struct GfxElement *gfx, /* AJP */
+	void NeoMVSDrawGfx16(UBytePtr *line,const struct GfxElement *gfx, /* AJP */
 			unsigned int code,unsigned int color,int flipx,int flipy,int sx,int sy,
 			int zx,int zy,const struct rectangle *clip)
 	{
@@ -889,7 +889,7 @@ public class neogeo
 		int tileno,tileatr,t1,t2,t3;
 		char fullmode=0;
 		int ddax=0,dday=0,rzx=15,yskip=0;
-		unsigned char **line=bitmap.line;
+		UBytePtr *line=bitmap.line;
 		unsigned int *pen_usage;
 		struct GfxElement *gfx=Machine.gfx[2]; /* Save constant struct dereference */
 	

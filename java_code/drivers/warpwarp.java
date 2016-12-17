@@ -55,7 +55,7 @@ public class warpwarp
 {
 	
 	
-	extern unsigned char *warpwarp_bulletsram;
+	extern UBytePtr warpwarp_bulletsram;
 	
 	/* from sndhrdw/warpwarp.c */
 	extern extern extern 

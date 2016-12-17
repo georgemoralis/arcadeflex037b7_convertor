@@ -42,7 +42,7 @@ public class k053260
 		int								channel;
 		int								mode;
 		int								regs[0x30];
-		unsigned char					*rom;
+		UBytePtr rom;
 		int								rom_size;
 		void							*timer; /* SH1 int timer */
 	} K053260_chip;
@@ -106,7 +106,7 @@ public class k053260
 		static long dpcmcnv[] = { 0, 1, 4, 9, 16, 25, 36, 49, -64, -49, -36, -25, -16, -9, -4, -1 };
 	
 		int i, j, lvol[4], rvol[4], play[4], loop[4], ppcm_data[4], ppcm[4];
-		unsigned char *rom[4];
+		UBytePtr rom[4];
 		unsigned long delta[4], end[4], pos[4];
 		int dataL, dataR;
 		signed char d;

@@ -20,11 +20,11 @@ public class rainbow
 	
 	extern size_t rastan_videoram_size;
 	
-	extern unsigned char *rastan_ram;
-	extern unsigned char *rastan_videoram1,*rastan_videoram3;
-	extern unsigned char *rastan_spriteram;
-	extern unsigned char *rastan_scrollx;
-	extern unsigned char *rastan_scrolly;
+	extern UBytePtr rastan_ram;
+	extern UBytePtr rastan_videoram1,*rastan_videoram3;
+	extern UBytePtr rastan_spriteram;
+	extern UBytePtr rastan_scrollx;
+	extern UBytePtr rastan_scrolly;
 	
 	
 	
@@ -66,7 +66,7 @@ public class rainbow
 	
 	public static WriteHandlerPtr rastan_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		unsigned char *RAM = memory_region(REGION_CPU2);
+		UBytePtr RAM = memory_region(REGION_CPU2);
 		int banknum = ( data - 1 ) & 3;
 		cpu_setbank( 5, &RAM[ 0x10000 + ( banknum * 0x4000 ) ] );
 	} };
@@ -371,7 +371,7 @@ public class rainbow
 	#if 0
 	public static WriteHandlerPtr jumping_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		unsigned char *RAM = memory_region(REGION_CPU2);
+		UBytePtr RAM = memory_region(REGION_CPU2);
 		int banknum = (data & 1);
 		/*if (!(data & 8)) logerror("bankswitch not ORed with 8 !!!\n");*/
 	

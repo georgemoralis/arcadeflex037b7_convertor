@@ -98,11 +98,11 @@ package drivers;
 public class cloak
 {
 	
-	static unsigned char *enable_nvRAM;
-	static unsigned char *cloak_sharedram;
+	static UBytePtr enable_nvRAM;
+	static UBytePtr cloak_sharedram;
 	extern extern extern 
 	
-	static unsigned char *nvram;
+	static UBytePtr nvram;
 	static size_t nvram_size;
 	
 	

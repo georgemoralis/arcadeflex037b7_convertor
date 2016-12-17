@@ -15,8 +15,8 @@ public class solomon
 {
 	
 	
-	extern unsigned char *solomon_bgvideoram;
-	extern unsigned char *solomon_bgcolorram;
+	extern UBytePtr solomon_bgvideoram;
+	extern UBytePtr solomon_bgcolorram;
 	
 	
 	public static WriteHandlerPtr solomon_sh_command_w = new WriteHandlerPtr() {public void handler(int offset, int data)

@@ -290,7 +290,7 @@ public class cps1
 	static public static InitMachinePtr cps1_init_machine = new InitMachinePtr() { public void handler() 
 	{
 		const char *gamename = Machine.gamedrv.name;
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 	
 		struct CPS1config *pCFG=&cps1_config_table[0];
@@ -327,7 +327,7 @@ public class cps1
 		return READ_WORD(&cps1_output[offset]);
 	}
 	
-	INLINE unsigned char *cps1_base(int offset,int boundary)
+	INLINE UBytePtr cps1_base(int offset,int boundary)
 	{
 		int base=cps1_port(offset)*256;
 		/*
@@ -411,8 +411,8 @@ public class cps1
 	
 	
 	/* Public variables */
-	unsigned char *cps1_gfxram;
-	unsigned char *cps1_output;
+	UBytePtr cps1_gfxram;
+	UBytePtr cps1_output;
 	
 	
 	size_t cps1_gfxram_size;
@@ -437,14 +437,14 @@ public class cps1
 	const int cps1_palette_size=cps1_palette_entries*32; /* Size of palette RAM */
 	static int cps1_flip_screen;    /* Flip screen on / off */
 	
-	static unsigned char *cps1_scroll1;
-	static unsigned char *cps1_scroll2;
-	static unsigned char *cps1_scroll3;
-	static unsigned char *cps1_obj;
-	static unsigned char *cps1_buffered_obj;
-	static unsigned char *cps1_palette;
-	static unsigned char *cps1_other;
-	static unsigned char *cps1_old_palette;
+	static UBytePtr cps1_scroll1;
+	static UBytePtr cps1_scroll2;
+	static UBytePtr cps1_scroll3;
+	static UBytePtr cps1_obj;
+	static UBytePtr cps1_buffered_obj;
+	static UBytePtr cps1_palette;
+	static UBytePtr cps1_other;
+	static UBytePtr cps1_old_palette;
 	
 	/* Working variables */
 	static int cps1_last_sprite_offset;     /* Offset of the last sprite */
@@ -453,7 +453,7 @@ public class cps1
 	
 	int scroll1x, scroll1y, scroll2x, scroll2y, scroll3x, scroll3y;
 	int stars1x, stars1y, stars2x, stars2y;
-	static unsigned char *cps1_scroll2_old;
+	static UBytePtr cps1_scroll2_old;
 	static struct osd_bitmap *cps1_scroll2_bitmap;
 	
 	
@@ -502,7 +502,7 @@ public class cps1
 	{
 		UINT32 dwval;
 		int size=memory_region_length(REGION_GFX1);
-		unsigned char *data = memory_region(REGION_GFX1);
+		UBytePtr data = memory_region(REGION_GFX1);
 		int i,j,nchar,penusage,gfxsize;
 	
 		gfxsize=size/4;
@@ -898,7 +898,7 @@ public class cps1
 		{
 			for (i=15; i>=0; i--)
 			{
-				register unsigned char *bm=dest.line[sy+i]+sx;
+				register UBytePtr bm=dest.line[sy+i]+sx;
 				for (j=15; j>=0; j--)
 				{
 					*bm=palette_transparent_pen;
@@ -1119,7 +1119,7 @@ public class cps1
 		memset(cps1_scroll2_old, 0xff, cps1_scroll2_size);
 	
 	
-		cps1_old_palette=(unsigned char *)malloc(cps1_palette_size);
+		cps1_old_palette=(UBytePtr )malloc(cps1_palette_size);
 		if (!cps1_old_palette)
 		{
 			return -1;
@@ -2263,25 +2263,25 @@ public class cps1
 					bm = (DATATYPE *)dest.line[ny]+sx;
 					IF_NOT_TRANSPARENT(n,sx,ny) bm[0]=PALDATA(n);
 					n=(dwval>>24)&0x0f;
-					bm = (DATATYPE *)(((unsigned char *)bm) + bmdelta);
+					bm = (DATATYPE *)(((UBytePtr )bm) + bmdelta);
 					IF_NOT_TRANSPARENT(n,sx,ny+dir) bm[0]=PALDATA(n);
 					n=(dwval>>20)&0x0f;
-					bm = (DATATYPE *)(((unsigned char *)bm) + bmdelta);
+					bm = (DATATYPE *)(((UBytePtr )bm) + bmdelta);
 					IF_NOT_TRANSPARENT(n,sx,ny+2*dir) bm[0]=PALDATA(n);
 					n=(dwval>>16)&0x0f;
-					bm = (DATATYPE *)(((unsigned char *)bm) + bmdelta);
+					bm = (DATATYPE *)(((UBytePtr )bm) + bmdelta);
 					IF_NOT_TRANSPARENT(n,sx,ny+3*dir) bm[0]=PALDATA(n);
 					n=(dwval>>12)&0x0f;
-					bm = (DATATYPE *)(((unsigned char *)bm) + bmdelta);
+					bm = (DATATYPE *)(((UBytePtr )bm) + bmdelta);
 					IF_NOT_TRANSPARENT(n,sx,ny+4*dir) bm[0]=PALDATA(n);
 					n=(dwval>>8)&0x0f;
-					bm = (DATATYPE *)(((unsigned char *)bm) + bmdelta);
+					bm = (DATATYPE *)(((UBytePtr )bm) + bmdelta);
 					IF_NOT_TRANSPARENT(n,sx,ny+5*dir) bm[0]=PALDATA(n);
 					n=(dwval>>4)&0x0f;
-					bm = (DATATYPE *)(((unsigned char *)bm) + bmdelta);
+					bm = (DATATYPE *)(((UBytePtr )bm) + bmdelta);
 					IF_NOT_TRANSPARENT(n,sx,ny+6*dir) bm[0]=PALDATA(n);
 					n=dwval&0x0f;
-					bm = (DATATYPE *)(((unsigned char *)bm) + bmdelta);
+					bm = (DATATYPE *)(((UBytePtr )bm) + bmdelta);
 					IF_NOT_TRANSPARENT(n,sx,ny+7*dir) bm[0]=PALDATA(n);
 					if (flipy != 0) ny-=8;
 					else ny+=8;

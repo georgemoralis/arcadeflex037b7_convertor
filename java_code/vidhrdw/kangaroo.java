@@ -16,10 +16,10 @@ public class kangaroo
 {
 	
 	
-	unsigned char *kangaroo_video_control;
-	unsigned char *kangaroo_bank_select;
-	unsigned char *kangaroo_blitter;
-	unsigned char *kangaroo_scroll;
+	UBytePtr kangaroo_video_control;
+	UBytePtr kangaroo_bank_select;
+	UBytePtr kangaroo_blitter;
+	UBytePtr kangaroo_scroll;
 	
 	static int screen_flipped;
 	static struct osd_bitmap *tmpbitmap2;
@@ -123,7 +123,7 @@ public class kangaroo
 	
 	public static WriteHandlerPtr kangaroo_bank_select_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 	
 		/* this is a VERY crude way to handle the banked ROMs - but it's */

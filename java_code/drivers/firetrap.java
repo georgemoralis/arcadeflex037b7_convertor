@@ -71,9 +71,9 @@ public class firetrap
 	
 	
 	
-	extern unsigned char *firetrap_bg1videoram;
-	extern unsigned char *firetrap_bg2videoram;
-	extern unsigned char *firetrap_fgvideoram;
+	extern UBytePtr firetrap_bg1videoram;
+	extern UBytePtr firetrap_bg2videoram;
+	extern UBytePtr firetrap_fgvideoram;
 	
 	
 	
@@ -87,7 +87,7 @@ public class firetrap
 	public static WriteHandlerPtr firetrap_bankselect_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
 		int bankaddress;
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 	
 		bankaddress = 0x10000 + (data & 0x03) * 0x4000;
@@ -126,7 +126,7 @@ public class firetrap
 	public static WriteHandlerPtr firetrap_sound_bankselect_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
 		int bankaddress;
-		unsigned char *RAM = memory_region(REGION_CPU2);
+		UBytePtr RAM = memory_region(REGION_CPU2);
 	
 	
 		bankaddress = 0x10000 + (data & 0x01) * 0x4000;

@@ -24,13 +24,13 @@ package drivers;
 public class nemesis
 {
 	
-	static unsigned char *ram;
-	static unsigned char *ram2;
+	static UBytePtr ram;
+	static UBytePtr ram2;
 	
-	extern unsigned char *nemesis_videoram1;
-	extern unsigned char *nemesis_videoram2;
-	extern unsigned char *nemesis_characterram;
-	extern unsigned char *nemesis_xscroll1,*nemesis_xscroll2, *nemesis_yscroll;
+	extern UBytePtr nemesis_videoram1;
+	extern UBytePtr nemesis_videoram2;
+	extern UBytePtr nemesis_characterram;
+	extern UBytePtr nemesis_xscroll1,*nemesis_xscroll2, *nemesis_yscroll;
 	extern size_t nemesis_characterram_size;
 	
 	
@@ -38,7 +38,7 @@ public class nemesis
 	
 	
 	
-	extern unsigned char *nemesis_yscroll1, *nemesis_yscroll2;
+	extern UBytePtr nemesis_yscroll1, *nemesis_yscroll2;
 	
 	
 	
@@ -132,7 +132,7 @@ public class nemesis
 	logerror("irq4en = %08x\n",data);*/
 	} };
 	
-	static unsigned char *gx400_shared_ram;
+	static UBytePtr gx400_shared_ram;
 	
 	
 	public static ReadHandlerPtr gx400_sharedram_nosoundfix_r  = new ReadHandlerPtr() { public int handler(int offset)

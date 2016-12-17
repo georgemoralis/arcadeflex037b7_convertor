@@ -20,10 +20,10 @@ package vidhrdw;
 public class travrusa
 {
 	
-	extern unsigned char *spriteram;
+	extern UBytePtr spriteram;
 	extern size_t spriteram_size;
 	
-	unsigned char *travrusa_videoram;
+	UBytePtr travrusa_videoram;
 	
 	static struct tilemap *bg_tilemap;
 	

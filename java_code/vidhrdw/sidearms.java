@@ -16,8 +16,8 @@ public class sidearms
 {
 	
 	
-	unsigned char *sidearms_bg_scrollx,*sidearms_bg_scrolly;
-	unsigned char *sidearms_bg2_scrollx,*sidearms_bg2_scrolly;
+	UBytePtr sidearms_bg_scrollx,*sidearms_bg_scrolly;
+	UBytePtr sidearms_bg2_scrollx,*sidearms_bg2_scrolly;
 	static struct osd_bitmap *tmpbitmap2;
 	static int flipscreen;
 	static int bgon,objon;
@@ -107,7 +107,7 @@ public class sidearms
 		int color,code,i;
 		int colmask[64];
 		int pal_base;
-		unsigned char *p=memory_region(REGION_GFX4);
+		UBytePtr p=memory_region(REGION_GFX4);
 	
 	
 		pal_base = Machine.drv.gfxdecodeinfo[1].color_codes_start;
@@ -240,7 +240,7 @@ public class sidearms
 	
 			if (offs != lastoffs || dirtypalette)
 			{
-				unsigned char *p=memory_region(REGION_GFX4);
+				UBytePtr p=memory_region(REGION_GFX4);
 	
 	
 				lastoffs = offs;

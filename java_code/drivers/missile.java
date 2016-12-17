@@ -145,7 +145,7 @@ package drivers;
 public class missile
 {
 	
-	extern unsigned char *missile_video2ram;
+	extern UBytePtr missile_video2ram;
 	
 	
 	

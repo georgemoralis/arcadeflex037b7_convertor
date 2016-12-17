@@ -41,7 +41,7 @@ public class mrdo
 	
 	
 	
-	extern unsigned char *mrdo_bgvideoram,*mrdo_fgvideoram;
+	extern UBytePtr mrdo_bgvideoram,*mrdo_fgvideoram;
 	
 	
 	
@@ -49,7 +49,7 @@ public class mrdo
 	/* if a read from this address doesn't return the value it expects. */
 	public static ReadHandlerPtr mrdo_SECRE_r  = new ReadHandlerPtr() { public int handler(int offset)
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 		return RAM[ cpu_get_reg(Z80_HL) ];
 	} };
 	

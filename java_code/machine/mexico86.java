@@ -8,7 +8,7 @@ public class mexico86
 {
 	
 	
-	unsigned char *mexico86_protection_ram;
+	UBytePtr mexico86_protection_ram;
 	
 	
 	/***************************************************************************

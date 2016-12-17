@@ -44,9 +44,9 @@ public class playmark
 {
 	
 	
-	extern unsigned char *bigtwin_bgvideoram;
+	extern UBytePtr bigtwin_bgvideoram;
 	extern size_t bigtwin_bgvideoram_size;
-	extern unsigned char *wbeachvl_videoram1,*wbeachvl_videoram2,*wbeachvl_videoram3;
+	extern UBytePtr wbeachvl_videoram1,*wbeachvl_videoram2,*wbeachvl_videoram3;
 	
 	
 	

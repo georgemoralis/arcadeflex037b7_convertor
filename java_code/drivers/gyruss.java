@@ -68,12 +68,12 @@ public class gyruss
 	/*#define EMULATE_6809*/
 	
 	
-	extern unsigned char *gyruss_spritebank,*gyruss_6809_drawplanet,*gyruss_6809_drawship;
+	extern UBytePtr gyruss_spritebank,*gyruss_6809_drawplanet,*gyruss_6809_drawship;
 	
 	
 	
 	
-	unsigned char *gyruss_sharedram;
+	UBytePtr gyruss_sharedram;
 	
 	public static ReadHandlerPtr gyruss_sharedram_r  = new ReadHandlerPtr() { public int handler(int offset)
 	{

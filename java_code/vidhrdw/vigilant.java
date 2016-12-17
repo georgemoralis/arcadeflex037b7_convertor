@@ -35,8 +35,8 @@ public class vigilant
 		6*8, 32*8-1
 	};
 	
-	unsigned char *vigilant_paletteram;
-	unsigned char *vigilant_sprite_paletteram;
+	UBytePtr vigilant_paletteram;
+	UBytePtr vigilant_sprite_paletteram;
 	
 	static int horiz_scroll_low=0;
 	static int horiz_scroll_high=0;

@@ -31,7 +31,7 @@ public class tigeroad
 	
 	
 	
-	static unsigned char *ram;
+	static UBytePtr ram;
 	
 	/*
 	 F1 Dream protection code written by Eric Hustvedt (hustvedt@ma.ultranet.com).

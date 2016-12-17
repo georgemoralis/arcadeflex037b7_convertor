@@ -56,7 +56,7 @@ public class mainevt
 	
 	public static WriteHandlerPtr mainevt_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 		int bankaddress;
 	
 		/* bit 0-1 ROM bank select */
@@ -111,8 +111,8 @@ public class mainevt
 	
 	public static WriteHandlerPtr mainevt_sh_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		unsigned char *src,*dest;
-		unsigned char *RAM = memory_region(REGION_SOUND1);
+		UBytePtr src,*dest;
+		UBytePtr RAM = memory_region(REGION_SOUND1);
 		int bank_A,bank_B;
 	
 	//logerror("CPU #1 PC: %04x bank switch = %02x\n",cpu_get_pc(),data);
@@ -130,7 +130,7 @@ public class mainevt
 	
 	public static WriteHandlerPtr dv_sh_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		unsigned char *RAM = memory_region(REGION_SOUND1);
+		UBytePtr RAM = memory_region(REGION_SOUND1);
 		int bank_A,bank_B;
 	
 	//logerror("CPU #1 PC: %04x bank switch = %02x\n",cpu_get_pc(),data);

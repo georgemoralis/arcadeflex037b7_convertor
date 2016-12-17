@@ -7,14 +7,14 @@ package vidhrdw;
 public class bjtwin
 {
 	
-	unsigned char *bjtwin_cmdram;
-	unsigned char *bjtwin_workram;
-	unsigned char *bjtwin_spriteram;
-	unsigned char *bjtwin_txvideoram;
-	unsigned char *bjtwin_videocontrol;
+	UBytePtr bjtwin_cmdram;
+	UBytePtr bjtwin_workram;
+	UBytePtr bjtwin_spriteram;
+	UBytePtr bjtwin_txvideoram;
+	UBytePtr bjtwin_videocontrol;
 	size_t bjtwin_txvideoram_size;
 	
-	static unsigned char * dirtybuffer;
+	static UBytePtr  dirtybuffer;
 	static struct osd_bitmap *tmpbitmap;
 	static int flipscreen = 0;
 	

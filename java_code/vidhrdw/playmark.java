@@ -9,9 +9,9 @@ public class playmark
 	
 	
 	
-	unsigned char *bigtwin_bgvideoram;
+	UBytePtr bigtwin_bgvideoram;
 	size_t bigtwin_bgvideoram_size;
-	unsigned char *wbeachvl_videoram1,*wbeachvl_videoram2,*wbeachvl_videoram3;
+	UBytePtr wbeachvl_videoram1,*wbeachvl_videoram2,*wbeachvl_videoram3;
 	static struct osd_bitmap *bgbitmap;
 	static int bgscrollx,bgscrolly;
 	static struct tilemap *tx_tilemap,*fg_tilemap,*bg_tilemap;

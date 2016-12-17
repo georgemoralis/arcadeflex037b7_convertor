@@ -48,10 +48,10 @@ package drivers;
 public class phozon
 {
 	
-	extern unsigned char *phozon_snd_sharedram;
-	extern unsigned char *phozon_spriteram;
-	extern unsigned char *phozon_customio_1, *phozon_customio_2;
-	extern unsigned char *mappy_soundregs;
+	extern UBytePtr phozon_snd_sharedram;
+	extern UBytePtr phozon_spriteram;
+	extern UBytePtr phozon_customio_1, *phozon_customio_2;
+	extern UBytePtr mappy_soundregs;
 	
 	/* memory functions */
 	

@@ -37,7 +37,7 @@ public class chqflag
 	public static WriteHandlerPtr chqflag_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
 		int bankaddress;
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 		/* bits 0-4 = ROM bank # (0x00-0x11) */
 		bankaddress = 0x10000 + (data & 0x1f)*0x4000;
@@ -169,7 +169,7 @@ public class chqflag
 	
 	public static WriteHandlerPtr k007232_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		unsigned char *RAM;
+		UBytePtr RAM;
 		int bank_A, bank_B;
 	
 		/* banks # for the 007232 (chip 1) */
@@ -452,7 +452,7 @@ public class chqflag
 	
 	static public static InitDriverPtr init_chqflag = new InitDriverPtr() { public void handler() 
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 		konami_rom_deinterleave_2(REGION_GFX1);
 		paletteram = &RAM[0x58000];

@@ -13,8 +13,8 @@ public class citycon
 {
 	
 	
-	extern unsigned char *citycon_scroll;
-	extern unsigned char *citycon_charlookup;
+	extern UBytePtr citycon_scroll;
+	extern UBytePtr citycon_charlookup;
 	
 	
 	

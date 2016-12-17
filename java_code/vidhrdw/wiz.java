@@ -28,14 +28,14 @@ public class wiz
 		2*8, 30*8-1
 	};
 	
-	unsigned char *wiz_videoram2;
-	unsigned char *wiz_colorram2;
-	unsigned char *wiz_attributesram;
-	unsigned char *wiz_attributesram2;
+	UBytePtr wiz_videoram2;
+	UBytePtr wiz_colorram2;
+	UBytePtr wiz_attributesram;
+	UBytePtr wiz_attributesram2;
 	
 	static int flipx, flipy;
 	
-	unsigned char *wiz_sprite_bank;
+	UBytePtr wiz_sprite_bank;
 	static unsigned char char_bank[2];
 	static unsigned char palbank[2];
 	static int palette_bank;
@@ -246,7 +246,7 @@ public class wiz
 		}
 	}
 	
-	static void draw_sprites(struct osd_bitmap *bitmap, unsigned char* sprite_ram,
+	static void draw_sprites(struct osd_bitmap *bitmap, UBytePtr  sprite_ram,
 	                         int bank, const struct rectangle* visible_area)
 	{
 		int offs;

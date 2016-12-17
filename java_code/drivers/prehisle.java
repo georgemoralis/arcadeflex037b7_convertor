@@ -18,8 +18,8 @@ public class prehisle
 {
 	
 	
-	static unsigned char *prehisle_ram;
-	extern unsigned char *prehisle_video;
+	static UBytePtr prehisle_ram;
+	extern UBytePtr prehisle_video;
 	
 	/******************************************************************************/
 	

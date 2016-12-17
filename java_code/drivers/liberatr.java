@@ -141,7 +141,7 @@ public class liberatr
 	
 	
 	/* in vidhrdw */
-	extern unsigned char *liberatr_bitmapram;
+	extern UBytePtr liberatr_bitmapram;
 	
 	public static WriteHandlerPtr liberatr_colorram_w = new WriteHandlerPtr() {public void handler(int offset, int data) ;
 	

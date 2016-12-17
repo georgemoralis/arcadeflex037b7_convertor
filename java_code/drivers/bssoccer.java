@@ -25,7 +25,7 @@ public class bssoccer
 	
 	/* Variables and functions defined in vidhrdw */
 	
-	extern unsigned char *bssoccer_vregs;
+	extern UBytePtr bssoccer_vregs;
 	
 	
 	
@@ -111,14 +111,14 @@ public class bssoccer
 	
 	public static WriteHandlerPtr bssoccer_pcm_1_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		unsigned char *RAM = memory_region(REGION_CPU3);
+		UBytePtr RAM = memory_region(REGION_CPU3);
 		int bank = data & 7;
 		cpu_setbank(14, &RAM[bank * 0x10000 + 0x1000]);
 	} };
 	
 	public static WriteHandlerPtr bssoccer_pcm_2_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		unsigned char *RAM = memory_region(REGION_CPU4);
+		UBytePtr RAM = memory_region(REGION_CPU4);
 		int bank = data & 7;
 		cpu_setbank(15, &RAM[bank * 0x10000 + 0x1000]);
 	} };
@@ -480,7 +480,7 @@ public class bssoccer
 	
 	public static InitDriverPtr init_bssoccer = new InitDriverPtr() { public void handler() 
 	{
-		unsigned char *RAM	=	memory_region(REGION_GFX1);
+		UBytePtr RAM	=	memory_region(REGION_GFX1);
 		int i, len			=	memory_region_length(REGION_GFX1);
 	
 		for (i=0;i<len;i++)	RAM[i]^=0xff;	// invert all the bits of sprites

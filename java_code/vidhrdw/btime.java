@@ -18,10 +18,10 @@ public class btime
 {
 	
 	
-	unsigned char *lnc_charbank;
-	unsigned char *bnj_backgroundram;
-	unsigned char *zoar_scrollram;
-	unsigned char *deco_charram;
+	UBytePtr lnc_charbank;
+	UBytePtr bnj_backgroundram;
+	UBytePtr zoar_scrollram;
+	UBytePtr deco_charram;
 	size_t bnj_backgroundram_size;
 	
 	static int sprite_dirty[256];
@@ -30,7 +30,7 @@ public class btime
 	static data_t btime_palette = 0;
 	static unsigned char bnj_scroll1 = 0;
 	static unsigned char bnj_scroll2 = 0;
-	static unsigned char *dirtybuffer2 = 0;
+	static UBytePtr dirtybuffer2 = 0;
 	static struct osd_bitmap *background_bitmap;
 	static int lnc_sound_interrupt_enabled = 0;
 	
@@ -420,7 +420,7 @@ public class btime
 	
 	static void drawsprites(struct osd_bitmap *bitmap, int color,
 	                        int sprite_y_adjust, int sprite_y_adjust_flip_screen,
-	                        unsigned char *sprite_ram, int interleave)
+	                        UBytePtr sprite_ram, int interleave)
 	{
 	    int i,offs;
 	
@@ -468,7 +468,7 @@ public class btime
 	}
 	
 	
-	static void drawbackground(struct osd_bitmap *bitmap, unsigned char* tilemap)
+	static void drawbackground(struct osd_bitmap *bitmap, UBytePtr  tilemap)
 	{
 	    int i, offs;
 	
@@ -507,7 +507,7 @@ public class btime
 	}
 	
 	
-	static void decode_modified(unsigned char *sprite_ram, int interleave)
+	static void decode_modified(UBytePtr sprite_ram, int interleave)
 	{
 	    int i,offs;
 	

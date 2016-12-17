@@ -99,11 +99,11 @@ public class jrpacman
 {
 	
 	
-	extern unsigned char *jrpacman_scroll,*jrpacman_bgpriority;
-	extern unsigned char *jrpacman_charbank,*jrpacman_spritebank;
-	extern unsigned char *jrpacman_palettebank,*jrpacman_colortablebank;
+	extern UBytePtr jrpacman_scroll,*jrpacman_bgpriority;
+	extern UBytePtr jrpacman_charbank,*jrpacman_spritebank;
+	extern UBytePtr jrpacman_palettebank,*jrpacman_colortablebank;
 	
-	extern unsigned char *pengo_soundregs;
+	extern UBytePtr pengo_soundregs;
 	
 	
 	
@@ -113,7 +113,7 @@ public class jrpacman
 	
 	static public static InitMachinePtr jrpacman_init_machine = new InitMachinePtr() { public void handler() 
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 	
 		/* check if the loaded set of ROMs allows the Pac Man speed hack */
@@ -125,7 +125,7 @@ public class jrpacman
 	
 	public static InterruptPtr jrpacman_interrupt = new InterruptPtr() { public int handler() 
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 	
 		/* speed up cheat */
@@ -399,7 +399,7 @@ public class jrpacman
 		    { 0,0 }
 		};
 		int i,j,A;
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 	
 		A = 0;

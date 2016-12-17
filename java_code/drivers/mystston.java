@@ -22,9 +22,9 @@ public class mystston
 	
 	
 	
-	extern unsigned char *mystston_fgvideoram;
-	extern unsigned char *mystston_bgvideoram;
-	extern unsigned char *mystston_scroll;
+	extern UBytePtr mystston_fgvideoram;
+	extern UBytePtr mystston_bgvideoram;
+	extern UBytePtr mystston_scroll;
 	
 	
 	

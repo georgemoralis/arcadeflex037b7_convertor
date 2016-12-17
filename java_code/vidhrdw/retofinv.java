@@ -16,18 +16,18 @@ public class retofinv
 {
 	
 	size_t retofinv_videoram_size;
-	unsigned char *retofinv_sprite_ram1;
-	unsigned char *retofinv_sprite_ram2;
-	unsigned char *retofinv_sprite_ram3;
-	unsigned char *retofinv_fg_char_bank;
-	unsigned char *retofinv_bg_char_bank;
-	unsigned char *retofinv_bg_videoram;
-	unsigned char *retofinv_fg_videoram;
-	unsigned char *retofinv_bg_colorram;
-	unsigned char *retofinv_fg_colorram;
+	UBytePtr retofinv_sprite_ram1;
+	UBytePtr retofinv_sprite_ram2;
+	UBytePtr retofinv_sprite_ram3;
+	UBytePtr retofinv_fg_char_bank;
+	UBytePtr retofinv_bg_char_bank;
+	UBytePtr retofinv_bg_videoram;
+	UBytePtr retofinv_fg_videoram;
+	UBytePtr retofinv_bg_colorram;
+	UBytePtr retofinv_fg_colorram;
 	
 	static unsigned char flipscreen=0;
-	static unsigned char *bg_dirtybuffer;
+	static UBytePtr bg_dirtybuffer;
 	static unsigned bg_bank; /* last background bank active, 0 or 1 */
 	static struct osd_bitmap *bitmap_bg;
 	

@@ -91,7 +91,7 @@ public class cabal
 	
 	static void cabal_play_adpcm( int channel, int which ){
 		if( which!=0xff ){
-			unsigned char *RAM = memory_region(REGION_SOUND1);
+			UBytePtr RAM = memory_region(REGION_SOUND1);
 			int offset = channel*0x10000;
 			int start, len;
 	

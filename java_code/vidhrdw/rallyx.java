@@ -17,11 +17,11 @@ public class rallyx
 	
 	
 	
-	unsigned char *rallyx_videoram2,*rallyx_colorram2;
-	unsigned char *rallyx_radarx,*rallyx_radary,*rallyx_radarattr;
+	UBytePtr rallyx_videoram2,*rallyx_colorram2;
+	UBytePtr rallyx_radarx,*rallyx_radary,*rallyx_radarattr;
 	size_t rallyx_radarram_size;
-	unsigned char *rallyx_scrollx,*rallyx_scrolly;
-	static unsigned char *dirtybuffer2;	/* keep track of modified portions of the screen */
+	UBytePtr rallyx_scrollx,*rallyx_scrolly;
+	static UBytePtr dirtybuffer2;	/* keep track of modified portions of the screen */
 												/* to speed up video refresh */
 	static struct osd_bitmap *tmpbitmap1;
 	static int flipscreen;

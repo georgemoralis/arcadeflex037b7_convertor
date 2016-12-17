@@ -338,7 +338,7 @@ public class _3812intf
 			/* ADPCM ROM DATA */
 			if(chiptype == OPL_TYPE_Y8950)
 			{
-				F3812[i].deltat.memory = (unsigned char *)(memory_region(intf.rom_region[i]));
+				F3812[i].deltat.memory = (UBytePtr )(memory_region(intf.rom_region[i]));
 				F3812[i].deltat.memory_size = memory_region_length(intf.rom_region[i]);
 				stream[i] = stream_init(name,vol,rate,i,Y8950UpdateHandler);
 				/* port and keyboard handler */

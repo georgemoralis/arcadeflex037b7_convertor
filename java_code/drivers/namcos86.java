@@ -29,11 +29,11 @@ package drivers;
 public class namcos86
 {
 	
-	extern unsigned char *rthunder_videoram1, *rthunder_videoram2, *spriteram, *dirtybuffer;
+	extern UBytePtr rthunder_videoram1, *rthunder_videoram2, *spriteram, *dirtybuffer;
 	
 	/*******************************************************************/
 	
-	void namcos86_vh_convert_color_prom(unsigned char *palette,unsigned short *colortable,const unsigned char *color_prom);
+	void namcos86_vh_convert_color_prom(UBytePtr palette,unsigned short *colortable,const UBytePtr color_prom);
 	void namcos86_vh_screenrefresh(struct osd_bitmap *bitmap,int fullrefresh);
 	
 	
@@ -52,7 +52,7 @@ public class namcos86
 	static int rt_decode_sample(const struct MachineSound *msound)
 	{
 		struct GameSamples *samples;
-		unsigned char *src, *scan, *dest, last=0;
+		UBytePtr src, *scan, *dest, last=0;
 		int size, n = 0, j;
 		int decode_mode;
 	
@@ -150,7 +150,7 @@ public class namcos86
 			samples.sample[n].resolution = 8;	/* 8 bit */
 	
 			/* unpack sample */
-			dest = (unsigned char *)samples.sample[n].data;
+			dest = (UBytePtr )samples.sample[n].data;
 			scan = &src[start];
 	
 			while ( *scan != 0xff ) {
@@ -278,7 +278,7 @@ public class namcos86
 	/*******************************************************************/
 	
 	/* shared memory area with the mcu */
-	static unsigned char *shared1;
+	static UBytePtr shared1;
 	public static ReadHandlerPtr shared1_r  = new ReadHandlerPtr() { public int handler(int offset) { return shared1[offset]; } };
 	public static WriteHandlerPtr shared1_w = new WriteHandlerPtr() {public void handler(int offset, int data) { shared1[offset] = data; } };
 	
@@ -295,7 +295,7 @@ public class namcos86
 	
 	public static WriteHandlerPtr bankswitch1_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		unsigned char *base = memory_region(REGION_CPU1) + 0x10000;
+		UBytePtr base = memory_region(REGION_CPU1) + 0x10000;
 	
 		/* if the ROM expansion module is available, don't do anything. This avoids conflict */
 		/* with bankswitch1_ext_w() in wndrmomo */
@@ -306,7 +306,7 @@ public class namcos86
 	
 	public static WriteHandlerPtr bankswitch1_ext_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		unsigned char *base = memory_region(REGION_USER1);
+		UBytePtr base = memory_region(REGION_USER1);
 	
 		if (base == 0) return;
 	
@@ -315,7 +315,7 @@ public class namcos86
 	
 	public static WriteHandlerPtr bankswitch2_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		unsigned char *base = memory_region(REGION_CPU2) + 0x10000;
+		UBytePtr base = memory_region(REGION_CPU2) + 0x10000;
 	
 		cpu_setbank(2,base + ((data & 0x03) * 0x2000));
 	} };
@@ -1214,7 +1214,7 @@ public class namcos86
 	
 	static public static InitMachinePtr namco86_init_machine = new InitMachinePtr() { public void handler() 
 	{
-		unsigned char *base = memory_region(REGION_CPU1) + 0x10000;
+		UBytePtr base = memory_region(REGION_CPU1) + 0x10000;
 	
 		cpu_setbank(1,base);
 	
@@ -1665,8 +1665,8 @@ public class namcos86
 	static public static InitDriverPtr init_namco86 = new InitDriverPtr() { public void handler() 
 	{
 		int size;
-		unsigned char *gfx;
-		unsigned char *buffer;
+		UBytePtr gfx;
+		UBytePtr buffer;
 	
 		/* shuffle tile ROMs so regular gfx unpack routines can be used */
 		gfx = memory_region(REGION_GFX1);
@@ -1675,9 +1675,9 @@ public class namcos86
 	
 		if (buffer != 0)
 		{
-			unsigned char *dest1 = gfx;
-			unsigned char *dest2 = gfx + ( size / 2 );
-			unsigned char *mono = gfx + size;
+			UBytePtr dest1 = gfx;
+			UBytePtr dest2 = gfx + ( size / 2 );
+			UBytePtr mono = gfx + size;
 			int i;
 	
 			memcpy( buffer, gfx, size );
@@ -1701,9 +1701,9 @@ public class namcos86
 	
 		if (buffer != 0)
 		{
-			unsigned char *dest1 = gfx;
-			unsigned char *dest2 = gfx + ( size / 2 );
-			unsigned char *mono = gfx + size;
+			UBytePtr dest1 = gfx;
+			UBytePtr dest2 = gfx + ( size / 2 );
+			UBytePtr mono = gfx + size;
 			int i;
 	
 			memcpy( buffer, gfx, size );

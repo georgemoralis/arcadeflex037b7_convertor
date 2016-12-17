@@ -160,7 +160,7 @@ public class cchip
 	
 	
 	/* Mega Blast */
-	unsigned char *cchip_ram;
+	UBytePtr cchip_ram;
 	
 	public static ReadHandlerPtr cchip2_r  = new ReadHandlerPtr() { public int handler(int offset)
 	{

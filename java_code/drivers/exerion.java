@@ -22,7 +22,7 @@ public class exerion
 {
 	
 	
-	void exerion_vh_convert_color_prom(unsigned char *palette, unsigned short *colortable, const unsigned char *color_prom);
+	void exerion_vh_convert_color_prom(UBytePtr palette, unsigned short *colortable, const UBytePtr color_prom);
 	
 	
 	extern UINT8 exerion_cocktail_flip;

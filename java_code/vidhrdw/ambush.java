@@ -16,8 +16,8 @@ public class ambush
 {
 	
 	
-	unsigned char *ambush_scrollram;
-	unsigned char *ambush_colorbank;
+	UBytePtr ambush_scrollram;
+	UBytePtr ambush_colorbank;
 	
 	
 	/***************************************************************************

@@ -18,13 +18,13 @@ public class mnight
 {
 	
 	
-	extern unsigned char    *mnight_scrolly_ram;
-	extern unsigned char    *mnight_scrollx_ram;
-	extern unsigned char    *mnight_bgenable_ram;
-	extern unsigned char    *mnight_spoverdraw_ram;
-	extern unsigned char    *mnight_spriteram;
-	extern unsigned char    *mnight_background_videoram;
-	extern unsigned char    *mnight_foreground_videoram;
+	extern UBytePtr mnight_scrolly_ram;
+	extern UBytePtr mnight_scrollx_ram;
+	extern UBytePtr mnight_bgenable_ram;
+	extern UBytePtr mnight_spoverdraw_ram;
+	extern UBytePtr mnight_spriteram;
+	extern UBytePtr mnight_background_videoram;
+	extern UBytePtr mnight_foreground_videoram;
 	extern size_t mnight_spriteram_size;
 	extern size_t mnight_backgroundram_size;
 	extern size_t mnight_foregroundram_size;
@@ -48,7 +48,7 @@ public class mnight
 	
 	public static WriteHandlerPtr mnight_bankselect_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1+main_cpu_num);
+		UBytePtr RAM = memory_region(REGION_CPU1+main_cpu_num);
 		int bankaddress;
 	
 		if ( data != mnight_bank_latch )

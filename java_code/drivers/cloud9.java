@@ -57,16 +57,16 @@ public class cloud9
 {
 	
 	extern 
-	extern unsigned char *cloud9_vram2;
-	extern unsigned char *cloud9_bitmap_regs;
-	extern unsigned char *cloud9_auto_inc_x;
-	extern unsigned char *cloud9_auto_inc_y;
-	extern unsigned char *cloud9_both_banks;
-	extern unsigned char *cloud9_vram_bank;
-	extern unsigned char *cloud9_color_bank;
+	extern UBytePtr cloud9_vram2;
+	extern UBytePtr cloud9_bitmap_regs;
+	extern UBytePtr cloud9_auto_inc_x;
+	extern UBytePtr cloud9_auto_inc_y;
+	extern UBytePtr cloud9_both_banks;
+	extern UBytePtr cloud9_vram_bank;
+	extern UBytePtr cloud9_color_bank;
 	
 	
-	static unsigned char *nvram;
+	static UBytePtr nvram;
 	static size_t nvram_size;
 	
 	public static nvramPtr nvram_handler  = new nvramPtr() { public void handler(Object file, int read_or_write) 

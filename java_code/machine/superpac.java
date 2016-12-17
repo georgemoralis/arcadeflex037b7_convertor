@@ -17,8 +17,8 @@ public class superpac
 {
 	
 	
-	unsigned char *superpac_sharedram;
-	unsigned char *superpac_customio_1,*superpac_customio_2;
+	UBytePtr superpac_sharedram;
+	UBytePtr superpac_customio_1,*superpac_customio_2;
 	
 	static int coin1, coin2, credits, start1, start2;
 	

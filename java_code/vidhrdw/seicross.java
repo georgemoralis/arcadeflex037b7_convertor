@@ -17,7 +17,7 @@ public class seicross
 	
 	
 	
-	unsigned char *seicross_row_scroll;
+	UBytePtr seicross_row_scroll;
 	
 	
 	

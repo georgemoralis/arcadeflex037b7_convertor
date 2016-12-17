@@ -37,7 +37,7 @@ public class marvins
 	
 	static void stuff_palette( int source_index, int dest_index, int num_colors )
 	{
-		unsigned char *color_prom = memory_region(REGION_PROMS) + source_index;
+		UBytePtr color_prom = memory_region(REGION_PROMS) + source_index;
 		int i;
 		for( i=0; i<num_colors; i++ )
 		{
@@ -223,14 +223,14 @@ public class marvins
 	
 	static void draw_status( struct osd_bitmap *bitmap )
 	{
-		const unsigned char *base = videoram+0x2400;
+		const UBytePtr base = videoram+0x2400;
 		struct rectangle clip = Machine.visible_area;
 		const struct GfxElement *gfx = Machine.gfx[0];
 		int row;
 		for( row=0; row<4; row++ )
 		{
 			int sy,sx = (row&1)*8;
-			const unsigned char *source = base + (row&1)*32;
+			const UBytePtr source = base + (row&1)*32;
 			if( row>1 )
 			{
 				sx+=256+16;
@@ -258,7 +258,7 @@ public class marvins
 	{
 		const struct GfxElement *gfx = Machine.gfx[3];
 		struct rectangle clip = Machine.visible_area;
-		const unsigned char *source, *finish;
+		const UBytePtr source, *finish;
 	
 		if( sprite_partition>0x64 ) sprite_partition = 0x64;
 	
@@ -312,7 +312,7 @@ public class marvins
 	
 	public static VhUpdatePtr marvins_vh_screenrefresh = new VhUpdatePtr() { public void handler(osd_bitmap bitmap,int full_refresh) 
 	{
-		unsigned char *mem = memory_region(REGION_CPU1);
+		UBytePtr mem = memory_region(REGION_CPU1);
 	
 		unsigned char sprite_partition = mem[0xfe00];
 	
@@ -361,7 +361,7 @@ public class marvins
 	public static VhUpdatePtr madcrash_vh_screenrefresh = new VhUpdatePtr() { public void handler(osd_bitmap bitmap,int full_refresh) 
 	{
 		extern int madcrash_vreg;
-		unsigned char *mem = memory_region(REGION_CPU1)+madcrash_vreg;
+		UBytePtr mem = memory_region(REGION_CPU1)+madcrash_vreg;
 	
 		int attributes = mem[0x8600]; /* 0x20: normal, 0xa0: video flipped */
 		int bg_scrolly = mem[0xf800];

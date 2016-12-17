@@ -16,16 +16,16 @@ package vidhrdw;
 public class ssozumo
 {
 	
-	unsigned char *ssozumo_videoram2, *ssozumo_colorram2;
+	UBytePtr ssozumo_videoram2, *ssozumo_colorram2;
 	size_t ssozumo_videoram2_size;
-	unsigned char *ssozumo_scroll;
+	UBytePtr ssozumo_scroll;
 	
 	#define TOTAL_COLORS(gfxn)	(Machine.gfx[gfxn].total_colors * Machine.gfx[gfxn].color_granularity)
 	#define COLOR(gfxn,offs)	(colortable[Machine.drv.gfxdecodeinfo[gfxn].color_codes_start + offs])
 	
 	/**************************************************************************/
 	
-	void ssozumo_vh_convert_color_prom(unsigned char *palette, unsigned short *colortable, const unsigned char *color_prom)
+	void ssozumo_vh_convert_color_prom(UBytePtr palette, unsigned short *colortable, const UBytePtr color_prom)
 	{
 		int	bit0, bit1, bit2, bit3;
 		int	i;

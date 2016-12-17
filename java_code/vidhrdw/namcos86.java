@@ -18,8 +18,8 @@ public class namcos86
 	#define GFX_TILES2	1
 	#define GFX_SPRITES	2
 	
-	unsigned char *rthunder_videoram1,*rthunder_videoram2;
-	extern unsigned char *spriteram;
+	UBytePtr rthunder_videoram1,*rthunder_videoram2;
+	extern UBytePtr spriteram;
 	
 	static int tilebank;
 	static int xscroll[4], yscroll[4];	/* scroll + priority */
@@ -28,7 +28,7 @@ public class namcos86
 	
 	static int backcolor;
 	static int flipscreen;
-	static const unsigned char *tile_address_prom;
+	static const UBytePtr tile_address_prom;
 	
 	
 	/***************************************************************************
@@ -55,7 +55,7 @@ public class namcos86
 	
 	***************************************************************************/
 	
-	void namcos86_vh_convert_color_prom( unsigned char *palette,unsigned short *colortable,const unsigned char *color_prom )
+	void namcos86_vh_convert_color_prom( UBytePtr palette,unsigned short *colortable,const UBytePtr color_prom )
 	{
 		int i;
 		int totcolors,totlookup;
@@ -113,7 +113,7 @@ public class namcos86
 	
 	***************************************************************************/
 	
-	static unsigned char *videoram;
+	static UBytePtr videoram;
 	static int gfx_num;
 	static int tile_offs[4];
 	
@@ -311,8 +311,8 @@ public class namcos86
 		/* note: sprites don't yet clip at the top of the screen properly */
 		const struct rectangle *clip = &Machine.visible_area;
 	
-		const unsigned char *source = &spriteram.read(0x1400);
-		const unsigned char *finish = &spriteram[0x1c00-16];	/* the last is NOT a sprite */
+		const UBytePtr source = &spriteram.read(0x1400);
+		const UBytePtr finish = &spriteram[0x1c00-16];	/* the last is NOT a sprite */
 	
 		int sprite_xoffs = spriteram.read(0x1bf5)- 256 * (spriteram.read(0x1bf4)& 1);
 		int sprite_yoffs = spriteram.read(0x1bf7)- 256 * (spriteram.read(0x1bf6)& 1);

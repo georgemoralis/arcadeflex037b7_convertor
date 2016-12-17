@@ -29,7 +29,7 @@ public class minivadr
 		0xff,0xff,0xff			/* white */
 	};
 	
-	void minivadr_init_palette(unsigned char *game_palette, unsigned short *game_colortable,const unsigned char *color_prom)
+	void minivadr_init_palette(UBytePtr game_palette, unsigned short *game_colortable,const UBytePtr color_prom)
 	{
 		memcpy(game_palette, minivadr_palette, sizeof(minivadr_palette));
 	}

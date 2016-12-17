@@ -93,7 +93,7 @@ public class avalnche
 		0xff,0xff,0xff, /* WHITE */
 	};
 	
-	static void init_palette(unsigned char *game_palette, unsigned short *game_colortable,const unsigned char *color_prom)
+	static void init_palette(UBytePtr game_palette, unsigned short *game_colortable,const UBytePtr color_prom)
 	{
 		memcpy(game_palette,palette,sizeof(palette));
 	}
@@ -172,7 +172,7 @@ public class avalnche
 	
 	static public static InitDriverPtr init_avalnche = new InitDriverPtr() { public void handler() 
 	{
-		unsigned char *rom = memory_region(REGION_CPU1);
+		UBytePtr rom = memory_region(REGION_CPU1);
 		int i;
 	
 		/* Merge nibble-wide roms together,

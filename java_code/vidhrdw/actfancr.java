@@ -14,7 +14,7 @@ public class actfancr
 {
 	
 	static int actfancr_control_1[0x20],actfancr_control_2[0x20];
-	unsigned char *actfancr_pf1_data,*actfancr_pf2_data,*actfancr_pf1_rowscroll_data;
+	UBytePtr actfancr_pf1_data,*actfancr_pf2_data,*actfancr_pf1_rowscroll_data;
 	static struct tilemap *pf1_tilemap;
 	static int flipscreen;
 	

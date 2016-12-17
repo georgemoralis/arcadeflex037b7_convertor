@@ -42,13 +42,13 @@ public class k005289
 		int frequency;
 		int counter;
 		int volume;
-		const unsigned char *wave;
+		const UBytePtr wave;
 	} k005289_sound_channel;
 	
 	static k005289_sound_channel channel_list[2];
 	
 	/* global sound parameters */
-	static const unsigned char *sound_prom;
+	static const UBytePtr sound_prom;
 	static int stream,mclock,rate;
 	
 	/* mixer tables and internal buffers */
@@ -103,7 +103,7 @@ public class k005289
 		f=voice[0].frequency;
 		if (v && f)
 		{
-			const unsigned char *w = voice[0].wave;
+			const UBytePtr w = voice[0].wave;
 			int c = voice[0].counter;
 	
 			mix = mixer_buffer;
@@ -126,7 +126,7 @@ public class k005289
 		f=voice[1].frequency;
 		if (v && f)
 		{
-			const unsigned char *w = voice[1].wave;
+			const UBytePtr w = voice[1].wave;
 			int c = voice[1].counter;
 	
 			mix = mixer_buffer;

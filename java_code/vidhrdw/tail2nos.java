@@ -8,15 +8,15 @@ public class tail2nos
 {
 	
 	
-	unsigned char *tail2nos_bgvideoram;
+	UBytePtr tail2nos_bgvideoram;
 	
 	
 	static struct tilemap *bg_tilemap;
 	
 	static int charbank,charpalette,video_enable;
-	static unsigned char *zoomdata;
+	static UBytePtr zoomdata;
 	static int dirtygfx;
-	static unsigned char *dirtychar;
+	static UBytePtr dirtychar;
 	
 	#define TOTAL_CHARS 0x400
 	

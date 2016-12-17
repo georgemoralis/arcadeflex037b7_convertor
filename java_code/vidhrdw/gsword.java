@@ -17,14 +17,14 @@ public class gsword
 	size_t gs_videoram_size;
 	size_t gs_spritexy_size;
 	
-	unsigned char *gs_videoram;
-	unsigned char *gs_scrolly_ram;
-	unsigned char *gs_spritexy_ram;
-	unsigned char *gs_spritetile_ram;
-	unsigned char *gs_spriteattrib_ram;
+	UBytePtr gs_videoram;
+	UBytePtr gs_scrolly_ram;
+	UBytePtr gs_spritexy_ram;
+	UBytePtr gs_spritetile_ram;
+	UBytePtr gs_spriteattrib_ram;
 	
 	static struct osd_bitmap 	*bitmap_bg;
-	static unsigned char 	 	*dirtybuffer;
+	static UBytePtr dirtybuffer;
 	static int charbank,charpalbank;
 	static int flipscreen;
 	

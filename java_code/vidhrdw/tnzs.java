@@ -16,9 +16,9 @@ public class tnzs
 	
 	
 	
-	extern unsigned char *tnzs_objram;
-	extern unsigned char *tnzs_vdcram;
-	extern unsigned char *tnzs_scrollram;
+	extern UBytePtr tnzs_objram;
+	extern UBytePtr tnzs_vdcram;
+	extern UBytePtr tnzs_scrollram;
 	
 	
 	static struct osd_bitmap *tnzs_column[16];
@@ -115,7 +115,7 @@ public class tnzs
 	
 	***************************************************************************/
 	
-	void tnzs_vh_draw_background(struct osd_bitmap *bitmap,unsigned char *m)
+	void tnzs_vh_draw_background(struct osd_bitmap *bitmap,UBytePtr m)
 	{
 		int i,x,y,column,tot;
 		int scrollx, scrolly;
@@ -212,11 +212,11 @@ public class tnzs
 	}
 	
 	void tnzs_vh_draw_foreground(struct osd_bitmap *bitmap,
-								 unsigned char *char_pointer,
-								 unsigned char *x_pointer,
-								 unsigned char *y_pointer,
-								 unsigned char *ctrl_pointer,
-								 unsigned char *color_pointer)
+								 UBytePtr char_pointer,
+								 UBytePtr x_pointer,
+								 UBytePtr y_pointer,
+								 UBytePtr ctrl_pointer,
+								 UBytePtr color_pointer)
 	{
 		int i;
 	

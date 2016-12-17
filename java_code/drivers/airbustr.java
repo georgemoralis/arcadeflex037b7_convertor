@@ -194,15 +194,15 @@ package drivers;
 public class airbustr
 {
 	
-	unsigned char *devram, *sharedram;
+	UBytePtr devram, *sharedram;
 	int soundlatch_status, soundlatch2_status;
 	
 	/* Variables that vidhrdw has access to */
-	extern unsigned char *spriteram;
+	extern UBytePtr spriteram;
 	int flipscreen;
 	
 	/* Variables defined in vidhrdw */
-	extern unsigned char *airbustr_bgram, *airbustr_fgram;
+	extern UBytePtr airbustr_bgram, *airbustr_fgram;
 	
 	/* Functions defined in vidhrdw */
 	extern extern 
@@ -282,7 +282,7 @@ public class airbustr
 	
 	public static WriteHandlerPtr bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-	unsigned char *RAM = memory_region(REGION_CPU1);
+	UBytePtr RAM = memory_region(REGION_CPU1);
 	
 		if ((data & 7) <  3)	RAM = &RAM[0x4000 * (data & 7)];
 		else					RAM = &RAM[0x10000 + 0x4000 * ((data & 7)-3)];
@@ -365,7 +365,7 @@ public class airbustr
 	
 	public static WriteHandlerPtr bankswitch2_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-	unsigned char *RAM = memory_region(REGION_CPU2);
+	UBytePtr RAM = memory_region(REGION_CPU2);
 	
 		if ((data & 7) <  3)	RAM = &RAM[0x4000 * (data & 7)];
 		else					RAM = &RAM[0x10000 + 0x4000 * ((data & 7)-3)];
@@ -508,7 +508,7 @@ public class airbustr
 	
 	public static WriteHandlerPtr sound_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-	unsigned char *RAM = memory_region(REGION_CPU3);
+	UBytePtr RAM = memory_region(REGION_CPU3);
 	
 		if ((data & 7) <  3)	RAM = &RAM[0x4000 * (data & 7)];
 		else					RAM = &RAM[0x10000 + 0x4000 * ((data & 7)-3)];
@@ -808,7 +808,7 @@ public class airbustr
 	public static InitDriverPtr init_airbustr = new InitDriverPtr() { public void handler() 
 	{
 	int i;
-	unsigned char *RAM;
+	UBytePtr RAM;
 	
 		/* One gfx rom seems to have scrambled data (bad read?): */
 		/* let's swap even and odd nibbles */

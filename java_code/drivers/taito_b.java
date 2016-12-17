@@ -64,13 +64,13 @@ public class taito_b
 {
 	
 	
-	extern unsigned char *taitob_fscroll;
-	extern unsigned char *taitob_bscroll;
+	extern UBytePtr taitob_fscroll;
+	extern UBytePtr taitob_bscroll;
 	
-	extern unsigned char *b_backgroundram;
-	extern unsigned char *b_foregroundram;
-	extern unsigned char *b_textram;
-	extern unsigned char *taitob_pixelram;
+	extern UBytePtr b_backgroundram;
+	extern UBytePtr b_foregroundram;
+	extern UBytePtr b_textram;
+	extern UBytePtr taitob_pixelram;
 	
 	extern size_t b_backgroundram_size;
 	extern size_t b_foregroundram_size;
@@ -109,7 +109,7 @@ public class taito_b
 	
 	public static WriteHandlerPtr bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		unsigned char *RAM = memory_region(REGION_CPU2);
+		UBytePtr RAM = memory_region(REGION_CPU2);
 		int banknum = (data - 1) & 3;
 	
 		cpu_setbank (2, &RAM [0x10000 + (banknum * 0x4000)]);
@@ -2160,7 +2160,7 @@ public class taito_b
 	{
 		static int a;
 	
-		unsigned char *RAM = memory_region(REGION_CPU2);
+		UBytePtr RAM = memory_region(REGION_CPU2);
 		int banknum = (data - 1) & 1;
 	
 		if (a!=data)
@@ -2510,7 +2510,7 @@ public class taito_b
 	#if 0
 	static void patch_puzzb(void)
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 		WRITE_WORD(&RAM[0x7fffe],0x0003);
 	/*

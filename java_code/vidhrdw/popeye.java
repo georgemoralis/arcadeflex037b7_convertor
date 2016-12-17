@@ -17,10 +17,10 @@ public class popeye
 	
 	
 	
-	unsigned char *popeye_videoram;
+	UBytePtr popeye_videoram;
 	size_t popeye_videoram_size;
-	unsigned char *popeye_background_pos,*popeye_palette_bank;
-	static unsigned char *dirtybuffer2;
+	UBytePtr popeye_background_pos,*popeye_palette_bank;
+	static UBytePtr dirtybuffer2;
 	static struct osd_bitmap *tmpbitmap2;
 	
 	

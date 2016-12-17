@@ -25,15 +25,15 @@ public class kingobox
 {
 	
 	/* from vidhrdw */
-	extern unsigned char *kingobox_videoram1;
-	extern unsigned char *kingobox_colorram1;
+	extern UBytePtr kingobox_videoram1;
+	extern UBytePtr kingobox_colorram1;
 	extern size_t kingobox_videoram1_size;
-	extern unsigned char *kingobox_scroll_y;
-	void kingobox_vh_convert_color_prom(unsigned char *palette,unsigned short *colortable,const unsigned char *color_prom);
-	void ringking_vh_convert_color_prom(unsigned char *palette,unsigned short *colortable,const unsigned char *color_prom);
+	extern UBytePtr kingobox_scroll_y;
+	void kingobox_vh_convert_color_prom(UBytePtr palette,unsigned short *colortable,const UBytePtr color_prom);
+	void ringking_vh_convert_color_prom(UBytePtr palette,unsigned short *colortable,const UBytePtr color_prom);
 	
-	static unsigned char *video_shared;
-	static unsigned char *sprite_shared;
+	static UBytePtr video_shared;
+	static UBytePtr sprite_shared;
 	int kingofb_nmi_enable = 0;
 	
 	public static ReadHandlerPtr video_shared_r  = new ReadHandlerPtr() { public int handler(int offset) {
@@ -880,7 +880,7 @@ public class kingobox
 	static public static InitDriverPtr init_ringkin3 = new InitDriverPtr() { public void handler() 
 	{
 		int i;
-		unsigned char *RAM = memory_region(REGION_PROMS);
+		UBytePtr RAM = memory_region(REGION_PROMS);
 	
 		/* expand the first color PROM to look like the kingobox ones... */
 		for (i = 0;i < 0x100;i++)

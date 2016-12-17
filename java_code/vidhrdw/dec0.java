@@ -111,8 +111,8 @@ public class dec0
 	#define TILERAM_SIZE	0x800	/* Size of background and foreground */
 	
 	/* Video */
-	unsigned char *dec0_pf1_data,*dec0_pf2_data,*dec0_pf3_data;
-	static unsigned char *dec0_pf1_dirty,*dec0_pf3_dirty,*dec0_pf2_dirty;
+	UBytePtr dec0_pf1_data,*dec0_pf2_data,*dec0_pf3_data;
+	static UBytePtr dec0_pf1_dirty,*dec0_pf3_dirty,*dec0_pf2_dirty;
 	static struct osd_bitmap *dec0_pf1_bitmap;
 	static int dec0_pf1_current_shape;
 	static struct osd_bitmap *dec0_pf2_bitmap;
@@ -122,15 +122,15 @@ public class dec0
 	static struct osd_bitmap *dec0_tf2_bitmap;
 	static struct osd_bitmap *dec0_tf3_bitmap;
 	
-	unsigned char *dec0_pf1_rowscroll,*dec0_pf2_rowscroll,*dec0_pf3_rowscroll;
-	unsigned char *dec0_pf1_colscroll,*dec0_pf2_colscroll,*dec0_pf3_colscroll;
+	UBytePtr dec0_pf1_rowscroll,*dec0_pf2_rowscroll,*dec0_pf3_rowscroll;
+	UBytePtr dec0_pf1_colscroll,*dec0_pf2_colscroll,*dec0_pf3_colscroll;
 	static unsigned char dec0_pf1_control_0[8];
 	static unsigned char dec0_pf1_control_1[8];
 	static unsigned char dec0_pf2_control_0[8];
 	static unsigned char dec0_pf2_control_1[8];
 	static unsigned char dec0_pf3_control_0[8];
 	static unsigned char dec0_pf3_control_1[8];
-	static unsigned char *dec0_spriteram;
+	static UBytePtr dec0_spriteram;
 	
 	static int dec0_pri;
 	

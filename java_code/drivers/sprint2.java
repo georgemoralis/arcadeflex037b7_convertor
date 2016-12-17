@@ -45,8 +45,8 @@ public class sprint2
 {
 	
 	/* vidhrdw/sprint2.c */
-	extern extern extern extern extern unsigned char *sprint2_vert_car_ram;
-	extern unsigned char *sprint2_horiz_ram;
+	extern extern extern extern extern UBytePtr sprint2_vert_car_ram;
+	extern UBytePtr sprint2_horiz_ram;
 	
 	/* machine/sprint2.c */
 	
@@ -290,7 +290,7 @@ public class sprint2
 	        0x01, 0x02, /* Grey car 1 */
 	        0x01, 0x02  /* Grey car 2 */
 	};
-	static void init_palette(unsigned char *game_palette, unsigned short *game_colortable,const unsigned char *color_prom)
+	static void init_palette(UBytePtr game_palette, unsigned short *game_colortable,const UBytePtr color_prom)
 	{
 		memcpy(game_palette,palette,sizeof(palette));
 		memcpy(game_colortable,colortable,sizeof(colortable));

@@ -27,7 +27,7 @@ public class segapcm
 	static SEGAPCM    spcm;
 	static int emulation_rate;
 	static int buffer_len;
-	static unsigned char *pcm_rom;
+	static UBytePtr pcm_rom;
 	static int  sample_rate, sample_shift;
 	
 	static int stream;
@@ -75,7 +75,7 @@ public class segapcm
 	{
 		struct SEGAPCMinterface *intf = msound.sound_interface;
 		if (Machine.sample_rate == 0) return 0;
-		if( SEGAPCMInit( msound, intf.bank&0x00ffffff, intf.mode, (unsigned char *)memory_region(intf.region), intf.volume ) )
+		if( SEGAPCMInit( msound, intf.bank&0x00ffffff, intf.mode, (UBytePtr )memory_region(intf.region), intf.volume ) )
 			return 1;
 		return 0;
 	}
@@ -96,7 +96,7 @@ public class segapcm
 	/************************************************/
 	/*    initial SEGAPCM                           */
 	/************************************************/
-	int SEGAPCMInit( const struct MachineSound *msound, int banksize, int mode, unsigned char *inpcm, int volume )
+	int SEGAPCMInit( const struct MachineSound *msound, int banksize, int mode, UBytePtr inpcm, int volume )
 	{
 		int i;
 		int rate = Machine.sample_rate;
@@ -189,7 +189,7 @@ public class segapcm
 	{
 		int i, j;
 		unsigned int addr, old_addr, end_addr, end_check_addr;
-		unsigned char *pcm_buf;
+		UBytePtr pcm_buf;
 		int  lv, rv;
 		INT16  *datap[2];
 		int tmp;

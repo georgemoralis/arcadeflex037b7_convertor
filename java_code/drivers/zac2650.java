@@ -13,7 +13,7 @@ package drivers;
 public class zac2650
 {
 	
-	extern unsigned char *s2636ram;
+	extern UBytePtr s2636ram;
 	
 	
 	
@@ -141,7 +141,7 @@ public class zac2650
 		0xff,0x20,0xff, /* PURPLE */
 	};
 	
-	static void init_palette(unsigned char *game_palette, unsigned short *game_colortable,const unsigned char *color_prom)
+	static void init_palette(UBytePtr game_palette, unsigned short *game_colortable,const UBytePtr color_prom)
 	{
 		#define COLOR(gfxn,offs) (game_colortable[Machine.drv.gfxdecodeinfo[gfxn].color_codes_start + offs])
 	

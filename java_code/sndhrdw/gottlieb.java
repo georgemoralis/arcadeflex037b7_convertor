@@ -168,7 +168,7 @@ public class gottlieb
 	       128-bytes ram,
 	       either with the first 128 bytes of the page or the last 128 bytes */
 	
-	unsigned char *riot_ram;
+	UBytePtr riot_ram;
 	
 	public static ReadHandlerPtr riot_ram_r  = new ReadHandlerPtr() { public int handler(int offset)
 	{

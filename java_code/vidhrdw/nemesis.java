@@ -13,29 +13,29 @@ package vidhrdw;
 public class nemesis
 {
 	
-	unsigned char *nemesis_videoram1;
-	unsigned char *nemesis_videoram2;
+	UBytePtr nemesis_videoram1;
+	UBytePtr nemesis_videoram2;
 	
-	unsigned char *nemesis_characterram;
-	unsigned char *nemesis_characterram_gfx;
+	UBytePtr nemesis_characterram;
+	UBytePtr nemesis_characterram_gfx;
 	size_t nemesis_characterram_size;
-	unsigned char *nemesis_xscroll1,*nemesis_xscroll2,*nemesis_yscroll;
-	unsigned char *nemesis_yscroll1,*nemesis_yscroll2;
+	UBytePtr nemesis_xscroll1,*nemesis_xscroll2,*nemesis_yscroll;
+	UBytePtr nemesis_yscroll1,*nemesis_yscroll2;
 	
 	static struct osd_bitmap *tmpbitmap2;
 	static struct osd_bitmap *tmpbitmap3;
 	static struct osd_bitmap *tmpbitmap4;
 	
-	static unsigned char *video1_dirty;	/* 0x800 chars - foreground */
-	static unsigned char *video2_dirty;	/* 0x800 chars - background */
-	static unsigned char *char_dirty;	/* 2048 chars */
-	static unsigned char *sprite_dirty;	/* 512 sprites */
-	static unsigned char *sprite3216_dirty;	/* 256 sprites */
-	static unsigned char *sprite816_dirty;	/* 1024 sprites */
-	static unsigned char *sprite1632_dirty;	/* 256 sprites */
-	static unsigned char *sprite3232_dirty;	/* 128 sprites */
-	static unsigned char *sprite168_dirty;	/* 1024 sprites */
-	static unsigned char *sprite6464_dirty;	/* 32 sprites */
+	static UBytePtr video1_dirty;	/* 0x800 chars - foreground */
+	static UBytePtr video2_dirty;	/* 0x800 chars - background */
+	static UBytePtr char_dirty;	/* 2048 chars */
+	static UBytePtr sprite_dirty;	/* 512 sprites */
+	static UBytePtr sprite3216_dirty;	/* 256 sprites */
+	static UBytePtr sprite816_dirty;	/* 1024 sprites */
+	static UBytePtr sprite1632_dirty;	/* 256 sprites */
+	static UBytePtr sprite3232_dirty;	/* 128 sprites */
+	static UBytePtr sprite168_dirty;	/* 1024 sprites */
+	static UBytePtr sprite6464_dirty;	/* 32 sprites */
 	
 	public static WriteHandlerPtr nemesis_palette_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
@@ -316,8 +316,8 @@ public class nemesis
 			const struct rectangle *clip,int transparency,int transparent_color,int scale)
 	{
 		int ex,ey,y,start,dy;
-		const unsigned char *sd;
-		unsigned char *bm;
+		const UBytePtr sd;
+		UBytePtr bm;
 		int col;
 		struct rectangle myclip;
 	
@@ -560,8 +560,8 @@ public class nemesis
 			const struct rectangle *clip,int transparency,int transparent_color,int scale)
 	{
 		int ex,ey,y,start,dy;
-		const unsigned char *sd;
-		unsigned char *bm;
+		const UBytePtr sd;
+		UBytePtr bm;
 		int col;
 		struct rectangle myclip;
 	

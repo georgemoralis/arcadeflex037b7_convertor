@@ -27,7 +27,7 @@ public class pcktgal
 	
 	public static WriteHandlerPtr pcktgal_bank_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 		if ((data & 1) != 0) { cpu_setbank(1,&RAM[0x4000]); }
 		else { cpu_setbank(1,&RAM[0x10000]); }
@@ -38,7 +38,7 @@ public class pcktgal
 	
 	public static WriteHandlerPtr pcktgal_sound_bank_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		unsigned char *RAM = memory_region(REGION_CPU2);
+		UBytePtr RAM = memory_region(REGION_CPU2);
 	
 		if ((data & 4) != 0) { cpu_setbank(3,&RAM[0x14000]); }
 		else { cpu_setbank(3,&RAM[0x10000]); }
@@ -496,7 +496,7 @@ public class pcktgal
 	static public static InitDriverPtr init_deco222 = new InitDriverPtr() { public void handler() 
 	{
 		int A;
-		unsigned char *rom = memory_region(REGION_CPU2);
+		UBytePtr rom = memory_region(REGION_CPU2);
 		int diff = memory_region_length(REGION_CPU2) / 2;
 	
 	
@@ -509,7 +509,7 @@ public class pcktgal
 	
 	static public static InitDriverPtr init_graphics = new InitDriverPtr() { public void handler() 
 	{
-		unsigned char *rom = memory_region(REGION_GFX1);
+		UBytePtr rom = memory_region(REGION_GFX1);
 		int len = memory_region_length(REGION_GFX1);
 		int i,j,temp[16];
 	

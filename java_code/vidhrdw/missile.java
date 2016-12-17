@@ -15,7 +15,7 @@ package vidhrdw;
 public class missile
 {
 	
-	unsigned char *missile_videoram;
+	UBytePtr missile_videoram;
 	
 	
 	/***************************************************************************
@@ -85,7 +85,7 @@ public class missile
 	{
 		/* $0640 - $4fff */
 		int wbyte, wbit;
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 	
 		if (offset < 0xf800)
@@ -147,7 +147,7 @@ public class missile
 	public static WriteHandlerPtr missile_video_3rd_bit_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
 		int i;
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 		offset = offset + 0x400;
 	
 		/* This is needed to make the scrolling text work properly */

@@ -133,7 +133,7 @@ public class pacman
 	
 	
 	
-	extern unsigned char *pengo_soundregs;
+	extern UBytePtr pengo_soundregs;
 	
 	extern 
 	
@@ -145,7 +145,7 @@ public class pacman
 	
 	public static InitMachinePtr pacman_init_machine = new InitMachinePtr() { public void handler() 
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 	
 		/* check if the loaded set of ROMs allows the Pac Man speed hack */
@@ -158,7 +158,7 @@ public class pacman
 	
 	public static InterruptPtr pacman_interrupt = new InterruptPtr() { public int handler() 
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 		/* speed up cheat */
 		if (speedcheat != 0)
@@ -2197,7 +2197,7 @@ public class pacman
 	
 	static void maketrax_rom_decode(void)
 	{
-		unsigned char *rom = memory_region(REGION_CPU1);
+		UBytePtr rom = memory_region(REGION_CPU1);
 		int diff = memory_region_length(REGION_CPU1) / 2;
 	
 	
@@ -2230,7 +2230,7 @@ public class pacman
 	static public static InitDriverPtr init_ponpoko = new InitDriverPtr() { public void handler() 
 	{
 		int i, j;
-		unsigned char *RAM, temp;
+		UBytePtr RAM, temp;
 	
 		/* The gfx data is swapped wrt the other Pac-Man hardware games. */
 		/* Here we revert it to the usual format. */
@@ -2262,7 +2262,7 @@ public class pacman
 		}
 	} };
 	
-	static void eyes_decode(unsigned char *data)
+	static void eyes_decode(UBytePtr data)
 	{
 		int j;
 		unsigned char swapbuffer[8];
@@ -2284,7 +2284,7 @@ public class pacman
 	static public static InitDriverPtr init_eyes = new InitDriverPtr() { public void handler() 
 	{
 		int i;
-		unsigned char *RAM;
+		UBytePtr RAM;
 	
 		/* CPU ROMs */
 	

@@ -20,7 +20,7 @@ public class ohmygod
 {
 	
 	
-	extern unsigned char *ohmygod_videoram;
+	extern UBytePtr ohmygod_videoram;
 	
 	
 	
@@ -29,7 +29,7 @@ public class ohmygod
 	
 	static public static InitMachinePtr ohmygod_init_machine = new InitMachinePtr() { public void handler() 
 	{
-		unsigned char *rom = memory_region(REGION_SOUND1);
+		UBytePtr rom = memory_region(REGION_SOUND1);
 	
 		/* the game requires the watchdog to fire during boot, so we have
 		   to initialize it */
@@ -41,7 +41,7 @@ public class ohmygod
 	
 	public static WriteHandlerPtr ohmygod_ctrl_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		unsigned char *rom = memory_region(REGION_SOUND1);
+		UBytePtr rom = memory_region(REGION_SOUND1);
 	
 	
 		coin_counter_w.handler(0,data & 0x1000);

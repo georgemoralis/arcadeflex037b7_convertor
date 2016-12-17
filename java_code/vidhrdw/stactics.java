@@ -70,7 +70,7 @@ public class stactics
 	/* These are defined in machine/stactics.c */
 	extern int stactics_vert_pos;
 	extern int stactics_horiz_pos;
-	extern unsigned char *stactics_motor_on;
+	extern UBytePtr stactics_motor_on;
 	
 	/* These are needed by machine/stactics.c  */
 	int stactics_vblank_count;
@@ -78,25 +78,25 @@ public class stactics
 	int stactics_shot_arrive;
 	
 	/* These are needed by driver/stactics.c   */
-	unsigned char *stactics_scroll_ram;
-	unsigned char *stactics_videoram_b;
-	unsigned char *stactics_chardata_b;
-	unsigned char *stactics_videoram_d;
-	unsigned char *stactics_chardata_d;
-	unsigned char *stactics_videoram_e;
-	unsigned char *stactics_chardata_e;
-	unsigned char *stactics_videoram_f;
-	unsigned char *stactics_chardata_f;
-	unsigned char *stactics_display_buffer;
+	UBytePtr stactics_scroll_ram;
+	UBytePtr stactics_videoram_b;
+	UBytePtr stactics_chardata_b;
+	UBytePtr stactics_videoram_d;
+	UBytePtr stactics_chardata_d;
+	UBytePtr stactics_videoram_e;
+	UBytePtr stactics_chardata_e;
+	UBytePtr stactics_videoram_f;
+	UBytePtr stactics_chardata_f;
+	UBytePtr stactics_display_buffer;
 	
-	static unsigned char *dirty_videoram_b;
-	static unsigned char *dirty_chardata_b;
-	static unsigned char *dirty_videoram_d;
-	static unsigned char *dirty_chardata_d;
-	static unsigned char *dirty_videoram_e;
-	static unsigned char *dirty_chardata_e;
-	static unsigned char *dirty_videoram_f;
-	static unsigned char *dirty_chardata_f;
+	static UBytePtr dirty_videoram_b;
+	static UBytePtr dirty_chardata_b;
+	static UBytePtr dirty_videoram_d;
+	static UBytePtr dirty_chardata_d;
+	static UBytePtr dirty_videoram_e;
+	static UBytePtr dirty_chardata_e;
+	static UBytePtr dirty_videoram_f;
+	static UBytePtr dirty_chardata_f;
 	
 	static int d_offset;
 	static int e_offset;
@@ -110,7 +110,7 @@ public class stactics
 	static struct osd_bitmap *bitmap_E;
 	static struct osd_bitmap *bitmap_F;
 	
-	static unsigned char *beamdata;
+	static UBytePtr beamdata;
 	static int states_per_frame;
 	
 	#define DIRTY_CHARDATA_SIZE  0x100
@@ -159,9 +159,9 @@ public class stactics
 	static int firebeam_state;
 	static int old_firebeam_state;
 	
-	void stactics_vh_convert_color_prom(unsigned char *palette,
+	void stactics_vh_convert_color_prom(UBytePtr palette,
 	                                    unsigned short *colortable,
-	                                    const unsigned char *color_prom)
+	                                    const UBytePtr color_prom)
 	{
 	    int i,j;
 	
@@ -235,7 +235,7 @@ public class stactics
 	public static VhStartPtr stactics_vh_start = new VhStartPtr() { public int handler() 
 	{
 	    int i,j;
-	    const unsigned char *firebeam_data;
+	    const UBytePtr firebeam_data;
 	    unsigned char firechar[256*8*9];
 	
 	    if ((tmpbitmap  = bitmap_alloc(Machine.drv.screen_width,Machine.drv.screen_height)) == 0) return 1;
@@ -246,14 +246,14 @@ public class stactics
 	    if ((bitmap_F = bitmap_alloc(Machine.drv.screen_width,Machine.drv.screen_height)) == 0)   return 1;
 	
 		/* Allocate dirty buffers */
-		if ((dirty_videoram_b = (unsigned char *)malloc(videoram_size)) == 0)       return 1;
-		if ((dirty_videoram_d = (unsigned char *)malloc(videoram_size)) == 0)       return 1;
-		if ((dirty_videoram_e = (unsigned char *)malloc(videoram_size)) == 0)       return 1;
-		if ((dirty_videoram_f = (unsigned char *)malloc(videoram_size)) == 0)       return 1;
-		if ((dirty_chardata_b = (unsigned char *)malloc(DIRTY_CHARDATA_SIZE)) == 0) return 1;
-		if ((dirty_chardata_d = (unsigned char *)malloc(DIRTY_CHARDATA_SIZE)) == 0) return 1;
-		if ((dirty_chardata_e = (unsigned char *)malloc(DIRTY_CHARDATA_SIZE)) == 0) return 1;
-		if ((dirty_chardata_f = (unsigned char *)malloc(DIRTY_CHARDATA_SIZE)) == 0) return 1;
+		if ((dirty_videoram_b = (UBytePtr )malloc(videoram_size)) == 0)       return 1;
+		if ((dirty_videoram_d = (UBytePtr )malloc(videoram_size)) == 0)       return 1;
+		if ((dirty_videoram_e = (UBytePtr )malloc(videoram_size)) == 0)       return 1;
+		if ((dirty_videoram_f = (UBytePtr )malloc(videoram_size)) == 0)       return 1;
+		if ((dirty_chardata_b = (UBytePtr )malloc(DIRTY_CHARDATA_SIZE)) == 0) return 1;
+		if ((dirty_chardata_d = (UBytePtr )malloc(DIRTY_CHARDATA_SIZE)) == 0) return 1;
+		if ((dirty_chardata_e = (UBytePtr )malloc(DIRTY_CHARDATA_SIZE)) == 0) return 1;
+		if ((dirty_chardata_f = (UBytePtr )malloc(DIRTY_CHARDATA_SIZE)) == 0) return 1;
 	
 	    memset(dirty_videoram_b,1,videoram_size);
 	    memset(dirty_videoram_d,1,videoram_size);
@@ -302,7 +302,7 @@ public class stactics
 	    /* (I am basically just juggling the bytes */
 	    /* and storing it again to make it easier) */
 	
-		if ((beamdata = (unsigned char *)malloc(BEAMDATA_SIZE)) == 0) return 1;
+		if ((beamdata = (UBytePtr )malloc(BEAMDATA_SIZE)) == 0) return 1;
 	
 	    firebeam_data = memory_region(REGION_GFX1);
 	

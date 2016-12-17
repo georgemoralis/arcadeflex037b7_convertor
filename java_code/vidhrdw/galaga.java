@@ -20,7 +20,7 @@ public class galaga
 	#define MAX_STARS 250
 	#define STARS_COLOR_BASE 32
 	
-	unsigned char *galaga_starcontrol;
+	UBytePtr galaga_starcontrol;
 	static unsigned int stars_scroll;
 	
 	struct star

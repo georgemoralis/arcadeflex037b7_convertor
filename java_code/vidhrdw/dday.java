@@ -15,11 +15,11 @@ package vidhrdw;
 public class dday
 {
 	
-	unsigned char *dday_videoram2;
-	unsigned char *dday_videoram3;
+	UBytePtr dday_videoram2;
+	UBytePtr dday_videoram3;
 	static int control = 0;
 	
-	static unsigned char *searchlight_image;
+	static UBytePtr searchlight_image;
 	static int searchlight_flipx;
 	static int searchlight_enable = 0;
 	

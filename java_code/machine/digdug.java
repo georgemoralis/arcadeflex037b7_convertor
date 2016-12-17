@@ -17,7 +17,7 @@ public class digdug
 {
 	
 	
-	unsigned char *digdug_sharedram;
+	UBytePtr digdug_sharedram;
 	static unsigned char interrupt_enable_1,interrupt_enable_2,interrupt_enable_3;
 	
 	static int credits;

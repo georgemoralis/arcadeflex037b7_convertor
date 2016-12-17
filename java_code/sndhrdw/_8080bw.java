@@ -186,7 +186,7 @@ public class _8080bw
 	
 	*/
 	
-	static void invaders_sh_1_w(int board, int data, unsigned char *last)
+	static void invaders_sh_1_w(int board, int data, UBytePtr last)
 	{
 		int base_channel, base_sample;
 	
@@ -215,7 +215,7 @@ public class _8080bw
 		*last = data;
 	}
 	
-	static void invaders_sh_2_w(int board, int data, unsigned char *last)
+	static void invaders_sh_2_w(int board, int data, UBytePtr last)
 	{
 		int base_channel, base_sample;
 	

@@ -25,7 +25,7 @@ public class rocnrope
 	/* Roc'n'Rope has the IRQ vectors in RAM. The rom contains $FFFF at this address! */
 	public static WriteHandlerPtr rocnrope_interrupt_vector_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 	
 		RAM[0xFFF2+offset] = data;
@@ -336,7 +336,7 @@ public class rocnrope
 	
 	static public static InitDriverPtr init_rocnrope = new InitDriverPtr() { public void handler() 
 	{
-		unsigned char *rom = memory_region(REGION_CPU1);
+		UBytePtr rom = memory_region(REGION_CPU1);
 		int diff = memory_region_length(REGION_CPU1) / 2;
 	
 	

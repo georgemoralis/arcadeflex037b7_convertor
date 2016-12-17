@@ -13,7 +13,7 @@ package vidhrdw;
 public class renegade
 {
 	
-	unsigned char *renegade_textram;
+	UBytePtr renegade_textram;
 	int renegade_scrollx;
 	static struct tilemap *bg_tilemap;
 	static struct tilemap *fg_tilemap;
@@ -97,8 +97,8 @@ public class renegade
 	{
 		const struct rectangle *clip = &Machine.visible_area;
 	
-		unsigned char *source = spriteram;
-		unsigned char *finish = source+96*4;
+		UBytePtr source = spriteram;
+		UBytePtr finish = source+96*4;
 	
 		while( source<finish )
 		{

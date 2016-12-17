@@ -9,14 +9,14 @@ public class m72
 	
 	
 	
-	unsigned char *m72_videoram1,*m72_videoram2,*majtitle_rowscrollram;
-	static unsigned char *m72_spriteram;
+	UBytePtr m72_videoram1,*m72_videoram2,*majtitle_rowscrollram;
+	static UBytePtr m72_spriteram;
 	static int rastersplit;
 	static int splitline;
 	static struct tilemap *fg_tilemap,*bg_tilemap;
 	static int xadjust;
 	static int scrollx1[256],scrolly1[256],scrollx2[256],scrolly2[256];
-	extern unsigned char *spriteram,*spriteram_2;
+	extern UBytePtr spriteram,*spriteram_2;
 	extern size_t spriteram_size;
 	
 	static int irq1,irq2;
@@ -138,7 +138,7 @@ public class m72
 	/* (videoram[4*tile_index+2] & 0x10) is used, but it's not clear for what (priority?) */
 	}
 	
-	INLINE void hharry_get_tile_info(int gfxnum,unsigned char *videoram,int tile_index)
+	INLINE void hharry_get_tile_info(int gfxnum,UBytePtr videoram,int tile_index)
 	{
 		unsigned char attr = videoram[4*tile_index+1];
 		SET_TILE_INFO(gfxnum,videoram[4*tile_index] + ((attr & 0x3f) << 8),videoram[4*tile_index+2] & 0x0f)
@@ -541,7 +541,7 @@ public class m72
 		}
 	}
 	
-	static void mark_sprite_colors(unsigned char *ram)
+	static void mark_sprite_colors(UBytePtr ram)
 	{
 		int offs,color,i;
 		int colmask[32];

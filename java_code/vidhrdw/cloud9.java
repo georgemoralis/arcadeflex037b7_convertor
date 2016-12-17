@@ -16,13 +16,13 @@ public class cloud9
 {
 	
 	
-	unsigned char *cloud9_vram2;
-	unsigned char *cloud9_bitmap_regs;
-	unsigned char *cloud9_auto_inc_x;
-	unsigned char *cloud9_auto_inc_y;
-	unsigned char *cloud9_both_banks;
-	unsigned char *cloud9_vram_bank;
-	unsigned char *cloud9_color_bank;
+	UBytePtr cloud9_vram2;
+	UBytePtr cloud9_bitmap_regs;
+	UBytePtr cloud9_auto_inc_x;
+	UBytePtr cloud9_auto_inc_y;
+	UBytePtr cloud9_both_banks;
+	UBytePtr cloud9_vram_bank;
+	UBytePtr cloud9_color_bank;
 	
 	
 	/***************************************************************************
@@ -102,7 +102,7 @@ public class cloud9
 	  This is used to take an x,y location and convert it to the proper memory
 	  address, bank, and nibble.  This is pure speculation.
 	***************************************************************************/
-	static void convert_point(unsigned int x, unsigned int y, unsigned char **vptr, int *vpixel)
+	static void convert_point(unsigned int x, unsigned int y, UBytePtr *vptr, int *vpixel)
 	{
 		unsigned int voff;
 	
@@ -134,7 +134,7 @@ public class cloud9
 	***************************************************************************/
 	public static ReadHandlerPtr cloud9_bitmap_regs_r  = new ReadHandlerPtr() { public int handler(int offset)
 	{
-		unsigned char *vptr;
+		UBytePtr vptr;
 		int vpixel;
 		unsigned int x, y;
 	
@@ -184,7 +184,7 @@ public class cloud9
 			/* Don't allow writes to memory at less than 0x600 */
 			if (y >= 0x0c)
 			{
-				unsigned char *vptr;
+				UBytePtr vptr;
 				int vpixel;
 	
 				convert_point(x,y,&vptr,&vpixel);

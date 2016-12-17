@@ -70,7 +70,7 @@ public class ginganin
 	static int layers_ctrl, flipscreen;
 	
 	/* Variables that driver has access to */
-	unsigned char *ginganin_fgram, *ginganin_txtram, *ginganin_vregs;
+	UBytePtr ginganin_fgram, *ginganin_txtram, *ginganin_vregs;
 	
 	/* Variables defined in drivers */
 	

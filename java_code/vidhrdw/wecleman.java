@@ -92,7 +92,7 @@ public class wecleman
 	
 	/* Variables that driver has acces to: */
 	
-	unsigned char *wecleman_pageram, *wecleman_txtram, *wecleman_roadram, *wecleman_unknown;
+	UBytePtr wecleman_pageram, *wecleman_txtram, *wecleman_roadram, *wecleman_unknown;
 	size_t wecleman_roadram_size;
 	int wecleman_bgpage[4], wecleman_fgpage[4], *wecleman_gfx_bank;
 	
@@ -745,11 +745,11 @@ public class wecleman
 	static void get_sprite_info(void)
 	{
 		const unsigned short *base_pal	= Machine.remapped_colortable;
-		const unsigned char  *base_gfx	= memory_region(REGION_GFX1);
+		const UBytePtr base_gfx	= memory_region(REGION_GFX1);
 	
 		const int gfx_max = memory_region_length(REGION_GFX1);
 	
-		unsigned char *source		=	spriteram;
+		UBytePtr source		=	spriteram;
 		struct sprite *sprite		=	sprite_list.sprite;
 		const struct sprite *finish	=	sprite + NUM_SPRITES;
 	
@@ -829,7 +829,7 @@ public class wecleman
 	void browser(struct osd_bitmap *bitmap)
 	{
 		const unsigned short *base_pal	=	Machine.gfx[0].colortable + 0;
-		const unsigned char  *base_gfx	=	memory_region(REGION_GFX1);
+		const UBytePtr base_gfx	=	memory_region(REGION_GFX1);
 	
 		const int gfx_max				=	memory_region_length(REGION_GFX1);
 	

@@ -157,10 +157,10 @@ public class gottlieb
 	
 	
 	
-	extern unsigned char *gottlieb_characterram;
+	extern UBytePtr gottlieb_characterram;
 	
 	
-	extern unsigned char *riot_ram;
+	extern UBytePtr riot_ram;
 	
 	
 	static public static InitMachinePtr init_machine = new InitMachinePtr() { public void handler() 
@@ -317,7 +317,7 @@ public class gottlieb
 	} };
 	
 	
-	static unsigned char *nvram;
+	static UBytePtr nvram;
 	static size_t nvram_size;
 	
 	public static nvramPtr nvram_handler  = new nvramPtr() { public void handler(Object file, int read_or_write) 

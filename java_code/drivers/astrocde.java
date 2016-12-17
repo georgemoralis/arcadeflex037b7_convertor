@@ -66,12 +66,12 @@ package drivers;
 public class astrocde
 {
 	
-	extern unsigned char *wow_videoram;
+	extern UBytePtr wow_videoram;
 	
 	extern const char *wow_sample_names[];
 	extern const char *gorf_sample_names[];
 	
-	void astrocde_init_palette(unsigned char *game_palette, unsigned short *game_colortable,const unsigned char *color_prom);
+	void astrocde_init_palette(UBytePtr game_palette, unsigned short *game_colortable,const UBytePtr color_prom);
 	
 	
 	

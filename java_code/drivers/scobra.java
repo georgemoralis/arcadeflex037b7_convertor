@@ -82,8 +82,8 @@ public class scobra
 	
 	
 	
-	extern unsigned char *galaxian_attributesram;
-	extern unsigned char *galaxian_bulletsram;
+	extern UBytePtr galaxian_attributesram;
+	extern UBytePtr galaxian_bulletsram;
 	extern size_t galaxian_bulletsram_size;
 	
 	
@@ -2085,7 +2085,7 @@ public class scobra
 		*   Optimizations done by Fabio Buffoni
 		*/
 		int i,j;
-		unsigned char *RAM;
+		UBytePtr RAM;
 	
 	
 		/* The gfx ROMs are scrambled. Decode them. They have been loaded at 0x1000, */
@@ -2109,7 +2109,7 @@ public class scobra
 		*   Optimizations done by Fabio Buffoni
 		*/
 		int i,j;
-		unsigned char *RAM;
+		UBytePtr RAM;
 	
 	
 		/* The gfx ROMs are scrambled. Decode them. They have been loaded at 0x1000, */
@@ -2132,7 +2132,7 @@ public class scobra
 		*   Code To Decode Minefield by Mike Balfour and Nicola Salmoria
 		*/
 		int i,j;
-		unsigned char *RAM;
+		UBytePtr RAM;
 	
 	
 		/* The gfx ROMs are scrambled. Decode them. They have been loaded at 0x1000, */
@@ -2157,7 +2157,7 @@ public class scobra
 		*   Optimizations done by Fabio Buffoni
 		*/
 		int i,j;
-		unsigned char *RAM;
+		UBytePtr RAM;
 	
 	
 		/* The gfx ROMs are scrambled. Decode them. They have been loaded at 0x1000, */
@@ -2180,7 +2180,7 @@ public class scobra
 		*   Code rom deryption worked out by hand by Chris Hardy.
 		*/
 		int i;
-		unsigned char *RAM;
+		UBytePtr RAM;
 	
 	
 		RAM = memory_region(REGION_CPU1);
@@ -2217,7 +2217,7 @@ public class scobra
 			unsigned char xormask;
 			int bits[8];
 			int i;
-			unsigned char *RAM = memory_region(REGION_CPU1);
+			UBytePtr RAM = memory_region(REGION_CPU1);
 	
 	
 			for (i = 0;i < 8;i++)
@@ -2238,7 +2238,7 @@ public class scobra
 	
 		/* the first ROM of the second CPU has data lines D0 and D1 swapped. Decode it. */
 		{
-			unsigned char *RAM = memory_region(REGION_CPU2);
+			UBytePtr RAM = memory_region(REGION_CPU2);
 	
 	
 			for (A = 0;A < 0x0800;A++)
@@ -2256,7 +2256,7 @@ public class scobra
 			unsigned char xormask;
 			int bits[8];
 			int i;
-			unsigned char *RAM = memory_region(REGION_CPU1);
+			UBytePtr RAM = memory_region(REGION_CPU1);
 	
 	
 			for (i = 0;i < 8;i++)
@@ -2290,7 +2290,7 @@ public class scobra
 	
 		/* the first ROM of the second CPU has data lines D0 and D1 swapped. Decode it. */
 		{
-			unsigned char *RAM = memory_region(REGION_CPU2);
+			UBytePtr RAM = memory_region(REGION_CPU2);
 	
 	
 			for (A = 0;A < 0x0800;A++)

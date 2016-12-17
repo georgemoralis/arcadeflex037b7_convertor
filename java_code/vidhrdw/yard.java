@@ -21,10 +21,10 @@ public class yard
 {
 	
 	
-	unsigned char *yard_scroll_x_low;
-	unsigned char *yard_scroll_x_high;
-	unsigned char *yard_scroll_y_low;
-	unsigned char *yard_score_panel_disabled;
+	UBytePtr yard_scroll_x_low;
+	UBytePtr yard_scroll_x_high;
+	UBytePtr yard_scroll_y_low;
+	UBytePtr yard_score_panel_disabled;
 	static struct osd_bitmap *scroll_panel_bitmap;
 	
 	#define SCROLL_PANEL_WIDTH  (14*4)

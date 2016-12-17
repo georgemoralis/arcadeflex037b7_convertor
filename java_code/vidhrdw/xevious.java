@@ -16,10 +16,10 @@ public class xevious
 {
 	
 	
-	unsigned char *xevious_fg_videoram,*xevious_fg_colorram;
-	unsigned char *xevious_bg_videoram,*xevious_bg_colorram;
+	UBytePtr xevious_fg_videoram,*xevious_fg_colorram;
+	UBytePtr xevious_bg_videoram,*xevious_bg_colorram;
 	
-	extern unsigned char *spriteram,*spriteram_2,*spriteram_3;
+	extern UBytePtr spriteram,*spriteram_2,*spriteram_3;
 	extern size_t spriteram_size;
 	
 	static struct tilemap *fg_tilemap,*bg_tilemap;

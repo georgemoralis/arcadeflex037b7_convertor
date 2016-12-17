@@ -30,7 +30,7 @@ public class galspnbl
 {
 	
 	
-	extern unsigned char *galspnbl_bgvideoram;
+	extern UBytePtr galspnbl_bgvideoram;
 	
 	
 	

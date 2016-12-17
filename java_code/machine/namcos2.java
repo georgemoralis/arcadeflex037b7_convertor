@@ -18,9 +18,9 @@ package machine;
 public class namcos2
 {
 	
-	unsigned char *namcos2_68k_master_ram=NULL;
-	unsigned char *namcos2_68k_slave_ram=NULL;
-	unsigned char *namcos2_68k_mystery_ram=NULL;
+	UBytePtr namcos2_68k_master_ram=NULL;
+	UBytePtr namcos2_68k_slave_ram=NULL;
+	UBytePtr namcos2_68k_mystery_ram=NULL;
 	
 	int namcos2_gametype=0;
 	
@@ -70,7 +70,7 @@ public class namcos2
 	/* EEPROM Load/Save and read/write handling 				 */
 	/*************************************************************/
 	
-	unsigned char *namcos2_eeprom;
+	UBytePtr namcos2_eeprom;
 	size_t namcos2_eeprom_size;
 	
 	public static nvramPtr namcos2_nvram_handler  = new nvramPtr() { public void handler(Object file, int read_or_write) 
@@ -104,7 +104,7 @@ public class namcos2
 	
 	public static ReadHandlerPtr namcos2_68k_data_rom_r  = new ReadHandlerPtr() { public int handler(int offset)
 	{
-		unsigned char *ROM=memory_region(REGION_USER1);
+		UBytePtr ROM=memory_region(REGION_USER1);
 		return READ_WORD(&ROM[offset]);
 	} };
 	
@@ -261,7 +261,7 @@ public class namcos2
 	/* 68000 Shared memory area - Video palette control 		 */
 	/*************************************************************/
 	
-	unsigned char *namcos2_68k_palette_ram;
+	UBytePtr namcos2_68k_palette_ram;
 	size_t namcos2_68k_palette_size;
 	
 	public static ReadHandlerPtr namcos2_68k_video_palette_r  = new ReadHandlerPtr() { public int handler(int offset)
@@ -311,7 +311,7 @@ public class namcos2
 	/* 68000/6809/63705 Shared memory area - DUAL PORT Memory	 */
 	/*************************************************************/
 	
-	unsigned char *namcos2_dpram=NULL;	/* 2Kx8 */
+	UBytePtr namcos2_dpram=NULL;	/* 2Kx8 */
 	
 	public static ReadHandlerPtr namcos2_68k_dpram_word_r  = new ReadHandlerPtr() { public int handler(int offset)
 	{
@@ -341,7 +341,7 @@ public class namcos2
 	/**************************************************************/
 	
 	unsigned char  namcos2_68k_serial_comms_ctrl[0x10];
-	unsigned char *namcos2_68k_serial_comms_ram=NULL;
+	UBytePtr namcos2_68k_serial_comms_ram=NULL;
 	
 	public static ReadHandlerPtr namcos2_68k_serial_comms_ram_r  = new ReadHandlerPtr() { public int handler(int offset)
 	{
@@ -388,7 +388,7 @@ public class namcos2
 	/* The sprite bank register also holds the colour bank for */
 	/* the ROZ memory and some of the priority control data    */
 	
-	unsigned char *namcos2_sprite_ram=NULL;
+	UBytePtr namcos2_sprite_ram=NULL;
 	int namcos2_sprite_bank=0;
 	
 	public static WriteHandlerPtr namcos2_68k_sprite_ram_w = new WriteHandlerPtr() {public void handler(int offset, int data)
@@ -465,7 +465,7 @@ public class namcos2
 	
 	unsigned char namcos2_68k_roz_ctrl[0x10];
 	size_t namcos2_68k_roz_ram_size;
-	unsigned char *namcos2_68k_roz_ram=NULL;
+	UBytePtr namcos2_68k_roz_ram=NULL;
 	
 	public static WriteHandlerPtr namcos2_68k_roz_ctrl_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
@@ -495,8 +495,8 @@ public class namcos2
 	/*															  */
 	/**************************************************************/
 	
-	unsigned char *namcos2_68k_roadtile_ram=NULL;
-	unsigned char *namcos2_68k_roadgfx_ram=NULL;
+	UBytePtr namcos2_68k_roadtile_ram=NULL;
+	UBytePtr namcos2_68k_roadgfx_ram=NULL;
 	size_t namcos2_68k_roadtile_ram_size;
 	size_t namcos2_68k_roadgfx_ram_size;
 	
@@ -734,7 +734,7 @@ public class namcos2
 	
 	public static WriteHandlerPtr namcos2_sound_bankselect_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		unsigned char *RAM=memory_region(REGION_CPU3);
+		UBytePtr RAM=memory_region(REGION_CPU3);
 		int bank = ( data >> 4 ) & 0x0f;	/* 991104.CAB */
 		cpu_setbank( CPU3_ROM1, &RAM[ 0x10000 + ( 0x4000 * bank ) ] );
 	} };

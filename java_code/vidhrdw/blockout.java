@@ -9,8 +9,8 @@ public class blockout
 	
 	
 	
-	unsigned char *blockout_videoram;
-	unsigned char *blockout_frontvideoram;
+	UBytePtr blockout_videoram;
+	UBytePtr blockout_frontvideoram;
 	
 	
 	

@@ -65,13 +65,13 @@ package drivers;
 public class exterm
 {
 	
-	static unsigned char *eeprom;
+	static UBytePtr eeprom;
 	static size_t eeprom_size;
 	static size_t code_rom_size;
-	unsigned char *exterm_code_rom;
+	UBytePtr exterm_code_rom;
 	
-	extern unsigned char *exterm_master_speedup, *exterm_slave_speedup;
-	extern unsigned char *exterm_master_videoram, *exterm_slave_videoram;
+	extern UBytePtr exterm_master_speedup, *exterm_slave_speedup;
+	extern UBytePtr exterm_master_videoram, *exterm_slave_videoram;
 	
 	/* Functions in vidhrdw/exterm.c */
 	void exterm_to_shiftreg_master(unsigned int address, unsigned short* shiftreg);

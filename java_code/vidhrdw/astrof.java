@@ -18,12 +18,12 @@ public class astrof
 {
 	
 	
-	unsigned char *astrof_color;
-	unsigned char *tomahawk_protection;
+	UBytePtr astrof_color;
+	UBytePtr tomahawk_protection;
 	
 	static int do_modify_palette = 0;
 	static int palette_bank = -1, red_on = -1;
-	static const unsigned char *prom;
+	static const UBytePtr prom;
 	
 	
 	/* Just save the colorprom pointer */

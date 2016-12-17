@@ -34,22 +34,22 @@ public class wiping
 		int frequency;
 		int counter;
 		int volume[2];
-		const unsigned char *wave;
+		const UBytePtr wave;
 		int oneshot;
 		int oneshotplaying;
 	} sound_channel;
 	
 	
 	/* globals available to everyone */
-	unsigned char *wiping_soundregs;
-	unsigned char *wiping_wavedata;
+	UBytePtr wiping_soundregs;
+	UBytePtr wiping_wavedata;
 	
 	/* data about the sound system */
 	static sound_channel channel_list[MAX_VOICES];
 	static sound_channel *last_channel;
 	
 	/* global sound parameters */
-	static const unsigned char *sound_prom,*sound_rom;
+	static const UBytePtr sound_prom,*sound_rom;
 	static int num_voices;
 	static int sound_enable;
 	static int stream;
@@ -115,7 +115,7 @@ public class wiping
 			/* only update if we have non-zero volume and frequency */
 			if (v && f)
 			{
-				const unsigned char *w = voice.wave;
+				const UBytePtr w = voice.wave;
 				int c = voice.counter;
 	
 				mix = mixer_buffer;

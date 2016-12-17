@@ -7,7 +7,7 @@ package machine;
 public class system16
 {
 	
-	void system16_decode(unsigned char *dest,unsigned char *source,int size,unsigned short *decrypt_data)
+	void system16_decode(UBytePtr dest,UBytePtr source,int size,unsigned short *decrypt_data)
 	{
 		int offset,data,decode_offset,mask;
 	
@@ -605,14 +605,14 @@ public class system16
 	};
 	
 	
-	void endurob2_decode_data(unsigned char *dest,unsigned char *source,int size)
+	void endurob2_decode_data(UBytePtr dest,UBytePtr source,int size)
 	{
 		system16_decode(dest,source,size,(unsigned short *)enduroracer_decrypt_data);
 	}
 	
 	
 	// This seems generally correct, but there are errors.
-	void endurob2_decode_data2(unsigned char *dest,unsigned char *source,int size)
+	void endurob2_decode_data2(UBytePtr dest,UBytePtr source,int size)
 	{
 		system16_decode(dest,source,size,(unsigned short *)enduroracer_decrypt_data2);
 	}
@@ -1177,12 +1177,12 @@ public class system16
 	};
 	
 	
-	void enduror_decode_data(unsigned char *dest,unsigned char *source,int size)
+	void enduror_decode_data(UBytePtr dest,UBytePtr source,int size)
 	{
 		system16_decode(dest,source,size,(unsigned short *)enduroracer_decrypt_data3);
 	}
 	
-	void enduror_decode_data2(unsigned char *dest,unsigned char *source,int size)
+	void enduror_decode_data2(UBytePtr dest,UBytePtr source,int size)
 	{
 		system16_decode(dest,source,size,(unsigned short *)enduroracer_decrypt_data4);
 	}
@@ -2018,17 +2018,17 @@ public class system16
 	0xc848,0xffff,0xe408,0xffff,0xffff,0xffff,0xfc48,0xffff,0x9008,0x4448,0xffff,0xffff,0xffff,0xffff,0xffff,0xf408}
 	};
 	
-	void aurail_decode_data(unsigned char *dest,unsigned char *source,int size)
+	void aurail_decode_data(UBytePtr dest,UBytePtr source,int size)
 	{
 		system16_decode(dest,source,size,(unsigned short *)aurail_decrypt_data);
 	}
 	
-	void aurail_decode_opcode1(unsigned char *dest,unsigned char *source,int size)
+	void aurail_decode_opcode1(UBytePtr dest,UBytePtr source,int size)
 	{
 		system16_decode(dest,source,size,(unsigned short *)aurail_decrypt_opcode1);
 	}
 	
-	void aurail_decode_opcode2(unsigned char *dest,unsigned char *source,int size)
+	void aurail_decode_opcode2(UBytePtr dest,UBytePtr source,int size)
 	{
 		system16_decode(dest,source,size,(unsigned short *)aurail_decrypt_opcode2);
 	}

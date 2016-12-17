@@ -82,14 +82,14 @@ public class wc90b
 	
 	#define TEST_DIPS false /* enable to test unmapped dip switches */
 	
-	extern unsigned char *wc90b_shared;
+	extern UBytePtr wc90b_shared;
 	
-	extern unsigned char *wc90b_tile_colorram, *wc90b_tile_videoram;
-	extern unsigned char *wc90b_tile_colorram2, *wc90b_tile_videoram2;
-	extern unsigned char *wc90b_scroll1xlo, *wc90b_scroll1xhi;
-	extern unsigned char *wc90b_scroll2xlo, *wc90b_scroll2xhi;
-	extern unsigned char *wc90b_scroll1ylo, *wc90b_scroll1yhi;
-	extern unsigned char *wc90b_scroll2ylo, *wc90b_scroll2yhi;
+	extern UBytePtr wc90b_tile_colorram, *wc90b_tile_videoram;
+	extern UBytePtr wc90b_tile_colorram2, *wc90b_tile_videoram2;
+	extern UBytePtr wc90b_scroll1xlo, *wc90b_scroll1xhi;
+	extern UBytePtr wc90b_scroll2xlo, *wc90b_scroll2xhi;
+	extern UBytePtr wc90b_scroll1ylo, *wc90b_scroll1yhi;
+	extern UBytePtr wc90b_scroll2ylo, *wc90b_scroll2yhi;
 	
 	extern size_t wc90b_tile_videoram_size;
 	extern size_t wc90b_tile_videoram_size2;
@@ -99,7 +99,7 @@ public class wc90b
 	public static WriteHandlerPtr wc90b_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
 		int bankaddress;
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 	
 		bankaddress = 0x10000 + ((data & 0xf8) << 8);
@@ -109,7 +109,7 @@ public class wc90b
 	public static WriteHandlerPtr wc90b_bankswitch1_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
 		int bankaddress;
-		unsigned char *RAM = memory_region(REGION_CPU2);
+		UBytePtr RAM = memory_region(REGION_CPU2);
 	
 	
 		bankaddress = 0x10000 + ((data & 0xf8) << 8);

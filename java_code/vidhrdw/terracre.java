@@ -16,14 +16,14 @@ public class terracre
 {
 	
 	
-	unsigned char *terrac_videoram;
+	UBytePtr terrac_videoram;
 	size_t terrac_videoram_size;
 	unsigned char terrac_scrolly[2];
 	
 	static struct osd_bitmap *tmpbitmap2;
-	static unsigned char *dirtybuffer2;
+	static UBytePtr dirtybuffer2;
 	
-	static const unsigned char *spritepalettebank;
+	static const UBytePtr spritepalettebank;
 	
 	
 	/***************************************************************************

@@ -19,7 +19,7 @@ public class mario
 	
 	static int gfx_bank,palette_bank;
 	
-	unsigned char *mario_scrolly;
+	UBytePtr mario_scrolly;
 	
 	/***************************************************************************
 	

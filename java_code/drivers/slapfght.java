@@ -190,15 +190,15 @@ public class slapfght
 	
 	/* VIDHRDW */
 	
-	extern unsigned char *slapfight_videoram;
-	extern unsigned char *slapfight_colorram;
+	extern UBytePtr slapfight_videoram;
+	extern UBytePtr slapfight_colorram;
 	extern size_t slapfight_videoram_size;
-	extern unsigned char *slapfight_scrollx_lo,*slapfight_scrollx_hi,*slapfight_scrolly;
+	extern UBytePtr slapfight_scrollx_lo,*slapfight_scrollx_hi,*slapfight_scrolly;
 	
 	/* MACHINE */
 	
 	
-	extern unsigned char *slapfight_dpram;
+	extern UBytePtr slapfight_dpram;
 	extern size_t slapfight_dpram_size;
 	
 	

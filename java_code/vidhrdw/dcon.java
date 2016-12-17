@@ -14,7 +14,7 @@ public class dcon
 {
 	
 	static struct tilemap *background_layer,*foreground_layer,*midground_layer,*text_layer;
-	unsigned char *dcon_back_data,*dcon_fore_data,*dcon_mid_data,*dcon_scroll_ram;
+	UBytePtr dcon_back_data,*dcon_fore_data,*dcon_mid_data,*dcon_scroll_ram;
 	static int dcon_enable;
 	
 	/******************************************************************************/

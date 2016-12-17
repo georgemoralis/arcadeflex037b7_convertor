@@ -382,7 +382,7 @@ public class mcr3
 	
 	static public static nvramPtr mcr3_nvram_handler  = new nvramPtr() { public void handler(Object file, int read_or_write) 
 	{
-		unsigned char *ram = memory_region(REGION_CPU1);
+		UBytePtr ram = memory_region(REGION_CPU1);
 	
 		if (read_or_write != 0)
 			osd_fwrite(file, &ram[0xe000], 0x800);
@@ -393,7 +393,7 @@ public class mcr3
 	
 	static public static nvramPtr spyhunt_nvram_handler  = new nvramPtr() { public void handler(Object file, int read_or_write) 
 	{
-		unsigned char *ram = memory_region(REGION_CPU1);
+		UBytePtr ram = memory_region(REGION_CPU1);
 	
 		if (read_or_write != 0)
 			osd_fwrite(file, &ram[0xf000], 0x800);
@@ -1965,7 +1965,7 @@ public class mcr3
 	
 	static void spyhunt_decode(void)
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 		/* some versions of rom 11d have the top and bottom 8k swapped; to enable us to work with either
 		   a correct set or a swapped set (both of which pass the checksum!), we swap them here */

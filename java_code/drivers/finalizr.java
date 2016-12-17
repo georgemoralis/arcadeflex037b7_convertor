@@ -17,9 +17,9 @@ public class finalizr
 	
 	
 	
-	extern unsigned char *finalizr_scroll;
-	extern unsigned char *finalizr_videoram2,*finalizr_colorram2;
-	static unsigned char *finalizr_interrupt_enable;
+	extern UBytePtr finalizr_scroll;
+	extern UBytePtr finalizr_videoram2,*finalizr_colorram2;
+	static UBytePtr finalizr_interrupt_enable;
 	
 	
 	

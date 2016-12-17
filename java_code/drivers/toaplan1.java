@@ -51,7 +51,7 @@ public class toaplan1
 	
 	
 	
-	unsigned char *toaplan1_sharedram;
+	UBytePtr toaplan1_sharedram;
 	
 	
 	/**************** Video stuff ******************/
@@ -59,8 +59,8 @@ public class toaplan1
 	
 	
 	
-	extern unsigned char *toaplan1_colorram1;
-	extern unsigned char *toaplan1_colorram2;
+	extern UBytePtr toaplan1_colorram1;
+	extern UBytePtr toaplan1_colorram2;
 	extern size_t colorram1_size;
 	extern size_t colorram2_size;
 	

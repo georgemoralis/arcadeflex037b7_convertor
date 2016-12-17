@@ -15,8 +15,8 @@ struct namco_interface
 
 
 
-extern unsigned char *namco_soundregs;
-extern unsigned char *namco_wavedata;
+extern UBytePtr namco_soundregs;
+extern UBytePtr namco_wavedata;
 
 #define mappy_soundregs namco_soundregs
 #define pengo_soundregs namco_soundregs

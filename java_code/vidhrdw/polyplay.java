@@ -18,13 +18,13 @@ package vidhrdw;
 public class polyplay
 {
 	
-	unsigned char *polyplay_characterram;
+	UBytePtr polyplay_characterram;
 	static unsigned char dirtycharacter[256];
 	
 	static int palette_bank;
 	
 	
-	void polyplay_init_palette(unsigned char *palette, unsigned short *colortable,const unsigned char *color_prom)
+	void polyplay_init_palette(UBytePtr palette, unsigned short *colortable,const UBytePtr color_prom)
 	{
 		int i;
 	

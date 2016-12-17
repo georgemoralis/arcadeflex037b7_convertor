@@ -79,8 +79,8 @@ public class scramble
 {
 	
 	
-	extern unsigned char *galaxian_attributesram;
-	extern unsigned char *galaxian_bulletsram;
+	extern UBytePtr galaxian_attributesram;
+	extern UBytePtr galaxian_bulletsram;
 	extern size_t galaxian_bulletsram_size;
 	
 	
@@ -1797,7 +1797,7 @@ public class scramble
 	static public static InitDriverPtr init_froggers = new InitDriverPtr() { public void handler() 
 	{
 		int A;
-		unsigned char *RAM;
+		UBytePtr RAM;
 	
 	
 		/* the first ROM of the second CPU has data lines D0 and D1 swapped. Decode it. */
@@ -1809,7 +1809,7 @@ public class scramble
 	static public static InitDriverPtr init_mars = new InitDriverPtr() { public void handler() 
 	{
 		int i;
-		unsigned char *RAM;
+		UBytePtr RAM;
 	
 		/* Address lines are scrambled on the main CPU:
 	

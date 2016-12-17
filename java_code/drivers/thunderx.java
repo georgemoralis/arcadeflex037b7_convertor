@@ -41,7 +41,7 @@ public class thunderx
 	
 	static int palette_selected;
 	static int bank;
-	static unsigned char *ram,*unknownram;
+	static UBytePtr ram,*unknownram;
 	
 	public static ReadHandlerPtr scontra_bankedram_r  = new ReadHandlerPtr() { public int handler(int offset)
 	{
@@ -86,7 +86,7 @@ public class thunderx
 	} };
 	
 	static void calculate_collisions( void ) {
-		unsigned char *ptr1 = &unknownram[0x10], *ptr2;
+		UBytePtr ptr1 = &unknownram[0x10], *ptr2;
 		int i, j;
 	
 		/* each sprite is defined as: flags height width xpos ypos */
@@ -174,7 +174,7 @@ public class thunderx
 	
 	public static WriteHandlerPtr scontra_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 		int offs;
 	
 	//logerror("%04x: bank switch %02x\n",cpu_get_pc(),data);
@@ -217,7 +217,7 @@ public class thunderx
 	
 	public static WriteHandlerPtr scontra_snd_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		unsigned char *RAM = memory_region(REGION_SOUND1);
+		UBytePtr RAM = memory_region(REGION_SOUND1);
 		/* b3-b2: bank for chanel B */
 		/* b1-b0: bank for chanel A */
 	
@@ -853,7 +853,7 @@ public class thunderx
 	
 	public static konami_cpu_setlines_callbackPtr thunderx_banking = new konami_cpu_setlines_callbackPtr() { public void handler(int lines) 
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 		int offs;
 	
 	//	logerror("thunderx %04x: bank select %02x\n", cpu_get_pc(), lines );
@@ -865,14 +865,14 @@ public class thunderx
 	
 	static public static InitMachinePtr scontra_init_machine = new InitMachinePtr() { public void handler() 
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 		paletteram = &RAM[0x30000];
 	} };
 	
 	static public static InitMachinePtr thunderx_init_machine = new InitMachinePtr() { public void handler() 
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 		konami_cpu_setlines_callback = thunderx_banking;
 		cpu_setbank( 1, &RAM[0x10000] ); /* init the default bank */

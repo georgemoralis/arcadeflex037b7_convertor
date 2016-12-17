@@ -15,10 +15,10 @@ package vidhrdw;
 public class slapfght
 {
 	
-	unsigned char *slapfight_videoram;
-	unsigned char *slapfight_colorram;
+	UBytePtr slapfight_videoram;
+	UBytePtr slapfight_colorram;
 	size_t slapfight_videoram_size;
-	unsigned char *slapfight_scrollx_lo,*slapfight_scrollx_hi,*slapfight_scrolly;
+	UBytePtr slapfight_scrollx_lo,*slapfight_scrollx_hi,*slapfight_scrolly;
 	
 	
 	/***************************************************************************

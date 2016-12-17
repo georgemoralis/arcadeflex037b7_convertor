@@ -17,18 +17,18 @@ public class generic
 	
 	
 	
-	unsigned char *videoram;
+	UBytePtr videoram;
 	size_t videoram_size;
-	unsigned char *colorram;
-	unsigned char *spriteram;	/* not used in this module... */
-	unsigned char *spriteram_2;	/* ... */
-	unsigned char *spriteram_3;	/* ... */
-	unsigned char *buffered_spriteram;	/* not used in this module... */
-	unsigned char *buffered_spriteram_2;	/* ... */
+	UBytePtr colorram;
+	UBytePtr spriteram;	/* not used in this module... */
+	UBytePtr spriteram_2;	/* ... */
+	UBytePtr spriteram_3;	/* ... */
+	UBytePtr buffered_spriteram;	/* not used in this module... */
+	UBytePtr buffered_spriteram_2;	/* ... */
 	size_t spriteram_size;	/* ... here just for convenience */
 	size_t spriteram_2_size;	/* ... here just for convenience */
 	size_t spriteram_3_size;	/* ... here just for convenience */
-	unsigned char *dirtybuffer;
+	UBytePtr dirtybuffer;
 	struct osd_bitmap *tmpbitmap;
 	
 	
@@ -197,7 +197,7 @@ public class generic
 		Then the video driver must draw the sprites from the buffered_spriteram
 	pointer.  The function buffer_spriteram_w() is used to simulate hardware
 	which buffers the spriteram from a memory location write.  The function
-	buffer_spriteram(unsigned char *ptr, int length) can be used where
+	buffer_spriteram(UBytePtr ptr, int length) can be used where
 	more control is needed over what is buffered.
 	
 		For examples see darkseal.c, contra.c, lastduel.c, bionicc.c etc.
@@ -214,12 +214,12 @@ public class generic
 		memcpy(buffered_spriteram_2,spriteram_2,spriteram_2_size);
 	} };
 	
-	void buffer_spriteram(unsigned char *ptr,int length)
+	void buffer_spriteram(UBytePtr ptr,int length)
 	{
 		memcpy(buffered_spriteram,ptr,length);
 	}
 	
-	void buffer_spriteram_2(unsigned char *ptr,int length)
+	void buffer_spriteram_2(UBytePtr ptr,int length)
 	{
 		memcpy(buffered_spriteram_2,ptr,length);
 	}

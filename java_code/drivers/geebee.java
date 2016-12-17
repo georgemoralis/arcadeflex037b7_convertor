@@ -78,8 +78,8 @@ public class geebee
 	/* from machine/geebee.c */
 	extern extern 
 	/* from vidhrdw/geebee.c */
-	extern void geebee_init_palette(unsigned char *sys_palette, unsigned short *sys_colortable, const unsigned char *color_prom);
-	extern void navalone_init_palette(unsigned char *sys_palette, unsigned short *sys_colortable, const unsigned char *color_prom);
+	extern void geebee_init_palette(UBytePtr sys_palette, unsigned short *sys_colortable, const UBytePtr color_prom);
+	extern void navalone_init_palette(UBytePtr sys_palette, unsigned short *sys_colortable, const UBytePtr color_prom);
 	
 	extern extern extern extern extern 
 	/* from sndhrdw/geebee.c */

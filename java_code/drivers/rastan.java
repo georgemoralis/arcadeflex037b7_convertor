@@ -15,12 +15,12 @@ package drivers;
 public class rastan
 {
 	
-	unsigned char *rastan_ram;
-	extern unsigned char *rastan_videoram1,*rastan_videoram3;
+	UBytePtr rastan_ram;
+	extern UBytePtr rastan_videoram1,*rastan_videoram3;
 	extern size_t rastan_videoram_size;
-	extern unsigned char *rastan_spriteram;
-	extern unsigned char *rastan_scrollx;
-	extern unsigned char *rastan_scrolly;
+	extern UBytePtr rastan_spriteram;
+	extern UBytePtr rastan_scrollx;
+	extern UBytePtr rastan_scrolly;
 	
 	
 	
@@ -109,7 +109,7 @@ public class rastan
 	public static WriteHandlerPtr rastan_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
 		int bankaddress;
-		unsigned char *RAM = memory_region(REGION_CPU2);
+		UBytePtr RAM = memory_region(REGION_CPU2);
 	
 		bankaddress = 0x10000 + ((data^1) & 0x01) * 0x4000;
 		cpu_setbank(5,&RAM[bankaddress]);

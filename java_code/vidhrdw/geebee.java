@@ -134,14 +134,14 @@ public class geebee
 	} };
 	
 	/* Initialise the palette */
-	void geebee_init_palette(unsigned char *sys_palette, unsigned short *sys_colortable, const unsigned char *color_prom)
+	void geebee_init_palette(UBytePtr sys_palette, unsigned short *sys_colortable, const UBytePtr color_prom)
 	{
 		memcpy(sys_palette, palette, sizeof (palette));
 		memcpy(sys_colortable, geebee_colortable, sizeof (geebee_colortable));
 	}
 	
 	/* Initialise the palette */
-	void navalone_init_palette(unsigned char *sys_palette, unsigned short *sys_colortable, const unsigned char *color_prom)
+	void navalone_init_palette(UBytePtr sys_palette, unsigned short *sys_colortable, const UBytePtr color_prom)
 	{
 		memcpy(sys_palette, palette, sizeof (palette));
 		memcpy(sys_colortable, navalone_colortable, sizeof (navalone_colortable));

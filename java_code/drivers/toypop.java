@@ -23,10 +23,10 @@ public class toypop
 {
 	
 	// machine\toypop.c
-	extern unsigned char *toypop_sharedram_1, *toypop_sharedram_2, *toypop_customio, *toypop_speedup;
+	extern UBytePtr toypop_sharedram_1, *toypop_sharedram_2, *toypop_customio, *toypop_speedup;
 	
 	// vidhrdw\toypop.c
-	extern unsigned char *bg_image;
+	extern UBytePtr bg_image;
 	
 	static MemoryReadAddress toypop_readmem_I_6809[] =
 	{

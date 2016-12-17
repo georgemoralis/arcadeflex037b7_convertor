@@ -22,10 +22,10 @@ package drivers;
 public class travrusa
 {
 	
-	extern unsigned char *spriteram;
+	extern UBytePtr spriteram;
 	extern size_t spriteram_size;
 	
-	extern unsigned char *travrusa_videoram;
+	extern UBytePtr travrusa_videoram;
 	
 	
 	
@@ -369,7 +369,7 @@ public class travrusa
 	public static InitDriverPtr init_motorace = new InitDriverPtr() { public void handler() 
 	{
 		int A,i,j;
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 	
 		/* The first CPU ROM has the address and data lines scrambled */

@@ -69,7 +69,7 @@ public class simpsons
 	
 	public static WriteHandlerPtr z80_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		unsigned char *RAM = memory_region(REGION_CPU2);
+		UBytePtr RAM = memory_region(REGION_CPU2);
 	
 		offset = 0x10000 + ( ( ( data & 7 ) - 2 ) * 0x4000 );
 	

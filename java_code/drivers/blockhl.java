@@ -33,7 +33,7 @@ public class blockhl
 	
 	
 	static int palette_selected;
-	static unsigned char *ram;
+	static UBytePtr ram;
 	static int rombank;
 	
 	public static InterruptPtr blockhl_interrupt = new InterruptPtr() { public int handler() 
@@ -342,7 +342,7 @@ public class blockhl
 	
 	public static konami_cpu_setlines_callbackPtr blockhl_banking = new konami_cpu_setlines_callbackPtr() { public void handler(int lines) 
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 		int offs;
 	
 		/* bits 0-1 = ROM bank */
@@ -369,7 +369,7 @@ public class blockhl
 	
 	static public static InitMachinePtr blockhl_init_machine = new InitMachinePtr() { public void handler() 
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 		konami_cpu_setlines_callback = blockhl_banking;
 	

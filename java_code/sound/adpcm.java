@@ -644,7 +644,7 @@ public class adpcm
 		if (okim6295_command[num] != -1)
 		{
 			int temp = data >> 4, i, start, stop;
-			unsigned char *base;
+			UBytePtr base;
 	
 			/* determine which voice(s) (voice is set by a 1 bit in the upper 4 bits of the second byte) */
 			for (i = 0; i < MAX_OKIM6295_VOICES; i++, temp >>= 1)

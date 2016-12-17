@@ -18,7 +18,7 @@ public class superqix
 	
 	
 	static int gfxbank;
-	static unsigned char *superqix_bitmapram,*superqix_bitmapram2,*superqix_bitmapram_dirty,*superqix_bitmapram2_dirty;
+	static UBytePtr superqix_bitmapram,*superqix_bitmapram2,*superqix_bitmapram_dirty,*superqix_bitmapram2_dirty;
 	static struct osd_bitmap *tmpbitmap2;
 	int sqix_minx,sqix_maxx,sqix_miny,sqix_maxy;
 	int sqix_last_bitmap;
@@ -165,7 +165,7 @@ public class superqix
 	public static WriteHandlerPtr superqix_0410_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
 		int bankaddress;
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 	
 		/* bits 0-1 select the tile bank */

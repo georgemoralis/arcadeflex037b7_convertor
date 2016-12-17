@@ -39,7 +39,7 @@ public class magix
 	
 	/* Variables that driver has access to: */
 	
-	unsigned char *magix_videoram_0,*magix_videoram_1;
+	UBytePtr magix_videoram_0,*magix_videoram_1;
 	
 	
 	/* Variables only used here: */
@@ -80,7 +80,7 @@ public class magix
 		if (offset < 0x0800)		// c000-c7ff	Banked Palette RAM
 		{
 			int bank = magix_videobank & 2;
-			unsigned char *RAM;
+			UBytePtr RAM;
 			int r,g,b;
 	
 			if (bank != 0)	RAM = magix_videoram_0;

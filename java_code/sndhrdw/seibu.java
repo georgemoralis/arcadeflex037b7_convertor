@@ -39,7 +39,7 @@ public class seibu
 {
 	
 	static int sound_cpu;
-	unsigned char *seibu_shared_sound_ram;
+	UBytePtr seibu_shared_sound_ram;
 	
 	/***************************************************************************/
 	
@@ -124,7 +124,7 @@ public class seibu
 	
 	public static WriteHandlerPtr seibu_bank_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		unsigned char *RAM;
+		UBytePtr RAM;
 	
 		if (sound_cpu==1) RAM = memory_region(REGION_CPU2);
 		else RAM = memory_region(REGION_CPU3);
@@ -159,7 +159,7 @@ public class seibu
 	
 	public static ReadHandlerPtr sound_cpu_spin_r  = new ReadHandlerPtr() { public int handler(int offset)
 	{
-		unsigned char *RAM;
+		UBytePtr RAM;
 	
 		if (sound_cpu==1) RAM = memory_region(REGION_CPU2);
 		else RAM = memory_region(REGION_CPU3);
@@ -189,7 +189,7 @@ public class seibu
 	/* Game using encrypted sound cpu - Raiden, Dynamite Duke, Dead Angle */
 	void seibu_sound_decrypt(void)
 	{
-		unsigned char *RAM = memory_region(REGION_CPU3);
+		UBytePtr RAM = memory_region(REGION_CPU3);
 		int xor_table[128]={
 			0x00,0x00,0x10,0x10,0x08,0x00,0x00,0x18,
 			0x00,0x00,0x10,0x10,0x08,0x08,0x18,0x18,

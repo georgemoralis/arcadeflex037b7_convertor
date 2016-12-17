@@ -44,11 +44,11 @@ public class cave
 	
 	/* Variables defined in vidhrdw */
 	
-	extern unsigned char *cave_videoregs;
+	extern UBytePtr cave_videoregs;
 	
-	extern unsigned char *cave_vram_0, *cave_vctrl_0;
-	extern unsigned char *cave_vram_1, *cave_vctrl_1;
-	extern unsigned char *cave_vram_2, *cave_vctrl_2;
+	extern UBytePtr cave_vram_0, *cave_vctrl_0;
+	extern UBytePtr cave_vram_1, *cave_vctrl_1;
+	extern UBytePtr cave_vram_2, *cave_vctrl_2;
 	
 	
 	/* Functions defined in vidhrdw */
@@ -986,8 +986,8 @@ public class cave
 		const int region		=	REGION_GFX4;	// sprites
 	
 		const unsigned int len	=	memory_region_length(region);
-		unsigned char *src		=	memory_region(region) + len / 2 - 1;
-		unsigned char *dst		=	memory_region(region) + len - 1;
+		UBytePtr src		=	memory_region(region) + len / 2 - 1;
+		UBytePtr dst		=	memory_region(region) + len - 1;
 	
 		while(dst > src)
 		{
@@ -1004,8 +1004,8 @@ public class cave
 		const int region		=	REGION_GFX4;	// sprites
 	
 		const unsigned int len	=	memory_region_length(region);
-		unsigned char *src		=	memory_region(region) + len / 2 - 1;
-		unsigned char *dst		=	memory_region(region) + len - 1;
+		UBytePtr src		=	memory_region(region) + len / 2 - 1;
+		UBytePtr dst		=	memory_region(region) + len - 1;
 	
 		while(dst > src)
 		{
@@ -1028,8 +1028,8 @@ public class cave
 	{
 		const int region		=	REGION_GFX4;	// sprites
 	
-		unsigned char *src		=	memory_region(region);
-		unsigned char *dst		=	memory_region(region) + memory_region_length(region);
+		UBytePtr src		=	memory_region(region);
+		UBytePtr dst		=	memory_region(region) + memory_region_length(region);
 	
 		while(src < dst)
 		{

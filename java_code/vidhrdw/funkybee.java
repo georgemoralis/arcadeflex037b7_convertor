@@ -16,7 +16,7 @@ public class funkybee
 {
 	
 	
-	unsigned char *funkyb_row_scroll;
+	UBytePtr funkyb_row_scroll;
 	
 	static int gfx_bank;
 	

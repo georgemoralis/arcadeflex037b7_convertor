@@ -55,14 +55,14 @@ public class toaplan1
 	#define VIDEORAM2_SIZE	0x100		/* size in bytes - sprite size ram */
 	#define VIDEORAM3_SIZE	0x4000		/* size in bytes - tile ram */
 	
-	unsigned char *toaplan1_videoram1;
-	unsigned char *toaplan1_videoram2;
-	unsigned char *toaplan1_videoram3;
-	unsigned char *toaplan1_buffered_videoram1;
-	unsigned char *toaplan1_buffered_videoram2;
+	UBytePtr toaplan1_videoram1;
+	UBytePtr toaplan1_videoram2;
+	UBytePtr toaplan1_videoram3;
+	UBytePtr toaplan1_buffered_videoram1;
+	UBytePtr toaplan1_buffered_videoram2;
 	
-	unsigned char *toaplan1_colorram1;
-	unsigned char *toaplan1_colorram2;
+	UBytePtr toaplan1_colorram1;
+	UBytePtr toaplan1_colorram2;
 	
 	size_t colorram1_size;
 	size_t colorram2_size;
@@ -488,7 +488,7 @@ public class toaplan1
 		int priority;
 		int layer;
 		tile_struct *tinfo;
-		unsigned char *t_info;
+		UBytePtr t_info;
 	
 		if (toaplan1_flipscreen != 0){
 			layer_scrollx[0] = ((scrollregs[0]) >> 7) + (523 - xoffs);
@@ -578,7 +578,7 @@ public class toaplan1
 		int priority;
 		int layer;
 		tile_struct *tinfo;
-		unsigned char *t_info;
+		UBytePtr t_info;
 	
 		for ( priority = 0 ; priority < 16 ; priority++ )
 		{
@@ -647,7 +647,7 @@ public class toaplan1
 	{
 		int priority;
 		int sprite;
-		unsigned char *s_info,*s_size;
+		UBytePtr s_info,*s_size;
 	
 	
 		for ( priority = 0 ; priority < 17 ; priority++ )
@@ -856,8 +856,8 @@ public class toaplan1
 				int y;
 				for( y=sy; y<ey; y++ )
 				{
-					unsigned char *dest = dest_bmp.line[y];
-					unsigned char *source = source_bmp.line[y];
+					UBytePtr dest = dest_bmp.line[y];
+					UBytePtr source = source_bmp.line[y];
 					int x;
 	
 					for( x=sx; x<ex; x++ )
@@ -899,7 +899,7 @@ public class toaplan1
 				for( y=sy; y<ey; y++ )
 				{
 					unsigned short *dest = (unsigned short *)dest_bmp.line[y];
-					unsigned char *source = source_bmp.line[y];
+					UBytePtr source = source_bmp.line[y];
 					int x;
 	
 					for( x=sx; x<ex; x++ )

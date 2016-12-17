@@ -85,11 +85,11 @@ package drivers;
 public class wiz
 {
 	
-	extern unsigned char *wiz_videoram2;
-	extern unsigned char *wiz_colorram2;
-	extern unsigned char *wiz_attributesram;
-	extern unsigned char *wiz_attributesram2;
-	extern unsigned char *wiz_sprite_bank;
+	extern UBytePtr wiz_videoram2;
+	extern UBytePtr wiz_colorram2;
+	extern UBytePtr wiz_attributesram;
+	extern UBytePtr wiz_attributesram2;
+	extern UBytePtr wiz_sprite_bank;
 	
 	
 	
@@ -662,7 +662,7 @@ public class wiz
 			{ 0x80,0xa8,0x20,0x08 },	/* .........01.0... */
 			{ 0x28,0x28,0x88,0x88 }		/* .........01.1... */
 		};
-		unsigned char *rom = memory_region(REGION_CPU1);
+		UBytePtr rom = memory_region(REGION_CPU1);
 		int diff = memory_region_length(REGION_CPU1) / 2;
 		int A;
 	

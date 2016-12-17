@@ -20,7 +20,7 @@ public class tsamurai
 	/*
 	** variables
 	*/
-	unsigned char *tsamurai_videoram;
+	UBytePtr tsamurai_videoram;
 	static int bgcolor;
 	static int textbank;
 	
@@ -31,7 +31,7 @@ public class tsamurai
 	** color prom decoding
 	*/
 	
-	void tsamurai_convert_color_prom(unsigned char *palette, unsigned short *colortable,const unsigned char *color_prom)
+	void tsamurai_convert_color_prom(UBytePtr palette, unsigned short *colortable,const UBytePtr color_prom)
 	{
 		int i;
 	
@@ -178,8 +178,8 @@ public class tsamurai
 	{
 		struct GfxElement *gfx = Machine.gfx[2];
 		const struct rectangle *clip = &Machine.visible_area;
-		const unsigned char *source = spriteram+32*4-4;
-		const unsigned char *finish = spriteram; /* ? */
+		const UBytePtr source = spriteram+32*4-4;
+		const UBytePtr finish = spriteram; /* ? */
 		static int flicker;
 		flicker = 1-flicker;
 	

@@ -187,11 +187,11 @@ public class qix
 	
 	
 	
-	extern unsigned char *qix_sharedram;
+	extern UBytePtr qix_sharedram;
 	
 	
-	extern unsigned char *qix_palettebank;
-	extern unsigned char *qix_videoaddress;
+	extern UBytePtr qix_palettebank;
+	extern UBytePtr qix_videoaddress;
 	
 	
 	
@@ -199,7 +199,7 @@ public class qix
 	extern 
 	
 	
-	static unsigned char *nvram;
+	static UBytePtr nvram;
 	static size_t nvram_size;
 	
 	public static nvramPtr nvram_handler  = new nvramPtr() { public void handler(Object file, int read_or_write) 

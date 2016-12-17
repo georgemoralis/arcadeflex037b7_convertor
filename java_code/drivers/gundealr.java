@@ -56,7 +56,7 @@ public class gundealr
 {
 	
 	
-	extern unsigned char *gundealr_bg_videoram,*gundealr_fg_videoram;
+	extern UBytePtr gundealr_bg_videoram,*gundealr_fg_videoram;
 	
 	
 	
@@ -68,7 +68,7 @@ public class gundealr
 		{
 			if (input_ports_hack != 0)
 			{
-				unsigned char *RAM = memory_region(REGION_CPU1);
+				UBytePtr RAM = memory_region(REGION_CPU1);
 				RAM[0xe004] = readinputport(4);	/* COIN */
 				RAM[0xe005] = readinputport(3);	/* IN1 */
 				RAM[0xe006] = readinputport(2);	/* IN0 */
@@ -82,7 +82,7 @@ public class gundealr
 	public static WriteHandlerPtr yamyam_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
 	 	int bankaddress;
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 		bankaddress = 0x10000 + (data & 0x07) * 0x4000;
 		cpu_setbank(1,&RAM[bankaddress]);
@@ -90,7 +90,7 @@ public class gundealr
 	
 	public static WriteHandlerPtr yamyam_protection_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 	logerror("e000 = %02x\n",RAM[0xe000]);
 		RAM[0xe000] = data;

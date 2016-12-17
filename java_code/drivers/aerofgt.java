@@ -42,16 +42,16 @@ public class aerofgt
 {
 	
 	
-	extern unsigned char *aerofgt_rasterram;
-	extern unsigned char *aerofgt_bg1videoram,*aerofgt_bg2videoram;
-	extern unsigned char *aerofgt_spriteram1,*aerofgt_spriteram2;
+	extern UBytePtr aerofgt_rasterram;
+	extern UBytePtr aerofgt_bg1videoram,*aerofgt_bg2videoram;
+	extern UBytePtr aerofgt_spriteram1,*aerofgt_spriteram2;
 	extern size_t aerofgt_spriteram1_size,aerofgt_spriteram2_size;
 	
 	
 	
 	
 	
-	static unsigned char *aerofgt_workram;
+	static UBytePtr aerofgt_workram;
 	
 	public static ReadHandlerPtr aerofgt_workram_r  = new ReadHandlerPtr() { public int handler(int offset)
 	{
@@ -99,7 +99,7 @@ public class aerofgt
 	
 	public static WriteHandlerPtr aerofgt_sh_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		unsigned char *RAM = memory_region(REGION_CPU2);
+		UBytePtr RAM = memory_region(REGION_CPU2);
 		int bankaddress;
 	
 	

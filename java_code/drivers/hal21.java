@@ -20,8 +20,8 @@ public class hal21
 {
 	
 	
-	extern void tnk3_draw_text( struct osd_bitmap *bitmap, int bank, unsigned char *source );
-	extern void tnk3_draw_status( struct osd_bitmap *bitmap, int bank, unsigned char *source );
+	extern void tnk3_draw_text( struct osd_bitmap *bitmap, int bank, UBytePtr source );
+	extern void tnk3_draw_status( struct osd_bitmap *bitmap, int bank, UBytePtr source );
 	
 	static int scrollx_base; /* this is the only difference in video hardware found so far */
 	
@@ -132,8 +132,8 @@ public class hal21
 			int xscroll, int yscroll,
 			const struct GfxElement *gfx
 	){
-		const unsigned char *source = spriteram;
-		const unsigned char *finish = source+60*4;
+		const UBytePtr source = spriteram;
+		const UBytePtr finish = source+60*4;
 	
 		struct rectangle clip = Machine.visible_area;
 	
@@ -168,7 +168,7 @@ public class hal21
 	public static WriteHandlerPtr hal21_vreg5_w = new WriteHandlerPtr() {public void handler(int offset, int data){ hal21_vreg[5] = data; } };
 	
 	public static VhUpdatePtr aso_vh_screenrefresh = new VhUpdatePtr() { public void handler(osd_bitmap bitmap,int full_refresh) {
-		unsigned char *ram = memory_region(REGION_CPU1);
+		UBytePtr ram = memory_region(REGION_CPU1);
 		int attributes = hal21_vreg[1];
 		{
 			unsigned char bg_attrs = hal21_vreg[0];
@@ -428,7 +428,7 @@ public class hal21
 	#define SNK_NMI_PENDING	2
 	
 	static int snk_soundcommand = 0;
-	static unsigned char *shared_ram, *shared_auxram;
+	static UBytePtr shared_ram, *shared_auxram;
 	
 	public static ReadHandlerPtr shared_auxram_r  = new ReadHandlerPtr() { public int handler(int offset){ return shared_auxram[offset]; } };
 	public static WriteHandlerPtr shared_auxram_w = new WriteHandlerPtr() {public void handler(int offset, int data){ shared_auxram[offset] = data; } };

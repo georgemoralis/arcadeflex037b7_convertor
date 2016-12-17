@@ -149,8 +149,8 @@ public class galaxian
 {
 	
 	
-	extern unsigned char *galaxian_attributesram;
-	extern unsigned char *galaxian_bulletsram;
+	extern UBytePtr galaxian_attributesram;
+	extern UBytePtr galaxian_bulletsram;
 	extern size_t galaxian_bulletsram_size;
 	
 	
@@ -540,7 +540,7 @@ public class galaxian
 	/* Zig Zag can swap ROMs 2 and 3 as a form of copy protection */
 	public static WriteHandlerPtr zigzag_sillyprotection_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 	
 		if (data != 0)
@@ -3032,7 +3032,7 @@ public class galaxian
 	static public static InitDriverPtr init_mooncrst = new InitDriverPtr() { public void handler() 
 	{
 		int A;
-		unsigned char *rom = memory_region(REGION_CPU1);
+		UBytePtr rom = memory_region(REGION_CPU1);
 	
 	
 		for (A = 0;A < 0x10000;A++)
@@ -3047,7 +3047,7 @@ public class galaxian
 	static public static InitDriverPtr init_moonqsr = new InitDriverPtr() { public void handler() 
 	{
 		int A;
-		unsigned char *rom = memory_region(REGION_CPU1);
+		UBytePtr rom = memory_region(REGION_CPU1);
 		int diff = memory_region_length(REGION_CPU1) / 2;
 	
 	
@@ -3096,7 +3096,7 @@ public class galaxian
 	*/
 		int A;
 		int data_xor=0;
-		unsigned char *rom = memory_region(REGION_CPU1);
+		UBytePtr rom = memory_region(REGION_CPU1);
 	
 	
 		for (A = 0;A < 0x2800;A++)

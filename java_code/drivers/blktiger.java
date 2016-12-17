@@ -23,7 +23,7 @@ public class blktiger
 {
 	
 	
-	extern unsigned char *blktiger_txvideoram;
+	extern UBytePtr blktiger_txvideoram;
 	
 	
 	
@@ -42,7 +42,7 @@ public class blktiger
 	public static WriteHandlerPtr blktiger_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
 		int bankaddress;
-		unsigned char *rom = memory_region(REGION_CPU1);
+		UBytePtr rom = memory_region(REGION_CPU1);
 	
 	
 		bankaddress = 0x10000 + (data & 0x0f) * 0x4000;

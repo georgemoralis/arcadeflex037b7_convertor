@@ -28,9 +28,9 @@ package drivers;
 public class gaelco
 {
 	
-	extern unsigned char *gaelco_vregs;
-	extern unsigned char *gaelco_videoram;
-	extern unsigned char *gaelco_spriteram;
+	extern UBytePtr gaelco_vregs;
+	extern UBytePtr gaelco_videoram;
+	extern UBytePtr gaelco_spriteram;
 	
 	/* from vidhrdw/gaelco.c */
 	
@@ -338,7 +338,7 @@ public class gaelco
 	
 	public static WriteHandlerPtr OKIM6295_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		unsigned char *RAM = memory_region(REGION_SOUND1);
+		UBytePtr RAM = memory_region(REGION_SOUND1);
 	
 		memcpy(&RAM[0x30000], &RAM[0x40000 + (data & 0x0f)*0x10000], 0x10000);
 	} };

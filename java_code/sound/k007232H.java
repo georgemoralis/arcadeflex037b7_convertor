@@ -19,7 +19,7 @@ struct K007232_interface
 
 
 
-void K007232_bankswitch(int chip,unsigned char *ptr_A,unsigned char *ptr_B);
+void K007232_bankswitch(int chip,UBytePtr ptr_A,UBytePtr ptr_B);
 
 /*
   The 007232 has two channels and produces two outputs. The volume control

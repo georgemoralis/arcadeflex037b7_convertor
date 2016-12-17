@@ -49,7 +49,7 @@ public class karnov
 	
 	static int i8751_return;
 	static int KARNOV, CHELNOV, WNDRPLNT; /* :) */
-	static unsigned char *karnov_ram;
+	static UBytePtr karnov_ram;
 	extern int karnov_scroll[4];
 	
 	/******************************************************************************/
@@ -902,7 +902,7 @@ public class karnov
 	
 	static public static InitDriverPtr init_wndrplnt = new InitDriverPtr() { public void handler() 
 	{
-	//	unsigned char *RAM = memory_region(REGION_CPU1);
+	//	UBytePtr RAM = memory_region(REGION_CPU1);
 	
 		init_karnov();
 	
@@ -921,7 +921,7 @@ public class karnov
 	
 	static public static InitDriverPtr init_chelnov = new InitDriverPtr() { public void handler() 
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 		init_karnov();
 	
@@ -931,7 +931,7 @@ public class karnov
 	
 	static public static InitDriverPtr init_chelnovj = new InitDriverPtr() { public void handler() 
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 		init_karnov();
 	

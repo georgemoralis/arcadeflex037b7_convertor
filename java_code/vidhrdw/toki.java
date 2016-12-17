@@ -25,11 +25,11 @@ public class toki
 	#define XBG2SCROLL_ADJUST(x) (-(x)+0x101)
 	#define YBGSCROLL_ADJUST(x) (-(x)-1)
 	
-	unsigned char *toki_foreground_videoram;
-	unsigned char *toki_background1_videoram;
-	unsigned char *toki_background2_videoram;
-	unsigned char *toki_sprites_dataram;
-	unsigned char *toki_scrollram;
+	UBytePtr toki_foreground_videoram;
+	UBytePtr toki_background1_videoram;
+	UBytePtr toki_background2_videoram;
+	UBytePtr toki_sprites_dataram;
+	UBytePtr toki_scrollram;
 	signed char toki_linescroll[256];
 	
 	size_t toki_foreground_videoram_size;
@@ -37,9 +37,9 @@ public class toki
 	size_t toki_background2_videoram_size;
 	size_t toki_sprites_dataram_size;
 	
-	static unsigned char *frg_dirtybuffer;		/* foreground */
-	static unsigned char *bg1_dirtybuffer;		/* background 1 */
-	static unsigned char *bg2_dirtybuffer;		/* background 2 */
+	static UBytePtr frg_dirtybuffer;		/* foreground */
+	static UBytePtr bg1_dirtybuffer;		/* background 1 */
+	static UBytePtr bg2_dirtybuffer;		/* background 2 */
 	
 	static struct osd_bitmap *bitmap_frg;		/* foreground bitmap */
 	static struct osd_bitmap *bitmap_bg1;		/* background bitmap 1 */
@@ -206,7 +206,7 @@ public class toki
 	void toki_render_sprites (struct osd_bitmap *bitmap)
 	{
 		int SprX,SprY,SprTile,SprFlipX,SprPalette,offs;
-		unsigned char *SprRegs;
+		UBytePtr SprRegs;
 	
 		/* Draw the sprites. 256 sprites in total */
 	
@@ -362,7 +362,7 @@ public class toki
 			/* sprites */
 			for (offs = 0;offs < toki_sprites_dataram_size;offs += 8)
 			{
-				unsigned char *data = &toki_sprites_dataram[offs];
+				UBytePtr data = &toki_sprites_dataram[offs];
 	
 				if (READ_WORD (&data[SPRITE_Y]) == 0xf100)
 					break;

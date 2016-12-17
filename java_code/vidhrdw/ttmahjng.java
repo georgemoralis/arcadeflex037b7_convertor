@@ -15,9 +15,9 @@ package vidhrdw;
 public class ttmahjng
 {
 	
-	unsigned char *ttmahjng_sharedram;
-	unsigned char *ttmahjng_videoram1;
-	unsigned char *ttmahjng_videoram2;
+	UBytePtr ttmahjng_sharedram;
+	UBytePtr ttmahjng_videoram1;
+	UBytePtr ttmahjng_videoram2;
 	size_t ttmahjng_videoram_size;
 	
 	static struct osd_bitmap *tmpbitmap1;
@@ -28,7 +28,7 @@ public class ttmahjng
 	static int video_color_select_2;
 	static int video_remap_1;
 	static int video_remap_2;
-	static const unsigned char *ttmahjng_color_prom;
+	static const UBytePtr ttmahjng_color_prom;
 	
 	/* Local functions */
 	static void modify_pen(int pen, int colorindex);

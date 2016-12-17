@@ -36,7 +36,7 @@ public class lkage
 {
 	
 	
-	extern unsigned char *lkage_scroll, *lkage_vreg;
+	extern UBytePtr lkage_scroll, *lkage_vreg;
 	
 	
 	

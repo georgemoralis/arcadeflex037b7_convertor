@@ -22,9 +22,9 @@ package drivers;
 public class contra
 {
 	
-	extern unsigned char *contra_fg_vram,*contra_fg_cram;
-	extern unsigned char *contra_bg_vram,*contra_bg_cram;
-	extern unsigned char *contra_text_vram,*contra_text_cram;
+	extern UBytePtr contra_fg_vram,*contra_fg_cram;
+	extern UBytePtr contra_bg_vram,*contra_bg_cram;
+	extern UBytePtr contra_text_vram,*contra_text_cram;
 	
 	
 	
@@ -33,7 +33,7 @@ public class contra
 	public static WriteHandlerPtr contra_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
 		int bankaddress;
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 	
 		bankaddress = 0x10000 + (data & 0x0f) * 0x2000;

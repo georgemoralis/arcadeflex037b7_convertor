@@ -171,7 +171,7 @@ public class common
 				{
 					do
 					{
-						unsigned char *c;
+						UBytePtr c;
 						unsigned int i;
 						int length = romp.length & ~ROMFLAG_MASK;
 	
@@ -192,7 +192,7 @@ public class common
 	
 						if (romp.length & ROMFLAG_NIBBLE)
 						{
-							unsigned char *temp;
+							UBytePtr temp;
 	
 	
 							temp = malloc(length);
@@ -247,7 +247,7 @@ public class common
 						}
 						else if (romp.length & ROMFLAG_QUAD) {
 							static int which_quad=0; /* This is multi session friendly, as we only care about the modulus */
-							unsigned char *temp;
+							UBytePtr temp;
 							int base=0;
 	
 							temp = malloc(length);	/* Need to load rom to temporary space */
@@ -354,7 +354,7 @@ public class common
 							/* fill space with random data */
 							if (romp.length & ROMFLAG_ALTERNATE)
 							{
-								unsigned char *c;
+								UBytePtr c;
 	
 								/* ROM_LOAD_EVEN and ROM_LOAD_ODD */
 							#ifdef LSB_FIRST
@@ -669,7 +669,7 @@ public class common
 	
 	
 	
-	unsigned char *memory_region(int num)
+	UBytePtr memory_region(int num)
 	{
 		int i;
 	

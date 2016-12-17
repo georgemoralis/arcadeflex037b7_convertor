@@ -15,7 +15,7 @@ public class flkatck
 	
 	static struct tilemap *k007121_tilemap[2];
 	
-	unsigned char *k007121_ram;
+	UBytePtr k007121_ram;
 	
 	int flkatck_irq_enabled;
 	

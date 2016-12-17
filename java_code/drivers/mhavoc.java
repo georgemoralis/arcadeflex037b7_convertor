@@ -176,7 +176,7 @@ public class mhavoc
 	
 	
 	
-	static unsigned char *nvram;
+	static UBytePtr nvram;
 	static size_t nvram_size;
 	
 	static public static nvramPtr nvram_handler  = new nvramPtr() { public void handler(Object file, int read_or_write) 
@@ -193,7 +193,7 @@ public class mhavoc
 	} };
 	
 	
-	static unsigned char *gammaram;
+	static UBytePtr gammaram;
 	
 	public static ReadHandlerPtr mhavoc_gammaram_r  = new ReadHandlerPtr() { public int handler(int offset)
 	{

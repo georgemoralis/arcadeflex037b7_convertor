@@ -17,8 +17,8 @@ public class citycon
 	
 	
 	
-	unsigned char *citycon_charlookup;
-	unsigned char *citycon_scroll;
+	UBytePtr citycon_charlookup;
+	UBytePtr citycon_scroll;
 	static struct osd_bitmap *tmpbitmap2;
 	static data_t bg_image;
 	static unsigned char dirtylookup[32];

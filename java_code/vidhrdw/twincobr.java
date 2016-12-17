@@ -22,16 +22,16 @@ public class twincobr
 {
 	
 	
-	static unsigned char *twincobr_bgvideoram;
-	static unsigned char *twincobr_fgvideoram;
+	static UBytePtr twincobr_bgvideoram;
+	static UBytePtr twincobr_fgvideoram;
 	
 	int wardner_sprite_hack = 0;	/* Required for weird sprite priority in wardner  */
 									/* when hero is in shop. Hero should cover shop owner */
 	
 	extern int toaplan_main_cpu;	/* Main CPU type.  0 = 68000, 1 = Z80 */
 	
-	#define READ_WORD_Z80(x) (*(unsigned char *)(x) + (*(unsigned char *)(x+1) << 8))
-	#define WRITE_WORD_Z80(a, d) (*(unsigned char *)(a) = d & 0xff, (*(unsigned char *)(a+1) = (d>>8) & 0xff))
+	#define READ_WORD_Z80(x) (*(UBytePtr )(x) + (*(UBytePtr )(x+1) << 8))
+	#define WRITE_WORD_Z80(a, d) (*(UBytePtr )(a) = d & 0xff, (*(UBytePtr )(a+1) = (d>>8) & 0xff))
 	
 	static size_t twincobr_bgvideoram_size,twincobr_fgvideoram_size;
 	static int txscrollx = 0;

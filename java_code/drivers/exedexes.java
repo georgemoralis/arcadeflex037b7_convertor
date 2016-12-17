@@ -21,9 +21,9 @@ public class exedexes
 	
 	
 	
-	extern unsigned char *exedexes_bg_scroll;
-	extern unsigned char *exedexes_nbg_yscroll;
-	extern unsigned char *exedexes_nbg_xscroll;
+	extern UBytePtr exedexes_bg_scroll;
+	extern UBytePtr exedexes_nbg_yscroll;
+	extern UBytePtr exedexes_nbg_xscroll;
 	
 	
 	

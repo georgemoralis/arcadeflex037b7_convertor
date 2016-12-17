@@ -7,13 +7,13 @@ package vidhrdw;
 public class taito_b
 {
 	
-	unsigned char *taitob_fscroll;
-	unsigned char *taitob_bscroll;
+	UBytePtr taitob_fscroll;
+	UBytePtr taitob_bscroll;
 	
-	unsigned char *b_backgroundram;
-	unsigned char *b_foregroundram;
-	unsigned char *b_textram;
-	unsigned char *taitob_pixelram;
+	UBytePtr b_backgroundram;
+	UBytePtr b_foregroundram;
+	UBytePtr b_textram;
+	UBytePtr taitob_pixelram;
 	
 	size_t b_backgroundram_size;
 	size_t b_foregroundram_size;

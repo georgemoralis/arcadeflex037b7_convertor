@@ -22,7 +22,7 @@ public class tsamurai
 {
 	
 	
-	extern extern extern extern unsigned char *tsamurai_videoram;
+	extern extern extern extern UBytePtr tsamurai_videoram;
 	
 	static AY8910interface ay8910_interface = new AY8910interface
 	(

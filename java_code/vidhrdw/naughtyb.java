@@ -18,12 +18,12 @@ public class naughtyb
 	
 	/* from sndhrdw/pleiads.c */
 	
-	unsigned char *naughtyb_videoram2;
+	UBytePtr naughtyb_videoram2;
 	
 	int videoreg;
 	
 	/* use these to draw charset B */
-	unsigned char *naughtyb_scrollreg;
+	UBytePtr naughtyb_scrollreg;
 	
 	/* use this to select palette */
 	static unsigned char palreg;

@@ -138,7 +138,7 @@ public class snk
 		}
 	}
 	
-	void tnk3_draw_text( struct osd_bitmap *bitmap, int bank, unsigned char *source ){
+	void tnk3_draw_text( struct osd_bitmap *bitmap, int bank, UBytePtr source ){
 		const struct GfxElement *gfx = Machine.gfx[GFX_CHARS];
 		int offs;
 	
@@ -155,7 +155,7 @@ public class snk
 		}
 	}
 	
-	void tnk3_draw_status( struct osd_bitmap *bitmap, int bank, unsigned char *source ){
+	void tnk3_draw_status( struct osd_bitmap *bitmap, int bank, UBytePtr source ){
 		const struct rectangle *clip = &Machine.visible_area;
 		const struct GfxElement *gfx = Machine.gfx[GFX_CHARS];
 		int offs;
@@ -188,8 +188,8 @@ public class snk
 	
 	void tnk3_draw_sprites( struct osd_bitmap *bitmap, int xscroll, int yscroll ){
 		static int n = 50;
-		const unsigned char *source = spriteram;
-		const unsigned char *finish = source+n*4;
+		const UBytePtr source = spriteram;
+		const UBytePtr finish = source+n*4;
 		struct rectangle clip = Machine.visible_area;
 	/*
 	if( keyboard_pressed( KEYCODE_J ) ){
@@ -224,7 +224,7 @@ public class snk
 	}
 	
 	public static VhUpdatePtr tnk3_vh_screenrefresh = new VhUpdatePtr() { public void handler(osd_bitmap bitmap,int full_refresh) {
-		unsigned char *ram = memory_region(REGION_CPU1);
+		UBytePtr ram = memory_region(REGION_CPU1);
 		int attributes = ram[0xc800];
 		/*
 			X-------
@@ -264,7 +264,7 @@ public class snk
 	
 	static void ikari_draw_background( struct osd_bitmap *bitmap, int xscroll, int yscroll ){
 		const struct GfxElement *gfx = Machine.gfx[GFX_TILES];
-		const unsigned char *source = &memory_region(REGION_CPU1)[snk_bg_tilemap_baseaddr];
+		const UBytePtr source = &memory_region(REGION_CPU1)[snk_bg_tilemap_baseaddr];
 	
 		int offs;
 		for( offs=0; offs<32*32*2; offs+=2 ){
@@ -305,7 +305,7 @@ public class snk
 	static void ikari_draw_text( struct osd_bitmap *bitmap ){
 		const struct rectangle *clip = &Machine.visible_area;
 		const struct GfxElement *gfx = Machine.gfx[GFX_CHARS];
-		const unsigned char *source = &memory_region(REGION_CPU1)[0xf800];
+		const UBytePtr source = &memory_region(REGION_CPU1)[0xf800];
 	
 		int offs;
 		for( offs = 0;offs <0x400; offs++ ){
@@ -327,7 +327,7 @@ public class snk
 	
 		const struct rectangle *clip = &Machine.visible_area;
 		const struct GfxElement *gfx = Machine.gfx[GFX_CHARS];
-		const unsigned char *source = &memory_region(REGION_CPU1)[0xfc00];
+		const UBytePtr source = &memory_region(REGION_CPU1)[0xfc00];
 	
 		int offs;
 		for( offs = 0; offs<64; offs++ ){
@@ -360,7 +360,7 @@ public class snk
 		int transp_param = shadows_visible ? 7 : ((1<<7) | (1<<6));
 	
 		int which;
-		const unsigned char *source = &memory_region(REGION_CPU1)[0xe800];
+		const UBytePtr source = &memory_region(REGION_CPU1)[0xe800];
 	
 		struct rectangle clip = Machine.visible_area;
 		clip.min_x += 16;
@@ -388,7 +388,7 @@ public class snk
 		int transp_param = shadows_visible ? 7 : ((1<<7) | (1<<6));
 	
 		int which;
-		const unsigned char *source = &memory_region(REGION_CPU1)[0xe000];
+		const UBytePtr source = &memory_region(REGION_CPU1)[0xe000];
 	
 		struct rectangle clip = Machine.visible_area;
 		clip.min_x += 16;
@@ -413,7 +413,7 @@ public class snk
 	}
 	
 	public static VhUpdatePtr ikari_vh_screenrefresh = new VhUpdatePtr() { public void handler(osd_bitmap bitmap,int full_refresh) {
-		const unsigned char *ram = memory_region(REGION_CPU1);
+		const UBytePtr ram = memory_region(REGION_CPU1);
 	
 		shadows_visible = !shadows_visible;
 	
@@ -446,7 +446,7 @@ public class snk
 			int xscroll, int yscroll )
 	{
 		const struct GfxElement *gfx = Machine.gfx[GFX_TILES];
-		const unsigned char *source = &memory_region(REGION_CPU1)[0xd000]; //d000
+		const UBytePtr source = &memory_region(REGION_CPU1)[0xd000]; //d000
 	
 		int offs;
 		for( offs=0; offs<32*32*2; offs+=2 ){
@@ -489,7 +489,7 @@ public class snk
 		int transp_param = shadows_visible ? 15 : ((1<<15) | (1<<14));
 	
 		const struct GfxElement *gfx = Machine.gfx[GFX_SPRITES];
-		const unsigned char *source = &memory_region(REGION_CPU1)[0xe000];
+		const UBytePtr source = &memory_region(REGION_CPU1)[0xe000];
 	
 		int which;
 	
@@ -523,7 +523,7 @@ public class snk
 		const struct rectangle *clip = &Machine.visible_area;
 		const struct GfxElement *gfx = Machine.gfx[GFX_CHARS];
 	
-		const unsigned char *source = &memory_region(REGION_CPU1)[base];
+		const UBytePtr source = &memory_region(REGION_CPU1)[base];
 	
 		int offs;
 	
@@ -546,7 +546,7 @@ public class snk
 	}
 	
 	public static VhUpdatePtr tdfever_vh_screenrefresh = new VhUpdatePtr() { public void handler(osd_bitmap bitmap,int full_refresh) {
-		const unsigned char *ram = memory_region(REGION_CPU1);
+		const UBytePtr ram = memory_region(REGION_CPU1);
 		shadows_visible = !shadows_visible;
 	
 		{
@@ -570,7 +570,7 @@ public class snk
 	} };
 	
 	public static VhUpdatePtr ftsoccer_vh_screenrefresh = new VhUpdatePtr() { public void handler(osd_bitmap bitmap,int full_refresh) {
-		const unsigned char *ram = memory_region(REGION_CPU1);
+		const UBytePtr ram = memory_region(REGION_CPU1);
 		shadows_visible = !shadows_visible;
 		{
 			unsigned char bg_attributes = ram[0xc880];
@@ -594,7 +594,7 @@ public class snk
 	
 	static void gwar_draw_sprites_16x16( struct osd_bitmap *bitmap, int xscroll, int yscroll ){
 		const struct GfxElement *gfx = Machine.gfx[GFX_SPRITES];
-		const unsigned char *source = &memory_region(REGION_CPU1)[0xe800];
+		const UBytePtr source = &memory_region(REGION_CPU1)[0xe800];
 	
 		const struct rectangle *clip = &Machine.visible_area;
 	
@@ -626,7 +626,7 @@ public class snk
 	
 	void gwar_draw_sprites_32x32( struct osd_bitmap *bitmap, int xscroll, int yscroll ){
 		const struct GfxElement *gfx = Machine.gfx[GFX_BIGSPRITES];
-		const unsigned char *source = &memory_region(REGION_CPU1)[0xe000];
+		const UBytePtr source = &memory_region(REGION_CPU1)[0xe000];
 	
 		const struct rectangle *clip = &Machine.visible_area;
 	
@@ -656,7 +656,7 @@ public class snk
 	}
 	
 	public static VhUpdatePtr gwar_vh_screenrefresh = new VhUpdatePtr() { public void handler(osd_bitmap bitmap,int full_refresh) {
-		const unsigned char *ram = memory_region(REGION_CPU1);
+		const UBytePtr ram = memory_region(REGION_CPU1);
 		unsigned char bg_attributes, sp_attributes;
 	
 		{

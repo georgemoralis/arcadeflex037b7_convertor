@@ -18,14 +18,14 @@ public class rastan
 	
 	
 	size_t rastan_videoram_size;
-	unsigned char *rastan_videoram1;
-	unsigned char *rastan_videoram3;
-	unsigned char *rastan_spriteram;
-	unsigned char *rastan_scrollx;
-	unsigned char *rastan_scrolly;
+	UBytePtr rastan_videoram1;
+	UBytePtr rastan_videoram3;
+	UBytePtr rastan_spriteram;
+	UBytePtr rastan_scrollx;
+	UBytePtr rastan_scrolly;
 	
-	static unsigned char *rastan_dirty1;
-	static unsigned char *rastan_dirty3;
+	static UBytePtr rastan_dirty1;
+	static UBytePtr rastan_dirty3;
 	
 	static unsigned char spritepalettebank;
 	static int flipscreen;

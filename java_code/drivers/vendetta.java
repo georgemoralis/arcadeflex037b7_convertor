@@ -154,7 +154,7 @@ public class vendetta
 	
 	public static ReadHandlerPtr speedup_r  = new ReadHandlerPtr() { public int handler(int offset)
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 		int data = ( RAM[0x28d2] << 8 ) | RAM[0x28d3];
 	
@@ -475,7 +475,7 @@ public class vendetta
 	
 	public static konami_cpu_setlines_callbackPtr vendetta_banking = new konami_cpu_setlines_callbackPtr() { public void handler(int lines) 
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 		if ( lines >= 0x1c )
 		{

@@ -17,7 +17,7 @@ public class warpwarp
 	
 	
 	
-	unsigned char *warpwarp_bulletsram;
+	UBytePtr warpwarp_bulletsram;
 	
 	
 	

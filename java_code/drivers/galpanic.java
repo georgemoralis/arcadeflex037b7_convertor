@@ -55,10 +55,10 @@ public class galpanic
 	
 	
 	
-	extern unsigned char *galpanic_bgvideoram,*galpanic_fgvideoram;
+	extern UBytePtr galpanic_bgvideoram,*galpanic_fgvideoram;
 	extern size_t galpanic_fgvideoram_size;
 	
-	void galpanic_init_palette(unsigned char *game_palette, unsigned short *game_colortable,const unsigned char *color_prom);
+	void galpanic_init_palette(UBytePtr game_palette, unsigned short *game_colortable,const UBytePtr color_prom);
 	
 	
 	
@@ -74,7 +74,7 @@ public class galpanic
 	{
 		if ((data & 0xff000000) == 0)
 		{
-			unsigned char *RAM = memory_region(REGION_SOUND1);
+			UBytePtr RAM = memory_region(REGION_SOUND1);
 	
 			memcpy(&RAM[0x30000],&RAM[0x40000 + ((data >> 8) & 0x0f) * 0x10000],0x10000);
 		}

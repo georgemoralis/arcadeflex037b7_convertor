@@ -27,15 +27,15 @@ public class mexico86
 {
 	
 	/* in machine/mexico86.c */
-	extern unsigned char *mexico86_protection_ram;
+	extern UBytePtr mexico86_protection_ram;
 	
 	/* in vidhrdw/mexico86.c */
-	extern unsigned char *mexico86_videoram,*mexico86_objectram;
+	extern UBytePtr mexico86_videoram,*mexico86_objectram;
 	extern size_t mexico86_objectram_size;
 	
 	
 	
-	static unsigned char *shared;
+	static UBytePtr shared;
 	
 	public static ReadHandlerPtr shared_r  = new ReadHandlerPtr() { public int handler(int offset)
 	{

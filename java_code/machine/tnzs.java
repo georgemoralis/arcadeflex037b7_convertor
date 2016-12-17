@@ -21,7 +21,7 @@ package machine;
 public class tnzs
 {
 	
-	extern unsigned char *tnzs_workram;
+	extern UBytePtr tnzs_workram;
 	
 	static int mcu_type;
 	
@@ -507,7 +507,7 @@ public class tnzs
 	
 	public static InitDriverPtr init_extrmatn = new InitDriverPtr() { public void handler() 
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 		mcu_type = MCU_EXTRMATN;
 	
@@ -518,7 +518,7 @@ public class tnzs
 	
 	public static InitDriverPtr init_arkanoi2 = new InitDriverPtr() { public void handler() 
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 		mcu_type = MCU_ARKANOID;
 	
@@ -529,7 +529,7 @@ public class tnzs
 	
 	public static InitDriverPtr init_drtoppel = new InitDriverPtr() { public void handler() 
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 		mcu_type = MCU_DRTOPPEL;
 	
@@ -540,7 +540,7 @@ public class tnzs
 	
 	public static InitDriverPtr init_chukatai = new InitDriverPtr() { public void handler() 
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 		mcu_type = MCU_CHUKATAI;
 	
@@ -551,7 +551,7 @@ public class tnzs
 	
 	public static InitDriverPtr init_tnzs = new InitDriverPtr() { public void handler() 
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 		mcu_type = MCU_TNZS;
 	
 		/* there's code which falls through from the fixed ROM to bank #0, I have to */
@@ -653,7 +653,7 @@ public class tnzs
 	
 		/* preset the banks */
 		{
-			unsigned char *RAM;
+			UBytePtr RAM;
 	
 			RAM = memory_region(REGION_CPU1);
 			cpu_setbank(1,&RAM[0x18000]);
@@ -730,7 +730,7 @@ public class tnzs
 	
 	public static WriteHandlerPtr tnzs_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 		/* bit 4 resets the second CPU */
 		if ((data & 0x10) != 0)
@@ -745,7 +745,7 @@ public class tnzs
 	
 	public static WriteHandlerPtr tnzs_bankswitch1_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		unsigned char *RAM = memory_region(REGION_CPU2);
+		UBytePtr RAM = memory_region(REGION_CPU2);
 	
 	//	logerror("PC %04x: writing %02x to bankswitch 1\n", cpu_get_pc(),data);
 	

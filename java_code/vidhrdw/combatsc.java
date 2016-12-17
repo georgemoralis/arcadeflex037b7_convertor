@@ -17,22 +17,22 @@ public class combatsc
 	
 	static struct tilemap *tilemap[2];
 	static struct tilemap *textlayer;
-	static unsigned char *private_spriteram[2];
+	static UBytePtr private_spriteram[2];
 	static int priority;
 	
-	unsigned char *combasc_io_ram;
+	UBytePtr combasc_io_ram;
 	static int combasc_vreg;
-	unsigned char* banked_area;
+	UBytePtr  banked_area;
 	
 	static int combasc_bank_select; /* 0x00..0x1f */
 	static int combasc_video_circuit; /* 0 or 1 */
-	static unsigned char *combasc_page[2];
+	static UBytePtr combasc_page[2];
 	static unsigned char combasc_scrollram0[0x40];
 	static unsigned char combasc_scrollram1[0x40];
-	static unsigned char *combasc_scrollram;
+	static UBytePtr combasc_scrollram;
 	
 	
-	void combasc_convert_color_prom(unsigned char *palette, unsigned short *colortable, const unsigned char *color_prom )
+	void combasc_convert_color_prom(UBytePtr palette, unsigned short *colortable, const UBytePtr color_prom )
 	{
 		int i,pal,clut = 0;
 		for( pal=0; pal<8; pal++ )
@@ -75,7 +75,7 @@ public class combatsc
 		}
 	}
 	
-	void combascb_convert_color_prom(unsigned char *palette, unsigned short *colortable, const unsigned char *color_prom )
+	void combascb_convert_color_prom(UBytePtr palette, unsigned short *colortable, const UBytePtr color_prom )
 	{
 		int i,pal;
 		for( pal=0; pal<8; pal++ )
@@ -349,7 +349,7 @@ public class combatsc
 	
 	public static WriteHandlerPtr combasc_bankselect_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		unsigned char *page = memory_region(REGION_CPU1) + 0x10000;
+		UBytePtr page = memory_region(REGION_CPU1) + 0x10000;
 	
 		if ((data & 0x40) != 0)
 		{
@@ -392,7 +392,7 @@ public class combatsc
 		data = data & 0x1f;
 		if( data != combasc_bank_select )
 		{
-			unsigned char *page = memory_region(REGION_CPU1) + 0x10000;
+			UBytePtr page = memory_region(REGION_CPU1) + 0x10000;
 			combasc_bank_select = data;
 	
 			if ((data & 0x10) != 0)
@@ -420,7 +420,7 @@ public class combatsc
 	
 	public static InitMachinePtr combasc_init_machine = new InitMachinePtr() { public void handler() 
 	{
-		unsigned char *MEM = memory_region(REGION_CPU1) + 0x38000;
+		UBytePtr MEM = memory_region(REGION_CPU1) + 0x38000;
 	
 	
 		combasc_io_ram  = MEM + 0x0000;
@@ -469,7 +469,7 @@ public class combatsc
 	
 	***************************************************************************/
 	
-	static void draw_sprites(struct osd_bitmap *bitmap, const unsigned char *source,int circuit,UINT32 pri_mask)
+	static void draw_sprites(struct osd_bitmap *bitmap, const UBytePtr source,int circuit,UINT32 pri_mask)
 	{
 		int base_color = (circuit*4)*16+(K007121_ctrlram[circuit][6]&0x10)*2;
 	
@@ -595,14 +595,14 @@ public class combatsc
 	
 	***************************************************************************/
 	
-	static void bootleg_draw_sprites( struct osd_bitmap *bitmap, const unsigned char *source, int circuit )
+	static void bootleg_draw_sprites( struct osd_bitmap *bitmap, const UBytePtr source, int circuit )
 	{
 		const struct GfxElement *gfx = Machine.gfx[circuit+2];
 		const struct rectangle *clip = &Machine.visible_area;
 	
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 		int limit = ( circuit) ? (RAM[0xc2]*256 + RAM[0xc3]) : (RAM[0xc0]*256 + RAM[0xc1]);
-		const unsigned char *finish;
+		const UBytePtr finish;
 	
 		source+=0x1000;
 		finish = source;

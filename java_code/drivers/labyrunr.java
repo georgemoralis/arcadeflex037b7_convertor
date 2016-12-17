@@ -20,7 +20,7 @@ public class labyrunr
 	
 	
 	/* from vidhrdw/labyrunr.c */
-	extern unsigned char *labyrunr_videoram1,*labyrunr_videoram2;
+	extern UBytePtr labyrunr_videoram1,*labyrunr_videoram2;
 	
 	public static InterruptPtr labyrunr_interrupt = new InterruptPtr() { public int handler() 
 	{
@@ -38,7 +38,7 @@ public class labyrunr
 	public static WriteHandlerPtr labyrunr_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
 		int bankaddress;
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 	if ((data & 0xe0) != 0) usrintf_showmessage("bankswitch %02x",data);
 	

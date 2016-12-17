@@ -23,10 +23,10 @@ package drivers;
 public class xain
 {
 	
-	static unsigned char *xain_sharedram;
+	static UBytePtr xain_sharedram;
 	
 	
-	extern unsigned char *xain_charram, *xain_bgram0, *xain_bgram1;
+	extern UBytePtr xain_charram, *xain_bgram0, *xain_bgram1;
 	
 	
 	public static ReadHandlerPtr xain_sharedram_r  = new ReadHandlerPtr() { public int handler(int offset)
@@ -46,7 +46,7 @@ public class xain
 	
 	public static WriteHandlerPtr xainCPUA_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 		if ((data & 0x08) != 0) {cpu_setbank(1,&RAM[0x10000]);}
 		else {cpu_setbank(1,&RAM[0x4000]);}
@@ -54,7 +54,7 @@ public class xain
 	
 	public static WriteHandlerPtr xainCPUB_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		unsigned char *RAM = memory_region(REGION_CPU2);
+		UBytePtr RAM = memory_region(REGION_CPU2);
 	
 		if ((data & 0x01) != 0) {cpu_setbank(2,&RAM[0x10000]);}
 		else {cpu_setbank(2,&RAM[0x4000]);}
@@ -548,7 +548,7 @@ public class xain
 	
 	public static InitDriverPtr init_xsleena = new InitDriverPtr() { public void handler() 
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 		/* do the same patch as the bootleg xsleena */
 		RAM[0xd488] = 0x12;
@@ -561,7 +561,7 @@ public class xain
 	
 	public static InitDriverPtr init_solarwar = new InitDriverPtr() { public void handler() 
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 		/* do the same patch as the bootleg xsleena */
 		RAM[0xd47e] = 0x12;

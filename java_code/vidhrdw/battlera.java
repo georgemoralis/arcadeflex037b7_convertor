@@ -18,7 +18,7 @@ public class battlera
 	
 	static int HuC6270_registers[20];
 	static int VDC_register,vram_ptr;
-	static unsigned char *HuC6270_vram,*tile_dirty,*sprite_dirty,*vram_dirty;
+	static UBytePtr HuC6270_vram,*tile_dirty,*sprite_dirty,*vram_dirty;
 	static struct osd_bitmap *tile_bitmap,*front_bitmap;
 	
 	static int current_scanline,next_update_first_line,inc_value;

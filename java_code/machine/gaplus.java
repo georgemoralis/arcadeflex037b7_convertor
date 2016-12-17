@@ -16,9 +16,9 @@ package machine;
 public class gaplus
 {
 	
-	unsigned char *gaplus_snd_sharedram;
-	unsigned char *gaplus_sharedram;
-	unsigned char *gaplus_customio_1,*gaplus_customio_2,*gaplus_customio_3;
+	UBytePtr gaplus_snd_sharedram;
+	UBytePtr gaplus_sharedram;
+	UBytePtr gaplus_customio_1,*gaplus_customio_2,*gaplus_customio_3;
 	static int int_enable_2, int_enable_3;
 	static int credits, coincounter1, coincounter2;
 	

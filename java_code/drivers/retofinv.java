@@ -17,15 +17,15 @@ public class retofinv
 	
 	
 	extern size_t retofinv_videoram_size;
-	extern unsigned char *retofinv_sprite_ram1;
-	extern unsigned char *retofinv_sprite_ram2;
-	extern unsigned char *retofinv_sprite_ram3;
-	extern unsigned char *retofinv_fg_videoram;
-	extern unsigned char *retofinv_bg_videoram;
-	extern unsigned char *retofinv_fg_colorram;
-	extern unsigned char *retofinv_bg_colorram;
-	extern unsigned char *retofinv_fg_char_bank;
-	extern unsigned char *retofinv_bg_char_bank;
+	extern UBytePtr retofinv_sprite_ram1;
+	extern UBytePtr retofinv_sprite_ram2;
+	extern UBytePtr retofinv_sprite_ram3;
+	extern UBytePtr retofinv_fg_videoram;
+	extern UBytePtr retofinv_bg_videoram;
+	extern UBytePtr retofinv_fg_colorram;
+	extern UBytePtr retofinv_bg_colorram;
+	extern UBytePtr retofinv_fg_char_bank;
+	extern UBytePtr retofinv_bg_char_bank;
 	
 	static unsigned char cpu0_me000=0,cpu0_me800_last=0,cpu2_m6000=0;
 	
@@ -37,19 +37,19 @@ public class retofinv
 	
 	public static ReadHandlerPtr retofinv_shared_ram_r  = new ReadHandlerPtr() { public int handler(int offset)
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 		return RAM[0x8800+offset];
 	} };
 	
 	public static WriteHandlerPtr retofinv_shared_ram_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 		RAM[0x8800+offset] = data;
 	} };
 	
 	public static WriteHandlerPtr retofinv_protection_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 		if ((cpu0_me800_last & 0x80) != 0)
 		{

@@ -16,7 +16,7 @@ public class snowbros
 {
 	
 	
-	unsigned char *snowbros_spriteram;
+	UBytePtr snowbros_spriteram;
 	
 	size_t snowbros_spriteram_size;
 	

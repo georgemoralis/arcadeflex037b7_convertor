@@ -79,8 +79,8 @@ public class _8080bw
 	
 	
 	
-	void invadpt2_vh_convert_color_prom(unsigned char *pallete, unsigned short *colortable,const unsigned char *color_prom);
-	void helifire_vh_convert_color_prom(unsigned char *pallete, unsigned short *colortable,const unsigned char *color_prom);
+	void invadpt2_vh_convert_color_prom(UBytePtr pallete, unsigned short *colortable,const UBytePtr color_prom);
+	void helifire_vh_convert_color_prom(UBytePtr pallete, unsigned short *colortable,const UBytePtr color_prom);
 	
 	
 	static unsigned char invaders_palette[] =
@@ -89,7 +89,7 @@ public class _8080bw
 		0xff,0xff,0xff, /* WHITE */
 	};
 	
-	static void init_palette(unsigned char *game_palette, unsigned short *game_colortable,const unsigned char *color_prom)
+	static void init_palette(UBytePtr game_palette, unsigned short *game_colortable,const UBytePtr color_prom)
 	{
 		memcpy(game_palette,invaders_palette,sizeof(invaders_palette));
 	}

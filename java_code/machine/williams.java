@@ -523,7 +523,7 @@ public class williams
 		/* other banks reference ROM plus either palette RAM or the top of videoram */
 		else
 		{
-			unsigned char *RAM = memory_region(REGION_CPU1);
+			UBytePtr RAM = memory_region(REGION_CPU1);
 	
 			cpu_setbank(1, &RAM[bank[williams2_bank]]);
 	
@@ -776,7 +776,7 @@ public class williams
 	
 	public static WriteHandlerPtr blaster_vram_select_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 		vram_bank = data;
 	
@@ -798,7 +798,7 @@ public class williams
 	
 	public static WriteHandlerPtr blaster_bank_select_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 		blaster_bank = data & 15;
 	

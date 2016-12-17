@@ -138,10 +138,10 @@ public class wardner
 	static int wardner_membank = 0;
 	extern int twincobr_intenable;
 	
-	unsigned char *wardner_sharedram;
-	unsigned char *wardner_spare_pal_ram;
+	UBytePtr wardner_sharedram;
+	UBytePtr wardner_spare_pal_ram;
 	
-	extern unsigned char *wardner_mainram;
+	extern UBytePtr wardner_mainram;
 	
 	
 	/******************** Video stuff **********************/
@@ -150,9 +150,9 @@ public class wardner
 	
 	extern int twincobr_display_on;
 	
-	extern unsigned char *videoram;
-	extern unsigned char *twincobr_fgvideoram;
-	extern unsigned char *twincobr_bgvideoram;
+	extern UBytePtr videoram;
+	extern UBytePtr twincobr_fgvideoram;
+	extern UBytePtr twincobr_bgvideoram;
 	
 	
 	
@@ -229,7 +229,7 @@ public class wardner
 		}
 		else
 		{
-			unsigned char *wardner_rom = memory_region(REGION_CPU1);
+			UBytePtr wardner_rom = memory_region(REGION_CPU1);
 			int wardner_rombank = 0x8000 * wardner_membank;
 	
 			wardner_data = wardner_rom[wardner_rombank + offset];
@@ -831,7 +831,7 @@ public class wardner
 		unsigned char datamsb;
 		unsigned char datalsb;
 	
-		unsigned char *DSP_ROMS = memory_region(REGION_CPU3);
+		UBytePtr DSP_ROMS = memory_region(REGION_CPU3);
 	
 		/* The ROM loader fixes the nibble images. Here we fix the byte ordering. */
 	

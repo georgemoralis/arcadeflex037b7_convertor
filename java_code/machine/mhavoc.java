@@ -32,7 +32,7 @@ public class mhavoc
 	public static WriteHandlerPtr mhavoc_ram_banksel_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
 		static int bank[2] = { 0x20200, 0x20800 };
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 		data&=0x01;
 		logerror("Alpha RAM select: %02x\n",data);
@@ -42,7 +42,7 @@ public class mhavoc
 	public static WriteHandlerPtr mhavoc_rom_banksel_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
 		static int bank[4] = { 0x10000, 0x12000, 0x14000, 0x16000 };
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 	
 		data &= 0x03;

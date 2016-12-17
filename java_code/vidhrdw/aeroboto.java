@@ -19,8 +19,8 @@ public class aeroboto
 	
 	
 	
-	unsigned char *aeroboto_videoram;
-	unsigned char *aeroboto_fgscroll,*aeroboto_bgscroll;
+	UBytePtr aeroboto_videoram;
+	UBytePtr aeroboto_fgscroll,*aeroboto_bgscroll;
 	
 	int aeroboto_charbank;
 	

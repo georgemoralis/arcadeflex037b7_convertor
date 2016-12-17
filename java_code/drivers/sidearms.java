@@ -25,15 +25,15 @@ package drivers;
 public class sidearms
 {
 	
-	extern unsigned char *sidearms_bg_scrollx,*sidearms_bg_scrolly;
-	extern unsigned char *sidearms_bg2_scrollx,*sidearms_bg2_scrolly;
+	extern UBytePtr sidearms_bg_scrollx,*sidearms_bg_scrolly;
+	extern UBytePtr sidearms_bg2_scrollx,*sidearms_bg2_scrolly;
 	
 	
 	
 	public static WriteHandlerPtr sidearms_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
 		int bankaddress;
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 	
 		/* bits 0 and 1 select the ROM bank */

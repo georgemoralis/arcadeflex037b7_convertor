@@ -17,8 +17,8 @@ package vidhrdw;
 public class sbrkout
 {
 	
-	unsigned char *sbrkout_horiz_ram;
-	unsigned char *sbrkout_vert_ram;
+	UBytePtr sbrkout_horiz_ram;
+	UBytePtr sbrkout_vert_ram;
 	
 	/* The first entry defines the color with which the bitmap is filled initially */
 	/* The array is terminated with an entry with negative coordinates. */

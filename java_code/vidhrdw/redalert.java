@@ -15,10 +15,10 @@ package vidhrdw;
 public class redalert
 {
 	
-	unsigned char *redalert_backram;
-	unsigned char *redalert_spriteram1;
-	unsigned char *redalert_spriteram2;
-	unsigned char *redalert_characterram;
+	UBytePtr redalert_backram;
+	UBytePtr redalert_spriteram1;
+	UBytePtr redalert_spriteram2;
+	UBytePtr redalert_characterram;
 	
 	static unsigned char redalert_dirtyback[0x400];
 	static unsigned char redalert_dirtycharacter[0x100];

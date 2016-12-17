@@ -52,7 +52,7 @@ public class blockade
 	
 	public static InitDriverPtr init_blockade = new InitDriverPtr() { public void handler() 
 	{
-		unsigned char *rom = memory_region(REGION_CPU1);
+		UBytePtr rom = memory_region(REGION_CPU1);
 		int i;
 	
 		/* Merge nibble-wide roms together,
@@ -70,7 +70,7 @@ public class blockade
 	
 	public static InitDriverPtr init_comotion = new InitDriverPtr() { public void handler() 
 	{
-		unsigned char *rom = memory_region(REGION_CPU1);
+		UBytePtr rom = memory_region(REGION_CPU1);
 		int i;
 	
 		/* Merge nibble-wide roms together,
@@ -459,11 +459,11 @@ public class blockade
 		0x00,0x00,0x00, /* BLACK */
 		0xff,0xff,0xff, /* WHITE */     /* Comotion/Blasto */
 	};
-	static void init_palette_gr(unsigned char *game_palette, unsigned short *game_colortable,const unsigned char *color_prom)
+	static void init_palette_gr(UBytePtr game_palette, unsigned short *game_colortable,const UBytePtr color_prom)
 	{
 		memcpy(game_palette,gr_palette,sizeof(gr_palette));
 	}
-	static void init_palette_bw(unsigned char *game_palette, unsigned short *game_colortable,const unsigned char *color_prom)
+	static void init_palette_bw(UBytePtr game_palette, unsigned short *game_colortable,const UBytePtr color_prom)
 	{
 		memcpy(game_palette,bw_palette,sizeof(bw_palette));
 	}

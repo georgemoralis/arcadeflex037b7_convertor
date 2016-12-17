@@ -15,8 +15,8 @@ package vidhrdw;
 public class sauro
 {
 	
-	extern unsigned char *sauro_videoram2;
-	extern unsigned char *sauro_colorram2;
+	extern UBytePtr sauro_videoram2;
+	extern UBytePtr sauro_colorram2;
 	
 	static int scroll1;
 	static int scroll2;

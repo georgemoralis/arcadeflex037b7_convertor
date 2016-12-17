@@ -16,9 +16,9 @@ public class rockola
 {
 	
 	
-	unsigned char *rockola_videoram2;
-	unsigned char *rockola_characterram;
-	unsigned char *rockola_scrollx,*rockola_scrolly;
+	UBytePtr rockola_videoram2;
+	UBytePtr rockola_characterram;
+	UBytePtr rockola_scrollx,*rockola_scrolly;
 	static unsigned char dirtycharacter[256];
 	static data_t charbank;
 	static int backcolor;

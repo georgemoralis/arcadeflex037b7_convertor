@@ -9,7 +9,7 @@ public class simpsons
 	
 	/* from vidhrdw */
 	extern void simpsons_video_banking( int select );
-	extern unsigned char *simpsons_xtraram;
+	extern UBytePtr simpsons_xtraram;
 	
 	int simpsons_firq_enabled;
 	
@@ -130,7 +130,7 @@ public class simpsons
 	
 	public static ReadHandlerPtr simpsons_speedup1_r  = new ReadHandlerPtr() { public int handler(int offset)
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 		int data1 = RAM[0x486a];
 	
@@ -175,7 +175,7 @@ public class simpsons
 	
 	public static konami_cpu_setlines_callbackPtr simpsons_banking = new konami_cpu_setlines_callbackPtr() { public void handler(int lines) 
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 		int offs = 0;
 	
 		switch ( lines & 0xf0 )
@@ -206,7 +206,7 @@ public class simpsons
 	
 	public static InitMachinePtr simpsons_init_machine = new InitMachinePtr() { public void handler() 
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 		konami_cpu_setlines_callback = simpsons_banking;
 	

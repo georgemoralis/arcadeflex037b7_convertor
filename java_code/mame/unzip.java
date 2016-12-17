@@ -36,14 +36,14 @@ public class unzip
 	
 	/* Use these to avoid structure padding and byte-ordering problems */
 	static UINT16 read_word (char *buf) {
-	   unsigned char *ubuf = (unsigned char *) buf;
+	   UBytePtr ubuf = (UBytePtr ) buf;
 	
 	   return ((UINT16)ubuf[1] << 8) | (UINT16)ubuf[0];
 	}
 	
 	/* Use these to avoid structure padding and byte-ordering problems */
 	static UINT32 read_dword (char *buf) {
-	   unsigned char *ubuf = (unsigned char *) buf;
+	   UBytePtr ubuf = (UBytePtr ) buf;
 	
 	   return ((UINT32)ubuf[3] << 24) | ((UINT32)ubuf[2] << 16) | ((UINT32)ubuf[1] << 8) | (UINT32)ubuf[0];
 	}
@@ -456,10 +456,10 @@ public class unzip
 	
 	   990525 rewritten for use with zlib MLR
 	*/
-	static int inflate_file(FILE* in_file, unsigned in_size, unsigned char* out_data, unsigned out_size)
+	static int inflate_file(FILE* in_file, unsigned in_size, UBytePtr  out_data, unsigned out_size)
 	{
 	    int err;
-		unsigned char* in_buffer;
+		UBytePtr  in_buffer;
 	    z_stream d_stream; /* decompression stream */
 	
 	    d_stream.zalloc = 0;
@@ -483,7 +483,7 @@ public class unzip
 	        return -1;
 		}
 	
-		in_buffer = (unsigned char*)malloc(INFLATE_INPUT_BUFFER_MAX+1);
+		in_buffer = (UBytePtr )malloc(INFLATE_INPUT_BUFFER_MAX+1);
 		if (!in_buffer)
 			return -1;
 	
@@ -592,7 +592,7 @@ public class unzip
 			}
 	
 			/* configure inflate */
-			if (inflate_file( zip.fp, ent.compressed_size, (unsigned char*)data, ent.uncompressed_size))
+			if (inflate_file( zip.fp, ent.compressed_size, (UBytePtr )data, ent.uncompressed_size))
 			{
 				errormsg("Inflating compressed data", ERROR_CORRUPT, zip.zip);
 				return -3;
@@ -761,7 +761,7 @@ public class unzip
 	/* Pass the path to the zipfile and the name of the file within the zipfile.
 	   buf will be set to point to the uncompressed image of that zipped file.
 	   length will be set to the length of the uncompressed data. */
-	int /* error */ load_zipped_file (const char* zipfile, const char* filename, unsigned char** buf, unsigned int* length) {
+	int /* error */ load_zipped_file (const char* zipfile, const char* filename, UBytePtr * buf, unsigned int* length) {
 		ZIP* zip;
 		struct zipent* ent;
 	
@@ -780,7 +780,7 @@ public class unzip
 					(ent.crc32 && !strcmp(crc, filename)))
 			{
 				*length = ent.uncompressed_size;
-				*buf = (unsigned char*)malloc( *length );
+				*buf = (UBytePtr )malloc( *length );
 				if (!*buf) {
 					if (!gUnzipQuiet)
 						printf("load_zipped_file(): Unable to allocate %d bytes of RAM\n",*length);

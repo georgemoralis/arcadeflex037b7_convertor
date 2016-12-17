@@ -88,7 +88,7 @@ public class romcmp
 	{
 		char name[MAX_FILENAME_LEN+1];
 		int size;
-		unsigned char *buf;	/* file is read in here */
+		UBytePtr buf;	/* file is read in here */
 		int listed;
 	};
 	

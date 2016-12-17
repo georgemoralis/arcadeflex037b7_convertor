@@ -127,7 +127,7 @@ public class cchasm
 	    }
 	} };
 	
-	void cchasm_init_colors (unsigned char *palette, unsigned short *colortable,const unsigned char *color_prom)
+	void cchasm_init_colors (UBytePtr palette, unsigned short *colortable,const UBytePtr color_prom)
 	{
 	    int i= 0, r, g, b;
 	

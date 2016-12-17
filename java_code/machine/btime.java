@@ -20,7 +20,7 @@ public class btime
 	
 	public static ReadHandlerPtr mmonkey_protection_r  = new ReadHandlerPtr() { public int handler(int offset)
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 		int ret = 0;
 	
@@ -36,7 +36,7 @@ public class btime
 	
 	public static WriteHandlerPtr mmonkey_protection_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 	
 		if (offset == 0)

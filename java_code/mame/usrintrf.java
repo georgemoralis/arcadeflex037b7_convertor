@@ -961,10 +961,10 @@ public class usrintrf
 	#ifndef MESS
 	#ifndef TINY_COMPILE
 	extern int no_of_tiles;
-	void NeoMVSDrawGfx(unsigned char **line,const struct GfxElement *gfx,
+	void NeoMVSDrawGfx(UBytePtr *line,const struct GfxElement *gfx,
 			unsigned int code,unsigned int color,int flipx,int flipy,int sx,int sy,
 			int zx,int zy,const struct rectangle *clip);
-	void NeoMVSDrawGfx16(unsigned char **line,const struct GfxElement *gfx,
+	void NeoMVSDrawGfx16(UBytePtr *line,const struct GfxElement *gfx,
 			unsigned int code,unsigned int color,int flipx,int flipy,int sx,int sy,
 			int zx,int zy,const struct rectangle *clip);
 	extern struct GameDriver driver_neogeo;
@@ -979,7 +979,7 @@ public class usrintrf
 		int palpage;
 		int changed;
 		int game_is_neogeo=0;
-		unsigned char *orig_used_colors=0;
+		UBytePtr orig_used_colors=0;
 	
 	
 		if (palette_used_colors != 0)

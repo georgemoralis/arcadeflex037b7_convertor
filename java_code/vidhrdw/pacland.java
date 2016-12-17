@@ -11,7 +11,7 @@ public class pacland
 	static struct osd_bitmap *tmpbitmap2,*tmpbitmap3;
 	static int scroll0,scroll1;
 	static int palette_bank;
-	static const unsigned char *pacland_color_prom;
+	static const UBytePtr pacland_color_prom;
 	
 	static struct rectangle spritevisiblearea =
 	{
@@ -159,7 +159,7 @@ public class pacland
 	public static WriteHandlerPtr pacland_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
 		int bankaddress;
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 	
 		bankaddress = 0x10000 + ((data & 0x07) << 13);
@@ -170,7 +170,7 @@ public class pacland
 		if (palette_bank != ((data & 0x18) >> 3))
 		{
 			int i;
-			const unsigned char *color_prom;
+			const UBytePtr color_prom;
 	
 			palette_bank = (data & 0x18) >> 3;
 			color_prom = pacland_color_prom + 256 * palette_bank;

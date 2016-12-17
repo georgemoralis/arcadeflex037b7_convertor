@@ -16,10 +16,10 @@ public class suprloco
 {
 	
 	
-	extern unsigned char *spriteram;
+	extern UBytePtr spriteram;
 	extern size_t spriteram_size;
 	
-	unsigned char *suprloco_videoram;
+	UBytePtr suprloco_videoram;
 	
 	static struct tilemap *bg_tilemap;
 	static int control;
@@ -211,7 +211,7 @@ public class suprloco
 	static void render_sprite(struct osd_bitmap *bitmap,int spr_number)
 	{
 		int sx,sy,col,row,height,src,adjy,dy;
-		unsigned char *spr_reg;
+		UBytePtr spr_reg;
 		unsigned short *spr_palette;
 		short skip;	/* bytes to skip before drawing each row (can be negative) */
 	
@@ -282,7 +282,7 @@ public class suprloco
 	static void draw_sprites(struct osd_bitmap *bitmap)
 	{
 		int spr_number;
-		unsigned char *spr_reg;
+		UBytePtr spr_reg;
 	
 	
 		for (spr_number = 0;spr_number < (spriteram_size >> 4);spr_number++)

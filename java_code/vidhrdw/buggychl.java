@@ -9,9 +9,9 @@ public class buggychl
 	
 	
 	
-	unsigned char *buggychl_scrollv,*buggychl_scrollh;
+	UBytePtr buggychl_scrollv,*buggychl_scrollh;
 	unsigned char buggychl_sprite_lookup[0x2000];
-	unsigned char *buggychl_character_ram;
+	UBytePtr buggychl_character_ram;
 	
 	static int *dirtychar;
 	
@@ -20,7 +20,7 @@ public class buggychl
 	
 	
 	
-	void buggychl_init_palette(unsigned char *palette, unsigned short *colortable,const unsigned char *color_prom)
+	void buggychl_init_palette(UBytePtr palette, unsigned short *colortable,const UBytePtr color_prom)
 	{
 		int i;
 	
@@ -217,8 +217,8 @@ public class buggychl
 		for (offs = 0;offs < spriteram_size;offs += 4)
 		{
 			int sx,sy,flipy,zoom,ch,x,px,y;
-			const unsigned char *lookup;
-			const unsigned char *zoomx_rom,*zoomy_rom;
+			const UBytePtr lookup;
+			const UBytePtr zoomx_rom,*zoomy_rom;
 	
 	
 			sx = spriteram.read(offs+3)- ((spriteram.read(offs+2)& 0x80) << 1);

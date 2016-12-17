@@ -20,7 +20,7 @@ public class nitedrvr
 	extern int nitedrvr_track;
 	
 	/* local */
-	unsigned char *nitedrvr_hvc;
+	UBytePtr nitedrvr_hvc;
 	
 	public static WriteHandlerPtr nitedrvr_hvc_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{

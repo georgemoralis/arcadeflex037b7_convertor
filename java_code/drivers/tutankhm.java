@@ -188,7 +188,7 @@ public class tutankhm
 	
 	
 	
-	extern unsigned char *tutankhm_scrollx;
+	extern UBytePtr tutankhm_scrollx;
 	
 	
 	/* defined in sndhrdw/timeplt.c */
@@ -200,7 +200,7 @@ public class tutankhm
 	public static WriteHandlerPtr tutankhm_bankselect_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
 		int bankaddress;
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 	
 		bankaddress = 0x10000 + (data & 0x0f) * 0x1000;

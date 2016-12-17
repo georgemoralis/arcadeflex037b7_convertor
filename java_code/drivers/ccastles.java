@@ -84,17 +84,17 @@ public class ccastles
 	
 	
 	
-	extern unsigned char *ccastles_screen_addr;
-	extern unsigned char *ccastles_screen_inc;
-	extern unsigned char *ccastles_screen_inc_enable;
-	extern unsigned char *ccastles_sprite_bank;
-	extern unsigned char *ccastles_scrollx;
-	extern unsigned char *ccastles_scrolly;
+	extern UBytePtr ccastles_screen_addr;
+	extern UBytePtr ccastles_screen_inc;
+	extern UBytePtr ccastles_screen_inc_enable;
+	extern UBytePtr ccastles_sprite_bank;
+	extern UBytePtr ccastles_scrollx;
+	extern UBytePtr ccastles_scrolly;
 	
 	
 	
 	
-	static unsigned char *nvram;
+	static UBytePtr nvram;
 	static size_t nvram_size;
 	
 	public static nvramPtr nvram_handler  = new nvramPtr() { public void handler(Object file, int read_or_write) 
@@ -124,7 +124,7 @@ public class ccastles
 	
 	public static WriteHandlerPtr ccastles_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 	
 		if (data != 0) { cpu_setbank(1,&RAM[0x10000]); }

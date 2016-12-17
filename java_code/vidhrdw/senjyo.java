@@ -18,17 +18,17 @@ public class senjyo
 	/* in machine/segacrpt.c */
 	
 	
-	extern unsigned char *spriteram;
+	extern UBytePtr spriteram;
 	extern size_t spriteram_size;
 	
-	unsigned char *senjyo_fgscroll;
-	unsigned char *senjyo_bgstripes;
-	unsigned char *senjyo_scrollx1,*senjyo_scrolly1;
-	unsigned char *senjyo_scrollx2,*senjyo_scrolly2;
-	unsigned char *senjyo_scrollx3,*senjyo_scrolly3;
-	unsigned char *senjyo_fgvideoram,*senjyo_fgcolorram;
-	unsigned char *senjyo_bg1videoram,*senjyo_bg2videoram,*senjyo_bg3videoram;
-	unsigned char *senjyo_radarram;
+	UBytePtr senjyo_fgscroll;
+	UBytePtr senjyo_bgstripes;
+	UBytePtr senjyo_scrollx1,*senjyo_scrolly1;
+	UBytePtr senjyo_scrollx2,*senjyo_scrolly2;
+	UBytePtr senjyo_scrollx3,*senjyo_scrolly3;
+	UBytePtr senjyo_fgvideoram,*senjyo_fgcolorram;
+	UBytePtr senjyo_bg1videoram,*senjyo_bg2videoram,*senjyo_bg3videoram;
+	UBytePtr senjyo_radarram;
 	
 	static struct tilemap *fg_tilemap,*bg1_tilemap,*bg2_tilemap,*bg3_tilemap;
 	

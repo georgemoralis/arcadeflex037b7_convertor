@@ -109,7 +109,7 @@ public class osdependH
 			const UINT8 *palette,UINT16 *pens,int modifiable,
 			const UINT8 *debug_palette,UINT16 *debug_pens);
 	void osd_modify_pen(int pen,unsigned char red, unsigned char green, unsigned char blue);
-	void osd_get_pen(int pen,unsigned char *red, unsigned char *green, unsigned char *blue);
+	void osd_get_pen(int pen,UBytePtr red, UBytePtr green, UBytePtr blue);
 	
 	void osd_mark_dirty(int xmin, int ymin, int xmax, int ymax, int ui);    /* ASG 971011 */
 	

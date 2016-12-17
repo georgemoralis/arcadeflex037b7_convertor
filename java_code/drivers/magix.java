@@ -29,7 +29,7 @@ public class magix
 {
 	
 	/* Variables defined in vidhrdw */
-	extern unsigned char *magix_videoram_0,*magix_videoram_1;
+	extern UBytePtr magix_videoram_0,*magix_videoram_1;
 	
 	/* Functions defined in vidhrdw */
 	
@@ -42,7 +42,7 @@ public class magix
 	
 	public static InitMachinePtr magix_init_machine = new InitMachinePtr() { public void handler() 
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1) + 0x24000;
+		UBytePtr RAM = memory_region(REGION_CPU1) + 0x24000;
 	
 		magix_videoram_0 = RAM + 0x0000;	// Ram is banked
 		magix_videoram_1 = RAM + 0x2000;
@@ -65,7 +65,7 @@ public class magix
 	
 	public static WriteHandlerPtr magix_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 		int bank = data & 7;
 		if (bank != data)	logerror("CPU #0 - PC %04X: Bank %02X\n",cpu_get_pc(),data);
@@ -149,7 +149,7 @@ public class magix
 	
 	public static WriteHandlerPtr magix_sound_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		unsigned char *RAM = memory_region(REGION_CPU2);
+		UBytePtr RAM = memory_region(REGION_CPU2);
 		int bank = data & 7;
 	
 		if ( bank != (data&(~0x20)) ) 	logerror("CPU #1 - PC %04X: Bank %02X\n",cpu_get_pc(),data);

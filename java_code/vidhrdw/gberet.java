@@ -17,9 +17,9 @@ public class gberet
 	
 	
 	
-	unsigned char *gberet_videoram,*gberet_colorram;
-	unsigned char *gberet_spritebank;
-	unsigned char *gberet_scrollram;
+	UBytePtr gberet_videoram,*gberet_colorram;
+	UBytePtr gberet_spritebank;
+	UBytePtr gberet_scrollram;
 	static struct tilemap *bg_tilemap;
 	static int interruptenable;
 	static int flipscreen;
@@ -211,7 +211,7 @@ public class gberet
 	static void draw_sprites0(struct osd_bitmap *bitmap)
 	{
 		int offs;
-		unsigned char *sr;
+		UBytePtr sr;
 	
 		if (*gberet_spritebank & 0x08)
 			sr = spriteram_2;
@@ -251,7 +251,7 @@ public class gberet
 	static void draw_sprites1(struct osd_bitmap *bitmap)
 	{
 		int offs;
-		unsigned char *sr;
+		UBytePtr sr;
 	
 		sr = spriteram;
 	

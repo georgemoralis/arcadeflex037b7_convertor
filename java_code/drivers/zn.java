@@ -135,7 +135,7 @@ public class zn
 	
 	public static WriteHandlerPtr qsound_banksw_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		unsigned char *RAM = memory_region( REGION_CPU2 );
+		UBytePtr RAM = memory_region( REGION_CPU2 );
 		if( ( data & 0xf0 ) != 0 )
 		{
 			logerror( "%08lx: qsound_banksw_w( %02x )\n", cpu_get_pc(), data & 0xff );
@@ -599,7 +599,7 @@ public class zn
 		return 0;
 	} };
 	
-	void zn_init_palette(unsigned char *palette, unsigned short *colortable,const unsigned char *color_prom)
+	void zn_init_palette(UBytePtr palette, unsigned short *colortable,const UBytePtr color_prom)
 	{
 		UINT16 n_r;
 		UINT16 n_g;

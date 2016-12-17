@@ -17,7 +17,7 @@ public class stadhero
 	
 	/* Video emulation definitions */
 	
-	extern unsigned char *stadhero_pf1_data,*stadhero_pf2_data;
+	extern UBytePtr stadhero_pf1_data,*stadhero_pf2_data;
 	
 	
 	/******************************************************************************/

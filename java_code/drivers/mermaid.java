@@ -16,16 +16,16 @@ public class mermaid
 {
 	
 	
-	extern unsigned char* mermaid_background_videoram;
-	extern unsigned char* mermaid_foreground_videoram;
-	extern unsigned char* mermaid_foreground_colorram;
-	extern unsigned char* mermaid_background_scrollram;
-	extern unsigned char* mermaid_foreground_scrollram;
+	extern UBytePtr  mermaid_background_videoram;
+	extern UBytePtr  mermaid_foreground_videoram;
+	extern UBytePtr  mermaid_foreground_colorram;
+	extern UBytePtr  mermaid_background_scrollram;
+	extern UBytePtr  mermaid_foreground_scrollram;
 	
 	
 	
 	
-	static unsigned char *mermaid_AY8910_enable;
+	static UBytePtr mermaid_AY8910_enable;
 	
 	public static WriteHandlerPtr mermaid_AY8910_write_port_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{

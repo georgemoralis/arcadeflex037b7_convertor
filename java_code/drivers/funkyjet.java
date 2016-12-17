@@ -26,8 +26,8 @@ public class funkyjet
 	
 	
 	
-	extern unsigned char *funkyjet_pf2_data,*funkyjet_pf1_data,*funkyjet_pf1_row;
-	static unsigned char *funkyjet_ram;
+	extern UBytePtr funkyjet_pf2_data,*funkyjet_pf1_data,*funkyjet_pf1_row;
+	static UBytePtr funkyjet_ram;
 	
 	/******************************************************************************/
 	

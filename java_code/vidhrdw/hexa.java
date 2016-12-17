@@ -55,7 +55,7 @@ public class hexa
 	public static WriteHandlerPtr hexa_d008_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
 		int bankaddress;
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 	
 		/* bit 0 = flipx (or y?) */

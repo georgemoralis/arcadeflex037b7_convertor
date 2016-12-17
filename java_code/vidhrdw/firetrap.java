@@ -17,9 +17,9 @@ public class firetrap
 	
 	
 	
-	unsigned char *firetrap_bg1videoram;
-	unsigned char *firetrap_bg2videoram;
-	unsigned char *firetrap_fgvideoram;
+	UBytePtr firetrap_bg1videoram;
+	UBytePtr firetrap_bg2videoram;
+	UBytePtr firetrap_fgvideoram;
 	
 	static struct tilemap *fg_tilemap, *bg1_tilemap, *bg2_tilemap;
 	
@@ -107,7 +107,7 @@ public class firetrap
 		SET_TILE_INFO(0, code | ((color & 0x01) << 8), color >> 4);
 	}
 	
-	INLINE void get_bg_tile_info(int tile_index, unsigned char *bgvideoram, int gfx_region)
+	INLINE void get_bg_tile_info(int tile_index, UBytePtr bgvideoram, int gfx_region)
 	{
 		int code, color;
 	

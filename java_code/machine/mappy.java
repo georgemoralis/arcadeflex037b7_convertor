@@ -17,8 +17,8 @@ public class mappy
 {
 	
 	
-	unsigned char *mappy_sharedram;
-	unsigned char *mappy_customio_1,*mappy_customio_2;
+	UBytePtr mappy_sharedram;
+	UBytePtr mappy_customio_1,*mappy_customio_2;
 	
 	static unsigned char interrupt_enable_1,interrupt_enable_2;
 	static int credits, coin, start1, start2;

@@ -198,7 +198,7 @@ public class dkong
 	public static ReadHandlerPtr dkong_sh_t1_r  = new ReadHandlerPtr() { public int handler(int offset)   { return t[1]; } };
 	public static ReadHandlerPtr dkong_sh_tune_r  = new ReadHandlerPtr() { public int handler(int offset)
 	{
-		unsigned char *SND = memory_region(REGION_CPU2);
+		UBytePtr SND = memory_region(REGION_CPU2);
 		if ((page & 0x40) != 0)
 		{
 			switch (offset)
@@ -1623,7 +1623,7 @@ public class dkong
 	static public static InitDriverPtr init_herocast = new InitDriverPtr() { public void handler() 
 	{
 		int A;
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 	
 		/* swap data lines D3 and D4, this fixes the text but nothing more. */
@@ -1640,7 +1640,7 @@ public class dkong
 	
 	static public static InitDriverPtr init_radarscp = new InitDriverPtr() { public void handler() 
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 	
 		/* TODO: Radarscope does a check on bit 6 of 7d00 which prevent it from working. */

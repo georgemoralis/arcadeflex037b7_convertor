@@ -17,7 +17,7 @@ public class amidar
 	
 	
 	
-	unsigned char *amidar_attributesram;
+	UBytePtr amidar_attributesram;
 	
 	
 	static struct rectangle spritevisiblearea =

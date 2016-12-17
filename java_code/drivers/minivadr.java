@@ -20,7 +20,7 @@ public class minivadr
 {
 	
 	
-	void minivadr_init_palette(unsigned char *game_palette, unsigned short *game_colortable,const unsigned char *color_prom);
+	void minivadr_init_palette(UBytePtr game_palette, unsigned short *game_colortable,const UBytePtr color_prom);
 	
 	
 	static MemoryReadAddress readmem[] =

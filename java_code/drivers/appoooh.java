@@ -54,12 +54,12 @@ package drivers;
 public class appoooh
 {
 	
-	extern unsigned char *appoooh_videoram2;
-	extern unsigned char *appoooh_colorram2;
-	extern unsigned char *appoooh_spriteram2;
+	extern UBytePtr appoooh_videoram2;
+	extern UBytePtr appoooh_colorram2;
+	extern UBytePtr appoooh_spriteram2;
 	
 	
-	static unsigned char *adpcmptr = 0;
+	static UBytePtr adpcmptr = 0;
 	static int appoooh_adpcm_data;
 	
 	
@@ -85,7 +85,7 @@ public class appoooh
 	/* adpcm address write */
 	public static WriteHandlerPtr appoooh_adpcm_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		unsigned char *RAM = memory_region(REGION_SOUND1);
+		UBytePtr RAM = memory_region(REGION_SOUND1);
 		adpcmptr  = &RAM[data*256];
 		MSM5205_reset_w(0,0);
 		appoooh_adpcm_data=-1;

@@ -205,7 +205,7 @@ public class segacrpt
 	static void lfkp(int mask)
 	{
 		int A;
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 	
 		for (A = 0x0000;A < 0x8000-14;A++)
@@ -258,7 +258,7 @@ public class segacrpt
 		lfkp(0x57);
 	}
 	
-	static void read_table_from_disk(unsigned char *xortable)
+	static void read_table_from_disk(UBytePtr xortable)
 	{
 		FILE *f;
 	
@@ -274,7 +274,7 @@ public class segacrpt
 	static void sega_decode(const unsigned char xortable[32][4])
 	{
 		int A;
-		unsigned char *rom = memory_region(REGION_CPU1);
+		UBytePtr rom = memory_region(REGION_CPU1);
 		int diff = memory_region_length(REGION_CPU1) / 2;
 	
 	
@@ -877,7 +877,7 @@ public class segacrpt
 			{ 0x00,0x11,0x05,0x14,0x50,0x41,0x55,0x44 }		/* extra line for data decode */
 		};
 		int A;
-		unsigned char *rom = memory_region(REGION_CPU1);
+		UBytePtr rom = memory_region(REGION_CPU1);
 		int diff = memory_region_length(REGION_CPU1) / 2;
 	
 	
@@ -1076,7 +1076,7 @@ public class segacrpt
 			{ 0x14,0x05,0x11,0x00,0x00,0x11,0x05,0x14 },	/* .1.1 ..1. .1.. 1..1 */
 		};
 		int A;
-		unsigned char *rom = memory_region(REGION_CPU1);
+		UBytePtr rom = memory_region(REGION_CPU1);
 		int diff = memory_region_length(REGION_CPU1) / 2;
 	
 	

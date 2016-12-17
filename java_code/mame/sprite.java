@@ -88,7 +88,7 @@ public class sprite
 	
 	static int orientation, screen_width, screen_height;
 	static int screen_clip_left, screen_clip_top, screen_clip_right, screen_clip_bottom;
-	unsigned char *screen_baseaddr;
+	UBytePtr screen_baseaddr;
 	int screen_line_offset;
 	
 	static struct sprite_list *first_sprite_list = NULL; /* used for resource tracking */
@@ -119,7 +119,7 @@ public class sprite
 		is potentially reallocated.
 	
 	*********************************************************************/
-	static unsigned char *mask_buffer = NULL;
+	static UBytePtr mask_buffer = NULL;
 	static int mask_buffer_size = 0; /* actual size of allocated buffer */
 	static int mask_buffer_used = 0;
 	
@@ -171,7 +171,7 @@ public class sprite
 	static struct {
 		int transparent_pen;
 		int clip_left, clip_right, clip_top, clip_bottom;
-		unsigned char *baseaddr;
+		UBytePtr baseaddr;
 		int line_offset;
 		int write_to_mask;
 		int origin_x, origin_y;
@@ -190,9 +190,9 @@ public class sprite
 		int flipx_adjust = sprite.total_width-1;
 	
 		int source_dy;
-		const unsigned char *baseaddr = sprite.pen_data;
-		const unsigned char *source;
-		unsigned char *dest;
+		const UBytePtr baseaddr = sprite.pen_data;
+		const UBytePtr source;
+		UBytePtr dest;
 		int x,y;
 	
 		source = baseaddr + sprite.line_offset*sprite.y_offset + sprite.x_offset;
@@ -222,7 +222,7 @@ public class sprite
 				#undef NEXTLINE
 			}
 			else if( sprite.mask_offset>=0 ){ /* draw a masked sprite */
-				const unsigned char *mask = &mask_buffer[sprite.mask_offset] +
+				const UBytePtr mask = &mask_buffer[sprite.mask_offset] +
 					(y1-sprite.y)*sprite.total_width-sprite.x;
 				#define OPAQUE(X) (mask[x]==0 && source[X]!=transparent_pen)
 				#define COLOR(X) (pal_data[source[X]])
@@ -265,9 +265,9 @@ public class sprite
 		int x,y;
 	
 		int source_dy;
-		const unsigned char *baseaddr = sprite.pen_data;
-		const unsigned char *source;
-		unsigned char *dest;
+		const UBytePtr baseaddr = sprite.pen_data;
+		const UBytePtr source;
+		UBytePtr dest;
 	
 		for( xoffset =0; xoffset<sprite.total_width; xoffset+=sprite.tile_width ){
 			for( yoffset=0; yoffset<sprite.total_height; yoffset+=sprite.tile_height ){
@@ -321,7 +321,7 @@ public class sprite
 						#undef NEXTLINE
 					}
 					else if( sprite.mask_offset>=0 ){ /* draw a masked sprite */
-						const unsigned char *mask = &mask_buffer[sprite.mask_offset] +
+						const UBytePtr mask = &mask_buffer[sprite.mask_offset] +
 							(y1-sprite.y)*sprite.total_width-sprite.x;
 						#define OPAQUE(X) (mask[x]==0 && source[X]!=transparent_pen)
 						#define COLOR(X) (pal_data[source[X]])
@@ -413,19 +413,19 @@ public class sprite
 	
 		if(!(sprite.flags & (SPRITE_SHADOW | SPRITE_PARTIAL_SHADOW)))
 		{
-			const unsigned char *pen_data = sprite.pen_data;
+			const UBytePtr pen_data = sprite.pen_data;
 			const unsigned short *pal_data = sprite.pal_data;
 			int x,y;
 			unsigned char pen;
 			int pitch = blit.line_offset*dy;
-			unsigned char *dest = blit.baseaddr + blit.line_offset*y1;
+			UBytePtr dest = blit.baseaddr + blit.line_offset*y1;
 			int ycount = ycount0;
 	
 			if ((orientation & ORIENTATION_SWAP_XY) != 0){ /* manually rotate the sprite graphics */
 				int xcount = xcount0;
 				for( x=x1; x!=x2; x+=dx ){
-					const unsigned char *source;
-					unsigned char *dest1;
+					const UBytePtr source;
+					UBytePtr dest1;
 	
 					ycount = ycount0;
 					while( xcount>=sprite.total_width ){
@@ -453,7 +453,7 @@ public class sprite
 			else {
 				for( y=y1; y!=y2; y+=dy ){
 					int xcount = xcount0;
-					const unsigned char *source;
+					const UBytePtr source;
 					while( ycount>=sprite.total_height ){
 						ycount -= sprite.total_height;
 						pen_data += sprite.line_offset;
@@ -478,19 +478,19 @@ public class sprite
 		}
 		else if(sprite.flags & SPRITE_PARTIAL_SHADOW)
 		{
-			const unsigned char *pen_data = sprite.pen_data;
+			const UBytePtr pen_data = sprite.pen_data;
 			const unsigned short *pal_data = sprite.pal_data;
 			int x,y;
 			unsigned char pen;
 			int pitch = blit.line_offset*dy;
-			unsigned char *dest = blit.baseaddr + blit.line_offset*y1;
+			UBytePtr dest = blit.baseaddr + blit.line_offset*y1;
 			int ycount = ycount0;
 	
 			if ((orientation & ORIENTATION_SWAP_XY) != 0){ /* manually rotate the sprite graphics */
 				int xcount = xcount0;
 				for( x=x1; x!=x2; x+=dx ){
-					const unsigned char *source;
-					unsigned char *dest1;
+					const UBytePtr source;
+					UBytePtr dest1;
 	
 					ycount = ycount0;
 					while( xcount>=sprite.total_width ){
@@ -518,7 +518,7 @@ public class sprite
 			else {
 				for( y=y1; y!=y2; y+=dy ){
 					int xcount = xcount0;
-					const unsigned char *source;
+					const UBytePtr source;
 					while( ycount>=sprite.total_height ){
 						ycount -= sprite.total_height;
 						pen_data += sprite.line_offset;
@@ -543,19 +543,19 @@ public class sprite
 		}
 		else
 		{	// Shadow Sprite
-			const unsigned char *pen_data = sprite.pen_data;
+			const UBytePtr pen_data = sprite.pen_data;
 	//		const unsigned short *pal_data = sprite.pal_data;
 			int x,y;
 			unsigned char pen;
 			int pitch = blit.line_offset*dy;
-			unsigned char *dest = blit.baseaddr + blit.line_offset*y1;
+			UBytePtr dest = blit.baseaddr + blit.line_offset*y1;
 			int ycount = ycount0;
 	
 			if ((orientation & ORIENTATION_SWAP_XY) != 0){ /* manually rotate the sprite graphics */
 				int xcount = xcount0;
 				for( x=x1; x!=x2; x+=dx ){
-					const unsigned char *source;
-					unsigned char *dest1;
+					const UBytePtr source;
+					UBytePtr dest1;
 	
 					ycount = ycount0;
 					while( xcount>=sprite.total_width ){
@@ -582,7 +582,7 @@ public class sprite
 			else {
 				for( y=y1; y!=y2; y+=dy ){
 					int xcount = xcount0;
-					const unsigned char *source;
+					const UBytePtr source;
 					while( ycount>=sprite.total_height ){
 						ycount -= sprite.total_height;
 						pen_data += sprite.line_offset;
@@ -663,7 +663,7 @@ public class sprite
 	
 		if(!(sprite.flags & (SPRITE_SHADOW | SPRITE_PARTIAL_SHADOW)))
 		{
-			const unsigned char *pen_data = sprite.pen_data;
+			const UBytePtr pen_data = sprite.pen_data;
 			const unsigned short *pal_data = sprite.pal_data;
 			int x,y;
 			unsigned char pen;
@@ -674,7 +674,7 @@ public class sprite
 			if ((orientation & ORIENTATION_SWAP_XY) != 0){ /* manually rotate the sprite graphics */
 				int xcount = xcount0;
 				for( x=x1; x!=x2; x+=dx ){
-					const unsigned char *source;
+					const UBytePtr source;
 					UINT16 *dest1;
 	
 					ycount = ycount0;
@@ -703,7 +703,7 @@ public class sprite
 			else {
 				for( y=y1; y!=y2; y+=dy ){
 					int xcount = xcount0;
-					const unsigned char *source;
+					const UBytePtr source;
 					while( ycount>=sprite.total_height ){
 						ycount -= sprite.total_height;
 						pen_data += sprite.line_offset;
@@ -728,7 +728,7 @@ public class sprite
 		}
 		else if(sprite.flags & SPRITE_PARTIAL_SHADOW)
 		{
-			const unsigned char *pen_data = sprite.pen_data;
+			const UBytePtr pen_data = sprite.pen_data;
 			const unsigned short *pal_data = sprite.pal_data;
 			int x,y;
 			unsigned char pen;
@@ -739,7 +739,7 @@ public class sprite
 			if ((orientation & ORIENTATION_SWAP_XY) != 0){ /* manually rotate the sprite graphics */
 				int xcount = xcount0;
 				for( x=x1; x!=x2; x+=dx ){
-					const unsigned char *source;
+					const UBytePtr source;
 					UINT16 *dest1;
 	
 					ycount = ycount0;
@@ -768,7 +768,7 @@ public class sprite
 			else {
 				for( y=y1; y!=y2; y+=dy ){
 					int xcount = xcount0;
-					const unsigned char *source;
+					const UBytePtr source;
 					while( ycount>=sprite.total_height ){
 						ycount -= sprite.total_height;
 						pen_data += sprite.line_offset;
@@ -793,7 +793,7 @@ public class sprite
 		}
 		else
 		{	// Shadow Sprite
-			const unsigned char *pen_data = sprite.pen_data;
+			const UBytePtr pen_data = sprite.pen_data;
 	//		const unsigned short *pal_data = sprite.pal_data;
 			int x,y;
 			unsigned char pen;
@@ -804,7 +804,7 @@ public class sprite
 			if ((orientation & ORIENTATION_SWAP_XY) != 0){ /* manually rotate the sprite graphics */
 				int xcount = xcount0;
 				for( x=x1; x!=x2; x+=dx ){
-					const unsigned char *source;
+					const UBytePtr source;
 					UINT16 *dest1;
 	
 					ycount = ycount0;
@@ -832,7 +832,7 @@ public class sprite
 			else {
 				for( y=y1; y!=y2; y+=dy ){
 					int xcount = xcount0;
-					const unsigned char *source;
+					const UBytePtr source;
 					while( ycount>=sprite.total_height ){
 						ycount -= sprite.total_height;
 						pen_data += sprite.line_offset;

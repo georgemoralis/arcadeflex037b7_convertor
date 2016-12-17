@@ -19,7 +19,7 @@ public class battlane
 {
 	
 	extern extern extern extern 
-	extern unsigned char *battlane_bitmap;
+	extern UBytePtr battlane_bitmap;
 	extern size_t battlane_bitmap_size;
 	extern void battlane_set_video_flip(int);
 	
@@ -30,14 +30,14 @@ public class battlane
 	/* RAM shared between CPU 0 and 1 */
 	public static WriteHandlerPtr battlane_shared_ram_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		unsigned char *RAM =
+		UBytePtr RAM =
 			memory_region(REGION_CPU1);
 		RAM[offset]=data;
 	} };
 	
 	public static ReadHandlerPtr battlane_shared_ram_r  = new ReadHandlerPtr() { public int handler(int offset)
 	{
-		unsigned char *RAM =
+		UBytePtr RAM =
 			memory_region(REGION_CPU1);
 		return RAM[offset];
 	} };
@@ -144,7 +144,7 @@ public class battlane
 			fp=fopen("RAM.DMP", "w+b");
 			if (fp != 0)
 			{
-				unsigned char *RAM =
+				UBytePtr RAM =
 				memory_region(REGION_CPU1);
 	
 				fwrite(RAM, 0x4000, 1, fp);
@@ -429,7 +429,7 @@ public class battlane
 	
 	static public static InitDriverPtr init_battlane = new InitDriverPtr() { public void handler() 
 	{
-		unsigned char *src,*dest;
+		UBytePtr src,*dest;
 		int A;
 	
 		/* no encryption, but one ROM is shared among two CPUs. We loaded it into the */

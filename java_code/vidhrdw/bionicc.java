@@ -32,9 +32,9 @@ package vidhrdw;
 public class bionicc
 {
 	
-	unsigned char *bionicc_fgvideoram;
-	unsigned char *bionicc_bgvideoram;
-	unsigned char *bionicc_txvideoram;
+	UBytePtr bionicc_fgvideoram;
+	UBytePtr bionicc_bgvideoram;
+	UBytePtr bionicc_txvideoram;
 	
 	static struct tilemap *tx_tilemap, *bg_tilemap, *fg_tilemap;
 	static int flipscreen;

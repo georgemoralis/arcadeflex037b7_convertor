@@ -99,9 +99,9 @@ public class kaneko16
 	
 	/* Variables that driver has access to: */
 	
-	unsigned char *kaneko16_bgram, *kaneko16_fgram;
-	unsigned char *kaneko16_layers1_regs, *kaneko16_layers2_regs, *kaneko16_screen_regs;
-	unsigned char *kaneko16_bg15_select, *kaneko16_bg15_reg;
+	UBytePtr kaneko16_bgram, *kaneko16_fgram;
+	UBytePtr kaneko16_layers1_regs, *kaneko16_layers2_regs, *kaneko16_screen_regs;
+	UBytePtr kaneko16_bg15_select, *kaneko16_bg15_reg;
 	int kaneko16_spritetype;
 	
 	/* Variables defined in drivers: */
@@ -394,7 +394,7 @@ public class kaneko16
 	
 	/* Berlwall has an additional hi-color background */
 	
-	void berlwall_init_palette(unsigned char *palette, unsigned short *colortable,const unsigned char *color_prom)
+	void berlwall_init_palette(UBytePtr palette, unsigned short *colortable,const UBytePtr color_prom)
 	{
 		int i;
 	
@@ -418,7 +418,7 @@ public class kaneko16
 	public static VhStartPtr berlwall_vh_start = new VhStartPtr() { public int handler() 
 	{
 		int sx, x,y;
-		unsigned char *RAM	=	memory_region(REGION_GFX3);
+		UBytePtr RAM	=	memory_region(REGION_GFX3);
 	
 		/* Render the hi-color static backgrounds held in the ROMs */
 	

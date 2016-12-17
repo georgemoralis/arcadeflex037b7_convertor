@@ -43,9 +43,9 @@ public class dooyong
 {
 	
 	
-	extern unsigned char *lastday_txvideoram;
-	extern unsigned char *lastday_bgscroll,*lastday_fgscroll,*bluehawk_fg2scroll;
-	extern unsigned char *rshark_scroll1,*rshark_scroll2,*rshark_scroll3,*rshark_scroll4;
+	extern UBytePtr lastday_txvideoram;
+	extern UBytePtr lastday_bgscroll,*lastday_fgscroll,*bluehawk_fg2scroll;
+	extern UBytePtr rshark_scroll1,*rshark_scroll2,*rshark_scroll3,*rshark_scroll4;
 	
 	
 	
@@ -53,7 +53,7 @@ public class dooyong
 	public static WriteHandlerPtr lastday_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
 	 	int bankaddress;
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 		bankaddress = 0x10000 + (data & 0x07) * 0x4000;
 		cpu_setbank(1,&RAM[bankaddress]);
@@ -1270,7 +1270,7 @@ public class dooyong
 	
 	static public static InitDriverPtr init_pollux = new InitDriverPtr() { public void handler() 
 	{
-		unsigned char *gfx = memory_region(REGION_GFX4);
+		UBytePtr gfx = memory_region(REGION_GFX4);
 		int len = memory_region_length(REGION_GFX4);
 	
 		/* only half of the ROM space is populated, need to fill the second half */

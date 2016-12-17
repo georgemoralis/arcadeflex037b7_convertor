@@ -47,8 +47,8 @@ public class raiden
 {
 	
 	
-	static unsigned char *raiden_shared_ram;
-	extern unsigned char *raiden_back_data,*raiden_fore_data,*raiden_scroll_ram;
+	static UBytePtr raiden_shared_ram;
+	extern UBytePtr raiden_back_data,*raiden_fore_data,*raiden_scroll_ram;
 	
 	/***************************************************************************/
 	
@@ -542,7 +542,7 @@ public class raiden
 	bit-swapping */
 	static void common_decrypt(void)
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 		int i,a;
 	
 		int xor_table[4][16]={

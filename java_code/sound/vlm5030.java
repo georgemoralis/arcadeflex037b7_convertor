@@ -83,7 +83,7 @@ public class vlm5030
 	static int channel;
 	static int schannel;
 	
-	static unsigned char *VLM5030_rom;
+	static UBytePtr VLM5030_rom;
 	static int VLM5030_address_mask;
 	static int VLM5030_address;
 	static int pin_BSY;

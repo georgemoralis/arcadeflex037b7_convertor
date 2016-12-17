@@ -16,7 +16,7 @@ package machine;
 public class ajax
 {
 	
-	unsigned char *ajax_sharedram;
+	UBytePtr ajax_sharedram;
 	extern unsigned char ajax_priority;
 	static int firq_enable;
 	
@@ -39,7 +39,7 @@ public class ajax
 	
 	public static WriteHandlerPtr ajax_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 		int bankaddress = 0;
 	
 		/* rom select */
@@ -195,7 +195,7 @@ public class ajax
 	
 	public static WriteHandlerPtr ajax_bankswitch_2_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		unsigned char *RAM = memory_region(REGION_CPU2);
+		UBytePtr RAM = memory_region(REGION_CPU2);
 		int bankaddress;
 	
 		/* enable char ROM reading through the video RAM */

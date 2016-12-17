@@ -17,9 +17,9 @@ public class blockout
 	
 	
 	
-	extern unsigned char *blockout_videoram;
-	extern unsigned char *blockout_frontvideoram;
-	extern unsigned char *blockout_frontcolor;
+	extern UBytePtr blockout_videoram;
+	extern UBytePtr blockout_frontvideoram;
+	extern UBytePtr blockout_frontcolor;
 	
 	
 	

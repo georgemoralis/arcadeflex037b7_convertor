@@ -13,7 +13,7 @@ package vidhrdw;
 public class zac2650
 {
 	
-	unsigned char *s2636ram;
+	UBytePtr s2636ram;
 	struct osd_bitmap *spritebitmap;
 	
 	int dirtychar[16];

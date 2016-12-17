@@ -21,10 +21,10 @@ public class yamato
 	/* in machine/segacrpt.c */
 	
 	
-	extern unsigned char *cclimber_bsvideoram;
+	extern UBytePtr cclimber_bsvideoram;
 	extern size_t cclimber_bsvideoram_size;
-	extern unsigned char *cclimber_bigspriteram;
-	extern unsigned char *cclimber_column_scroll;
+	extern UBytePtr cclimber_bigspriteram;
+	extern UBytePtr cclimber_column_scroll;
 	
 	
 	public static VhConvertColorPromPtr yamato_vh_convert_color_prom = new VhConvertColorPromPtr() { public void handler(char []palette, char []colortable, UBytePtr color_prom) 

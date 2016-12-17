@@ -19,7 +19,7 @@ public class namcos1
 	#define NAMCOS1_MAX_KEY 0x100
 	static unsigned char key[NAMCOS1_MAX_KEY];
 	
-	static unsigned char *s1ram;
+	static UBytePtr s1ram;
 	
 	static int namcos1_cpu1_banklatch;
 	static int namcos1_reset = 0;
@@ -581,7 +581,7 @@ public class namcos1
 		mem_read_handler bank_handler_r;
 		mem_write_handler bank_handler_w;
 		int 		  bank_offset;
-		unsigned char *bank_pointer;
+		UBytePtr bank_pointer;
 	} bankhandler;
 	
 	static bankhandler namcos1_bank_element[NAMCOS1_MAX_BANK];
@@ -724,7 +724,7 @@ public class namcos1
 	
 	public static WriteHandlerPtr namcos1_sound_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		unsigned char *RAM = memory_region(REGION_CPU3);
+		UBytePtr RAM = memory_region(REGION_CPU3);
 		int bank = ( data >> 4 ) & 0x07;
 	
 		cpu_setbank( 1, &RAM[ 0x0c000 + ( 0x4000 * bank ) ] );
@@ -735,7 +735,7 @@ public class namcos1
 	*	CPU idling spinlock routine 											   *
 	*																			   *
 	*******************************************************************************/
-	static unsigned char *sound_spinlock_ram;
+	static UBytePtr sound_spinlock_ram;
 	static int sound_spinlock_pc;
 	
 	/* sound cpu */
@@ -826,7 +826,7 @@ public class namcos1
 	}
 	
 	static void namcos1_install_bank(int start,int end,mem_read_handler hr,mem_write_handler hw,
-				  int offset,unsigned char *pointer)
+				  int offset,UBytePtr pointer)
 	{
 		int i;
 		for(i=start;i<=end;i++)
@@ -842,7 +842,7 @@ public class namcos1
 	
 	static void namcos1_install_rom_bank(int start,int end,int size,int offset)
 	{
-		unsigned char *BROM = memory_region(REGION_USER1);
+		UBytePtr BROM = memory_region(REGION_USER1);
 		int step = size/0x2000;
 		while(start < end)
 		{
@@ -925,7 +925,7 @@ public class namcos1
 	
 		/* Point mcu & sound shared RAM to destination */
 		{
-			unsigned char *RAM = namco_wavedata + 0x1000; /* Ram 1, bank 1, offset 0x1000 */
+			UBytePtr RAM = namco_wavedata + 0x1000; /* Ram 1, bank 1, offset 0x1000 */
 			cpu_setbank( 2, RAM );
 			cpu_setbank( 3, RAM );
 		}
@@ -986,7 +986,7 @@ public class namcos1
 	
 		/* sound cpu speedup optimize (auto detect) */
 		{
-			unsigned char *RAM = memory_region(REGION_CPU3); /* sound cpu */
+			UBytePtr RAM = memory_region(REGION_CPU3); /* sound cpu */
 			int addr,flag_ptr;
 	
 			for(addr=0xd000;addr<0xd0ff;addr++)

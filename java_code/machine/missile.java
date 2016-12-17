@@ -120,7 +120,7 @@ public class missile
 	
 	/********************************************************************************************/
 	
-	unsigned char *missile_video2ram;
+	UBytePtr missile_video2ram;
 	
 	public static ReadHandlerPtr missile_r  = new ReadHandlerPtr() { public int handler(int offset)
 	{

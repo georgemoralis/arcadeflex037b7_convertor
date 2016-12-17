@@ -54,7 +54,7 @@ public class sonson
 	
 	
 	
-	extern unsigned char *sonson_scrollx;
+	extern UBytePtr sonson_scrollx;
 	
 	
 	

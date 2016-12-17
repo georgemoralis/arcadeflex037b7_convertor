@@ -96,9 +96,9 @@ public class rockola
 {
 	
 	
-	extern unsigned char *rockola_videoram2;
-	extern unsigned char *rockola_characterram;
-	extern unsigned char *rockola_scrollx,*rockola_scrolly;
+	extern UBytePtr rockola_videoram2;
+	extern UBytePtr rockola_characterram;
+	extern UBytePtr rockola_scrollx,*rockola_scrolly;
 	
 	extern const char *vanguard_sample_names[];
 	

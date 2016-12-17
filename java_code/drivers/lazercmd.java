@@ -493,7 +493,7 @@ public class lazercmd
 		 1, 0,
 		 0, 1
 	};
-	static void init_palette(unsigned char *game_palette, unsigned short *game_colortable,const unsigned char *color_prom)
+	static void init_palette(UBytePtr game_palette, unsigned short *game_colortable,const UBytePtr color_prom)
 	{
 		memcpy(game_palette,palette,sizeof(palette));
 		memcpy(game_colortable,colortable,sizeof(colortable));
@@ -657,8 +657,8 @@ public class lazercmd
 	 ******************************************************************/
 		for (i = 0; i < 0x40; i++)
 		{
-	unsigned char *d = &memory_region(REGION_GFX1)[0 * 64 * 10 + i * VERT_CHR];
-	unsigned char *s = &memory_region(REGION_GFX1)[4 * 64 * 10 + i * VERT_FNT];
+	UBytePtr d = &memory_region(REGION_GFX1)[0 * 64 * 10 + i * VERT_CHR];
+	UBytePtr s = &memory_region(REGION_GFX1)[4 * 64 * 10 + i * VERT_FNT];
 	
 			for (y = 0; y < VERT_CHR; y++)
 			{
@@ -695,8 +695,8 @@ public class lazercmd
 	 ******************************************************************/
 		for (i = 0; i < 0x40; i++)
 		{
-	unsigned char *d = &memory_region(REGION_GFX1)[0 * 64 * 10 + i * VERT_CHR];
-	unsigned char *s = &memory_region(REGION_GFX1)[4 * 64 * 10 + i * VERT_FNT];
+	UBytePtr d = &memory_region(REGION_GFX1)[0 * 64 * 10 + i * VERT_CHR];
+	UBytePtr s = &memory_region(REGION_GFX1)[4 * 64 * 10 + i * VERT_FNT];
 	
 			for (y = 0; y < VERT_CHR; y++)
 			{

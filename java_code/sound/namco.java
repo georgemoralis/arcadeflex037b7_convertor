@@ -35,20 +35,20 @@ public class namco
 		int noise_state;
 		int noise_seed;
 		int noise_counter;
-		const unsigned char *wave;
+		const UBytePtr wave;
 	} sound_channel;
 	
 	
 	/* globals available to everyone */
-	unsigned char *namco_soundregs;
-	unsigned char *namco_wavedata;
+	UBytePtr namco_soundregs;
+	UBytePtr namco_wavedata;
 	
 	/* data about the sound system */
 	static sound_channel channel_list[MAX_VOICES];
 	static sound_channel *last_channel;
 	
 	/* global sound parameters */
-	static const unsigned char *sound_prom;
+	static const UBytePtr sound_prom;
 	static int samples_per_byte;
 	static int num_voices;
 	static int sound_enable;
@@ -157,7 +157,7 @@ public class namco
 				/* only update if we have non-zero volume and frequency */
 				if (v && f)
 				{
-					const unsigned char *w = voice.wave;
+					const UBytePtr w = voice.wave;
 					int c = voice.counter;
 	
 					/* add our contribution */
@@ -260,7 +260,7 @@ public class namco
 				/* only update if we have non-zero volume and frequency */
 				if ((lv || rv) && f)
 				{
-					const unsigned char *w = voice.wave;
+					const UBytePtr w = voice.wave;
 					int c = voice.counter;
 	
 					/* add our contribution */

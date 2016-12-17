@@ -14,11 +14,11 @@ public class ddragon
 {
 	
 	
-	unsigned char *ddragon_bgvideoram,*ddragon_fgvideoram;
+	UBytePtr ddragon_bgvideoram,*ddragon_fgvideoram;
 	int ddragon_scrollx_hi, ddragon_scrolly_hi;
-	unsigned char *ddragon_scrollx_lo;
-	unsigned char *ddragon_scrolly_lo;
-	unsigned char *ddragon_spriteram;
+	UBytePtr ddragon_scrollx_lo;
+	UBytePtr ddragon_scrolly_lo;
+	UBytePtr ddragon_spriteram;
 	int dd2_video;
 	
 	static struct tilemap *fg_tilemap,*bg_tilemap;
@@ -112,7 +112,7 @@ public class ddragon
 		const struct rectangle *clip = &Machine.visible_area;
 		const struct GfxElement *gfx = Machine.gfx[1];
 	
-		unsigned char *src = &( ddragon_spriteram[0x800] );
+		UBytePtr src = &( ddragon_spriteram[0x800] );
 		int i;
 	
 		for( i = 0; i < ( 64 * 5 ); i += 5 ) {

@@ -18,10 +18,10 @@ public class ddrible
 	extern int ddrible_int_enable_0;
 	extern int ddrible_int_enable_1;
 	
-	unsigned char *ddrible_fg_videoram;
-	unsigned char *ddrible_bg_videoram;
-	unsigned char *ddrible_spriteram_1;
-	unsigned char *ddrible_spriteram_2;
+	UBytePtr ddrible_fg_videoram;
+	UBytePtr ddrible_bg_videoram;
+	UBytePtr ddrible_spriteram_1;
+	UBytePtr ddrible_spriteram_2;
 	
 	static int ddribble_vregs[2][5];
 	
@@ -171,10 +171,10 @@ public class ddrible
 	
 	***************************************************************************/
 	
-	static void ddribble_draw_sprites( struct osd_bitmap *bitmap, unsigned char* source, int lenght, int gfxset, int flipscreen )
+	static void ddribble_draw_sprites( struct osd_bitmap *bitmap, UBytePtr  source, int lenght, int gfxset, int flipscreen )
 	{
 		struct GfxElement *gfx = Machine.gfx[gfxset];
-		const unsigned char *finish = source + lenght;
+		const UBytePtr finish = source + lenght;
 	
 		while( source < finish )
 		{

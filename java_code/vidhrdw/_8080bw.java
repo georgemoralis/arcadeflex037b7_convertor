@@ -524,7 +524,7 @@ public class _8080bw
 	
 	static public static VhUpdatePtr phantom2_vh_screenrefresh = new VhUpdatePtr() { public void handler(osd_bitmap bitmap,int full_refresh) 
 	{
-		unsigned char *clouds;
+		UBytePtr clouds;
 		int x, y;
 	
 	
@@ -537,7 +537,7 @@ public class _8080bw
 	
 		for (y = 0; y < 128; y++)
 		{
-			unsigned char *offs = &memory_region(REGION_PROMS)[y * 0x10];
+			UBytePtr offs = &memory_region(REGION_PROMS)[y * 0x10];
 	
 			for (x = 0; x < 128; x++)
 			{

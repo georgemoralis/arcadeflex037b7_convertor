@@ -49,7 +49,7 @@ public class seta
 {
 	
 	/* Variables and functions that driver has access to */
-	unsigned char *seta_sound_ram;
+	UBytePtr seta_sound_ram;
 	
 	#define SETA_NUM_CHANNELS 16
 	

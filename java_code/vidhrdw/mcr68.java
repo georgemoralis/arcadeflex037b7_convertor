@@ -348,7 +348,7 @@ public class mcr68
 	 *
 	 *************************************/
 	
-	void zwackery_convert_color_prom(unsigned char *palette, unsigned short *colortable, const unsigned char *color_prom)
+	void zwackery_convert_color_prom(UBytePtr palette, unsigned short *colortable, const UBytePtr color_prom)
 	{
 		const UINT8 *colordatabase = (const UINT8 *)memory_region(REGION_GFX3);
 		struct GfxElement *gfx0 = Machine.gfx[0];

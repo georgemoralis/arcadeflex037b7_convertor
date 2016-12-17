@@ -248,7 +248,7 @@ public class wecleman
 	
 	/* Variables only used here: */
 	
-	static unsigned char *sharedram, *blitter_regs;
+	static UBytePtr sharedram, *blitter_regs;
 	static int multiply_reg[2];
 	
 	
@@ -260,7 +260,7 @@ public class wecleman
 	
 	/* Variables defined in vidhrdw: */
 	
-	extern unsigned char *wecleman_pageram, *wecleman_txtram, *wecleman_roadram, *wecleman_unknown;
+	extern UBytePtr wecleman_pageram, *wecleman_txtram, *wecleman_roadram, *wecleman_unknown;
 	extern size_t wecleman_roadram_size;
 	extern int wecleman_bgpage[4], wecleman_fgpage[4], *wecleman_gfx_bank;
 	
@@ -275,8 +275,8 @@ public class wecleman
 	/* This macro is used to decipher the gfx ROMs */
 	
 	#define BITSWAP(_from,_len,_14,_13,_12,_11,_10,_f,_e,_d,_c,_b,_a,_9,_8,_7,_6,_5,_4,_3,_2,_1,_0)\
-	{	unsigned char *buffer; \
-		unsigned char *src = _from; \
+	{	UBytePtr buffer; \
+		UBytePtr src = _from; \
 		if ((buffer = malloc(_len))) \
 		{ \
 			for (i = 0 ; i <= _len ; i++) \
@@ -895,8 +895,8 @@ public class wecleman
 	
 			case 0x06:	/* Bankswitch for chips 0 & 1 */
 			{
-				unsigned char *RAM0 = memory_region(hotchase_k007232_interface.bank[0]);
-				unsigned char *RAM1 = memory_region(hotchase_k007232_interface.bank[1]);
+				UBytePtr RAM0 = memory_region(hotchase_k007232_interface.bank[0]);
+				UBytePtr RAM1 = memory_region(hotchase_k007232_interface.bank[1]);
 	
 				int bank0_a = (data >> 1) & 1;
 				int bank1_a = (data >> 2) & 1;
@@ -912,7 +912,7 @@ public class wecleman
 	
 			case 0x07:	/* Bankswitch for chip 2 */
 			{
-				unsigned char *RAM2 = memory_region(hotchase_k007232_interface.bank[2]);
+				UBytePtr RAM2 = memory_region(hotchase_k007232_interface.bank[2]);
 	
 				int bank2_a = (data >> 0) & 7;
 				int bank2_b = (data >> 3) & 7;
@@ -1526,8 +1526,8 @@ public class wecleman
 		const int region		=	REGION_GFX1;	// sprites
 	
 		const unsigned int len	=	memory_region_length(region);
-		unsigned char *src		=	memory_region(region) + len / 2 - 1;
-		unsigned char *dst		=	memory_region(region) + len - 1;
+		UBytePtr src		=	memory_region(region) + len / 2 - 1;
+		UBytePtr dst		=	memory_region(region) + len - 1;
 	
 		while(dst > src)
 		{
@@ -1543,7 +1543,7 @@ public class wecleman
 	/* Unpack sprites data and do some patching */
 	public static InitDriverPtr init_wecleman = new InitDriverPtr() { public void handler() 
 	{
-		unsigned char *RAM;
+		UBytePtr RAM;
 		int i;
 	
 	/* Optional code patches */
@@ -1659,7 +1659,7 @@ public class wecleman
 	
 	void hotchase_sprite_decode( int num_banks, int bank_size )
 	{
-		unsigned char *base, *temp;
+		UBytePtr base, *temp;
 		int i;
 	
 		base = memory_region(REGION_GFX1);	// sprites
@@ -1667,11 +1667,11 @@ public class wecleman
 		if( !temp ) return;
 	
 		for( i = num_banks; i >0; i-- ){
-			unsigned char *finish	= base + 2*bank_size*i;
-			unsigned char *dest 	= finish - 2*bank_size;
+			UBytePtr finish	= base + 2*bank_size*i;
+			UBytePtr dest 	= finish - 2*bank_size;
 	
-			unsigned char *p1 = temp;
-			unsigned char *p2 = temp+bank_size/2;
+			UBytePtr p1 = temp;
+			UBytePtr p2 = temp+bank_size/2;
 	
 			unsigned char data;
 	
@@ -1711,7 +1711,7 @@ public class wecleman
 	/* Unpack sprites data and do some patching */
 	public static InitDriverPtr init_hotchase = new InitDriverPtr() { public void handler() 
 	{
-		unsigned char *RAM;
+		UBytePtr RAM;
 		int i;
 	
 	/* Optional code patches */

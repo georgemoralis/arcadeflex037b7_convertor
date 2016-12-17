@@ -18,12 +18,12 @@ public class twincobr
 	
 	
 	
-	unsigned char *twincobr_68k_dsp_ram;
-	unsigned char *twincobr_sharedram;
-	unsigned char *wardner_mainram;
+	UBytePtr twincobr_68k_dsp_ram;
+	UBytePtr twincobr_sharedram;
+	UBytePtr wardner_mainram;
 	
-	extern unsigned char *spriteram;
-	extern unsigned char *paletteram;
+	extern UBytePtr spriteram;
+	extern UBytePtr paletteram;
 	
 	
 	extern int twincobr_fg_rom_bank;

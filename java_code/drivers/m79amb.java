@@ -125,7 +125,7 @@ public class m79amb
 		0xff,0x20,0xff  /* PURPLE */
 	};
 	
-	static void init_palette(unsigned char *game_palette, unsigned short *game_colortable,const unsigned char *color_prom)
+	static void init_palette(UBytePtr game_palette, unsigned short *game_colortable,const UBytePtr color_prom)
 	{
 		memcpy(game_palette,palette,sizeof(palette));
 	}
@@ -137,7 +137,7 @@ public class m79amb
 	
 	static public static InitDriverPtr init_m79amb = new InitDriverPtr() { public void handler() 
 	{
-		unsigned char *rom = memory_region(REGION_CPU1);
+		UBytePtr rom = memory_region(REGION_CPU1);
 		int i;
 	
 		/* PROM data is active low */

@@ -71,7 +71,7 @@ public class tait8741
 	
 	/* TAITO8741 I8741 emulation */
 	
-	void taito8741_serial_rx(I8741 *st,unsigned char *data)
+	void taito8741_serial_rx(I8741 *st,UBytePtr data)
 	{
 		memcpy(st.rxd,data,8);
 	}

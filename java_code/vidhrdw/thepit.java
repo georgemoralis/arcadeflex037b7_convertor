@@ -15,7 +15,7 @@ package vidhrdw;
 public class thepit
 {
 	
-	extern unsigned char *galaxian_attributesram;
+	extern UBytePtr galaxian_attributesram;
 	
 	static data_t graphics_bank = 0;
 	

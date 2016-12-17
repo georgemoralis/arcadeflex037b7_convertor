@@ -11,7 +11,7 @@ public class stactics
 	/* needed in vidhrdw/stactics.c */
 	int stactics_vert_pos;
 	int stactics_horiz_pos;
-	unsigned char *stactics_motor_on;
+	UBytePtr stactics_motor_on;
 	
 	/* defined in vidhrdw/stactics.c */
 	extern int stactics_vblank_count;

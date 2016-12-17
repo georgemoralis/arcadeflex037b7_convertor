@@ -15,7 +15,7 @@ package vidhrdw;
 public class bsktball
 {
 	
-	unsigned char *bsktball_motion;
+	UBytePtr bsktball_motion;
 	
 	/***************************************************************************
 	

@@ -30,9 +30,9 @@ public class armedf
 	extern UINT16 armedf_vreg;
 	extern UINT16 terraf_scroll_msb;
 	extern UINT16 armedf_bg_scrollx,armedf_bg_scrolly;
-	extern unsigned char *armedf_bg_videoram;
+	extern UBytePtr armedf_bg_videoram;
 	extern UINT16 armedf_fg_scrollx,armedf_fg_scrolly;
-	extern unsigned char *armedf_fg_videoram;
+	extern UBytePtr armedf_fg_videoram;
 	
 	public static WriteHandlerPtr io_w = new WriteHandlerPtr() {public void handler(int offset, int data){
 		switch (offset/2){

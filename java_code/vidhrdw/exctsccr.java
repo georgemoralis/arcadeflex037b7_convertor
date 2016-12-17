@@ -126,7 +126,7 @@ public class exctsccr
 	
 	static void exctsccr_drawsprites( struct osd_bitmap *bitmap ) {
 		int offs;
-		unsigned char *OBJ1, *OBJ2;
+		UBytePtr OBJ1, *OBJ2;
 	
 		OBJ1 = videoram;
 		OBJ2 = &(spriteram.read(0x20));

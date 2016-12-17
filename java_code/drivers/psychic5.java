@@ -330,7 +330,7 @@ public class psychic5
 	
 	public static WriteHandlerPtr psychic5_bankselect_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 		int bankaddress;
 	
 		if (data != psychic5_bank_latch)

@@ -134,7 +134,7 @@ public class arabian
 		}
 		else  /* if bit 4 of AY port 0f==0 then read RAM memory instead of switches */
 		{
-			unsigned char *RAM = memory_region(REGION_CPU1);
+			UBytePtr RAM = memory_region(REGION_CPU1);
 			pom = RAM[ 0xd7f0 + offset ];
 		}
 	

@@ -20,10 +20,10 @@ package vidhrdw;
 public class tehkanwc
 {
 	
-	unsigned char *tehkanwc_videoram1;
+	UBytePtr tehkanwc_videoram1;
 	size_t tehkanwc_videoram1_size;
 	static struct osd_bitmap *tmpbitmap1 = 0;
-	static unsigned char *dirtybuffer1;
+	static UBytePtr dirtybuffer1;
 	static unsigned char scroll_x[2],scroll_y;
 	static unsigned char led0,led1;
 	

@@ -23,9 +23,9 @@ public class mystston
 	
 	
 	
-	unsigned char *mystston_fgvideoram;
-	unsigned char *mystston_bgvideoram;
-	unsigned char *mystston_scroll;
+	UBytePtr mystston_fgvideoram;
+	UBytePtr mystston_bgvideoram;
+	UBytePtr mystston_scroll;
 	
 	static int textcolor;
 	static struct tilemap *fg_tilemap, *bg_tilemap;

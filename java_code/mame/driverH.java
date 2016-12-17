@@ -288,7 +288,7 @@ public class driverH
 		const struct GfxDecodeInfo *gfxdecodeinfo;
 		unsigned int total_colors;	/* palette is 3*total_colors bytes long */
 		unsigned int color_table_len;	/* length in shorts of the color lookup table */
-		void (*vh_init_palette)(unsigned char *palette, unsigned short *colortable,const unsigned char *color_prom);
+		void (*vh_init_palette)(UBytePtr palette, unsigned short *colortable,const UBytePtr color_prom);
 	
 		int video_attributes;	/* ASG 081897 */
 	

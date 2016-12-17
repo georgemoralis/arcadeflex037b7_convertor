@@ -40,10 +40,10 @@ public class cninja
 {
 	
 	/* Video emulation definitions */
-	extern unsigned char *cninja_pf1_rowscroll,*cninja_pf2_rowscroll;
-	extern unsigned char *cninja_pf3_rowscroll,*cninja_pf4_rowscroll;
-	extern unsigned char *cninja_pf1_data,*cninja_pf2_data;
-	extern unsigned char *cninja_pf3_data,*cninja_pf4_data;
+	extern UBytePtr cninja_pf1_rowscroll,*cninja_pf2_rowscroll;
+	extern UBytePtr cninja_pf3_rowscroll,*cninja_pf4_rowscroll;
+	extern UBytePtr cninja_pf1_data,*cninja_pf2_data;
+	extern UBytePtr cninja_pf3_data,*cninja_pf4_data;
 	
 	
 	
@@ -51,7 +51,7 @@ public class cninja
 	
 	
 	static int loopback[0x100];
-	static unsigned char *cninja_ram;
+	static UBytePtr cninja_ram;
 	
 	/**********************************************************************************/
 	
@@ -1158,7 +1158,7 @@ public class cninja
 	
 	static void cninja_patch(void)
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 		int i;
 	
 		for (i=0; i<0x80000; i+=2) {
@@ -1183,7 +1183,7 @@ public class cninja
 	#if 0
 	static void edrandyj_patch(void)
 	{
-	//	unsigned char *RAM = memory_region(REGION_CPU1);
+	//	UBytePtr RAM = memory_region(REGION_CPU1);
 	
 	//	WRITE_WORD (&RAM[0x98cc],0x4E71);
 	//	WRITE_WORD (&RAM[0x98ce],0x4E71);

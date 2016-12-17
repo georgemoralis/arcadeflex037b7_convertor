@@ -16,8 +16,8 @@ package machine;
 public class ddrible
 {
 	
-	unsigned char *ddrible_sharedram;
-	unsigned char *ddrible_snd_sharedram;
+	UBytePtr ddrible_sharedram;
+	UBytePtr ddrible_snd_sharedram;
 	
 	extern int ddrible_int_enable_0;
 	extern int ddrible_int_enable_1;
@@ -29,7 +29,7 @@ public class ddrible
 	
 	public static WriteHandlerPtr ddrible_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 		int bankaddress;
 	
 		bankaddress = 0x10000 + (data & 0x0f) * 0x2000;

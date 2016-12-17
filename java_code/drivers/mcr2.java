@@ -169,7 +169,7 @@ public class mcr2
 	
 	static public static nvramPtr mcr2_nvram_handler  = new nvramPtr() { public void handler(Object file, int read_or_write) 
 	{
-		unsigned char *ram = memory_region(REGION_CPU1);
+		UBytePtr ram = memory_region(REGION_CPU1);
 	
 		if (read_or_write != 0)
 			osd_fwrite(file, &ram[0xc000], 0x800);

@@ -20,9 +20,9 @@ public class darkseal
 {
 	
 	
-	extern unsigned char *darkseal_pf12_row, *darkseal_pf34_row;
-	extern unsigned char *darkseal_pf1_data,*darkseal_pf2_data,*darkseal_pf3_data;
-	static unsigned char *darkseal_ram;
+	extern UBytePtr darkseal_pf12_row, *darkseal_pf34_row;
+	extern UBytePtr darkseal_pf1_data,*darkseal_pf2_data,*darkseal_pf3_data;
+	static UBytePtr darkseal_ram;
 	
 	/******************************************************************************/
 	
@@ -526,7 +526,7 @@ public class darkseal
 	
 	static void darkseal_decrypt(void)
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 		int i;
 	
 		for (i=0x00000; i<0x80000; i++)

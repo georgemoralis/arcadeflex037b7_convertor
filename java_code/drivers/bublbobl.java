@@ -144,11 +144,11 @@ public class bublbobl
 	
 	
 	/* vidhrdw/bublbobl.c */
-	extern unsigned char *bublbobl_objectram;
+	extern UBytePtr bublbobl_objectram;
 	extern size_t bublbobl_objectram_size;
 	
 	/* machine/bublbobl.c */
-	extern unsigned char *bublbobl_sharedram1,*bublbobl_sharedram2;
+	extern UBytePtr bublbobl_sharedram1,*bublbobl_sharedram2;
 	
 	
 	
@@ -1127,7 +1127,7 @@ public class bublbobl
 	
 	static public static InitDriverPtr init_bublbobl = new InitDriverPtr() { public void handler() 
 	{
-		unsigned char *ROM = memory_region(REGION_CPU1);
+		UBytePtr ROM = memory_region(REGION_CPU1);
 	
 		/* in Bubble Bobble, bank 0 has code falling from 7fff to 8000, */
 		/* so I have to copy it there because bank switching wouldn't catch it */

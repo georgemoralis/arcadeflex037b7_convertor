@@ -24,15 +24,15 @@ public class foodf
 	size_t foodf_playfieldram_size;
 	size_t foodf_spriteram_size;
 	
-	unsigned char *foodf_playfieldram;
-	unsigned char *foodf_spriteram;
+	UBytePtr foodf_playfieldram;
+	UBytePtr foodf_spriteram;
 	
 	
 	/*
 	 *		Statics
 	 */
 	
-	static unsigned char *playfielddirty;
+	static UBytePtr playfielddirty;
 	
 	static struct osd_bitmap *playfieldbitmap;
 	

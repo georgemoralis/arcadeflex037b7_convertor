@@ -207,7 +207,7 @@ public class wiping
 	#if 0
 	{
 		int i,j;
-		extern unsigned char *wiping_soundregs;
+		extern UBytePtr wiping_soundregs;
 	
 		for (i = 0;i < 8;i++)
 		{

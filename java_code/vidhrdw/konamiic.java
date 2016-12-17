@@ -870,7 +870,7 @@ public class konamiic
 	 */
 	
 	void K007121_sprites_draw(int chip,struct osd_bitmap *bitmap,
-			const unsigned char *source,int base_color,int global_x_offset,int bank_base,
+			const UBytePtr source,int base_color,int global_x_offset,int bank_base,
 			UINT32 pri_mask)
 	{
 		const struct GfxElement *gfx = Machine.gfx[chip];
@@ -1019,7 +1019,7 @@ public class konamiic
 	}
 	
 	void K007121_mark_sprites_colors(int chip,
-			const unsigned char *source,int base_color,int bank_base)
+			const UBytePtr source,int base_color,int bank_base)
 	{
 		int i,num,inc,offs[5];
 		int is_flakatck = K007121_ctrlram[chip][0x06] & 0x04;	/* WRONG!!!! */
@@ -1080,14 +1080,14 @@ public class konamiic
 	
 	
 	
-	static unsigned char *K007342_ram,*K007342_scroll_ram;
+	static UBytePtr K007342_ram,*K007342_scroll_ram;
 	static int K007342_gfxnum;
 	static int K007342_int_enabled;
 	static int K007342_flipscreen;
 	static int K007342_scrollx[2];
 	static int K007342_scrolly[2];
-	static unsigned char *K007342_videoram_0,*K007342_colorram_0;
-	static unsigned char *K007342_videoram_1,*K007342_colorram_1;
+	static UBytePtr K007342_videoram_0,*K007342_colorram_0;
+	static UBytePtr K007342_videoram_1,*K007342_colorram_1;
 	static int K007342_regs[8];
 	static void (*K007342_callback)(int tilemap, int bank, int *code, int *color);
 	static struct tilemap *K007342_tilemap[2];
@@ -1108,7 +1108,7 @@ public class konamiic
 	  color RAM     ----xxxx    depends on external connections (usually color and banking)
 	*/
 	
-	static unsigned char *colorram,*videoram1,*videoram2;
+	static UBytePtr colorram,*videoram1,*videoram2;
 	static int layer;
 	
 	static void tilemap_0_preupdate(void)
@@ -1335,7 +1335,7 @@ public class konamiic
 	
 	static struct GfxElement *K007420_gfx;
 	static void (*K007420_callback)(int *code,int *color);
-	static unsigned char *K007420_ram;
+	static UBytePtr K007420_ram;
 	
 	int K007420_vh_start(int gfxnum, void (*callback)(int *code,int *color))
 	{
@@ -1529,10 +1529,10 @@ public class konamiic
 	static int K052109_memory_region;
 	static int K052109_gfxnum;
 	static void (*K052109_callback)(int tilemap,int bank,int *code,int *color);
-	static unsigned char *K052109_ram;
-	static unsigned char *K052109_videoram_F,*K052109_videoram2_F,*K052109_colorram_F;
-	static unsigned char *K052109_videoram_A,*K052109_videoram2_A,*K052109_colorram_A;
-	static unsigned char *K052109_videoram_B,*K052109_videoram2_B,*K052109_colorram_B;
+	static UBytePtr K052109_ram;
+	static UBytePtr K052109_videoram_F,*K052109_videoram2_F,*K052109_colorram_F;
+	static UBytePtr K052109_videoram_A,*K052109_videoram2_A,*K052109_colorram_A;
+	static UBytePtr K052109_videoram_B,*K052109_videoram2_B,*K052109_colorram_B;
 	static unsigned char K052109_charrombank[4];
 	static int has_extra_video_ram;
 	static int K052109_RMRD_line;
@@ -1872,7 +1872,7 @@ public class konamiic
 		if ((K052109_scrollctrl & 0x03) == 0x02)
 		{
 			int xscroll,yscroll,offs;
-			unsigned char *scrollram = &K052109_ram[0x1a00];
+			UBytePtr scrollram = &K052109_ram[0x1a00];
 	
 	
 			tilemap_set_scroll_rows(K052109_tilemap[1],256);
@@ -1889,7 +1889,7 @@ public class konamiic
 		else if ((K052109_scrollctrl & 0x03) == 0x03)
 		{
 			int xscroll,yscroll,offs;
-			unsigned char *scrollram = &K052109_ram[0x1a00];
+			UBytePtr scrollram = &K052109_ram[0x1a00];
 	
 	
 			tilemap_set_scroll_rows(K052109_tilemap[1],256);
@@ -1906,7 +1906,7 @@ public class konamiic
 		else if ((K052109_scrollctrl & 0x04) == 0x04)
 		{
 			int xscroll,yscroll,offs;
-			unsigned char *scrollram = &K052109_ram[0x1800];
+			UBytePtr scrollram = &K052109_ram[0x1800];
 	
 	
 			tilemap_set_scroll_rows(K052109_tilemap[1],1);
@@ -1923,7 +1923,7 @@ public class konamiic
 		else
 		{
 			int xscroll,yscroll;
-			unsigned char *scrollram = &K052109_ram[0x1a00];
+			UBytePtr scrollram = &K052109_ram[0x1a00];
 	
 	
 			tilemap_set_scroll_rows(K052109_tilemap[1],1);
@@ -1938,7 +1938,7 @@ public class konamiic
 		if ((K052109_scrollctrl & 0x18) == 0x10)
 		{
 			int xscroll,yscroll,offs;
-			unsigned char *scrollram = &K052109_ram[0x3a00];
+			UBytePtr scrollram = &K052109_ram[0x3a00];
 	
 	
 			tilemap_set_scroll_rows(K052109_tilemap[2],256);
@@ -1955,7 +1955,7 @@ public class konamiic
 		else if ((K052109_scrollctrl & 0x18) == 0x18)
 		{
 			int xscroll,yscroll,offs;
-			unsigned char *scrollram = &K052109_ram[0x3a00];
+			UBytePtr scrollram = &K052109_ram[0x3a00];
 	
 	
 			tilemap_set_scroll_rows(K052109_tilemap[2],256);
@@ -1972,7 +1972,7 @@ public class konamiic
 		else if ((K052109_scrollctrl & 0x20) == 0x20)
 		{
 			int xscroll,yscroll,offs;
-			unsigned char *scrollram = &K052109_ram[0x3800];
+			UBytePtr scrollram = &K052109_ram[0x3800];
 	
 	
 			tilemap_set_scroll_rows(K052109_tilemap[2],1);
@@ -1989,7 +1989,7 @@ public class konamiic
 		else
 		{
 			int xscroll,yscroll;
-			unsigned char *scrollram = &K052109_ram[0x3a00];
+			UBytePtr scrollram = &K052109_ram[0x3a00];
 	
 	
 			tilemap_set_scroll_rows(K052109_tilemap[2],1);
@@ -2051,7 +2051,7 @@ public class konamiic
 	static int K051960_romoffset;
 	static int K051960_spriteflip,K051960_readroms;
 	static unsigned char K051960_spriterombank[3];
-	static unsigned char *K051960_ram;
+	static UBytePtr K051960_ram;
 	static int K051960_irq_enabled, K051960_nmi_enabled;
 	
 	
@@ -2586,7 +2586,7 @@ public class konamiic
 	static int K053244_readroms;
 	static int K053245_flipscreenX,K053245_flipscreenY;
 	static int K053245_spriteoffsX,K053245_spriteoffsY;
-	static unsigned char *K053245_ram;
+	static UBytePtr K053245_ram;
 	
 	int K053245_vh_start(int gfx_memory_region,int plane0,int plane1,int plane2,int plane3,
 			void (*callback)(int *code,int *color,int *priority))
@@ -3058,7 +3058,7 @@ public class konamiic
 	static int K053246_romoffset;
 	static int K053246_flipscreenX,K053246_flipscreenY;
 	static int K053246_spriteoffsX,K053246_spriteoffsY;
-	static unsigned char *K053247_ram;
+	static UBytePtr K053247_ram;
 	static int K053246_irq_enabled;
 	
 	
@@ -3592,7 +3592,7 @@ public class konamiic
 	static int K051316_offset[MAX_K051316][2];
 	static int K051316_bpp[MAX_K051316];
 	static void (*K051316_callback[MAX_K051316])(int *code,int *color);
-	static unsigned char *K051316_ram[MAX_K051316];
+	static UBytePtr K051316_ram[MAX_K051316];
 	static unsigned char K051316_ctrlram[MAX_K051316][16];
 	static struct tilemap *K051316_tilemap[MAX_K051316];
 	static int K051316_chip_selected;
@@ -4131,14 +4131,14 @@ public class konamiic
 	static struct tilemap *K054157_tilemap[4], *K054157_cur_tilemap;
 	static int K054157_rambank, K054157_cur_rambank, K054157_rombank, K054157_cur_rombank, K054157_romnbbanks;
 	static int K054157_cur_layer, K054157_gfxnum, K054157_memory_region, K054157_cur_offset, K054157_control0;
-	static unsigned char *K054157_rambase, *K054157_cur_lbase, *K054157_cur_rambase, *K054157_rombase;
+	static UBytePtr K054157_rambase, *K054157_cur_lbase, *K054157_cur_rambase, *K054157_rombase;
 	static int K054157_scrollx[4], K054157_scrolly[4];
 	static void (*K054157_callback)(int, int *, int *);
 	static int (*K054157_scrolld)[4][2];
 	
 	static void K054157_get_tile_info(int tile_index)
 	{
-		unsigned char *addr;
+		UBytePtr addr;
 		int attr, code;
 		if(tile_index < 64*32)
 			addr = K054157_cur_lbase + (tile_index<<2);
@@ -4247,13 +4247,13 @@ public class konamiic
 	
 	public static ReadHandlerPtr K054157_ram_word_r  = new ReadHandlerPtr() { public int handler(int offset)
 	{
-		unsigned char *adr = K054157_cur_rambase + offset;
+		UBytePtr adr = K054157_cur_rambase + offset;
 		return READ_WORD(adr);
 	} };
 	
 	public static WriteHandlerPtr K054157_ram_word_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		unsigned char *adr = K054157_cur_rambase + offset;
+		UBytePtr adr = K054157_cur_rambase + offset;
 		int old = READ_WORD(adr);
 		COMBINE_WORD_MEM(adr, data);
 	

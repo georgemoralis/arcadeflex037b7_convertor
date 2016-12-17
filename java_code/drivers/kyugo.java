@@ -30,13 +30,13 @@ public class kyugo
 {
 	
 	/* from vidhrdw */
-	extern unsigned char *kyugo_videoram;
+	extern UBytePtr kyugo_videoram;
 	extern size_t kyugo_videoram_size;
-	extern unsigned char *kyugo_back_scrollY_lo;
-	extern unsigned char *kyugo_back_scrollX;
+	extern UBytePtr kyugo_back_scrollY_lo;
+	extern UBytePtr kyugo_back_scrollX;
 	
 	
-	static unsigned char *shared_ram;
+	static UBytePtr shared_ram;
 	
 	public static ReadHandlerPtr shared_ram_r  = new ReadHandlerPtr() { public int handler(int offset)
 	{

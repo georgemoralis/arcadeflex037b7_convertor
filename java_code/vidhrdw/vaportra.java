@@ -18,17 +18,17 @@ package vidhrdw;
 public class vaportra
 {
 	
-	unsigned char *vaportra_pf1_data,*vaportra_pf2_data,*vaportra_pf3_data,*vaportra_pf4_data;
+	UBytePtr vaportra_pf1_data,*vaportra_pf2_data,*vaportra_pf3_data,*vaportra_pf4_data;
 	
 	static unsigned char vaportra_control_0[16];
 	static unsigned char vaportra_control_1[16];
 	static unsigned char vaportra_control_2[4];
 	
 	static struct tilemap *pf1_tilemap,*pf2_tilemap,*pf3_tilemap,*pf4_tilemap;
-	static unsigned char *gfx_base;
+	static UBytePtr gfx_base;
 	static int gfx_bank,flipscreen;
 	
-	static unsigned char *vaportra_spriteram;
+	static UBytePtr vaportra_spriteram;
 	
 	
 	

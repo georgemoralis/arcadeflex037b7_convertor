@@ -64,12 +64,12 @@ public class rallyx
 	
 	
 	
-	extern unsigned char *pengo_soundregs;
+	extern UBytePtr pengo_soundregs;
 	
-	extern unsigned char *rallyx_videoram2,*rallyx_colorram2;
-	extern unsigned char *rallyx_radarx,*rallyx_radary,*rallyx_radarattr;
+	extern UBytePtr rallyx_videoram2,*rallyx_colorram2;
+	extern UBytePtr rallyx_radarx,*rallyx_radary,*rallyx_radarattr;
 	extern size_t rallyx_radarram_size;
-	extern unsigned char *rallyx_scrollx,*rallyx_scrolly;
+	extern UBytePtr rallyx_scrollx,*rallyx_scrolly;
 	
 	
 	public static WriteHandlerPtr rallyx_coin_lockout_w = new WriteHandlerPtr() {public void handler(int offset, int data)

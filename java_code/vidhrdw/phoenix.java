@@ -17,9 +17,9 @@ public class phoenix
 	
 	/* from sndhrdw/pleiads.c */
 	
-	static unsigned char *ram_page1;
-	static unsigned char *ram_page2;
-	static unsigned char *current_ram_page;
+	static UBytePtr ram_page1;
+	static UBytePtr ram_page2;
+	static UBytePtr current_ram_page;
 	static int current_ram_page_index;
 	static unsigned char bg_scroll;
 	static int palette_bank;

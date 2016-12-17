@@ -7,7 +7,7 @@ package vidhrdw;
 public class mexico86
 {
 	
-	unsigned char *mexico86_videoram,*mexico86_objectram;
+	UBytePtr mexico86_videoram,*mexico86_objectram;
 	size_t mexico86_objectram_size;
 	static int charbank;
 	
@@ -54,7 +54,7 @@ public class mexico86
 	
 	public static WriteHandlerPtr mexico86_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 		if ((data & 7) > 5)
 			usrintf_showmessage( "Switching to invalid bank!" );

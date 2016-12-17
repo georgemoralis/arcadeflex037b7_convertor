@@ -24,8 +24,8 @@ public class lastduel
 {
 	
 	
-	extern unsigned char *lastduel_vram,*lastduel_scroll2,*lastduel_scroll1;
-	static unsigned char *lastduel_ram;
+	extern UBytePtr lastduel_vram,*lastduel_scroll2,*lastduel_scroll1;
+	static UBytePtr lastduel_ram;
 	
 	/******************************************************************************/
 	
@@ -155,7 +155,7 @@ public class lastduel
 	public static WriteHandlerPtr mg_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
 		int bankaddress;
-		unsigned char *RAM = memory_region(REGION_CPU2);
+		UBytePtr RAM = memory_region(REGION_CPU2);
 	
 		bankaddress = 0x10000 + (data & 0x01) * 0x4000;
 		cpu_setbank(3,&RAM[bankaddress]);

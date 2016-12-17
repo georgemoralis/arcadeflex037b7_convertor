@@ -16,8 +16,8 @@ package machine;
 public class grobda
 {
 	
-	unsigned char *grobda_snd_sharedram;
-	unsigned char *grobda_customio_1,*grobda_customio_2;
+	UBytePtr grobda_snd_sharedram;
+	UBytePtr grobda_customio_1,*grobda_customio_2;
 	static int int_enable_1, int_enable_2;
 	static int credits, coincounter1, coincounter2;
 	

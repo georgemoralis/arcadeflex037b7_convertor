@@ -364,7 +364,7 @@ public class rollerg
 	
 	public static konami_cpu_setlines_callbackPtr rollerg_banking = new konami_cpu_setlines_callbackPtr() { public void handler(int lines) 
 	{
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 		int offs = 0;
 	
 	

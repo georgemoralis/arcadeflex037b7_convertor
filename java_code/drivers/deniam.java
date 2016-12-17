@@ -42,7 +42,7 @@ public class deniam
 {
 	
 	
-	extern unsigned char *deniam_videoram,*deniam_textram;
+	extern UBytePtr deniam_videoram,*deniam_textram;
 	
 	
 	

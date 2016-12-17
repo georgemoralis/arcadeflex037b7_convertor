@@ -17,8 +17,8 @@ public class lwings
 	
 	
 	
-	unsigned char *lwings_fgvideoram;
-	unsigned char *lwings_bg1videoram;
+	UBytePtr lwings_fgvideoram;
+	UBytePtr lwings_bg1videoram;
 	
 	static int trojan_vh_type, bg2_image;
 	static struct tilemap *fg_tilemap, *bg1_tilemap, *bg2_tilemap;
@@ -280,7 +280,7 @@ public class lwings
 	static void lwings_mark_sprite_colors(void)
 	{
 		int offs;
-		unsigned char *sprite_colors;
+		UBytePtr sprite_colors;
 	
 	
 		sprite_colors = palette_used_colors + Machine.drv.gfxdecodeinfo[2].color_codes_start;
@@ -300,7 +300,7 @@ public class lwings
 	static void trojan_mark_sprite_colors(void)
 	{
 		int offs;
-		unsigned char *sprite_colors;
+		UBytePtr sprite_colors;
 	
 	
 		sprite_colors = palette_used_colors + Machine.drv.gfxdecodeinfo[2].color_codes_start;

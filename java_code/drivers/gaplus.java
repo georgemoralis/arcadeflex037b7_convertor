@@ -17,10 +17,10 @@ package drivers;
 public class gaplus
 {
 	
-	extern unsigned char *gaplus_snd_sharedram;
-	extern unsigned char *gaplus_sharedram;
-	extern unsigned char *gaplus_customio_1, *gaplus_customio_2, *gaplus_customio_3;
-	extern unsigned char *mappy_soundregs;
+	extern UBytePtr gaplus_snd_sharedram;
+	extern UBytePtr gaplus_sharedram;
+	extern UBytePtr gaplus_customio_1, *gaplus_customio_2, *gaplus_customio_3;
+	extern UBytePtr mappy_soundregs;
 	
 	/* shared memory functions */
 	

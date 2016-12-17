@@ -69,9 +69,9 @@ public class _1942
 	
 	
 	
-	extern unsigned char *c1942_fgvideoram;
-	extern unsigned char *c1942_bgvideoram;
-	extern unsigned char *c1942_spriteram;
+	extern UBytePtr c1942_fgvideoram;
+	extern UBytePtr c1942_bgvideoram;
+	extern UBytePtr c1942_spriteram;
 	extern size_t c1942_spriteram_size;
 	
 	
@@ -81,7 +81,7 @@ public class _1942
 	public static WriteHandlerPtr c1942_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
 		int bankaddress;
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 	
 		bankaddress = 0x10000 + (data & 0x03) * 0x4000;

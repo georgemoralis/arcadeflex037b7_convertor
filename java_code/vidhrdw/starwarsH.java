@@ -22,7 +22,7 @@ See drivers\starwars.c for notes
 
 void vector_engine(VECMEM_TYPE *, long, short, short);
 
-void starwars_set_palette(unsigned char *, unsigned char *,const unsigned char *);
+void starwars_set_palette(UBytePtr , UBytePtr ,const UBytePtr );
 void starwars_vh_screenrefresh(struct osd_bitmap *);
 
 void draw_vector(short, short, short, short, short, short, char);

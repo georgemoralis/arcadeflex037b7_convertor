@@ -14,8 +14,8 @@ public class tecmo
 {
 	
 	
-	unsigned char *tecmo_txvideoram,*tecmo_fgvideoram,*tecmo_bgvideoram;
-	extern unsigned char *spriteram;
+	UBytePtr tecmo_txvideoram,*tecmo_fgvideoram,*tecmo_bgvideoram;
+	extern UBytePtr spriteram;
 	extern size_t spriteram_size;
 	
 	int tecmo_video_type = 0;

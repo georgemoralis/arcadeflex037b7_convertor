@@ -9,9 +9,9 @@ public class dooyong
 	
 	
 	
-	unsigned char *lastday_txvideoram;
-	unsigned char *lastday_bgscroll,*lastday_fgscroll,*bluehawk_fg2scroll;
-	unsigned char *rshark_scroll1,*rshark_scroll2,*rshark_scroll3,*rshark_scroll4;
+	UBytePtr lastday_txvideoram;
+	UBytePtr lastday_bgscroll,*lastday_fgscroll,*bluehawk_fg2scroll;
+	UBytePtr rshark_scroll1,*rshark_scroll2,*rshark_scroll3,*rshark_scroll4;
 	static int tx_disable;
 	
 	
@@ -46,7 +46,7 @@ public class dooyong
 	public static WriteHandlerPtr primella_ctrl_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
 	 	int bankaddress;
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 		/* bits 0-2 select ROM bank */
 		bankaddress = 0x10000 + (data & 0x07) * 0x4000;
@@ -74,8 +74,8 @@ public class dooyong
 	} };
 	
 	
-	static void draw_layer(struct osd_bitmap *bitmap,int gfx,const unsigned char *scroll,
-			const unsigned char *tilemap,int transparency)
+	static void draw_layer(struct osd_bitmap *bitmap,int gfx,const UBytePtr scroll,
+			const UBytePtr tilemap,int transparency)
 	{
 		int offs;
 		int scrollx,scrolly;
@@ -122,8 +122,8 @@ public class dooyong
 		}
 	}
 	
-	static void bluehawk_draw_layer(struct osd_bitmap *bitmap,int gfx,const unsigned char *scroll,
-			const unsigned char *tilemap,int transparency)
+	static void bluehawk_draw_layer(struct osd_bitmap *bitmap,int gfx,const UBytePtr scroll,
+			const UBytePtr tilemap,int transparency)
 	{
 		int offs;
 		int scrollx,scrolly;
@@ -170,8 +170,8 @@ public class dooyong
 		}
 	}
 	
-	static void bluehawk_draw_layer2(struct osd_bitmap *bitmap,int gfx,const unsigned char *scroll,
-			const unsigned char *tilemap,int transparency)
+	static void bluehawk_draw_layer2(struct osd_bitmap *bitmap,int gfx,const UBytePtr scroll,
+			const UBytePtr tilemap,int transparency)
 	{
 		int offs;
 		int scrollx,scrolly;
@@ -218,8 +218,8 @@ public class dooyong
 		}
 	}
 	
-	static void rshark_draw_layer(struct osd_bitmap *bitmap,int gfx,const unsigned char *scroll,
-			const unsigned char *tilemap,const unsigned char *tilemap2,int transparency)
+	static void rshark_draw_layer(struct osd_bitmap *bitmap,int gfx,const UBytePtr scroll,
+			const UBytePtr tilemap,const UBytePtr tilemap2,int transparency)
 	{
 		int offs;
 		int scrollx,scrolly;

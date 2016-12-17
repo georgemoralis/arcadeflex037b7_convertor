@@ -52,7 +52,7 @@ public class blueprnt
 	
 	
 	
-	extern unsigned char *blueprnt_scrollram;
+	extern UBytePtr blueprnt_scrollram;
 	
 	
 	

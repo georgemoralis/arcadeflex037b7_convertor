@@ -20,7 +20,7 @@ public class olibochu
 {
 	
 	
-	unsigned char *olibochu_videoram;
+	UBytePtr olibochu_videoram;
 	
 	
 	public static VhConvertColorPromPtr olibochu_vh_convert_color_prom = new VhConvertColorPromPtr() { public void handler(char []palette, char []colortable, UBytePtr color_prom) 

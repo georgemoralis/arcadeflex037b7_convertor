@@ -68,7 +68,7 @@ public class shangha3
 {
 	
 	
-	unsigned char *shangha3_ram;
+	UBytePtr shangha3_ram;
 	size_t shangha3_ram_size;
 	
 	int shangha3_do_shadows;

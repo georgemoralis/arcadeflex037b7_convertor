@@ -18,10 +18,10 @@ public class yard
 {
 	
 	
-	extern unsigned char *yard_scroll_x_low;
-	extern unsigned char *yard_scroll_x_high;
-	extern unsigned char *yard_scroll_y_low;
-	extern unsigned char *yard_score_panel_disabled;
+	extern UBytePtr yard_scroll_x_low;
+	extern UBytePtr yard_scroll_x_high;
+	extern UBytePtr yard_scroll_y_low;
+	extern UBytePtr yard_score_panel_disabled;
 	
 	
 	

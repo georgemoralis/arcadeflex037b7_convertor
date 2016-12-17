@@ -46,9 +46,9 @@ public class powerins
 {
 	
 	/* Variables that driver has access to: */
-	unsigned char *powerins_vram_0, *powerins_vctrl_0;
-	unsigned char *powerins_vram_1, *powerins_vctrl_1;
-	unsigned char *powerins_vregs;
+	UBytePtr powerins_vram_0, *powerins_vctrl_0;
+	UBytePtr powerins_vram_1, *powerins_vctrl_1;
+	UBytePtr powerins_vregs;
 	
 	/* Variables only used here: */
 	static struct tilemap *tilemap_0, *tilemap_1;
@@ -94,7 +94,7 @@ public class powerins
 	
 			case 0x30:	// OKI banking
 			{
-				unsigned char *RAM = memory_region(REGION_SOUND1);
+				UBytePtr RAM = memory_region(REGION_SOUND1);
 				int new_bank = data & 0x7;
 	
 				if (new_bank != oki_bank)
@@ -318,8 +318,8 @@ public class powerins
 		int color_codes_start	=	Machine.drv.gfxdecodeinfo[2].color_codes_start;
 		int total_color_codes	=	Machine.drv.gfxdecodeinfo[2].total_color_codes;
 	
-		unsigned char *source = spriteram + 0x8000;
-		unsigned char *finish = spriteram + 0x9000;
+		UBytePtr source = spriteram + 0x8000;
+		UBytePtr finish = spriteram + 0x9000;
 	
 		int xmin = Machine.visible_area.min_x;
 		int xmax = Machine.visible_area.max_x;
@@ -373,8 +373,8 @@ public class powerins
 	
 	static void powerins_draw_sprites(struct osd_bitmap *bitmap)
 	{
-		unsigned char *source = spriteram + 0x8000;
-		unsigned char *finish = spriteram + 0x9000;
+		UBytePtr source = spriteram + 0x8000;
+		UBytePtr finish = spriteram + 0x9000;
 	
 		int screen_w	=	Machine.drv.screen_width;
 		int screen_h	=	Machine.drv.screen_height;

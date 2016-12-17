@@ -45,10 +45,10 @@ public class seicross
 	
 	
 	
-	extern unsigned char *seicross_row_scroll;
+	extern UBytePtr seicross_row_scroll;
 	
 	
-	static unsigned char *nvram;
+	static UBytePtr nvram;
 	static size_t nvram_size;
 	
 	
@@ -108,7 +108,7 @@ public class seicross
 	} };
 	
 	
-	static unsigned char *sharedram;
+	static UBytePtr sharedram;
 	
 	public static ReadHandlerPtr sharedram_r  = new ReadHandlerPtr() { public int handler(int offset)
 	{
@@ -616,7 +616,7 @@ public class seicross
 	static public static InitDriverPtr init_friskyt = new InitDriverPtr() { public void handler() 
 	{
 		int A;
-		unsigned char *src,*dest;
+		UBytePtr src,*dest;
 	
 		/* the protection mcu shares the main program ROMs and RAM with the main CPU. */
 	

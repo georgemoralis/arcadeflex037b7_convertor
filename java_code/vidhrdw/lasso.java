@@ -9,7 +9,7 @@ package vidhrdw;
 public class lasso
 {
 	
-	unsigned char *lasso_vram; /* 0x2000 bytes for a 256x256x1 bitmap */
+	UBytePtr lasso_vram; /* 0x2000 bytes for a 256x256x1 bitmap */
 	static int flipscreen,gfxbank;
 	static struct tilemap *background;
 	
@@ -21,7 +21,7 @@ public class lasso
 	
 	***************************************************************************/
 	
-	void lasso_vh_convert_color_prom(unsigned char *palette,unsigned short *colortable,const unsigned char *color_prom)
+	void lasso_vh_convert_color_prom(UBytePtr palette,unsigned short *colortable,const UBytePtr color_prom)
 	{
 		int i;
 		for (i = 0;i < 0x40;i++)
@@ -146,8 +146,8 @@ public class lasso
 	{
 	    const struct GfxElement *gfx = Machine.gfx[2+gfxbank];
 	    struct rectangle clip = Machine.visible_area;
-	    const unsigned char *finish = spriteram;
-		const unsigned char *source = spriteram + 0x80 - 4;
+	    const UBytePtr finish = spriteram;
+		const UBytePtr source = spriteram + 0x80 - 4;
 		while( source>=finish )
 		{
 			int color = source[2];
@@ -179,7 +179,7 @@ public class lasso
 	
 	static void draw_lasso( struct osd_bitmap *bitmap )
 	{
-		const unsigned char *source = lasso_vram;
+		const UBytePtr source = lasso_vram;
 		int x,y;
 		int pen = Machine.pens[0x3f];
 		for( y=0; y<256; y++ )

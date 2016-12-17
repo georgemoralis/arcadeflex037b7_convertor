@@ -14,11 +14,11 @@ public class contra
 {
 	
 	//static int spriteram_offset;
-	static unsigned char *private_spriteram_2,*private_spriteram;
+	static UBytePtr private_spriteram_2,*private_spriteram;
 	
-	unsigned char *contra_fg_vram,*contra_fg_cram;
-	unsigned char *contra_text_vram,*contra_text_cram;
-	unsigned char *contra_bg_vram,*contra_bg_cram;
+	UBytePtr contra_fg_vram,*contra_fg_cram;
+	UBytePtr contra_text_vram,*contra_text_cram;
+	UBytePtr contra_bg_vram,*contra_bg_cram;
 	
 	static struct tilemap *bg_tilemap, *fg_tilemap, *tx_tilemap;
 	
@@ -272,7 +272,7 @@ public class contra
 	
 	static void draw_sprites( struct osd_bitmap *bitmap, int bank )
 	{
-		const unsigned char *source;
+		const UBytePtr source;
 		int base_color = (K007121_ctrlram[bank][6]&0x30)*2;
 	
 		if (bank==0) source=private_spriteram;

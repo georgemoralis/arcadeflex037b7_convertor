@@ -52,22 +52,22 @@ public class stactics
 {
 	
 	/* Defined in machine/stactics.c */
-	extern unsigned char *stactics_motor_on;
+	extern UBytePtr stactics_motor_on;
 	
 	/* Defined in vidhrdw/stactics.c */
-	extern unsigned char *stactics_scroll_ram;
-	extern unsigned char *stactics_videoram_b;
-	extern unsigned char *stactics_chardata_b;
-	extern unsigned char *stactics_videoram_d;
-	extern unsigned char *stactics_chardata_d;
-	extern unsigned char *stactics_videoram_e;
-	extern unsigned char *stactics_chardata_e;
-	extern unsigned char *stactics_videoram_f;
-	extern unsigned char *stactics_chardata_f;
-	extern unsigned char *stactics_display_buffer;
+	extern UBytePtr stactics_scroll_ram;
+	extern UBytePtr stactics_videoram_b;
+	extern UBytePtr stactics_chardata_b;
+	extern UBytePtr stactics_videoram_d;
+	extern UBytePtr stactics_chardata_d;
+	extern UBytePtr stactics_videoram_e;
+	extern UBytePtr stactics_chardata_e;
+	extern UBytePtr stactics_videoram_f;
+	extern UBytePtr stactics_chardata_f;
+	extern UBytePtr stactics_display_buffer;
 	
-	void stactics_vh_convert_color_prom(unsigned char *palette, unsigned short *colortable,
-	                                    const unsigned char *color_prom);
+	void stactics_vh_convert_color_prom(UBytePtr palette, unsigned short *colortable,
+	                                    const UBytePtr color_prom);
 	
 	
 	

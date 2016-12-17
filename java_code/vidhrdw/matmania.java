@@ -23,15 +23,15 @@ public class matmania
 	
 	
 	
-	unsigned char *matmania_videoram2,*matmania_colorram2;
+	UBytePtr matmania_videoram2,*matmania_colorram2;
 	size_t matmania_videoram2_size;
-	unsigned char *matmania_videoram3,*matmania_colorram3;
+	UBytePtr matmania_videoram3,*matmania_colorram3;
 	size_t matmania_videoram3_size;
-	unsigned char *matmania_scroll;
+	UBytePtr matmania_scroll;
 	static struct osd_bitmap *tmpbitmap2;
-	static unsigned char *dirtybuffer2;
+	static UBytePtr dirtybuffer2;
 	
-	unsigned char *matmania_pageselect;
+	UBytePtr matmania_pageselect;
 	
 	/***************************************************************************
 	

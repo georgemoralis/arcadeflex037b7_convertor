@@ -26,7 +26,7 @@ public class rf5c68
 	static int stream;
 	
 	//static unsigned char pcmbuf[0x10000];
-	static unsigned char *pcmbuf=NULL;
+	static UBytePtr pcmbuf=NULL;
 	
 	static struct RF5C68interface *intf;
 	
@@ -51,7 +51,7 @@ public class rf5c68
 	
 		if (Machine.sample_rate == 0) return 0;
 	
-		if(pcmbuf==NULL) pcmbuf=(unsigned char *)malloc(0x10000);
+		if(pcmbuf==NULL) pcmbuf=(UBytePtr )malloc(0x10000);
 		if(pcmbuf==NULL) return 1;
 	
 		intf = inintf;

@@ -16,8 +16,8 @@ public class gng
 {
 	
 	
-	unsigned char *gng_fgvideoram;
-	unsigned char *gng_bgvideoram;
+	UBytePtr gng_fgvideoram;
+	UBytePtr gng_bgvideoram;
 	
 	static struct tilemap *bg_tilemap,*fg_tilemap;
 	

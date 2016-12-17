@@ -7,7 +7,7 @@ package vidhrdw;
 public class labyrunr
 {
 	
-	unsigned char *labyrunr_videoram1,*labyrunr_videoram2;
+	UBytePtr labyrunr_videoram1,*labyrunr_videoram2;
 	static struct tilemap *layer0, *layer1;
 	
 	

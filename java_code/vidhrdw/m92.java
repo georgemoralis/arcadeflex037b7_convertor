@@ -57,7 +57,7 @@ public class m92
 	static int m92_sprite_list;
 	
 	int m92_raster_irq_position,m92_spritechip,m92_raster_machine,m92_raster_enable;
-	unsigned char *m92_vram_data,*m92_spritecontrol;
+	UBytePtr m92_vram_data,*m92_spritecontrol;
 	int m92_game_kludge;
 	
 	extern 

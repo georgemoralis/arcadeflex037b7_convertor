@@ -30,7 +30,7 @@ public class rockrage
 	public static WriteHandlerPtr rockrage_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
 		int bankaddress;
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 		/* bits 4-6 = bank number */
 		bankaddress = 0x10000 + ((data & 0x70) >> 4) * 0x2000;

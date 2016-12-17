@@ -15,12 +15,12 @@ public class toki
 {
 	
 	
-	static unsigned char *ram;
-	extern unsigned char *toki_foreground_videoram;
-	extern unsigned char *toki_background1_videoram;
-	extern unsigned char *toki_background2_videoram;
-	extern unsigned char *toki_sprites_dataram;
-	extern unsigned char *toki_scrollram;
+	static UBytePtr ram;
+	extern UBytePtr toki_foreground_videoram;
+	extern UBytePtr toki_background1_videoram;
+	extern UBytePtr toki_background2_videoram;
+	extern UBytePtr toki_sprites_dataram;
+	extern UBytePtr toki_scrollram;
 	
 	extern size_t toki_foreground_videoram_size;
 	extern size_t toki_background1_videoram_size;
@@ -67,7 +67,7 @@ public class toki
 	public static WriteHandlerPtr toki_adpcm_control_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
 		int bankaddress;
-		unsigned char *RAM = memory_region(REGION_CPU2);
+		UBytePtr RAM = memory_region(REGION_CPU2);
 	
 	
 		/* the code writes either 2 or 3 in the bottom two bits */
@@ -636,7 +636,7 @@ public class toki
 	
 	public static InitDriverPtr init_tokib = new InitDriverPtr() { public void handler() 
 	{
-		unsigned char *temp = malloc (65536 * 2);
+		UBytePtr temp = malloc (65536 * 2);
 		int i, offs;
 	
 		/* invert the sprite data in the ROMs */
@@ -648,7 +648,7 @@ public class toki
 		{
 			for (offs = 0; offs < memory_region_length(REGION_GFX3); offs += 0x20000)
 			{
-				unsigned char *base = &memory_region(REGION_GFX3)[offs];
+				UBytePtr base = &memory_region(REGION_GFX3)[offs];
 				memcpy (temp, base, 65536 * 2);
 				for (i = 0; i < 16; i++)
 				{
@@ -660,7 +660,7 @@ public class toki
 			}
 			for (offs = 0; offs < memory_region_length(REGION_GFX4); offs += 0x20000)
 			{
-				unsigned char *base = &memory_region(REGION_GFX4)[offs];
+				UBytePtr base = &memory_region(REGION_GFX4)[offs];
 				memcpy (temp, base, 65536 * 2);
 				for (i = 0; i < 16; i++)
 				{

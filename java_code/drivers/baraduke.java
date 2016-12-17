@@ -20,8 +20,8 @@ package drivers;
 public class baraduke
 {
 	
-	static unsigned char *sharedram;
-	extern unsigned char *baraduke_textram, *spriteram, *baraduke_videoram;
+	static UBytePtr sharedram;
+	extern UBytePtr baraduke_textram, *spriteram, *baraduke_videoram;
 	
 	/* from vidhrdw/baraduke.c */
 	
@@ -581,7 +581,7 @@ public class baraduke
 	static public static InitDriverPtr init_metrocrs = new InitDriverPtr() { public void handler() 
 	{
 		int i;
-		unsigned char *rom = memory_region(REGION_GFX2);
+		UBytePtr rom = memory_region(REGION_GFX2);
 	
 		for(i = 0x8000;i < memory_region_length(REGION_GFX2);i++)
 			rom[i] = 0xff;

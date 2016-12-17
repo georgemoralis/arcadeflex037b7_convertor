@@ -91,7 +91,7 @@ public class bosco
 {
 	
 	
-	unsigned char *bosco_sharedram;
+	UBytePtr bosco_sharedram;
 	static unsigned char interrupt_enable_1,interrupt_enable_2,interrupt_enable_3;
 	static int		HiScore;
 	int		Score,Score1,Score2;

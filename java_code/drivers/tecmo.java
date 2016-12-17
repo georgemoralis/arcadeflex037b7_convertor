@@ -57,8 +57,8 @@ public class tecmo
 	
 	
 	extern int tecmo_video_type;
-	extern unsigned char *tecmo_txvideoram,*tecmo_fgvideoram,*tecmo_bgvideoram;
-	extern unsigned char *spriteram;
+	extern UBytePtr tecmo_txvideoram,*tecmo_fgvideoram,*tecmo_bgvideoram;
+	extern UBytePtr spriteram;
 	extern size_t spriteram_size;
 	
 	
@@ -68,7 +68,7 @@ public class tecmo
 	public static WriteHandlerPtr tecmo_bankswitch_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
 		int bankaddress;
-		unsigned char *RAM = memory_region(REGION_CPU1);
+		UBytePtr RAM = memory_region(REGION_CPU1);
 	
 	
 		bankaddress = 0x10000 + ((data & 0xf8) << 8);
@@ -110,7 +110,7 @@ public class tecmo
 		}
 		else
 		{
-			unsigned char *ROM = memory_region(REGION_SOUND1);
+			UBytePtr ROM = memory_region(REGION_SOUND1);
 	
 			adpcm_data = ROM[adpcm_pos++];
 			MSM5205_data_w(0,adpcm_data >> 4);

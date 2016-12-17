@@ -16,7 +16,7 @@ public class prehisle
 {
 	
 	static struct osd_bitmap *pf1_bitmap,*pf2_bitmap;
-	unsigned char *prehisle_video;
+	UBytePtr prehisle_video;
 	static int vid_control[32],dirty_back,dirty_front;
 	
 	/******************************************************************************/
@@ -26,7 +26,7 @@ public class prehisle
 		int offs,mx,my,color,tile,i;
 		int colmask[0x80],code,pal_base,tile_base;
 		int scrollx,scrolly;
-		unsigned char *tilemap = memory_region(REGION_GFX5);
+		UBytePtr tilemap = memory_region(REGION_GFX5);
 		static int old_base=0xfffff,old_front=0xfffff;
 	
 		/* Build the dynamic palette */

@@ -55,13 +55,13 @@ public class networkH
 	int net_sync( char type );
 	int net_input_sync( unsigned char input_port_value[], unsigned char input_port_default[], int num_ports );
 	int net_analog_sync( unsigned char input_port_value[], int port, int analog_player_port[], int default_player );
-	int net_send( int player, char type, unsigned char *msg, int size );
-	int net_recv( int player, char type, unsigned char *msg, int size );
+	int net_send( int player, char type, UBytePtr msg, int size );
+	int net_recv( int player, char type, UBytePtr msg, int size );
 	int net_add_player();
 	int net_remove_player( int player );
 	int net_active();
-	int net_chat_send( unsigned char *buf, int *size );
-	int net_chat_recv(int player, unsigned char *buf, int *size );
+	int net_chat_send( UBytePtr buf, int *size );
+	int net_chat_recv(int player, UBytePtr buf, int *size );
 	
 	/**************************************************************************
 	NetMAME PROTOCOL DEFINITION
@@ -144,8 +144,8 @@ public class networkH
 	  int net_sync( char type );
 	  int net_input_sync( unsigned char input_port_value[], unsigned char input_port_default[], int num_ports );
 	  int net_analog_sync( unsigned char input_port_value[], int port, int analog_player_port[], int default_player );
-	  int net_send( int player, char type, char reserved, unsigned char *msg, int size );
-	  int net_recv( int player, char type, char reserved, unsigned char *msg, int size );
+	  int net_send( int player, char type, char reserved, UBytePtr msg, int size );
+	  int net_recv( int player, char type, char reserved, UBytePtr msg, int size );
 	  int net_add_player();
 	  int net_remove_player();
 	  int net_active();

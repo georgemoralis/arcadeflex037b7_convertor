@@ -9,7 +9,7 @@ public class raiden
 {
 	
 	static struct tilemap *bg_layer,*fg_layer,*tx_layer;
-	unsigned char *raiden_back_data,*raiden_fore_data,*raiden_scroll_ram;
+	UBytePtr raiden_back_data,*raiden_fore_data,*raiden_scroll_ram;
 	
 	static int flipscreen,ALTERNATE;
 	
