@@ -389,7 +389,7 @@ public class airbustr
 		/*	x432 1043 	2104 3210	*/
 	
 		paletteram[offset] = data;
-		data = (paletteram[offset | 1] << 8) | paletteram[offset & ~1];
+		data = (paletteram.read(offset | 1)<< 8) | paletteram.read(offset & ~1);
 	
 		g = (data >> 10) & 0x1f;
 		r = (data >>  5) & 0x1f;

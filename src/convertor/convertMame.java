@@ -1484,17 +1484,8 @@ public class convertMame {
                             Convertor.inpos = sd1;
                             break;
                         }
-                        Convertor.token[0] = sUtil.parseToken();
+                        Convertor.token[0] = sUtil.parseToken(']');
                         sUtil.skipSpace();
-                        int k = Convertor.inpos;
-                        if(sUtil.parseChar()== '+')
-                        {
-                            sUtil.skipSpace();
-                            Convertor.token[0] += '+' + sUtil.parseToken();
-                        }
-                        else {
-                            Convertor.inpos = k;
-                        }
                         if (sUtil.parseChar() != ']') {
                             Convertor.inpos = sd1;
                             break;
@@ -1518,17 +1509,8 @@ public class convertMame {
                             Convertor.inpos = sd2;
                             break;
                         }
-                        Convertor.token[0] = sUtil.parseToken();
+                        Convertor.token[0] = sUtil.parseToken(']');
                         sUtil.skipSpace();
-                        int k = Convertor.inpos;
-                        if(sUtil.parseChar()== '+')
-                        {
-                            sUtil.skipSpace();
-                            Convertor.token[0] += '+' + sUtil.parseToken();
-                        }
-                        else {
-                            Convertor.inpos = k;
-                        }
                         if (sUtil.parseChar() != ']') {
                             Convertor.inpos = sd2;
                             break;

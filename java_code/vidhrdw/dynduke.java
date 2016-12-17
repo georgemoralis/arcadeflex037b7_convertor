@@ -21,7 +21,7 @@ public class dynduke
 		int r,g,b;
 	
 		paletteram[offset]=data;
-		data=paletteram[offset&0xffe]|(paletteram[offset|1]<<8);
+		data=paletteram.read(offset&0xffe)|(paletteram.read(offset|1)<<8);
 	
 		r = (data >> 0) & 0x0f;
 		g = (data >> 4) & 0x0f;

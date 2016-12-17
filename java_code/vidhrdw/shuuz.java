@@ -583,14 +583,14 @@ public class shuuz
 			fprintf(f, "\n\nMotion Object Palette:\n");
 			for (i = 0x000; i < 0x100; i++)
 			{
-				fprintf(f, "%04X ", READ_WORD(&paletteram[i*2]));
+				fprintf(f, "%04X ", READ_WORD(&paletteram.read(i*2)));
 				if ((i & 15) == 15) fprintf(f, "\n");
 			}
 	
 			fprintf(f, "\n\nPlayfield Palette:\n");
 			for (i = 0x100; i < 0x200; i++)
 			{
-				fprintf(f, "%04X ", READ_WORD(&paletteram[i*2]));
+				fprintf(f, "%04X ", READ_WORD(&paletteram.read(i*2)));
 				if ((i & 15) == 15) fprintf(f, "\n");
 			}
 	

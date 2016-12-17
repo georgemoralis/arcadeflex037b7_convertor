@@ -158,7 +158,7 @@ public class lkage
 	
 	void lkage_set_palette_row( int virtual_row, int logical_row, int len )
 	{
-		UBytePtr source = &paletteram[logical_row*32];
+		UBytePtr source = &paletteram.read(logical_row*32);
 		int indx = virtual_row*16;
 		while( len-- )
 		{

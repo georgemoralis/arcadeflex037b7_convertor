@@ -198,7 +198,7 @@ public class qix
 	{
 		if ((*qix_palettebank & 0x03) != (data & 0x03))
 		{
-			UBytePtr pram = &paletteram[256 * (data & 0x03)];
+			UBytePtr pram = &paletteram.read(256 * (data & 0x03));
 			int i;
 	
 			for (i = 0;i < 256;i++)

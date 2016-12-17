@@ -308,9 +308,9 @@ public class m72
 		if ((offset & 1) != 0) return;
 		offset &= 0x3ff;
 		changecolor(offset / 2,
-				paletteram.read(offset+0x000),
-				paletteram.read(offset+0x400),
-				paletteram.read(offset+0x800));
+				paletteram.read(offset + 0x000),
+				paletteram.read(offset + 0x400),
+				paletteram.read(offset + 0x800));
 	} };
 	
 	public static WriteHandlerPtr m72_palette2_w = new WriteHandlerPtr() {public void handler(int offset, int data)
@@ -319,9 +319,9 @@ public class m72
 		if ((offset & 1) != 0) return;
 		offset &= 0x3ff;
 		changecolor(offset / 2 + 512,
-				paletteram_2.read(offset+0x000),
-				paletteram_2.read(offset+0x400),
-				paletteram_2.read(offset+0x800));
+				paletteram_2.read(offset + 0x000),
+				paletteram_2.read(offset + 0x400),
+				paletteram_2.read(offset + 0x800));
 	} };
 	
 	public static ReadHandlerPtr m72_videoram1_r  = new ReadHandlerPtr() { public int handler(int offset)

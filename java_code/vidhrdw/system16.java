@@ -1296,7 +1296,7 @@ public class system16
 						if (pal==sys16_sh_shadowpal)	// shadow sprite
 							sprite.flags|= SPRITE_SHADOW;
 						// I think this looks better, but I'm sure it's wrong.
-	//					else if(READ_WORD(&paletteram[2048+pal*2+20]) == 0)
+	//					else if(READ_WORD(&paletteram.read(2048+pal*2+20)) == 0)
 	//					{
 	//						sprite.flags|= SPRITE_PARTIAL_SHADOW;
 	//						sprite.shadow_pen=10;

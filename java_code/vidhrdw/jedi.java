@@ -54,7 +54,7 @@ public class jedi
 	
 	
 		paletteram[offset] = data;
-		color = paletteram[offset & 0x3FF] | (paletteram[offset | 0x400] << 8);
+		color = paletteram.read(offset & 0x3FF)| (paletteram.read(offset | 0x400)<< 8);
 		intensity = (color >> 9) & 0x07;
 		bits = (color >> 6) & 0x07;
 		r = 5 * bits * intensity;

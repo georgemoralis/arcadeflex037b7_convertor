@@ -709,7 +709,7 @@ public class mcr68
 			for (i = 0; i < 2048; i++)
 				if ((i & 0x80) != 0)
 				{
-					int word = READ_WORD(&paletteram[i * 2]);
+					int word = READ_WORD(&paletteram.read(i * 2));
 	
 					int r = (~word >> 10) & 31;
 					int b = (~word >> 5) & 31;
@@ -736,7 +736,7 @@ public class mcr68
 			for (i = 0; i < 2048; i++)
 				if (!(i & 0x80))
 				{
-					int word = READ_WORD(&paletteram[i * 2]);
+					int word = READ_WORD(&paletteram.read(i * 2));
 	
 					int r = (~word >> 10) & 31;
 					int b = (~word >> 5) & 31;

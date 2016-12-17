@@ -795,7 +795,7 @@ public class skullxbo
 	
 			for (i = 0x000; i < 0x800; i++)
 			{
-				fprintf(f, "%04X ", READ_WORD(&paletteram[i*2]));
+				fprintf(f, "%04X ", READ_WORD(&paletteram.read(i*2)));
 				if ((i & 15) == 15) fprintf(f, "\n");
 				if ((i & 255) == 255) fprintf(f, "\n");
 			}

@@ -276,8 +276,8 @@ public class tmnt
 	
 		offset /= 4;
 		{
-			int palette = ((READ_WORD(&paletteram[offset * 4]) & 0x00ff) << 8)
-					+ (READ_WORD(&paletteram[offset * 4 + 2]) & 0x00ff);
+			int palette = ((READ_WORD(&paletteram.read(offset * 4)) & 0x00ff) << 8)
+					+ (READ_WORD(&paletteram.read(offset * 4 + 2)) & 0x00ff);
 			int r = palette & 31;
 			int g = (palette >> 5) & 31;
 			int b = (palette >> 10) & 31;

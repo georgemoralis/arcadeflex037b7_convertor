@@ -102,11 +102,11 @@ public class gundealr
 	
 		paletteram[offset] = data;
 	
-		val = paletteram[offset & ~1];
+		val = paletteram.read(offset & ~1);
 		r = (val >> 4) & 0x0f;
 		g = (val >> 0) & 0x0f;
 	
-		val = paletteram[offset | 1];
+		val = paletteram.read(offset | 1);
 		b = (val >> 4) & 0x0f;
 		/* TODO: the bottom 4 bits are used as well, but I'm not sure about the meaning */
 	

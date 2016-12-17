@@ -217,9 +217,9 @@ public class balsente
 	
 		paletteram[offset] = data & 0x0f;
 	
-		r = paletteram[(offset & ~3) + 0];
-		g = paletteram[(offset & ~3) + 1];
-		b = paletteram[(offset & ~3) + 2];
+		r = paletteram.read((offset & ~3) + 0);
+		g = paletteram.read((offset & ~3) + 1);
+		b = paletteram.read((offset & ~3) + 2);
 		palette_change_color(offset / 4, (r << 4) | r, (g << 4) | g, (b << 4) | b);
 	} };
 	

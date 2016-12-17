@@ -327,7 +327,7 @@ public class toobin
 			last_intensity = intensity;
 			for (i = 0; i < 256+256+64; i++)
 			{
-				int newword = READ_WORD(&paletteram[i*2]);
+				int newword = READ_WORD(&paletteram.read(i*2));
 				int red =   (((newword >> 10) & 31) * 224) >> 5;
 				int green = (((newword >>  5) & 31) * 224) >> 5;
 				int blue =  (((newword      ) & 31) * 224) >> 5;

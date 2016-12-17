@@ -3102,7 +3102,7 @@ public class atarigen
 		if (!(data & 0xff000000))
 		{
 			int palentry = offset / 4;
-			int newword = (READ_WORD(&paletteram[palentry * 4]) & 0xff00) | (READ_WORD(&paletteram[palentry * 4 + 2]) >> 8);
+			int newword = (READ_WORD(&paletteram.read(palentry * 4)) & 0xff00) | (READ_WORD(&paletteram.read(palentry * 4 + 2)) >> 8);
 	
 			int r, g, b;
 	
