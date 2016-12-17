@@ -172,11 +172,11 @@ public class williams
 	public static VhStartPtr williams_vh_start = new VhStartPtr() { public int handler() 
 	{
 		/* allocate space for video RAM and dirty scanlines */
-		williams_videoram = malloc(videoram_size + 256);
+		williams_videoram = malloc(videoram_size[0] + 256);
 		if (!williams_videoram)
 			return 1;
-		scanline_dirty = williams_videoram + videoram_size;
-		memset(williams_videoram, 0, videoram_size);
+		scanline_dirty = williams_videoram + videoram_size[0];
+		memset(williams_videoram, 0, videoram_size[0]);
 		memset(scanline_dirty, 1, 256);
 	
 		/* pick the blitters */

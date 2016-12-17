@@ -43,15 +43,15 @@ public class generic
 		dirtybuffer = 0;
 		tmpbitmap = 0;
 	
-		if (videoram_size == 0)
+		if (videoram_size[0] == 0)
 		{
-	logerror("Error: generic_vh_start() called but videoram_size not initialized\n");
+	logerror("Error: generic_vh_start() called but videoram_size[0] not initialized\n");
 			return 1;
 		}
 	
-		if ((dirtybuffer = malloc(videoram_size)) == 0)
+		if ((dirtybuffer = malloc(videoram_size[0])) == 0)
 			return 1;
-		memset(dirtybuffer,1,videoram_size);
+		memset(dirtybuffer,1,videoram_size[0]);
 	
 		if ((tmpbitmap = bitmap_alloc(Machine.drv.screen_width,Machine.drv.screen_height)) == 0)
 		{

@@ -32,9 +32,9 @@ public class citycon
 	***************************************************************************/
 	public static VhStartPtr citycon_vh_start = new VhStartPtr() { public int handler() 
 	{
-		if ((dirtybuffer = malloc(videoram_size)) == 0)
+		if ((dirtybuffer = malloc(videoram_size[0])) == 0)
 			return 1;
-		memset(dirtybuffer,1,videoram_size);
+		memset(dirtybuffer,1,videoram_size[0]);
 	
 		/* forces creating the background */
 		schedule_full_refresh();

@@ -134,9 +134,9 @@ public class matmania
 	***************************************************************************/
 	public static VhStartPtr matmania_vh_start = new VhStartPtr() { public int handler() 
 	{
-		if ((dirtybuffer = malloc(videoram_size)) == 0)
+		if ((dirtybuffer = malloc(videoram_size[0])) == 0)
 			return 1;
-		memset(dirtybuffer,1,videoram_size);
+		memset(dirtybuffer,1,videoram_size[0]);
 	
 		if ((dirtybuffer2 = malloc(matmania_videoram3_size)) == 0)
 		{

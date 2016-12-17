@@ -82,7 +82,7 @@ public class atarifb
 	
 		memset(alphap1_dirtybuffer, 1, atarifb_alphap1_vram_size);
 		memset(alphap2_dirtybuffer, 1, atarifb_alphap2_vram_size);
-		memset(dirtybuffer, 1, videoram_size);
+		memset(dirtybuffer, 1, videoram_size[0]);
 	
 		return 0;
 	} };

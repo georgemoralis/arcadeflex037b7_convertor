@@ -70,15 +70,15 @@ public class toypop
 	
 	public static VhStartPtr toypop_vh_start = new VhStartPtr() { public int handler() 
 	{
-		if ((dirtybuffer = malloc(videoram_size)) == 0)
+		if ((dirtybuffer = malloc(videoram_size[0])) == 0)
 			return 1;
-		memset(dirtybuffer, 1, videoram_size);
+		memset(dirtybuffer, 1, videoram_size[0]);
 	
-		if ((dirtybackground = malloc(videoram_size)) == 0) {
+		if ((dirtybackground = malloc(videoram_size[0])) == 0) {
 			free(dirtybuffer);
 			return 1;
 		}
-		memset(dirtybackground, 1, videoram_size);
+		memset(dirtybackground, 1, videoram_size[0]);
 	
 		if ((tmpbitmap = bitmap_alloc(36*8,28*8)) == 0) {
 			free(dirtybuffer);

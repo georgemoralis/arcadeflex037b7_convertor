@@ -48,7 +48,7 @@ public class zerozone
 	/* claim a palette dirty array */
 	public static VhStartPtr zerozone_vh_start = new VhStartPtr() { public int handler() 
 	{
-		video_dirty = malloc (videoram_size/2);
+		video_dirty = malloc (videoram_size[0]/2);
 	
 		if (!video_dirty)
 		{
@@ -56,7 +56,7 @@ public class zerozone
 			return 1;
 		}
 	
-		memset(video_dirty,1,videoram_size/2);
+		memset(video_dirty,1,videoram_size[0]/2);
 	
 		return 0;
 	} };

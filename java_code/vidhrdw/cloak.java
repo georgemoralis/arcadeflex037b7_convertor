@@ -181,12 +181,12 @@ public class cloak
 			return 1;
 		}
 	
-		if ((dirtybuffer = malloc(videoram_size)) == 0)
+		if ((dirtybuffer = malloc(videoram_size[0])) == 0)
 		{
 			cloak_vh_stop();
 			return 1;
 		}
-		memset(dirtybuffer,1,videoram_size);
+		memset(dirtybuffer,1,videoram_size[0]);
 	
 		if ((tmpvideoram = malloc(256*256)) == 0)
 		{

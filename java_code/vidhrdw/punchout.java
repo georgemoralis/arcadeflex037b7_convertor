@@ -235,9 +235,9 @@ public class punchout
 	***************************************************************************/
 	public static VhStartPtr punchout_vh_start = new VhStartPtr() { public int handler() 
 	{
-		if ((dirtybuffer = malloc(videoram_size)) == 0)
+		if ((dirtybuffer = malloc(videoram_size[0])) == 0)
 			return 1;
-		memset(dirtybuffer,1,videoram_size);
+		memset(dirtybuffer,1,videoram_size[0]);
 	
 		if ((dirtybuffer2 = malloc(punchout_videoram2_size)) == 0)
 		{
@@ -298,9 +298,9 @@ public class punchout
 	
 	public static VhStartPtr armwrest_vh_start = new VhStartPtr() { public int handler() 
 	{
-		if ((dirtybuffer = malloc(videoram_size)) == 0)
+		if ((dirtybuffer = malloc(videoram_size[0])) == 0)
 			return 1;
-		memset(dirtybuffer,1,videoram_size);
+		memset(dirtybuffer,1,videoram_size[0]);
 	
 		if ((dirtybuffer2 = malloc(punchout_videoram2_size)) == 0)
 		{

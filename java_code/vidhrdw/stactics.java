@@ -246,19 +246,19 @@ public class stactics
 	    if ((bitmap_F = bitmap_alloc(Machine.drv.screen_width,Machine.drv.screen_height)) == 0)   return 1;
 	
 		/* Allocate dirty buffers */
-		if ((dirty_videoram_b = (UBytePtr )malloc(videoram_size)) == 0)       return 1;
-		if ((dirty_videoram_d = (UBytePtr )malloc(videoram_size)) == 0)       return 1;
-		if ((dirty_videoram_e = (UBytePtr )malloc(videoram_size)) == 0)       return 1;
-		if ((dirty_videoram_f = (UBytePtr )malloc(videoram_size)) == 0)       return 1;
+		if ((dirty_videoram_b = (UBytePtr )malloc(videoram_size[0])) == 0)       return 1;
+		if ((dirty_videoram_d = (UBytePtr )malloc(videoram_size[0])) == 0)       return 1;
+		if ((dirty_videoram_e = (UBytePtr )malloc(videoram_size[0])) == 0)       return 1;
+		if ((dirty_videoram_f = (UBytePtr )malloc(videoram_size[0])) == 0)       return 1;
 		if ((dirty_chardata_b = (UBytePtr )malloc(DIRTY_CHARDATA_SIZE)) == 0) return 1;
 		if ((dirty_chardata_d = (UBytePtr )malloc(DIRTY_CHARDATA_SIZE)) == 0) return 1;
 		if ((dirty_chardata_e = (UBytePtr )malloc(DIRTY_CHARDATA_SIZE)) == 0) return 1;
 		if ((dirty_chardata_f = (UBytePtr )malloc(DIRTY_CHARDATA_SIZE)) == 0) return 1;
 	
-	    memset(dirty_videoram_b,1,videoram_size);
-	    memset(dirty_videoram_d,1,videoram_size);
-	    memset(dirty_videoram_e,1,videoram_size);
-	    memset(dirty_videoram_f,1,videoram_size);
+	    memset(dirty_videoram_b,1,videoram_size[0]);
+	    memset(dirty_videoram_d,1,videoram_size[0]);
+	    memset(dirty_videoram_e,1,videoram_size[0]);
+	    memset(dirty_videoram_f,1,videoram_size[0]);
 	    memset(dirty_chardata_b,1,DIRTY_CHARDATA_SIZE);
 	    memset(dirty_chardata_d,1,DIRTY_CHARDATA_SIZE);
 	    memset(dirty_chardata_e,1,DIRTY_CHARDATA_SIZE);

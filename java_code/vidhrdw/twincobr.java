@@ -82,13 +82,13 @@ public class twincobr
 	public static VhStartPtr twincobr_vh_start = new VhStartPtr() { public int handler() 
 	{
 		/* the video RAM is accessed via ports, it's not memory mapped */
-		videoram_size = 0x1000;
+		videoram_size[0] = 0x1000;
 		twincobr_bgvideoram_size = 0x4000;	/* banked two times 0x2000 */
 		twincobr_fgvideoram_size = 0x2000;
 	
-		if ((videoram = malloc(videoram_size)) == 0)
+		if ((videoram = malloc(videoram_size[0])) == 0)
 			return 1;
-		memset(videoram,0,videoram_size);
+		memset(videoram,0,videoram_size[0]);
 	
 		if ((twincobr_fgvideoram = malloc(twincobr_fgvideoram_size)) == 0)
 		{

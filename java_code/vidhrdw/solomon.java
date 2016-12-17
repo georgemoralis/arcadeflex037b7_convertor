@@ -36,13 +36,13 @@ public class solomon
 			return 1;
 		}
 	
-		if ((dirtybuffer2 = malloc(videoram_size)) == 0)
+		if ((dirtybuffer2 = malloc(videoram_size[0])) == 0)
 		{
 			bitmap_free(tmpbitmap2);
 			generic_vh_stop();
 			return 1;
 		}
-		memset(dirtybuffer2,1,videoram_size);
+		memset(dirtybuffer2,1,videoram_size[0]);
 	
 		/* leave everything at the default, but map all foreground 0 pens as transparent */
 		for (i = 0;i < 8;i++) palette_used_colors[16 * i] = PALETTE_COLOR_TRANSPARENT;

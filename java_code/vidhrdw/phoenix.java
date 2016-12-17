@@ -123,7 +123,7 @@ public class phoenix
 	    current_ram_page = 0;
 	    current_ram_page_index = -1;
 	
-		videoram_size = 0x0340;
+		videoram_size[0] = 0x0340;
 		return generic_vh_start();
 	} };
 	

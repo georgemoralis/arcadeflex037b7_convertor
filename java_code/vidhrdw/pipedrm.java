@@ -50,8 +50,8 @@ public class pipedrm
 	public static VhStartPtr pipedrm_vh_start = new VhStartPtr() { public int handler() 
 	{
 		/* allocate videoram */
-		local_videoram[0] = malloc(videoram_size);
-		local_videoram[1] = malloc(videoram_size);
+		local_videoram[0] = malloc(videoram_size[0]);
+		local_videoram[1] = malloc(videoram_size[0]);
 	
 		/* allocate background bitmaps */
 		background[0] = bitmap_alloc(64*8, 64*4);

@@ -47,8 +47,8 @@ public class bogeyman
 	
 	public static VhStartPtr bogeyman_vh_start = new VhStartPtr() { public int handler() 
 	{
-		dirtybuffer = malloc(videoram_size);
-		memset(dirtybuffer,1,videoram_size);
+		dirtybuffer = malloc(videoram_size[0]);
+		memset(dirtybuffer,1,videoram_size[0]);
 		tmpbitmap = bitmap_alloc(256,256);
 	
 		return 0;

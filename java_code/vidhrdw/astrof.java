@@ -86,7 +86,7 @@ public class astrof
 	***************************************************************************/
 	public static VhStartPtr astrof_vh_start = new VhStartPtr() { public int handler() 
 	{
-		if ((colorram = malloc(videoram_size)) == 0)
+		if ((colorram = malloc(videoram_size[0])) == 0)
 		{
 			generic_bitmapped_vh_stop();
 			return 1;

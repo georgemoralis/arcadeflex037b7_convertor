@@ -91,9 +91,9 @@ public class trackfld
 	***************************************************************************/
 	public static VhStartPtr trackfld_vh_start = new VhStartPtr() { public int handler() 
 	{
-		if ((dirtybuffer = malloc(videoram_size)) == 0)
+		if ((dirtybuffer = malloc(videoram_size[0])) == 0)
 			return 1;
-		memset(dirtybuffer,1,videoram_size);
+		memset(dirtybuffer,1,videoram_size[0]);
 	
 		/* TracknField has a virtual screen twice as large as the visible screen */
 		if ((tmpbitmap = bitmap_alloc(2 * Machine.drv.screen_width,Machine.drv.screen_height)) == 0)

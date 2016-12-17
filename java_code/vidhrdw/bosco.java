@@ -138,9 +138,9 @@ public class bosco
 		if (generic_vh_start() != 0)
 			return 1;
 	
-		if ((dirtybuffer2 = malloc(videoram_size)) == 0)
+		if ((dirtybuffer2 = malloc(videoram_size[0])) == 0)
 			return 1;
-		memset(dirtybuffer2,1,videoram_size);
+		memset(dirtybuffer2,1,videoram_size[0]);
 	
 		if ((tmpbitmap1 = bitmap_alloc(32*8,32*8)) == 0)
 		{

@@ -54,7 +54,7 @@ public class buggychl
 	
 	public static VhStartPtr buggychl_vh_start = new VhStartPtr() { public int handler() 
 	{
-		dirtybuffer = malloc(videoram_size);
+		dirtybuffer = malloc(videoram_size[0]);
 		dirtychar = malloc(256 * sizeof(*dirtychar));
 		tmpbitmap1 = bitmap_alloc(256,256);
 		tmpbitmap2 = bitmap_alloc(256,256);
@@ -65,7 +65,7 @@ public class buggychl
 			return 1;
 		}
 	
-		memset(dirtybuffer,1,videoram_size);
+		memset(dirtybuffer,1,videoram_size[0]);
 		memset(dirtychar,0xff,256 * sizeof(*dirtychar));
 	
 		return 0;

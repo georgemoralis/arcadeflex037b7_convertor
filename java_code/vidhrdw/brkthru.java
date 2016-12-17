@@ -99,12 +99,12 @@ public class brkthru
 	***************************************************************************/
 	public static VhStartPtr brkthru_vh_start = new VhStartPtr() { public int handler() 
 	{
-		if ((dirtybuffer = malloc(videoram_size)) == 0)
+		if ((dirtybuffer = malloc(videoram_size[0])) == 0)
 		{
 			generic_vh_stop();
 			return 1;
 		}
-		memset(dirtybuffer,1,videoram_size);
+		memset(dirtybuffer,1,videoram_size[0]);
 	
 		/* the background area is twice as wide as the screen */
 		if ((tmpbitmap = bitmap_alloc(2*Machine.drv.screen_width,Machine.drv.screen_height)) == 0)

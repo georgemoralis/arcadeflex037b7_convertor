@@ -76,7 +76,7 @@ public class gotya
 	
 	public static VhStartPtr gotya_vh_start = new VhStartPtr() { public int handler() 
 	{
-		if ((dirtybuffer = malloc(videoram_size)) == 0)
+		if ((dirtybuffer = malloc(videoram_size[0])) == 0)
 		{
 			return 1;
 		}

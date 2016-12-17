@@ -290,10 +290,10 @@ public class mcr3
 	public static VhStartPtr spyhunt_vh_start = new VhStartPtr() { public int handler() 
 	{
 		/* allocate our own dirty buffer */
-		dirtybuffer = malloc(videoram_size);
+		dirtybuffer = malloc(videoram_size[0]);
 		if (!dirtybuffer)
 			return 1;
-		memset(dirtybuffer, 1, videoram_size);
+		memset(dirtybuffer, 1, videoram_size[0]);
 	
 		/* allocate a bitmap for the background */
 		spyhunt_backbitmap = bitmap_alloc(64*64, 32*32);
