@@ -369,7 +369,7 @@ public class dday
 		int offs;
 	
 	
-		for (offs = videoram_size - 1;offs >= 0;offs--)
+		for (offs = videoram_size[0] - 1;offs >= 0;offs--)
 		{
 			int code, code_background, sx, sy, flipx;
 			UINT8* searchlight_bitmap;

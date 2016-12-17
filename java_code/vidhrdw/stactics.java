@@ -382,10 +382,10 @@ public class stactics
 	
 	    if (old_palette_select != palette_select)
 	    {
-	        memset(dirty_videoram_b,1,videoram_size);
-	        memset(dirty_videoram_d,1,videoram_size);
-	        memset(dirty_videoram_e,1,videoram_size);
-	        memset(dirty_videoram_f,1,videoram_size);
+	        memset(dirty_videoram_b,1,videoram_size[0]);
+	        memset(dirty_videoram_d,1,videoram_size[0]);
+	        memset(dirty_videoram_e,1,videoram_size[0]);
+	        memset(dirty_videoram_f,1,videoram_size[0]);
 	    }
 	    return;
 	} };

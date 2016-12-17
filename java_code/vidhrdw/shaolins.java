@@ -107,7 +107,7 @@ public class shaolins
 		if (palettebank != (data & 7))
 		{
 			palettebank = data & 7;
-			memset(dirtybuffer,1,videoram_size);
+			memset(dirtybuffer,1,videoram_size[0]);
 		}
 	} };
 	
@@ -127,7 +127,7 @@ public class shaolins
 	
 		/* for every character in the Video RAM, check if it has been modified */
 		/* since last time and update it accordingly. */
-		for (offs = 0;offs <= videoram_size;offs++)
+		for (offs = 0;offs <= videoram_size[0];offs++)
 		{
 			if (dirtybuffer[offs])
 			{

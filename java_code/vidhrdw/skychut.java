@@ -27,7 +27,7 @@ public class skychut
 	/*	if (flipscreen != (data & 0x8f))
 		{
 			flipscreen = (data & 0x8f);
-			memset(dirtybuffer,1,videoram_size);
+			memset(dirtybuffer,1,videoram_size[0]);
 		}
 	*/
 	} };
@@ -56,9 +56,9 @@ public class skychut
 	{
 		int offs;
 		if (full_refresh != 0)
-			memset (dirtybuffer, 1, videoram_size);
+			memset (dirtybuffer, 1, videoram_size[0]);
 	
-		for (offs = videoram_size - 1;offs >= 0;offs--)
+		for (offs = videoram_size[0] - 1;offs >= 0;offs--)
 		{
 			if (dirtybuffer[offs])
 			{
@@ -113,9 +113,9 @@ public class skychut
 	{
 		int offs;
 		if (full_refresh != 0)
-			memset (dirtybuffer, 1, videoram_size);
+			memset (dirtybuffer, 1, videoram_size[0]);
 	
-		for (offs = videoram_size - 1;offs >= 0;offs--)
+		for (offs = videoram_size[0] - 1;offs >= 0;offs--)
 		{
 			if (dirtybuffer[offs])
 			{

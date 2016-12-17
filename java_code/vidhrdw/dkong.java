@@ -352,7 +352,7 @@ public class dkong
 		palette_change_color(256,0xff,0x00,0x00);	/* stars */
 	
 		if (palette_recalc() || full_refresh)
-			memset(dirtybuffer,1,videoram_size);
+			memset(dirtybuffer,1,videoram_size[0]);
 	
 		draw_tiles(bitmap);
 		draw_grid(bitmap);
@@ -362,7 +362,7 @@ public class dkong
 	public static VhUpdatePtr dkong_vh_screenrefresh = new VhUpdatePtr() { public void handler(osd_bitmap bitmap,int full_refresh) 
 	{
 		if (full_refresh != 0)
-			memset(dirtybuffer,1,videoram_size);
+			memset(dirtybuffer,1,videoram_size[0]);
 	
 		draw_tiles(bitmap);
 		draw_sprites(bitmap);

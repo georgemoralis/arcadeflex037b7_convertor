@@ -219,7 +219,7 @@ public class mcr68
 	
 		/* update palette */
 		if (palette_recalc())
-			memset(dirtybuffer, 1, videoram_size);
+			memset(dirtybuffer, 1, videoram_size[0]);
 	
 		/* draw the background */
 		mcr68_update_background(tmpbitmap, 0);
@@ -626,7 +626,7 @@ public class mcr68
 	
 		/* update palette */
 		if (palette_recalc())
-			memset(dirtybuffer, 1, videoram_size);
+			memset(dirtybuffer, 1, videoram_size[0]);
 	
 		/* draw the background */
 		zwackery_update_background(tmpbitmap, 0);

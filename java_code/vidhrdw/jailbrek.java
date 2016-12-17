@@ -95,9 +95,9 @@ public class jailbrek
 		int i;
 	
 		if (full_refresh != 0)
-			memset( dirtybuffer, 1, videoram_size );
+			memset( dirtybuffer, 1, videoram_size[0] );
 	
-		for ( i = 0; i < videoram_size; i++ ) {
+		for ( i = 0; i < videoram_size[0]; i++ ) {
 			if ( dirtybuffer[i] ) {
 				int sx,sy, code;
 	

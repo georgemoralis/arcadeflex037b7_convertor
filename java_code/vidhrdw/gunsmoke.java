@@ -292,7 +292,7 @@ public class gunsmoke
 		if (chon != 0)
 		{
 			/* draw the frontmost playfield. They are characters, but draw them as sprites */
-			for (offs = videoram_size - 1;offs >= 0;offs--)
+			for (offs = videoram_size[0] - 1;offs >= 0;offs--)
 			{
 				sx = offs % 32;
 				sy = offs / 32;

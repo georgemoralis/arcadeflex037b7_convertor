@@ -213,8 +213,8 @@ public class tp84
 		{
 			col0 = data;
 	
-			memset(dirtybuffer,1,videoram_size);
-			memset(dirtybuffer2,1,videoram_size);
+			memset(dirtybuffer,1,videoram_size[0]);
+			memset(dirtybuffer2,1,videoram_size[0]);
 		}
 	} };
 	
@@ -235,7 +235,7 @@ public class tp84
 	
 		coloffset = ((col0&0x18) << 1) + ((col0&0x07) << 6);
 	
-		for (offs = videoram_size - 1;offs >= 0;offs--)
+		for (offs = videoram_size[0] - 1;offs >= 0;offs--)
 		{
 			if (dirtybuffer[offs])
 			{

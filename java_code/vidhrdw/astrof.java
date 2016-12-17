@@ -257,7 +257,7 @@ public class astrof
 			int offs;
 	
 			/* redraw bitmap */
-			for (offs = 0; offs < videoram_size; offs++)
+			for (offs = 0; offs < videoram_size[0]; offs++)
 			{
 				common_videoram_w(offs, videoram.read(offs), colorram.read(offs));
 			}

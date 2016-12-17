@@ -161,12 +161,12 @@ public class atetris
 	
 		/* recalc the palette if necessary */
 		if (palette_recalc() || full_refresh)
-			memset (dirtybuffer,1,videoram_size);
+			memset (dirtybuffer,1,videoram_size[0]);
 	
 	
 		/* for every character in the backround RAM, check if it has been modified */
 		/* since last time and update it accordingly. */
-		for (offs = 0; offs < videoram_size; offs += 2)
+		for (offs = 0; offs < videoram_size[0]; offs += 2)
 		{
 			int charcode,sx,sy,color;
 	

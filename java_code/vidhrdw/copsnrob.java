@@ -56,7 +56,7 @@ public class copsnrob
 	
 	    /* redrawing the entire display is faster in this case */
 	
-	    for (offs = videoram_size;offs >= 0;offs--)
+	    for (offs = videoram_size[0];offs >= 0;offs--)
 	    {
 			int sx,sy;
 	

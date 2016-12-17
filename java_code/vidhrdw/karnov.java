@@ -165,7 +165,7 @@ public class karnov
 		}
 	
 		/* Draw character tiles */
-		for (offs = videoram_size - 2;offs >= 0;offs -= 2) {
+		for (offs = videoram_size[0] - 2;offs >= 0;offs -= 2) {
 			tile=READ_WORD (&videoram.read(offs));
 			if (!tile) continue;
 			color=tile>>14;
@@ -269,7 +269,7 @@ public class karnov
 		}
 	
 		/* Draw character tiles */
-		for (offs = videoram_size - 2;offs >= 0;offs -= 2) {
+		for (offs = videoram_size[0] - 2;offs >= 0;offs -= 2) {
 			tile=READ_WORD (&videoram.read(offs));
 			if (!tile) continue;
 			color=tile>>14;

@@ -101,7 +101,7 @@ public class playch10
 		bottom_monitor.min_y = ( bottom_monitor.max_y - bottom_monitor.min_y ) / 2;
 	
 		if ( palette_recalc() || full_refresh )
-			memset( dirtybuffer, 1, videoram_size );
+			memset( dirtybuffer, 1, videoram_size[0] );
 	
 		/* On Playchoice 10 single monitor, this bit toggles	*/
 		/* between PPU and BIOS display.						*/
@@ -168,7 +168,7 @@ public class playch10
 			return;
 		}
 	
-		for( offs = videoram_size - 2; offs >= 0; offs -= 2 )
+		for( offs = videoram_size[0] - 2; offs >= 0; offs -= 2 )
 		{
 			if ( dirtybuffer[offs] || dirtybuffer[offs+1] )
 			{

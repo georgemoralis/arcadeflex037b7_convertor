@@ -62,14 +62,14 @@ public class hexa
 		if (flipx != (data & 0x01))
 		{
 			flipx = data & 0x01;
-			memset(dirtybuffer,1,videoram_size);
+			memset(dirtybuffer,1,videoram_size[0]);
 		}
 	
 		/* bit 1 = flipy (or x?) */
 		if (flipy != (data & 0x02))
 		{
 			flipy = data & 0x02;
-			memset(dirtybuffer,1,videoram_size);
+			memset(dirtybuffer,1,videoram_size[0]);
 		}
 	
 		/* bit 2 - 3 unknown */
@@ -82,7 +82,7 @@ public class hexa
 		if (charbank != ((data & 0x20) >> 5))
 		{
 			charbank = (data & 0x20) >> 5;
-			memset(dirtybuffer,1,videoram_size);
+			memset(dirtybuffer,1,videoram_size[0]);
 		}
 	
 		/* bit 6 - 7 unknown */
@@ -104,7 +104,7 @@ public class hexa
 	
 		/* for every character in the Video RAM, check if it has been modified */
 		/* since last time and update it accordingly. */
-		for (offs = videoram_size - 2;offs >= 0;offs -= 2)
+		for (offs = videoram_size[0] - 2;offs >= 0;offs -= 2)
 		{
 			if (dirtybuffer[offs] || dirtybuffer[offs + 1])
 			{

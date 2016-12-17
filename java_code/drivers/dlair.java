@@ -55,7 +55,7 @@ public class dlair
 	
 		/* for every character in the Video RAM, check if it has been modified */
 		/* since last time and update it accordingly. */
-		for (offs = videoram_size - 2;offs >= 0;offs-=2)
+		for (offs = videoram_size[0] - 2;offs >= 0;offs-=2)
 		{
 			if (dirtybuffer[offs] || dirtybuffer[offs+1])
 			{

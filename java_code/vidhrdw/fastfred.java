@@ -153,13 +153,13 @@ public class fastfred
 	
 	
 		if (palette_recalc() || full_refresh)
-			memset(dirtybuffer,1,videoram_size);
+			memset(dirtybuffer,1,videoram_size[0]);
 	
 	
 		charbank   = ((character_bank[1] << 9) | (character_bank[0] << 8));
 		colorbank  = ((color_bank[1]     << 4) | (color_bank[0]     << 3));
 	
-		for (offs = videoram_size - 1;offs >= 0;offs--)
+		for (offs = videoram_size[0] - 1;offs >= 0;offs--)
 		{
 			int color;
 	

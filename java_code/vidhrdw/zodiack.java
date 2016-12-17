@@ -85,7 +85,7 @@ public class zodiack
 		{
 			flipscreen = !data;
 	
-			memset(dirtybuffer, 1, videoram_size);
+			memset(dirtybuffer, 1, videoram_size[0]);
 		}
 	} };
 	
@@ -113,7 +113,7 @@ public class zodiack
 	
 	
 		/* draw the background characters */
-		for (offs = 0; offs < videoram_size; offs++)
+		for (offs = 0; offs < videoram_size[0]; offs++)
 		{
 			int code,sx,sy,col;
 	
@@ -146,7 +146,7 @@ public class zodiack
 	
 	
 		/* draw the foreground characters */
-		for (offs = 0; offs < videoram_size; offs++)
+		for (offs = 0; offs < videoram_size[0]; offs++)
 		{
 			int code,sx,sy,col;
 	

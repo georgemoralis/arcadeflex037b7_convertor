@@ -36,7 +36,7 @@ public class meteor
 		fillbitmap(bitmap,Machine.pens[0],&Machine.visible_area);
 	
 	
-		for (offs = 0; offs < videoram_size; offs++)
+		for (offs = 0; offs < videoram_size[0]; offs++)
 		{
 			int code,sx,sy,col;
 	

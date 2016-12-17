@@ -79,7 +79,7 @@ public class bogeyman
 		int mx,my,offs,color,tile,bank,sx,sy,flipx,flipy,multi;
 	
 		if (palette_recalc())
-			memset(dirtybuffer,1,videoram_size);
+			memset(dirtybuffer,1,videoram_size[0]);
 	
 		flipscreen=0; /* For now */
 	

@@ -159,7 +159,7 @@ public class meadows
 	/*************************************************************/
 	public static WriteHandlerPtr meadows_videoram_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-	    if (offset >= videoram_size)
+	    if (offset >= videoram_size[0])
 	        return;
 		if (videoram[offset] == data)
 			return;

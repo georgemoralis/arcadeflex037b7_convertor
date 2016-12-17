@@ -92,8 +92,8 @@ public class solomon
 		if (flipscreen != (data & 1))
 		{
 			flipscreen = data & 1;
-			memset(dirtybuffer,1,videoram_size);
-			memset(dirtybuffer2,1,videoram_size);
+			memset(dirtybuffer,1,videoram_size[0]);
+			memset(dirtybuffer2,1,videoram_size[0]);
 		}
 	} };
 	
@@ -114,12 +114,12 @@ public class solomon
 		/* recalc the palette if necessary */
 		if (palette_recalc())
 		{
-			memset(dirtybuffer,1,videoram_size);
-			memset(dirtybuffer2,1,videoram_size);
+			memset(dirtybuffer,1,videoram_size[0]);
+			memset(dirtybuffer2,1,videoram_size[0]);
 		}
 	
 	
-		for (offs = 0;offs < videoram_size;offs++)
+		for (offs = 0;offs < videoram_size[0];offs++)
 		{
 			if (dirtybuffer2[offs])
 			{
@@ -152,7 +152,7 @@ public class solomon
 		copybitmap(bitmap,tmpbitmap2,0,0,0,0,&Machine.visible_area,TRANSPARENCY_NONE,0);
 	
 		/* draw the frontmost playfield */
-		for (offs = videoram_size - 1;offs >= 0;offs--)
+		for (offs = videoram_size[0] - 1;offs >= 0;offs--)
 		{
 			if (dirtybuffer[offs])
 			{

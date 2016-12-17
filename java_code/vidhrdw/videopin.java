@@ -44,7 +44,7 @@ public class videopin
 	
 		if (full_refresh != 0)
 		{
-			memset(dirtybuffer,1,videoram_size);
+			memset(dirtybuffer,1,videoram_size[0]);
 		}
 	
 	    /* For every character in the Video RAM, check if it has been modified
@@ -59,7 +59,7 @@ public class videopin
 		 * Playfield window size is 296x256
 		 * X and Y are referring to the screen in it's non final orientation (ROT0)
 		 */
-		for (offs = videoram_size - 1;offs >= 0;offs--)
+		for (offs = videoram_size[0] - 1;offs >= 0;offs--)
 		{
 			if (full_refresh || dirtybuffer[offs])
 			{

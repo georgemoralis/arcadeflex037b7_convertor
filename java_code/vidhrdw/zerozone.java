@@ -110,10 +110,10 @@ public class zerozone
 		zerozone_update_palette ();
 	
 		if (full_refresh != 0)
-			memset(video_dirty,1,videoram_size/2);
+			memset(video_dirty,1,videoram_size[0]/2);
 	
 		/* Do the background first */
-		for (offs = 0;offs < videoram_size;offs += 2)
+		for (offs = 0;offs < videoram_size[0];offs += 2)
 		{
 			int tile, color;
 	

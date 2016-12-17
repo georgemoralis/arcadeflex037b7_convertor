@@ -275,11 +275,11 @@ public class galivan
 	
 	logerror("%04x: write %02x to port 80\n",cpu_get_pc(),data);
 	
-			for (offs = 0; offs < videoram_size; offs++)
+			for (offs = 0; offs < videoram_size[0]; offs++)
 			{
 				galivan_videoram_w(offs, 0x20);
 			}
-			for (offs = 0; offs < videoram_size; offs++)
+			for (offs = 0; offs < videoram_size[0]; offs++)
 			{
 				galivan_colorram_w(offs, 0x03);
 			}

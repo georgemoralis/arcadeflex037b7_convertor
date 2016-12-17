@@ -192,9 +192,9 @@ public class geebee
 	#endif
 	
 		if (palette_recalc() || full_refresh )
-	        memset(dirtybuffer, 1, videoram_size);
+	        memset(dirtybuffer, 1, videoram_size[0]);
 	
-		for( offs = 0; offs < videoram_size; offs++ )
+		for( offs = 0; offs < videoram_size[0]; offs++ )
 		{
 			if( dirtybuffer[offs] )
 			{

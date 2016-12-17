@@ -172,7 +172,7 @@ public class superqix
 		if (gfxbank != (data & 0x03))
 		{
 			gfxbank = data & 0x03;
-			memset(dirtybuffer,1,videoram_size);
+			memset(dirtybuffer,1,videoram_size[0]);
 		}
 	
 		/* bit 2 controls bitmap 1/2 */
@@ -211,7 +211,7 @@ public class superqix
 		/* recalc the palette if necessary */
 		if (palette_recalc())
 		{
-			memset(dirtybuffer,1,videoram_size);
+			memset(dirtybuffer,1,videoram_size[0]);
 			memset(superqix_bitmapram_dirty,1,0x7000);
 			memset(superqix_bitmapram2_dirty,1,0x7000);
 			sqix_minx=0;sqix_maxx=127;sqix_miny=0;sqix_maxy=223;
@@ -220,7 +220,7 @@ public class superqix
 	
 		/* for every character in the Video RAM, check if it has been modified */
 		/* since last time and update it accordingly. */
-		for (offs = videoram_size - 1;offs >= 0;offs--)
+		for (offs = videoram_size[0] - 1;offs >= 0;offs--)
 		{
 			if (dirtybuffer[offs])
 			{
@@ -313,7 +313,7 @@ public class superqix
 	
 	
 		/* redraw characters which have priority over the bitmap */
-		for (offs = videoram_size - 1;offs >= 0;offs--)
+		for (offs = videoram_size[0] - 1;offs >= 0;offs--)
 		{
 			if (colorram.read(offs)& 0x08)
 			{

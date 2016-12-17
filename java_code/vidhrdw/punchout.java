@@ -418,7 +418,7 @@ public class punchout
 		if (top_palette_bank != ((data >> 1) & 0x01))
 		{
 			top_palette_bank = (data >> 1) & 0x01;
-			memset(dirtybuffer,1,videoram_size);
+			memset(dirtybuffer,1,videoram_size[0]);
 		}
 		if (bottom_palette_bank != ((data >> 0) & 0x01))
 		{
@@ -445,7 +445,7 @@ public class punchout
 	
 		/* for every character in the Video RAM, check if it has been modified */
 		/* since last time and update it accordingly. */
-		for (offs = videoram_size - 2;offs >= 0;offs -= 2)
+		for (offs = videoram_size[0] - 2;offs >= 0;offs -= 2)
 		{
 			if (dirtybuffer[offs] || dirtybuffer[offs + 1])
 			{
@@ -784,7 +784,7 @@ public class punchout
 	
 	
 		/* draw the foregound chars */
-		for (offs = videoram_size - 2;offs >= 0;offs -= 2)
+		for (offs = videoram_size[0] - 2;offs >= 0;offs -= 2)
 		{
 			int sx,sy;
 	

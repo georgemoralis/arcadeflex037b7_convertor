@@ -74,7 +74,7 @@ public class kyugo
 		if (palbank != ((data & 0x40) >> 6))
 		{
 			palbank = (data & 0x40) >> 6;
-			memset(dirtybuffer,1,videoram_size);
+			memset(dirtybuffer,1,videoram_size[0]);
 		}
 	
 	if ((data & 0x9e) != 0)
@@ -91,7 +91,7 @@ public class kyugo
 		if (flipscreen != (data & 0x01))
 		{
 			flipscreen = (data & 0x01);
-			memset(dirtybuffer,1,videoram_size);
+			memset(dirtybuffer,1,videoram_size[0]);
 		}
 	} };
 	
@@ -155,7 +155,7 @@ public class kyugo
 	
 	
 		/* back layer */
-		for( offs = videoram_size - 1;offs >= 0;offs-- )
+		for( offs = videoram_size[0] - 1;offs >= 0;offs-- )
 		{
 			if ( dirtybuffer[offs] )
 			{

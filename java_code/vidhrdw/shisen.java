@@ -26,7 +26,7 @@ public class shisen
 		if (gfxbank != ((data & 0x38) >> 3))
 		{
 			gfxbank = (data & 0x38) >> 3;
-			memset(dirtybuffer,1,videoram_size);
+			memset(dirtybuffer,1,videoram_size[0]);
 		}
 	
 		/* bits 6-7 unknown */
@@ -59,11 +59,11 @@ public class shisen
 	
 	
 		if (palette_recalc())
-			memset(dirtybuffer,1,videoram_size);
+			memset(dirtybuffer,1,videoram_size[0]);
 	
 		/* for every character in the Video RAM, check if it has been modified */
 		/* since last time and update it accordingly. */
-		for (offs = videoram_size-2;offs >= 0;offs -= 2)
+		for (offs = videoram_size[0]-2;offs >= 0;offs -= 2)
 		{
 			if (dirtybuffer[offs] || dirtybuffer[offs+1])
 			{

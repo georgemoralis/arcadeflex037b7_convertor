@@ -161,7 +161,7 @@ public class wc90
 				tile = wc90_tile_videoram[offs] + 256 * (( cram & 3 ) + ( ( cram >> 1 ) & 4 ));
 				palette_map[2*16 + (cram >> 4)] |= Machine.gfx[1].pen_usage[tile];
 			}
-			for ( offs = videoram_size - 1; offs >= 0; offs-- )
+			for ( offs = videoram_size[0] - 1; offs >= 0; offs-- )
 			{
 				cram = colorram.read(offs);
 				tile = videoram.read(offs)+ ( ( cram & 0x07 ) << 8 );
@@ -195,7 +195,7 @@ public class wc90
 	
 			if (palette_recalc ())
 			{
-				memset( dirtybuffer,  1, videoram_size );
+				memset( dirtybuffer,  1, videoram_size[0] );
 				memset( dirtybuffer1, 1, wc90_tile_videoram_size );
 				memset( dirtybuffer2, 1, wc90_tile_videoram_size2 );
 			}
@@ -267,7 +267,7 @@ public class wc90
 	
 		wc90_draw_sprites( bitmap, 1 );
 	
-		for ( offs = videoram_size - 1; offs >= 0; offs-- ) {
+		for ( offs = videoram_size[0] - 1; offs >= 0; offs-- ) {
 			if ( dirtybuffer[offs] ) {
 				int sx, sy;
 	

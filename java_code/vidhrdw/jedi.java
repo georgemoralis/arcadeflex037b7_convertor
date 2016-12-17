@@ -155,7 +155,7 @@ public class jedi
 		if (jedi_alpha_bank != 2*(data & 0x80))
 		{
 			jedi_alpha_bank = 2*(data & 0x80);
-			memset(dirtybuffer,1,videoram_size);
+			memset(dirtybuffer,1,videoram_size[0]);
 		}
 	} };
 	
@@ -185,7 +185,7 @@ public class jedi
 	
 		if (palette_recalc())
 		{
-			memset(dirtybuffer,1,videoram_size);
+			memset(dirtybuffer,1,videoram_size[0]);
 			memset(dirtybuffer2,1,jedi_backgroundram_size);
 		}
 	
@@ -204,7 +204,7 @@ public class jedi
 		/* colors (see the palette test in service mode) */
 	
 	    /* foreground */
-	    for (offs = videoram_size - 1;offs >= 0;offs--)
+	    for (offs = videoram_size[0] - 1;offs >= 0;offs--)
 		{
 			if (dirtybuffer[offs])
 			{

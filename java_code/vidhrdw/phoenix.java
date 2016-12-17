@@ -156,7 +156,7 @@ public class phoenix
 	public static WriteHandlerPtr phoenix_paged_ram_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
 		if ((offset >= BACKGROUND_VIDEORAM_OFFSET) &&
-			(offset <  BACKGROUND_VIDEORAM_OFFSET + videoram_size))
+			(offset <  BACKGROUND_VIDEORAM_OFFSET + videoram_size[0]))
 		{
 			/* Background video RAM */
 			if (data != current_ram_page[offset])
@@ -178,14 +178,14 @@ public class phoenix
 	
 			current_ram_page = current_ram_page_index ? ram_page2 : ram_page1;
 	
-			memset(dirtybuffer,1,videoram_size);
+			memset(dirtybuffer,1,videoram_size[0]);
 		}
 	
 		if (palette_bank != ((data >> 1) & 1))
 		{
 			palette_bank = (data >> 1) & 1;
 	
-			memset(dirtybuffer,1,videoram_size);
+			memset(dirtybuffer,1,videoram_size[0]);
 		}
 	
 		protection_question = data & 0xfc;
@@ -242,7 +242,7 @@ public class phoenix
 	
 		/* for every character in the Video RAM, check if it has been modified */
 		/* since last time and update it accordingly. */
-		for (offs = videoram_size - 1;offs >= 0;offs--)
+		for (offs = videoram_size[0] - 1;offs >= 0;offs--)
 		{
 			if (dirtybuffer[offs])
 			{
@@ -278,7 +278,7 @@ public class phoenix
 	
 	
 		/* draw the frontmost playfield. They are characters, but draw them as sprites */
-		for (offs = videoram_size - 1;offs >= 0;offs--)
+		for (offs = videoram_size[0] - 1;offs >= 0;offs--)
 		{
 			int sx,sy,code;
 	

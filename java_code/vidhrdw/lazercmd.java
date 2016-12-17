@@ -122,11 +122,11 @@ public class lazercmd
 		if (video_inverted != (input_port_2_r(0) & 0x20))
 		{
 			video_inverted = input_port_2_r(0) & 0x20;
-			memset(dirtybuffer, 1, videoram_size);
+			memset(dirtybuffer, 1, videoram_size[0]);
 		}
 	
 		if (palette_recalc() || full_refresh)
-	        memset(dirtybuffer, 1, videoram_size);
+	        memset(dirtybuffer, 1, videoram_size[0]);
 	
 		/* The first row of characters are invisible */
 		for (i = 0; i < (VERT_RES - 1) * HORZ_RES; i++)

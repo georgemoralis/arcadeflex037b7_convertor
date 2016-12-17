@@ -124,7 +124,7 @@ public class cop01
 		if (flipscreen != (data & 0x04))
 		{
 			flipscreen = data & 0x04;
-	        memset(dirtybuffer,1,videoram_size);
+	        memset(dirtybuffer,1,videoram_size[0]);
 		}
 	
 		/* bits 4 and 5 select sprite bank */
@@ -149,7 +149,7 @@ public class cop01
 	
 	
 		/* draw the background */
-		for (offs = videoram_size - 1;offs >= 0;offs--)
+		for (offs = videoram_size[0] - 1;offs >= 0;offs--)
 		{
 			if (dirtybuffer[offs])
 			{

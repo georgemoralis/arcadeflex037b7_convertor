@@ -78,9 +78,9 @@ public class flstory
 	
 	
 		if (palette_recalc())
-			memset(dirtybuffer,1,videoram_size);
+			memset(dirtybuffer,1,videoram_size[0]);
 	
-		for (offs = videoram_size - 2;offs >= 0;offs -= 2)
+		for (offs = videoram_size[0] - 2;offs >= 0;offs -= 2)
 		{
 			if (dirtybuffer[offs] || dirtybuffer[offs+1])
 			{
@@ -132,7 +132,7 @@ public class flstory
 		}
 	
 		/* redraw chars with priority over sprites */
-		for (offs = videoram_size - 2;offs >= 0;offs -= 2)
+		for (offs = videoram_size[0] - 2;offs >= 0;offs -= 2)
 		{
 			if (videoram.read(offs+1)& 0x20)
 			{

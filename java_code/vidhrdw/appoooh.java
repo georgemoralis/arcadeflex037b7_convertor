@@ -160,8 +160,8 @@ public class appoooh
 		if ((data & 0x02) != flipscreen)
 		{
 			flipscreen = data & 0x02;
-			memset(dirtybuffer,1,videoram_size);
-			memset(dirtybuffer2,1,videoram_size);
+			memset(dirtybuffer,1,videoram_size[0]);
+			memset(dirtybuffer2,1,videoram_size[0]);
 		}
 	
 		/* bits 2-3 unknown */
@@ -228,7 +228,7 @@ public class appoooh
 	
 		/* for every character in the Video RAM, check if it has been modified */
 		/* since last time and update it accordingly. */
-		for (offs = videoram_size - 1;offs >= 0;offs--)
+		for (offs = videoram_size[0] - 1;offs >= 0;offs--)
 		{
 			/* char set #1 */
 			if (dirtybuffer[offs])

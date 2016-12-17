@@ -287,7 +287,7 @@ public class buggychl
 		palette_used_colors[2*16] = PALETTE_COLOR_TRANSPARENT;
 	
 		if (palette_recalc())
-			memset(dirtybuffer,1,videoram_size);
+			memset(dirtybuffer,1,videoram_size[0]);
 	
 		if (sky_on != 0)
 			draw_sky(bitmap);

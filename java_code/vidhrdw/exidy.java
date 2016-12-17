@@ -433,7 +433,7 @@ public class exidy
 	
 		/* recalc the palette */
 		if (palette_recalc())
-			memset(dirtybuffer, 1, videoram_size);
+			memset(dirtybuffer, 1, videoram_size[0]);
 	
 		/* update the background and draw it */
 		update_background();

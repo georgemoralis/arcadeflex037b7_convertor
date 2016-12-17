@@ -212,7 +212,7 @@ public class mcr3
 	{
 		/* mark everything dirty on a cocktail flip change */
 		if (palette_recalc() || last_cocktail_flip != mcr_cocktail_flip)
-			memset(dirtybuffer, 1, videoram_size);
+			memset(dirtybuffer, 1, videoram_size[0]);
 		last_cocktail_flip = mcr_cocktail_flip;
 	
 		/* redraw the background */
@@ -236,7 +236,7 @@ public class mcr3
 	public static VhUpdatePtr mcrmono_vh_screenrefresh = new VhUpdatePtr() { public void handler(osd_bitmap bitmap,int full_refresh) 
 	{
 		if (palette_recalc())
-			memset(dirtybuffer, 1, videoram_size);
+			memset(dirtybuffer, 1, videoram_size[0]);
 	
 		/* redraw the background */
 		mcr3_update_background(tmpbitmap, 3);
@@ -338,11 +338,11 @@ public class mcr3
 		int offs, scrollx, scrolly;
 	
 		if (palette_recalc())
-			memset(dirtybuffer, 1, videoram_size);
+			memset(dirtybuffer, 1, videoram_size[0]);
 	
 		/* for every character in the Video RAM, check if it has been modified */
 		/* since last time and update it accordingly. */
-		for (offs = videoram_size - 1; offs >= 0; offs--)
+		for (offs = videoram_size[0] - 1; offs >= 0; offs--)
 		{
 			if (dirtybuffer[offs])
 			{
@@ -493,7 +493,7 @@ public class mcr3
 		}
 	
 		if (full_refresh || palette_recalc())
-			memset(dirtybuffer, 1 ,videoram_size);
+			memset(dirtybuffer, 1 ,videoram_size[0]);
 	
 		/* Screen clip, because our backdrop is a different resolution than the game */
 		sclip.min_x = DOTRON_X_START + 0;
@@ -503,7 +503,7 @@ public class mcr3
 	
 		/* for every character in the Video RAM, check if it has been modified */
 		/* since last time and update it accordingly. */
-		for (offs = videoram_size - 2; offs >= 0; offs -= 2)
+		for (offs = videoram_size[0] - 2; offs >= 0; offs -= 2)
 		{
 			if (dirtybuffer[offs])
 			{

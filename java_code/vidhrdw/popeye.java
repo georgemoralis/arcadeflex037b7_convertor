@@ -325,7 +325,7 @@ public class popeye
 	{
 		if ((data & 0x08) != (*popeye_palette_bank & 0x08))
 		{
-			memset(dirtybuffer,1,videoram_size);
+			memset(dirtybuffer,1,videoram_size[0]);
 			memset(dirtybuffer2,1,popeye_videoram_size);
 		}
 	
@@ -403,7 +403,7 @@ public class popeye
 	
 		if (popeye_background_pos[0] == 0)	/* no background */
 		{
-			for (offs = videoram_size - 1;offs >= 0;offs--)
+			for (offs = videoram_size[0] - 1;offs >= 0;offs--)
 			{
 				if (dirtybuffer[offs])
 				{
@@ -476,7 +476,7 @@ public class popeye
 		if (popeye_background_pos[0] != 0)	/* background is present */
 		{
 			/* draw the frontmost playfield. They are characters, but draw them as sprites */
-			for (offs = videoram_size - 1;offs >= 0;offs--)
+			for (offs = videoram_size[0] - 1;offs >= 0;offs--)
 			{
 				int sx,sy;
 	

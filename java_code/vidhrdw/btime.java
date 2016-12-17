@@ -557,7 +557,7 @@ public class btime
 	public static VhUpdatePtr btime_vh_screenrefresh = new VhUpdatePtr() { public void handler(osd_bitmap bitmap,int full_refresh) 
 	{
 	    if (palette_recalc() || full_refresh)
-	        memset(dirtybuffer,1,videoram_size);
+	        memset(dirtybuffer,1,videoram_size[0]);
 	
 	    if ((bnj_scroll1 & 0x10) != 0)
 	    {
@@ -596,7 +596,7 @@ public class btime
 	public static VhUpdatePtr eggs_vh_screenrefresh = new VhUpdatePtr() { public void handler(osd_bitmap bitmap,int full_refresh) 
 	{
 	    if (palette_recalc() || full_refresh)
-	        memset(dirtybuffer,1,videoram_size);
+	        memset(dirtybuffer,1,videoram_size[0]);
 	
 	    drawchars(tmpbitmap, TRANSPARENCY_NONE, 0, -1);
 	
@@ -610,7 +610,7 @@ public class btime
 	public static VhUpdatePtr lnc_vh_screenrefresh = new VhUpdatePtr() { public void handler(osd_bitmap bitmap,int full_refresh) 
 	{
 	    if (palette_recalc() || full_refresh)
-	        memset(dirtybuffer,1,videoram_size);
+	        memset(dirtybuffer,1,videoram_size[0]);
 	
 	    drawchars(tmpbitmap, TRANSPARENCY_NONE, 0, -1);
 	
@@ -624,7 +624,7 @@ public class btime
 	public static VhUpdatePtr zoar_vh_screenrefresh = new VhUpdatePtr() { public void handler(osd_bitmap bitmap,int full_refresh) 
 	{
 	    if (palette_recalc() || full_refresh)
-	        memset(dirtybuffer,1,videoram_size);
+	        memset(dirtybuffer,1,videoram_size[0]);
 	
 	    if ((bnj_scroll1 & 0x04) != 0)
 	    {
@@ -650,7 +650,7 @@ public class btime
 	{
 	    if (palette_recalc() || full_refresh)
 	    {
-	        memset(dirtybuffer,1,videoram_size);
+	        memset(dirtybuffer,1,videoram_size[0]);
 	        memset(dirtybuffer2,1,bnj_backgroundram_size);
 	    }
 	
@@ -718,7 +718,7 @@ public class btime
 	
 	
 	    if (palette_recalc() || full_refresh)
-	        memset(dirtybuffer,1,videoram_size);
+	        memset(dirtybuffer,1,videoram_size[0]);
 	
 	    /*
 	     *  For each character in the background RAM, check if it has been
@@ -754,7 +754,7 @@ public class btime
 	public static VhUpdatePtr disco_vh_screenrefresh = new VhUpdatePtr() { public void handler(osd_bitmap bitmap,int full_refresh) 
 	{
 	    if (palette_recalc() || full_refresh)
-	        memset(dirtybuffer,1,videoram_size);
+	        memset(dirtybuffer,1,videoram_size[0]);
 	
 	    decode_modified(spriteram, 1);
 	
@@ -775,7 +775,7 @@ public class btime
 	public static VhUpdatePtr decocass_vh_screenrefresh = new VhUpdatePtr() { public void handler(osd_bitmap bitmap,int full_refresh) 
 	{
 	    if (palette_recalc() || full_refresh)
-	        memset(dirtybuffer,1,videoram_size);
+	        memset(dirtybuffer,1,videoram_size[0]);
 	
 	    decode_modified(videoram, 0x20);
 	

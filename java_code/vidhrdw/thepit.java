@@ -267,7 +267,7 @@ public class thepit
 	{
 		if (full_refresh != 0)
 		{
-			memset(dirtybuffer, 1, videoram_size);
+			memset(dirtybuffer, 1, videoram_size[0]);
 		}
 	
 	

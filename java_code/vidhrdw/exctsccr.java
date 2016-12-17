@@ -227,7 +227,7 @@ public class exctsccr
 		int offs;
 	
 		/* background chars */
-		for (offs = 0;offs < ( videoram_size - 0x10 );offs++) {
+		for (offs = 0;offs < ( videoram_size[0] - 0x10 );offs++) {
 	
 			if ( dirtybuffer[offs] ) {
 				int sx,sy,code;

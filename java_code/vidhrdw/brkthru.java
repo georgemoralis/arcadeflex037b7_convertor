@@ -149,14 +149,14 @@ public class brkthru
 			if (((data & 0x38) >> 2) != bgbasecolor)
 			{
 				bgbasecolor = (data & 0x38) >> 2;
-				memset(dirtybuffer,1,videoram_size);
+				memset(dirtybuffer,1,videoram_size[0]);
 			}
 	
 			/* bit 6 = screen flip */
 			if (flipscreen != (data & 0x40))
 			{
 				flipscreen = data & 0x40;
-				memset(dirtybuffer,1,videoram_size);
+				memset(dirtybuffer,1,videoram_size[0]);
 			}
 	
 			/* bit 7 = high bit of scroll */
@@ -180,7 +180,7 @@ public class brkthru
 	
 		/* for every character in the Video RAM, check if it has been modified */
 		/* since last time and update it accordingly. */
-		for (offs = videoram_size - 2;offs >= 0;offs -= 2)
+		for (offs = videoram_size[0] - 2;offs >= 0;offs -= 2)
 		{
 			if (dirtybuffer[offs] || dirtybuffer[offs+1])
 			{

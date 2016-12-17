@@ -342,7 +342,7 @@ public class mcr12
 	{
 		/* mark everything dirty on a full refresh or cocktail flip change */
 		if (palette_recalc() || full_refresh || last_cocktail_flip != mcr_cocktail_flip)
-			memset(dirtybuffer, 1, videoram_size);
+			memset(dirtybuffer, 1, videoram_size[0]);
 		last_cocktail_flip = mcr_cocktail_flip;
 	
 		/* update the sprites */
@@ -357,7 +357,7 @@ public class mcr12
 	{
 		/* mark everything dirty on a full refresh or cocktail flip change */
 		if (palette_recalc() || full_refresh || last_cocktail_flip != mcr_cocktail_flip)
-			memset(dirtybuffer, 1, videoram_size);
+			memset(dirtybuffer, 1, videoram_size[0]);
 		last_cocktail_flip = mcr_cocktail_flip;
 	
 		/* update the sprites */
@@ -383,7 +383,7 @@ public class mcr12
 	{
 		/* mark everything dirty on a cocktail flip change */
 		if (palette_recalc() || last_cocktail_flip != mcr_cocktail_flip)
-			memset(dirtybuffer, 1, videoram_size);
+			memset(dirtybuffer, 1, videoram_size[0]);
 		last_cocktail_flip = mcr_cocktail_flip;
 	
 		/* redraw the background */

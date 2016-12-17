@@ -23,7 +23,7 @@ public class pcktgal
 		int offs;
 	
 		/* Draw character tiles */
-		for (offs = videoram_size - 2;offs >= 0;offs -= 2)
+		for (offs = videoram_size[0] - 2;offs >= 0;offs -= 2)
 		{
 			if (dirtybuffer[offs] || dirtybuffer[offs+1])
 			{

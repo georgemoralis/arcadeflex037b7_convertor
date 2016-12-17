@@ -264,7 +264,7 @@ public class m62
 		if (flipscreen != (data & 1))
 		{
 			flipscreen = data & 1;
-			memset(dirtybuffer,1,videoram_size);
+			memset(dirtybuffer,1,videoram_size[0]);
 		}
 	
 		coin_counter_w.handler(0,data & 2);
@@ -352,7 +352,7 @@ public class m62
 		if (kidniki_background_bank != (data & 1))
 		{
 			kidniki_background_bank = data & 1;
-			memset(dirtybuffer,1,videoram_size);
+			memset(dirtybuffer,1,videoram_size[0]);
 		}
 	} };
 	
@@ -361,7 +361,7 @@ public class m62
 		if (spelunk2_palbank != (data & 0x01))
 		{
 			spelunk2_palbank = data & 0x01;
-			memset(dirtybuffer,1,videoram_size);
+			memset(dirtybuffer,1,videoram_size[0]);
 		}
 	} };
 	
@@ -383,7 +383,7 @@ public class m62
 			if (spelunk2_palbank != ((data & 0x0c) >> 2))
 			{
 				spelunk2_palbank = (data & 0x0c) >> 2;
-				memset(dirtybuffer,1,videoram_size);
+				memset(dirtybuffer,1,videoram_size[0]);
 			}
 			break;
 		}

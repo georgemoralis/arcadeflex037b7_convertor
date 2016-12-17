@@ -293,19 +293,19 @@ public class pacland
 	
 		/* recalc the palette if necessary */
 		if (palette_recalc ())
-			memset (dirtybuffer, 1, videoram_size);
+			memset (dirtybuffer, 1, videoram_size[0]);
 	
 	
 		/* for every character in the Video RAM, check if it has been modified */
 		/* since last time and update it accordingly. */
-		for ( offs = videoram_size / 2; offs < videoram_size; offs += 2 )
+		for ( offs = videoram_size[0] / 2; offs < videoram_size[0]; offs += 2 )
 		{
 			if ( dirtybuffer[offs] || dirtybuffer[offs+1] )
 			{
 				dirtybuffer[offs] = dirtybuffer[offs+1] = 0;
 	
-				sx = ( ( ( offs - ( videoram_size / 2 ) ) % 128 ) / 2 );
-				sy = ( ( ( offs - ( videoram_size / 2 ) ) / 128 ) );
+				sx = ( ( ( offs - ( videoram_size[0] / 2 ) ) % 128 ) / 2 );
+				sy = ( ( ( offs - ( videoram_size[0] / 2 ) ) / 128 ) );
 	
 				flipx = videoram.read(offs+1)& 0x40;
 				flipy = videoram.read(offs+1)& 0x80;
@@ -340,7 +340,7 @@ public class pacland
 	
 		/* for every character in the Video RAM, check if it has been modified */
 		/* since last time and update it accordingly. */
-		for ( offs = 0; offs < videoram_size / 2; offs += 2 )
+		for ( offs = 0; offs < videoram_size[0] / 2; offs += 2 )
 		{
 			if ( dirtybuffer[offs] || dirtybuffer[offs+1] )
 			{
@@ -386,7 +386,7 @@ public class pacland
 	
 		/* redraw the tiles which have priority over the sprites */
 		fillbitmap(tmpbitmap3,Machine.pens[0x7f],&Machine.visible_area);
-		for ( offs = 0; offs < videoram_size / 2; offs += 2 )
+		for ( offs = 0; offs < videoram_size[0] / 2; offs += 2 )
 		{
 			if (videoram.read(offs+1)& 0x20)
 			{

@@ -220,7 +220,7 @@ public class tehkanwc
 	
 		for (color = 0;color < 16;color++) colmask[color] = 0;
 	
-		for (offs = videoram_size - 1;offs >= 0;offs--)
+		for (offs = videoram_size[0] - 1;offs >= 0;offs--)
 		{
 			code = videoram.read(offs)+ ((colorram.read(offs)& 0x10) << 4);
 			color = colorram.read(offs)& 0x0f;
@@ -240,7 +240,7 @@ public class tehkanwc
 	}
 	
 		if ( palette_recalc() ) {
-			memset( dirtybuffer, 1, videoram_size );
+			memset( dirtybuffer, 1, videoram_size[0] );
 			memset( dirtybuffer1, 1, tehkanwc_videoram1_size );
 		}
 	
@@ -275,7 +275,7 @@ public class tehkanwc
 	
 	
 		/* draw the foreground chars which don't have priority over sprites */
-		for (offs = videoram_size - 1;offs >= 0;offs--)
+		for (offs = videoram_size[0] - 1;offs >= 0;offs--)
 		{
 			int sx,sy;
 	
@@ -308,7 +308,7 @@ public class tehkanwc
 	
 	
 		/* draw the foreground chars which have priority over sprites */
-		for (offs = videoram_size - 1;offs >= 0;offs--)
+		for (offs = videoram_size[0] - 1;offs >= 0;offs--)
 		{
 			int sx,sy;
 	

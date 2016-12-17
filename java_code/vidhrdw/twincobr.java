@@ -153,7 +153,7 @@ public class twincobr
 	}
 	public static WriteHandlerPtr twincobr_txoffs_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		txoffs = (2 * data) % videoram_size;
+		txoffs = (2 * data) % videoram_size[0];
 	} };
 	public static ReadHandlerPtr twincobr_txram_r  = new ReadHandlerPtr() { public int handler(int offset)
 	{

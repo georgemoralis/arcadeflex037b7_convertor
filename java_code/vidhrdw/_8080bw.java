@@ -466,7 +466,7 @@ public class _8080bw
 		{
 			int offs;
 	
-			for (offs = 0;offs < videoram_size;offs++)
+			for (offs = 0;offs < videoram_size[0];offs++)
 				videoram_w_p(offs, videoram.read(offs));
 		}
 	

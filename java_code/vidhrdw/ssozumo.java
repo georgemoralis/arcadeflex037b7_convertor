@@ -120,10 +120,10 @@ public class ssozumo
 	
 	
 		if (palette_recalc())
-			memset(dirtybuffer,1,videoram_size);
+			memset(dirtybuffer,1,videoram_size[0]);
 	
 		/* Draw the background layer*/
-		for (offs = (videoram_size - 1) ; offs >= 0 ; offs--)
+		for (offs = (videoram_size[0] - 1) ; offs >= 0 ; offs--)
 		{
 			if (dirtybuffer[offs])
 			{

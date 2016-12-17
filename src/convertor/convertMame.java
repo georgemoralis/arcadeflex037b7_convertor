@@ -1243,6 +1243,15 @@ public class convertMame {
                     }
                     break;
                 case 'v': {
+                    if (type == WRITEHANDLER || type == VH_SCREENREFRESH) {
+                        if(i3==-1) break;//if is not inside a memwrite function break
+                        i=Convertor.inpos;
+                        if (sUtil.getToken("videoram_size")) {
+                                sUtil.putString((new StringBuilder()).append("videoram_size[0]").toString());
+                                continue;
+
+                        }
+                    }
                     int j = Convertor.inpos;
                     if(sUtil.getToken("videoram"))
                     {

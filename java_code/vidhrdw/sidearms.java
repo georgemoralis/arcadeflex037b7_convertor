@@ -179,7 +179,7 @@ public class sidearms
 	
 		for (color = 0;color < 64;color++) colmask[color] = 0;
 	
-		for (offs = videoram_size - 1;offs >= 0;offs--)
+		for (offs = videoram_size[0] - 1;offs >= 0;offs--)
 		{
 			code = videoram.read(offs)+ 4 * (colorram.read(offs)& 0xc0);
 			color = colorram.read(offs)& 0x3f;
@@ -303,7 +303,7 @@ public class sidearms
 	
 	
 		/* draw the frontmost playfield. They are characters, but draw them as sprites */
-		for (offs = videoram_size - 1;offs >= 0;offs--)
+		for (offs = videoram_size[0] - 1;offs >= 0;offs--)
 		{
 			sx = offs % 64;
 			sy = offs / 64;

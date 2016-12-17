@@ -353,7 +353,7 @@ public class vigilant
 	
 		if (palette_recalc())
 		{
-			memset(dirtybuffer,1,videoram_size);
+			memset(dirtybuffer,1,videoram_size[0]);
 			rear_refresh = 1;
 		}
 	
@@ -378,9 +378,9 @@ public class vigilant
 	
 	
 		if (palette_recalc())
-			memset(dirtybuffer,1,videoram_size);
+			memset(dirtybuffer,1,videoram_size[0]);
 	
-		for (offs = 0; offs<videoram_size; offs+=2 )
+		for (offs = 0; offs<videoram_size[0]; offs+=2 )
 		{
 			int sy = 8 * ((offs/2) / 64);
 			int sx = 8 * ((offs/2) % 64);

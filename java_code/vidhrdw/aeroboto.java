@@ -38,7 +38,7 @@ public class aeroboto
 		int offs;
 	
 	
-		for (offs = videoram_size - 1;offs >= 0;offs--)
+		for (offs = videoram_size[0] - 1;offs >= 0;offs--)
 		{
 			int sx,sy;
 	
@@ -60,7 +60,7 @@ public class aeroboto
 					&Machine.visible_area,TRANSPARENCY_NONE,0);
 		}
 	
-		for (offs = videoram_size - 1;offs >= 0;offs--)
+		for (offs = videoram_size[0] - 1;offs >= 0;offs--)
 		{
 			int sx,sy;
 	

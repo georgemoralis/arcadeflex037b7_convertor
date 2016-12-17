@@ -105,7 +105,7 @@ public class cabal
 	public static VhUpdatePtr cabal_vh_screenrefresh = new VhUpdatePtr() { public void handler(osd_bitmap bitmap,int full_refresh) 
 	{
 	    if (palette_recalc())
-	        memset(dirtybuffer, 1, videoram_size/2);
+	        memset(dirtybuffer, 1, videoram_size[0]/2);
 	
 	    draw_background( bitmap );
 	    draw_sprites( bitmap );

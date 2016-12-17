@@ -57,7 +57,7 @@ public class funkybee
 		if (data != (gfx_bank & 0x01))
 		{
 			gfx_bank = data & 0x01;
-			memset(dirtybuffer, 1, videoram_size);
+			memset(dirtybuffer, 1, videoram_size[0]);
 		}
 	} };
 	

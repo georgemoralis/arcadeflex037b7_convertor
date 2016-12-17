@@ -92,7 +92,7 @@ public class royalmah
 	
 			/* redraw bitmap */
 	
-			for (offs = 0; offs < videoram_size; offs++)
+			for (offs = 0; offs < videoram_size[0]; offs++)
 			{
 				royalmah_videoram_w(offs, videoram.read(offs));
 			}

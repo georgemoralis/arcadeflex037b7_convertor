@@ -87,13 +87,13 @@ public class sauro
 	
 		if (full_refresh != 0)
 		{
-			memset(dirtybuffer,1,videoram_size);
+			memset(dirtybuffer,1,videoram_size[0]);
 		}
 	
 	
 		/* for every character in the backround RAM, check if it has been modified */
 		/* since last time and update it accordingly. */
-		for (offs = 0; offs < videoram_size; offs ++)
+		for (offs = 0; offs < videoram_size[0]; offs ++)
 		{
 			if (!dirtybuffer[offs]) continue;
 	
@@ -133,7 +133,7 @@ public class sauro
 	
 	
 		/* draw the frontmost playfield. They are characters, but draw them as sprites */
-		for (offs = 0; offs < videoram_size; offs++)
+		for (offs = 0; offs < videoram_size[0]; offs++)
 		{
 			code = sauro_videoram2[offs] + ((sauro_colorram2[offs] & 0x07) << 8);
 	
