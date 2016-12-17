@@ -135,7 +135,7 @@ public class generic
 		{
 			dirtybuffer[offset] = 1;
 	
-			colorram[offset] = data;
+			colorram.write(offset,data);
 		}
 	} };
 	

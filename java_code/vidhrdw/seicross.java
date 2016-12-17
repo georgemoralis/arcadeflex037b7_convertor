@@ -84,8 +84,8 @@ public class seicross
 			dirtybuffer[offset] = 1;
 			dirtybuffer[offset + 0x20] = 1;
 	
-			colorram[offset] = data;
-			colorram[offset + 0x20] = data;
+			colorram.write(offset,data);
+			colorram.write(offset + 0x20,data);
 		}
 	} };
 	

@@ -103,7 +103,7 @@ public class sidepckt
 	{
 		if (colorram.read(offset)!= data)
 		{
-			colorram[offset] = data;
+			colorram.write(offset,data);
 			tilemap_mark_tile_dirty(bg_tilemap,offset);
 		}
 	} };

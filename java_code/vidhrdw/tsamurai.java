@@ -156,7 +156,7 @@ public class tsamurai
 	{
 		if( colorram.read(offset)!=data )
 		{
-			colorram[offset]=data;
+			colorram.write(offset,ata);
 			if ((offset & 1) != 0)
 			{
 				int col = offset/2;

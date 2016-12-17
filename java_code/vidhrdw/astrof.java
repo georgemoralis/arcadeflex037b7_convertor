@@ -122,7 +122,7 @@ public class astrof
 		int dx = 1;
 	
 		videoram.write(offset,data);
-		colorram[offset] = color;
+		colorram.write(offset,color);
 	
 		fore = Machine.pens[color | 1];
 		back = Machine.pens[color    ];

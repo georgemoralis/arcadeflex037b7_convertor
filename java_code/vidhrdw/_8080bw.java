@@ -423,7 +423,7 @@ public class _8080bw
 	
 		offset &= 0x1f1f;
 	
-		colorram[offset] = data;
+		colorram.write(offset,data);
 	
 		/* redraw region with (possibly) changed color */
 		for (i = 0; i < 8; i++, offset += 0x20)
@@ -440,7 +440,7 @@ public class _8080bw
 	
 	public static WriteHandlerPtr helifire_colorram_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		colorram[offset] = data;
+		colorram.write(offset,data);
 	
 		/* redraw region with (possibly) changed color */
 		videoram_w_p(offset, videoram.read(offset));

@@ -227,7 +227,7 @@ public class galivan
 	{
 		if (colorram.read(offset)!= data)
 		{
-			colorram[offset] = data;
+			colorram.write(offset,data);
 			tilemap_mark_tile_dirty(tx_tilemap,offset);
 		}
 	} };

@@ -138,7 +138,7 @@ public class mappy
 		if (colorram.read(offset)!= data)
 		{
 			dirtybuffer[offset] = 1;
-			colorram[offset] = data;
+			colorram.write(offset,data);
 		}
 	} };
 	

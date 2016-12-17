@@ -1067,7 +1067,14 @@ public class convertMame {
                             sUtil.skipSpace();
 
                             if (sUtil.parseChar() == '=') {
-                                Convertor.inpos = sd;
+                                if (sUtil.parseChar() == '=') {
+                                    Convertor.inpos = sd;
+                                    break;
+                                }
+                                sUtil.skipSpace();
+                                Convertor.token[1] = sUtil.parseToken(';');
+                                sUtil.putString((new StringBuilder()).append("colorram.write(").append(Convertor.token[0]).append(",").append(Convertor.token[1]).append(");").toString());
+                                Convertor.inpos +=1;
                                 break;
                             }
                             sUtil.putString((new StringBuilder()).append("colorram.read(").append(Convertor.token[0]).append(")").toString());

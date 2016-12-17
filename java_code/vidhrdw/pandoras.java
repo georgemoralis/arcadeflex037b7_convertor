@@ -131,7 +131,7 @@ public class pandoras
 		if (colorram.read(offset)!= data)
 		{
 			tilemap_mark_tile_dirty(layer0,offset);
-			colorram[offset] = data;
+			colorram.write(offset,data);
 		}
 	} };
 	

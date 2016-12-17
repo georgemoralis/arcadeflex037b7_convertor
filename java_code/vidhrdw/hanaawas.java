@@ -79,7 +79,7 @@ public class hanaawas
 		offs_t offs2;
 	
 	
-		colorram[offset] = data;
+		colorram.write(offset,data);
 	
 		/* dirty both current and next offsets */
 		offs2 = (offset + (flip_screen ? -1 : 1)) & 0x03ff;

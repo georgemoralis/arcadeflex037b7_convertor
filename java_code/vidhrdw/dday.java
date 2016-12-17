@@ -318,7 +318,7 @@ public class dday
 	
 	public static WriteHandlerPtr dday_colorram_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-	    colorram[offset & 0x3e0] = data;
+	    colorram.write(offset & 0x3e0,data);
 	} };
 	
 	public static ReadHandlerPtr dday_colorram_r  = new ReadHandlerPtr() { public int handler(int offset)

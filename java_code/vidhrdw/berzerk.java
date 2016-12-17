@@ -67,7 +67,7 @@ public class berzerk
 	{
 		int x, y, i;
 	
-		colorram[offset] = data;
+		colorram.write(offset,data);
 	
 		/* Need to change the affected pixels' colors */
 	

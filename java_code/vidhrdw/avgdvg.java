@@ -920,7 +920,7 @@ public class avgdvg
 	
 		/* initialize the colorram */
 		for (i = 0; i < 16; i++)
-			colorram[i] = i & 0x07;
+			colorram.write(i,i & 0x07);
 	
 		/* fill the rest of the 256 color entries depending on the game */
 		switch (paltype)
@@ -928,7 +928,7 @@ public class avgdvg
 			/* Black and White vector colors (Asteroids,Omega Race) .ac JAN2498 */
 			case  VEC_PAL_WHITE:
 				shade_fill (palette, RED|GREEN|BLUE, 8, 128+8, 0, 255);
-				colorram[1] = 7; /* BW games use only color 1 (== white) */
+				colorram.write(1,7); /* BW games use only color 1 (== white) */
 				break;
 	
 			/* Monochrome Aqua colors (Asteroids Deluxe,Red Baron) .ac JAN2498 */
@@ -947,12 +947,12 @@ public class avgdvg
 				}
 				else
 					shade_fill (palette, GREEN|BLUE, 8, 128+8, 1, 254);
-				colorram[1] =  3; /* for Asteroids */
+				colorram.write(1,3); /* for Asteroids */
 				break;
 	
 			case  VEC_PAL_AQUA:
 				shade_fill (palette, GREEN|BLUE, 8, 128+8, 1, 254);
-				colorram[0] =  3; /* for Red Baron */
+				colorram.write(0,3); /* for Red Baron */
 				break;
 	
 			/* Monochrome Green/Red vector colors (Battlezone) .ac JAN2498 */
@@ -1020,7 +1020,7 @@ public class avgdvg
 	 * a fake GfxLayout, otherwise you'll crash */
 	public static WriteHandlerPtr colorram_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		colorram[offset & 0x0f] = data & 0x0f;
+		colorram.write(offset & 0x0f,data & 0x0f);
 	} };
 	
 	/*
