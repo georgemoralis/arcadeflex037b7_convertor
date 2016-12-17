@@ -469,7 +469,7 @@ public class dec8
 	public static WriteHandlerPtr dec8_share_w = new WriteHandlerPtr() {public void handler(int offset, int data) { dec8_shared_ram[offset]=data; } };
 	public static WriteHandlerPtr dec8_share2_w = new WriteHandlerPtr() {public void handler(int offset, int data) { dec8_shared2_ram[offset]=data; } };
 	public static ReadHandlerPtr shackled_sprite_r  = new ReadHandlerPtr() { public int handler(int offset) { return spriteram.read(offset); } };
-	public static WriteHandlerPtr shackled_sprite_w = new WriteHandlerPtr() {public void handler(int offset, int data) { spriteram[offset]=data; } };
+	public static WriteHandlerPtr shackled_sprite_w = new WriteHandlerPtr() {public void handler(int offset, int data) { spriteram.write(offset,ata); } };
 	
 	/******************************************************************************/
 	

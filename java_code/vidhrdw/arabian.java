@@ -265,7 +265,7 @@ public class arabian
 	
 	public static WriteHandlerPtr arabian_blitter_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		spriteram[offset] = data;
+		spriteram.write(offset,data);
 	
 		if ((offset & 0x07) == 6)
 		{

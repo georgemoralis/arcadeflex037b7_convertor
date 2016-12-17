@@ -169,8 +169,8 @@ public class twincobr
 				case 0x7000:	wardner_mainram[dsp_addr_w] = data & 0xff;
 								wardner_mainram[dsp_addr_w + 1] = (data >> 8) & 0xff;
 								if ((dsp_addr_w < 3) && (data == 0)) dsp_execute = 1; break;
-				case 0x8000:	spriteram[dsp_addr_w] = data & 0xff;
-								spriteram[dsp_addr_w + 1] = (data >> 8) & 0xff;break;
+				case 0x8000:	spriteram.write(dsp_addr_w,data & 0xff);
+								spriteram.write(dsp_addr_w + 1,(data >> 8) & 0xff);break;
 				case 0xa000:	paletteram[dsp_addr_w] = data & 0xff;
 								paletteram[dsp_addr_w + 1] = (data >> 8) & 0xff; break;
 				default:		logerror("DSP PC:%04x Warning !!! IO writing to %08x (port 1)\n",cpu_getpreviouspc(),main_ram_seg + dsp_addr_w);

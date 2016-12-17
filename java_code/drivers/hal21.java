@@ -635,7 +635,7 @@ public class hal21
 		return spriteram.read(offset);
 	} };
 	public static WriteHandlerPtr hal21_spriteram_w = new WriteHandlerPtr() {public void handler(int offset, int data){
-		spriteram[offset] = data;
+		spriteram.write(offset,data);
 	} };
 	
 	static MemoryReadAddress hal21_readmem_CPUB[] ={

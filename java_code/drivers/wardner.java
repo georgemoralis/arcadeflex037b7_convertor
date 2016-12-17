@@ -184,7 +184,7 @@ public class wardner
 	
 	public static WriteHandlerPtr wardner_sprite_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		spriteram[offset] = data;
+		spriteram.write(offset,data);
 	} };
 	
 	public static ReadHandlerPtr wardner_sharedram_r  = new ReadHandlerPtr() { public int handler(int offset)
