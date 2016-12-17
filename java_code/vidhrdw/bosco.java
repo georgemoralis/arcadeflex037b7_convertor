@@ -87,25 +87,25 @@ public class bosco
 			int bit0,bit1,bit2;
 	
 	
-			bit0 = (color_prom[31-i] >> 0) & 0x01;
-			bit1 = (color_prom[31-i] >> 1) & 0x01;
-			bit2 = (color_prom[31-i] >> 2) & 0x01;
+			bit0 = (color_prom.read(31-i)>> 0) & 0x01;
+			bit1 = (color_prom.read(31-i)>> 1) & 0x01;
+			bit2 = (color_prom.read(31-i)>> 2) & 0x01;
 			palette[3*i] = 0x21 * bit0 + 0x47 * bit1 + 0x97 * bit2;
-			bit0 = (color_prom[31-i] >> 3) & 0x01;
-			bit1 = (color_prom[31-i] >> 4) & 0x01;
-			bit2 = (color_prom[31-i] >> 5) & 0x01;
+			bit0 = (color_prom.read(31-i)>> 3) & 0x01;
+			bit1 = (color_prom.read(31-i)>> 4) & 0x01;
+			bit2 = (color_prom.read(31-i)>> 5) & 0x01;
 			palette[3*i + 1] = 0x21 * bit0 + 0x47 * bit1 + 0x97 * bit2;
 			bit0 = 0;
-			bit1 = (color_prom[31-i] >> 6) & 0x01;
-			bit2 = (color_prom[31-i] >> 7) & 0x01;
+			bit1 = (color_prom.read(31-i)>> 6) & 0x01;
+			bit2 = (color_prom.read(31-i)>> 7) & 0x01;
 			palette[3*i + 2] = 0x21 * bit0 + 0x47 * bit1 + 0x97 * bit2;
 		}
 	
 		/* characters / sprites */
 		for (i = 0;i < 64*4;i++)
 		{
-			colortable[i] = 15 - (color_prom.read(i+32)& 0x0f);	/* chars */
-			colortable[i+64*4] = 15 - (color_prom.read(i+32)& 0x0f) + 0x10;	/* sprites */
+			colortable[i] = 15 - (color_prom.read(i + 32)& 0x0f);	/* chars */
+			colortable[i+64*4] = 15 - (color_prom.read(i + 32)& 0x0f) + 0x10;	/* sprites */
 			if (colortable[i+64*4] == 0x10) colortable[i+64*4] = 0;	/* preserve transparency */
 		}
 	

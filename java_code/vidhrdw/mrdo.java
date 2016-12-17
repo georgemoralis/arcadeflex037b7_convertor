@@ -94,7 +94,7 @@ public class mrdo
 			if (i < 32)
 				bits = color_prom.read(i)& 0x0f;		/* low 4 bits are for sprite color n */
 			else
-				bits = color_prom[i & 0x1f] >> 4;	/* high 4 bits are for sprite color n + 8 */
+				bits = color_prom.read(i & 0x1f)>> 4;	/* high 4 bits are for sprite color n + 8 */
 	
 			COLOR(2,i) = bits + ((bits & 0x0c) << 3);
 		}

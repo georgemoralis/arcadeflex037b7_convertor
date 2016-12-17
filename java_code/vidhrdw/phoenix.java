@@ -63,13 +63,13 @@ public class phoenix
 	
 	
 			bit0 = (color_prom.read(0)>> 0) & 0x01;
-			bit1 = (color_prom[Machine.drv.total_colors] >> 0) & 0x01;
+			bit1 = (color_prom.read(Machine->drv->total_colors)>> 0) & 0x01;
 			*(palette++) = 0x55 * bit0 + 0xaa * bit1;
 			bit0 = (color_prom.read(0)>> 2) & 0x01;
-			bit1 = (color_prom[Machine.drv.total_colors] >> 2) & 0x01;
+			bit1 = (color_prom.read(Machine->drv->total_colors)>> 2) & 0x01;
 			*(palette++) = 0x55 * bit0 + 0xaa * bit1;
 			bit0 = (color_prom.read(0)>> 1) & 0x01;
-			bit1 = (color_prom[Machine.drv.total_colors] >> 1) & 0x01;
+			bit1 = (color_prom.read(Machine->drv->total_colors)>> 1) & 0x01;
 			*(palette++) = 0x55 * bit0 + 0xaa * bit1;
 	
 			color_prom++;

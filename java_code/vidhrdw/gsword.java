@@ -45,12 +45,12 @@ public class gsword
 			int bit0,bit1,bit2;
 	
 			/* red component */
-			bit0 = (color_prom[Machine.drv.total_colors] >> 0) & 1;
-			bit1 = (color_prom[Machine.drv.total_colors] >> 1) & 1;
-			bit2 = (color_prom[Machine.drv.total_colors] >> 2) & 1;
+			bit0 = (color_prom.read(Machine->drv->total_colors)>> 0) & 1;
+			bit1 = (color_prom.read(Machine->drv->total_colors)>> 1) & 1;
+			bit2 = (color_prom.read(Machine->drv->total_colors)>> 2) & 1;
 			*(palette++) = 0x21 * bit0 + 0x47 * bit1 + 0x97 * bit2;
 			/* green component */
-			bit0 = (color_prom[Machine.drv.total_colors] >> 3) & 1;
+			bit0 = (color_prom.read(Machine->drv->total_colors)>> 3) & 1;
 			bit1 = (color_prom.read(0)>> 0) & 1;
 			bit2 = (color_prom.read(0)>> 1) & 1;
 			*(palette++) = 0x21 * bit0 + 0x47 * bit1 + 0x97 * bit2;

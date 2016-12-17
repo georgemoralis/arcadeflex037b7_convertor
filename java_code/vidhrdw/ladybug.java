@@ -76,17 +76,17 @@ public class ladybug
 	
 	
 			/* low 4 bits are for sprite n */
-			bit0 = (color_prom.read(i+32)>> 3) & 0x01;
-			bit1 = (color_prom.read(i+32)>> 2) & 0x01;
-			bit2 = (color_prom.read(i+32)>> 1) & 0x01;
-			bit3 = (color_prom.read(i+32)>> 0) & 0x01;
+			bit0 = (color_prom.read(i + 32)>> 3) & 0x01;
+			bit1 = (color_prom.read(i + 32)>> 2) & 0x01;
+			bit2 = (color_prom.read(i + 32)>> 1) & 0x01;
+			bit3 = (color_prom.read(i + 32)>> 0) & 0x01;
 			colortable[i + 4 * 8] = 1 * bit0 + 2 * bit1 + 4 * bit2 + 8 * bit3;
 	
 			/* high 4 bits are for sprite n + 8 */
-			bit0 = (color_prom.read(i+32)>> 7) & 0x01;
-			bit1 = (color_prom.read(i+32)>> 6) & 0x01;
-			bit2 = (color_prom.read(i+32)>> 5) & 0x01;
-			bit3 = (color_prom.read(i+32)>> 4) & 0x01;
+			bit0 = (color_prom.read(i + 32)>> 7) & 0x01;
+			bit1 = (color_prom.read(i + 32)>> 6) & 0x01;
+			bit2 = (color_prom.read(i + 32)>> 5) & 0x01;
+			bit3 = (color_prom.read(i + 32)>> 4) & 0x01;
 			colortable[i + 4 * 16] = 1 * bit0 + 2 * bit1 + 4 * bit2 + 8 * bit3;
 		}
 	} };

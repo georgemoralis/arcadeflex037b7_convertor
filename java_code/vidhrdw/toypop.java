@@ -61,11 +61,11 @@ public class toypop
 	
 		// characters
 		for (i = 0;i < 256;i++)
-			colortable[i] = color_prom.read(i+0x300)| 0xf0;
+			colortable[i] = color_prom.read(i + 0x300)| 0xf0;
 	
 		// sprites
 		for (i = 256;i < Machine.drv.color_table_len;i++)
-			colortable[i] = color_prom.read(i+0x400);	// 0x500-5ff
+			colortable[i] = color_prom.read(i + 0x400);	// 0x500-5ff
 	} };
 	
 	public static VhStartPtr toypop_vh_start = new VhStartPtr() { public int handler() 

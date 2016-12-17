@@ -33,10 +33,10 @@ public class playch10
 			bit3 = ~(color_prom.read(256)>> 3) & 0x01;
 			*palette++ = 0x0e * bit0 + 0x1f * bit1 + 0x43 * bit2 + 0x8f * bit3;
 			/* blue component */
-			bit0 = ~(color_prom[2*256] >> 0) & 0x01;
-			bit1 = ~(color_prom[2*256] >> 1) & 0x01;
-			bit2 = ~(color_prom[2*256] >> 2) & 0x01;
-			bit3 = ~(color_prom[2*256] >> 3) & 0x01;
+			bit0 = ~(color_prom.read(2*256)>> 0) & 0x01;
+			bit1 = ~(color_prom.read(2*256)>> 1) & 0x01;
+			bit2 = ~(color_prom.read(2*256)>> 2) & 0x01;
+			bit3 = ~(color_prom.read(2*256)>> 3) & 0x01;
 			*palette++ = 0x0e * bit0 + 0x1f * bit1 + 0x43 * bit2 + 0x8f * bit3;
 	
 			color_prom++;

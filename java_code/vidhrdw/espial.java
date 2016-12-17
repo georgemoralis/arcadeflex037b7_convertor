@@ -60,13 +60,13 @@ public class espial
 			*(palette++) = 0x21 * bit0 + 0x47 * bit1 + 0x97 * bit2;
 			/* green component */
 			bit0 = (color_prom.read(0)>> 3) & 0x01;
-			bit1 = (color_prom[Machine.drv.total_colors] >> 0) & 0x01;
-			bit2 = (color_prom[Machine.drv.total_colors] >> 1) & 0x01;
+			bit1 = (color_prom.read(Machine->drv->total_colors)>> 0) & 0x01;
+			bit2 = (color_prom.read(Machine->drv->total_colors)>> 1) & 0x01;
 			*(palette++) = 0x21 * bit0 + 0x47 * bit1 + 0x97 * bit2;
 			/* blue component */
 			bit0 = 0;
-			bit1 = (color_prom[Machine.drv.total_colors] >> 2) & 0x01;
-			bit2 = (color_prom[Machine.drv.total_colors] >> 3) & 0x01;
+			bit1 = (color_prom.read(Machine->drv->total_colors)>> 2) & 0x01;
+			bit2 = (color_prom.read(Machine->drv->total_colors)>> 3) & 0x01;
 			*(palette++) = 0x21 * bit0 + 0x47 * bit1 + 0x97 * bit2;
 	
 			color_prom++;

@@ -225,10 +225,10 @@ public class dday
 			bit3 = (color_prom.read(total)>> 3) & 0x01;
 			g = 0x0e * bit0 + 0x1f * bit1 + 0x43 * bit2 + 0x8f * bit3;
 			/* blue component */
-			bit0 = (color_prom[2*total] >> 0) & 0x01;
-			bit1 = (color_prom[2*total] >> 1) & 0x01;
-			bit2 = (color_prom[2*total] >> 2) & 0x01;
-			bit3 = (color_prom[2*total] >> 3) & 0x01;
+			bit0 = (color_prom.read(2*total)>> 0) & 0x01;
+			bit1 = (color_prom.read(2*total)>> 1) & 0x01;
+			bit2 = (color_prom.read(2*total)>> 2) & 0x01;
+			bit3 = (color_prom.read(2*total)>> 3) & 0x01;
 			b = 0x0e * bit0 + 0x1f * bit1 + 0x43 * bit2 + 0x8f * bit3;
 	
 			palette[0] = r;

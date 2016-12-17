@@ -57,10 +57,10 @@ public class grobda
 		}
 		/* characters */
 		for (i = 0; i < 256; i++)
-			colortable[i] = (0x1f - (color_prom.read(i+32)& 0x0f));
+			colortable[i] = (0x1f - (color_prom.read(i + 32)& 0x0f));
 		/* sprites */
 		for (i = 256; i < 512; i++)
-			colortable[i] = (color_prom.read(i+32)& 0x0f);
+			colortable[i] = (color_prom.read(i + 32)& 0x0f);
 	} };
 	
 	

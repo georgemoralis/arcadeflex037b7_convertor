@@ -67,10 +67,10 @@ public class combatsc
 					if (color_prom[256 * clut + i] == 0)
 						*(colortable++) = 0;
 					else
-						*(colortable++) = 16 * pal + color_prom[256 * clut + i];
+						*(colortable++) = 16 * pal + color_prom.read(256 * clut + i);
 				}
 				else	/* chars */
-					*(colortable++) = 16 * pal + color_prom[256 * clut + i];
+					*(colortable++) = 16 * pal + color_prom.read(256 * clut + i);
 			}
 		}
 	}

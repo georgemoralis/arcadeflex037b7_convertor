@@ -67,7 +67,7 @@ public class mappy
 	
 		/* characters */
 		for (i = 0*4;i < 64*4;i++)
-			colortable[i] = (color_prom[(i^3)] & 0x0f) + 0x10;
+			colortable[i] = (color_prom.read((i^3))& 0x0f) + 0x10;
 	
 		/* sprites */
 		for (i = 64*4;i < Machine.drv.color_table_len;i++)

@@ -77,14 +77,14 @@ public class exctsccr
 		idx = 0;
 		for (i = 0;i < 32;i++)
 		{
-			COLOR(0,idx++) = color_prom[256+0+(i*4)];
-			COLOR(0,idx++) = color_prom[256+1+(i*4)];
-			COLOR(0,idx++) = color_prom[256+2+(i*4)];
-			COLOR(0,idx++) = color_prom[256+3+(i*4)];
-			COLOR(0,idx++) = color_prom[256+128+0+(i*4)];
-			COLOR(0,idx++) = color_prom[256+128+1+(i*4)];
-			COLOR(0,idx++) = color_prom[256+128+2+(i*4)];
-			COLOR(0,idx++) = color_prom[256+128+3+(i*4)];
+			COLOR(0,idx++) = color_prom.read(256+0+(i*4));
+			COLOR(0,idx++) = color_prom.read(256+1+(i*4));
+			COLOR(0,idx++) = color_prom.read(256+2+(i*4));
+			COLOR(0,idx++) = color_prom.read(256+3+(i*4));
+			COLOR(0,idx++) = color_prom.read(256+128+0+(i*4));
+			COLOR(0,idx++) = color_prom.read(256+128+1+(i*4));
+			COLOR(0,idx++) = color_prom.read(256+128+2+(i*4));
+			COLOR(0,idx++) = color_prom.read(256+128+3+(i*4));
 		}
 	
 		/* sprites */
@@ -109,14 +109,14 @@ public class exctsccr
 		}
 		for (i = 16;i < 32;i++)
 		{
-			COLOR(2,idx++) = color_prom[256+0+(i*4)]+16;
-			COLOR(2,idx++) = color_prom[256+1+(i*4)]+16;
-			COLOR(2,idx++) = color_prom[256+2+(i*4)]+16;
-			COLOR(2,idx++) = color_prom[256+3+(i*4)]+16;
-			COLOR(2,idx++) = color_prom[256+128+0+(i*4)]+16;
-			COLOR(2,idx++) = color_prom[256+128+1+(i*4)]+16;
-			COLOR(2,idx++) = color_prom[256+128+2+(i*4)]+16;
-			COLOR(2,idx++) = color_prom[256+128+3+(i*4)]+16;
+			COLOR(2,idx++) = color_prom.read(256+0+(i*4))+16;
+			COLOR(2,idx++) = color_prom.read(256+1+(i*4))+16;
+			COLOR(2,idx++) = color_prom.read(256+2+(i*4))+16;
+			COLOR(2,idx++) = color_prom.read(256+3+(i*4))+16;
+			COLOR(2,idx++) = color_prom.read(256+128+0+(i*4))+16;
+			COLOR(2,idx++) = color_prom.read(256+128+1+(i*4))+16;
+			COLOR(2,idx++) = color_prom.read(256+128+2+(i*4))+16;
+			COLOR(2,idx++) = color_prom.read(256+128+3+(i*4))+16;
 		}
 	
 		/* Patch for goalkeeper */

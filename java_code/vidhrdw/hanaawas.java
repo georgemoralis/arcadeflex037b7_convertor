@@ -62,14 +62,14 @@ public class hanaawas
 	
 		for (i = 0;i < TOTAL_COLORS(0)/8 ;i++)
 		{
-			COLOR(0,i*8+0) = color_prom[i*4+0x00] & 0x0f;
-			COLOR(0,i*8+1) = color_prom[i*4+0x01] & 0x0f;
-			COLOR(0,i*8+2) = color_prom[i*4+0x02] & 0x0f;
-			COLOR(0,i*8+3) = color_prom[i*4+0x03] & 0x0f;
-			COLOR(0,i*8+4) = color_prom[i*4+0x80] & 0x0f;
-			COLOR(0,i*8+5) = color_prom[i*4+0x81] & 0x0f;
-			COLOR(0,i*8+6) = color_prom[i*4+0x82] & 0x0f;
-			COLOR(0,i*8+7) = color_prom[i*4+0x83] & 0x0f;
+			COLOR(0,i*8+0) = color_prom.read(i*4+0x00)& 0x0f;
+			COLOR(0,i*8+1) = color_prom.read(i*4+0x01)& 0x0f;
+			COLOR(0,i*8+2) = color_prom.read(i*4+0x02)& 0x0f;
+			COLOR(0,i*8+3) = color_prom.read(i*4+0x03)& 0x0f;
+			COLOR(0,i*8+4) = color_prom.read(i*4+0x80)& 0x0f;
+			COLOR(0,i*8+5) = color_prom.read(i*4+0x81)& 0x0f;
+			COLOR(0,i*8+6) = color_prom.read(i*4+0x82)& 0x0f;
+			COLOR(0,i*8+7) = color_prom.read(i*4+0x83)& 0x0f;
 		}
 	} };
 	
