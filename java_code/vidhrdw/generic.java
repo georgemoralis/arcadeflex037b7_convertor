@@ -158,7 +158,7 @@ public class generic
 	
 	public static WriteHandlerPtr spriteram_2_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		spriteram_2[offset] = data;
+		spriteram_2.write(offset,data);
 	} };
 	
 	/* Mish:  171099

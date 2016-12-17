@@ -192,9 +192,15 @@ public class convertMame {
                         }
                         else {
                             sUtil.skipSpace();
-
                             if (sUtil.parseChar() == '=') {
-                                Convertor.inpos = i;
+                                if (sUtil.parseChar() == '=') {
+                                    Convertor.inpos = i;
+                                    break;
+                                }
+                                sUtil.skipSpace();
+                                Convertor.token[1] = sUtil.parseToken(';');
+                                sUtil.putString((new StringBuilder()).append("spriteram_2.write(").append(Convertor.token[0]).append(",").append(Convertor.token[1]).append(");").toString());
+                                Convertor.inpos +=1;
                                 break;
                             }
                             sUtil.putString((new StringBuilder()).append("spriteram_2.read(").append(Convertor.token[0]).append(")").toString());
@@ -216,9 +222,15 @@ public class convertMame {
                         }
                         else {
                             sUtil.skipSpace();
-
                             if (sUtil.parseChar() == '=') {
-                                Convertor.inpos = i;
+                                if (sUtil.parseChar() == '=') {
+                                    Convertor.inpos = i;
+                                    break;
+                                }
+                                sUtil.skipSpace();
+                                Convertor.token[1] = sUtil.parseToken(';');
+                                sUtil.putString((new StringBuilder()).append("spriteram_3.write(").append(Convertor.token[0]).append(",").append(Convertor.token[1]).append(");").toString());
+                                Convertor.inpos +=1;
                                 break;
                             }
                             sUtil.putString((new StringBuilder()).append("spriteram_3.read(").append(Convertor.token[0]).append(")").toString());
