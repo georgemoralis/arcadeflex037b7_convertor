@@ -1028,6 +1028,39 @@ public class convertMame {
                 break;
                 case 'c':
                     int sd=Convertor.inpos;
+                    if(sUtil.getToken("color_prom"))
+                    {
+                        if (sUtil.parseChar() != '[') {
+                            Convertor.inpos = sd;
+                            break;
+                        }
+                        Convertor.token[0] = sUtil.parseToken();
+                        sUtil.skipSpace();
+                        int k = Convertor.inpos;
+                        if(sUtil.parseChar()== '+')
+                        {
+                            sUtil.skipSpace();
+                            Convertor.token[0] += '+' + sUtil.parseToken();
+                        }
+                        else {
+                            Convertor.inpos = k;
+                        }
+                        if (sUtil.parseChar() != ']') {
+                            Convertor.inpos = sd;
+                            break;
+                        }
+                        else {
+                            sUtil.skipSpace();
+
+                            if (sUtil.parseChar() == '=') {
+                                Convertor.inpos = sd;
+                                break;
+                            }
+                            sUtil.putString((new StringBuilder()).append("color_prom.read(").append(Convertor.token[0]).append(")").toString());
+                            Convertor.inpos -= 1;
+                            continue;
+                        }
+                    }
                     if(sUtil.getToken("colorram"))
                     {
                         if (sUtil.parseChar() != '[') {

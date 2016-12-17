@@ -153,19 +153,19 @@ public class cclimber
 	
 	
 			/* red component */
-			bit0 = (color_prom[i] >> 0) & 0x01;
-			bit1 = (color_prom[i] >> 1) & 0x01;
-			bit2 = (color_prom[i] >> 2) & 0x01;
+			bit0 = (color_prom.read(i)>> 0) & 0x01;
+			bit1 = (color_prom.read(i)>> 1) & 0x01;
+			bit2 = (color_prom.read(i)>> 2) & 0x01;
 			*(palette++) = 0x20 * bit0 + 0x40 * bit1 + 0x80 * bit2;
 			/* green component */
-			bit0 = (color_prom[i] >> 3) & 0x01;
-			bit1 = (color_prom[i+256] >> 0) & 0x01;
-			bit2 = (color_prom[i+256] >> 1) & 0x01;
+			bit0 = (color_prom.read(i)>> 3) & 0x01;
+			bit1 = (color_prom.read(i+256)>> 0) & 0x01;
+			bit2 = (color_prom.read(i+256)>> 1) & 0x01;
 			*(palette++) = 0x20 * bit0 + 0x40 * bit1 + 0x80 * bit2;
 			/* blue component */
 			bit0 = 0;
-			bit1 = (color_prom[i+256] >> 2) & 0x01;
-			bit2 = (color_prom[i+256] >> 3) & 0x01;
+			bit1 = (color_prom.read(i+256)>> 2) & 0x01;
+			bit2 = (color_prom.read(i+256)>> 3) & 0x01;
 			*(palette++) = 0x20 * bit0 + 0x40 * bit1 + 0x80 * bit2;
 	
 			/* side panel */
@@ -191,19 +191,19 @@ public class cclimber
 	
 	
 			/* red component */
-			bit0 = (color_prom[i] >> 0) & 0x01;
-			bit1 = (color_prom[i] >> 1) & 0x01;
-			bit2 = (color_prom[i] >> 2) & 0x01;
+			bit0 = (color_prom.read(i)>> 0) & 0x01;
+			bit1 = (color_prom.read(i)>> 1) & 0x01;
+			bit2 = (color_prom.read(i)>> 2) & 0x01;
 			*(palette++) = 0x20 * bit0 + 0x40 * bit1 + 0x80 * bit2;
 			/* green component */
-			bit0 = (color_prom[i] >> 3) & 0x01;
-			bit1 = (color_prom[i] >> 4) & 0x01;
-			bit2 = (color_prom[i] >> 5) & 0x01;
+			bit0 = (color_prom.read(i)>> 3) & 0x01;
+			bit1 = (color_prom.read(i)>> 4) & 0x01;
+			bit2 = (color_prom.read(i)>> 5) & 0x01;
 			*(palette++) = 0x20 * bit0 + 0x40 * bit1 + 0x80 * bit2;
 			/* blue component */
 			bit0 = 0;
-			bit1 = (color_prom[i] >> 6) & 0x01;
-			bit2 = (color_prom[i] >> 7) & 0x01;
+			bit1 = (color_prom.read(i)>> 6) & 0x01;
+			bit2 = (color_prom.read(i)>> 7) & 0x01;
 			*(palette++) = 0x20 * bit0 + 0x40 * bit1 + 0x80 * bit2;
 	
 			if (i % 8 == 0) COLOR(2,i) = BGPEN;  /* enforce transparency */

@@ -56,10 +56,10 @@ public class exedexes
 			int bit0,bit1,bit2,bit3;
 	
 	
-			bit0 = (color_prom[0] >> 0) & 0x01;
-			bit1 = (color_prom[0] >> 1) & 0x01;
-			bit2 = (color_prom[0] >> 2) & 0x01;
-			bit3 = (color_prom[0] >> 3) & 0x01;
+			bit0 = (color_prom.read(0)>> 0) & 0x01;
+			bit1 = (color_prom.read(0)>> 1) & 0x01;
+			bit2 = (color_prom.read(0)>> 2) & 0x01;
+			bit3 = (color_prom.read(0)>> 3) & 0x01;
 			*(palette++) = 0x0e * bit0 + 0x1f * bit1 + 0x43 * bit2 + 0x8f * bit3;
 			bit0 = (color_prom[Machine.drv.total_colors] >> 0) & 0x01;
 			bit1 = (color_prom[Machine.drv.total_colors] >> 1) & 0x01;
@@ -93,7 +93,7 @@ public class exedexes
 		/* sprites use colors 128-191 in four banks */
 		for (i = 0;i < TOTAL_COLORS(3);i++)
 		{
-			COLOR(3,i) = color_prom[0] + 128 + 16 * color_prom[256];
+			COLOR(3,i) = color_prom.read(0)+ 128 + 16 * color_prom.read(256);
 			color_prom++;
 		}
 	} };

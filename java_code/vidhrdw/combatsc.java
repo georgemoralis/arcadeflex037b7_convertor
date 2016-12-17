@@ -83,7 +83,7 @@ public class combatsc
 			for( i=0; i<256; i++ )
 			{
 				if ((pal & 1) == 0)	/* sprites */
-					*(colortable++) = 16 * pal + (color_prom[i] ^ 0x0f);
+					*(colortable++) = 16 * pal + (color_prom.read(i)^ 0x0f);
 				else	/* chars */
 					*(colortable++) = 16 * pal + (i & 0x0f);	/* no lookup? */
 			}

@@ -81,15 +81,15 @@ public class timeplt
 			*(palette++) = 0x19 * bit0 + 0x24 * bit1 + 0x35 * bit2 + 0x40 * bit3 + 0x4d * bit4;
 			bit0 = (color_prom[Machine.drv.total_colors] >> 6) & 0x01;
 			bit1 = (color_prom[Machine.drv.total_colors] >> 7) & 0x01;
-			bit2 = (color_prom[0] >> 0) & 0x01;
-			bit3 = (color_prom[0] >> 1) & 0x01;
-			bit4 = (color_prom[0] >> 2) & 0x01;
+			bit2 = (color_prom.read(0)>> 0) & 0x01;
+			bit3 = (color_prom.read(0)>> 1) & 0x01;
+			bit4 = (color_prom.read(0)>> 2) & 0x01;
 			*(palette++) = 0x19 * bit0 + 0x24 * bit1 + 0x35 * bit2 + 0x40 * bit3 + 0x4d * bit4;
-			bit0 = (color_prom[0] >> 3) & 0x01;
-			bit1 = (color_prom[0] >> 4) & 0x01;
-			bit2 = (color_prom[0] >> 5) & 0x01;
-			bit3 = (color_prom[0] >> 6) & 0x01;
-			bit4 = (color_prom[0] >> 7) & 0x01;
+			bit0 = (color_prom.read(0)>> 3) & 0x01;
+			bit1 = (color_prom.read(0)>> 4) & 0x01;
+			bit2 = (color_prom.read(0)>> 5) & 0x01;
+			bit3 = (color_prom.read(0)>> 6) & 0x01;
+			bit4 = (color_prom.read(0)>> 7) & 0x01;
 			*(palette++) = 0x19 * bit0 + 0x24 * bit1 + 0x35 * bit2 + 0x40 * bit3 + 0x4d * bit4;
 	
 			color_prom++;

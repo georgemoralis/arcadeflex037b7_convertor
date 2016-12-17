@@ -72,10 +72,10 @@ public class digdug
 		}
 		/* sprites */
 		for (i = 0*4;i < 64*4;i++)
-			colortable[8*2 + i] = 31 - ((color_prom[i + 32] & 0x0f) + 0x10);
+			colortable[8*2 + i] = 31 - ((color_prom.read(i+32)& 0x0f) + 0x10);
 		/* playfield */
 		for (i = 64*4;i < 128*4;i++)
-			colortable[8*2 + i] = 31 - (color_prom[i + 32] & 0x0f);
+			colortable[8*2 + i] = 31 - (color_prom.read(i+32)& 0x0f);
 	} };
 	
 	

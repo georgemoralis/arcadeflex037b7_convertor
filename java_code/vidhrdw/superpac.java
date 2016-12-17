@@ -59,10 +59,10 @@ public class superpac
 	
 		/* characters */
 		for (i = 0;i < 64*4;i++)
-			colortable[i] = (color_prom[i + 32] & 0x0f);
+			colortable[i] = (color_prom.read(i+32)& 0x0f);
 		/* sprites */
 		for (i = 64*4;i < 128*4;i++)
-			colortable[i] = 0x1f - (color_prom[i + 32] & 0x0f);
+			colortable[i] = 0x1f - (color_prom.read(i+32)& 0x0f);
 	} };
 	
 	

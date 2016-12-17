@@ -104,8 +104,8 @@ public class bosco
 		/* characters / sprites */
 		for (i = 0;i < 64*4;i++)
 		{
-			colortable[i] = 15 - (color_prom[i + 32] & 0x0f);	/* chars */
-			colortable[i+64*4] = 15 - (color_prom[i + 32] & 0x0f) + 0x10;	/* sprites */
+			colortable[i] = 15 - (color_prom.read(i+32)& 0x0f);	/* chars */
+			colortable[i+64*4] = 15 - (color_prom.read(i+32)& 0x0f) + 0x10;	/* sprites */
 			if (colortable[i+64*4] == 0x10) colortable[i+64*4] = 0;	/* preserve transparency */
 		}
 	

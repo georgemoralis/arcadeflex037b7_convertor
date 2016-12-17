@@ -91,7 +91,7 @@ public class retofinv
 		/* background bank 0 (gameplay) */
 		/* background bank 1 (title screen) */
 		for(i = 0;i < TOTAL_COLORS(1);i++)
-			COLOR(1,i) = adj_data(color_prom[i]);
+			COLOR(1,i) = adj_data(color_prom.read(i));
 	} };
 	
 	

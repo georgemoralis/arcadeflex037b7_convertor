@@ -56,10 +56,10 @@ public class _1943
 			int bit0,bit1,bit2,bit3;
 	
 	
-			bit0 = (color_prom[0] >> 0) & 0x01;
-			bit1 = (color_prom[0] >> 1) & 0x01;
-			bit2 = (color_prom[0] >> 2) & 0x01;
-			bit3 = (color_prom[0] >> 3) & 0x01;
+			bit0 = (color_prom.read(0)>> 0) & 0x01;
+			bit1 = (color_prom.read(0)>> 1) & 0x01;
+			bit2 = (color_prom.read(0)>> 2) & 0x01;
+			bit3 = (color_prom.read(0)>> 3) & 0x01;
 			*(palette++) = 0x0e * bit0 + 0x1f * bit1 + 0x43 * bit2 + 0x8f * bit3;
 			bit0 = (color_prom[Machine.drv.total_colors] >> 0) & 0x01;
 			bit1 = (color_prom[Machine.drv.total_colors] >> 1) & 0x01;
@@ -90,7 +90,7 @@ public class _1943
 			if (i % Machine.gfx[1].color_granularity == 0)
 				COLOR(1,i) = 0;
 			else
-				COLOR(1,i) = color_prom[0] + 16 * (color_prom[256] & 0x03);
+				COLOR(1,i) = color_prom.read(0)+ 16 * (color_prom.read(256)& 0x03);
 			color_prom++;
 		}
 		color_prom += TOTAL_COLORS(1);
@@ -98,7 +98,7 @@ public class _1943
 		/* background tiles use colors 0-63 */
 		for (i = 0;i < TOTAL_COLORS(2);i++)
 		{
-			COLOR(2,i) = color_prom[0] + 16 * (color_prom[256] & 0x03);
+			COLOR(2,i) = color_prom.read(0)+ 16 * (color_prom.read(256)& 0x03);
 			color_prom++;
 		}
 		color_prom += TOTAL_COLORS(2);
@@ -108,7 +108,7 @@ public class _1943
 		/* it differently for speed reasons */
 		for (i = 0;i < TOTAL_COLORS(3);i++)
 		{
-			COLOR(3,i) = color_prom[0] + 16 * (color_prom[256] & 0x07) + 128;
+			COLOR(3,i) = color_prom.read(0)+ 16 * (color_prom.read(256)& 0x07) + 128;
 			color_prom++;
 		}
 		color_prom += TOTAL_COLORS(3);
