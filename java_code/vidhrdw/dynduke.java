@@ -64,7 +64,7 @@ public class dynduke
 	
 	public static WriteHandlerPtr dynduke_text_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		videoram.write(offset,ata);
+		videoram.write(offset,data);
 		tilemap_mark_tile_dirty(tx_layer,offset/2);
 	} };
 	

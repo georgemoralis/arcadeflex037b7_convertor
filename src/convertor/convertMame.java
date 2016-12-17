@@ -163,10 +163,12 @@ public class convertMame {
                         else {
                             sUtil.skipSpace();
                             if (sUtil.parseChar() == '=') {
+                                int g=Convertor.inpos;
                                 if (sUtil.parseChar() == '=') {
                                     Convertor.inpos = i;
                                     break;
                                 }
+                                Convertor.inpos=g;
                                 sUtil.skipSpace();
                                 Convertor.token[1] = sUtil.parseToken(';');
                                 sUtil.putString((new StringBuilder()).append("spriteram.write(").append(Convertor.token[0]).append(",").append(Convertor.token[1]).append(");").toString());
@@ -193,10 +195,12 @@ public class convertMame {
                         else {
                             sUtil.skipSpace();
                             if (sUtil.parseChar() == '=') {
+                                int g=Convertor.inpos;
                                 if (sUtil.parseChar() == '=') {
                                     Convertor.inpos = i;
                                     break;
                                 }
+                                Convertor.inpos=g;
                                 sUtil.skipSpace();
                                 Convertor.token[1] = sUtil.parseToken(';');
                                 sUtil.putString((new StringBuilder()).append("spriteram_2.write(").append(Convertor.token[0]).append(",").append(Convertor.token[1]).append(");").toString());
@@ -223,10 +227,12 @@ public class convertMame {
                         else {
                             sUtil.skipSpace();
                             if (sUtil.parseChar() == '=') {
+                                int g=Convertor.inpos;
                                 if (sUtil.parseChar() == '=') {
                                     Convertor.inpos = i;
                                     break;
                                 }
+                                Convertor.inpos=g;
                                 sUtil.skipSpace();
                                 Convertor.token[1] = sUtil.parseToken(';');
                                 sUtil.putString((new StringBuilder()).append("spriteram_3.write(").append(Convertor.token[0]).append(",").append(Convertor.token[1]).append(");").toString());
@@ -1042,10 +1048,12 @@ public class convertMame {
                         else {
                             sUtil.skipSpace();
                             if (sUtil.parseChar() == '=') {
+                                int g=Convertor.inpos;
                                 if (sUtil.parseChar() == '=') {
                                     Convertor.inpos = sd;
                                     break;
                                 }
+                                Convertor.inpos=g;
                                 sUtil.skipSpace();
                                 Convertor.token[1] = sUtil.parseToken(';');
                                 sUtil.putString((new StringBuilder()).append("color_prom.write(").append(Convertor.token[0]).append(",").append(Convertor.token[1]).append(");").toString());
@@ -1073,10 +1081,12 @@ public class convertMame {
                             sUtil.skipSpace();
 
                             if (sUtil.parseChar() == '=') {
+                                int g=Convertor.inpos;
                                 if (sUtil.parseChar() == '=') {
                                     Convertor.inpos = sd;
                                     break;
                                 }
+                                Convertor.inpos=g;
                                 sUtil.skipSpace();
                                 Convertor.token[1] = sUtil.parseToken(';');
                                 sUtil.putString((new StringBuilder()).append("colorram.write(").append(Convertor.token[0]).append(",").append(Convertor.token[1]).append(");").toString());
@@ -1261,10 +1271,12 @@ public class convertMame {
                         else {
                             sUtil.skipSpace();
                             if (sUtil.parseChar() == '=') {
+                                int g=Convertor.inpos;
                                 if (sUtil.parseChar() == '=') {
                                     Convertor.inpos = j;
                                     break;
                                 }
+                                Convertor.inpos=g;
                                 sUtil.skipSpace();
                                 Convertor.token[1] = sUtil.parseToken(';');
                                 sUtil.putString((new StringBuilder()).append("videoram.write(").append(Convertor.token[0]).append(",").append(Convertor.token[1]).append(");").toString());
@@ -1564,10 +1576,12 @@ public class convertMame {
                         else {
                             sUtil.skipSpace();
                             if (sUtil.parseChar() == '=') {
+                                int g=Convertor.inpos;
                                 if (sUtil.parseChar() == '=') {
                                     Convertor.inpos = sd2;
                                     break;
                                 }
+                                Convertor.inpos=g;
                                 sUtil.skipSpace();
                                 Convertor.token[1] = sUtil.parseToken(';');
                                 sUtil.putString((new StringBuilder()).append("paletteram_2.write(").append(Convertor.token[0]).append(",").append(Convertor.token[1]).append(");").toString());

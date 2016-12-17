@@ -148,7 +148,7 @@ public class tsamurai
 	{
 		if( videoram.read(offset)!=data )
 		{
-			videoram.write(offset,ata);
+			videoram.write(offset,data);
 			tilemap_mark_tile_dirty(foreground,offset);
 		}
 	} };
@@ -156,7 +156,7 @@ public class tsamurai
 	{
 		if( colorram.read(offset)!=data )
 		{
-			colorram.write(offset,ata);
+			colorram.write(offset,data);
 			if ((offset & 1) != 0)
 			{
 				int col = offset/2;
