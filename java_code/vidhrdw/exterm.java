@@ -30,7 +30,7 @@ public class exterm
 	static struct osd_bitmap *tmpbitmap1, *tmpbitmap2;
 	UBytePtr exterm_master_videoram, *exterm_slave_videoram;
 	
-	void exterm_init_palette(UBytePtr palette, unsigned short *colortable,const UBytePtr color_prom)
+	public static VhConvertColorPromPtr exterm_init_palette = new VhConvertColorPromPtr() { public void handler(char []palette, char []colortable, UBytePtr color_prom) 
 	{
 		int i;
 	
@@ -49,7 +49,7 @@ public class exterm
 			(*palette++) = (g << 3) | (g >> 2);
 			(*palette++) = (b << 3) | (b >> 2);
 		}
-	}
+	} };
 	
 	
 	public static ReadHandlerPtr exterm_master_videoram_r  = new ReadHandlerPtr() { public int handler(int offset)

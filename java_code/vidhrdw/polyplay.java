@@ -24,7 +24,7 @@ public class polyplay
 	static int palette_bank;
 	
 	
-	void polyplay_init_palette(UBytePtr palette, unsigned short *colortable,const UBytePtr color_prom)
+	public static VhConvertColorPromPtr polyplay_init_palette = new VhConvertColorPromPtr() { public void handler(char []palette, char []colortable, UBytePtr color_prom) 
 	{
 		int i;
 	
@@ -60,7 +60,7 @@ public class polyplay
 	
 		palette_bank = 0;
 	
-	}
+	} };
 	
 	
 	public static WriteHandlerPtr polyplay_characterram_w = new WriteHandlerPtr() {public void handler(int offset, int data)

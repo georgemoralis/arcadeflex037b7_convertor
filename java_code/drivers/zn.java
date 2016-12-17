@@ -599,7 +599,7 @@ public class zn
 		return 0;
 	} };
 	
-	void zn_init_palette(UBytePtr palette, unsigned short *colortable,const UBytePtr color_prom)
+	public static VhConvertColorPromPtr zn_init_palette = new VhConvertColorPromPtr() { public void handler(char []palette, char []colortable, UBytePtr color_prom) 
 	{
 		UINT16 n_r;
 		UINT16 n_g;
@@ -627,7 +627,7 @@ public class zn
 	
 			colortable[ n_colour ] = n_colour;
 		}
-	}
+	} };
 	
 	static public static VhUpdatePtr zn_vh_screenrefresh = new VhUpdatePtr() { public void handler(osd_bitmap bitmap,int full_refresh) 
 	{

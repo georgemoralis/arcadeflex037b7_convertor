@@ -411,7 +411,7 @@ public class seta
 	
 	   I think that's because this game's a prototype..
 	*/
-	void blandia_vh_init_palette(UBytePtr palette, unsigned short *colortable,const UBytePtr color_prom)
+	public static VhConvertColorPromPtr blandia_vh_init_palette = new VhConvertColorPromPtr() { public void handler(char []palette, char []colortable, UBytePtr color_prom) 
 	{
 		int color, pen;
 		for( color = 0; color < 32; color++ )
@@ -420,30 +420,30 @@ public class seta
 				colortable[color * 64 + pen + 16*32]       = (pen%16) + 16*32*1;
 				colortable[color * 64 + pen + 16*32+64*32] = pen      + 16*32*2;
 			}
-	}
+	} };
 	
 	
 	
 	/* layer 0 is 6 bit per pixel, but the color code has a 16 colors granularity */
-	void zingzip_vh_init_palette(UBytePtr palette, unsigned short *colortable,const UBytePtr color_prom)
+	public static VhConvertColorPromPtr zingzip_vh_init_palette = new VhConvertColorPromPtr() { public void handler(char []palette, char []colortable, UBytePtr color_prom) 
 	{
 		int color, pen;
 		for( color = 0; color < 32; color++ )
 			for( pen = 0; pen < 64; pen++ )
 				colortable[color * 64 + pen + 32*16*2] = ((color * 16 + pen)%(32*16)) + 32*16*2;
-	}
+	} };
 	
 	
 	
 	
 	/* 6 bit layer. The colors are still WRONG */
-	void usclssic_vh_init_palette(UBytePtr palette, unsigned short *colortable,const UBytePtr color_prom)
+	public static VhConvertColorPromPtr usclssic_vh_init_palette = new VhConvertColorPromPtr() { public void handler(char []palette, char []colortable, UBytePtr color_prom) 
 	{
 		int color, pen;
 		for( color = 0; color < 32; color++ )
 			for( pen = 0; pen < 64; pen++ )
 				colortable[color * 64 + pen + 512] = (((color & 0xf) * 16 + pen)%(512));
-	}
+	} };
 	
 	
 	

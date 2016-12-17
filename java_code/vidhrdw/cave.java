@@ -387,7 +387,7 @@ public class cave
 	/* Function needed for games with 4 bit sprites, rather than 8 bit */
 	
 	
-	void dfeveron_vh_init_palette(UBytePtr palette, unsigned short *colortable,const UBytePtr color_prom)
+	public static VhConvertColorPromPtr dfeveron_vh_init_palette = new VhConvertColorPromPtr() { public void handler(char []palette, char []colortable, UBytePtr color_prom) 
 	{
 		int color, pen;
 	
@@ -399,11 +399,11 @@ public class cave
 		for( color = 0; color < 0x40; color++ )
 			for( pen = 0; pen < 16; pen++ )
 				colortable[color * 256 + pen] = color * 16 + pen;
-	}
+	} };
 	
 	
 	
-	void ddonpach_vh_init_palette(UBytePtr palette, unsigned short *colortable,const UBytePtr color_prom)
+	public static VhConvertColorPromPtr ddonpach_vh_init_palette = new VhConvertColorPromPtr() { public void handler(char []palette, char []colortable, UBytePtr color_prom) 
 	{
 		int color, pen;
 	
@@ -415,7 +415,7 @@ public class cave
 		for( color = 0; color < 0x40; color++ )
 			for( pen = 0; pen < 16; pen++ )
 				colortable[color * 16 + pen + 0x8000] = 0x4000 + color * 256 + pen;
-	}
+	} };
 	
 	
 	
