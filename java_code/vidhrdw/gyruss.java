@@ -332,7 +332,7 @@ public class gyruss
 			else sr = spriteram_2;
 	
 	
-			for (offs = spriteram_size - 8;offs >= 0;offs -= 8)
+			for (offs = spriteram_size[0] - 8;offs >= 0;offs -= 8)
 			{
 				if (sr[2 + offs] & 0x10)	/* double height */
 				{

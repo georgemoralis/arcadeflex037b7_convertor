@@ -148,7 +148,7 @@ public class sonson
 	
 	
 		/* draw the sprites */
-		for (offs = spriteram_size - 4;offs >= 0;offs -= 4)
+		for (offs = spriteram_size[0] - 4;offs >= 0;offs -= 4)
 		{
 			drawgfx(bitmap,Machine.gfx[1],
 					spriteram.read(offs+2)+ ((spriteram.read(offs+1)& 0x20) << 3),

@@ -156,7 +156,7 @@ public class sidearms
 	
 		for (color = 0;color < 16;color++) colmask[color] = 0;
 	
-		for (offs = spriteram_size - 32;offs >= 0;offs -= 32)
+		for (offs = spriteram_size[0] - 32;offs >= 0;offs -= 32)
 		{
 			code = spriteram.read(offs)+ 8 * (spriteram.read(offs+1)& 0xe0);
 			color =	spriteram.read(offs+1)& 0x0f;
@@ -282,7 +282,7 @@ public class sidearms
 		/* Draw the sprites. */
 		if (objon != 0)
 		{
-			for (offs = spriteram_size - 32;offs >= 0;offs -= 32)
+			for (offs = spriteram_size[0] - 32;offs >= 0;offs -= 32)
 			{
 				sx = spriteram.read(offs+3)+ ((spriteram.read(offs+1)& 0x10) << 4);
 				sy = spriteram.read(offs+2);

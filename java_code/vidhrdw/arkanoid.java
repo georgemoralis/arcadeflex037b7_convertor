@@ -150,7 +150,7 @@ public class arkanoid
 	
 	
 		/* Draw the sprites. */
-		for (offs = 0;offs < spriteram_size;offs += 4)
+		for (offs = 0;offs < spriteram_size[0];offs += 4)
 		{
 			int sx,sy,code;
 	

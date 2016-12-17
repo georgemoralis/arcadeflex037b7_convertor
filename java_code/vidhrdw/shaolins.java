@@ -158,7 +158,7 @@ public class shaolins
 		}
 	
 	
-		for (offs = spriteram_size-32; offs >= 0; offs-=32 ) /* max 24 sprites */
+		for (offs = spriteram_size[0]-32; offs >= 0; offs-=32 ) /* max 24 sprites */
 		{
 			if (spriteram.read(offs)&& spriteram.read(offs+6)) /* stop rogue sprites on high score screen */
 			{

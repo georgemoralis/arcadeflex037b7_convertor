@@ -196,7 +196,7 @@ public class tehkanwc
 	
 		for (color = 0;color < 16;color++) colmask[color] = 0;
 	
-		for (offs = 0;offs < spriteram_size;offs += 4)
+		for (offs = 0;offs < spriteram_size[0];offs += 4)
 		{
 			code = spriteram.read(offs+0)+ ((spriteram.read(offs+1)& 0x08) << 5);
 			color = spriteram.read(offs+1)& 0x07;
@@ -296,7 +296,7 @@ public class tehkanwc
 	
 	
 		/* draw sprites */
-		for (offs = 0;offs < spriteram_size;offs += 4)
+		for (offs = 0;offs < spriteram_size[0];offs += 4)
 		{
 			drawgfx(bitmap,Machine.gfx[1],
 					spriteram.read(offs+0)+ ((spriteram.read(offs+1)& 0x08) << 5),

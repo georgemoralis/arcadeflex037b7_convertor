@@ -144,7 +144,7 @@ public class bombjack
 	
 	
 		/* Draw the sprites. */
-		for (offs = spriteram_size - 4;offs >= 0;offs -= 4)
+		for (offs = spriteram_size[0] - 4;offs >= 0;offs -= 4)
 		{
 	
 	/*

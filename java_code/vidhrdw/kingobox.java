@@ -202,7 +202,7 @@ public class kingobox
 	
 	
 		/* sprites */
-		for (offs = spriteram_size - 4;offs >= 0;offs -= 4)
+		for (offs = spriteram_size[0] - 4;offs >= 0;offs -= 4)
 		{
 			int sx,sy,code,color,bank,flipy;
 	
@@ -284,7 +284,7 @@ public class kingobox
 	
 	
 		/* sprites */
-		for (offs = 0; offs < spriteram_size;offs += 4)
+		for (offs = 0; offs < spriteram_size[0];offs += 4)
 		{
 			int sx,sy,code,color,bank,flipy;
 	

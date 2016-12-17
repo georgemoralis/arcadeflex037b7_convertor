@@ -182,7 +182,7 @@ public class nova2001
 	
 	
 		/* Next, draw the sprites */
-		for (offs = 0;offs < spriteram_size;offs += 32)
+		for (offs = 0;offs < spriteram_size[0];offs += 32)
 		{
 			if (spriteram.read(offs+0)& 0x40)
 			{

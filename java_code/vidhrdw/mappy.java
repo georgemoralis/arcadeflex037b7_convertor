@@ -274,7 +274,7 @@ public class mappy
 		}
 	
 		/* Draw the sprites. */
-		for (offs = 0;offs < spriteram_size;offs += 2)
+		for (offs = 0;offs < spriteram_size[0];offs += 2)
 		{
 			/* is it on? */
 			if ((spriteram_3.read(offs+1)& 2) == 0)

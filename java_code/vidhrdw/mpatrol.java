@@ -471,7 +471,7 @@ public class mpatrol
 	
 	
 		/* Draw the sprites. */
-		for (offs = spriteram_size - 4;offs >= 0;offs -= 4)
+		for (offs = spriteram_size[0] - 4;offs >= 0;offs -= 4)
 		{
 			int sx,sy,flipx,flipy;
 	
@@ -495,7 +495,7 @@ public class mpatrol
 					sx,sy,
 					&Machine.visible_area,TRANSPARENCY_COLOR,128+32);
 		}
-		for (offs = spriteram_size - 4;offs >= 0;offs -= 4)
+		for (offs = spriteram_size[0] - 4;offs >= 0;offs -= 4)
 		{
 			int sx,sy,flipx,flipy;
 	

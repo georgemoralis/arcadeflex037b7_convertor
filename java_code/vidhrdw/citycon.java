@@ -134,7 +134,7 @@ public class citycon
 			palette_used_colors[512 + 4 * color] = PALETTE_COLOR_TRANSPARENT;
 			memset(&palette_used_colors[512 + 4 * color + 1],PALETTE_COLOR_USED,3);
 		}
-		for (offs = spriteram_size-4;offs >= 0;offs -= 4)
+		for (offs = spriteram_size[0]-4;offs >= 0;offs -= 4)
 		{
 			int color;
 	
@@ -257,7 +257,7 @@ public class citycon
 		}
 	
 	
-		for (offs = spriteram_size-4;offs >= 0;offs -= 4)
+		for (offs = spriteram_size[0]-4;offs >= 0;offs -= 4)
 		{
 			int sx,sy,flipx;
 	

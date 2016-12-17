@@ -317,7 +317,7 @@ public class ginganin
 	
 		for (color = 0 ; color < 16 ; color++) colmask[color] = 0;
 	
-		for (offs = 0 ; offs < spriteram_size ; offs += 8)
+		for (offs = 0 ; offs < spriteram_size[0] ; offs += 8)
 		{
 		int x,y,code;
 	

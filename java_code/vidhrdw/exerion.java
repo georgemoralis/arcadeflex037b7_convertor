@@ -318,7 +318,7 @@ public class exerion
 		{
 			int i;
 	
-			for (i = 0; i < spriteram_size; i+= 4)
+			for (i = 0; i < spriteram_size[0]; i+= 4)
 			{
 				if (spriteram[i+2] == 0x02)
 				{
@@ -329,7 +329,7 @@ public class exerion
 	#endif
 	
 		/* draw sprites */
-		for (i = 0; i < spriteram_size; i += 4)
+		for (i = 0; i < spriteram_size[0]; i += 4)
 		{
 			int flags = spriteram.read(i+0);
 			int y = spriteram.read(i+1)^ 255;

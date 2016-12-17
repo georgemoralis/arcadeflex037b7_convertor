@@ -282,7 +282,7 @@ public class cloak
 	
 	
 		/* Draw the sprites */
-		for (offs = spriteram_size/4-1; offs >= 0; offs--)
+		for (offs = spriteram_size[0]/4-1; offs >= 0; offs--)
 		{
 			drawgfx(bitmap,Machine.gfx[1],
 					spriteram.read(offs+64)& 0x7f,

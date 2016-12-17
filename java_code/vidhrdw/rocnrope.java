@@ -143,7 +143,7 @@ public class rocnrope
 	
 	
 		/* Draw the sprites. */
-		for (offs = spriteram_size - 2;offs >= 0;offs -= 2)
+		for (offs = spriteram_size[0] - 2;offs >= 0;offs -= 2)
 		{
 			drawgfx(bitmap,Machine.gfx[1],
 					spriteram.read(offs+1),

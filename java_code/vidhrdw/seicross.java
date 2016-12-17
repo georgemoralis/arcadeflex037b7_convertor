@@ -140,7 +140,7 @@ public class seicross
 		}
 	
 		/* draw sprites */
-		for (offs = spriteram_size - 4;offs >= 0;offs -= 4)
+		for (offs = spriteram_size[0] - 4;offs >= 0;offs -= 4)
 		{
 			x=spriteram.read(offs+3);
 			drawgfx(bitmap,Machine.gfx[1],

@@ -216,7 +216,7 @@ public class toypop
 		copybitmap(bitmap,tmpbitmap,flipscreen,flipscreen,0,0,&Machine.visible_area,TRANSPARENCY_NONE,0);
 	
 		/* Draw the sprites. */
-		for (offs = 0;offs < spriteram_size;offs += 2) {
+		for (offs = 0;offs < spriteram_size[0];offs += 2) {
 			/* is it on? */
 			if ((spriteram_2.read(offs)) != 0xe9) {
 				int sprite = spriteram.read(offs);

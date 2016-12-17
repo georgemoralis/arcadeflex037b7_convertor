@@ -259,7 +259,7 @@ public class gaplus
 	public static VhStartPtr gaplus_vh_start = new VhStartPtr() { public int handler()  {
 	
 		/* set up spriteram area */
-		spriteram_size = 0x80;
+		spriteram_size[0] = 0x80;
 		spriteram = &gaplus_sharedram[0x780];
 		spriteram_2 = &gaplus_sharedram[0x780+0x800];
 		spriteram_3 = &gaplus_sharedram[0x780+0x800+0x800];

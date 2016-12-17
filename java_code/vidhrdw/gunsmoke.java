@@ -259,7 +259,7 @@ public class gunsmoke
 		if (objon != 0)
 		{
 			/* Draw the sprites. */
-			for (offs = spriteram_size - 32;offs >= 0;offs -= 32)
+			for (offs = spriteram_size[0] - 32;offs >= 0;offs -= 32)
 			{
 				int bank,flipx,flipy;
 	

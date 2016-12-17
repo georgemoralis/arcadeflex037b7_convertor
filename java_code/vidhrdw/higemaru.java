@@ -121,7 +121,7 @@ public class higemaru
 	
 	
 		/* Draw the sprites. */
-		for (offs = spriteram_size - 16;offs >= 0;offs -= 16)
+		for (offs = spriteram_size[0] - 16;offs >= 0;offs -= 16)
 		{
 			int code,col,sx,sy,flipx,flipy;
 	

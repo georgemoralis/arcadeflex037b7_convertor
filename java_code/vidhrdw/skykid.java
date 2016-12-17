@@ -109,7 +109,7 @@ public class skykid
 			spriteram	= &RAM[0x4f80];
 			spriteram_2	= &RAM[0x4f80+0x0800];
 			spriteram_3	= &RAM[0x4f80+0x0800+0x0800];
-			spriteram_size = 0x80;
+			spriteram_size[0] = 0x80;
 	
 			return 0;
 		}

@@ -171,14 +171,14 @@ public class m72
 		bg_tilemap = tilemap_create(m72_get_bg_tile_info,tilemap_scan_rows,TILEMAP_OPAQUE,     8,8,64,64);
 		fg_tilemap = tilemap_create(m72_get_fg_tile_info,tilemap_scan_rows,TILEMAP_TRANSPARENT,8,8,64,64);
 	
-		m72_spriteram = malloc(spriteram_size);
+		m72_spriteram = malloc(spriteram_size[0]);
 	
 		if (!fg_tilemap || !bg_tilemap || !m72_spriteram)
 			return 1;
 	
 		fg_tilemap.transparent_pen = 0;
 	
-		memset(m72_spriteram,0,spriteram_size);
+		memset(m72_spriteram,0,spriteram_size[0]);
 	
 		xadjust = 0;
 	
@@ -195,14 +195,14 @@ public class m72
 		bg_tilemap = tilemap_create(dbreed_get_bg_tile_info,tilemap_scan_rows,TILEMAP_OPAQUE,     8,8,64,64);
 		fg_tilemap = tilemap_create(m72_get_fg_tile_info,   tilemap_scan_rows,TILEMAP_TRANSPARENT,8,8,64,64);
 	
-		m72_spriteram = malloc(spriteram_size);
+		m72_spriteram = malloc(spriteram_size[0]);
 	
 		if (!fg_tilemap || !bg_tilemap || !m72_spriteram)
 			return 1;
 	
 		fg_tilemap.transparent_pen = 0;
 	
-		memset(m72_spriteram,0,spriteram_size);
+		memset(m72_spriteram,0,spriteram_size[0]);
 	
 		xadjust = 0;
 	
@@ -214,14 +214,14 @@ public class m72
 		bg_tilemap = tilemap_create(rtype2_get_bg_tile_info,tilemap_scan_rows,TILEMAP_OPAQUE,     8,8,64,64);
 		fg_tilemap = tilemap_create(rtype2_get_fg_tile_info,tilemap_scan_rows,TILEMAP_TRANSPARENT,8,8,64,64);
 	
-		m72_spriteram = malloc(spriteram_size);
+		m72_spriteram = malloc(spriteram_size[0]);
 	
 		if (!fg_tilemap || !bg_tilemap || !m72_spriteram)
 			return 1;
 	
 		fg_tilemap.transparent_pen = 0;
 	
-		memset(m72_spriteram,0,spriteram_size);
+		memset(m72_spriteram,0,spriteram_size[0]);
 	
 		xadjust = -4;
 	
@@ -236,14 +236,14 @@ public class m72
 		bg_tilemap = tilemap_create(majtitle_get_bg_tile_info,tilemap_scan_rows,TILEMAP_OPAQUE,     8,8,128,64);
 		fg_tilemap = tilemap_create(rtype2_get_fg_tile_info,  tilemap_scan_rows,TILEMAP_TRANSPARENT,8,8,64,64);
 	
-		m72_spriteram = malloc(spriteram_size);
+		m72_spriteram = malloc(spriteram_size[0]);
 	
 		if (!fg_tilemap || !bg_tilemap || !m72_spriteram)
 			return 1;
 	
 		fg_tilemap.transparent_pen = 0;
 	
-		memset(m72_spriteram,0,spriteram_size);
+		memset(m72_spriteram,0,spriteram_size[0]);
 	
 		xadjust = -4;
 	
@@ -255,14 +255,14 @@ public class m72
 		bg_tilemap = tilemap_create(hharry_get_bg_tile_info,tilemap_scan_rows,TILEMAP_OPAQUE,     8,8,64,64);
 		fg_tilemap = tilemap_create(hharry_get_fg_tile_info,tilemap_scan_rows,TILEMAP_TRANSPARENT,8,8,64,64);
 	
-		m72_spriteram = malloc(spriteram_size);
+		m72_spriteram = malloc(spriteram_size[0]);
 	
 		if (!fg_tilemap || !bg_tilemap || !m72_spriteram)
 			return 1;
 	
 		fg_tilemap.transparent_pen = 0;
 	
-		memset(m72_spriteram,0,spriteram_size);
+		memset(m72_spriteram,0,spriteram_size[0]);
 	
 		xadjust = -4;
 	
@@ -420,8 +420,8 @@ public class m72
 		/* TODO: this is ok for R-Type, but might be wrong for others */
 		if (offset == 1)
 		{
-			memcpy(m72_spriteram,spriteram,spriteram_size);
-			if ((data & 0x40) != 0) memset(spriteram,0,spriteram_size);
+			memcpy(m72_spriteram,spriteram,spriteram_size[0]);
+			if ((data & 0x40) != 0) memset(spriteram,0,spriteram_size[0]);
 			/* bit 7 is used by bchopper, nspirit, imgfight, loht, gallop - meaning unknown */
 			/* rtype2 uses bits 4,5,6 and 7 - of course it could be a different chip */
 		}
@@ -432,8 +432,8 @@ public class m72
 	//logerror("%04x: write %02x to sprite ctrl+%d\n",cpu_get_pc(),data,offset);
 		if (offset == 0)
 		{
-			memcpy(m72_spriteram,spriteram,spriteram_size);
-			memset(spriteram,0,spriteram_size);
+			memcpy(m72_spriteram,spriteram,spriteram_size[0]);
+			memset(spriteram,0,spriteram_size[0]);
 		}
 	} };
 	
@@ -442,8 +442,8 @@ public class m72
 	//logerror("%04x: write %02x to sprite ctrl+%d\n",cpu_get_pc(),data,offset);
 		if (offset == 1)
 		{
-			memcpy(m72_spriteram,spriteram,spriteram_size);
-			if ((data & 0x80) != 0) memset(spriteram,0,spriteram_size);
+			memcpy(m72_spriteram,spriteram,spriteram_size[0]);
+			if ((data & 0x80) != 0) memset(spriteram,0,spriteram_size[0]);
 			/* hharryu uses bits 2,3,4,5,6 and 7 - of course it could be a different chip */
 			/* majtitle uses bits 2,3,5,6 and 7 - of course it could be a different chip */
 		}

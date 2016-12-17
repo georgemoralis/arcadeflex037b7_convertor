@@ -139,6 +139,14 @@ public class convertMame {
                     continue;
                 }
                 case 's': {
+                    if (type == WRITEHANDLER || type == VH_SCREENREFRESH || type == VH_START || type == READHANDLER) {
+                        if(i3==-1) break;//if is not inside a memwrite function break
+                        i=Convertor.inpos;
+                        if (sUtil.getToken("spriteram_size")) {
+                            sUtil.putString((new StringBuilder()).append("spriteram_size[0]").toString());
+                            continue;
+                        }
+                    }
                     i = Convertor.inpos;
                     if(sUtil.getToken("spriteram"))
                     {
@@ -1243,7 +1251,7 @@ public class convertMame {
                     }
                     break;
                 case 'v': {
-                    if (type == WRITEHANDLER || type == VH_SCREENREFRESH || type == VH_START) {
+                    if (type == WRITEHANDLER || type == VH_SCREENREFRESH || type == VH_START || type == READHANDLER) {
                         if(i3==-1) break;//if is not inside a memwrite function break
                         i=Convertor.inpos;
                         if (sUtil.getToken("videoram_size")) {

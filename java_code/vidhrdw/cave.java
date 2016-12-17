@@ -140,7 +140,7 @@ public class cave
 									DIM_NX*2,DIM_NY*2 );
 	
 	
-		sprite_list = sprite_list_create(spriteram_size / 0x10 / 2, SPRITE_LIST_BACK_TO_FRONT | SPRITE_LIST_RAW_DATA );
+		sprite_list = sprite_list_create(spriteram_size[0] / 0x10 / 2, SPRITE_LIST_BACK_TO_FRONT | SPRITE_LIST_RAW_DATA );
 	
 		if (tilemap_0 && tilemap_1 && tilemap_2 && sprite_list)
 		{
@@ -195,7 +195,7 @@ public class cave
 									DIM_NX,DIM_NY );
 	
 	
-		sprite_list = sprite_list_create(spriteram_size / 0x10 / 2, SPRITE_LIST_BACK_TO_FRONT | SPRITE_LIST_RAW_DATA );
+		sprite_list = sprite_list_create(spriteram_size[0] / 0x10 / 2, SPRITE_LIST_BACK_TO_FRONT | SPRITE_LIST_RAW_DATA );
 	
 		if (tilemap_0 && tilemap_1 && tilemap_2 && sprite_list)
 		{
@@ -255,7 +255,7 @@ public class cave
 									DIM_NX,DIM_NY );
 	
 	
-		sprite_list = sprite_list_create(spriteram_size / 0x10 / 2, SPRITE_LIST_BACK_TO_FRONT | SPRITE_LIST_RAW_DATA );
+		sprite_list = sprite_list_create(spriteram_size[0] / 0x10 / 2, SPRITE_LIST_BACK_TO_FRONT | SPRITE_LIST_RAW_DATA );
 	
 		if (tilemap_0 && tilemap_1 && tilemap_2 && sprite_list)
 		{
@@ -306,7 +306,7 @@ public class cave
 	
 		tilemap_2 = 0;
 	
-		sprite_list = sprite_list_create(spriteram_size / 0x10 / 2, SPRITE_LIST_BACK_TO_FRONT | SPRITE_LIST_RAW_DATA );
+		sprite_list = sprite_list_create(spriteram_size[0] / 0x10 / 2, SPRITE_LIST_BACK_TO_FRONT | SPRITE_LIST_RAW_DATA );
 	
 		if (tilemap_0 && tilemap_1 && sprite_list)
 		{
@@ -356,7 +356,7 @@ public class cave
 	
 		tilemap_2 = 0;
 	
-		sprite_list = sprite_list_create(spriteram_size / 0x10 / 2, SPRITE_LIST_BACK_TO_FRONT | SPRITE_LIST_RAW_DATA );
+		sprite_list = sprite_list_create(spriteram_size[0] / 0x10 / 2, SPRITE_LIST_BACK_TO_FRONT | SPRITE_LIST_RAW_DATA );
 	
 		if (tilemap_0 && sprite_list)
 		{

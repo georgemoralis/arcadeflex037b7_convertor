@@ -210,7 +210,7 @@ public class terracre
 	
 	
 	
-		for (x = 0;x <spriteram_size;x += 8)
+		for (x = 0;x <spriteram_size[0];x += 8)
 		{
 			int code;
 			int attr = READ_WORD(&spriteram.read(x+4)) & 0xff;

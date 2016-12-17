@@ -206,7 +206,7 @@ public class generic
 	
 	public static WriteHandlerPtr buffer_spriteram_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		memcpy(buffered_spriteram,spriteram,spriteram_size);
+		memcpy(buffered_spriteram,spriteram,spriteram_size[0]);
 	} };
 	
 	public static WriteHandlerPtr buffer_spriteram_2_w = new WriteHandlerPtr() {public void handler(int offset, int data)

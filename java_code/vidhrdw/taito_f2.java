@@ -242,8 +242,8 @@ public class taito_f2
 	
 	public static VhStartPtr taitof2_core_vh_start = new VhStartPtr() { public int handler() 
 	{
-		spriteram_delayed = malloc(spriteram_size);
-		spriteram_buffered = malloc(spriteram_size);
+		spriteram_delayed = malloc(spriteram_size[0]);
+		spriteram_buffered = malloc(spriteram_size[0]);
 		spritelist = malloc(0x400 * sizeof(*spritelist));
 		if (!spriteram_delayed || !spriteram_buffered || !spritelist)
 			return 1;

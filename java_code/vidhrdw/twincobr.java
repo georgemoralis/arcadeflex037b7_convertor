@@ -454,7 +454,7 @@ public class twincobr
 	
 		if (toaplan_main_cpu == 0) /* 68k */
 		{
-			for (offs = 0;offs < spriteram_size;offs += 8)
+			for (offs = 0;offs < spriteram_size[0];offs += 8)
 			{
 				int sy;
 				sy = READ_WORD(&buffered_spriteram[offs + 6]);
@@ -467,7 +467,7 @@ public class twincobr
 		}
 		else /* Z80 */
 		{
-			for (offs = 0;offs < spriteram_size;offs += 8)
+			for (offs = 0;offs < spriteram_size[0];offs += 8)
 			{
 				int sy;
 				sy = READ_WORD_Z80(&buffered_spriteram[offs + 6]);

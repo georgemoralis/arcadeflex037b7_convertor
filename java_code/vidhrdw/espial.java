@@ -136,7 +136,7 @@ public class espial
 	
 		/* Draw the sprites. Note that it is important to draw them exactly in this */
 		/* order, to have the correct priorities. */
-		for (offs = 0;offs < spriteram_size/2;offs++)
+		for (offs = 0;offs < spriteram_size[0]/2;offs++)
 		{
 			int sx,sy,code,color,flipx,flipy;
 	

@@ -192,7 +192,7 @@ public class wc90b
 				tile = videoram.read(offs)+ ( ( cram & 0x07 ) << 8 );
 				palette_map[1*16 + (cram >> 4)] |= Machine.gfx[0].pen_usage[tile];
 			}
-			for ( offs = spriteram_size - 8;offs >= 0;offs -= 8 ){
+			for ( offs = spriteram_size[0] - 8;offs >= 0;offs -= 8 ){
 				if ( spriteram.read(offs+1)> 16 ) { /* visible */
 					int flags = spriteram.read(offs+4);
 					palette_map[0*16 + (flags >> 4)] |= 0xfffe;

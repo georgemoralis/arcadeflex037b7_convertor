@@ -167,7 +167,7 @@ public class wc90
 				tile = videoram.read(offs)+ ( ( cram & 0x07 ) << 8 );
 				palette_map[1*16 + (cram >> 4)] |= Machine.gfx[0].pen_usage[tile];
 			}
-			for (offs = 0;offs < spriteram_size;offs += 16){
+			for (offs = 0;offs < spriteram_size[0];offs += 16){
 				int bank = spriteram.read(offs+0);
 	
 				if ((bank & 4) != 0) { /* visible */

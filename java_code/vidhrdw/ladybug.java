@@ -170,7 +170,7 @@ public class ladybug
 		/* Draw the sprites. Note that it is important to draw them exactly in this */
 		/* order, to have the correct priorities. */
 		/* sprites in the columns 15, 1 and 0 are outside of the visible area */
-		for (offs = spriteram_size - 2*0x40;offs >= 2*0x40;offs -= 0x40)
+		for (offs = spriteram_size[0] - 2*0x40;offs >= 2*0x40;offs -= 0x40)
 		{
 			i = 0;
 			while (i < 0x40 && spriteram.read(offs+i)!= 0)

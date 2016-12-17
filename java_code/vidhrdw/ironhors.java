@@ -182,7 +182,7 @@ public class ironhors
 				sr = spriteram;
 			else sr = spriteram_2;
 	
-			for (offs = 0;offs < spriteram_size;offs += 5)
+			for (offs = 0;offs < spriteram_size[0];offs += 5)
 			{
 				if (sr[offs+2])
 				{

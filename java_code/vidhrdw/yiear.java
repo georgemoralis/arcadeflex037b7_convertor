@@ -148,7 +148,7 @@ public class yiear
 	
 	
 		/* draw sprites */
-		for (offs = spriteram_size - 2;offs >= 0;offs -= 2)
+		for (offs = spriteram_size[0] - 2;offs >= 0;offs -= 2)
 		{
 			int sx,sy,flipx,flipy;
 	

@@ -262,7 +262,7 @@ public class _1943
 		if (objon != 0)
 		{
 			/* Draw the sprites which don't have priority over the foreground. */
-			for (offs = spriteram_size - 32;offs >= 0;offs -= 32)
+			for (offs = spriteram_size[0] - 32;offs >= 0;offs -= 32)
 			{
 				int color;
 	
@@ -351,7 +351,7 @@ public class _1943
 		if (objon != 0)
 		{
 			/* Draw the sprites which have priority over the foreground. */
-			for (offs = spriteram_size - 32;offs >= 0;offs -= 32)
+			for (offs = spriteram_size[0] - 32;offs >= 0;offs -= 32)
 			{
 				int color;
 	

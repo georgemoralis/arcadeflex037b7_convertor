@@ -211,7 +211,7 @@ public class magmax
 		}
 	
 		/* draw the sprites */
-		for (offs = 0; offs < spriteram_size; offs += 8)
+		for (offs = 0; offs < spriteram_size[0]; offs += 8)
 		{
 			int code;
 			int attr = READ_WORD(&spriteram.read(offs+4)) & 0xff;

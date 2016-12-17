@@ -321,7 +321,7 @@ public class yard
 		}
 	
 	
-		for (offs = spriteram_size - 4;offs >= 0;offs -= 4)
+		for (offs = spriteram_size[0] - 4;offs >= 0;offs -= 4)
 		{
 			int code1,code2,bank,sx,sy1,sy2,flipx,flipy;
 	

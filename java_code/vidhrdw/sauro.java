@@ -166,7 +166,7 @@ public class sauro
 		/* Draw the sprites. The order is important for correct priorities */
 	
 		/* Weird, sprites entries don't start on DWORD boundary */
-		for (offs = 3;offs < spriteram_size - 1;offs += 4)
+		for (offs = 3;offs < spriteram_size[0] - 1;offs += 4)
 		{
 			sy = spriteram.read(offs);
 			if (sy == 0xf8) continue;

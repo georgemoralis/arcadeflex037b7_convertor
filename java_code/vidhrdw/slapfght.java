@@ -117,7 +117,7 @@ public class slapfght
 	
 	
 		/* Draw the sprites */
-		for (offs = 0;offs < spriteram_size;offs += 4)
+		for (offs = 0;offs < spriteram_size[0];offs += 4)
 		{
 			drawgfx(bitmap,Machine.gfx[2],
 				spriteram.read(offs)+ ((spriteram.read(offs+2)& 0xc0) << 2),

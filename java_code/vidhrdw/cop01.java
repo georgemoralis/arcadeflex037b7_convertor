@@ -189,7 +189,7 @@ public class cop01
 	
 	
 		/* draw the sprites */
-		for (offs = 0;offs < spriteram_size;offs += 4)
+		for (offs = 0;offs < spriteram_size[0];offs += 4)
 		{
 			int attr = spriteram.read(offs+2);
 			int numtile = spriteram.read(offs+1);

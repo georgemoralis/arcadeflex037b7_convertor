@@ -72,7 +72,7 @@ public class phozon
 	
 	public static VhStartPtr phozon_vh_start = new VhStartPtr() { public int handler()  {
 		/* set up spriteram area */
-		spriteram_size = 0x80;
+		spriteram_size[0] = 0x80;
 		spriteram = &phozon_spriteram[0x780];
 		spriteram_2 = &phozon_spriteram[0x780+0x800];
 		spriteram_3 = &phozon_spriteram[0x780+0x800+0x800];
@@ -159,7 +159,7 @@ public class phozon
 		copybitmap(bitmap,tmpbitmap,0,0,0,0,&Machine.visible_area,TRANSPARENCY_NONE,0);
 	
 		/* Draw the sprites. */
-		for (offs = 0;offs < spriteram_size;offs += 2){
+		for (offs = 0;offs < spriteram_size[0];offs += 2){
 			/* is it on? */
 			if ((spriteram_3.read(offs+1)& 2) == 0){
 				int sprite = spriteram.read(offs);

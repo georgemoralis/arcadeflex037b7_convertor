@@ -234,7 +234,7 @@ public class gottlieb
 	
 		/* Draw the sprites. Note that it is important to draw them exactly in this */
 		/* order, to have the correct priorities. */
-	    for (offs = 0;offs < spriteram_size - 8;offs += 4)     /* it seems there's something strange with sprites #62 and #63 */
+	    for (offs = 0;offs < spriteram_size[0] - 8;offs += 4)     /* it seems there's something strange with sprites #62 and #63 */
 		{
 		    int sx,sy;
 	
