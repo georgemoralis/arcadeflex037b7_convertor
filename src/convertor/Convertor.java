@@ -132,7 +132,72 @@ public class Convertor {
                     
         }
         System.out.println("Done");
+        //secondpass();
+    }
+    public void secondpass()
+    {
+        ArrayList<File> files = new ArrayList<>();
+        listf("java_code",files);
+        for(File f : files)
+        {
+            //System.out.println(f.getPath());
+            //if(f.getName().matches("makefile")) continue;
+            String drivername=f.getName().substring(0, f.getName().lastIndexOf('.'));
+            String getextension= f.getName().substring(f.getName().lastIndexOf('.'),f.getName().length());
+            //if(getextension.matches(".asm")) continue;
+            //if(getextension.matches(".mak")) continue;
+           // if(getextension.matches(".txt")) continue;
+            String sourcepath=f.getPath().substring(0, f.getPath().lastIndexOf('\\'));
+            String destpath = sourcepath;//.replace("c_code", "java_code");
+            if((fInput = fileutil.openReadFile((new StringBuilder()).append(sourcepath).append("\\").append(drivername).append(getextension).toString())) == null)
+            {
+                return;
+            }
+            int k;
+            if((k = fileutil.getFileSize(fInput)) == -1)
+            {
+                return;
+            }
+            inbuf = new byte[k];
+            if(fileutil.readFile(fInput, inbuf) != k)
+            {
+                return;
+            }
+            if(!fileutil.closeReadFile(fInput))
+            {
+                return;
+            }
 
+            className = makeDriverName(drivername);
+
+            outbuf = new byte[k * 4];
+
+            if(destpath.indexOf('\\')==-1)//if it's parent dir just place them into mame subdir
+            {
+                destpath= destpath+"\\mame";
+            }
+            packageName = destpath.replace("\\", ".");
+            packageName = packageName.replace("java_code.", "");
+            System.out.println("starting : " + packageName + " " + drivername);
+            convertMame.ConvertMame();
+            new File(destpath).mkdirs();
+            if((fOutput = fileutil.openWriteFile((new StringBuilder()).append(destpath).append("\\").append(className).append(".java").toString())) == null)
+            {
+                return;
+            }
+            if(!fileutil.writeFile(fOutput, outbuf, outpos))
+            {
+                return;
+            }
+            if(!fileutil.closeWriteFile(fOutput))
+            {
+                return;
+            }
+            System.out.println("Converted : " + drivername + " DONE");
+
+
+        }
+        System.out.println("Done");
     }
 
     public void listf(String directoryName, ArrayList<File> files) {
