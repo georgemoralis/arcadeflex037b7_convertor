@@ -372,7 +372,7 @@ public class bosco
 	
 			drawgfx(bitmap,Machine.gfx[1],
 					(spriteram.read(offs)& 0xfc) >> 2,
-					spriteram_2.read(offs+1)& 0x3f,
+					spriteram_2.read(offs + 1)& 0x3f,
 					spriteram.read(offs)& 1,spriteram.read(offs)& 2,
 					sx,sy,
 					flipscreen ? &spritevisibleareaflip : &spritevisiblearea,TRANSPARENCY_THROUGH,Machine.pens[0]);

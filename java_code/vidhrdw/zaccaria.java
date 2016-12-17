@@ -197,10 +197,10 @@ public class zaccaria
 		for (offs = 0;offs < spriteram_2_size;offs += 4)
 		{
 			drawgfx(bitmap,Machine.gfx[1],
-					(spriteram_2.read(offs+2)& 0x3f) + (spriteram_2.read(offs+1)& 0xc0),
-					4 * (spriteram_2.read(offs+1)& 0x07),
-					spriteram_2.read(offs+2)& 0x40,spriteram_2.read(offs+2)& 0x80,
-					spriteram_2.read(offs+3)+ 1,242 - spriteram_2.read(offs),
+					(spriteram_2.read(offs + 2)& 0x3f) + (spriteram_2.read(offs + 1)& 0xc0),
+					4 * (spriteram_2.read(offs + 1)& 0x07),
+					spriteram_2.read(offs + 2)& 0x40,spriteram_2.read(offs + 2)& 0x80,
+					spriteram_2.read(offs + 3)+ 1,242 - spriteram_2.read(offs),
 					&spritevisiblearea,TRANSPARENCY_PEN,0);
 		}
 	

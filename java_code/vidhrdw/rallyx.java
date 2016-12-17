@@ -338,12 +338,12 @@ public class rallyx
 		/* draw the sprites */
 		for (offs = 0;offs < spriteram_size[0];offs += 2)
 		{
-			sx = spriteram.read(offs + 1)+ ((spriteram_2.read(offs+1)& 0x80) << 1) - displacement;
+			sx = spriteram.read(offs + 1)+ ((spriteram_2.read(offs + 1)& 0x80) << 1) - displacement;
 			sy = 225 - spriteram_2.read(offs)- displacement;
 	
 			drawgfx(bitmap,Machine.gfx[1],
 					(spriteram.read(offs)& 0xfc) >> 2,
-					spriteram_2.read(offs+1)& 0x3f,
+					spriteram_2.read(offs + 1)& 0x3f,
 					spriteram.read(offs)& 1,spriteram.read(offs)& 2,
 					sx,sy,
 					flipscreen ? &spritevisibleareaflip : &spritevisiblearea,TRANSPARENCY_COLOR,0);
@@ -504,12 +504,12 @@ public class rallyx
 		/* draw the sprites */
 		for (offs = 0;offs < spriteram_size[0];offs += 2)
 		{
-			sx = spriteram.read(offs + 1)+ ((spriteram_2.read(offs+1)& 0x80) << 1) - displacement;
+			sx = spriteram.read(offs + 1)+ ((spriteram_2.read(offs + 1)& 0x80) << 1) - displacement;
 			sy = 225 - spriteram_2.read(offs)- displacement;
 	
 			drawgfx(bitmap,Machine.gfx[1],
 					(spriteram.read(offs)& 0xfc) >> 2,
-					spriteram_2.read(offs+1)& 0x3f,
+					spriteram_2.read(offs + 1)& 0x3f,
 					spriteram.read(offs)& 1,spriteram.read(offs)& 2,
 					sx,sy,
 					flipscreen ? &spritevisibleareaflip : &spritevisiblearea,TRANSPARENCY_COLOR,0);
@@ -649,7 +649,7 @@ public class rallyx
 	
 			drawgfx(bitmap,Machine.gfx[1],
 					((spriteram.read(offs)& 0x7c) >> 2) + 0x20*(spriteram.read(offs)& 0x01) + ((spriteram.read(offs)& 0x80) >> 1),
-					spriteram_2.read(offs+1)& 0x3f,
+					spriteram_2.read(offs + 1)& 0x3f,
 					!flipscreen,!flipscreen,
 					sx,sy,
 					flipscreen ? &spritevisibleareaflip : &spritevisiblearea,TRANSPARENCY_COLOR,0);
@@ -802,7 +802,7 @@ public class rallyx
 			if (spriteram.read(offs)& 0x01)	/* ??? */
 				drawgfx(bitmap,Machine.gfx[1],
 						((spriteram.read(offs)& 0x7c) >> 2) + 0x20*(spriteram.read(offs)& 0x01) + ((spriteram.read(offs)& 0x80) >> 1),
-						spriteram_2.read(offs+1)& 0x3f,
+						spriteram_2.read(offs + 1)& 0x3f,
 						flipx,flipy,
 						sx,sy,
 						&Machine.visible_area,TRANSPARENCY_COLOR,0);

@@ -325,7 +325,7 @@ public class xevious
 					flipx = !flipx;
 					flipy = !flipy;
 				}
-				sx = spriteram_2.read(offs+1)- 40 + 0x100*(spriteram_3.read(offs+1)& 1);
+				sx = spriteram_2.read(offs + 1)- 40 + 0x100*(spriteram_3.read(offs + 1)& 1);
 				sy = 28*8-spriteram_2.read(offs)-1;
 				if (spriteram_3.read(offs)& 2)  /* double height (?) */
 				{

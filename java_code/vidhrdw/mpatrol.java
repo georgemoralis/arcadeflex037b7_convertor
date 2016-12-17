@@ -476,10 +476,10 @@ public class mpatrol
 			int sx,sy,flipx,flipy;
 	
 	
-			sx = spriteram_2.read(offs+3);
+			sx = spriteram_2.read(offs + 3);
 			sy = 241 - spriteram_2.read(offs);
-			flipx = spriteram_2.read(offs+1)& 0x40;
-			flipy = spriteram_2.read(offs+1)& 0x80;
+			flipx = spriteram_2.read(offs + 1)& 0x40;
+			flipy = spriteram_2.read(offs + 1)& 0x80;
 			if (flip_screen != 0)
 			{
 				flipx = !flipx;
@@ -489,8 +489,8 @@ public class mpatrol
 			}
 	
 			drawgfx(bitmap,Machine.gfx[1],
-					spriteram_2.read(offs+2),
-					spriteram_2.read(offs+1)& 0x3f,
+					spriteram_2.read(offs + 2),
+					spriteram_2.read(offs + 1)& 0x3f,
 					flipx,flipy,
 					sx,sy,
 					&Machine.visible_area,TRANSPARENCY_COLOR,128+32);

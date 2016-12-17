@@ -250,7 +250,7 @@ public class galaga
 		/* Draw the sprites. */
 		for (offs = 0;offs < spriteram_size[0];offs += 2)
 		{
-			if ((spriteram_3.read(offs+1)& 2) == 0)
+			if ((spriteram_3.read(offs + 1)& 2) == 0)
 			{
 				int code,color,flipx,flipy,sx,sy,sfa,sfb;
 	
@@ -259,7 +259,7 @@ public class galaga
 				color = spriteram.read(offs + 1);
 				flipx = spriteram_3.read(offs)& 1;
 				flipy = spriteram_3.read(offs)& 2;
-				sx = spriteram_2.read(offs+1)- 40 + 0x100*(spriteram_3.read(offs+1)& 1);
+				sx = spriteram_2.read(offs + 1)- 40 + 0x100*(spriteram_3.read(offs + 1)& 1);
 				sy = 28*8 - spriteram_2.read(offs);
 				sfa = 0;
 				sfb = 16;

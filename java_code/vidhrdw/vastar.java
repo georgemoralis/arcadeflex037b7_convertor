@@ -195,7 +195,7 @@ public class vastar
 			code = ((spriteram_3.read(offs)& 0xfc) >> 2) + ((spriteram_2.read(offs)& 0x01) << 6)
 					+ ((offs & 0x20) << 2);
 	
-			sx = spriteram_3.read(offs+1);
+			sx = spriteram_3.read(offs + 1);
 			sy = spriteram.read(offs);
 			color = spriteram.read(offs + 1)& 0x3f;
 			flipx = spriteram_3.read(offs)& 0x02;

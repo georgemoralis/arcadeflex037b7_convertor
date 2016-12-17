@@ -170,7 +170,7 @@ public class yiear
 			}
 	
 			drawgfx(bitmap,Machine.gfx[1],
-				spriteram_2.read(offs+1)+ 256 * (spriteram.read(offs)& 1),
+				spriteram_2.read(offs + 1)+ 256 * (spriteram.read(offs)& 1),
 				0,
 				flipx,flipy,
 				sx,sy,

@@ -160,19 +160,19 @@ public class seicross
 	
 		for (offs = spriteram_2_size - 4;offs >= 0;offs -= 4)
 		{
-			x=spriteram_2.read(offs+3);
+			x=spriteram_2.read(offs + 3);
 			drawgfx(bitmap,Machine.gfx[1],
-					(spriteram_2.read(offs)& 0x3f) + ((spriteram_2.read(offs+1)& 0x10) << 2),
-					spriteram_2.read(offs+1)& 0x0f,
+					(spriteram_2.read(offs)& 0x3f) + ((spriteram_2.read(offs + 1)& 0x10) << 2),
+					spriteram_2.read(offs + 1)& 0x0f,
 					spriteram_2.read(offs)& 0x40,spriteram_2.read(offs)& 0x80,
-					x,240-spriteram_2.read(offs+2),
+					x,240-spriteram_2.read(offs + 2),
 					&Machine.visible_area,TRANSPARENCY_PEN,0);
 			if(x>0xf0)
 				drawgfx(bitmap,Machine.gfx[1],
-						(spriteram_2.read(offs)& 0x3f) + ((spriteram_2.read(offs+1)& 0x10) << 2),
-						spriteram_2.read(offs+1)& 0x0f,
+						(spriteram_2.read(offs)& 0x3f) + ((spriteram_2.read(offs + 1)& 0x10) << 2),
+						spriteram_2.read(offs + 1)& 0x0f,
 						spriteram_2.read(offs)& 0x40,spriteram_2.read(offs)& 0x80,
-						x-256,240-spriteram_2.read(offs+2),
+						x-256,240-spriteram_2.read(offs + 2),
 						&Machine.visible_area,TRANSPARENCY_PEN,0);
 		}
 	} };

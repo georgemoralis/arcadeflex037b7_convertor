@@ -198,7 +198,7 @@ public class trackfld
 	
 	
 			sx = spriteram.read(offs)- 1;
-			sy = 240 - spriteram_2.read(offs+1);
+			sy = 240 - spriteram_2.read(offs + 1);
 			flipx = ~spriteram_2.read(offs)& 0x40;
 			flipy = spriteram_2.read(offs)& 0x80;
 			if (flip_screen != 0)

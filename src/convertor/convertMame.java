@@ -156,15 +156,6 @@ public class convertMame {
                         }
                         Convertor.token[0] = sUtil.parseToken(']');
                         sUtil.skipSpace();
-                        /*int k = Convertor.inpos;
-                        if(sUtil.parseChar()== '+')
-                        {
-                            sUtil.skipSpace();
-                            Convertor.token[0] += '+' + sUtil.parseToken();
-                        }
-                        else {
-                            Convertor.inpos = k;
-                        }*/
                         if (sUtil.parseChar() != ']') {
                             Convertor.inpos = i;
                             break;
@@ -187,17 +178,8 @@ public class convertMame {
                             Convertor.inpos = i;
                             break;
                         }
-                        Convertor.token[0] = sUtil.parseToken();
+                        Convertor.token[0] = sUtil.parseToken(']');
                         sUtil.skipSpace();
-                        int k = Convertor.inpos;
-                        if(sUtil.parseChar()== '+')
-                        {
-                            sUtil.skipSpace();
-                            Convertor.token[0] += '+' + sUtil.parseToken();
-                        }
-                        else {
-                            Convertor.inpos = k;
-                        }
                         if (sUtil.parseChar() != ']') {
                             Convertor.inpos = i;
                             break;
@@ -220,17 +202,8 @@ public class convertMame {
                             Convertor.inpos = i;
                             break;
                         }
-                        Convertor.token[0] = sUtil.parseToken();
+                        Convertor.token[0] = sUtil.parseToken(']');
                         sUtil.skipSpace();
-                        int k = Convertor.inpos;
-                        if(sUtil.parseChar()== '+')
-                        {
-                            sUtil.skipSpace();
-                            Convertor.token[0] += '+' + sUtil.parseToken();
-                        }
-                        else {
-                            Convertor.inpos = k;
-                        }
                         if (sUtil.parseChar() != ']') {
                             Convertor.inpos = i;
                             break;

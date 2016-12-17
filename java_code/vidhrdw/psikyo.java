@@ -182,7 +182,7 @@ public class psikyo
 		int height	=	Machine.drv.screen_height;
 	
 		/* Exit if sprites are disabled */
-		if ( READ_WORD(&spriteram_2[0x800-2]) & 1 )	return;
+		if ( READ_WORD(&spriteram_2.read(0x800-2)) & 1 )	return;
 	
 		/* Look for "end of sprites" marker in the sprites list */
 		for ( offs = 0 ; offs < (0x800-2) ; offs += 2 )	// skip last "sprite"
@@ -302,7 +302,7 @@ public class psikyo
 		int ymax = Machine.visible_area.max_y;
 	
 		/* Exit if sprites are disabled */
-		if ( READ_WORD(&spriteram_2[0x800-2]) & 1 )	return;
+		if ( READ_WORD(&spriteram_2.read(0x800-2)) & 1 )	return;
 	
 		memset(colmask, 0, sizeof(colmask));
 	
@@ -437,7 +437,7 @@ public class psikyo
 					READ_WORD(&psikyo_vregs[0x410]), READ_WORD(&psikyo_vregs[0x412]),
 					READ_WORD(&psikyo_vregs[0x414]), READ_WORD(&psikyo_vregs[0x416]),
 	
-					READ_WORD(&spriteram_2[0x800-2])
+					READ_WORD(&spriteram_2.read(0x800-2))
 				);
 	
 		usrintf_showmessage(buf);

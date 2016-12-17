@@ -143,7 +143,7 @@ public class champbas
 					spriteram.read(offs)>> 2,
 					spriteram.read(offs + 1),
 					spriteram.read(offs)& 1,spriteram.read(offs)& 2,
-					((256+16 - spriteram_2.read(offs+1)) & 0xff) - 16,spriteram_2.read(offs)- 16,
+					((256+16 - spriteram_2.read(offs + 1)) & 0xff) - 16,spriteram_2.read(offs)- 16,
 					&Machine.visible_area,TRANSPARENCY_COLOR,0);
 		}
 	} };
