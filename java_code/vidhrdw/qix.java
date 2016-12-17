@@ -146,7 +146,7 @@ public class qix
 	
 		plot_pixel(Machine.scrbitmap, x, y, Machine.pens[data]);
 	
-		videoram[offset] = data;
+		videoram.write(offset,data);
 	} };
 	
 	
@@ -170,7 +170,7 @@ public class qix
 	
 		plot_pixel(Machine.scrbitmap, x, y, Machine.pens[data]);
 	
-		videoram[offset] = data;
+		videoram.write(offset,data);
 	} };
 	
 	

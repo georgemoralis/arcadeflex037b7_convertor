@@ -187,7 +187,7 @@ public class victory
 	{
 		if (videoram.read(offset)!= data)
 		{
-			videoram[offset] = data;
+			videoram.write(offset,data);
 			bgdirty[offset] = 1;
 		}
 	} };

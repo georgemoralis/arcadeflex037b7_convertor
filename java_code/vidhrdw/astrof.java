@@ -121,7 +121,7 @@ public class astrof
 		int i,x,y,fore,back;
 		int dx = 1;
 	
-		videoram[offset] = data;
+		videoram.write(offset,data);
 		colorram[offset] = color;
 	
 		fore = Machine.pens[color | 1];

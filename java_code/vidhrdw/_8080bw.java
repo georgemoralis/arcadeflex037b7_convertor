@@ -341,7 +341,7 @@ public class _8080bw
 	{
 		int x,y;
 	
-		videoram[offset] = data;
+		videoram.write(offset,data);
 	
 		y = offset / 32;
 		x = 8 * (offset % 32);
@@ -353,7 +353,7 @@ public class _8080bw
 	{
 		int x,y,col;
 	
-		videoram[offset] = data;
+		videoram.write(offset,data);
 	
 		y = offset / 32;
 		x = 8 * (offset % 32);
@@ -367,7 +367,7 @@ public class _8080bw
 	{
 		int x,y,col;
 	
-		videoram[offset] = data;
+		videoram.write(offset,data);
 	
 		y = offset / 32;
 		x = 8 * (offset % 32);
@@ -381,7 +381,7 @@ public class _8080bw
 	{
 		int x,y,back_color,foreground_color;
 	
-		videoram[offset] = data;
+		videoram.write(offset,data);
 	
 		y = offset / 32;
 		x = 8 * (offset % 32);
@@ -399,7 +399,7 @@ public class _8080bw
 	{
 		int x,y,back_color,foreground_color;
 	
-		videoram[offset] = data;
+		videoram.write(offset,data);
 	
 		y = offset / 32;
 		x = 8 * (offset % 32);
@@ -586,7 +586,7 @@ public class _8080bw
 	{
 		int x,y,col;
 	
-		videoram[offset] = data;
+		videoram.write(offset,data);
 	
 		y = offset / 32;
 		x = 8 * (offset % 32);
@@ -604,7 +604,7 @@ public class _8080bw
 	{
 		int x,y,col;
 	
-		videoram[offset] = data;
+		videoram.write(offset,data);
 	
 		y = offset / 32;
 		x = 8 * (offset % 32);
@@ -626,7 +626,7 @@ public class _8080bw
 	{
 		int i,x,y,col;
 	
-		videoram[offset] = data;
+		videoram.write(offset,data);
 	
 		y = 8 * (offset / 256);
 		x = offset % 256;

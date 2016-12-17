@@ -10,7 +10,7 @@ public class avalnche
 	
 	public static WriteHandlerPtr avalnche_videoram_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		videoram[offset] = data;
+		videoram.write(offset,data);
 	
 		if (offset >= 0x200)
 		{

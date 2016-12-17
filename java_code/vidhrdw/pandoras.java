@@ -122,7 +122,7 @@ public class pandoras
 		if (videoram.read(offset)!= data)
 		{
 			tilemap_mark_tile_dirty(layer0,offset);
-			videoram[offset] = data;
+			videoram.write(offset,data);
 		}
 	} };
 	

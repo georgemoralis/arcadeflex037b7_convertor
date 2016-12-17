@@ -47,7 +47,7 @@ public class minivadr
 		int color;
 	
 	
-		videoram[offset] = data;
+		videoram.write(offset,data);
 	
 		x = (offset % 32) * 8;
 		y = (offset / 32);

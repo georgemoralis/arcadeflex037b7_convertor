@@ -1229,9 +1229,15 @@ public class convertMame {
                         }
                         else {
                             sUtil.skipSpace();
-
                             if (sUtil.parseChar() == '=') {
-                                Convertor.inpos = j;
+                                if (sUtil.parseChar() == '=') {
+                                    Convertor.inpos = j;
+                                    break;
+                                }
+                                sUtil.skipSpace();
+                                Convertor.token[1] = sUtil.parseToken(';');
+                                sUtil.putString((new StringBuilder()).append("videoram.write(").append(Convertor.token[0]).append(",").append(Convertor.token[1]).append(");").toString());
+                                Convertor.inpos +=1;
                                 break;
                             }
                             sUtil.putString((new StringBuilder()).append("videoram.read(").append(Convertor.token[0]).append(")").toString());

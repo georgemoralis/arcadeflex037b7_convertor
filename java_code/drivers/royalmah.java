@@ -64,7 +64,7 @@ public class royalmah
 		UINT8 col1, col2;
 	
 	
-		videoram[offset] = data;
+		videoram.write(offset,data);
 	
 		col1 = videoram.read(offset & 0x3fff);
 		col2 = videoram.read(offset | 0x4000);

@@ -163,7 +163,7 @@ public class meadows
 	        return;
 		if (videoram[offset] == data)
 			return;
-		videoram[offset] = data;
+		videoram.write(offset,data);
 		dirtybuffer[offset] = 1;
 	} };
 	

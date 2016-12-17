@@ -36,7 +36,7 @@ public class m79amb
 		{
 			int i,x,y;
 	
-			videoram[offset] = data;
+			videoram.write(offset,data);
 	
 			y = offset / 32;
 			x = 8 * (offset % 32);

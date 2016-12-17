@@ -285,7 +285,7 @@ public class combatsc
 	{
 		if( videoram.read(offset)!=data )
 		{
-			videoram[offset] = data;
+			videoram.write(offset,data);
 			if( offset<0x800 )
 			{
 				if (combasc_video_circuit != 0)

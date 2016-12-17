@@ -93,7 +93,7 @@ public class lasso
 	{
 		if( videoram.read(offset)!=data )
 		{
-			videoram[offset] = data;
+			videoram.write(offset,data);
 			tilemap_mark_tile_dirty( background, offset&0x3ff );
 		}
 	} };

@@ -138,7 +138,7 @@ public class mcr12
 		if (videoram.read(offset)!= data)
 		{
 			dirtybuffer[offset] = 1;
-			videoram[offset] = data;
+			videoram.write(offset,data);
 		}
 	} };
 	
@@ -148,7 +148,7 @@ public class mcr12
 		if (videoram.read(offset)!= data)
 		{
 			dirtybuffer[offset & ~1] = 1;
-			videoram[offset] = data;
+			videoram.write(offset,data);
 		}
 	} };
 	

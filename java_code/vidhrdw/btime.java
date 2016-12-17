@@ -197,7 +197,7 @@ public class btime
 	{
 	    if (videoram.read(offset)!= data || colorram.read(offset)!= *lnc_charbank)
 	    {
-	        videoram[offset] = data;
+	        videoram.write(offset,data);
 	        colorram[offset] = *lnc_charbank;
 	
 	        dirtybuffer[offset] = 1;

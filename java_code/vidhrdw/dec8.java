@@ -145,13 +145,13 @@ public class dec8
 	
 	public static WriteHandlerPtr dec8_videoram_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		videoram[offset]=data;
+		videoram.write(offset,ata);
 		tilemap_mark_tile_dirty( dec8_fix_tilemap,offset/2 );
 	} };
 	
 	public static WriteHandlerPtr srdarwin_videoram_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		videoram[offset]=data;
+		videoram.write(offset,ata);
 		tilemap_mark_tile_dirty( dec8_fix_tilemap,offset );
 	} };
 	

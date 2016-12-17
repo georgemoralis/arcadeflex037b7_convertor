@@ -94,7 +94,7 @@ public class sidepckt
 	{
 		if (videoram.read(offset)!= data)
 		{
-			videoram[offset] = data;
+			videoram.write(offset,data);
 			tilemap_mark_tile_dirty(bg_tilemap,offset);
 		}
 	} };

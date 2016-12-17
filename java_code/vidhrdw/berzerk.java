@@ -51,7 +51,7 @@ public class berzerk
 	{
 		int coloroffset, x, y;
 	
-		videoram[offset] = data;
+		videoram.write(offset,data);
 	
 		/* Get location of color RAM for this offset */
 		coloroffset = ((offset & 0xff80) >> 2) | (offset & 0x1f);

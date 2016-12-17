@@ -53,7 +53,7 @@ public class tutankhm
 	
 	public static WriteHandlerPtr tutankhm_videoram_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		videoram[offset] = data;
+		videoram.write(offset,data);
 		videowrite(offset,data);
 	} };
 	

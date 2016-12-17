@@ -35,7 +35,7 @@ public class leprechn
 	    if (pending != 0)
 	    {
 			plot_pixel(Machine.scrbitmap, pending_x, pending_y, Machine.pens[pending_color]);
-	        videoram[pending_y * screen_width + pending_x] = pending_color;
+	        videoram.write(pending_y * screen_width + pending_x,pending_color);
 	
 	        pending = 0;
 	    }

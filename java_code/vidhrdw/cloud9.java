@@ -225,7 +225,7 @@ public class cloud9
 	
 		if (*cloud9_both_banks & 0x80)
 		{
-			videoram[offset] = data;
+			videoram.write(offset,data);
 			cloud9_vram2[offset] = data;
 	
 			plot_pixel(tmpbitmap, x,   y, Machine.pens[((data & 0x0f) >> 0) + ((*cloud9_color_bank & 0x80) >> 2)]);
@@ -242,7 +242,7 @@ public class cloud9
 		}
 		else
 		{
-			videoram[offset] = data;
+			videoram.write(offset,data);
 	
 			plot_pixel(tmpbitmap, x  , y, Machine.pens[((data & 0x0f) >> 0) + ((*cloud9_color_bank & 0x80) >> 2)]);
 			plot_pixel(tmpbitmap, x+1, y, Machine.pens[((data & 0xf0) >> 4) + ((*cloud9_color_bank & 0x80) >> 2)]);

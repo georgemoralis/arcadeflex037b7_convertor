@@ -125,7 +125,7 @@ public class generic
 		{
 			dirtybuffer[offset] = 1;
 	
-			videoram[offset] = data;
+			videoram.write(offset,data);
 		}
 	} };
 	

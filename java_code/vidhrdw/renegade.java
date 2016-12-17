@@ -23,7 +23,7 @@ public class renegade
 	{
 		if( videoram.read(offset)!=data )
 		{
-			videoram[offset] = data;
+			videoram.write(offset,data);
 			offset = offset%(64*16);
 			tilemap_mark_tile_dirty(bg_tilemap,offset);
 		}

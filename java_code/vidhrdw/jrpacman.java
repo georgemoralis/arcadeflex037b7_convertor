@@ -124,7 +124,7 @@ public class jrpacman
 		{
 			dirtybuffer[offset] = 1;
 	
-			videoram[offset] = data;
+			videoram.write(offset,data);
 	
 			if (offset < 32)	/* line color - mark whole line as dirty */
 			{

@@ -1112,7 +1112,7 @@ public class ppu2c03b
 						else
 						{
 							/* store the data */
-							chips[num].videoram[tempAddr] = data;
+							chips[num].videoram.write(tempAddr,data);
 	
 							/* setup the master dirty switch */
 							chips[num].chars_are_dirty = 1;
@@ -1136,7 +1136,7 @@ public class ppu2c03b
 						int color_base = intf.color_base[num];
 	
 						/* store the data */
-						chips[num].videoram[tempAddr] = data;
+						chips[num].videoram.write(tempAddr,data);
 	
 						data &= 0x3f;
 	

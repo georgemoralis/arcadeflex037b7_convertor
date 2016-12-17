@@ -39,7 +39,7 @@ public class lkage
 	{
 		if( videoram.read(offset)!=data )
 		{
-			videoram[offset] = data;
+			videoram.write(offset,data);
 	
 			switch( offset/0x400 )
 			{

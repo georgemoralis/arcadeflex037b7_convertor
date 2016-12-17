@@ -101,7 +101,7 @@ public class munchmo
 		offset = offset&0xff; /* mirror the two banks? */
 		if( videoram.read(offset)!=data )
 		{
-			videoram[offset] = data;
+			videoram.write(offset,data);
 			dirtybuffer[offset] = 1;
 		}
 	} };

@@ -51,7 +51,7 @@ public class dotrikun
 		int color;
 	
 	
-		videoram[offset] = data;
+		videoram.write(offset,data);
 	
 		x = 2 * (((offset % 16) * 8));
 		y = 2 * ((offset / 16));

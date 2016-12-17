@@ -128,7 +128,7 @@ public class mappy
 		if (videoram.read(offset)!= data)
 		{
 			dirtybuffer[offset] = 1;
-			videoram[offset] = data;
+			videoram.write(offset,data);
 		}
 	} };
 	

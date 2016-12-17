@@ -108,7 +108,7 @@ public class marvins
 			if( videoram[offset+0x1000]==data ) return;
 			tilemap_mark_tile_dirty(fg_tilemap,offset);
 		}
-		videoram[offset+0x1000] = data;
+		videoram.write(offset+0x1000,data);
 	} };
 	
 	public static ReadHandlerPtr marvins_background_ram_r  = new ReadHandlerPtr() { public int handler(int offset)
@@ -122,7 +122,7 @@ public class marvins
 			if( videoram[offset]==data ) return;
 			tilemap_mark_tile_dirty(bg_tilemap,offset);
 		}
-		videoram[offset] = data;
+		videoram.write(offset,data);
 	} };
 	
 	public static ReadHandlerPtr marvins_text_ram_r  = new ReadHandlerPtr() { public int handler(int offset)
@@ -136,7 +136,7 @@ public class marvins
 			if( videoram[offset+0x2000]==data ) return;
 			tilemap_mark_tile_dirty(tx_tilemap,offset);
 		}
-		videoram[offset+0x2000] = data;
+		videoram.write(offset+0x2000,data);
 	} };
 	
 	/***************************************************************************

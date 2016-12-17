@@ -182,12 +182,12 @@ public class ccastles
 			if (ccastles_screen_addr[0] & 0x01)
 			{
 				mode = (data >> 4) & 0x0f;
-				videoram[addr] = (videoram.read(addr)& 0xf0) | mode;
+				videoram.write(addr,(videoram[addr] & 0xf0) | mode);
 			}
 			else
 			{
 				mode = (data & 0xf0);
-				videoram[addr] = (videoram.read(addr)& 0x0f) | mode;
+				videoram.write(addr,(videoram[addr] & 0x0f) | mode);
 			}
 	
 			j = 2*addr;
