@@ -66,8 +66,8 @@ public class royalmah
 	
 		videoram[offset] = data;
 	
-		col1 = videoram[offset & 0x3fff];
-		col2 = videoram[offset | 0x4000];
+		col1 = videoram.read(offset & 0x3fff);
+		col2 = videoram.read(offset | 0x4000);
 	
 		y = (offset >> 6);
 		x = (offset & 0x3f) << 2;

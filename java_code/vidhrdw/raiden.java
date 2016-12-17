@@ -71,16 +71,16 @@ public class raiden
 	
 	static void get_text_tile_info(int tile_index)
 	{
-		int tile=videoram[2*tile_index]+((videoram[2*tile_index+1]&0xc0)<<2);
-		int color=videoram[2*tile_index+1]&0xf;
+		int tile=videoram.read(2*tile_index)+((videoram.read(2*tile_index+1)&0xc0)<<2);
+		int color=videoram.read(2*tile_index+1)&0xf;
 	
 		SET_TILE_INFO(0,tile,color)
 	}
 	
 	static void get_text_alt_tile_info(int tile_index)
 	{
-		int tile=videoram[2*tile_index]+((videoram[2*tile_index+1]&0xc0)<<2);
-		int color=videoram[2*tile_index+1]&0xf;
+		int tile=videoram.read(2*tile_index)+((videoram.read(2*tile_index+1)&0xc0)<<2);
+		int color=videoram.read(2*tile_index+1)&0xf;
 	
 		SET_TILE_INFO(0,tile,color)
 	}

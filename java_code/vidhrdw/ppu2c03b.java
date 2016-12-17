@@ -972,7 +972,7 @@ public class ppu2c03b
 				if ( ( chips[num].videoram_addr >= 0x2000 ) && ( chips[num].videoram_addr <= 0x3fef ) )
 					chips[num].videoram_data_latch = chips[num].ppu_page[ ( chips[num].videoram_addr & 0xc00) >> 10][ chips[num].videoram_addr & 0x3ff ];
 				else
-					chips[num].videoram_data_latch = chips[num].videoram[ chips[num].videoram_addr & 0x3fff ];
+					chips[num].videoram_data_latch = chips[num].videoram.read( chips[num).videoram_addr & 0x3fff ];
 	
 				chips[num].videoram_addr += chips[num].add;
 			break;

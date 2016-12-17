@@ -90,7 +90,7 @@ public class m72
 	{
 		unsigned char attr = m72_videoram1[4*tile_index+1];
 		SET_TILE_INFO(1,m72_videoram1[4*tile_index] + ((attr & 0x3f) << 8),m72_videoram1[4*tile_index+2] & 0x0f)
-	/* bchopper: (videoram[4*tile_index+2] & 0x10) is used, priority? */
+	/* bchopper: (videoram.read(4*tile_index+2)& 0x10) is used, priority? */
 		tile_info.flags = TILE_FLIPYX((attr & 0xc0) >> 6);
 	
 		tile_info.priority = (m72_videoram1[4*tile_index+2] & 0x80) >> 7;
@@ -135,15 +135,15 @@ public class m72
 		unsigned char attr = m72_videoram2[4*tile_index+2];
 		SET_TILE_INFO(1,m72_videoram2[4*tile_index] + (m72_videoram2[4*tile_index+1] << 8),attr & 0x0f)
 		tile_info.flags = TILE_FLIPYX((attr & 0x60) >> 5);
-	/* (videoram[4*tile_index+2] & 0x10) is used, but it's not clear for what (priority?) */
+	/* (videoram.read(4*tile_index+2)& 0x10) is used, but it's not clear for what (priority?) */
 	}
 	
 	INLINE void hharry_get_tile_info(int gfxnum,UBytePtr videoram,int tile_index)
 	{
-		unsigned char attr = videoram[4*tile_index+1];
-		SET_TILE_INFO(gfxnum,videoram[4*tile_index] + ((attr & 0x3f) << 8),videoram[4*tile_index+2] & 0x0f)
+		unsigned char attr = videoram.read(4*tile_index+1);
+		SET_TILE_INFO(gfxnum,videoram.read(4*tile_index)+ ((attr & 0x3f) << 8),videoram.read(4*tile_index+2)& 0x0f)
 		tile_info.flags = TILE_FLIPYX((attr & 0xc0) >> 6);
-	/* (videoram[4*tile_index+2] & 0x10) is used, but it's not clear for what (priority?) */
+	/* (videoram.read(4*tile_index+2)& 0x10) is used, but it's not clear for what (priority?) */
 	}
 	
 	static void hharry_get_bg_tile_info(int tile_index)

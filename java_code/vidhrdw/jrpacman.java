@@ -249,7 +249,7 @@ public class jrpacman
 	
 							drawgfx(tmpbitmap,Machine.gfx[0],
 									videoram.read(offs),
-									(videoram[offs + 4*32] & 0x1f) + 0x20 * (*jrpacman_colortablebank & 1)
+									(videoram.read(offs + 4*32)& 0x1f) + 0x20 * (*jrpacman_colortablebank & 1)
 											+ 0x40 * (*jrpacman_palettebank & 1),
 									flipscreen,flipscreen,
 									8*sx,8*sy,
@@ -267,7 +267,7 @@ public class jrpacman
 	
 							drawgfx(tmpbitmap,Machine.gfx[0],
 									videoram.read(offs)+ 0x100 * (*jrpacman_charbank & 1),
-									(videoram[offs + 4*32] & 0x1f) + 0x20 * (*jrpacman_colortablebank & 1)
+									(videoram.read(offs + 4*32)& 0x1f) + 0x20 * (*jrpacman_colortablebank & 1)
 											+ 0x40 * (*jrpacman_palettebank & 1),
 									flipscreen,flipscreen,
 									8*sx,8*sy,

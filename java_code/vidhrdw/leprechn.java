@@ -129,7 +129,7 @@ public class leprechn
 	
 	public static ReadHandlerPtr leprechn_graphics_data_r  = new ReadHandlerPtr() { public int handler(int offset)
 	{
-	    return videoram[y * screen_width + x];
+	    return videoram.read(y * screen_width + x);
 	} };
 	
 	
@@ -182,7 +182,7 @@ public class leprechn
 			{
 				for (sy = 0; sy < Machine.drv.screen_height; sy++)
 				{
-					plot_pixel(Machine.scrbitmap, sx, sy, Machine.pens[videoram[sy * screen_width + sx]]);
+					plot_pixel(Machine.scrbitmap, sx, sy, Machine.pens[videoram.read(sy * screen_width + sx)]);
 				}
 			}
 		}

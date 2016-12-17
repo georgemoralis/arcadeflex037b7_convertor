@@ -134,7 +134,7 @@ public class arkanoid
 				if (flip_screen_x != 0) sx = 31 - sx;
 				if (flip_screen_y != 0) sy = 31 - sy;
 	
-				code = videoram.read(offs+1)+ ((videoram.read(offs)& 0x07) << 8) + 2048 * gfxbank;
+				code = videoram.read(offs + 1)+ ((videoram.read(offs)& 0x07) << 8) + 2048 * gfxbank;
 				drawgfx(tmpbitmap,Machine.gfx[0],
 						code,
 						((videoram.read(offs)& 0xf8) >> 3) + 32 * palettebank,

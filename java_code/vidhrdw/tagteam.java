@@ -166,13 +166,13 @@ public class tagteam
 			int sx,sy,flipx,flipy;
 			int spritebank;
 	
-			if (!(videoram.read(offs+0)& 0x01)) continue;
+			if (!(videoram.read(offs + 0)& 0x01)) continue;
 	
-			sx = 240 - videoram.read(offs+3);
-			sy = 240 - videoram.read(offs+2);
+			sx = 240 - videoram.read(offs + 3);
+			sy = 240 - videoram.read(offs + 2);
 	
-			flipx = videoram.read(offs+0)& 0x04;
-			flipy = videoram.read(offs+0)& 0x02;
+			flipx = videoram.read(offs + 0)& 0x04;
+			flipy = videoram.read(offs + 0)& 0x02;
 			spritebank = (videoram.read(offs)& 0x30) << 4;
 	
 			if (flipscreen != 0)
@@ -185,7 +185,7 @@ public class tagteam
 			}
 	
 			drawgfx(bitmap,Machine.gfx[1],
-					videoram.read(offs+1)+ 256 * spritebank,
+					videoram.read(offs + 1)+ 256 * spritebank,
 					1+2*color,	/* guess */
 					flipx,flipy,
 					sx,sy,
@@ -195,7 +195,7 @@ public class tagteam
 	
 			// Wrap around
 			drawgfx(bitmap,Machine.gfx[1],
-					videoram.read(offs+0x20)+ 256 * spritebank,
+					videoram.read(offs + 0x20)+ 256 * spritebank,
 					color,
 					flipx,flipy,
 					sx,sy,

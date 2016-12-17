@@ -107,7 +107,7 @@ public class mcr68
 			{
 				int mx = (offs / 4) % 32;
 				int my = (offs / 4) / 32;
-				int attr = LOW_BYTE(&videoram.read(offs+2));
+				int attr = LOW_BYTE(&videoram.read(offs + 2));
 				int color = (attr & 0x30) >> 4;
 				int code = LOW_BYTE(&videoram.read(offs)) + 256 * (attr & 0x03) + 1024 * ((attr >> 6) & 0x03);
 	
@@ -259,7 +259,7 @@ public class mcr68
 				fprintf(f, "\n\n=================================================================\n");
 				for (offs = 0; offs < videoram_size; offs += 4)
 				{
-					fprintf(f, "%02X%02X ", LOW_BYTE(&videoram.read(offs+2)), LOW_BYTE(&videoram.read(offs+0)));
+					fprintf(f, "%02X%02X ", LOW_BYTE(&videoram.read(offs + 2)), LOW_BYTE(&videoram.read(offs + 0)));
 					if (offs % (32 * 4) == 31 * 4) fprintf(f, "\n");
 				}
 				fprintf(f, "\n\n");

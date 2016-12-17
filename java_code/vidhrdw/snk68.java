@@ -32,8 +32,8 @@ public class snk68
 	
 	static void get_pow_tile_info(int tile_index)
 	{
-		int tile=READ_WORD(&videoram[4*tile_index])&0xff;
-		int color=READ_WORD(&videoram[4*tile_index+2]);
+		int tile=READ_WORD(&videoram.read(4*tile_index))&0xff;
+		int color=READ_WORD(&videoram.read(4*tile_index+2));
 	
 		tile=((color&0xf0)<<4) | tile;
 		color&=0xf;
@@ -43,7 +43,7 @@ public class snk68
 	
 	static void get_sar_tile_info(int tile_index)
 	{
-		int tile=READ_WORD(&videoram[4*tile_index]);
+		int tile=READ_WORD(&videoram.read(4*tile_index));
 		int color=tile >> 12;
 	
 		tile=tile&0xfff;
@@ -53,7 +53,7 @@ public class snk68
 	
 	static void get_ikari3_tile_info(int tile_index)
 	{
-		int tile=READ_WORD(&videoram[4*tile_index]);
+		int tile=READ_WORD(&videoram.read(4*tile_index));
 		int color=tile >> 12;
 	
 		/* Kludge - Tile 0x80ff is meant to be opaque black, but isn't.  This fixes it */

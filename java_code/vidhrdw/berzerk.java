@@ -76,7 +76,7 @@ public class berzerk
 	
 		for (i = 0; i < 4; i++, y++)
 		{
-			int byte = videoram[(y << 5) | (x >> 3)];
+			int byte = videoram.read((y << 5) | (x >> 3));
 	
 			if (byte != 0)
 			{

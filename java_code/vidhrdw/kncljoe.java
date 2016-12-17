@@ -98,8 +98,8 @@ public class kncljoe
 	
 	static void get_bg_tile_info(int tile_index)
 	{
-		int attr = videoram[2*tile_index+1];
-		int code = videoram[2*tile_index] + ((attr & 0xc0) << 2) + (tile_bank << 10);
+		int attr = videoram.read(2*tile_index+1);
+		int code = videoram.read(2*tile_index)+ ((attr & 0xc0) << 2) + (tile_bank << 10);
 	
 		SET_TILE_INFO(0,code,attr & 0xf)
 	

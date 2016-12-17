@@ -42,7 +42,7 @@ public class namcos2
 	
 	static void namcos2_tilemap0_get_info( int tile_index ){
 		int tile,colour;
-		tile=READ_WORD(&videoram[0x0000+(tile_index<<1)]);
+		tile=READ_WORD(&videoram.read(0x0000+(tile_index<<1)));
 		/* The tile mask DOESNT use the mangled tile number */
 		tile_info.mask_data = memory_region(REGION_GFX4)+(0x08*tile);
 		/* The order of bits needs to be corrected to index the right tile  14 15 11 12 13 */
@@ -54,7 +54,7 @@ public class namcos2
 	
 	static void namcos2_tilemap1_get_info( int tile_index ){
 		int tile,colour;
-		tile=READ_WORD(&videoram[0x2000+(tile_index<<1)]);
+		tile=READ_WORD(&videoram.read(0x2000+(tile_index<<1)));
 		/* The tile mask DOESNT use the mangled tile number */
 		tile_info.mask_data = memory_region(REGION_GFX4)+0x08*tile;
 		/* The order of bits needs to be corrected to index the right tile  14 15 11 12 13 */
@@ -65,7 +65,7 @@ public class namcos2
 	
 	static void namcos2_tilemap2_get_info( int tile_index ){
 		int tile,colour;
-		tile=READ_WORD(&videoram[0x4000+(tile_index<<1)]);
+		tile=READ_WORD(&videoram.read(0x4000+(tile_index<<1)));
 		/* The tile mask DOESNT use the mangled tile number */
 		tile_info.mask_data = memory_region(REGION_GFX4)+(0x08*tile);
 		/* The order of bits needs to be corrected to index the right tile  14 15 11 12 13 */
@@ -76,7 +76,7 @@ public class namcos2
 	
 	static void namcos2_tilemap3_get_info( int tile_index ){
 		int tile,colour;
-		tile=READ_WORD(&videoram[0x6000+(tile_index<<1)]);
+		tile=READ_WORD(&videoram.read(0x6000+(tile_index<<1)));
 		/* The tile mask DOESNT use the mangled tile number */
 		tile_info.mask_data = memory_region(REGION_GFX4)+(0x08*tile);
 		/* The order of bits needs to be corrected to index the right tile  14 15 11 12 13 */
@@ -87,7 +87,7 @@ public class namcos2
 	
 	static void namcos2_tilemap4_get_info( int tile_index ){
 		int tile,colour;
-		tile=READ_WORD(&videoram[0x8010+(tile_index<<1)]);
+		tile=READ_WORD(&videoram.read(0x8010+(tile_index<<1)));
 		/* The tile mask DOESNT use the mangled tile number */
 		tile_info.mask_data = memory_region(REGION_GFX4)+(0x08*tile);
 		/* The order of bits needs to be corrected to index the right tile  14 15 11 12 13 */
@@ -98,7 +98,7 @@ public class namcos2
 	
 	static void namcos2_tilemap5_get_info( int tile_index ){
 		int tile,colour;
-		tile=READ_WORD(&videoram[0x8810+(tile_index<<1)]);
+		tile=READ_WORD(&videoram.read(0x8810+(tile_index<<1)));
 		/* The tile mask DOESNT use the mangled tile number */
 		tile_info.mask_data = memory_region(REGION_GFX4)+(0x08*tile);
 		/* The order of bits needs to be corrected to index the right tile  14 15 11 12 13 */

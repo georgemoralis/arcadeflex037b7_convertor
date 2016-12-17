@@ -60,12 +60,12 @@ public class lkage
 	
 	static void get_bg_tile_info(int tile_index)
 	{
-		SET_TILE_INFO(0,videoram.read(tile_index+0x800)+ 256 * (bg_tile_bank?5:1),0);
+		SET_TILE_INFO(0,videoram.read(tile_index + 0x800)+ 256 * (bg_tile_bank?5:1),0);
 	}
 	
 	static void get_fg_tile_info(int tile_index)
 	{
-		SET_TILE_INFO(0,videoram.read(tile_index+0x400)+ 256 * (fg_tile_bank?1:0),1);
+		SET_TILE_INFO(0,videoram.read(tile_index + 0x400)+ 256 * (fg_tile_bank?1:0),1);
 	}
 	
 	static void get_tx_tile_info(int tile_index)

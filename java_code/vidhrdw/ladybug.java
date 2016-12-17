@@ -158,9 +158,9 @@ public class ladybug
 				sy = offs / 4;
 	
 				if (flipscreen != 0)
-					scroll[31-offs] = -videoram[32 * sx + sy];
+					scroll[31-offs] = -videoram.read(32 * sx + sy);
 				else
-					scroll[offs] = -videoram[32 * sx + sy];
+					scroll[offs] = -videoram.read(32 * sx + sy);
 			}
 	
 			copyscrollbitmap(bitmap,tmpbitmap,32,scroll,0,0,&Machine.visible_area,TRANSPARENCY_NONE,0);

@@ -159,8 +159,8 @@ public class namcos86
 	
 	static void get_tile_info(int tile_index)
 	{
-		unsigned char attr = videoram[2*tile_index + 1];
-		SET_TILE_INFO(gfx_num,videoram[2*tile_index] + tile_offs[attr & 0x03],attr)
+		unsigned char attr = videoram.read(2*tile_index + 1);
+		SET_TILE_INFO(gfx_num,videoram.read(2*tile_index)+ tile_offs[attr & 0x03],attr)
 	}
 	
 	

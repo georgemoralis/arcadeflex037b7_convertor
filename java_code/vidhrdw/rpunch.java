@@ -359,7 +359,7 @@ public class rpunch
 	
 		/* update background 1 */
 		callback_gfxbank = 1;
-		callback_videoram = (const UINT16 *)&videoram[videoram_size[0] / 2];
+		callback_videoram = (const UINT16 *)&videoram.read(videoram_size / 2);
 		callback_colorbase = (videoflags & 0x0020) >> 2;
 		callback_imagebase = (videoflags & 0x0800) << 2;
 		callback_imagemask = callback_imagebase ? 0x0fff : 0x1fff;

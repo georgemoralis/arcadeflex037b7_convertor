@@ -510,7 +510,7 @@ public class twincobr
 	
 			vidramaddr = (vidbaseaddr + (sy*64) + sx) * 2;
 			if ((scroll_realign_x + sx) > 63) vidramaddr -= 128;
-			code = READ_WORD(&videoram[(vidramaddr & 0x0fff)]);
+			code = READ_WORD(&videoram.read((vidramaddr & 0x0fff)));
 			tile  = (code & 0x07ff);
 			color = (code & 0xf800) >> 11;
 			colmask[color] |= Machine.gfx[0].pen_usage[tile];
@@ -652,7 +652,7 @@ public class twincobr
 			vidramaddr = (vidbaseaddr + (sy*64) + sx) * 2;
 			if ((scroll_realign_x + sx) > 63) vidramaddr -=128;
 	
-			code  = READ_WORD(&videoram[(vidramaddr & 0x0fff)]);
+			code  = READ_WORD(&videoram.read((vidramaddr & 0x0fff)));
 			tile  = (code & 0x07ff);
 			color = (code & 0xf800) >> 11;
 			if (twincobr_flip_screen != 0) { sx=40-sx; sy=30-sy; xpos=(sx*8) - (7-(scroll_x&7)); ypos=(sy*8) - (7-(scroll_y&7)); }

@@ -94,9 +94,9 @@ public class flstory
 				sy = (offs/2)/32;
 	
 				drawgfx(tmpbitmap,Machine.gfx[0],
-						videoram.read(offs)+ ((videoram.read(offs+1)& 0xc0) << 2) + 0xc00,
-						videoram.read(offs+1)& 0x07,
-						videoram.read(offs+1)& 0x08,1,
+						videoram.read(offs)+ ((videoram.read(offs + 1)& 0xc0) << 2) + 0xc00,
+						videoram.read(offs + 1)& 0x07,
+						videoram.read(offs + 1)& 0x08,1,
 						8*sx,8*sy,
 						&Machine.visible_area,TRANSPARENCY_NONE,0);
 			}
@@ -134,7 +134,7 @@ public class flstory
 		/* redraw chars with priority over sprites */
 		for (offs = videoram_size[0] - 2;offs >= 0;offs -= 2)
 		{
-			if (videoram.read(offs+1)& 0x20)
+			if (videoram.read(offs + 1)& 0x20)
 			{
 				int sx,sy;
 	
@@ -143,9 +143,9 @@ public class flstory
 				sy = (offs/2)/32;
 	
 				drawgfx(bitmap,Machine.gfx[0],
-						videoram.read(offs)+ ((videoram.read(offs+1)& 0xc0) << 2) + 0xc00,
-						videoram.read(offs+1)& 0x07,
-						videoram.read(offs+1)& 0x08,1,
+						videoram.read(offs)+ ((videoram.read(offs + 1)& 0xc0) << 2) + 0xc00,
+						videoram.read(offs + 1)& 0x07,
+						videoram.read(offs + 1)& 0x08,1,
 						8*sx,8*sy,
 						&Machine.visible_area,TRANSPARENCY_PEN,0);
 			}

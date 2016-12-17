@@ -125,7 +125,7 @@ public class mcr3
 			{
 				int mx = (offs / 2) % 32;
 				int my = (offs / 2) / 32;
-				int attr = videoram.read(offs+1);
+				int attr = videoram.read(offs + 1);
 				int color = ((attr & 0x30) >> 4) ^ color_xor;
 				int code = videoram.read(offs)+ 256 * (attr & 0x03);
 	

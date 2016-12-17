@@ -120,7 +120,7 @@ public class hexa
 				if (flipy != 0) sy = 31 - sy;
 	
 				drawgfx(tmpbitmap,Machine.gfx[0],
-						videoram.read(offs+1)+ ((videoram.read(offs)& 0x07) << 8) + (charbank << 11),
+						videoram.read(offs + 1)+ ((videoram.read(offs)& 0x07) << 8) + (charbank << 11),
 						(videoram.read(offs)& 0xf8) >> 3,
 						flipx,flipy,
 						8*sx,8*sy,

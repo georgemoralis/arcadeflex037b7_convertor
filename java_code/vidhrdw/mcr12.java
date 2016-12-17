@@ -222,7 +222,7 @@ public class mcr12
 				int sx = 16 * mx;
 				int sy = 16 * my;
 	
-				int attr = videoram.read(offs+1);
+				int attr = videoram.read(offs + 1);
 				int code = videoram.read(offs)+ 256 * (attr & 0x01);
 				int hflip = attr & 0x02;
 				int vflip = attr & 0x04;

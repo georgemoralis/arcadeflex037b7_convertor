@@ -94,7 +94,7 @@ public class dcon
 	
 	static void get_text_tile_info(int tile_index)
 	{
-		int tile=READ_WORD(&videoram[2*tile_index]);
+		int tile=READ_WORD(&videoram.read(2*tile_index));
 		int color=(tile>>12)&0xf;
 	
 		tile&=0xfff;

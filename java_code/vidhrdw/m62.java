@@ -639,7 +639,7 @@ public class m62
 				}
 	
 				drawgfx(tmpbitmap,Machine.gfx[0],
-						videoram.read(offs)+ ((videoram.read(offs+1)& 0x40) << 3) + ((videoram.read(offs+1)& 0x10) << 4),
+						videoram.read(offs)+ ((videoram.read(offs+1)& 0x40) << 3) + ((videoram.read(offs + 1)& 0x10) << 4),
 						videoram.read(offs+1)& 0x0f,
 						flipscreen,flipscreen,
 						8*sx,8*sy,

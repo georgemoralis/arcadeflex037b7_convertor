@@ -51,8 +51,8 @@ public class alpha68k
 	
 	static void get_tile_info(int tile_index)
 	{
-		int tile=READ_WORD(&videoram[4*tile_index])&0xff;
-		int color=READ_WORD(&videoram[4*tile_index+2])&0xf;
+		int tile=READ_WORD(&videoram.read(4*tile_index))&0xff;
+		int color=READ_WORD(&videoram.read(4*tile_index+2))&0xf;
 	
 		tile=tile | (bank_base<<8);
 	

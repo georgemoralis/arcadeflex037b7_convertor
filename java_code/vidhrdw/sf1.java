@@ -42,7 +42,7 @@ public class sf1
 	
 	static void get_char_tile_info(int tile_index)
 	{
-		int code = READ_WORD(&videoram[2*tile_index]);
+		int code = READ_WORD(&videoram.read(2*tile_index));
 		SET_TILE_INFO (3, code & 0x3ff, code>>12);
 		tile_info.flags = TILE_FLIPYX((code & 0xc00)>>10);
 	}

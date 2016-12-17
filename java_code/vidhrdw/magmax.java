@@ -262,7 +262,7 @@ public class magmax
 			}
 	
 			drawgfx(bitmap, Machine.gfx[0],
-					READ_WORD(&videoram[offs*2 + page]) & 0xff,
+					READ_WORD(&videoram.read(offs*2 + page)) & 0xff,
 					0,
 					flipscreen, flipscreen,
 					8 * sx, 8 * sy,

@@ -134,7 +134,7 @@ public class yiear
 				}
 	
 				drawgfx(tmpbitmap,Machine.gfx[0],
-					videoram.read(offs+1)| ((videoram.read(offs)& 0x10) << 4),
+					videoram.read(offs + 1)| ((videoram.read(offs)& 0x10) << 4),
 					0,
 					flipx,flipy,
 					8*sx,8*sy,
