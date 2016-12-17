@@ -63,7 +63,6 @@ public class mcr68
 	
 	
 	
-	void zwackery_convert_color_prom(UBytePtr palette, unsigned short *colortable, const UBytePtr color_prom);
 	
 	
 	

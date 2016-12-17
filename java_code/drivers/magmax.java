@@ -17,7 +17,6 @@ package drivers;
 public class magmax
 {
 	
-	void magmax_vh_convert_color_prom(UBytePtr palette, unsigned short *colortable, const UBytePtr color_prom);
 	
 	extern unsigned short magmax_vreg;
 	extern unsigned char magmax_scroll_x[];

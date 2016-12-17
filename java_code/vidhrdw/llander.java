@@ -40,7 +40,7 @@ public class llander
 	
 	***************************************************************************/
 	
-	void llander_init_colors (UBytePtr palette, unsigned short *colortable,const UBytePtr color_prom)
+	public static VhConvertColorPromPtr llander_init_colors = new VhConvertColorPromPtr() { public void handler(char []palette, char []colortable, UBytePtr color_prom) 
 	{
 		int width, height, i, nextcol;
 	
@@ -75,7 +75,7 @@ public class llander
 				3*llander_panel.num_pens_used);
 		memcpy (palette+3*llander_lit_panel.start_pen, llander_lit_panel.orig_palette,
 				3*llander_lit_panel.num_pens_used);
-	}
+	} };
 	
 	int llander_start(void)
 	{

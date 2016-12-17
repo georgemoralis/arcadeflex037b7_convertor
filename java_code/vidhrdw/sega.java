@@ -122,7 +122,7 @@ public class sega
 	***************************************************************************/
 	
 	
-	void sega_init_colors (UBytePtr palette, unsigned short *colortable,const UBytePtr color_prom)
+	public static VhConvertColorPromPtr sega_init_colors = new VhConvertColorPromPtr() { public void handler(char []palette, char []colortable, UBytePtr color_prom) 
 	{
 		int i,r,g,b;
 	
@@ -170,7 +170,7 @@ public class sega
 			palette[3*i+1] =
 			palette[3*i+2] = 107 + (42*(i-252));
 		}
-	}
+	} };
 	
 	/***************************************************************************
 	

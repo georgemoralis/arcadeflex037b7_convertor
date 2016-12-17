@@ -96,7 +96,7 @@ public class aztarac
 	    return 4;
 	} };
 	
-	void aztarac_init_colors (UBytePtr palette, unsigned short *colortable,const UBytePtr color_prom)
+	public static VhConvertColorPromPtr aztarac_init_colors = new VhConvertColorPromPtr() { public void handler(char []palette, char []colortable, UBytePtr color_prom) 
 	{
 	    int r, g, b, i;
 	
@@ -109,7 +109,7 @@ public class aztarac
 	                    *palette++ = (255 * g * i)/ 12;
 	                    *palette++ = (255 * b * i)/ 12;
 	                }
-	}
+	} };
 	
 	public static VhStartPtr aztarac_vh_start = new VhStartPtr() { public int handler() 
 	{

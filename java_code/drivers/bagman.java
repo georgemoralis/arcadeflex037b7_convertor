@@ -69,7 +69,6 @@ public class bagman
 	
 	
 	extern UBytePtr bagman_video_enable;
-	void bagman_vh_convert_color_prom(UBytePtr palette, unsigned short *colortable, const UBytePtr color_prom);
 	
 	
 	

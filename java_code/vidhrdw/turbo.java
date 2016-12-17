@@ -71,7 +71,7 @@ public class turbo
 	
 	***************************************************************************/
 	
-	void turbo_vh_convert_color_prom(UBytePtr palette, unsigned short *colortable, const UBytePtr color_prom)
+	public static VhConvertColorPromPtr turbo_vh_convert_color_prom = new VhConvertColorPromPtr() { public void handler(char []palette, char []colortable, UBytePtr color_prom) 
 	{
 		int i;
 	
@@ -123,7 +123,7 @@ public class turbo
 		palette[517 * 3 + 0] = 0x00;
 		palette[517 * 3 + 1] = 0xff;
 		palette[517 * 3 + 2] = 0x00;
-	}
+	} };
 	
 	
 	/***************************************************************************

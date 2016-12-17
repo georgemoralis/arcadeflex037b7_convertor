@@ -107,7 +107,7 @@ public class cinemat
 	}
 	
 	
-	void cinemat_init_colors (UBytePtr palette, unsigned short *colortable,const UBytePtr color_prom)
+	public static VhConvertColorPromPtr cinemat_init_colors = new VhConvertColorPromPtr() { public void handler(char []palette, char []colortable, UBytePtr color_prom) 
 	{
 		int i,j,k, nextcol;
 		char filename[1024];
@@ -199,10 +199,10 @@ public class cinemat
 				}
 				break;
 		}
-	}
+	} };
 	
 	
-	void spacewar_init_colors (UBytePtr palette, unsigned short *colortable,const UBytePtr color_prom)
+	public static VhConvertColorPromPtr spacewar_init_colors = new VhConvertColorPromPtr() { public void handler(char []palette, char []colortable, UBytePtr color_prom) 
 	{
 		int width, height, i, nextcol;
 	
@@ -247,7 +247,7 @@ public class cinemat
 		if (Machine.scrbitmap.depth == 8)
 			memcpy (palette+3*spacewar_pressed_panel.start_pen, spacewar_pressed_panel.orig_palette,
 					3*spacewar_pressed_panel.num_pens_used);
-	}
+	} };
 	
 	/***************************************************************************
 	

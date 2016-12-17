@@ -1276,6 +1276,7 @@ public class convertMame {
                         }
 
                     }
+
                     if (sUtil.getToken("unsigned char *palette, unsigned short *colortable,const unsigned char *color_prom")) {
                         sUtil.skipSpace();
                         if (sUtil.parseChar() != ')') {
@@ -1287,6 +1288,36 @@ public class convertMame {
                             continue;
                         }
                         if (Convertor.token[0].contains("vh_convert_color_prom")) {
+                            sUtil.putString((new StringBuilder()).append("public static VhConvertColorPromPtr ").append(Convertor.token[0]).append(" = new VhConvertColorPromPtr() { public void handler(char []palette, char []colortable, UBytePtr color_prom) ").toString());
+                            type = VH_CONVERT;
+                            i3 = -1;
+                            continue;
+                        }
+                        if (Convertor.token[0].contains("init_colors")) {
+                            sUtil.putString((new StringBuilder()).append("public static VhConvertColorPromPtr ").append(Convertor.token[0]).append(" = new VhConvertColorPromPtr() { public void handler(char []palette, char []colortable, UBytePtr color_prom) ").toString());
+                            type = VH_CONVERT;
+                            i3 = -1;
+                            continue;
+                        }
+
+                    }
+                    if (sUtil.getToken("unsigned char *palette, unsigned short *colortable, const unsigned char *color_prom")) {
+                        sUtil.skipSpace();
+                        if (sUtil.parseChar() != ')') {
+                            Convertor.inpos = j;
+                            break;
+                        }
+                        if (sUtil.getChar() == ';') {
+                            sUtil.skipLine();
+                            continue;
+                        }
+                        if (Convertor.token[0].contains("vh_convert_color_prom")) {
+                            sUtil.putString((new StringBuilder()).append("public static VhConvertColorPromPtr ").append(Convertor.token[0]).append(" = new VhConvertColorPromPtr() { public void handler(char []palette, char []colortable, UBytePtr color_prom) ").toString());
+                            type = VH_CONVERT;
+                            i3 = -1;
+                            continue;
+                        }
+                        if (Convertor.token[0].contains("init_colors")) {
                             sUtil.putString((new StringBuilder()).append("public static VhConvertColorPromPtr ").append(Convertor.token[0]).append(" = new VhConvertColorPromPtr() { public void handler(char []palette, char []colortable, UBytePtr color_prom) ").toString());
                             type = VH_CONVERT;
                             i3 = -1;

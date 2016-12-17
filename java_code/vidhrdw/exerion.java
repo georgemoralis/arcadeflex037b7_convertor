@@ -65,7 +65,7 @@ public class exerion
 	
 	***************************************************************************/
 	
-	void exerion_vh_convert_color_prom(UBytePtr palette, unsigned short *colortable, const UBytePtr color_prom)
+	public static VhConvertColorPromPtr exerion_vh_convert_color_prom = new VhConvertColorPromPtr() { public void handler(char []palette, char []colortable, UBytePtr color_prom) 
 	{
 		int i;
 	
@@ -110,7 +110,7 @@ public class exerion
 		/* using another PROM */
 		for (i = 0; i < 256; i++)
 			colortable[i + 0x200] = *color_prom++ & 15;
-	}
+	} };
 	
 	
 	

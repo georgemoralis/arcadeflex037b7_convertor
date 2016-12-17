@@ -20,7 +20,6 @@ public class ssozumo
 	extern size_t ssozumo_videoram2_size;
 	extern UBytePtr ssozumo_scroll;
 	
-	void ssozumo_vh_convert_color_prom(UBytePtr palette, unsigned short *colortable, const UBytePtr color_prom);
 	
 	
 	public static InterruptPtr ssozumo_interrupt = new InterruptPtr() { public int handler() 

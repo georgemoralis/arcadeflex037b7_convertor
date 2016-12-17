@@ -127,7 +127,7 @@ public class cchasm
 	    }
 	} };
 	
-	void cchasm_init_colors (UBytePtr palette, unsigned short *colortable,const UBytePtr color_prom)
+	public static VhConvertColorPromPtr cchasm_init_colors = new VhConvertColorPromPtr() { public void handler(char []palette, char []colortable, UBytePtr color_prom) 
 	{
 	    int i= 0, r, g, b;
 	
@@ -140,7 +140,7 @@ public class cchasm
 	                palette[3*i+2] = (255 * b) /3;
 	                i++;
 	            }
-	}
+	} };
 	
 	public static VhStartPtr cchasm_vh_start = new VhStartPtr() { public int handler() 
 	{

@@ -111,8 +111,6 @@ public class combatsc
 	extern UBytePtr  banked_area;
 	
 	/* from vidhrdw/combasc.c */
-	void combasc_convert_color_prom( UBytePtr palette, unsigned short *colortable, const UBytePtr color_prom );
-	void combascb_convert_color_prom( UBytePtr palette, unsigned short *colortable, const UBytePtr color_prom );
 	
 	
 	
