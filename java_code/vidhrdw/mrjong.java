@@ -132,13 +132,13 @@ public class mrjong
 			int sx, sy;
 			int flipx, flipy;
 	
-			sprt = (((spriteram.read(offs+1)>> 2) & 0x3f) | ((spriteram.read(offs+3)& 0x20) << 1));
-			flipx = (spriteram.read(offs+1)& 0x01) >> 0;
-			flipy = (spriteram.read(offs+1)& 0x02) >> 1;
-			color = (spriteram.read(offs+3)& 0x1f);
+			sprt = (((spriteram.read(offs + 1)>> 2) & 0x3f) | ((spriteram.read(offs + 3)& 0x20) << 1));
+			flipx = (spriteram.read(offs + 1)& 0x01) >> 0;
+			flipy = (spriteram.read(offs + 1)& 0x02) >> 1;
+			color = (spriteram.read(offs + 3)& 0x1f);
 	
-			sx = 224 - spriteram.read(offs+2);
-			sy = spriteram.read(offs+0);
+			sx = 224 - spriteram.read(offs + 2);
+			sy = spriteram.read(offs + 0);
 			if (flipscreen != 0)
 			{
 				sx = 208 - sx;

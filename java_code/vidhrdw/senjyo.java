@@ -339,7 +339,7 @@ public class senjyo
 	
 				drawgfx(bitmap,Machine.gfx[big ? 5 : 4],
 						spriteram.read(offs),
-						spriteram.read(offs+1)& 0x07,
+						spriteram.read(offs + 1)& 0x07,
 						flipx,flipy,
 						sx,sy,
 						clip,TRANSPARENCY_PEN,0);

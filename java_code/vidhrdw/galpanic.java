@@ -123,9 +123,9 @@ public class galpanic
 		{
 			int x,y,code,color,flipx,flipy,attr1,attr2;
 	
-			attr1 = READ_WORD(&spriteram.read(offs+6));
-			x = READ_WORD(&spriteram.read(offs+8)) - ((attr1 & 0x01) << 8);
-			y = READ_WORD(&spriteram.read(offs+10)) + ((attr1 & 0x02) << 7);
+			attr1 = READ_WORD(&spriteram.read(offs + 6));
+			x = READ_WORD(&spriteram.read(offs + 8)) - ((attr1 & 0x01) << 8);
+			y = READ_WORD(&spriteram.read(offs + 10)) + ((attr1 & 0x02) << 7);
 			if ((attr1 & 0x04) != 0)	/* multi sprite */
 			{
 				sx += x;
@@ -141,8 +141,8 @@ public class galpanic
 	
 			/* bit 0 [offs + 0] is used but I don't know what for */
 	
-			attr2 = READ_WORD(&spriteram.read(offs+14));
-			code = READ_WORD(&spriteram.read(offs+12)) + ((attr2 & 0x1f) << 8);
+			attr2 = READ_WORD(&spriteram.read(offs + 14));
+			code = READ_WORD(&spriteram.read(offs + 12)) + ((attr2 & 0x1f) << 8);
 			flipx = attr2 & 0x80;
 			flipy = attr2 & 0x40;
 	
@@ -163,9 +163,9 @@ public class galpanic
 		{
 			int sx,sy,code,color,flipx,flipy;
 	
-			sx = READ_WORD(&spriteram.read(offs+4)) >> 6;
-			sy = READ_WORD(&spriteram.read(offs+6)) >> 6;
-			code = READ_WORD(&spriteram.read(offs+2));
+			sx = READ_WORD(&spriteram.read(offs + 4)) >> 6;
+			sy = READ_WORD(&spriteram.read(offs + 6)) >> 6;
+			code = READ_WORD(&spriteram.read(offs + 2));
 			color = (READ_WORD(&spriteram.read(offs)) & 0x003c) >> 2;
 			flipx = READ_WORD(&spriteram.read(offs)) & 0x0002;
 			flipy = READ_WORD(&spriteram.read(offs)) & 0x0001;

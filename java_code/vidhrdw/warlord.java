@@ -135,7 +135,7 @@ public class warlord
 			int sx, sy, flipx, flipy, spritenum, color;
 	
 			sx = spriteram [offs + 0x20];
-	        sy = 248 - spriteram.read(offs+0x10);
+	        sy = 248 - spriteram.read(offs + 0x10);
 	
 			flipx = !(spriteram [offs] & 0x40);
 			flipy =   spriteram [offs] & 0x80;

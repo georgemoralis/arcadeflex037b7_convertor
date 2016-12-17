@@ -89,8 +89,8 @@ public class alpha68k
 	
 		for (offs = pos; offs < pos+0x800; offs += 0x80 )
 		{
-			mx=READ_WORD(&spriteram[offs+4+(4*j)])<<1;
-			my=READ_WORD(&spriteram[offs+6+(4*j)]);
+			mx=READ_WORD(&spriteram.read(offs+4+(4*j)))<<1;
+			my=READ_WORD(&spriteram.read(offs+6+(4*j)));
 			if ((my & 0x8000) != 0) mx++;
 	
 			mx=(mx+0x100)&0x1ff;
@@ -106,8 +106,8 @@ public class alpha68k
 			}
 	
 			for (i=0; i<0x80; i+=4) {
-				tile=READ_WORD(&spriteram[offs+2+i+(0x1000*j)+0x1000]);
-				color=READ_WORD(&spriteram[offs+i+(0x1000*j)+0x1000])&0x7f;
+				tile=READ_WORD(&spriteram.read(offs+2+i+(0x1000*j)+0x1000));
+				color=READ_WORD(&spriteram.read(offs+i+(0x1000*j)+0x1000))&0x7f;
 	
 				fy=tile&0x8000;
 				fx=tile&0x4000;
@@ -260,8 +260,8 @@ public class alpha68k
 	
 		for (offs = s; offs < e; offs += 0x80 )
 		{
-			mx=READ_WORD(&spriteram[offs+4+(4*j)])<<1;
-			my=READ_WORD(&spriteram[offs+6+(4*j)]);
+			mx=READ_WORD(&spriteram.read(offs+4+(4*j)))<<1;
+			my=READ_WORD(&spriteram.read(offs+6+(4*j)));
 			if ((my & 0x8000) != 0) mx++;
 	
 			mx=(mx+0x100)&0x1ff;
@@ -277,8 +277,8 @@ public class alpha68k
 			}
 	
 			for (i=0; i<0x80; i+=4) {
-				tile=READ_WORD(&spriteram[offs+2+i+(0x1000*j)+0x1000]);
-				color=READ_WORD(&spriteram[offs+i+(0x1000*j)+0x1000])&0xff;
+				tile=READ_WORD(&spriteram.read(offs+2+i+(0x1000*j)+0x1000));
+				color=READ_WORD(&spriteram.read(offs+i+(0x1000*j)+0x1000))&0xff;
 	
 				fx=tile&fx_mask;
 				fy=tile&fy_mask;
@@ -475,7 +475,7 @@ public class alpha68k
 			my-=0x200;
 	
 			for (i=0; i<0x40; i+=2) {
-				tile=READ_WORD(&spriteram[offs+d+i]);
+				tile=READ_WORD(&spriteram.read(offs+d+i));
 				color=1;
 				tile&=0x3fff;
 	
@@ -553,7 +553,7 @@ public class alpha68k
 			mx=mx&0xff;
 	
 			for (i=0; i<0x40; i+=2) {
-				tile=READ_WORD(&spriteram[offs+d+i]);
+				tile=READ_WORD(&spriteram.read(offs+d+i));
 				color=(tile&0x4000)>>14;
 				fy=tile&0x1000;
 				bank=((tile>>10)&0x3)+((tile&0x8000)?4:0);
@@ -593,7 +593,7 @@ public class alpha68k
 			mx=mx&0xff;
 	
 			for (i=0; i<0x40; i+=2) {
-				tile=READ_WORD(&spriteram[offs+d+i]);
+				tile=READ_WORD(&spriteram.read(offs+d+i));
 				color=0; //bit 0x4000
 				fy=tile&0x1000;
 				fx=0;

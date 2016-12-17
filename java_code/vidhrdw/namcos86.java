@@ -312,7 +312,7 @@ public class namcos86
 		const struct rectangle *clip = &Machine.visible_area;
 	
 		const UBytePtr source = &spriteram.read(0x1400);
-		const UBytePtr finish = &spriteram[0x1c00-16];	/* the last is NOT a sprite */
+		const UBytePtr finish = &spriteram.read(0x1c00-16);	/* the last is NOT a sprite */
 	
 		int sprite_xoffs = spriteram.read(0x1bf5)- 256 * (spriteram.read(0x1bf4)& 1);
 		int sprite_yoffs = spriteram.read(0x1bf7)- 256 * (spriteram.read(0x1bf6)& 1);

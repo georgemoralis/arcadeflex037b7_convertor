@@ -301,7 +301,7 @@ public class xevious
 	
 		for (offs = 0;offs < spriteram_size;offs += 2)
 		{
-			if ((spriteram.read(offs+1)& 0x40) == 0)  /* I'm not sure about this one */
+			if ((spriteram.read(offs + 1)& 0x40) == 0)  /* I'm not sure about this one */
 			{
 				int bank,code,color,flipx,flipy;
 	
@@ -317,7 +317,7 @@ public class xevious
 					code = spriteram.read(offs)& 0x7f;
 				}
 	
-				color = spriteram.read(offs+1)& 0x7f;
+				color = spriteram.read(offs + 1)& 0x7f;
 				flipx = spriteram_3.read(offs)& 4;
 				flipy = spriteram_3.read(offs)& 8;
 				if (flip_screen != 0)

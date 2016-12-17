@@ -170,7 +170,7 @@ public class baraduke
 		const struct rectangle *clip = &Machine.visible_area;
 	
 		const UBytePtr source = &spriteram.read(0);
-		const UBytePtr finish = &spriteram[0x0800-16];/* the last is NOT a sprite */
+		const UBytePtr finish = &spriteram.read(0x0800-16);/* the last is NOT a sprite */
 	
 		int sprite_xoffs = spriteram.read(0x07f5)- 256 * (spriteram.read(0x07f4)& 1) + 16;
 		int sprite_yoffs = spriteram.read(0x07f7)- 256 * (spriteram.read(0x07f6)& 1);
@@ -277,7 +277,7 @@ public class baraduke
 	{
 		int i;
 		const UBytePtr source = &spriteram.read(0);
-		const UBytePtr finish = &spriteram[0x0800-16];/* the last is NOT a sprite */
+		const UBytePtr finish = &spriteram.read(0x0800-16);/* the last is NOT a sprite */
 	
 		unsigned short palette_map[128];
 	

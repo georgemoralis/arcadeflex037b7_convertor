@@ -198,7 +198,7 @@ public class timeplt
 		{
 			int code,color,sx,sy,flipx,flipy;
 	
-			code = spriteram.read(offs+1);
+			code = spriteram.read(offs + 1);
 			color = spriteram_2.read(offs)& 0x3f;
 			sx = 240 - spriteram.read(offs);
 			sy = spriteram_2.read(offs+1)-1;

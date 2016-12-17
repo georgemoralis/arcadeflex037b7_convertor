@@ -338,7 +338,7 @@ public class rallyx
 		/* draw the sprites */
 		for (offs = 0;offs < spriteram_size[0];offs += 2)
 		{
-			sx = spriteram.read(offs+1)+ ((spriteram_2.read(offs+1)& 0x80) << 1) - displacement;
+			sx = spriteram.read(offs + 1)+ ((spriteram_2.read(offs+1)& 0x80) << 1) - displacement;
 			sy = 225 - spriteram_2.read(offs)- displacement;
 	
 			drawgfx(bitmap,Machine.gfx[1],
@@ -504,7 +504,7 @@ public class rallyx
 		/* draw the sprites */
 		for (offs = 0;offs < spriteram_size[0];offs += 2)
 		{
-			sx = spriteram.read(offs+1)+ ((spriteram_2.read(offs+1)& 0x80) << 1) - displacement;
+			sx = spriteram.read(offs + 1)+ ((spriteram_2.read(offs+1)& 0x80) << 1) - displacement;
 			sy = 225 - spriteram_2.read(offs)- displacement;
 	
 			drawgfx(bitmap,Machine.gfx[1],
@@ -643,7 +643,7 @@ public class rallyx
 		/* draw the sprites */
 		for (offs = 0;offs < spriteram_size[0];offs += 2)
 		{
-			sx = spriteram.read(offs+1)- 1;
+			sx = spriteram.read(offs + 1)- 1;
 			sy = 224 - spriteram_2.read(offs);
 	if (flipscreen != 0) sx += 32;
 	
@@ -788,7 +788,7 @@ public class rallyx
 			int flipx,flipy;
 	
 	
-			sx = spriteram.read(offs+1)- 1;
+			sx = spriteram.read(offs + 1)- 1;
 			sy = 224 - spriteram_2.read(offs);
 	if (flipscreen != 0) sx += 32;
 			flipx = ~spriteram.read(offs)& 1;

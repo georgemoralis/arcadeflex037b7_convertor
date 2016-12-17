@@ -107,8 +107,8 @@ public class qwakprot
 			spritenum = spriteram.read(offs)& 0x7f;
 	
 			flip = (spriteram.read(offs)& 0x80);
-			x = spriteram.read(offs+0x20);
-			y = 240 - spriteram.read(offs+0x10);
+			x = spriteram.read(offs + 0x20);
+			y = 240 - spriteram.read(offs + 0x10);
 	
 			drawgfx(bitmap,Machine.gfx[2],
 					spritenum,0,

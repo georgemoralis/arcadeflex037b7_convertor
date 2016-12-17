@@ -142,19 +142,19 @@ public class seicross
 		/* draw sprites */
 		for (offs = spriteram_size[0] - 4;offs >= 0;offs -= 4)
 		{
-			x=spriteram.read(offs+3);
+			x=spriteram.read(offs + 3);
 			drawgfx(bitmap,Machine.gfx[1],
-					(spriteram.read(offs)& 0x3f) + ((spriteram.read(offs+1)& 0x10) << 2) + 128,
-					spriteram.read(offs+1)& 0x0f,
+					(spriteram.read(offs)& 0x3f) + ((spriteram.read(offs + 1)& 0x10) << 2) + 128,
+					spriteram.read(offs + 1)& 0x0f,
 					spriteram.read(offs)& 0x40,spriteram.read(offs)& 0x80,
-					x,240-spriteram.read(offs+2),
+					x,240-spriteram.read(offs + 2),
 					&Machine.visible_area,TRANSPARENCY_PEN,0);
 			if(x>0xf0)
 				drawgfx(bitmap,Machine.gfx[1],
-						(spriteram.read(offs)& 0x3f) + ((spriteram.read(offs+1)& 0x10) << 2) + 128,
-						spriteram.read(offs+1)& 0x0f,
+						(spriteram.read(offs)& 0x3f) + ((spriteram.read(offs + 1)& 0x10) << 2) + 128,
+						spriteram.read(offs + 1)& 0x0f,
 						spriteram.read(offs)& 0x40,spriteram.read(offs)& 0x80,
-						x-256,240-spriteram.read(offs+2),
+						x-256,240-spriteram.read(offs + 2),
 						&Machine.visible_area,TRANSPARENCY_PEN,0);
 		}
 	

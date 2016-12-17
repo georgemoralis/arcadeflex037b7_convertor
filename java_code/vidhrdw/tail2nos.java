@@ -176,14 +176,14 @@ public class tail2nos
 		{
 			int sx,sy,flipx,flipy,code,color;
 	
-			sx = READ_WORD(&spriteram.read(offs+2));
+			sx = READ_WORD(&spriteram.read(offs + 2));
 			if (sx >= 0x8000) sx -= 0x10000;
-			sy = 0x10000 - READ_WORD(&spriteram.read(offs+0));
+			sy = 0x10000 - READ_WORD(&spriteram.read(offs + 0));
 			if (sy >= 0x8000) sy -= 0x10000;
-			code = READ_WORD(&spriteram.read(offs+4)) & 0x07ff;
-			color = (READ_WORD(&spriteram.read(offs+4)) & 0xe000) >> 13;
-			flipx = READ_WORD(&spriteram.read(offs+4)) & 0x1000;
-			flipy = READ_WORD(&spriteram.read(offs+4)) & 0x0800;
+			code = READ_WORD(&spriteram.read(offs + 4)) & 0x07ff;
+			color = (READ_WORD(&spriteram.read(offs + 4)) & 0xe000) >> 13;
+			flipx = READ_WORD(&spriteram.read(offs + 4)) & 0x1000;
+			flipy = READ_WORD(&spriteram.read(offs + 4)) & 0x0800;
 	
 			drawgfx(bitmap,Machine.gfx[1],
 					code,

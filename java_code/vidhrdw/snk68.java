@@ -162,8 +162,8 @@ public class snk68
 	
 		for (offs = pos; offs < pos+0x800; offs += 0x80 )
 		{
-			mx=(READ_WORD(&spriteram[offs+4+(4*j)])&0xff)<<4;
-			my=READ_WORD(&spriteram[offs+6+(4*j)]);
+			mx=(READ_WORD(&spriteram.read(offs+4+(4*j)))&0xff)<<4;
+			my=READ_WORD(&spriteram.read(offs+6+(4*j)));
 			mx=mx+(my>>12);
 			mx=((mx+16)&0x1ff)-16;
 	
@@ -179,10 +179,10 @@ public class snk68
 			}
 	
 			for (i=0; i<0x80; i+=4) {
-				color=READ_WORD(&spriteram[offs+i+(0x1000*j)+0x1000])&0x7f;
+				color=READ_WORD(&spriteram.read(offs+i+(0x1000*j)+0x1000))&0x7f;
 	
 				if (color != 0) {
-					tile=READ_WORD(&spriteram[offs+2+i+(0x1000*j)+0x1000]);
+					tile=READ_WORD(&spriteram.read(offs+2+i+(0x1000*j)+0x1000));
 					fy=tile&0x8000;
 					fx=tile&0x4000;
 					tile&=0x3fff;
@@ -269,7 +269,7 @@ public class snk68
 		for (offs = pos; offs < pos+0x800 ; offs += 0x80 )
 		{
 			mx=READ_WORD(&spriteram.read(offs+j));
-			my=READ_WORD(&spriteram[offs+j+2]);
+			my=READ_WORD(&spriteram.read(offs+j+2));
 	
 			mx=mx<<4;
 			mx=mx|((my>>12)&0xf);
@@ -288,9 +288,9 @@ public class snk68
 			}
 	
 			for (i=0; i<0x80; i+=4) {
-				color=READ_WORD(&spriteram[offs+i+z])&0x7f;
+				color=READ_WORD(&spriteram.read(offs+i+z))&0x7f;
 				if (color != 0) {
-					tile=READ_WORD(&spriteram[offs+2+i+z]);
+					tile=READ_WORD(&spriteram.read(offs+2+i+z));
 					if (sprite_flip != 0) {
 						fx=0;
 						fy=tile&0x8000;

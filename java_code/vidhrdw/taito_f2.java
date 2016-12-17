@@ -634,7 +634,7 @@ public class taito_f2
 	
 			code = 0;
 			extoffs = offs;
-			if (extoffs >= 0x8000) extoffs -= 0x4000;   /* spriteram[0x4000-7fff] has no corresponding extension area */
+			if (extoffs >= 0x8000) extoffs -= 0x4000;   /* spriteram.read(0x4000-7fff)has no corresponding extension area */
 	
 			if (f2_spriteext == 0)
 			{
@@ -966,7 +966,7 @@ public class taito_f2
 	
 			code = 0;
 			extoffs = offs;
-			if (extoffs >= 0x8000) extoffs -= 0x4000;   /* spriteram[0x4000-7fff] has no corresponding extension area */
+			if (extoffs >= 0x8000) extoffs -= 0x4000;   /* spriteram.read(0x4000-7fff)has no corresponding extension area */
 	
 			if (f2_spriteext == 0)
 			{
@@ -1143,7 +1143,7 @@ public class taito_f2
 		prepare_sprites = 0;
 		memcpy(spriteram_buffered,spriteram_delayed,spriteram_size);
 		for (i = 0;i < spriteram_size/2;i += 4)
-			spriteram_buffered[i] = READ_WORD(&spriteram[2*i]);
+			spriteram_buffered[i] = READ_WORD(&spriteram.read(2*i));
 		memcpy(spriteram_delayed,spriteram,spriteram_size);
 	} };
 	public static VhEofCallbackPtr taitof2_partial_buffer_delayed_thundfox_eof_callback = new VhEofCallbackPtr() { public void handler() 
@@ -1156,9 +1156,9 @@ public class taito_f2
 		memcpy(spriteram_buffered,spriteram_delayed,spriteram_size);
 		for (i = 0;i < spriteram_size/2;i += 8)
 		{
-			spriteram_buffered[i]   = READ_WORD(&spriteram[2*i]);
-			spriteram_buffered[i+1] = READ_WORD(&spriteram[2*(i+1)]);
-			spriteram_buffered[i+4] = READ_WORD(&spriteram[2*(i+4)]);
+			spriteram_buffered[i]   = READ_WORD(&spriteram.read(2*i));
+			spriteram_buffered[i+1] = READ_WORD(&spriteram.read(2*(i+1)));
+			spriteram_buffered[i+4] = READ_WORD(&spriteram.read(2*(i+4)));
 		}
 		memcpy(spriteram_delayed,spriteram,spriteram_size);
 	} };

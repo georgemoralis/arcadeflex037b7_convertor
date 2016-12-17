@@ -212,7 +212,7 @@ public class trackfld
 			sy += 1;
 	
 			drawgfx(bitmap,Machine.gfx[1],
-					spriteram.read(offs+1),
+					spriteram.read(offs + 1),
 					spriteram_2.read(offs)& 0x0f,
 					flipx,flipy,
 					sx,sy,
@@ -220,7 +220,7 @@ public class trackfld
 	
 			/* redraw with wraparound */
 			drawgfx(bitmap,Machine.gfx[1],
-					spriteram.read(offs+1),
+					spriteram.read(offs + 1),
 					spriteram_2.read(offs)& 0x0f,
 					flipx,flipy,
 					sx-256,sy,

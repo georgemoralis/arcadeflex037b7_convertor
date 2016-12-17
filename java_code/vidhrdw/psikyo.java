@@ -206,7 +206,7 @@ public class psikyo
 			sprite	=	READ_WORD(&spriteram_2.read(offs));
 	
 			sprite	%=	0x300;
-			source	=	&spriteram[sprite*8];
+			source	=	&spriteram.read(sprite*8);
 	
 			/* Draw this sprite */
 	
@@ -324,7 +324,7 @@ public class psikyo
 			if (sprite == 0xffff)	break;
 	
 			sprite	%=	0x300;
-			source	=	&spriteram[sprite*8];
+			source	=	&spriteram.read(sprite*8);
 	
 			/* Mark the pens used by the visible portion of this sprite */
 	

@@ -156,8 +156,8 @@ public class centiped
 			else spritenum = spritenum / 2;
 	
 			flipx = (spriteram.read(offs)& 0x80);
-			x = spriteram.read(offs+0x20);
-			y = 240 - spriteram.read(offs+0x10);
+			x = spriteram.read(offs + 0x20);
+			y = 240 - spriteram.read(offs + 0x10);
 	
 			if (flip_screen != 0)
 			{

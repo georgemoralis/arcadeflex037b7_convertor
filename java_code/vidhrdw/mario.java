@@ -168,10 +168,10 @@ public class mario
 			if (spriteram.read(offs))
 			{
 				drawgfx(bitmap,Machine.gfx[1],
-						spriteram.read(offs+2),
-						(spriteram.read(offs+1)& 0x0f) + 16 * palette_bank,
-						spriteram.read(offs+1)& 0x80,spriteram.read(offs+1)& 0x40,
-						spriteram.read(offs+3)- 8,240 - spriteram.read(offs)+ 8,
+						spriteram.read(offs + 2),
+						(spriteram.read(offs + 1)& 0x0f) + 16 * palette_bank,
+						spriteram.read(offs + 1)& 0x80,spriteram.read(offs + 1)& 0x40,
+						spriteram.read(offs + 3)- 8,240 - spriteram.read(offs)+ 8,
 						&Machine.visible_area,TRANSPARENCY_PEN,0);
 			}
 		}

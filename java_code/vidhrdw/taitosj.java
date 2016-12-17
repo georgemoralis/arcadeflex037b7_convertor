@@ -411,7 +411,7 @@ public class taitosj
 	
 	
 		*sx = spriteram.read(offs)- 1;
-		*sy = 240 - spriteram.read(offs+1);
+		*sy = 240 - spriteram.read(offs + 1);
 		return (*sy < 240);
 	}
 	
@@ -451,17 +451,17 @@ public class taitosj
 		}
 	
 		/* draw the sprites into seperate bitmaps and check overlapping region */
-		drawgfx(sprite_sprite_collbitmap1,Machine.gfx[(spriteram.read(offs1+3)& 0x40) ? 3 : 1],
-				spriteram.read(offs1+3)& 0x3f,
+		drawgfx(sprite_sprite_collbitmap1,Machine.gfx[(spriteram.read(offs1 + 3)& 0x40) ? 3 : 1],
+				spriteram.read(offs1 + 3)& 0x3f,
 				0,
-				spriteram.read(offs1+2)& 1, spriteram.read(offs1+2)& 2,
+				spriteram.read(offs1 + 2)& 1, spriteram.read(offs1 + 2)& 2,
 				sx1,sy1,
 				0,TRANSPARENCY_NONE,0);
 	
-		drawgfx(sprite_sprite_collbitmap2,Machine.gfx[(spriteram.read(offs2+3)& 0x40) ? 3 : 1],
-				spriteram.read(offs2+3)& 0x3f,
+		drawgfx(sprite_sprite_collbitmap2,Machine.gfx[(spriteram.read(offs2 + 3)& 0x40) ? 3 : 1],
+				spriteram.read(offs2 + 3)& 0x3f,
 				0,
-				spriteram.read(offs2+2)& 1, spriteram.read(offs2+2)& 2,
+				spriteram.read(offs2 + 2)& 1, spriteram.read(offs2 + 2)& 2,
 				sx2,sy2,
 				0,TRANSPARENCY_NONE,0);
 	
@@ -581,8 +581,8 @@ public class taitosj
 		maxy = spritearea[num].max_y + 1;
 	
 	
-		flipx = spriteram.read(offs+2)& 1;
-		flipy = spriteram.read(offs+2)& 2;
+		flipx = spriteram.read(offs + 2)& 1;
+		flipy = spriteram.read(offs + 2)& 2;
 	
 		if (flipscreen[0])
 		{
@@ -598,8 +598,8 @@ public class taitosj
 		}
 	
 		/* draw sprite into a bitmap and check if playfields collide */
-		drawgfx(sprite_plane_collbitmap1, Machine.gfx[(spriteram.read(offs+3)& 0x40) ? 3 : 1],
-				spriteram.read(offs+3)& 0x3f,
+		drawgfx(sprite_plane_collbitmap1, Machine.gfx[(spriteram.read(offs + 3)& 0x40) ? 3 : 1],
+				spriteram.read(offs + 3)& 0x3f,
 				0,
 				flipx, flipy,
 				0,0,
@@ -675,8 +675,8 @@ public class taitosj
 	
 				if (get_sprite_xy(offs / 4, &sx, &sy))
 				{
-					flipx = spriteram.read(offs+2)& 1;
-					flipy = spriteram.read(offs+2)& 2;
+					flipx = spriteram.read(offs + 2)& 1;
+					flipy = spriteram.read(offs + 2)& 2;
 					if (flipscreen[0])
 					{
 						sx = 238 - sx;
@@ -688,17 +688,17 @@ public class taitosj
 						flipy = !flipy;
 					}
 	
-					drawgfx(bitmap,Machine.gfx[(spriteram.read(offs+3)& 0x40) ? 3 : 1],
-							spriteram.read(offs+3)& 0x3f,
-							2 * ((taitosj_colorbank[1] >> 4) & 0x03) + ((spriteram.read(offs+2)>> 2) & 1),
+					drawgfx(bitmap,Machine.gfx[(spriteram.read(offs + 3)& 0x40) ? 3 : 1],
+							spriteram.read(offs + 3)& 0x3f,
+							2 * ((taitosj_colorbank[1] >> 4) & 0x03) + ((spriteram.read(offs + 2)>> 2) & 1),
 							flipx,flipy,
 							sx,sy,
 							&Machine.visible_area,TRANSPARENCY_PEN,0);
 	
 					/* draw with wrap around. The horizontal games (eg. sfposeid) need this */
-					drawgfx(bitmap,Machine.gfx[(spriteram.read(offs+3)& 0x40) ? 3 : 1],
-							spriteram.read(offs+3)& 0x3f,
-							2 * ((taitosj_colorbank[1] >> 4) & 0x03) + ((spriteram.read(offs+2)>> 2) & 1),
+					drawgfx(bitmap,Machine.gfx[(spriteram.read(offs + 3)& 0x40) ? 3 : 1],
+							spriteram.read(offs + 3)& 0x3f,
+							2 * ((taitosj_colorbank[1] >> 4) & 0x03) + ((spriteram.read(offs + 2)>> 2) & 1),
 							flipx,flipy,
 							sx - 0x100,sy,
 							&Machine.visible_area,TRANSPARENCY_PEN,0);

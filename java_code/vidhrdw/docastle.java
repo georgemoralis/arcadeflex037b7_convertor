@@ -299,12 +299,12 @@ public class docastle
 			int sx,sy,flipx,flipy,code,color;
 	
 	
-			code = spriteram.read(offs+3);
-			color = spriteram.read(offs+2)& 0x1f;
-			sx = spriteram.read(offs+1);
+			code = spriteram.read(offs + 3);
+			color = spriteram.read(offs + 2)& 0x1f;
+			sx = spriteram.read(offs + 1);
 			sy = spriteram.read(offs);
-			flipx = spriteram.read(offs+2)& 0x40;
-			flipy = spriteram.read(offs+2)& 0x80;
+			flipx = spriteram.read(offs + 2)& 0x40;
+			flipy = spriteram.read(offs + 2)& 0x80;
 	
 	
 			if (flip_screen != 0)

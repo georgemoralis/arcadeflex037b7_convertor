@@ -638,7 +638,7 @@ public class megasys1
 				for (sprite = 0; sprite < 4 ; sprite ++)
 				{
 					UBytePtr objectdata = &megasys1_objectram[offs + 0x800 * sprite];
-					UBytePtr spritedata = &spriteram[(READ_WORD(&objectdata[0x00])&0x7f)*0x10];
+					UBytePtr spritedata = &spriteram.read((READ_WORD(&objectdata[0x00))&0x7f)*0x10];
 	
 					attr = READ_WORD(&spritedata[0x08]);
 					if ( (attr & 0x08) == priority )	continue;	// priority
@@ -686,7 +686,7 @@ public class megasys1
 	
 			for (sprite = 0; sprite < 0x80 ; sprite ++)
 			{
-				UBytePtr spritedata = &spriteram[sprite*0x10];
+				UBytePtr spritedata = &spriteram.read(sprite*0x10);
 	
 				attr = READ_WORD(&spritedata[0x08]);
 				if ( (attr & 0x08) == priority ) continue;
@@ -757,7 +757,7 @@ public class megasys1
 			for (offs = 0; offs < 0x2000 ; offs += 8)
 			{
 				int sprite = READ_WORD(&megasys1_objectram[offs+0x00]);
-				UBytePtr spritedata = &spriteram[(sprite&0x7F)*16];
+				UBytePtr spritedata = &spriteram.read((sprite&0x7F)*16);
 	
 				attr = READ_WORD(&spritedata[0x08]);
 				if ( (attr & 0xc0) != ((offs/0x800)<<6) ) continue;
@@ -786,7 +786,7 @@ public class megasys1
 	
 			for (sprite = 0; sprite < 0x80 ; sprite++)
 			{
-				UBytePtr  spritedata = &spriteram[sprite*16];
+				UBytePtr  spritedata = &spriteram.read(sprite*16);
 	
 				sx		=	READ_WORD(&spritedata[0x0A]) % 512;
 				sy		=	READ_WORD(&spritedata[0x0C]) % 512;

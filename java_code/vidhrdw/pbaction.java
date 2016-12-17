@@ -204,7 +204,7 @@ public class pbaction
 	
 	
 			/* if next sprite is double size, skip this one */
-			if (offs > 0 && spriteram[offs - 4] & 0x80) continue;
+			if (offs > 0 && spriteram.read(offs - 4)& 0x80) continue;
 	
 			sx = spriteram.read(offs+3);
 			if (spriteram.read(offs)& 0x80)
@@ -231,7 +231,7 @@ public class pbaction
 	
 			drawgfx(bitmap,Machine.gfx[(spriteram.read(offs)& 0x80) ? 3 : 2],	/* normal or double size */
 					spriteram.read(offs),
-					spriteram.read(offs+1)& 0x0f,
+					spriteram.read(offs + 1)& 0x0f,
 					flipx,flipy,
 					sx+scroll,sy,
 					&Machine.visible_area,TRANSPARENCY_PEN,0);

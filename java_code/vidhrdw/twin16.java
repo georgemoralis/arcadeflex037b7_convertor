@@ -184,7 +184,7 @@ public class twin16
 		while( source<finish ){
 			UINT16 priority = source[0];
 			if ((priority & 0x8000) != 0){
-				UINT16 *dest = (UINT16 *)&spriteram[0x3000 + 8*(priority&0xff)];
+				UINT16 *dest = (UINT16 *)&spriteram.read(0x3000 + 8*(priority&0xff));
 	
 				INT32 xpos = (0x10000*source[4])|source[5];
 				INT32 ypos = (0x10000*source[6])|source[7];

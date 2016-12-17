@@ -177,7 +177,7 @@ public class airbustr
 		/* Let's draw the sprites */
 		for (i = 0 ; i < 2 ; i++)
 		{
-			UBytePtr ram = &spriteram[i * 0x800];
+			UBytePtr ram = &spriteram.read(i * 0x800);
 			int sx = 0;
 			int sy = 0;
 	
@@ -262,7 +262,7 @@ public class airbustr
 		/* Sprites */
 		for (i = 0 ; i < 2 ; i++)
 		{
-			ram = &spriteram[i * 0x800 + 0x300];	// color code
+			ram = &spriteram.read(i * 0x800 + 0x300);	// color code
 			for ( offs = 0 ; offs < 0x100 ; offs++)
 			{
 				int color = 256 * 2 + (ram[offs] & 0xf0);

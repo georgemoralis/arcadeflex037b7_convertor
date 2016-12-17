@@ -358,7 +358,7 @@ public class marineb
 	
 	
 			code  = spriteram.read(offs2);
-			sx    = spriteram.read(offs2+0x20);
+			sx    = spriteram.read(offs2 + 0x20);
 			sy    = colorram.read(offs2);
 			col   = colorram.read(offs2+0x20);
 			flipx =   code & 0x02;

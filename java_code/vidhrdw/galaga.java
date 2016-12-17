@@ -256,7 +256,7 @@ public class galaga
 	
 	
 				code = spriteram.read(offs);
-				color = spriteram.read(offs+1);
+				color = spriteram.read(offs + 1);
 				flipx = spriteram_3.read(offs)& 1;
 				flipy = spriteram_3.read(offs)& 2;
 				sx = spriteram_2.read(offs+1)- 40 + 0x100*(spriteram_3.read(offs+1)& 1);

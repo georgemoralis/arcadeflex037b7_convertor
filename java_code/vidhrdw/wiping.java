@@ -139,7 +139,7 @@ public class wiping
 		for (offs = 0x0; offs < 128; offs += 2) {
 			int sx,sy,flipx,flipy,otherbank;
 	
-			sx = spriteram[offs+0x100+1] + ((spriteram.read(offs+0x81)& 0x01) << 8) - 40;
+			sx = spriteram.read(offs+0x100+1)+ ((spriteram.read(offs+0x81)& 0x01) << 8) - 40;
 			sy = 224 - spriteram.read(offs+0x100);
 	
 			otherbank = spriteram.read(offs+0x80)& 0x01;

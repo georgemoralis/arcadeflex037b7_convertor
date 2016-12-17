@@ -200,7 +200,7 @@ public class solomon
 	
 			drawgfx(bitmap,Machine.gfx[2],
 					spriteram.read(offs)+ 16*(spriteram.read(offs+1)& 0x10),
-					(spriteram.read(offs+1)& 0x0e) >> 1,
+					(spriteram.read(offs + 1)& 0x0e) >> 1,
 					flipx,flipy,
 					sx,sy,
 					&Machine.visible_area,TRANSPARENCY_PEN,0);

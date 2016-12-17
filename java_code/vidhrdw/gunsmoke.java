@@ -264,13 +264,13 @@ public class gunsmoke
 				int bank,flipx,flipy;
 	
 	
-				bank = (spriteram.read(offs+1)& 0xc0) >> 6;
+				bank = (spriteram.read(offs + 1)& 0xc0) >> 6;
 				if (bank == 3) bank += sprite3bank;
 	
-				sx = spriteram.read(offs+3)- ((spriteram.read(offs+1)& 0x20) << 3);
-	 			sy = spriteram.read(offs+2);
+				sx = spriteram.read(offs + 3)- ((spriteram.read(offs + 1)& 0x20) << 3);
+	 			sy = spriteram.read(offs + 2);
 				flipx = 0;
-				flipy = spriteram.read(offs+1)& 0x10;
+				flipy = spriteram.read(offs + 1)& 0x10;
 				if (flip_screen != 0)
 				{
 					sx = 240 - sx;
@@ -281,7 +281,7 @@ public class gunsmoke
 	
 				drawgfx(bitmap,Machine.gfx[2],
 						spriteram.read(offs)+ 256 * bank,
-						spriteram.read(offs+1)& 0x0f,
+						spriteram.read(offs + 1)& 0x0f,
 						flipx,flipy,
 						sx,sy,
 						&Machine.visible_area,TRANSPARENCY_PEN,0);

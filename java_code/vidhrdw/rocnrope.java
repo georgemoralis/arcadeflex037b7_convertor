@@ -146,7 +146,7 @@ public class rocnrope
 		for (offs = spriteram_size[0] - 2;offs >= 0;offs -= 2)
 		{
 			drawgfx(bitmap,Machine.gfx[1],
-					spriteram.read(offs+1),
+					spriteram.read(offs + 1),
 					spriteram_2.read(offs)& 0x0f,
 					spriteram_2.read(offs)& 0x40,~spriteram_2.read(offs)& 0x80,
 					240-spriteram.read(offs),spriteram_2.read(offs+1),

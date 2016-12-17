@@ -307,7 +307,7 @@ public class jrpacman
 		{
 			drawgfx(bitmap,Machine.gfx[1],
 					(spriteram.read(offs)>> 2) + 0x40 * (*jrpacman_spritebank & 1),
-					(spriteram.read(offs+1)& 0x1f) + 0x20 * (*jrpacman_colortablebank & 1)
+					(spriteram.read(offs + 1)& 0x1f) + 0x20 * (*jrpacman_colortablebank & 1)
 							+ 0x40 * (*jrpacman_palettebank & 1),
 					spriteram.read(offs)& 1,spriteram.read(offs)& 2,
 					272 - spriteram_2.read(offs+1),spriteram_2.read(offs)-31,
@@ -320,7 +320,7 @@ public class jrpacman
 		{
 			drawgfx(bitmap,Machine.gfx[1],
 					(spriteram.read(offs)>> 2) + 0x40 * (*jrpacman_spritebank & 1),
-					(spriteram.read(offs+1)& 0x1f) + 0x20 * (*jrpacman_colortablebank & 1)
+					(spriteram.read(offs + 1)& 0x1f) + 0x20 * (*jrpacman_colortablebank & 1)
 							+ 0x40 * (*jrpacman_palettebank & 1),
 					spriteram.read(offs)& 1,spriteram.read(offs)& 2,
 					272 - spriteram_2.read(offs+1),spriteram_2.read(offs)-30,

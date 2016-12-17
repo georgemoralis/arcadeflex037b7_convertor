@@ -105,7 +105,7 @@ public class pinbo
 			int code,color;
 	
 	
-			sx = spriteram.read(offs+3);
+			sx = spriteram.read(offs + 3);
 			sy = 240 - spriteram.read(offs);
 			flipx = spriteram.read(offs+1)& 0x40;
 			flipy = spriteram.read(offs+1)& 0x80;

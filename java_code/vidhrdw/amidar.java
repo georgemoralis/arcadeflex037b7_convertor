@@ -163,10 +163,10 @@ public class amidar
 			int flipx,flipy,sx,sy;
 	
 	
-			sx = (spriteram.read(offs+3)+ 1) & 0xff;	/* ??? */
+			sx = (spriteram.read(offs + 3)+ 1) & 0xff;	/* ??? */
 			sy = 240 - spriteram.read(offs);
-			flipx = spriteram.read(offs+1)& 0x40;
-			flipy = spriteram.read(offs+1)& 0x80;
+			flipx = spriteram.read(offs + 1)& 0x40;
+			flipy = spriteram.read(offs + 1)& 0x80;
 	
 			if (flip_screen_x != 0)
 			{
@@ -187,8 +187,8 @@ public class amidar
 			if (offs <= 2*4) sy++;
 	
 			drawgfx(bitmap,Machine.gfx[1],
-					spriteram.read(offs+1)& 0x3f,
-					spriteram.read(offs+2)& 0x07,
+					spriteram.read(offs + 1)& 0x3f,
+					spriteram.read(offs + 2)& 0x07,
 					flipx,flipy,
 					sx,sy,
 					flip_screen_x ? &spritevisibleareaflipx : &spritevisiblearea,TRANSPARENCY_PEN,0);

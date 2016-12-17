@@ -352,7 +352,7 @@ public class cosmic
 	        {
 				int code, color;
 	
-				code  = ~spriteram.read(offs)& 0x3f;
+				code  = ~spriteram.read(offs  )& 0x3f;
 				color = ~spriteram.read(offs+3)& 0x0f;
 	
 	            if (spriteram.read(offs)& 0x80)
@@ -398,7 +398,7 @@ public class cosmic
 	        {
 				int code, color;
 	
-				code  = ~spriteram.read(offs)& 0x3f;
+				code  = ~spriteram.read(offs  )& 0x3f;
 				color = ~spriteram.read(offs+3)& 0x07;
 	
 	            if (spriteram.read(offs)& 0x80)

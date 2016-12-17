@@ -746,7 +746,7 @@ public class galaxian
 	
 	static void moonqsr_modify_spritecode(int *spritecode,int *flipx,int *flipy,int offs)
 	{
-		if (spriteram.read(offs+2)& 0x20)
+		if (spriteram.read(offs + 2)& 0x20)
 		{
 			*spritecode += 64;
 		}
@@ -756,7 +756,7 @@ public class galaxian
 	
 	static void ckongs_modify_spritecode(int *spritecode,int *flipx,int *flipy,int offs)
 	{
-		if (spriteram.read(offs+2)& 0x10)
+		if (spriteram.read(offs + 2)& 0x10)
 		{
 			*spritecode += 64;
 		}
@@ -765,7 +765,7 @@ public class galaxian
 	static void calipso_modify_spritecode(int *spritecode,int *flipx,int *flipy,int offs)
 	{
 		/* No flips */
-		*spritecode = spriteram.read(offs+1);
+		*spritecode = spriteram.read(offs + 1);
 		*flipx = 0;
 		*flipy = 0;
 	}
@@ -908,13 +908,13 @@ public class galaxian
 			int flipx,flipy,sx,sy,spritecode;
 	
 	
-			sx = (spriteram.read(offs+3)+ 1) & 0xff; /* This is definately correct in Mariner. Look at
+			sx = (spriteram.read(offs + 3)+ 1) & 0xff; /* This is definately correct in Mariner. Look at
 													  the 'gate' moving up/down. It stops at the
 	  												  right spots */
 			sy = 240 - spriteram.read(offs);
-			flipx = spriteram.read(offs+1)& 0x40;
-			flipy = spriteram.read(offs+1)& 0x80;
-			spritecode = spriteram.read(offs+1)& 0x3f;
+			flipx = spriteram.read(offs + 1)& 0x40;
+			flipy = spriteram.read(offs + 1)& 0x80;
+			spritecode = spriteram.read(offs + 1)& 0x3f;
 	
 			if (modify_spritecode != 0)
 			{
@@ -946,7 +946,7 @@ public class galaxian
 	
 			drawgfx(bitmap,Machine.gfx[1],
 					spritecode,
-					spriteram.read(offs+2)& color_mask,
+					spriteram.read(offs + 2)& color_mask,
 					flipx,flipy,
 					sx,sy,
 					flip_screen_x ? spritevisibleareaflipx : spritevisiblearea,TRANSPARENCY_PEN,0);

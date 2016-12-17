@@ -505,8 +505,8 @@ public class wc90
 				if ((bank & 4) != 0) { /* visible */
 					which = ( spriteram.read(offs+2)>> 2 ) + ( spriteram.read(offs+3)<< 6 );
 	
-					sx = spriteram.read(offs+8)+ ( (spriteram.read(offs+9)& 1 ) << 8 );
-					sy = spriteram.read(offs+6)+ ( (spriteram.read(offs+7)& 1 ) << 8 );
+					sx = spriteram.read(offs + 8)+ ( (spriteram.read(offs + 9)& 1 ) << 8 );
+					sy = spriteram.read(offs + 6)+ ( (spriteram.read(offs + 7)& 1 ) << 8 );
 	
 					flags = spriteram.read(offs+4);
 					( *( drawsprites_proc[ flags & 0x0f ] ) )( bitmap, which, sx, sy, bank, flags );

@@ -217,22 +217,22 @@ public class fastfred
 		{
 			int code,sx,sy,flipx,flipy;
 	
-			sx = (spriteram.read(offs+3)+ 1) & 0xff;  /* ??? */
+			sx = (spriteram.read(offs + 3)+ 1) & 0xff;  /* ??? */
 			sy = 240 - spriteram.read(offs);
 	
 			if (canspritesflipx != 0)
 			{
 				// Jump Coaster
-				code  =  spriteram.read(offs+1)& 0x3f;
-				flipx = ~spriteram.read(offs+1)& 0x40;
-				flipy =  spriteram.read(offs+1)& 0x80;
+				code  =  spriteram.read(offs + 1)& 0x3f;
+				flipx = ~spriteram.read(offs + 1)& 0x40;
+				flipy =  spriteram.read(offs + 1)& 0x80;
 			}
 			else
 			{
 				// Fast Freddie
-				code  =  spriteram.read(offs+1)& 0x7f;
+				code  =  spriteram.read(offs + 1)& 0x7f;
 				flipx =  0;
-				flipy = ~spriteram.read(offs+1)& 0x80;
+				flipy = ~spriteram.read(offs + 1)& 0x80;
 			}
 	
 	
@@ -249,7 +249,7 @@ public class fastfred
 	
 			drawgfx(bitmap,Machine.gfx[1],
 					code,
-					colorbank | (spriteram.read(offs+2)& 0x07),
+					colorbank | (spriteram.read(offs + 2)& 0x07),
 					flipx,flipy,
 					sx,sy,
 					flip_screen_x ? &spritevisibleareaflipx : &spritevisiblearea,TRANSPARENCY_PEN,0);

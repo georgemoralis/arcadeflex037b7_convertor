@@ -81,12 +81,12 @@ public class jack
 		{
 			int sx,sy,num, color,flipx,flipy;
 	
-			sx    = spriteram.read(offs+1);
+			sx    = spriteram.read(offs + 1);
 			sy    = spriteram.read(offs);
-			num   = spriteram.read(offs+2)+ ((spriteram.read(offs+3)& 0x08) << 5);
-			color = spriteram.read(offs+3)& 0x07;
-			flipx = (spriteram.read(offs+3)& 0x80);
-			flipy = (spriteram.read(offs+3)& 0x40);
+			num   = spriteram.read(offs + 2)+ ((spriteram.read(offs + 3)& 0x08) << 5);
+			color = spriteram.read(offs + 3)& 0x07;
+			flipx = (spriteram.read(offs + 3)& 0x80);
+			flipy = (spriteram.read(offs + 3)& 0x40);
 	
 			if (flip_screen != 0)
 			{

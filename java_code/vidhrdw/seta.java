@@ -562,8 +562,8 @@ public class seta
 		/* The first column is the frontmost, see twineagl test mode */
 		for ( col = numcol - 1 ; col >= 0; col -- )
 		{
-			int	x	=	READ_WORD(&spriteram[col * 0x20 + 0x08 + 0x400]) & 0xff;
-			int	y	=	READ_WORD(&spriteram[col * 0x20 + 0x00 + 0x400]) & 0xff;
+			int	x	=	READ_WORD(&spriteram.read(col * 0x20 + 0x08 + 0x400)) & 0xff;
+			int	y	=	READ_WORD(&spriteram.read(col * 0x20 + 0x00 + 0x400)) & 0xff;
 	
 			/* draw this column */
 			for ( offs = 0 ; offs < 0x40; offs += 2 )

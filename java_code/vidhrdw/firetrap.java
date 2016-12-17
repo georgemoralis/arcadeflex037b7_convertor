@@ -227,11 +227,11 @@ public class firetrap
 			/* the meaning of bit 3 of [offs] is unknown */
 	
 			sy = spriteram.read(offs);
-			sx = spriteram.read(offs+2);
-			code = spriteram.read(offs+3)+ 4 * (spriteram.read(offs+1)& 0xc0);
-			color = ((spriteram.read(offs+1)& 0x08) >> 2) | (spriteram.read(offs+1)& 0x01);
-			flipx = spriteram.read(offs+1)& 0x04;
-			flipy = spriteram.read(offs+1)& 0x02;
+			sx = spriteram.read(offs + 2);
+			code = spriteram.read(offs + 3)+ 4 * (spriteram.read(offs + 1)& 0xc0);
+			color = ((spriteram.read(offs + 1)& 0x08) >> 2) | (spriteram.read(offs + 1)& 0x01);
+			flipx = spriteram.read(offs + 1)& 0x04;
+			flipy = spriteram.read(offs + 1)& 0x02;
 			if (flip_screen != 0)
 			{
 				sx = 240 - sx;
@@ -240,7 +240,7 @@ public class firetrap
 				flipy = !flipy;
 			}
 	
-			if (spriteram.read(offs+1)& 0x10)	/* double width */
+			if (spriteram.read(offs + 1)& 0x10)	/* double width */
 			{
 				if (flip_screen != 0) sy -= 16;
 	

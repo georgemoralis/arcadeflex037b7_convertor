@@ -75,8 +75,8 @@ public class pkunwar
 			int sx,sy,flipx,flipy;
 	
 	
-			sx = ((spriteram.read(offs+1)+ 8) & 0xff) - 8;
-			sy = spriteram.read(offs+2);
+			sx = ((spriteram.read(offs + 1)+ 8) & 0xff) - 8;
+			sy = spriteram.read(offs + 2);
 			flipx = spriteram.read(offs)& 0x01;
 			flipy = spriteram.read(offs)& 0x02;
 			if (flipscreen[0])
@@ -91,8 +91,8 @@ public class pkunwar
 			}
 	
 			drawgfx(bitmap,Machine.gfx[1],
-					((spriteram.read(offs)& 0xfc) >> 2) + ((spriteram.read(offs+3)& 0x07) << 6),
-					(spriteram.read(offs+3)& 0xf0) >> 4,
+					((spriteram.read(offs)& 0xfc) >> 2) + ((spriteram.read(offs + 3)& 0x07) << 6),
+					(spriteram.read(offs + 3)& 0xf0) >> 4,
 					flipx,flipy,
 					sx,sy,
 					&Machine.visible_area,TRANSPARENCY_PEN,0);

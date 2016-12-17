@@ -266,7 +266,7 @@ public class playmark
 		{
 			int sx,sy,code,color,flipx;
 	
-			sy = READ_WORD(&spriteram[offs+6-8]);	/* -8? what the... ??? */
+			sy = READ_WORD(&spriteram.read(offs+6-8));	/* -8? what the... ??? */
 			if (sy == 0x2000) return;	/* end of list marker */
 	
 			flipx = sy & 0x4000;

@@ -457,18 +457,18 @@ public class popeye
 			 * bit 0 /
 			 */
 	
-			code = (spriteram.read(offs+2)& 0x7f) + ((spriteram.read(offs+3)& 0x10) << 3)
-								+ ((spriteram.read(offs+3)& 0x04) << 6);
-			color = (spriteram.read(offs+3)& 0x07) + 8*(*popeye_palette_bank & 0x07);
+			code = (spriteram.read(offs + 2)& 0x7f) + ((spriteram.read(offs + 3)& 0x10) << 3)
+								+ ((spriteram.read(offs + 3)& 0x04) << 6);
+			color = (spriteram.read(offs + 3)& 0x07) + 8*(*popeye_palette_bank & 0x07);
 	
 			if (spriteram.read(offs)!= 0)
 				drawgfx(bitmap,Machine.gfx[1],
 						code ^ 0x1ff,
 						color,
-						spriteram.read(offs+2)& 0x80,spriteram.read(offs+3)& 0x08,
+						spriteram.read(offs + 2)& 0x80,spriteram.read(offs + 3)& 0x08,
 			/* sprite placement IS correct - the squares on level 1 leave one pixel */
 			/* of the house background uncovered */
-						2*(spriteram.read(offs))-7,2*(256-spriteram.read(offs+1)) - 16,
+						2*(spriteram.read(offs))-7,2*(256-spriteram.read(offs + 1)) - 16,
 						&Machine.visible_area,TRANSPARENCY_PEN,0);
 		}
 	

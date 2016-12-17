@@ -304,10 +304,10 @@ public class superqix
 		for (offs = 0;offs < spriteram_size[0];offs += 4)
 		{
 			drawgfx(bitmap,Machine.gfx[5],
-					spriteram.read(offs)+ 256 * (spriteram.read(offs+3)& 0x01),
-					(spriteram.read(offs+3)& 0xf0) >> 4,
-					spriteram.read(offs+3)& 0x04,spriteram.read(offs+3)& 0x08,
-					spriteram.read(offs+1),spriteram.read(offs+2),
+					spriteram.read(offs)+ 256 * (spriteram.read(offs + 3)& 0x01),
+					(spriteram.read(offs + 3)& 0xf0) >> 4,
+					spriteram.read(offs + 3)& 0x04,spriteram.read(offs + 3)& 0x08,
+					spriteram.read(offs + 1),spriteram.read(offs + 2),
 					&Machine.visible_area,TRANSPARENCY_PEN,0);
 		}
 	

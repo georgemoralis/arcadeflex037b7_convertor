@@ -155,10 +155,10 @@ public class blueprnt
 			int sx,sy,flipx,flipy;
 	
 	
-			sx = spriteram.read(offs+3);
-			sy = 240 - spriteram.read(offs+0);
-			flipx = spriteram.read(offs+2)& 0x40;
-			flipy = spriteram[offs + 2 - 4] & 0x80;	/* -4? Awkward, isn't it? */
+			sx = spriteram.read(offs + 3);
+			sy = 240 - spriteram.read(offs + 0);
+			flipx = spriteram.read(offs + 2)& 0x40;
+			flipy = spriteram.read(offs + 2 - 4)& 0x80;	/* -4? Awkward, isn't it? */
 			if (flipscreen != 0)
 			{
 				sx = 248 - sx;
@@ -168,7 +168,7 @@ public class blueprnt
 			}
 	
 			drawgfx(bitmap,Machine.gfx[1],
-					spriteram.read(offs+1),
+					spriteram.read(offs + 1),
 					0,
 					flipx,flipy,
 					2+sx,sy-1,	/* sprites are slightly misplaced, regardless of the screen flip */

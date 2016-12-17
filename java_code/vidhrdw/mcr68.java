@@ -148,8 +148,8 @@ public class mcr68
 		{
 			int code, color, flipx, flipy, x, y, sx, sy, xcount, ycount, flags;
 	
-			flags = LOW_BYTE(&spriteram.read(offs+2));
-			code = LOW_BYTE(&spriteram.read(offs+4)) + 256 * ((flags >> 3) & 0x01) + 512 * ((flags >> 6) & 0x03);
+			flags = LOW_BYTE(&spriteram.read(offs + 2));
+			code = LOW_BYTE(&spriteram.read(offs + 4)) + 256 * ((flags >> 3) & 0x01) + 512 * ((flags >> 6) & 0x03);
 	
 			/* skip if zero */
 			if (code == 0)
@@ -163,7 +163,7 @@ public class mcr68
 			color = ~flags & 0x03;
 			flipx = flags & 0x10;
 			flipy = flags & 0x20;
-			x = LOW_BYTE(&spriteram.read(offs+6)) * 2 + mcr68_sprite_xoffset;
+			x = LOW_BYTE(&spriteram.read(offs + 6)) * 2 + mcr68_sprite_xoffset;
 			y = (241 - LOW_BYTE(&spriteram.read(offs))) * 2;
 	
 			/* allow sprites to clip off the left side */
@@ -265,10 +265,10 @@ public class mcr68
 				fprintf(f, "\n\n");
 				for (offs = 0; offs < spriteram_size; offs += 8)
 					fprintf(f, "Sprite %03d: %02X %02X %02X %02X\n", offs / 8,
-						LOW_BYTE(&spriteram.read(offs+0)),
-						LOW_BYTE(&spriteram.read(offs+2)),
-						LOW_BYTE(&spriteram.read(offs+4)),
-						LOW_BYTE(&spriteram.read(offs+6)));
+						LOW_BYTE(&spriteram.read(offs + 0)),
+						LOW_BYTE(&spriteram.read(offs + 2)),
+						LOW_BYTE(&spriteram.read(offs + 4)),
+						LOW_BYTE(&spriteram.read(offs + 6)));
 			}
 			fflush(f);
 		}
@@ -495,12 +495,12 @@ public class mcr68
 			int code, color, flags;
 	
 			/* get the code and skip if zero */
-			code = LOW_BYTE(&spriteram.read(offs+4));
+			code = LOW_BYTE(&spriteram.read(offs + 4));
 			if (code == 0)
 				continue;
 	
 			/* extract the flag bits and determine the color */
-			flags = LOW_BYTE(&spriteram.read(offs+2));
+			flags = LOW_BYTE(&spriteram.read(offs + 2));
 			color = ((~flags >> 2) & 0x0f) | ((flags & 0x02) << 3);
 	
 			/* mark the appropriate pens */
@@ -532,12 +532,12 @@ public class mcr68
 			int code, color, flipx, flipy, x, y, sx, sy, xcount, ycount, flags;
 	
 			/* get the code and skip if zero */
-			code = LOW_BYTE(&spriteram.read(offs+4));
+			code = LOW_BYTE(&spriteram.read(offs + 4));
 			if (code == 0)
 				continue;
 	
 			/* extract the flag bits and determine the color */
-			flags = LOW_BYTE(&spriteram.read(offs+2));
+			flags = LOW_BYTE(&spriteram.read(offs + 2));
 			color = ((~flags >> 2) & 0x0f) | ((flags & 0x02) << 3);
 	
 			/* for low priority, draw everything but color 7 */
@@ -557,7 +557,7 @@ public class mcr68
 			/* determine flipping and coordinates */
 			flipx = ~flags & 0x40;
 			flipy = flags & 0x80;
-			x = (231 - LOW_BYTE(&spriteram.read(offs+6))) * 2;
+			x = (231 - LOW_BYTE(&spriteram.read(offs + 6))) * 2;
 			y = (241 - LOW_BYTE(&spriteram.read(offs))) * 2;
 	
 			if (x <= -32) x += 512;
@@ -687,10 +687,10 @@ public class mcr68
 				fprintf(f, "\n\n");
 				for (offs = 0; offs < spriteram_size; offs += 8)
 					fprintf(f, "Sprite %03d: %02X %02X %02X %02X\n", offs / 8,
-						READ_WORD(&spriteram.read(offs+0)),
-						READ_WORD(&spriteram.read(offs+2)),
-						READ_WORD(&spriteram.read(offs+4)),
-						READ_WORD(&spriteram.read(offs+6)));
+						READ_WORD(&spriteram.read(offs + 0)),
+						READ_WORD(&spriteram.read(offs + 2)),
+						READ_WORD(&spriteram.read(offs + 4)),
+						READ_WORD(&spriteram.read(offs + 6)));
 			}
 			fflush(f);
 		}

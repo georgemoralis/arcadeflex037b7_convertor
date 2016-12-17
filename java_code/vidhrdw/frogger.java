@@ -187,14 +187,14 @@ public class frogger
 		/* order, to have the correct priorities. */
 		for (offs = spriteram_size[0] - 4;offs >= 0;offs -= 4)
 		{
-			if (spriteram.read(offs+3)!= 0)
+			if (spriteram.read(offs + 3)!= 0)
 			{
 				int x,y,col;
 	
-				x = spriteram.read(offs+3);
+				x = spriteram.read(offs + 3);
 				y = spriteram.read(offs);
 				y = ((y << 4) & 0xf0) | ((y >> 4) & 0x0f);
-				col = spriteram.read(offs+2)& 7;
+				col = spriteram.read(offs + 2)& 7;
 				col = ((col >> 1) & 0x03) | ((col << 2) & 0x04);
 	
 				if (flipscreen != 0)
@@ -202,18 +202,18 @@ public class frogger
 					x = 242 - x;
 					y = 240 - y;
 					drawgfx(bitmap,Machine.gfx[1],
-							spriteram.read(offs+1)& 0x3f,
+							spriteram.read(offs + 1)& 0x3f,
 							col,
-							!(spriteram.read(offs+1)& 0x40),!(spriteram.read(offs+1)& 0x80),
+							!(spriteram.read(offs + 1)& 0x40),!(spriteram.read(offs + 1)& 0x80),
 							x,30*8 - y,
 							&Machine.visible_area,TRANSPARENCY_PEN,0);
 				}
 				else
 				{
 					drawgfx(bitmap,Machine.gfx[1],
-							spriteram.read(offs+1)& 0x3f,
+							spriteram.read(offs + 1)& 0x3f,
 							col,
-							spriteram.read(offs+1)& 0x40,spriteram.read(offs+1)& 0x80,
+							spriteram.read(offs + 1)& 0x40,spriteram.read(offs + 1)& 0x80,
 							x,30*8 - y,
 							&Machine.visible_area,TRANSPARENCY_PEN,0);
 				}
@@ -287,13 +287,13 @@ public class frogger
 		/* order, to have the correct priorities. */
 		for (offs = spriteram_size[0] - 4;offs >= 0;offs -= 4)
 		{
-			if (spriteram.read(offs+3)!= 0)
+			if (spriteram.read(offs + 3)!= 0)
 			{
 				int x,y,col;
 	
-				x = spriteram.read(offs+3);
+				x = spriteram.read(offs + 3);
 				y = spriteram.read(offs);
-				col = spriteram.read(offs+2)& 7;
+				col = spriteram.read(offs + 2)& 7;
 				col = ((col >> 1) & 0x03) | ((col << 2) & 0x04);
 	
 				if (flipscreen != 0)
@@ -301,18 +301,18 @@ public class frogger
 					x = 242 - x;
 					y = 240 - y;
 					drawgfx(bitmap,Machine.gfx[1],
-							spriteram.read(offs+1)& 0x3f,
+							spriteram.read(offs + 1)& 0x3f,
 							col,
-							!(spriteram.read(offs+1)& 0x40),!(spriteram.read(offs+1)& 0x80),
+							!(spriteram.read(offs + 1)& 0x40),!(spriteram.read(offs + 1)& 0x80),
 							x,30*8 - y,
 							&Machine.visible_area,TRANSPARENCY_PEN,0);
 				}
 				else
 				{
 					drawgfx(bitmap,Machine.gfx[1],
-							spriteram.read(offs+1)& 0x3f,
+							spriteram.read(offs + 1)& 0x3f,
 							col,
-							spriteram.read(offs+1)& 0x40,spriteram.read(offs+1)& 0x80,
+							spriteram.read(offs + 1)& 0x40,spriteram.read(offs + 1)& 0x80,
 							x,30*8 - y,
 							&Machine.visible_area,TRANSPARENCY_PEN,0);
 				}

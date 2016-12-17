@@ -536,10 +536,10 @@ public class kaneko16
 	
 		for ( ;  offs < spriteram_size ; offs += inc)
 		{
-			int	attr	=	READ_WORD(&spriteram.read(offs+0));
-			int	code	=	READ_WORD(&spriteram.read(offs+2)) % nmax;
-			int	x		=	READ_WORD(&spriteram.read(offs+4));
-			int	y		=	READ_WORD(&spriteram.read(offs+6));
+			int	attr	=	READ_WORD(&spriteram.read(offs + 0));
+			int	code	=	READ_WORD(&spriteram.read(offs + 2)) % nmax;
+			int	x		=	READ_WORD(&spriteram.read(offs + 4));
+			int	y		=	READ_WORD(&spriteram.read(offs + 6));
 	
 			/* Map the attribute word to that of the type 1 sprite hardware */
 			MAP_TO_TYPE1(attr)
@@ -594,10 +594,10 @@ public class kaneko16
 	
 		for ( ;  offs < spriteram_size ; offs += inc)
 		{
-			int	attr	=	READ_WORD(&spriteram.read(offs+0));
-			int	code	=	READ_WORD(&spriteram.read(offs+2));
-			int	x		=	READ_WORD(&spriteram.read(offs+4));
-			int	y		=	READ_WORD(&spriteram.read(offs+6));
+			int	attr	=	READ_WORD(&spriteram.read(offs + 0));
+			int	code	=	READ_WORD(&spriteram.read(offs + 2));
+			int	x		=	READ_WORD(&spriteram.read(offs + 4));
+			int	y		=	READ_WORD(&spriteram.read(offs + 6));
 	
 			/* Map the attribute word to that of the type 1 sprite hardware */
 			MAP_TO_TYPE1(attr)

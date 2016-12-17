@@ -356,6 +356,12 @@ public class sUtil {
         for(s = ""; !isSeparator(); s = (new StringBuilder()).append(s).append(parseChar()).toString()) { }
         return s;
     }
+    public static String parseToken(char endchar)
+    {
+        String s;
+        for(s = ""; getChar()!=endchar; s = (new StringBuilder()).append(s).append(parseChar()).toString()) { }
+        return s;
+    }
     public static String parseTokenGameDriv()
     {
         String s;

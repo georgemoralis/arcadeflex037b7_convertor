@@ -331,10 +331,10 @@ public class exerion
 		/* draw sprites */
 		for (i = 0; i < spriteram_size[0]; i += 4)
 		{
-			int flags = spriteram.read(i+0);
-			int y = spriteram.read(i+1)^ 255;
-			int code = spriteram.read(i+2);
-			int x = spriteram.read(i+3)* 2 + 72;
+			int flags = spriteram.read(i + 0);
+			int y = spriteram.read(i + 1)^ 255;
+			int code = spriteram.read(i + 2);
+			int x = spriteram.read(i + 3)* 2 + 72;
 	
 			int xflip = flags & 0x80;
 			int yflip = flags & 0x40;

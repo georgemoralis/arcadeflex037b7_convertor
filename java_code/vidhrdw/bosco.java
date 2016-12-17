@@ -366,7 +366,7 @@ public class bosco
 		/* draw the sprites */
 		for (offs = 0;offs < spriteram_size[0];offs += 2)
 		{
-			sx = spriteram.read(offs+1)- displacement;
+			sx = spriteram.read(offs + 1)- displacement;
 	if (flipscreen != 0) sx += 32;
 			sy = 225 - spriteram_2.read(offs)- displacement;
 	

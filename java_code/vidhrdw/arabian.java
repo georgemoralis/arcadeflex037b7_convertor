@@ -272,12 +272,12 @@ public class arabian
 			UINT8 plane,x,y,sx,sy;
 			UINT16 src;
 	
-			plane = spriteram[offset-6];
-			src   = spriteram[offset-5] | (spriteram[offset-4] << 8);
-			x     = spriteram[offset-2] << 2;
-			y     = spriteram[offset-3];
-			sx    = spriteram[offset-0];
-			sy    = spriteram[offset-1];
+			plane = spriteram.read(offset-6);
+			src   = spriteram.read(offset-5)| (spriteram.read(offset-4)<< 8);
+			x     = spriteram.read(offset-2)<< 2;
+			y     = spriteram.read(offset-3);
+			sx    = spriteram.read(offset-0);
+			sy    = spriteram.read(offset-1);
 	
 			arabian_blit_area(plane,src,x,y,sx,sy);
 		}

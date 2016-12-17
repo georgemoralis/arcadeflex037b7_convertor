@@ -153,8 +153,8 @@ public class wc90b
 							flags >> 4, /* color */
 							bank&1, /* flipx */
 							bank&2, /* flipy */
-							spriteram.read(offs+2), /* sx */
-							240 - spriteram.read(offs+1), /* sy */
+							spriteram.read(offs + 2), /* sx */
+							240 - spriteram.read(offs + 1), /* sy */
 							&Machine.visible_area,TRANSPARENCY_PEN,15 );
 				}
 			}

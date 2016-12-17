@@ -963,7 +963,7 @@ public class ppu2c03b
 			break;
 	
 			case PPU_SPRITE_DATA:
-				ret = chips[num].spriteram[chips[num].regs[PPU_SPRITE_ADDRESS]];
+				ret = chips[num].spriteram.read(chips[num).regs[PPU_SPRITE_ADDRESS]];
 			break;
 	
 			case PPU_DATA:
@@ -1040,7 +1040,7 @@ public class ppu2c03b
 			break;
 	
 			case PPU_SPRITE_DATA:
-				chips[num].spriteram[chips[num].regs[PPU_SPRITE_ADDRESS]] = data;
+				chips[num].spriteram.read(chips[num).regs[PPU_SPRITE_ADDRESS]] = data;
 				chips[num].regs[PPU_SPRITE_ADDRESS] = ( chips[num].regs[PPU_SPRITE_ADDRESS] + 1 ) & 0xff;
 			break;
 	

@@ -173,7 +173,7 @@ public class ladybug
 		for (offs = spriteram_size[0] - 2*0x40;offs >= 2*0x40;offs -= 0x40)
 		{
 			i = 0;
-			while (i < 0x40 && spriteram.read(offs+i)!= 0)
+			while (i < 0x40 && spriteram.read(offs + i)!= 0)
 				i += 4;
 	
 			while (i > 0)
@@ -193,23 +193,23 @@ public class ladybug
 	*/
 				i -= 4;
 	
-				if (spriteram.read(offs+i)& 0x80)
+				if (spriteram.read(offs + i)& 0x80)
 				{
-					if (spriteram.read(offs+i)& 0x40)	/* 16x16 */
+					if (spriteram.read(offs + i)& 0x40)	/* 16x16 */
 						drawgfx(bitmap,Machine.gfx[1],
-								(spriteram[offs + i + 1] >> 2) + 4 * (spriteram[offs + i + 2] & 0x10),
-								spriteram[offs + i + 2] & 0x0f,
-								spriteram.read(offs+i)& 0x20,spriteram.read(offs+i)& 0x10,
-								spriteram[offs + i + 3],
-								offs / 4 - 8 + (spriteram.read(offs+i)& 0x0f),
+								(spriteram.read(offs + i + 1)>> 2) + 4 * (spriteram.read(offs + i + 2)& 0x10),
+								spriteram.read(offs + i + 2)& 0x0f,
+								spriteram.read(offs + i)& 0x20,spriteram.read(offs + i)& 0x10,
+								spriteram.read(offs + i + 3),
+								offs / 4 - 8 + (spriteram.read(offs + i)& 0x0f),
 								&Machine.visible_area,TRANSPARENCY_PEN,0);
 					else	/* 8x8 */
 						drawgfx(bitmap,Machine.gfx[2],
-								spriteram[offs + i + 1] + 4 * (spriteram[offs + i + 2] & 0x10),
-								spriteram[offs + i + 2] & 0x0f,
-								spriteram.read(offs+i)& 0x20,spriteram.read(offs+i)& 0x10,
-								spriteram[offs + i + 3],
-								offs / 4 + (spriteram.read(offs+i)& 0x0f),
+								spriteram.read(offs + i + 1)+ 4 * (spriteram.read(offs + i + 2)& 0x10),
+								spriteram.read(offs + i + 2)& 0x0f,
+								spriteram.read(offs + i)& 0x20,spriteram.read(offs + i)& 0x10,
+								spriteram.read(offs + i + 3),
+								offs / 4 + (spriteram.read(offs + i)& 0x0f),
 								&Machine.visible_area,TRANSPARENCY_PEN,0);
 				}
 			}

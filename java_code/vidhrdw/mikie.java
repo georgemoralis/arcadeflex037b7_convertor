@@ -170,8 +170,8 @@ public class mikie
 		{
 			int sx,sy,flipx,flipy;
 	
-			sx = spriteram.read(offs+3);
-			sy = 244 - spriteram.read(offs+1);
+			sx = spriteram.read(offs + 3);
+			sy = 244 - spriteram.read(offs + 1);
 			flipx = ~spriteram.read(offs)& 0x10;
 			flipy = spriteram.read(offs)& 0x20;
 			if (flipscreen != 0)
@@ -181,7 +181,7 @@ public class mikie
 			}
 	
 			drawgfx(bitmap,Machine.gfx[(spriteram.read(offs+2)& 0x40) ? 2 : 1],
-					(spriteram.read(offs+2)& 0x3f) + ((spriteram.read(offs+2)& 0x80) >> 1)
+					(spriteram.read(offs + 2)& 0x3f) + ((spriteram.read(offs + 2)& 0x80) >> 1)
 							+ ((spriteram.read(offs)& 0x40) << 1),
 					(spriteram.read(offs)& 0x0f) + 16 * palettebank,
 					flipx,flipy,

@@ -317,10 +317,10 @@ public class zaxxon
 				if (spriteram.read(offs+2)!= 0xff)
 				{
 					drawgfx(bitmap,Machine.gfx[2],
-							spriteram[offs+2+1]& 0x7f,
-							spriteram[offs+2+2],
-							spriteram[offs+2+2] & 0x80,spriteram[offs+2+1] & 0x80,
-							((spriteram[offs+2+3] + 16) & 0xff) - 31,255 - spriteram.read(offs+2)- 15,
+							spriteram.read(offs+2+1)& 0x7f,
+							spriteram.read(offs+2+2),
+							spriteram.read(offs+2+2)& 0x80,spriteram.read(offs+2+1)& 0x80,
+							((spriteram.read(offs+2+3)+ 16) & 0xff) - 31,255 - spriteram.read(offs+2)- 15,
 							&Machine.visible_area,TRANSPARENCY_PEN,0);
 				}
 			}

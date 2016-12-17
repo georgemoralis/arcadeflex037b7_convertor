@@ -141,7 +141,7 @@ public class espial
 			int sx,sy,code,color,flipx,flipy;
 	
 	
-			sx = spriteram.read(offs+16);
+			sx = spriteram.read(offs + 16);
 			sy = 240 - spriteram_2.read(offs);
 			code = spriteram.read(offs)>> 1;
 			color = spriteram_2.read(offs+16);
