@@ -81,7 +81,7 @@ public class ambush
 			sy = (offs / 32);
 			sx = (offs % 32);
 	
-			col = colorram[((sy & 0x1c) << 3) + sx];
+			col = colorram.read(((sy & 0x1c) << 3) + sx);
 	
 			if ((col & 0x10) != priority)  continue;
 	

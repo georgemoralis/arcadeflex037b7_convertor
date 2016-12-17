@@ -358,7 +358,7 @@ public class _8080bw
 		y = offset / 32;
 		x = 8 * (offset % 32);
 	
-		col = colorram[offset & 0x1f1f] & 0x07;
+		col = colorram.read(offset & 0x1f1f)& 0x07;
 	
 		plot_byte(x, y, data, col, background_color);
 	} };
@@ -372,7 +372,7 @@ public class _8080bw
 		y = offset / 32;
 		x = 8 * (offset % 32);
 	
-		col = ~colorram[offset & 0x1f1f] & 0x07;
+		col = ~colorram.read(offset & 0x1f1f)& 0x07;
 	
 		plot_byte(x, y, data, col, background_color);
 	} };
@@ -390,7 +390,7 @@ public class _8080bw
 		   red is 0 */
 	
 		back_color = (memory_region(REGION_PROMS)[(((y+32)/8)*32) + (x/8)] & 1) ? 6 : 4;
-		foreground_color = ~colorram[offset & 0x1f1f] & 0x07;
+		foreground_color = ~colorram.read(offset & 0x1f1f)& 0x07;
 	
 		plot_byte(x, y, data, foreground_color, back_color);
 	} };
@@ -434,7 +434,7 @@ public class _8080bw
 	
 	public static ReadHandlerPtr schaser_colorram_r  = new ReadHandlerPtr() { public int handler(int offset)
 	{
-		return colorram[offset & 0x1f1f];
+		return colorram.read(offset & 0x1f1f);
 	} };
 	
 	

@@ -81,7 +81,7 @@ public class tsamurai
 	{
 		int tile_number = videoram.read(tile_index);
 		if ((textbank & 1) != 0) tile_number += 256;
-		SET_TILE_INFO(1,tile_number,colorram[((tile_index&0x1f)*2)+1] & 0x1f )
+		SET_TILE_INFO(1,tile_number,colorram.read(((tile_index&0x1f)*2)+1)& 0x1f )
 	}
 	
 	

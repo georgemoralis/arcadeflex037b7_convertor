@@ -134,7 +134,7 @@ public class funkybee
 			code  = videoram.read(offs2);
 			sx    = videoram.read(offs2 + 0x10);
 			sy    = 224 - colorram.read(offs2);
-			col   = colorram.read(offs2+0x10);
+			col   = colorram.read(offs2 + 0x10);
 			flipy = code & 0x01;
 	
 			drawgfx(bitmap,Machine.gfx[2+gfx_bank],

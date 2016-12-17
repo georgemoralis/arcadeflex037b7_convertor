@@ -323,7 +323,7 @@ public class dday
 	
 	public static ReadHandlerPtr dday_colorram_r  = new ReadHandlerPtr() { public int handler(int offset)
 	{
-	    return colorram[offset & 0x3e0];
+	    return colorram.read(offset & 0x3e0);
 	} };
 	
 	public static WriteHandlerPtr dday_searchlight_w = new WriteHandlerPtr() {public void handler(int offset, int data)
@@ -407,7 +407,7 @@ public class dday
 	
 			code_background = videoram.read(offs);
 	
-			flipx  = colorram[sy << 2] & 0x01;
+			flipx  = colorram.read(sy << 2)& 0x01;
 			code = dday_videoram3[flipx ? offs ^ 0x1f : offs];
 	
 			/* is the vehicle layer character non-blank? */

@@ -158,7 +158,7 @@ public class marineb
 			code  = videoram.read(offs2);
 			sx    = videoram.read(offs2 + 0x20);
 			sy    = colorram.read(offs2);
-			col   = (colorram.read(offs2+0x20)& 0x0f) + 16 * palbank;
+			col   = (colorram.read(offs2 + 0x20)& 0x0f) + 16 * palbank;
 			flipx =   code & 0x02;
 			flipy = !(code & 0x01);
 	
@@ -215,7 +215,7 @@ public class marineb
 			code  = videoram.read(offs2);
 			sx    = videoram.read(offs2 + 0x20);
 			sy    = colorram.read(offs2);
-			col   = (colorram.read(offs2+0x20)& 0x0f) + 16 * palbank;
+			col   = (colorram.read(offs2 + 0x20)& 0x0f) + 16 * palbank;
 			flipx =   code & 0x02;
 			flipy = !(code & 0x01);
 	
@@ -301,7 +301,7 @@ public class marineb
 			code  = videoram.read(offs2);
 			sx    = 240 - videoram.read(offs2 + 0x20);
 			sy    = colorram.read(offs2);
-			col   = (colorram.read(offs2+0x20)& 0x0f) + 16 * palbank;
+			col   = (colorram.read(offs2 + 0x20)& 0x0f) + 16 * palbank;
 			flipx = !(code & 0x02);
 			flipy = !(code & 0x01);
 	
@@ -360,7 +360,7 @@ public class marineb
 			code  = spriteram.read(offs2);
 			sx    = spriteram.read(offs2 + 0x20);
 			sy    = colorram.read(offs2);
-			col   = colorram.read(offs2+0x20);
+			col   = colorram.read(offs2 + 0x20);
 			flipx =   code & 0x02;
 			flipy = !(code & 0x01);
 	
@@ -409,7 +409,7 @@ public class marineb
 			code  = videoram.read(offs2);
 			sx    = videoram.read(offs2 + 0x20);
 			sy    = colorram.read(offs2);
-			col   = (colorram.read(offs2+0x20)& 0x0f) + 16 * palbank;
+			col   = (colorram.read(offs2 + 0x20)& 0x0f) + 16 * palbank;
 			flipx =   code & 0x02;
 			flipy = !(code & 0x01);
 	
