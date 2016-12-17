@@ -186,7 +186,7 @@ public class qix
 	*/
 	public static WriteHandlerPtr qix_paletteram_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		paletteram[offset] = data;
+		paletteram.write(offset,data);
 	
 		if ((*qix_palettebank & 0x03) == (offset / 256))
 			update_pen (offset % 256, data);

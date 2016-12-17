@@ -46,7 +46,7 @@ public class milliped
 		int r,g,b;
 	
 	
-		paletteram[offset] = data;
+		paletteram.write(offset,data);
 	
 		/* red component */
 		bit0 = (~data >> 5) & 0x01;

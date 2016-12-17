@@ -37,7 +37,7 @@ public class shisen
 	{
 		int r,g,b;
 	
-		paletteram[offset] = data;
+		paletteram.write(offset,data);
 	
 		offset &= 0xff;
 	

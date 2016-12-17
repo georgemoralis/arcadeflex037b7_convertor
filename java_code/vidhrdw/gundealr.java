@@ -100,7 +100,7 @@ public class gundealr
 		int r,g,b,val;
 	
 	
-		paletteram[offset] = data;
+		paletteram.write(offset,data);
 	
 		val = paletteram.read(offset & ~1);
 		r = (val >> 4) & 0x0f;

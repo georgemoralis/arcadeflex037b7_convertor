@@ -50,13 +50,13 @@ public class gladiatr
 	
 	public static WriteHandlerPtr gladiatr_paletteram_rg_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		paletteram[offset] = data;
+		paletteram.write(offset,data);
 		update_color(offset);
 	} };
 	
 	public static WriteHandlerPtr gladiatr_paletteram_b_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		paletteram_2[offset] = data;
+		paletteram_2.write(offset,data);
 		update_color(offset);
 	} };
 	

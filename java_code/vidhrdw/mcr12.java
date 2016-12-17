@@ -110,7 +110,7 @@ public class mcr12
 	{
 		int r, g, b;
 	
-		paletteram[offset] = data;
+		paletteram.write(offset,data);
 	
 		/* bit 2 of the red component is taken from bit 0 of the address */
 		r = ((offset & 1) << 2) + (data >> 6);

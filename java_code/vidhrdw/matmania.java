@@ -99,7 +99,7 @@ public class matmania
 		int offs2;
 	
 	
-		paletteram[offset] = data;
+		paletteram.write(offset,data);
 		offs2 = offset & 0x0f;
 	
 		val = paletteram.read(offs2);

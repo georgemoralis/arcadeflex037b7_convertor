@@ -215,7 +215,7 @@ public class balsente
 	{
 		int r, g, b;
 	
-		paletteram[offset] = data & 0x0f;
+		paletteram.write(offset,data & 0x0f);
 	
 		r = paletteram.read((offset & ~3) + 0);
 		g = paletteram.read((offset & ~3) + 1);

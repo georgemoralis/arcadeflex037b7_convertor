@@ -30,7 +30,7 @@ public class battlera
 	{
 		int r,g,b,pal_word;
 	
-		paletteram[offset]=data;
+		paletteram.write(offset,data);
 		if (offset%2) offset-=1;
 	
 		pal_word=paletteram.read(offset)| (paletteram.read(offset+1)<<8);

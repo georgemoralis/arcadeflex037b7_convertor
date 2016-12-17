@@ -304,7 +304,7 @@ public class m72
 	
 	public static WriteHandlerPtr m72_palette1_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		paletteram[offset] = data;
+		paletteram.write(offset,data);
 		if ((offset & 1) != 0) return;
 		offset &= 0x3ff;
 		changecolor(offset / 2,
@@ -315,7 +315,7 @@ public class m72
 	
 	public static WriteHandlerPtr m72_palette2_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		paletteram_2[offset] = data;
+		paletteram_2.write(offset,data);
 		if ((offset & 1) != 0) return;
 		offset &= 0x3ff;
 		changecolor(offset / 2 + 512,

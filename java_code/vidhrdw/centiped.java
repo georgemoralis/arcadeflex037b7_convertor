@@ -62,7 +62,7 @@ public class centiped
 	
 	public static WriteHandlerPtr centiped_paletteram_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
-		paletteram[offset] = data;
+		paletteram.write(offset,data);
 	
 		/* the char palette will be effectively updated by the next interrupt handler */
 	

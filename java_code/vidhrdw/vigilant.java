@@ -126,7 +126,7 @@ public class vigilant
 		int bank,r,g,b;
 	
 	
-		paletteram[offset] = data;
+		paletteram.write(offset,data);
 	
 		bank = offset & 0x400;
 		offset &= 0xff;

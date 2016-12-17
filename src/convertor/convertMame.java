@@ -1041,9 +1041,15 @@ public class convertMame {
                         }
                         else {
                             sUtil.skipSpace();
-
                             if (sUtil.parseChar() == '=') {
-                                Convertor.inpos = sd;
+                                if (sUtil.parseChar() == '=') {
+                                    Convertor.inpos = sd;
+                                    break;
+                                }
+                                sUtil.skipSpace();
+                                Convertor.token[1] = sUtil.parseToken(';');
+                                sUtil.putString((new StringBuilder()).append("color_prom.write(").append(Convertor.token[0]).append(",").append(Convertor.token[1]).append(");").toString());
+                                Convertor.inpos +=1;
                                 break;
                             }
                             sUtil.putString((new StringBuilder()).append("color_prom.read(").append(Convertor.token[0]).append(")").toString());
@@ -1525,7 +1531,16 @@ public class convertMame {
                             sUtil.skipSpace();
 
                             if (sUtil.parseChar() == '=') {
-                                Convertor.inpos = sd1;
+                                int g=Convertor.inpos;
+                                if (sUtil.parseChar() == '=') {
+                                    Convertor.inpos = sd1;
+                                    break;
+                                }
+                                Convertor.inpos=g;
+                                sUtil.skipSpace();
+                                Convertor.token[1] = sUtil.parseToken(';');
+                                sUtil.putString((new StringBuilder()).append("paletteram.write(").append(Convertor.token[0]).append(",").append(Convertor.token[1]).append(");").toString());
+                                Convertor.inpos +=1;
                                 break;
                             }
                             sUtil.putString((new StringBuilder()).append("paletteram.read(").append(Convertor.token[0]).append(")").toString());
@@ -1548,9 +1563,15 @@ public class convertMame {
                         }
                         else {
                             sUtil.skipSpace();
-
                             if (sUtil.parseChar() == '=') {
-                                Convertor.inpos = sd2;
+                                if (sUtil.parseChar() == '=') {
+                                    Convertor.inpos = sd2;
+                                    break;
+                                }
+                                sUtil.skipSpace();
+                                Convertor.token[1] = sUtil.parseToken(';');
+                                sUtil.putString((new StringBuilder()).append("paletteram_2.write(").append(Convertor.token[0]).append(",").append(Convertor.token[1]).append(");").toString());
+                                Convertor.inpos +=1;
                                 break;
                             }
                             sUtil.putString((new StringBuilder()).append("paletteram_2.read(").append(Convertor.token[0]).append(")").toString());

@@ -157,7 +157,7 @@ public class taitosj
 		int r,g,b,val;
 	
 	
-		paletteram[offset] = data;
+		paletteram.write(offset,data);
 	
 		/* red component */
 		val = paletteram.read(offset | 1);
