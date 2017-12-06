@@ -164,7 +164,6 @@ public class mips
 		0x00000000
 	};
 	
-	static void mips_exception( int exception );
 	
 	void mips_stop( void )
 	{

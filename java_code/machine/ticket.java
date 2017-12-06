@@ -35,7 +35,6 @@ public class ticket
 	static int active_bit = 0x80;
 	
 	/* Callback routine used during ticket dispensing */
-	static void ticket_dispenser_toggle(int parm);
 	
 	
 	/***************************************************************************

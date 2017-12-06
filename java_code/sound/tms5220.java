@@ -74,8 +74,7 @@ public class tms5220
 	/* Static function prototypes */
 	static static int extract_bits(int count);
 	static int parse_frame(int removeit);
-	static static void set_interrupt_state(int state);
-	
+	static 
 	
 	#define DEBUG_5220	0
 	

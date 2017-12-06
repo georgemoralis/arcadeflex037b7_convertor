@@ -119,9 +119,6 @@ public class exidy440
 	
 	/* function prototypes */
 	static void channel_update(int ch, INT16 **buffer, int length);
-	static void m6844_finished(int ch);
-	static void play_cvsd(int ch);
-	static void stop_cvsd(int ch);
 	
 	static static INT16 *add_to_sound_cache(UINT8 *input, int address, int length, int bits, int frequency);
 	static INT16 *find_or_add_to_sound_cache(int address, int length, int bits, int frequency);
@@ -144,7 +141,6 @@ public class exidy440
 	static FILE *wavfile;
 	static int wavlength;
 	
-	static void write_wav_header(int frequency);
 	static 
 	#endif
 	

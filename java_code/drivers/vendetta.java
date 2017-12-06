@@ -22,8 +22,7 @@ public class vendetta
 {
 	
 	/* prototypes */
-	static static void vendetta_video_banking( int select );
-	
+	static 
 	
 	
 	/***************************************************************************

@@ -85,9 +85,7 @@ public class mcr
 	static void subtract_from_counter(int counter, int count);
 	
 	
-	static void zwackery_pia_irq(int state);
 	
-	static void reload_count(int counter);
 	
 	
 	

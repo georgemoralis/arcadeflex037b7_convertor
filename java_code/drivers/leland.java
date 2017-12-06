@@ -115,7 +115,6 @@ public class leland
 	
 	
 	/* Internal routines */
-	static void interrupt_callback(int scanline);
 	
 	
 	

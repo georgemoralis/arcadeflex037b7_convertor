@@ -175,15 +175,10 @@ public class williams
 		PROTOTYPES
 	****************************************************************************/
 	
-	static void init_audio_state(int first_time);
 	static void locate_audio_hotspot(UINT8 *base, UINT16 start);
 	
 	static 
 	static static 
-	static void williams_cvsd_ym2151_irq(int state);
-	static void williams_adpcm_ym2151_irq(int state);
-	static void williams_cvsd_irqa(int state);
-	static void williams_cvsd_irqb(int state);
 	
 	
 	

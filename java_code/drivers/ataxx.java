@@ -113,7 +113,6 @@ public class ataxx
 	
 	
 	/* Internal routines */
-	static void interrupt_callback(int scanline);
 	static 
 	
 	

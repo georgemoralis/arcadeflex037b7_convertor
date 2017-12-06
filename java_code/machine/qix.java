@@ -17,8 +17,6 @@ public class qix
 {
 	
 	
-	static void qix_pia_sint (int state);
-	static void qix_pia_dint (int state);
 	static int suspended;
 	
 	static int sdungeon_coinctrl;

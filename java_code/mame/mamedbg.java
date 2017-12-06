@@ -277,10 +277,8 @@ public class mamedbg
 	static static int edit_cmds_parse( char *cmdline );
 	static void edit_cmds_append( const char *src );
 	
-	static static static void edit_mem( int which );
+	static static static 
 	static 
-	static static void cmd_default( int code );
-	
 	static static static static static static static static static static static static static static static static static static static static static static static static static static static static 
 	static static static static static static static static static static static static static static static static 
 	/****************************************************************************

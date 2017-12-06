@@ -44,9 +44,6 @@ public class williams
 	static UINT16 joust2_current_sound_data;
 	
 	/* older-Williams routines */
-	static void williams_main_irq(int state);
-	static void williams_main_firq(int state);
-	static void williams_snd_irq(int state);
 	
 	/* input port mapping */
 	static UINT8 port_select;

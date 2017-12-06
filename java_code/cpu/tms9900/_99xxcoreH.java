@@ -253,7 +253,6 @@ public class _99xxcoreH
 	
 	INLINE void execute(UINT16 opcode);
 	
-	static void external_instruction_notify(int ext_op_ID);
 	static UINT16 fetch(void);
 	static UINT16 decipheraddr(UINT16 opcode);
 	static UINT16 decipheraddrbyte(UINT16 opcode);
@@ -691,8 +690,6 @@ public class _99xxcoreH
 	
 	#if (TMS99XX_MODEL == TMS9995_ID)
 	
-	static void set_flag0(int val);
-	static void set_flag1(int val);
 	
 	#endif
 	

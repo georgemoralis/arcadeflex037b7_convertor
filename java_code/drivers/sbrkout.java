@@ -34,7 +34,6 @@ public class sbrkout
 	
 	/* sound hardware - temporary */
 	
-	static void sbrkout_tones_4V(int foo);
 	static int init_timer=1;
 	
 	#define TIME_4V 4.075/4

@@ -86,7 +86,6 @@ public class wmsyunit
 	
 	
 	/* prototypes */
-	static void update_partial(int scanline);
 	       
 	
 	

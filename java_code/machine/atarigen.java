@@ -522,8 +522,7 @@ public class atarigen
 	static UINT8 ym2151_int;
 	
 	/* prototypes */
-	static static void sound_comm_timer(int reps_left);
-	
+	static 
 	
 	/*
 	 *	Sound I/O reset
@@ -1011,7 +1010,6 @@ public class atarigen
 	static int last_scanline;
 	
 	/* prototypes */
-	static void scanline_timer(int scanline);
 	
 	/*
 	 *	Scanline timer callback
@@ -1568,8 +1566,7 @@ public class atarigen
 	static UINT16 *rle_colortable;
 	
 	/* prototypes */
-	static static void prescan_rle(int which);
-	static void draw_rle_zoom(struct osd_bitmap *bitmap, const struct atarigen_rle_descriptor *gfx,
+	static static void draw_rle_zoom(struct osd_bitmap *bitmap, const struct atarigen_rle_descriptor *gfx,
 			UINT32 color, int flipy, int sx, int sy, int scalex, int scaley,
 			const struct rectangle *clip);
 	static void draw_rle_zoom_16(struct osd_bitmap *bitmap, const struct atarigen_rle_descriptor *gfx,

@@ -81,8 +81,7 @@ public class cyberbal
 	
 	
 	/* internal prototypes and variables */
-	static static void handle_68k_sound_command(int data);
-	
+	static 
 	static UINT8 *bank_base;
 	static UINT8 fast_68k_int, io_68k_int;
 	static UINT8 sound_data_from_68k, sound_data_from_6502;

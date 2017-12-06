@@ -276,16 +276,6 @@ static void pixblt_r_2_op0(int src_is_linear, int dst_is_linear);
 static void pixblt_r_4_op0(int src_is_linear, int dst_is_linear);
 static void pixblt_r_8_op0(int src_is_linear, int dst_is_linear);
 static void pixblt_r_16_op0(int src_is_linear, int dst_is_linear);
-static void pixblt_b_1_op0(int dst_is_linear);
-static void pixblt_b_2_op0(int dst_is_linear);
-static void pixblt_b_4_op0(int dst_is_linear);
-static void pixblt_b_8_op0(int dst_is_linear);
-static void pixblt_b_16_op0(int dst_is_linear);
-static void fill_1_op0(int dst_is_linear);
-static void fill_2_op0(int dst_is_linear);
-static void fill_4_op0(int dst_is_linear);
-static void fill_8_op0(int dst_is_linear);
-static void fill_16_op0(int dst_is_linear);
 
 static void pixblt_1_op0_trans(int src_is_linear, int dst_is_linear);
 static void pixblt_2_op0_trans(int src_is_linear, int dst_is_linear);
@@ -297,16 +287,6 @@ static void pixblt_r_2_op0_trans(int src_is_linear, int dst_is_linear);
 static void pixblt_r_4_op0_trans(int src_is_linear, int dst_is_linear);
 static void pixblt_r_8_op0_trans(int src_is_linear, int dst_is_linear);
 static void pixblt_r_16_op0_trans(int src_is_linear, int dst_is_linear);
-static void pixblt_b_1_op0_trans(int dst_is_linear);
-static void pixblt_b_2_op0_trans(int dst_is_linear);
-static void pixblt_b_4_op0_trans(int dst_is_linear);
-static void pixblt_b_8_op0_trans(int dst_is_linear);
-static void pixblt_b_16_op0_trans(int dst_is_linear);
-static void fill_1_op0_trans(int dst_is_linear);
-static void fill_2_op0_trans(int dst_is_linear);
-static void fill_4_op0_trans(int dst_is_linear);
-static void fill_8_op0_trans(int dst_is_linear);
-static void fill_16_op0_trans(int dst_is_linear);
 
 static void pixblt_1_opx(int src_is_linear, int dst_is_linear);
 static void pixblt_2_opx(int src_is_linear, int dst_is_linear);
@@ -318,16 +298,6 @@ static void pixblt_r_2_opx(int src_is_linear, int dst_is_linear);
 static void pixblt_r_4_opx(int src_is_linear, int dst_is_linear);
 static void pixblt_r_8_opx(int src_is_linear, int dst_is_linear);
 static void pixblt_r_16_opx(int src_is_linear, int dst_is_linear);
-static void pixblt_b_1_opx(int dst_is_linear);
-static void pixblt_b_2_opx(int dst_is_linear);
-static void pixblt_b_4_opx(int dst_is_linear);
-static void pixblt_b_8_opx(int dst_is_linear);
-static void pixblt_b_16_opx(int dst_is_linear);
-static void fill_1_opx(int dst_is_linear);
-static void fill_2_opx(int dst_is_linear);
-static void fill_4_opx(int dst_is_linear);
-static void fill_8_opx(int dst_is_linear);
-static void fill_16_opx(int dst_is_linear);
 
 static void pixblt_1_opx_trans(int src_is_linear, int dst_is_linear);
 static void pixblt_2_opx_trans(int src_is_linear, int dst_is_linear);
@@ -339,16 +309,6 @@ static void pixblt_r_2_opx_trans(int src_is_linear, int dst_is_linear);
 static void pixblt_r_4_opx_trans(int src_is_linear, int dst_is_linear);
 static void pixblt_r_8_opx_trans(int src_is_linear, int dst_is_linear);
 static void pixblt_r_16_opx_trans(int src_is_linear, int dst_is_linear);
-static void pixblt_b_1_opx_trans(int dst_is_linear);
-static void pixblt_b_2_opx_trans(int dst_is_linear);
-static void pixblt_b_4_opx_trans(int dst_is_linear);
-static void pixblt_b_8_opx_trans(int dst_is_linear);
-static void pixblt_b_16_opx_trans(int dst_is_linear);
-static void fill_1_opx_trans(int dst_is_linear);
-static void fill_2_opx_trans(int dst_is_linear);
-static void fill_4_opx_trans(int dst_is_linear);
-static void fill_8_opx_trans(int dst_is_linear);
-static void fill_16_opx_trans(int dst_is_linear);
 
 
 /* tables */

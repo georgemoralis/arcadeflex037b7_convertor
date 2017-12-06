@@ -45,7 +45,6 @@ public class polepos
 	} polepos_mcu;
 	
 	/* Prototypes */
-	static void z80_interrupt(int scanline);
 	void polepos_sample_play(int sample); /* from sndhrdw */
 	
 	/*************************************************************************************/

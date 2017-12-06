@@ -5,7 +5,6 @@
 #define CPL (I.sregs[CS]&3)
 #define IOPL ((I.flags&0x3000)>>12)
 
-static void i286_trap2(int number);
 static void i286_interrupt_descriptor(UINT16 number);
 static void i286_code_descriptor(UINT16 selector, UINT16 offset);
 static void i286_data_descriptor(int reg, UINT16 selector);

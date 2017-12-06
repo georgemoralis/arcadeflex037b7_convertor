@@ -204,7 +204,6 @@ public class cpuintrf
 	/* Dummy interfaces for non-CPUs */
 	static void Dummy_reset(void *param);
 	static static int Dummy_execute(int cycles);
-	static void Dummy_burn(int cycles);
 	static unsigned Dummy_get_context(void *regs);
 	static void Dummy_set_context(void *regs);
 	static unsigned Dummy_get_pc(void);
@@ -213,7 +212,6 @@ public class cpuintrf
 	static void Dummy_set_sp(unsigned val);
 	static unsigned Dummy_get_reg(int regnum);
 	static void Dummy_set_reg(int regnum, unsigned val);
-	static void Dummy_set_nmi_line(int state);
 	static void Dummy_set_irq_line(int irqline, int state);
 	static void Dummy_set_irq_callback(int (*callback)(int irqline));
 	static int Dummy_ICount;

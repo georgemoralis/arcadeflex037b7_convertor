@@ -64,7 +64,6 @@ public class exidy
 		PIA Interface
 	***************************************************************************/
 	
-	static void exidy_irq(int state);
 	
 	WRITE_HANDLER(victory_sound_response_w);
 	WRITE_HANDLER(victory_sound_irq_clear_w);

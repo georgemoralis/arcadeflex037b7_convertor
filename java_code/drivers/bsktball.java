@@ -29,8 +29,6 @@ public class bsktball
 	
 	static int note_timer=255;
 	static int note_count=256;
-	static void bsktball_note_32H(int foo);
-	static void bsktball_noise_256H(int foo);
 	static int init_timer=1;
 	static int crowd_mask=0;
 	
