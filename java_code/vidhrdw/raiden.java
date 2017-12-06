@@ -49,7 +49,7 @@ public class raiden
 		tilemap_mark_tile_dirty( tx_layer,offset/2);
 	} };
 	
-	static void get_back_tile_info(int tile_index)
+	public static GetTileInfoPtr get_back_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		int tile=raiden_back_data[2*tile_index]+(raiden_back_data[2*tile_index+1]<<8);
 		int color=tile >> 12;
@@ -57,9 +57,9 @@ public class raiden
 		tile=tile&0xfff;
 	
 		SET_TILE_INFO(1,tile,color)
-	}
+	} };
 	
-	static void get_fore_tile_info(int tile_index)
+	public static GetTileInfoPtr get_fore_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		int tile=raiden_fore_data[2*tile_index]+(raiden_fore_data[2*tile_index+1]<<8);
 		int color=tile >> 12;
@@ -67,23 +67,23 @@ public class raiden
 		tile=tile&0xfff;
 	
 		SET_TILE_INFO(2,tile,color)
-	}
+	} };
 	
-	static void get_text_tile_info(int tile_index)
+	public static GetTileInfoPtr get_text_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		int tile=videoram.read(2*tile_index)+((videoram.read(2*tile_index+1)&0xc0)<<2);
 		int color=videoram.read(2*tile_index+1)&0xf;
 	
 		SET_TILE_INFO(0,tile,color)
-	}
+	} };
 	
-	static void get_text_alt_tile_info(int tile_index)
+	public static GetTileInfoPtr get_text_alt_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		int tile=videoram.read(2*tile_index)+((videoram.read(2*tile_index+1)&0xc0)<<2);
 		int color=videoram.read(2*tile_index+1)&0xf;
 	
 		SET_TILE_INFO(0,tile,color)
-	}
+	} };
 	
 	public static VhStartPtr raiden_vh_start = new VhStartPtr() { public int handler() 
 	{

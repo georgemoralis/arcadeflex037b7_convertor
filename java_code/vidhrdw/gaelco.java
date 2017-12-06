@@ -47,7 +47,7 @@ public class gaelco
 		  2  | xxxxxxxx -------- | not used
 	*/
 	
-	static void get_tile_info_gaelco_screen0(int tile_index)
+	public static GetTileInfoPtr get_tile_info_gaelco_screen0 = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		int data = READ_WORD(&gaelco_videoram[tile_index << 2]);
 		int data2 = READ_WORD(&gaelco_videoram[(tile_index << 2) + 2]);
@@ -57,10 +57,10 @@ public class gaelco
 		tile_info.priority = (data2 >> 6) & 0x03;
 	
 		SET_TILE_INFO(1, 0x4000 + code, data2 & 0x3f);
-	}
+	} };
 	
 	
-	static void get_tile_info_gaelco_screen1(int tile_index)
+	public static GetTileInfoPtr get_tile_info_gaelco_screen1 = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		int data = READ_WORD(&gaelco_videoram[0x1000 + (tile_index << 2)]);
 		int data2 = READ_WORD(&gaelco_videoram[0x1000 + (tile_index << 2) + 2]);
@@ -70,7 +70,7 @@ public class gaelco
 		tile_info.priority = (data2 >> 6) & 0x03;
 	
 		SET_TILE_INFO(1, 0x4000 + code, data2 & 0x3f);
-	}
+	} };
 	
 	/***************************************************************************
 	

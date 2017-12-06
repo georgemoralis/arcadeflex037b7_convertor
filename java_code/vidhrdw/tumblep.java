@@ -166,7 +166,7 @@ public class tumblep
 		return (col & 0x1f) + ((row & 0x1f) << 5) + ((col & 0x20) << 5);
 	}
 	
-	static void get_bg_tile_info(int tile_index)
+	public static GetTileInfoPtr get_bg_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		int tile,color;
 	
@@ -175,16 +175,16 @@ public class tumblep
 		tile=tile&0xfff;
 	
 		SET_TILE_INFO(gfx_bank,tile,color)
-	}
+	} };
 	
-	static void get_fg_tile_info(int tile_index)
+	public static GetTileInfoPtr get_fg_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		int tile=READ_WORD(&tumblep_pf1_data[2*tile_index]);
 		int color=tile >> 12;
 	
 		tile=tile&0xfff;
 		SET_TILE_INFO(0,tile,color)
-	}
+	} };
 	
 	public static VhStartPtr tumblep_vh_start = new VhStartPtr() { public int handler() 
 	{

@@ -20,7 +20,7 @@ public class sf1
 	
 	***************************************************************************/
 	
-	static void get_bgb_tile_info(int tile_index)
+	public static GetTileInfoPtr get_bgb_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		UBytePtr base = memory_region(REGION_GFX5) + 2*tile_index;
 		int attr = base[0x10000];
@@ -28,9 +28,9 @@ public class sf1
 		int code = (base[0x10000+1]<<8) | base[1];
 		SET_TILE_INFO (0, code, color);
 		tile_info.flags = TILE_FLIPYX(attr & 3);
-	}
+	} };
 	
-	static void get_bgm_tile_info(int tile_index)
+	public static GetTileInfoPtr get_bgm_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		UBytePtr base = memory_region(REGION_GFX5) + 0x20000 + 2*tile_index;
 		int attr = base[0x10000];
@@ -38,14 +38,14 @@ public class sf1
 		int code = (base[0x10000+1]<<8) | base[1];
 		SET_TILE_INFO (1, code, color);
 		tile_info.flags = TILE_FLIPYX(attr & 3);
-	}
+	} };
 	
-	static void get_char_tile_info(int tile_index)
+	public static GetTileInfoPtr get_char_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		int code = READ_WORD(&videoram.read(2*tile_index));
 		SET_TILE_INFO (3, code & 0x3ff, code>>12);
 		tile_info.flags = TILE_FLIPYX((code & 0xc00)>>10);
-	}
+	} };
 	
 	
 	

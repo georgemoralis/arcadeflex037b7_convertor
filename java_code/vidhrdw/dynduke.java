@@ -68,7 +68,7 @@ public class dynduke
 		tilemap_mark_tile_dirty(tx_layer,offset/2);
 	} };
 	
-	static void get_bg_tile_info(int tile_index)
+	public static GetTileInfoPtr get_bg_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		int tile=dynduke_back_data[2*tile_index]+(dynduke_back_data[2*tile_index+1]<<8);
 		int color=tile >> 12;
@@ -76,9 +76,9 @@ public class dynduke
 		tile=tile&0xfff;
 	
 		SET_TILE_INFO(1,tile+back_bankbase,color+back_palbase)
-	}
+	} };
 	
-	static void get_fg_tile_info(int tile_index)
+	public static GetTileInfoPtr get_fg_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		int tile=dynduke_fore_data[2*tile_index]+(dynduke_fore_data[2*tile_index+1]<<8);
 		int color=tile >> 12;
@@ -86,15 +86,15 @@ public class dynduke
 		tile=tile&0xfff;
 	
 		SET_TILE_INFO(2,tile+fore_bankbase,color)
-	}
+	} };
 	
-	static void get_tx_tile_info(int tile_index)
+	public static GetTileInfoPtr get_tx_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		int tile=videoram.read(2*tile_index)+((videoram.read(2*tile_index+1)&0xc0)<<2);
 		int color=videoram.read(2*tile_index+1)&0xf;
 	
 		SET_TILE_INFO(0,tile,color)
-	}
+	} };
 	
 	public static VhStartPtr dynduke_vh_start = new VhStartPtr() { public int handler() 
 	{

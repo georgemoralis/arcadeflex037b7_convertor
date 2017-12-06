@@ -79,14 +79,14 @@ public class m72
 	
 	***************************************************************************/
 	
-	static void m72_get_bg_tile_info(int tile_index)
+	public static GetTileInfoPtr m72_get_bg_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		unsigned char attr = m72_videoram2[4*tile_index+1];
 		SET_TILE_INFO(2,m72_videoram2[4*tile_index] + ((attr & 0x3f) << 8),m72_videoram2[4*tile_index+2] & 0x0f)
 		tile_info.flags = TILE_FLIPYX((attr & 0xc0) >> 6);
-	}
+	} };
 	
-	static void m72_get_fg_tile_info(int tile_index)
+	public static GetTileInfoPtr m72_get_fg_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		unsigned char attr = m72_videoram1[4*tile_index+1];
 		SET_TILE_INFO(1,m72_videoram1[4*tile_index] + ((attr & 0x3f) << 8),m72_videoram1[4*tile_index+2] & 0x0f)
@@ -94,9 +94,9 @@ public class m72
 		tile_info.flags = TILE_FLIPYX((attr & 0xc0) >> 6);
 	
 		tile_info.priority = (m72_videoram1[4*tile_index+2] & 0x80) >> 7;
-	}
+	} };
 	
-	static void dbreed_get_bg_tile_info(int tile_index)
+	public static GetTileInfoPtr dbreed_get_bg_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		unsigned char attr = m72_videoram2[4*tile_index+1];
 		SET_TILE_INFO(2,m72_videoram2[4*tile_index] + ((attr & 0x3f) << 8),m72_videoram2[4*tile_index+2] & 0x0f)
@@ -104,16 +104,16 @@ public class m72
 	
 		/* this seems to apply only to Dragon Breed, it breaks R-Type and Gallop */
 		tile_info.priority = (m72_videoram2[4*tile_index+2] & 0x80) >> 7;
-	}
+	} };
 	
-	static void rtype2_get_bg_tile_info(int tile_index)
+	public static GetTileInfoPtr rtype2_get_bg_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		unsigned char attr = m72_videoram2[4*tile_index+2];
 		SET_TILE_INFO(1,m72_videoram2[4*tile_index] + (m72_videoram2[4*tile_index+1] << 8),attr & 0x0f)
 		tile_info.flags = TILE_FLIPYX((attr & 0x60) >> 5);
-	}
+	} };
 	
-	static void rtype2_get_fg_tile_info(int tile_index)
+	public static GetTileInfoPtr rtype2_get_fg_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		unsigned char attr = m72_videoram1[4*tile_index+2];
 		SET_TILE_INFO(1,m72_videoram1[4*tile_index] + (m72_videoram1[4*tile_index+1] << 8),attr & 0x0f)
@@ -128,15 +128,15 @@ public class m72
 	
 	/* (videoram.read(tile_index+2)& 0x10) is used by majtitle on the green, but it's not clear for what */
 	/* (videoram.read(tile_index+3)& 0xfe) are used as well */
-	}
+	} };
 	
-	static void majtitle_get_bg_tile_info(int tile_index)
+	public static GetTileInfoPtr majtitle_get_bg_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		unsigned char attr = m72_videoram2[4*tile_index+2];
 		SET_TILE_INFO(1,m72_videoram2[4*tile_index] + (m72_videoram2[4*tile_index+1] << 8),attr & 0x0f)
 		tile_info.flags = TILE_FLIPYX((attr & 0x60) >> 5);
 	/* (videoram.read(4*tile_index+2)& 0x10) is used, but it's not clear for what (priority?) */
-	}
+	} };
 	
 	INLINE void hharry_get_tile_info(int gfxnum,UBytePtr videoram,int tile_index)
 	{
@@ -146,15 +146,15 @@ public class m72
 	/* (videoram.read(4*tile_index+2)& 0x10) is used, but it's not clear for what (priority?) */
 	}
 	
-	static void hharry_get_bg_tile_info(int tile_index)
+	public static GetTileInfoPtr hharry_get_bg_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		hharry_get_tile_info(1,m72_videoram2,tile_index);
-	}
+	} };
 	
-	static void hharry_get_fg_tile_info(int tile_index)
+	public static GetTileInfoPtr hharry_get_fg_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		hharry_get_tile_info(1,m72_videoram1,tile_index);
-	}
+	} };
 	
 	
 	/***************************************************************************

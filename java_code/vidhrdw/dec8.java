@@ -456,7 +456,7 @@ public class dec8
 	
 	/******************************************************************************/
 	
-	static void get_bac0_tile_info( int tile_index )
+	public static GetTileInfoPtr get_bac0_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		int tile,color,offs=tile_index<<1;
 	
@@ -465,7 +465,7 @@ public class dec8
 		if (color>7 && game_uses_priority) tile_info.priority=1; else tile_info.priority=0;
 	
 		SET_TILE_INFO(gfx_bank,tile&0xfff,color&gfx_mask)
-	}
+	} };
 	
 	static UINT32 bac0_scan_rows(UINT32 col,UINT32 row,UINT32 num_cols,UINT32 num_rows)
 	{
@@ -473,14 +473,14 @@ public class dec8
 		return ((col & 0x0f) + ((row & 0x0f) << 4)) + ((col & 0x10) << 5) + ((row & 0x10) << 4);
 	}
 	
-	static void get_cobracom_fix_tile_info( int tile_index )
+	public static GetTileInfoPtr get_cobracom_fix_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		int offs=tile_index<<1;
 		int tile=videoram.read(offs+1)+(videoram.read(offs)<<8);
 		int color=(tile&0xe000) >> 13;
 	
 		SET_TILE_INFO(0,tile&0xfff,color)
-	}
+	} };
 	
 	public static VhStartPtr cobracom_vh_start = new VhStartPtr() { public int handler() 
 	{
@@ -524,14 +524,14 @@ public class dec8
 		tilemap_draw(bitmap,dec8_fix_tilemap,0);
 	} };
 	
-	static void get_ghostb_fix_tile_info( int tile_index )
+	public static GetTileInfoPtr get_ghostb_fix_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		int offs=tile_index<<1;
 		int tile=videoram.read(offs+1)+(videoram.read(offs)<<8);
 		int color=(tile&0xc00) >> 10;
 	
 		SET_TILE_INFO(0,tile&0x3ff,color)
-	}
+	} };
 	
 	public static VhStartPtr ghostb_vh_start = new VhStartPtr() { public int handler() 
 	{
@@ -570,14 +570,14 @@ public class dec8
 		tilemap_draw(bitmap,dec8_fix_tilemap,0);
 	} };
 	
-	static void get_oscar_fix_tile_info( int tile_index )
+	public static GetTileInfoPtr get_oscar_fix_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		int offs=tile_index<<1;
 		int tile=videoram.read(offs+1)+(videoram.read(offs)<<8);
 		int color=(tile&0xf000) >> 14;
 	
 		SET_TILE_INFO(0,tile&0xfff,color)
-	}
+	} };
 	
 	public static VhStartPtr oscar_vh_start = new VhStartPtr() { public int handler() 
 	{
@@ -643,7 +643,7 @@ public class dec8
 		return ((col & 0x0f) + ((row & 0x0f) << 4)) + ((col & 0x10) << 4) + ((row & 0x10) << 5);
 	}
 	
-	static void get_lastmiss_tile_info( int tile_index )
+	public static GetTileInfoPtr get_lastmiss_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		int offs=tile_index*2;
 		int tile=dec8_pf0_data[offs+1]+(dec8_pf0_data[offs]<<8);
@@ -652,16 +652,16 @@ public class dec8
 		if (color>7 && game_uses_priority) tile_info.priority=1; else tile_info.priority=0;
 	
 		SET_TILE_INFO(2,tile&0xfff,color)
-	}
+	} };
 	
-	static void get_lastmiss_fix_tile_info( int tile_index )
+	public static GetTileInfoPtr get_lastmiss_fix_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		int offs=tile_index<<1;
 		int tile=videoram.read(offs+1)+(videoram.read(offs)<<8);
 		int color=(tile&0xc000) >> 14;
 	
 		SET_TILE_INFO(0,tile&0xfff,color)
-	}
+	} };
 	
 	public static VhStartPtr lastmiss_vh_start = new VhStartPtr() { public int handler() 
 	{
@@ -713,7 +713,7 @@ public class dec8
 		tilemap_draw(bitmap,dec8_fix_tilemap,0);
 	} };
 	
-	static void get_srdarwin_fix_tile_info( int tile_index )
+	public static GetTileInfoPtr get_srdarwin_fix_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		int tile=videoram.read(tile_index);
 		int color=0; /* ? */
@@ -721,9 +721,9 @@ public class dec8
 		if (color>1) tile_info.priority=1; else tile_info.priority=0;
 	
 		SET_TILE_INFO(0,tile,color)
-	}
+	} };
 	
-	static void get_srdarwin_tile_info(int tile_index)
+	public static GetTileInfoPtr get_srdarwin_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		int tile=dec8_pf0_data[2*tile_index+1]+(dec8_pf0_data[2*tile_index]<<8);
 		int color=tile >> 12;
@@ -733,7 +733,7 @@ public class dec8
 		bank=(tile/0x100)+2;
 	
 		SET_TILE_INFO(bank,tile,color)
-	}
+	} };
 	
 	public static VhStartPtr srdarwin_vh_start = new VhStartPtr() { public int handler() 
 	{
@@ -789,16 +789,16 @@ public class dec8
 		tilemap_draw(bitmap,dec8_fix_tilemap,0);
 	} };
 	
-	static void get_gondo_fix_tile_info( int tile_index )
+	public static GetTileInfoPtr get_gondo_fix_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		int offs=tile_index*2;
 		int tile=videoram.read(offs+1)+(videoram.read(offs)<<8);
 		int color=(tile&0x7000) >> 12;
 	
 		SET_TILE_INFO(0,tile&0xfff,color)
-	}
+	} };
 	
-	static void get_gondo_tile_info( int tile_index )
+	public static GetTileInfoPtr get_gondo_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		int offs=tile_index*2;
 		int tile=dec8_pf0_data[offs+1]+(dec8_pf0_data[offs]<<8);
@@ -807,7 +807,7 @@ public class dec8
 		if (color>7 && game_uses_priority) tile_info.priority=1; else tile_info.priority=0;
 	
 		SET_TILE_INFO(2,tile&0xfff,color)
-	}
+	} };
 	
 	public static VhStartPtr gondo_vh_start = new VhStartPtr() { public int handler() 
 	{

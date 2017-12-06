@@ -38,7 +38,7 @@ public class blktiger
 		return (col & 0x0f) + ((row & 0x0f) << 4) + ((col & 0x30) << 4) + ((row & 0x70) << 6);
 	}
 	
-	static void get_bg_tile_info(int tile_index)
+	public static GetTileInfoPtr get_bg_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		/* the tile priority table is a guess compiled by looking at the game. It
 		   was not derived from a PROM so it could be wrong. */
@@ -54,13 +54,13 @@ public class blktiger
 		SET_TILE_INFO(1,scroll_ram[2*tile_index] + ((attr & 0x07) << 8),color)
 		tile_info.flags = TILE_SPLIT(split_table[color]);
 		if ((attr & 0x80) != 0) tile_info.flags |= TILE_FLIPX;
-	}
+	} };
 	
-	static void get_tx_tile_info(int tile_index)
+	public static GetTileInfoPtr get_tx_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		unsigned char attr = blktiger_txvideoram[tile_index + 0x400];
 		SET_TILE_INFO(0,blktiger_txvideoram[tile_index] + ((attr & 0xe0) << 3),attr & 0x1f)
-	}
+	} };
 	
 	
 	/***************************************************************************

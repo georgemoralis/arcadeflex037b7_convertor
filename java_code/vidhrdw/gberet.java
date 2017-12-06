@@ -93,12 +93,12 @@ public class gberet
 	
 	***************************************************************************/
 	
-	static void get_tile_info(int tile_index)
+	public static GetTileInfoPtr get_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		unsigned char attr = gberet_colorram[tile_index];
 		SET_TILE_INFO(0,gberet_videoram[tile_index] + ((attr & 0x40) << 2),attr & 0x0f)
 		tile_info.flags = TILE_FLIPYX((attr & 0x30) >> 4) | TILE_SPLIT((attr & 0x80) >> 7);
-	}
+	} };
 	
 	
 	

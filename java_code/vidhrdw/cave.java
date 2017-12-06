@@ -79,13 +79,13 @@ public class cave
 	
 	
 	#define CAVE_TILEMAP(_n_) \
-	static void get_tile_info_##_n_( int tile_index ) \
+	public static GetTileInfoPtr get_tile_info_##_n_ = new GetTileInfoPtr() { public void handler(int tile_index)  \
 	{ \
 		int code		=	(READ_WORD(&cave_vram_##_n_[ tile_index * 4 + 0]) << 16 )+ \
 							 READ_WORD(&cave_vram_##_n_[ tile_index * 4 + 2]); \
 		SET_TILE_INFO( _n_ ,  code & 0x00ffffff , (code & 0x3f000000) >> (32-8) ); \
 		tile_info.priority = (code & 0xc0000000)>> (32-2); \
-	} \
+	} }; \
 	\
 	public static WriteHandlerPtr cave_vram_##_n_##_w = new WriteHandlerPtr() {public void handler(int offset, int data) \
 	{ \

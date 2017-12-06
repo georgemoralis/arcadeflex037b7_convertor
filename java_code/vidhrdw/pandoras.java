@@ -77,13 +77,13 @@ public class pandoras
 	
 	***************************************************************************/
 	
-	static void get_tile_info0(int tile_index)
+	public static GetTileInfoPtr get_tile_info0 = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		unsigned char attr = colorram.read(tile_index);
 		SET_TILE_INFO(0,videoram.read(tile_index)+ ((attr & 0x10) << 4),attr & 0x0f);
 		tile_info.flags = TILE_FLIPYX((attr & 0xc0) >> 6);
 		tile_info.priority = (attr & 0x20) >> 5;
-	}
+	} };
 	
 	/***************************************************************************
 	

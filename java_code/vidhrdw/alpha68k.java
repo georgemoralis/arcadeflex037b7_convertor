@@ -49,7 +49,7 @@ public class alpha68k
 	
 	/******************************************************************************/
 	
-	static void get_tile_info(int tile_index)
+	public static GetTileInfoPtr get_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		int tile=READ_WORD(&videoram.read(4*tile_index))&0xff;
 		int color=READ_WORD(&videoram.read(4*tile_index+2))&0xf;
@@ -57,7 +57,7 @@ public class alpha68k
 		tile=tile | (bank_base<<8);
 	
 		SET_TILE_INFO(0,tile,color)
-	}
+	} };
 	
 	public static WriteHandlerPtr alpha68k_videoram_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{

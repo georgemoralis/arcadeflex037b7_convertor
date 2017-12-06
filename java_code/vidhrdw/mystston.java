@@ -85,15 +85,15 @@ public class mystston
 		return (num_cols - 1 - col) * num_rows + row;
 	}
 	
-	static void get_fg_tile_info(int tile_index)
+	public static GetTileInfoPtr get_fg_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		int code;
 	
 		code = mystston_fgvideoram[tile_index] + ((mystston_fgvideoram[tile_index + 0x400] & 0x07) << 8);
 		SET_TILE_INFO(0, code, textcolor);
-	}
+	} };
 	
-	static void get_bg_tile_info(int tile_index)
+	public static GetTileInfoPtr get_bg_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		int code;
 	
@@ -101,7 +101,7 @@ public class mystston
 		SET_TILE_INFO(1, code, 0);
 		/* the right (lower) side of the screen is flipped */
 		tile_info.flags = (tile_index & 0x10) ? TILE_FLIPY : 0;
-	}
+	} };
 	
 	
 	/***************************************************************************

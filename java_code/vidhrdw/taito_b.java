@@ -263,7 +263,7 @@ public class taito_b
 	} };
 	
 	
-	static void get_bg_tile_info(int tile_index)
+	public static GetTileInfoPtr get_bg_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		int tile  = READ_WORD(&b_backgroundram[2*tile_index]);
 		int color = READ_WORD(&b_backgroundram[2*tile_index + 0x2000]);
@@ -271,9 +271,9 @@ public class taito_b
 		/*there are 0x1fff tiles in all games but rambo3 where it is 0x3fff, qzshowby 0x7fff*/
 		SET_TILE_INFO(1, tile & 0x7fff, b_bg_color_base + (color&0x3f) )
 		tile_info.flags = TILE_FLIPYX((color & 0x00c0)>>6);
-	}
+	} };
 	
-	static void get_fg_tile_info(int tile_index)
+	public static GetTileInfoPtr get_fg_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		int tile  = READ_WORD(&b_foregroundram[2*tile_index]);
 		int color = READ_WORD(&b_foregroundram[2*tile_index + 0x2000]);
@@ -281,15 +281,15 @@ public class taito_b
 		/*there are 0x1fff tiles in all games but rambo3 where it is 0x3fff, qzshowby 0x7fff*/
 		SET_TILE_INFO(1, tile & 0x7fff, b_fg_color_base + (color&0x3f) )
 		tile_info.flags = TILE_FLIPYX((color & 0x00c0)>>6);
-	}
+	} };
 	
-	static void get_tx_tile_info(int tile_index)
+	public static GetTileInfoPtr get_tx_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		int tile  = READ_WORD(&b_textram[2*tile_index]);
 	
 		SET_TILE_INFO(0, tile & 0x0fff, b_tx_color_base + ((tile>>12) & 0x0f) )
 		/*no flip attribute*/
-	}
+	} };
 	
 	
 	public static VhStartPtr taitob_vh_start_core = new VhStartPtr() { public int handler() 

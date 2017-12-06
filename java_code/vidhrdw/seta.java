@@ -244,13 +244,13 @@ public class seta
 	#define DIM_NY		(32)
 	
 	#define SETA_TILEMAP(_n_) \
-	static void get_tile_info_##_n_( int tile_index ) \
+	public static GetTileInfoPtr get_tile_info_##_n_ = new GetTileInfoPtr() { public void handler(int tile_index)  \
 	{ \
 		int code =	READ_WORD(&seta_vram_##_n_[ tile_index * 2]); \
 		int attr =	READ_WORD(&seta_vram_##_n_[ tile_index * 2 + DIM_NX*DIM_NY*2]); \
 		SET_TILE_INFO( 1 + _n_/2, seta_tiles_offset + (code & 0x3fff), attr & 0x1f ); \
 		tile_info.flags = TILE_FLIPXY( code >> (16-2) ); \
-	} \
+	} }; \
 	\
 	public static WriteHandlerPtr seta_vram_##_n_##_w = new WriteHandlerPtr() {public void handler(int offset, int data) \
 	{ \

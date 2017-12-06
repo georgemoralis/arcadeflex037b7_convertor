@@ -105,16 +105,16 @@ public class _1942
 	
 	***************************************************************************/
 	
-	static void get_fg_tile_info(int tile_index)
+	public static GetTileInfoPtr get_fg_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		int code, color;
 	
 		code = c1942_fgvideoram[tile_index];
 		color = c1942_fgvideoram[tile_index + 0x400];
 		SET_TILE_INFO(0,code + ((color & 0x80) << 1),color & 0x3f)
-	}
+	} };
 	
-	static void get_bg_tile_info(int tile_index)
+	public static GetTileInfoPtr get_bg_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		int code, color;
 	
@@ -124,7 +124,7 @@ public class _1942
 		color = c1942_bgvideoram[tile_index + 0x10];
 		SET_TILE_INFO(1,code + ((color & 0x80) << 1),(color & 0x1f) + (0x20 * c1942_palette_bank));
 		tile_info.flags = TILE_FLIPYX((color & 0x60) >> 5);
-	}
+	} };
 	
 	
 	/***************************************************************************

@@ -40,7 +40,7 @@ public class namcos2
 	int namcos2_tilemap4_flip=0;
 	int namcos2_tilemap5_flip=0;
 	
-	static void namcos2_tilemap0_get_info( int tile_index ){
+	public static GetTileInfoPtr namcos2_tilemap0_get_info = new GetTileInfoPtr() { public void handler(int tile_index) {
 		int tile,colour;
 		tile=READ_WORD(&videoram.read(0x0000+(tile_index<<1)));
 		/* The tile mask DOESNT use the mangled tile number */
@@ -50,9 +50,9 @@ public class namcos2
 		colour=namcos2_68k_vram_ctrl_r(0x30)&0x0007;
 	
 		SET_TILE_INFO(GFX_CHR,tile,colour)
-	}
+	} };
 	
-	static void namcos2_tilemap1_get_info( int tile_index ){
+	public static GetTileInfoPtr namcos2_tilemap1_get_info = new GetTileInfoPtr() { public void handler(int tile_index) {
 		int tile,colour;
 		tile=READ_WORD(&videoram.read(0x2000+(tile_index<<1)));
 		/* The tile mask DOESNT use the mangled tile number */
@@ -61,9 +61,9 @@ public class namcos2
 		tile=(tile&0x07ff)|((tile&0xc000)>>3)|((tile&0x3800)<<2);
 		colour=namcos2_68k_vram_ctrl_r(0x32)&0x0007;
 		SET_TILE_INFO(GFX_CHR,tile,colour)
-	}
+	} };
 	
-	static void namcos2_tilemap2_get_info( int tile_index ){
+	public static GetTileInfoPtr namcos2_tilemap2_get_info = new GetTileInfoPtr() { public void handler(int tile_index) {
 		int tile,colour;
 		tile=READ_WORD(&videoram.read(0x4000+(tile_index<<1)));
 		/* The tile mask DOESNT use the mangled tile number */
@@ -72,9 +72,9 @@ public class namcos2
 		tile=(tile&0x07ff)|((tile&0xc000)>>3)|((tile&0x3800)<<2);
 		colour=namcos2_68k_vram_ctrl_r(0x34)&0x0007;
 		SET_TILE_INFO(GFX_CHR,tile,colour)
-	}
+	} };
 	
-	static void namcos2_tilemap3_get_info( int tile_index ){
+	public static GetTileInfoPtr namcos2_tilemap3_get_info = new GetTileInfoPtr() { public void handler(int tile_index) {
 		int tile,colour;
 		tile=READ_WORD(&videoram.read(0x6000+(tile_index<<1)));
 		/* The tile mask DOESNT use the mangled tile number */
@@ -83,9 +83,9 @@ public class namcos2
 		tile=(tile&0x07ff)|((tile&0xc000)>>3)|((tile&0x3800)<<2);
 		colour=namcos2_68k_vram_ctrl_r(0x36)&0x0007;
 		SET_TILE_INFO(GFX_CHR,tile,colour)
-	}
+	} };
 	
-	static void namcos2_tilemap4_get_info( int tile_index ){
+	public static GetTileInfoPtr namcos2_tilemap4_get_info = new GetTileInfoPtr() { public void handler(int tile_index) {
 		int tile,colour;
 		tile=READ_WORD(&videoram.read(0x8010+(tile_index<<1)));
 		/* The tile mask DOESNT use the mangled tile number */
@@ -94,9 +94,9 @@ public class namcos2
 		tile=(tile&0x07ff)|((tile&0xc000)>>3)|((tile&0x3800)<<2);
 		colour=namcos2_68k_vram_ctrl_r(0x38)&0x0007;
 		SET_TILE_INFO(GFX_CHR,tile,colour)
-	}
+	} };
 	
-	static void namcos2_tilemap5_get_info( int tile_index ){
+	public static GetTileInfoPtr namcos2_tilemap5_get_info = new GetTileInfoPtr() { public void handler(int tile_index) {
 		int tile,colour;
 		tile=READ_WORD(&videoram.read(0x8810+(tile_index<<1)));
 		/* The tile mask DOESNT use the mangled tile number */
@@ -105,7 +105,7 @@ public class namcos2
 		tile=(tile&0x07ff)|((tile&0xc000)>>3)|((tile&0x3800)<<2);
 		colour=namcos2_68k_vram_ctrl_r(0x3a)&0x0007;
 		SET_TILE_INFO(GFX_CHR,tile,colour)
-	}
+	} };
 	
 	int namcos2_calc_used_pens(int gfx_zone,int tile,char *penused){
 		UBytePtr  gfxdata=NULL;

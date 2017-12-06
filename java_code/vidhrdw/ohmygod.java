@@ -21,12 +21,12 @@ public class ohmygod
 	
 	***************************************************************************/
 	
-	static void get_tile_info(int tile_index)
+	public static GetTileInfoPtr get_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		UINT16 code = READ_WORD(&ohmygod_videoram[4*tile_index+2]);
 		UINT16 attr = READ_WORD(&ohmygod_videoram[4*tile_index]);
 		SET_TILE_INFO(0,code,(attr & 0x0f00) >> 8)
-	}
+	} };
 	
 	
 	

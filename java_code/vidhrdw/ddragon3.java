@@ -57,11 +57,11 @@ public class ddragon3
 	} };
 	
 	/* background */
-	static void get_bg_tile_info(int tile_index)
+	public static GetTileInfoPtr get_bg_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		UINT16 data = ((UINT16 *)ddragon3_bg_videoram)[tile_index];
 		SET_TILE_INFO( 0, (data&0xfff) | ((ddragon3_bg_tilebase&1)<<12), ((data&0xf000)>>12)+16 );  // GFX,NUMBER,COLOR
-	}
+	} };
 	
 	public static WriteHandlerPtr ddragon3_bg_videoram_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
@@ -81,13 +81,13 @@ public class ddragon3
 	} };
 	
 	/* foreground */
-	static void get_fg_tile_info(int tile_index)
+	public static GetTileInfoPtr get_fg_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		UINT16 data0 = ((UINT16 *)ddragon3_fg_videoram)[2*tile_index];
 		UINT16 data1 = ((UINT16 *)ddragon3_fg_videoram)[2*tile_index+1];
 		SET_TILE_INFO( 0, data1&0x1fff , data0&0xf );  // GFX,NUMBER,COLOR
 	        tile_info.flags = ((data0&0x40) >> 6);  // FLIPX
-	}
+	} };
 	
 	public static WriteHandlerPtr ddragon3_fg_videoram_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{

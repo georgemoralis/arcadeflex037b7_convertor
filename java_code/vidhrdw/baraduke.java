@@ -64,21 +64,21 @@ public class baraduke
 	
 	***************************************************************************/
 	
-	static void get_tile_info0(int tile_index)
+	public static GetTileInfoPtr get_tile_info0 = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		unsigned char attr = baraduke_videoram[2*tile_index + 1];
 		unsigned char code = baraduke_videoram[2*tile_index];
 	
 		SET_TILE_INFO(1 + ((attr & 0x02) >> 1), code | ((attr & 0x01) << 8), attr);
-	}
+	} };
 	
-	static void get_tile_info1(int tile_index)
+	public static GetTileInfoPtr get_tile_info1 = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		unsigned char attr = baraduke_videoram[0x1000 + 2*tile_index + 1];
 		unsigned char code = baraduke_videoram[0x1000 + 2*tile_index];
 	
 		SET_TILE_INFO(3 + ((attr & 0x02) >> 1), code | ((attr & 0x01) << 8), attr);
-	}
+	} };
 	
 	/***************************************************************************
 	

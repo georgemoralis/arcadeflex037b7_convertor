@@ -24,43 +24,43 @@ public class playmark
 	
 	***************************************************************************/
 	
-	static void bigtwin_get_tx_tile_info(int tile_index)
+	public static GetTileInfoPtr bigtwin_get_tx_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		UINT16 code = READ_WORD(&wbeachvl_videoram1[4*tile_index]);
 		UINT16 color = READ_WORD(&wbeachvl_videoram1[4*tile_index+2]);
 		SET_TILE_INFO(2,code,color)
-	}
+	} };
 	
-	static void bigtwin_get_fg_tile_info(int tile_index)
+	public static GetTileInfoPtr bigtwin_get_fg_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		UINT16 code = READ_WORD(&wbeachvl_videoram2[4*tile_index]);
 		UINT16 color = READ_WORD(&wbeachvl_videoram2[4*tile_index+2]);
 		SET_TILE_INFO(1,code,color)
-	}
+	} };
 	
 	
-	static void wbeachvl_get_tx_tile_info(int tile_index)
+	public static GetTileInfoPtr wbeachvl_get_tx_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		UINT16 code = READ_WORD(&wbeachvl_videoram1[4*tile_index]);
 		UINT16 color = READ_WORD(&wbeachvl_videoram1[4*tile_index+2]);
 		SET_TILE_INFO(2,code,color / 4)
-	}
+	} };
 	
-	static void wbeachvl_get_fg_tile_info(int tile_index)
+	public static GetTileInfoPtr wbeachvl_get_fg_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		UINT16 code = READ_WORD(&wbeachvl_videoram2[4*tile_index]);
 		UINT16 color = READ_WORD(&wbeachvl_videoram2[4*tile_index+2]);
 		SET_TILE_INFO(1,code & 0x7fff,color / 4 + 8)
 		tile_info.flags = (code & 0x8000) ? TILE_FLIPX : 0;
-	}
+	} };
 	
-	static void wbeachvl_get_bg_tile_info(int tile_index)
+	public static GetTileInfoPtr wbeachvl_get_bg_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		UINT16 code = READ_WORD(&wbeachvl_videoram3[4*tile_index]);
 		UINT16 color = READ_WORD(&wbeachvl_videoram3[4*tile_index+2]);
 		SET_TILE_INFO(1,code & 0x7fff,color / 4)
 		tile_info.flags = (code & 0x8000) ? TILE_FLIPX : 0;
-	}
+	} };
 	
 	
 	

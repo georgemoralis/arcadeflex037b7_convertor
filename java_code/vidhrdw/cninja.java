@@ -127,7 +127,7 @@ public class cninja
 		return (col & 0x1f) + ((row & 0x1f) << 5) + ((col & 0x20) << 5);
 	}
 	
-	static void get_back_tile_info(int tile_index)
+	public static GetTileInfoPtr get_back_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		int tile,color;
 	
@@ -136,10 +136,10 @@ public class cninja
 		tile=tile&0xfff;
 	
 		SET_TILE_INFO(gfx_bank,tile,color+color_base)
-	}
+	} };
 	
 	/* 8x8 top layer */
-	static void get_fore_tile_info(int tile_index)
+	public static GetTileInfoPtr get_fore_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		int tile=READ_WORD(&cninja_pf1_data[2*tile_index]);
 		int color=tile >> 12;
@@ -147,7 +147,7 @@ public class cninja
 		tile=tile&0xfff;
 	
 		SET_TILE_INFO(0,tile,color)
-	}
+	} };
 	
 	/******************************************************************************/
 	

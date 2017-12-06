@@ -84,16 +84,16 @@ public class lastduel
 		tilemap_mark_tile_dirty(bg_tilemap,(offset & 0xfff)/2);
 	} };
 	
-	static void ld_get_bg_tile_info(int tile_index)
+	public static GetTileInfoPtr ld_get_bg_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		int tile=READ_WORD(&gfx_base[4*tile_index])&0x1fff;
 		int color=READ_WORD(&gfx_base[4*tile_index+2]);
 	
 		SET_TILE_INFO(gfx_bank,tile,color&0xf)
 		tile_info.flags = TILE_FLIPYX((color & 0x60)>>5);
-	}
+	} };
 	
-	static void ld_get_fg_tile_info(int tile_index)
+	public static GetTileInfoPtr ld_get_fg_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		int tile=READ_WORD(&gfx_base[4*tile_index])&0x1fff;
 		int color=READ_WORD(&gfx_base[4*tile_index+2]);
@@ -101,9 +101,9 @@ public class lastduel
 		SET_TILE_INFO(gfx_bank,tile,color&0xf)
 		tile_info.flags = TILE_FLIPYX((color & 0x60)>>5);
 		tile_info.priority = (color&0x80)>>7;
-	}
+	} };
 	
-	static void get_tile_info(int tile_index)
+	public static GetTileInfoPtr get_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		int tile=READ_WORD(&gfx_base[2*tile_index])&0x1fff;
 		int color=READ_WORD(&gfx_base[2*tile_index+0x1000]);
@@ -111,7 +111,7 @@ public class lastduel
 		SET_TILE_INFO(gfx_bank,tile,color&0xf)
 		tile_info.flags = TILE_FLIPYX((color & 0x60)>>5);
 		tile_info.priority = (color&0x10)>>4;
-	}
+	} };
 	
 	static void get_fix_info(int tile_index)
 	{

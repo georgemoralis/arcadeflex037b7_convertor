@@ -27,32 +27,32 @@ public class tecmo16
 	
 	/******************************************************************************/
 	
-	static void fg_get_tile_info(int tile_index)
+	public static GetTileInfoPtr fg_get_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		int offs = tile_index*2;
 		int tile = READ_WORD(&tecmo16_videoram[offs]) & 0x1fff;
 		int color = READ_WORD(&tecmo16_colorram[offs]) & 0x7f;
 	
 		SET_TILE_INFO(1,tile,color)
-	}
+	} };
 	
-	static void bg_get_tile_info(int tile_index)
+	public static GetTileInfoPtr bg_get_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		int offs = tile_index*2;
 		int tile = READ_WORD(&tecmo16_videoram2[offs]) & 0x1fff;
 		int color = (READ_WORD(&tecmo16_colorram2[offs]) & 0x7f)+0x10;
 	
 		SET_TILE_INFO(1,tile,color)
-	}
+	} };
 	
-	static void tx_get_tile_info(int tile_index)
+	public static GetTileInfoPtr tx_get_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		int offs = tile_index*2;
 		int tile = READ_WORD(&tecmo16_charram[offs]) & 0x0fff;
 		int color = (READ_WORD(&tecmo16_charram[offs]) >> 12) & 0x0f;
 	
 		SET_TILE_INFO(0,tile,color)
-	}
+	} };
 	
 	/******************************************************************************/
 	

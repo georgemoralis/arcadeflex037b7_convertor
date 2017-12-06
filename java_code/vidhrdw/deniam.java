@@ -62,25 +62,25 @@ public class deniam
 		return (col & 0x3f) + ((row & 0x1f) << 6) + ((col & 0x40) << 5) + ((row & 0x20) << 7);
 	}
 	
-	static void get_bg_tile_info(int tile_index)
+	public static GetTileInfoPtr get_bg_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		int page = tile_index >> 11;
 		UINT16 attr = READ_WORD(&deniam_videoram[bg_page[page] * 0x1000 + 2 * (tile_index & 0x7ff)]);
 		SET_TILE_INFO(0,attr,(attr & 0x1fc0) >> 6)
-	}
+	} };
 	
-	static void get_fg_tile_info(int tile_index)
+	public static GetTileInfoPtr get_fg_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		int page = tile_index >> 11;
 		UINT16 attr = READ_WORD(&deniam_videoram[fg_page[page] * 0x1000 + 2 * (tile_index & 0x7ff)]);
 		SET_TILE_INFO(0,attr,(attr & 0x1fc0) >> 6)
-	}
+	} };
 	
-	static void get_tx_tile_info(int tile_index)
+	public static GetTileInfoPtr get_tx_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		UINT16 attr = READ_WORD(&deniam_textram[2*tile_index]);
 		SET_TILE_INFO(0,attr & 0xf1ff,(attr & 0x0e00) >> 9)
-	}
+	} };
 	
 	
 	

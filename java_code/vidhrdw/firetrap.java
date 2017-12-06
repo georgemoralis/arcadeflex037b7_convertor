@@ -98,14 +98,14 @@ public class firetrap
 				((row & 0x10) << 5) | ((col & 0x10) << 6);
 	}
 	
-	static void get_fg_tile_info(int tile_index)
+	public static GetTileInfoPtr get_fg_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		int code, color;
 	
 		code = firetrap_fgvideoram[tile_index];
 		color = firetrap_fgvideoram[tile_index + 0x400];
 		SET_TILE_INFO(0, code | ((color & 0x01) << 8), color >> 4);
-	}
+	} };
 	
 	INLINE void get_bg_tile_info(int tile_index, UBytePtr bgvideoram, int gfx_region)
 	{
@@ -117,15 +117,15 @@ public class firetrap
 		tile_info.flags = TILE_FLIPXY((color & 0x0c) >> 2);
 	}
 	
-	static void get_bg1_tile_info(int tile_index)
+	public static GetTileInfoPtr get_bg1_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		get_bg_tile_info(tile_index, firetrap_bg1videoram, 1);
-	}
+	} };
 	
-	static void get_bg2_tile_info(int tile_index)
+	public static GetTileInfoPtr get_bg2_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		get_bg_tile_info(tile_index, firetrap_bg2videoram, 2);
-	}
+	} };
 	
 	
 	/***************************************************************************

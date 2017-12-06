@@ -263,13 +263,13 @@ public class kaneko16
 	#define BG_NX  (0x20)
 	#define BG_NY  (0x20)
 	
-	static void get_bg_tile_info(int tile_index)
+	public static GetTileInfoPtr get_bg_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		int code_hi = READ_WORD(&kaneko16_bgram[4*tile_index + 0]);
 		int code_lo = READ_WORD(&kaneko16_bgram[4*tile_index + 2]);
 		SET_TILE_INFO(BG_GFX, code_lo,(code_hi >> 2) & 0x3f);
 		tile_info.flags 	=	TILE_FLIPXY( code_hi & 3 );
-	}
+	} };
 	
 	public static WriteHandlerPtr kaneko16_bgram_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
@@ -293,14 +293,14 @@ public class kaneko16
 	#define FG_NX  (0x20)
 	#define FG_NY  (0x20)
 	
-	static void get_fg_tile_info(int tile_index)
+	public static GetTileInfoPtr get_fg_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		int code_hi = READ_WORD(&kaneko16_fgram[4*tile_index + 0]);
 		int code_lo = READ_WORD(&kaneko16_fgram[4*tile_index + 2]);
 		SET_TILE_INFO(FG_GFX, code_lo,(code_hi >> 2) & 0x3f);
 		tile_info.flags 	=	TILE_FLIPXY( code_hi & 3 );
 		tile_info.priority	=	(code_hi >> 8) & 3;
-	}
+	} };
 	
 	public static WriteHandlerPtr kaneko16_fgram_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{

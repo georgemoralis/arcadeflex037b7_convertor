@@ -130,7 +130,7 @@ public class travrusa
 	
 	***************************************************************************/
 	
-	static void get_tile_info(int tile_index)
+	public static GetTileInfoPtr get_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		unsigned char attr = travrusa_videoram[2*tile_index+1];
 		SET_TILE_INFO(0,travrusa_videoram[2*tile_index] + ((attr & 0xc0) << 2),attr & 0x0f)
@@ -138,7 +138,7 @@ public class travrusa
 		if ((attr & 0x20) != 0) tile_info.flags |= TILE_FLIPX;
 		if ((attr & 0x10) != 0) tile_info.flags |= TILE_FLIPY;
 		if ((attr & 0x0f) == 0x0f) tile_info.flags |= TILE_SPLIT(1);	/* hack */
-	}
+	} };
 	
 	
 	

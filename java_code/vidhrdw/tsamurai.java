@@ -70,19 +70,19 @@ public class tsamurai
 	
 	***************************************************************************/
 	
-	static void get_bg_tile_info(int tile_index)
+	public static GetTileInfoPtr get_bg_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		unsigned char attributes = tsamurai_videoram[2*tile_index+1];
 		int color = (attributes&0x1f);
 		SET_TILE_INFO(0,tsamurai_videoram[2*tile_index]+4*(attributes&0xc0),color )
-	}
+	} };
 	
-	static void get_fg_tile_info(int tile_index)
+	public static GetTileInfoPtr get_fg_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		int tile_number = videoram.read(tile_index);
 		if ((textbank & 1) != 0) tile_number += 256;
 		SET_TILE_INFO(1,tile_number,colorram.read(((tile_index&0x1f)*2)+1)& 0x1f )
-	}
+	} };
 	
 	
 	/***************************************************************************

@@ -62,7 +62,7 @@ public class dcon
 		tilemap_mark_tile_dirty( text_layer,offset/2);
 	} };
 	
-	static void get_back_tile_info(int tile_index)
+	public static GetTileInfoPtr get_back_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		int tile=READ_WORD(&dcon_back_data[2*tile_index]);
 		int color=(tile>>12)&0xf;
@@ -70,9 +70,9 @@ public class dcon
 		tile&=0xfff;
 	
 		SET_TILE_INFO(1,tile,color)
-	}
+	} };
 	
-	static void get_fore_tile_info(int tile_index)
+	public static GetTileInfoPtr get_fore_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		int tile=READ_WORD(&dcon_fore_data[2*tile_index]);
 		int color=(tile>>12)&0xf;
@@ -80,9 +80,9 @@ public class dcon
 		tile&=0xfff;
 	
 		SET_TILE_INFO(2,tile,color)
-	}
+	} };
 	
-	static void get_mid_tile_info(int tile_index)
+	public static GetTileInfoPtr get_mid_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		int tile=READ_WORD(&dcon_mid_data[2*tile_index]);
 		int color=(tile>>12)&0xf;
@@ -90,9 +90,9 @@ public class dcon
 		tile&=0xfff;
 	
 		SET_TILE_INFO(3,tile,color)
-	}
+	} };
 	
-	static void get_text_tile_info(int tile_index)
+	public static GetTileInfoPtr get_text_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		int tile=READ_WORD(&videoram.read(2*tile_index));
 		int color=(tile>>12)&0xf;
@@ -100,7 +100,7 @@ public class dcon
 		tile&=0xfff;
 	
 		SET_TILE_INFO(0,tile,color)
-	}
+	} };
 	
 	public static VhStartPtr dcon_vh_start = new VhStartPtr() { public int handler() 
 	{

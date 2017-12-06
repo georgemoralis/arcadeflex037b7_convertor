@@ -29,19 +29,19 @@ public class gng
 	
 	***************************************************************************/
 	
-	static void get_fg_tile_info(int tile_index)
+	public static GetTileInfoPtr get_fg_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		unsigned char attr = gng_fgvideoram[tile_index + 0x400];
 		SET_TILE_INFO(0,gng_fgvideoram[tile_index] + ((attr & 0xc0) << 2),attr & 0x0f)
 		tile_info.flags = TILE_FLIPYX((attr & 0x30) >> 4);
-	}
+	} };
 	
-	static void get_bg_tile_info(int tile_index)
+	public static GetTileInfoPtr get_bg_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		unsigned char attr = gng_bgvideoram[tile_index + 0x400];
 		SET_TILE_INFO(1,gng_bgvideoram[tile_index] + ((attr & 0xc0) << 2),attr & 0x07)
 		tile_info.flags = TILE_FLIPYX((attr & 0x30) >> 4) | TILE_SPLIT((attr & 0x08) >> 3);
-	}
+	} };
 	
 	
 	

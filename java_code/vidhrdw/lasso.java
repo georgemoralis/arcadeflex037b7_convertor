@@ -56,12 +56,12 @@ public class lasso
 	
 	***************************************************************************/
 	
-	static void get_bg_tile_info(int tile_index)
+	public static GetTileInfoPtr get_bg_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		int tile_number = videoram.read(tile_index);
 		int attributes = videoram.read(tile_index+0x400);
 		SET_TILE_INFO(gfxbank,tile_number,attributes&0xf)
-	}
+	} };
 	
 	
 	

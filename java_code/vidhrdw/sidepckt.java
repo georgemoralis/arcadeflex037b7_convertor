@@ -51,13 +51,13 @@ public class sidepckt
 	
 	***************************************************************************/
 	
-	static void get_tile_info(int tile_index)
+	public static GetTileInfoPtr get_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		unsigned char attr = colorram.read(tile_index);
 		SET_TILE_INFO(0,videoram.read(tile_index)+ ((attr & 0x07) << 8),
 				((attr & 0x10) >> 3) | ((attr & 0x20) >> 5))
 		tile_info.flags = TILE_FLIPX | TILE_SPLIT((attr & 0x80) >> 7);
-	}
+	} };
 	
 	
 	

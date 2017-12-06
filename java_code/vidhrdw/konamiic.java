@@ -1131,7 +1131,7 @@ public class konamiic
 		return (col & 0x1f) + ((row & 0x1f) << 5) + ((col & 0x20) << 5);
 	}
 	
-	static void K007342_get_tile_info(int tile_index)
+	public static GetTileInfoPtr K007342_get_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		int color, code;
 	
@@ -1144,7 +1144,7 @@ public class konamiic
 		(*K007342_callback)(layer, K007342_regs[1], &code, &color);
 	
 		SET_TILE_INFO(K007342_gfxnum,code,color);
-	}
+	} };
 	
 	int K007342_vh_start(int gfx_index, void (*callback)(int tilemap, int bank, int *code, int *color))
 	{
@@ -1584,7 +1584,7 @@ public class konamiic
 		layer = 2;
 	}
 	
-	static void K052109_get_tile_info(int tile_index)
+	public static GetTileInfoPtr K052109_get_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		int flipy = 0;
 		int code = videoram1[tile_index] + 256 * videoram2[tile_index];
@@ -1607,7 +1607,7 @@ public class konamiic
 	
 		/* if flip Y is enabled and the attribute but is set, turn it on */
 		if (flipy && (K052109_tileflip_enable & 2)) tile_info.flags |= TILE_FLIPY;
-	}
+	} };
 	
 	
 	
@@ -3610,7 +3610,7 @@ public class konamiic
 		K051316_chip_selected = chip;
 	}
 	
-	static void K051316_get_tile_info(int tile_index)
+	public static GetTileInfoPtr K051316_get_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		int code = K051316_ram[K051316_chip_selected][tile_index];
 		int color = K051316_ram[K051316_chip_selected][tile_index + 0x400];
@@ -3618,7 +3618,7 @@ public class konamiic
 		(*K051316_callback[K051316_chip_selected])(&code,&color);
 	
 		SET_TILE_INFO(K051316_gfxnum[K051316_chip_selected],code,color);
-	}
+	} };
 	
 	
 	int K051316_vh_start(int chip, int gfx_memory_region,int bpp,
@@ -4136,7 +4136,7 @@ public class konamiic
 	static void (*K054157_callback)(int, int *, int *);
 	static int (*K054157_scrolld)[4][2];
 	
-	static void K054157_get_tile_info(int tile_index)
+	public static GetTileInfoPtr K054157_get_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		UBytePtr addr;
 		int attr, code;
@@ -4151,7 +4151,7 @@ public class konamiic
 	
 		(*K054157_callback)(K054157_cur_layer, &code, &attr);
 		SET_TILE_INFO (K054157_gfxnum, code, attr);
-	}
+	} };
 	
 	public static VhStopPtr K054157_vh_stop = new VhStopPtr() { public void handler() 
 	{

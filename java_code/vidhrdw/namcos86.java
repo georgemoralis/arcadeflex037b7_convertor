@@ -157,11 +157,11 @@ public class namcos86
 		tile_offs[3] = ((tile_address_prom[0x13] & 0xe0) >> 5) * 0x100;
 	}
 	
-	static void get_tile_info(int tile_index)
+	public static GetTileInfoPtr get_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		unsigned char attr = videoram.read(2*tile_index + 1);
 		SET_TILE_INFO(gfx_num,videoram.read(2*tile_index)+ tile_offs[attr & 0x03],attr)
-	}
+	} };
 	
 	
 	

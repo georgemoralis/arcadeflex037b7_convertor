@@ -33,35 +33,35 @@ public class tecmo
 	
 	***************************************************************************/
 	
-	static void get_bg_tile_info(int tile_index)
+	public static GetTileInfoPtr get_bg_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		unsigned char attr = tecmo_bgvideoram[tile_index+0x200];
 		SET_TILE_INFO(3,tecmo_bgvideoram[tile_index] + ((attr & 0x07) << 8),attr >> 4)
-	}
+	} };
 	
-	static void get_fg_tile_info(int tile_index)
+	public static GetTileInfoPtr get_fg_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		unsigned char attr = tecmo_fgvideoram[tile_index+0x200];
 		SET_TILE_INFO(2,tecmo_fgvideoram[tile_index] + ((attr & 0x07) << 8),attr >> 4)
-	}
+	} };
 	
-	static void gemini_get_bg_tile_info(int tile_index)
+	public static GetTileInfoPtr gemini_get_bg_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		unsigned char attr = tecmo_bgvideoram[tile_index+0x200];
 		SET_TILE_INFO(3,tecmo_bgvideoram[tile_index] + ((attr & 0x70) << 4),attr & 0x0f)
-	}
+	} };
 	
-	static void gemini_get_fg_tile_info(int tile_index)
+	public static GetTileInfoPtr gemini_get_fg_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		unsigned char attr = tecmo_fgvideoram[tile_index+0x200];
 		SET_TILE_INFO(2,tecmo_fgvideoram[tile_index] + ((attr & 0x70) << 4),attr & 0x0f)
-	}
+	} };
 	
-	static void get_tx_tile_info(int tile_index)
+	public static GetTileInfoPtr get_tx_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		unsigned char attr = tecmo_txvideoram[tile_index+0x400];
 		SET_TILE_INFO(0,tecmo_txvideoram[tile_index] + ((attr & 0x03) << 8),attr >> 4)
-	}
+	} };
 	
 	
 	

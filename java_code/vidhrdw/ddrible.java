@@ -88,23 +88,23 @@ public class ddrible
 		return (col & 0x1f) + ((row & 0x1f) << 5) + ((col & 0x20) << 6);	/* skip 0x400 */
 	}
 	
-	static void get_fg_tile_info(int tile_index)
+	public static GetTileInfoPtr get_fg_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		unsigned char attr = ddrible_fg_videoram[tile_index];
 		int bank = ((attr & 0xc0) >> 6) + 4*(((attr & 0x20) >> 5) | ddribble_vregs[0][3]);
 		int num = ddrible_fg_videoram[tile_index + 0x400] + 256*bank;
 		SET_TILE_INFO(0,num,0);
 		tile_info.flags = TILE_FLIPYX((attr & 0x30) >> 4);
-	}
+	} };
 	
-	static void get_bg_tile_info(int tile_index)
+	public static GetTileInfoPtr get_bg_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		unsigned char attr = ddrible_bg_videoram[tile_index];
 		int bank = ((attr & 0xc0) >> 6) + 4*(((attr & 0x20) >> 5) | ddribble_vregs[1][3]);
 		int num = ddrible_bg_videoram[tile_index + 0x400] + 256*bank;
 		SET_TILE_INFO(1,num,0);
 		tile_info.flags = TILE_FLIPYX((attr & 0x30) >> 4);
-	}
+	} };
 	
 	/***************************************************************************
 	

@@ -46,15 +46,15 @@ public class bionicc
 	
 	***************************************************************************/
 	
-	static void get_bg_tile_info(int tile_index)
+	public static GetTileInfoPtr get_bg_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		UINT16 *videoram1 = (UINT16 *)bionicc_bgvideoram;
 		int attr = videoram1[2*tile_index+1];
 		SET_TILE_INFO(1,(videoram1[2*tile_index] & 0xff) + ((attr & 0x07) << 8),(attr & 0x18) >> 3);
 		tile_info.flags = TILE_FLIPXY((attr & 0xc0) >> 6);
-	}
+	} };
 	
-	static void get_fg_tile_info(int tile_index)
+	public static GetTileInfoPtr get_fg_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		UINT16 *videoram1 = (UINT16 *)bionicc_fgvideoram;
 		int attr = videoram1[2*tile_index+1];
@@ -69,14 +69,14 @@ public class bionicc
 			tile_info.priority = 0;
 			tile_info.flags = TILE_SPLIT((attr & 0x20) >> 5) | TILE_FLIPXY((attr & 0xc0) >> 6);
 		}
-	}
+	} };
 	
-	static void get_tx_tile_info(int tile_index)
+	public static GetTileInfoPtr get_tx_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		UINT16 *videoram1 = (UINT16 *)bionicc_txvideoram;
 		int attr = videoram1[tile_index + 0x400];
 		SET_TILE_INFO(0,(videoram1[tile_index] & 0xff) + ((attr & 0x00c0) << 2),attr & 0x3f);
-	}
+	} };
 	
 	
 	

@@ -55,7 +55,7 @@ public class renegade
 		renegade_scrollx = (renegade_scrollx&0xFF)|(data<<8);
 	} };
 	
-	static void get_bg_tilemap_info(int tile_index)
+	public static GetTileInfoPtr get_bg_tilemap_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		const UINT8 *source = &videoram.read(tile_index);
 		UINT8 attributes = source[0x400]; /* CCC??BBB */
@@ -64,9 +64,9 @@ public class renegade
 			source[0],  /* tile_number */
 			attributes>>5 /* color */
 		)
-	}
+	} };
 	
-	static void get_fg_tilemap_info(int tile_index)
+	public static GetTileInfoPtr get_fg_tilemap_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		const UINT8 *source = &renegade_textram[tile_index];
 		UINT8 attributes = source[0x400];
@@ -75,7 +75,7 @@ public class renegade
 			(attributes&3)*256 + source[0], /* tile_number */
 			attributes>>6
 		)
-	}
+	} };
 	
 	public static VhStartPtr renegade_vh_start = new VhStartPtr() { public int handler() 
 	{

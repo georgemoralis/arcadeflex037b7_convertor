@@ -73,32 +73,32 @@ public class vastar
 	
 	***************************************************************************/
 	
-	static void get_fg_tile_info(int tile_index)
+	public static GetTileInfoPtr get_fg_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		int code, color;
 	
 		code = vastar_fgvideoram[tile_index + 0x800] | (vastar_fgvideoram[tile_index + 0x400] << 8);
 		color = vastar_fgvideoram[tile_index];
 		SET_TILE_INFO(0, code, color);
-	}
+	} };
 	
-	static void get_bg1_tile_info(int tile_index)
+	public static GetTileInfoPtr get_bg1_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		int code, color;
 	
 		code = vastar_bg1videoram[tile_index + 0x800] | (vastar_bg1videoram[tile_index] << 8);
 		color = vastar_bg1videoram[tile_index + 0xc00];
 		SET_TILE_INFO(4, code, color);
-	}
+	} };
 	
-	static void get_bg2_tile_info(int tile_index)
+	public static GetTileInfoPtr get_bg2_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		int code, color;
 	
 		code = vastar_bg2videoram[tile_index + 0x800] | (vastar_bg2videoram[tile_index] << 8);
 		color = vastar_bg2videoram[tile_index + 0xc00];
 		SET_TILE_INFO(3, code, color);
-	}
+	} };
 	
 	
 	/***************************************************************************

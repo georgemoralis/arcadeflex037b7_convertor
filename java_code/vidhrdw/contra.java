@@ -66,7 +66,7 @@ public class contra
 	
 	***************************************************************************/
 	
-	static void get_fg_tile_info(int tile_index)
+	public static GetTileInfoPtr get_fg_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		int attr = contra_fg_cram[tile_index];
 		int bit0 = (K007121_ctrlram[0][0x05] >> 0) & 0x03;
@@ -84,9 +84,9 @@ public class contra
 		bank = (bank & ~(mask << 1)) | ((K007121_ctrlram[0][0x04] & mask) << 1);
 	
 		SET_TILE_INFO(0, contra_fg_vram[tile_index]+bank*256, ((K007121_ctrlram[0][6]&0x30)*2+16)+(attr&7) )
-	}
+	} };
 	
-	static void get_bg_tile_info(int tile_index)
+	public static GetTileInfoPtr get_bg_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		int attr = contra_bg_cram[tile_index];
 		int bit0 = (K007121_ctrlram[1][0x05] >> 0) & 0x03;
@@ -104,9 +104,9 @@ public class contra
 		bank = (bank & ~(mask << 1)) | ((K007121_ctrlram[0][0x04] & mask) << 1);
 	
 		SET_TILE_INFO(1, contra_bg_vram[tile_index]+bank*256, ((K007121_ctrlram[1][6]&0x30)*2+16)+(attr&7) )
-	}
+	} };
 	
-	static void get_tx_tile_info(int tile_index)
+	public static GetTileInfoPtr get_tx_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		int attr = contra_text_cram[tile_index];
 		int bit0 = (K007121_ctrlram[0][0x05] >> 0) & 0x03;
@@ -119,7 +119,7 @@ public class contra
 				((attr >> (bit2  )) & 0x08) |
 				((attr >> (bit3-1)) & 0x10);
 		SET_TILE_INFO(0,contra_text_vram[tile_index]+bank*256, ((K007121_ctrlram[0][6]&0x30)*2+16)+(attr&7) )
-	}
+	} };
 	
 	
 	/***************************************************************************

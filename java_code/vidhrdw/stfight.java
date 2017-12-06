@@ -102,7 +102,7 @@ public class stfight
 		return (col & 0x0f) + ((row & 0x0f) << 4) + ((col & 0x70) << 4) + ((row & 0xf0) << 7);
 	}
 	
-	static void get_fg_tile_info(int tile_index)
+	public static GetTileInfoPtr get_fg_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		UBytePtr fgMap = memory_region(REGION_GFX5);
 		int attr,tile_base;
@@ -111,7 +111,7 @@ public class stfight
 		tile_base = ((attr & 0x80) << 2) | ((attr & 0x20) << 3);
 	
 		SET_TILE_INFO(1,tile_base + fgMap[tile_index],attr & 0x07);
-	}
+	} };
 	
 	static UINT32 bg_scan(UINT32 col,UINT32 row,UINT32 num_cols,UINT32 num_rows)
 	{
@@ -121,7 +121,7 @@ public class stfight
 				((row & 0x60) << 8);
 	}
 	
-	static void get_bg_tile_info(int tile_index)
+	public static GetTileInfoPtr get_bg_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		UBytePtr bgMap = memory_region(REGION_GFX6);
 		int attr,tile_bank,tile_base;
@@ -131,15 +131,15 @@ public class stfight
 		tile_base = (attr & 0x80) << 1;
 	
 		SET_TILE_INFO(2+tile_bank,tile_base + bgMap[tile_index],attr & 0x07);
-	}
+	} };
 	
-	static void get_tx_tile_info(int tile_index)
+	public static GetTileInfoPtr get_tx_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		unsigned char attr = stfight_text_attr_ram[tile_index];
 	
 		SET_TILE_INFO(0,stfight_text_char_ram[tile_index] + ((attr & 0x80) << 1),attr & 0x0f);
 		tile_info.flags = TILE_FLIPYX((attr & 0x60) >> 5);
-	}
+	} };
 	
 	
 	/***************************************************************************

@@ -74,16 +74,16 @@ public class psikyo
 	#define NX			(0x20)
 	#define NY			(0x80)
 	
-	static void get_tile_info_0( int tile_index )
+	public static GetTileInfoPtr get_tile_info_0 = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		int code =	READ_WORD(&psikyo_vram_0[tile_index * 2]);
 		SET_TILE_INFO(1, (code & 0x1fff), (code >> 13) & 7 );
-	}
-	static void get_tile_info_1( int tile_index )
+	} };
+	public static GetTileInfoPtr get_tile_info_1 = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		int code =	READ_WORD(&psikyo_vram_1[tile_index * 2]);
 		SET_TILE_INFO(2, (code & 0x1fff), (code >> 13) & 7 );
-	}
+	} };
 	
 	
 	public static WriteHandlerPtr psikyo_vram_0_w = new WriteHandlerPtr() {public void handler(int offset, int data)

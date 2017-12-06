@@ -171,11 +171,11 @@ public class powerins
 	#define DIM_NY_0			(0x20)
 	
 	
-	static void get_tile_info_0( int tile_index )
+	public static GetTileInfoPtr get_tile_info_0 = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		int code = READ_WORD(&powerins_vram_0[tile_index * 2]);
 		SET_TILE_INFO( 0 , (code & 0x07ff) + (tile_bank*0x800), ((code & 0xf000) >> (16-4)) + ((code & 0x0800) >> (11-4)) );
-	}
+	} };
 	
 	void powerins_vram_0_w(int offset,int data)
 	{
@@ -207,11 +207,11 @@ public class powerins
 	#define DIM_NX_1	(0x40)
 	#define DIM_NY_1	(0x20)
 	
-	static void get_tile_info_1( int tile_index )
+	public static GetTileInfoPtr get_tile_info_1 = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		int code = READ_WORD(&powerins_vram_1[tile_index * 2]);
 		SET_TILE_INFO( 1 , code & 0x0fff , (code & 0xf000) >> (16-4) );
-	}
+	} };
 	
 	void powerins_vram_1_w(int offset,int data)
 	{

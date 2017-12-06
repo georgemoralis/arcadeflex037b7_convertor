@@ -28,7 +28,7 @@ public class taito_l
 	
 	***************************************************************************/
 	
-	static void get_bg18_tile_info(int tile_index)
+	public static GetTileInfoPtr get_bg18_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		int attr = taitol_rambanks[2*tile_index+0x4000+1];
 		int code = taitol_rambanks[2*tile_index+0x4000]
@@ -37,9 +37,9 @@ public class taito_l
 				| (horshoes_gfxbank << 12);
 	
 		SET_TILE_INFO(0,code,(attr & 0xf0) >> 4);
-	}
+	} };
 	
-	static void get_bg19_tile_info(int tile_index)
+	public static GetTileInfoPtr get_bg19_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		int attr = taitol_rambanks[2*tile_index+0x5000+1];
 		int code = taitol_rambanks[2*tile_index+0x5000]
@@ -48,15 +48,15 @@ public class taito_l
 				| (horshoes_gfxbank << 12);
 	
 		SET_TILE_INFO(0,code,(attr & 0xf0) >> 4);
-	}
+	} };
 	
-	static void get_ch1a_tile_info(int tile_index)
+	public static GetTileInfoPtr get_ch1a_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		int attr = taitol_rambanks[2*tile_index+0x6000+1];
 		int code = taitol_rambanks[2*tile_index+0x6000]|((attr&0x01)<<8)|((attr&0x04)<<7);
 	
 		SET_TILE_INFO(2,code,(attr & 0xf0) >> 4);
-	}
+	} };
 	
 	
 	

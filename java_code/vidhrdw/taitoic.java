@@ -220,35 +220,35 @@ public class taitoic
 		tile_info.flags = TILE_FLIPYX((attr & 0xc000) >> 14);
 	}
 	
-	static void TC0100SCN_get_bg_tile_info_0(int tile_index)
+	public static GetTileInfoPtr TC0100SCN_get_bg_tile_info_0 = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		common_get_bg_tile_info(TC0100SCN_bg_ram[0],TC0100SCN_bg_gfx[0],tile_index);
-	}
+	} };
 	
-	static void TC0100SCN_get_fg_tile_info_0(int tile_index)
+	public static GetTileInfoPtr TC0100SCN_get_fg_tile_info_0 = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		common_get_bg_tile_info(TC0100SCN_fg_ram[0],TC0100SCN_bg_gfx[0],tile_index);
-	}
+	} };
 	
-	static void TC0100SCN_get_tx_tile_info_0(int tile_index)
+	public static GetTileInfoPtr TC0100SCN_get_tx_tile_info_0 = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		common_get_tx_tile_info(TC0100SCN_tx_ram[0],TC0100SCN_tx_gfx[0],tile_index);
-	}
+	} };
 	
-	static void TC0100SCN_get_bg_tile_info_1(int tile_index)
+	public static GetTileInfoPtr TC0100SCN_get_bg_tile_info_1 = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		common_get_bg_tile_info(TC0100SCN_bg_ram[1],TC0100SCN_bg_gfx[1],tile_index);
-	}
+	} };
 	
-	static void TC0100SCN_get_fg_tile_info_1(int tile_index)
+	public static GetTileInfoPtr TC0100SCN_get_fg_tile_info_1 = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		common_get_bg_tile_info(TC0100SCN_fg_ram[1],TC0100SCN_bg_gfx[1],tile_index);
-	}
+	} };
 	
-	static void TC0100SCN_get_tx_tile_info_1(int tile_index)
+	public static GetTileInfoPtr TC0100SCN_get_tx_tile_info_1 = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		common_get_tx_tile_info(TC0100SCN_tx_ram[1],TC0100SCN_tx_gfx[1],tile_index);
-	}
+	} };
 	
 	
 	void (*get_tile_info[TC0100SCN_MAX_CHIPS][3])(int tile_index) =
@@ -595,11 +595,11 @@ public class taitoic
 	static int TC0280GRD_gfxnum,TC0280GRD_base_color;
 	
 	
-	static void TC0280GRD_get_tile_info(int tile_index)
+	public static GetTileInfoPtr TC0280GRD_get_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		int attr = READ_WORD(&TC0280GRD_ram[2*tile_index]);
 		SET_TILE_INFO(TC0280GRD_gfxnum,attr & 0x3fff,((attr & 0xc000) >> 14) + TC0280GRD_base_color);
-	}
+	} };
 	
 	
 	int TC0280GRD_vh_start(int gfxnum)
@@ -767,30 +767,30 @@ public class taitoic
 		tile_info.flags = TILE_FLIPYX((attr & 0xc000) >> 14);
 	}
 	
-	static void TC0480SCP_get_bg0_tile_info(int tile_index)
+	public static GetTileInfoPtr TC0480SCP_get_bg0_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		common_get_tc0480bg_tile_info(TC0480SCP_bg_ram[0],TC0480SCP_bg_gfx,tile_index);
-	}
+	} };
 	
-	static void TC0480SCP_get_bg1_tile_info(int tile_index)
+	public static GetTileInfoPtr TC0480SCP_get_bg1_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		common_get_tc0480bg_tile_info(TC0480SCP_bg_ram[1],TC0480SCP_bg_gfx,tile_index);
-	}
+	} };
 	
-	static void TC0480SCP_get_bg2_tile_info(int tile_index)
+	public static GetTileInfoPtr TC0480SCP_get_bg2_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		common_get_tc0480bg_tile_info(TC0480SCP_bg_ram[2],TC0480SCP_bg_gfx,tile_index);
-	}
+	} };
 	
-	static void TC0480SCP_get_bg3_tile_info(int tile_index)
+	public static GetTileInfoPtr TC0480SCP_get_bg3_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		common_get_tc0480bg_tile_info(TC0480SCP_bg_ram[3],TC0480SCP_bg_gfx,tile_index);
-	}
+	} };
 	
-	static void TC0480SCP_get_tx_tile_info(int tile_index)
+	public static GetTileInfoPtr TC0480SCP_get_tx_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		common_get_tc0480tx_tile_info(TC0480SCP_tx_ram,TC0480SCP_tx_gfx,tile_index);
-	}
+	} };
 	
 	void (*tc480_get_tile_info[5])(int tile_index) =
 	{

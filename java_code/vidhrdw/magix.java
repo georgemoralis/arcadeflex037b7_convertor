@@ -144,24 +144,24 @@ public class magix
 	#define DIM_NX_0			(0x40)
 	#define DIM_NY_0			(0x20)
 	
-	static void get_tile_info_0( int tile_index )
+	public static GetTileInfoPtr get_tile_info_0 = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		int code  =  magix_videoram_0[0x1000+tile_index * 2 + 0] + magix_videoram_0[0x1000+tile_index * 2 + 1] * 256;
 		int color =  magix_videoram_0[0x0800+ tile_index] & 0x07;
 		SET_TILE_INFO( 0, code, color );
-	}
+	} };
 	
 	/* Text Plane */
 	
 	#define DIM_NX_1			(0x40)
 	#define DIM_NY_1			(0x20)
 	
-	static void get_tile_info_1( int tile_index )
+	public static GetTileInfoPtr get_tile_info_1 = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		int code  =  magix_videoram_1[0x1000+ tile_index * 2 + 0] + magix_videoram_1[0x1000+tile_index * 2 + 1] * 256;
 		int color =  magix_videoram_1[0x0800+ tile_index] & 0x3f;
 		SET_TILE_INFO( 1, code, color );
-	}
+	} };
 	
 	
 	

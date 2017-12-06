@@ -63,41 +63,41 @@ public class senjyo
 	
 	***************************************************************************/
 	
-	static void get_fg_tile_info(int tile_index)
+	public static GetTileInfoPtr get_fg_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		unsigned char attr = senjyo_fgcolorram[tile_index];
 		SET_TILE_INFO(0,senjyo_fgvideoram[tile_index] + ((attr & 0x10) << 4),attr & 0x07)
 		tile_info.flags = (attr & 0x80) ? TILE_FLIPY : 0;
 		if (senjyo && (tile_index & 0x1f) >= 32-8)
 			tile_info.flags |= TILE_IGNORE_TRANSPARENCY;
-	}
+	} };
 	
-	static void senjyo_bg1_tile_info(int tile_index)
+	public static GetTileInfoPtr senjyo_bg1_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		unsigned char code = senjyo_bg1videoram[tile_index];
 		SET_TILE_INFO(1,code,(code & 0x70) >> 4)
-	}
+	} };
 	
-	static void starforc_bg1_tile_info(int tile_index)
+	public static GetTileInfoPtr starforc_bg1_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		/* Star Force has more tiles in bg1, so to get a uniform color code spread */
 		/* they wired bit 7 of the tile code in place of bit 4 to get the color code */
 		static int colormap[8] = { 0,2,4,6,1,3,5,7 };
 		unsigned char code = senjyo_bg1videoram[tile_index];
 		SET_TILE_INFO(1,code,colormap[(code & 0xe0) >> 5])
-	}
+	} };
 	
-	static void get_bg2_tile_info(int tile_index)
+	public static GetTileInfoPtr get_bg2_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		unsigned char code = senjyo_bg2videoram[tile_index];
 		SET_TILE_INFO(2,code,(code & 0xe0) >> 5)
-	}
+	} };
 	
-	static void get_bg3_tile_info(int tile_index)
+	public static GetTileInfoPtr get_bg3_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		unsigned char code = senjyo_bg3videoram[tile_index];
 		SET_TILE_INFO(3,code,(code & 0xe0) >> 5)
-	}
+	} };
 	
 	
 	

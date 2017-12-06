@@ -75,6 +75,7 @@ public class convertMame {
     static final int SN76477interface=53;
     static final int K052109=54;
     static final int K051960=55;
+    static final int TILEINFO=56;
 
     //type2 fields
     static final int NEWINPUT = 130;
@@ -329,6 +330,24 @@ public class convertMame {
                                     continue;
                                 }
                             }
+                            if(sUtil.getToken("int tile_index"))
+                            {
+                                sUtil.skipSpace();
+                                if (sUtil.parseChar() != ')') {
+                                    Convertor.inpos = i;
+                                    break;
+                                }
+                                if (sUtil.getChar() == ';') {
+                                    sUtil.skipLine();
+                                    continue;
+                                }
+                                if (Convertor.token[0].contains("tile")) {
+                                    sUtil.putString((new StringBuilder()).append("public static GetTileInfoPtr ").append(Convertor.token[0]).append(" = new GetTileInfoPtr() { public void handler(int tile_index) ").toString());
+                                    type = TILEINFO;
+                                    i3 = -1;
+                                    continue;
+                                }
+                            }
                             if(sUtil.getToken("int layer,int bank,int *code,int *color"))
                             {
                                 sUtil.skipSpace();
@@ -396,20 +415,6 @@ public class convertMame {
                                     Convertor.inpos=pos;
                                 }
                             }
-
-                            /*if(sUtil.getToken("int lines"))
-                            {
-                                sUtil.skipSpace();
-                                if (sUtil.parseChar() != ')') {
-                                    Convertor.inpos = i;
-                                    break;
-                                }
-                                if (sUtil.getChar() == ';') {
-                                    sUtil.skipLine();
-                                    continue;
-                                }
-
-                            }*/
                             if (sUtil.getToken("struct osd_bitmap *b,int x,int y,int w,int h,int p")) {
                                 sUtil.skipSpace();
                                 if (sUtil.parseChar() != ')') {
@@ -2335,7 +2340,7 @@ public class convertMame {
                             type == VH_START || type == DRIVER_INIT ||
                             type == READHANDLER || type == WRITEHANDLER ||
                             type == MACHINE_INTERRUPT || type == MACHINE_INIT ||
-                            type == VH_STOP || type == VH_EOF || type == NVRAM_H || type==TIMERCALLBACK
+                            type == VH_STOP || type == VH_EOF || type == NVRAM_H || type==TIMERCALLBACK || type==TILEINFO
                             || type == vclk_interruptPtr
                             || type == K052109
                             || type == K051960
@@ -2502,7 +2507,7 @@ public class convertMame {
                             type = -1;
                             continue;
                         }
-                    } else if (type == TIMERCALLBACK ||
+                    } else if (type == TIMERCALLBACK || type == TILEINFO ||
                             type == vclk_interruptPtr
                             || type == K052109
                             || type == K051960

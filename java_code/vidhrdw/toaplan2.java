@@ -207,7 +207,7 @@ public class toaplan2
 	
 	***************************************************************************/
 	
-	static void get_top0_tile_info(int tile_index)
+	public static GetTileInfoPtr get_top0_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		int color, tile_number, attrib;
 		UINT16 *source = (UINT16 *)(topvideoram[0]);
@@ -217,9 +217,9 @@ public class toaplan2
 		color = attrib & 0x7f;
 		SET_TILE_INFO(0,tile_number,color)
 		tile_info.priority = (attrib & 0x0f00) >> 8;
-	}
+	} };
 	
-	static void get_fg0_tile_info(int tile_index)
+	public static GetTileInfoPtr get_fg0_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		int color, tile_number, attrib;
 		UINT16 *source = (UINT16 *)(fgvideoram[0]);
@@ -229,9 +229,9 @@ public class toaplan2
 		color = attrib & 0x7f;
 		SET_TILE_INFO(0,tile_number,color)
 		tile_info.priority = (attrib & 0x0f00) >> 8;
-	}
+	} };
 	
-	static void get_bg0_tile_info(int tile_index)
+	public static GetTileInfoPtr get_bg0_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		int color, tile_number, attrib;
 		UINT16 *source = (UINT16 *)(bgvideoram[0]);
@@ -241,9 +241,9 @@ public class toaplan2
 		color = attrib & 0x7f;
 		SET_TILE_INFO(0,tile_number,color)
 		tile_info.priority = (attrib & 0x0f00) >> 8;
-	}
+	} };
 	
-	static void get_top1_tile_info(int tile_index)
+	public static GetTileInfoPtr get_top1_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		int color, tile_number, attrib;
 		UINT16 *source = (UINT16 *)(topvideoram[1]);
@@ -253,9 +253,9 @@ public class toaplan2
 		color = attrib & 0x7f;
 		SET_TILE_INFO(2,tile_number,color)
 		tile_info.priority = (attrib & 0x0f00) >> 8;
-	}
+	} };
 	
-	static void get_fg1_tile_info(int tile_index)
+	public static GetTileInfoPtr get_fg1_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		int color, tile_number, attrib;
 		UINT16 *source = (UINT16 *)(fgvideoram[1]);
@@ -265,9 +265,9 @@ public class toaplan2
 		color = attrib & 0x7f;
 		SET_TILE_INFO(2,tile_number,color)
 		tile_info.priority = (attrib & 0x0f00) >> 8;
-	}
+	} };
 	
-	static void get_bg1_tile_info(int tile_index)
+	public static GetTileInfoPtr get_bg1_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		int color, tile_number, attrib;
 		UINT16 *source = (UINT16 *)(bgvideoram[1]);
@@ -277,10 +277,10 @@ public class toaplan2
 		color = attrib & 0x7f;
 		SET_TILE_INFO(2,tile_number,color)
 		tile_info.priority = (attrib & 0x0f00) >> 8;
-	}
+	} };
 	
 	/* Added by Yochizo 2000/08/19 */
-	static void get_text_tile_info(int tile_index)
+	public static GetTileInfoPtr get_text_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		int color, tile_number, attrib;
 		UINT16 *source = (UINT16 *)textvideoram;
@@ -290,7 +290,7 @@ public class toaplan2
 		color = ((attrib >> 10) | 0x40) & 0x7f;
 		SET_TILE_INFO(2,tile_number,color)
 		tile_info.priority = 0;
-	}
+	} };
 	
 	/***************************************************************************
 	

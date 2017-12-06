@@ -37,14 +37,14 @@ public class armedf
 		return 32*col+row + 0x80;
 	}
 	
-	static void get_tx_tile_info(int tile_index)
+	public static GetTileInfoPtr get_tx_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		UINT16 *source = (UINT16 *)videoram;
 		unsigned char attributes = source[tile_index+0x800]&0xff;
 		int tile_number = (source[tile_index]&0xff) + 256*(attributes&3);
 		int color = attributes>>4;
 		SET_TILE_INFO( 0, tile_number, color );
-	}
+	} };
 	
 	public static WriteHandlerPtr armedf_text_videoram_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
@@ -98,22 +98,22 @@ public class armedf
 		return tile_index;
 	}
 	
-	static void terraf_get_tx_tile_info(int tile_index)
+	public static GetTileInfoPtr terraf_get_tx_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		UINT16 *source = (UINT16 *)videoram;
 		unsigned char attributes = source[tile_index+0x400]&0xff;
 		int tile_number = source[tile_index]&0xff;
 	
 		SET_TILE_INFO(0,tile_number + 256 * (attributes & 0x3),attributes >> 4);
-	}
+	} };
 	
 	/******************************************************************/
 	
-	static void get_fg_tile_info( int tile_index )
+	public static GetTileInfoPtr get_fg_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		UINT16 data = ((UINT16 *)armedf_fg_videoram)[tile_index];
 		SET_TILE_INFO( 1, data&0x7ff, data>>11 );
-	}
+	} };
 	
 	public static WriteHandlerPtr armedf_fg_videoram_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
@@ -133,11 +133,11 @@ public class armedf
 	
 	/******************************************************************/
 	
-	static void get_bg_tile_info( int tile_index )
+	public static GetTileInfoPtr get_bg_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		UINT16 data = ((UINT16 *)armedf_bg_videoram)[tile_index];
 		SET_TILE_INFO( 2, data&0x3ff, data>>11 );
-	}
+	} };
 	
 	public static WriteHandlerPtr armedf_bg_videoram_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{

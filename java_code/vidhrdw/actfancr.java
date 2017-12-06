@@ -26,7 +26,7 @@ public class actfancr
 		return (col & 0x0f) + ((row & 0x0f) << 4) + ((col & 0xf0) << 4);
 	}
 	
-	static void get_tile_info(int tile_index)
+	public static GetTileInfoPtr get_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		int tile,color;
 	
@@ -35,7 +35,7 @@ public class actfancr
 		tile=tile&0xfff;
 	
 		SET_TILE_INFO(2,tile,color)
-	}
+	} };
 	
 	static UINT32 triothep_scan(UINT32 col,UINT32 row,UINT32 num_cols,UINT32 num_rows)
 	{
@@ -43,7 +43,7 @@ public class actfancr
 		return (col & 0x0f) + ((row & 0x0f) << 4) + ((row & 0x10) << 4) + ((col & 0x10) << 5);
 	}
 	
-	static void get_trio_tile_info(int tile_index)
+	public static GetTileInfoPtr get_trio_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		int tile,color;
 	
@@ -52,7 +52,7 @@ public class actfancr
 		tile=tile&0xfff;
 	
 		SET_TILE_INFO(2,tile,color)
-	}
+	} };
 	
 	/******************************************************************************/
 	

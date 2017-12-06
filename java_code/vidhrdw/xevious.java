@@ -121,22 +121,22 @@ public class xevious
 	
 	***************************************************************************/
 	
-	static void get_fg_tile_info(int tile_index)
+	public static GetTileInfoPtr get_fg_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		unsigned char attr = xevious_fg_colorram[tile_index];
 		SET_TILE_INFO(0,xevious_fg_videoram[tile_index],
 				((attr & 0x03) << 4) | ((attr & 0x3c) >> 2))
 		tile_info.flags = TILE_FLIPYX((attr & 0xc0) >> 6);
-	}
+	} };
 	
-	static void get_bg_tile_info(int tile_index)
+	public static GetTileInfoPtr get_bg_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		unsigned char code = xevious_bg_videoram[tile_index];
 		unsigned char attr = xevious_bg_colorram[tile_index];
 		SET_TILE_INFO(1,code + ((attr & 0x01) << 8),
 				((attr & 0x3c) >> 2) | ((code & 0x80) >> 3) | ((attr & 0x03) << 5))
 		tile_info.flags = TILE_FLIPYX((attr & 0xc0) >> 6);
-	}
+	} };
 	
 	
 	

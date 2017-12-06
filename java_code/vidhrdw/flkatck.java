@@ -27,7 +27,7 @@ public class flkatck
 	
 	***************************************************************************/
 	
-	static void get_tile_info_A(int tile_index)
+	public static GetTileInfoPtr get_tile_info_A = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		int attr = k007121_ram[tile_index];
 		int code = k007121_ram[tile_index+0x400];
@@ -51,15 +51,15 @@ public class flkatck
 		tile_info.flags = (attr & 0x20) ? TILE_FLIPY : 0;
 	
 		SET_TILE_INFO(0, code + 256*bank, (attr & 0x0f) + 16)
-	}
+	} };
 	
-	static void get_tile_info_B(int tile_index)
+	public static GetTileInfoPtr get_tile_info_B = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		int attr = k007121_ram[tile_index+0x800];
 		int code = k007121_ram[tile_index+0xc00];
 	
 		SET_TILE_INFO(0, code, (attr & 0x0f) + 16)
-	}
+	} };
 	
 	
 	/***************************************************************************

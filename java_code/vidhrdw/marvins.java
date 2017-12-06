@@ -145,21 +145,21 @@ public class marvins
 	**
 	***************************************************************************/
 	
-	static void get_bg_tilemap_info(int tile_index)
+	public static GetTileInfoPtr get_bg_tilemap_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		SET_TILE_INFO(2,videoram.read(tile_index),0);
-	}
+	} };
 	
-	static void get_fg_tilemap_info(int tile_index)
+	public static GetTileInfoPtr get_fg_tilemap_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		SET_TILE_INFO(1,videoram.read(tile_index+0x1000),0);
-	}
+	} };
 	
-	static void get_tx_tilemap_info(int tile_index)
+	public static GetTileInfoPtr get_tx_tilemap_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		int tile_number = videoram.read(tile_index+0x2000);
 		SET_TILE_INFO(0,tile_number,(tile_number>>5));
-	}
+	} };
 	
 	/***************************************************************************
 	**

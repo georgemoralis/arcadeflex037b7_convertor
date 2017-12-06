@@ -88,11 +88,11 @@ public class ginganin
 	#define BG_NX  (16*32)
 	#define BG_NY  (16*2)
 	
-	static void get_bg_tile_info(int tile_index)
+	public static GetTileInfoPtr get_bg_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		int code = memory_region(REGION_GFX5)[2*tile_index + 0] * 256 + memory_region(REGION_GFX5)[2*tile_index + 1];
 		SET_TILE_INFO(BG_GFX, code, code >> 12);
-	}
+	} };
 	
 	
 	
@@ -104,11 +104,11 @@ public class ginganin
 	#define FG_NX  (16*16)
 	#define FG_NY  (16*2)
 	
-	static void get_fg_tile_info(int tile_index)
+	public static GetTileInfoPtr get_fg_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		int code = READ_WORD(&ginganin_fgram[2*tile_index]);
 		SET_TILE_INFO(FG_GFX, code, code >> 12);
-	}
+	} };
 	
 	public static WriteHandlerPtr ginganin_fgram_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
@@ -131,11 +131,11 @@ public class ginganin
 	#define TXT_NX  (32)
 	#define TXT_NY  (32)
 	
-	static void get_txt_tile_info(int tile_index)
+	public static GetTileInfoPtr get_txt_tile_info = new GetTileInfoPtr() { public void handler(int tile_index) 
 	{
 		int code = READ_WORD(&ginganin_txtram[2*tile_index]);
 		SET_TILE_INFO(TXT_GFX, code, code >> 12);
-	}
+	} };
 	
 	public static WriteHandlerPtr ginganin_txtram_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{
