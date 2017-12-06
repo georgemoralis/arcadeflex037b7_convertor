@@ -136,7 +136,7 @@ public class ddragon
 		}
 	} };
 	
-	static void dd_adpcm_int(int chip)
+	public static vclk_interruptPtr dd_adpcm_int = new vclk_interruptPtr() { public void handler(int chip) 
 	{
 		static int adpcm_data[2] = { -1, -1 };
 	
@@ -157,7 +157,7 @@ public class ddragon
 			adpcm_data[chip] = ROM[adpcm_pos[chip]++];
 			MSM5205_data_w(chip,adpcm_data[chip] >> 4);
 		}
-	}
+	} };
 	
 	public static ReadHandlerPtr dd_adpcm_status_r  = new ReadHandlerPtr() { public int handler(int offset)
 	{

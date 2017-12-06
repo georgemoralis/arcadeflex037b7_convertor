@@ -52,7 +52,7 @@ public class pcktgal
 	
 	static int msm5205next;
 	
-	static void pcktgal_adpcm_int(int data)
+	public static vclk_interruptPtr pcktgal_adpcm_int = new vclk_interruptPtr() { public void handler(int data) 
 	{
 		static int toggle;
 	
@@ -62,7 +62,7 @@ public class pcktgal
 		toggle = 1 - toggle;
 		if (toggle != 0)
 			cpu_cause_interrupt(1,M6502_INT_IRQ);
-	}
+	} };
 	
 	public static WriteHandlerPtr pcktgal_adpcm_data_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{

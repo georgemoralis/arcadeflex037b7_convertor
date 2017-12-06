@@ -85,14 +85,14 @@ public class irem
 		MSM5205_data_w(offset,data);
 	} };
 	
-	static void irem_adpcm_int(int data)
+	public static vclk_interruptPtr irem_adpcm_int = new vclk_interruptPtr() { public void handler(int data) 
 	{
 		cpu_set_nmi_line(1,PULSE_LINE);
 	
 		/* the first MSM5205 clocks the second */
 		MSM5205_vclk_w(1,1);
 		MSM5205_vclk_w(1,0);
-	}
+	} };
 	
 	public static WriteHandlerPtr irem_analog_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{

@@ -393,7 +393,7 @@ public class dec8
 		cpu_cause_interrupt(2,M6502_INT_NMI);
 	} };
 	
-	static void csilver_adpcm_int(int data)
+	public static vclk_interruptPtr csilver_adpcm_int = new vclk_interruptPtr() { public void handler(int data) 
 	{
 		static int toggle =0;
 	
@@ -403,7 +403,7 @@ public class dec8
 	
 		MSM5205_data_w (0,msm5205next>>4);
 		msm5205next<<=4;
-	}
+	} };
 	
 	public static ReadHandlerPtr csilver_adpcm_reset_r  = new ReadHandlerPtr() { public int handler(int offset)
 	{

@@ -370,7 +370,7 @@ public class magix
 										Magix
 	***************************************************************************/
 	
-	static void magix_adpcm_int(int irq)
+	public static vclk_interruptPtr magix_adpcm_int = new vclk_interruptPtr() { public void handler(int irq) 
 	{
 		static int toggle=0;
 	
@@ -380,7 +380,7 @@ public class magix
 		toggle ^= 1;
 		if (toggle != 0)
 			cpu_set_nmi_line(1,PULSE_LINE);
-	}
+	} };
 	
 	static YM3812interface magix_ym3812_interface = new YM3812interface
 	(

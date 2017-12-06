@@ -329,24 +329,6 @@ public class convertMame {
                                     continue;
                                 }
                             }
-                            if(sUtil.getToken("int num"))
-                            {
-                                sUtil.skipSpace();
-                                if (sUtil.parseChar() != ')') {
-                                    Convertor.inpos = i;
-                                    break;
-                                }
-                                if (sUtil.getChar() == ';') {
-                                    sUtil.skipLine();
-                                    continue;
-                                }
-                                if (Convertor.token[0].contains("_adpcm_int")) {
-                                    sUtil.putString((new StringBuilder()).append("public static vclk_interruptPtr ").append(Convertor.token[0]).append(" = new vclk_interruptPtr() { public void handler(int param) ").toString());
-                                    type = vclk_interruptPtr;
-                                    i3 = -1;
-                                    continue;
-                                }
-                            }
                             if(sUtil.getToken("int layer,int bank,int *code,int *color"))
                             {
                                 sUtil.skipSpace();
@@ -383,7 +365,39 @@ public class convertMame {
                                     continue;
                                 }
                             }
-                            if(sUtil.getToken("int lines"))
+                            if(sUtil.getToken("int"))
+                            {
+                                sUtil.skipSpace();
+                                int pos = Convertor.inpos;
+                                Convertor.token[1]=sUtil.parseToken();
+                                sUtil.skipSpace();
+                                if (sUtil.parseChar() != ')') {
+                                    Convertor.inpos = i;
+                                    break;
+                                }
+                                if (sUtil.getChar() == ';') {
+                                    sUtil.skipLine();
+                                    continue;
+                                }
+                                if (Convertor.token[0].contains("_adpcm_int")) {
+                                    sUtil.putString((new StringBuilder()).append("public static vclk_interruptPtr ").append(Convertor.token[0]).append(" = new vclk_interruptPtr() { public void handler(int ").append(Convertor.token[1]).append(") ").toString());
+                                    type = vclk_interruptPtr;
+                                    i3 = -1;
+                                    continue;
+                                }
+                                else if (Convertor.token[0].contains("_banking") && Convertor.token[1].contains("lines")) {
+                                    sUtil.putString((new StringBuilder()).append("public static konami_cpu_setlines_callbackPtr ").append(Convertor.token[0]).append(" = new konami_cpu_setlines_callbackPtr() { public void handler(int lines) ").toString());
+                                    type = konami_cpu_setlines_callbackPtr;
+                                    i3 = -1;
+                                    continue;
+                                }
+                                else
+                                {
+                                    Convertor.inpos=pos;
+                                }
+                            }
+
+                            /*if(sUtil.getToken("int lines"))
                             {
                                 sUtil.skipSpace();
                                 if (sUtil.parseChar() != ')') {
@@ -394,13 +408,8 @@ public class convertMame {
                                     sUtil.skipLine();
                                     continue;
                                 }
-                                if (Convertor.token[0].contains("_banking")) {
-                                    sUtil.putString((new StringBuilder()).append("public static konami_cpu_setlines_callbackPtr ").append(Convertor.token[0]).append(" = new konami_cpu_setlines_callbackPtr() { public void handler(int lines) ").toString());
-                                    type = konami_cpu_setlines_callbackPtr;
-                                    i3 = -1;
-                                    continue;
-                                }
-                            }
+
+                            }*/
                             if (sUtil.getToken("struct osd_bitmap *b,int x,int y,int w,int h,int p")) {
                                 sUtil.skipSpace();
                                 if (sUtil.parseChar() != ')') {

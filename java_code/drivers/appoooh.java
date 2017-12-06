@@ -63,7 +63,7 @@ public class appoooh
 	static int appoooh_adpcm_data;
 	
 	
-	public static vclk_interruptPtr appoooh_adpcm_int = new vclk_interruptPtr() { public void handler(int param) 
+	public static vclk_interruptPtr appoooh_adpcm_int = new vclk_interruptPtr() { public void handler(int num) 
 	{
 		if (adpcmptr != 0)
 		{

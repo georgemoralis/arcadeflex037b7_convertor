@@ -107,7 +107,7 @@ public class battlera
 	
 	static int msm5205next;
 	
-	static void battlera_adpcm_int(int data)
+	public static vclk_interruptPtr battlera_adpcm_int = new vclk_interruptPtr() { public void handler(int data) 
 	{
 		static int toggle;
 	
@@ -117,7 +117,7 @@ public class battlera
 		toggle = 1 - toggle;
 		if (toggle != 0)
 			cpu_cause_interrupt(1,H6280_INT_IRQ2);
-	}
+	} };
 	
 	public static WriteHandlerPtr battlera_adpcm_data_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{

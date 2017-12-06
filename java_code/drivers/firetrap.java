@@ -135,7 +135,7 @@ public class firetrap
 	
 	static int msm5205next;
 	
-	static void firetrap_adpcm_int (int data)
+	public static vclk_interruptPtr firetrap_adpcm_int = new vclk_interruptPtr() { public void handler(int data) 
 	{
 		static int toggle=0;
 	
@@ -145,7 +145,7 @@ public class firetrap
 		toggle ^= 1;
 		if (firetrap_irq_enable && toggle)
 			cpu_cause_interrupt (1, M6502_INT_IRQ);
-	}
+	} };
 	
 	public static WriteHandlerPtr firetrap_adpcm_data_w = new WriteHandlerPtr() {public void handler(int offset, int data)
 	{

@@ -96,7 +96,7 @@ public class tecmo
 	{
 		MSM5205_set_volume(0,(data & 0x0f) * 100 / 15);
 	} };
-	public static vclk_interruptPtr tecmo_adpcm_int = new vclk_interruptPtr() { public void handler(int param) 
+	public static vclk_interruptPtr tecmo_adpcm_int = new vclk_interruptPtr() { public void handler(int num) 
 	{
 		static int adpcm_data = -1;
 	
