@@ -189,8 +189,8 @@ public class lastduel
 		for (color = 0;color < 16;color++) colmask[color] = 0;
 		for(offs=0x800-8;offs>-1;offs-=8)
 		{
-			int attributes = READ_WORD(&buffered_spriteram[offs+2]);
-			code=READ_WORD(&buffered_spriteram[offs]) & 0xfff;
+			int attributes = READ_WORD(&buffered_spriteram.read(offs+2));
+			code=READ_WORD(&buffered_spriteram.read(offs)) & 0xfff;
 			color = attributes&0xf;
 	
 			colmask[color] |= pen_usage[code];
@@ -221,12 +221,12 @@ public class lastduel
 		for(offs=0x800-8;offs>=0;offs-=8)
 		{
 			int attributes,sy,sx,flipx,flipy;
-			code=READ_WORD(&buffered_spriteram[offs]);
+			code=READ_WORD(&buffered_spriteram.read(offs));
 			if (!code) continue;
 	
-			attributes = READ_WORD(&buffered_spriteram[offs+2]);
-			sy = READ_WORD(&buffered_spriteram[offs+4]) & 0x1ff;
-			sx = READ_WORD(&buffered_spriteram[offs+6]) & 0x1ff;
+			attributes = READ_WORD(&buffered_spriteram.read(offs+2));
+			sy = READ_WORD(&buffered_spriteram.read(offs+4)) & 0x1ff;
+			sx = READ_WORD(&buffered_spriteram.read(offs+6)) & 0x1ff;
 	
 			flipx = attributes&0x20;
 			flipy = attributes&0x40;
@@ -262,12 +262,12 @@ public class lastduel
 		for(offs=0x800-8;offs>=0;offs-=8)
 		{
 			int attributes,sy,sx,flipx,flipy,color,code;
-			sy = READ_WORD(&buffered_spriteram[offs+4]) & 0x1ff;
+			sy = READ_WORD(&buffered_spriteram.read(offs+4)) & 0x1ff;
 			if (sy==0x180) continue;
 	
-			code=READ_WORD(&buffered_spriteram[offs]);
-			attributes = READ_WORD(&buffered_spriteram[offs+2]);
-			sx = READ_WORD(&buffered_spriteram[offs+6]) & 0x1ff;
+			code=READ_WORD(&buffered_spriteram.read(offs));
+			attributes = READ_WORD(&buffered_spriteram.read(offs+2));
+			sx = READ_WORD(&buffered_spriteram.read(offs+6)) & 0x1ff;
 	
 			flipx = attributes&0x20;
 			flipy = attributes&0x80; /* Different from Last Duel */
@@ -324,8 +324,8 @@ public class lastduel
 		for (color = 0;color < 16;color++) colmask[color] = 0;
 		for(offs=0x800-8;offs>-1;offs-=8)
 		{
-			int attributes = READ_WORD(&buffered_spriteram[offs+2]);
-			code=READ_WORD(&buffered_spriteram[offs]) & 0xfff;
+			int attributes = READ_WORD(&buffered_spriteram.read(offs+2));
+			code=READ_WORD(&buffered_spriteram.read(offs)) & 0xfff;
 			color = attributes&0xf;
 	
 			colmask[color] |= pen_usage[code];

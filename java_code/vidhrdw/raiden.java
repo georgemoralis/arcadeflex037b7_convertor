@@ -129,19 +129,19 @@ public class raiden
 		for (offs = 0x1000-8;offs >= 0;offs -= 8)
 		{
 			/* Don't draw empty sprite table entries */
-			if (buffered_spriteram[offs+7]!=0xf) continue;
+			if (buffered_spriteram.read(offs+7)!=0xf) continue;
 			if (buffered_spriteram[offs+0]==0xf0f) continue;
-			if (!(pri_mask&buffered_spriteram[offs+5])) continue;
+			if (!(pri_mask&buffered_spriteram.read(offs+5))) continue;
 	
-			fx= buffered_spriteram[offs+1]&0x20;
-			fy= buffered_spriteram[offs+1]&0x40;
-			y = buffered_spriteram[offs+0];
-			x = buffered_spriteram[offs+4];
+			fx= buffered_spriteram.read(offs+1)&0x20;
+			fy= buffered_spriteram.read(offs+1)&0x40;
+			y = buffered_spriteram.read(offs+0);
+			x = buffered_spriteram.read(offs+4);
 	
-			if (buffered_spriteram[offs+5]&1) x=0-(0x100-x);
+			if (buffered_spriteram.read(offs+5)&1) x=0-(0x100-x);
 	
-			color = buffered_spriteram[offs+1]&0xf;
-			sprite = buffered_spriteram[offs+2]+(buffered_spriteram[offs+3]<<8);
+			color = buffered_spriteram.read(offs+1)&0xf;
+			sprite = buffered_spriteram.read(offs+2)+(buffered_spriteram.read(offs+3)<<8);
 			sprite &= 0x0fff;
 	
 			if (flipscreen != 0) {
@@ -187,8 +187,8 @@ public class raiden
 		for (color = 0;color < 16;color++) colmask[color] = 0;
 		for (offs = 0;offs <0x1000;offs += 8)
 		{
-			color = buffered_spriteram[offs+1]&0xf;
-			sprite = buffered_spriteram[offs+2]+(buffered_spriteram[offs+3]<<8);
+			color = buffered_spriteram.read(offs+1)&0xf;
+			sprite = buffered_spriteram.read(offs+2)+(buffered_spriteram.read(offs+3)<<8);
 			sprite &= 0x0fff;
 			colmask[color] |= Machine.gfx[3].pen_usage[sprite];
 		}

@@ -741,21 +741,21 @@ public class toaplan1
 	
 		for (offs = 0;offs < spriteram_size;offs += 8)
 		{
-			tattr = READ_WORD(&buffered_spriteram[offs+2]);
+			tattr = READ_WORD(&buffered_spriteram.read(offs+2));
 			if (tattr != 0)	/* no need to render hidden sprites */
 			{
-				sx=READ_WORD(&buffered_spriteram[offs+4]);
+				sx=READ_WORD(&buffered_spriteram.read(offs+4));
 				sx >>= 7 ;
 				sx &= 0x1ff ;
 				if ( sx > 416 ) sx -= 512 ;
 	
-				sy=READ_WORD(&buffered_spriteram[offs+6]);
+				sy=READ_WORD(&buffered_spriteram.read(offs+6));
 				sy >>= 7 ;
 				sy &= 0x1ff ;
 				if ( sy > 416 ) sy -= 512 ;
 	
 				priority = (tattr>>8) & 0xc ;
-				tchar = READ_WORD(&buffered_spriteram[offs+0]);
+				tchar = READ_WORD(&buffered_spriteram.read(offs+0));
 				tinfo = (tile_struct *)&(tile_list[priority][tile_count[priority]]) ;
 				tinfo.tile_num = tchar & 0x7ff ;
 				tinfo.color = 0x80 | (tattr&0x3f) ;

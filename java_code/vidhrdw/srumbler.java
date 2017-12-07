@@ -146,12 +146,12 @@ public class srumbler
 	
 	
 			int code,colour,sx,sy,flipy;
-			int attr = buffered_spriteram[offs+1];
-			code = buffered_spriteram[offs];
+			int attr = buffered_spriteram.read(offs+1);
+			code = buffered_spriteram.read(offs);
 			code += ( (attr&0xe0) << 3 );
 			colour = (attr & 0x1c)>>2;
-			sy = buffered_spriteram[offs + 2];
-			sx = buffered_spriteram[offs + 3] + 0x100 * ( attr & 0x01);
+			sy = buffered_spriteram.read(offs + 2);
+			sx = buffered_spriteram.read(offs + 3)+ 0x100 * ( attr & 0x01);
 			flipy = attr & 0x02;
 	
 			if (flip_screen != 0)

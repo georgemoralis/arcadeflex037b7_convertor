@@ -329,13 +329,13 @@ public class twincobr
 				int attribute,sx,sy,flipx,flipy;
 				int sprite, color;
 	
-				attribute = READ_WORD(&buffered_spriteram[offs + 2]);
+				attribute = READ_WORD(&buffered_spriteram.read(offs + 2));
 				if ((attribute & 0x0c00) == priority) {	/* low priority */
-					sy = READ_WORD(&buffered_spriteram[offs + 6]) >> 7;
+					sy = READ_WORD(&buffered_spriteram.read(offs + 6)) >> 7;
 					if (sy != 0x0100) {		/* sx = 0x01a0 or 0x0040*/
-						sprite = READ_WORD(&buffered_spriteram[offs]) & 0x7ff;
+						sprite = READ_WORD(&buffered_spriteram.read(offs)) & 0x7ff;
 						color  = attribute & 0x3f;
-						sx = READ_WORD(&buffered_spriteram[offs + 4]) >> 7;
+						sx = READ_WORD(&buffered_spriteram.read(offs + 4)) >> 7;
 						flipx = attribute & 0x100;
 						if (flipx != 0) sx -= 14;		/* should really be 15 */
 						flipy = attribute & 0x200;
@@ -356,13 +356,13 @@ public class twincobr
 				int attribute,sx,sy,flipx,flipy;
 				int sprite, color;
 	
-				attribute = READ_WORD_Z80(&buffered_spriteram[offs + 2]);
+				attribute = READ_WORD_Z80(&buffered_spriteram.read(offs + 2));
 				if ((attribute & 0x0c00) == priority) {	/* low priority */
-					sy = READ_WORD_Z80(&buffered_spriteram[offs + 6]) >> 7;
+					sy = READ_WORD_Z80(&buffered_spriteram.read(offs + 6)) >> 7;
 					if (sy != 0x0100) {		/* sx = 0x01a0 or 0x0040*/
-						sprite = READ_WORD_Z80(&buffered_spriteram[offs]) & 0x7ff;
+						sprite = READ_WORD_Z80(&buffered_spriteram.read(offs)) & 0x7ff;
 						color  = attribute & 0x3f;
-						sx = READ_WORD_Z80(&buffered_spriteram[offs + 4]) >> 7;
+						sx = READ_WORD_Z80(&buffered_spriteram.read(offs + 4)) >> 7;
 						flipx = attribute & 0x100;
 						if (flipx != 0) sx -= 14;		/* should really be 15 */
 						flipy = attribute & 0x200;
@@ -457,10 +457,10 @@ public class twincobr
 			for (offs = 0;offs < spriteram_size[0];offs += 8)
 			{
 				int sy;
-				sy = READ_WORD(&buffered_spriteram[offs + 6]);
+				sy = READ_WORD(&buffered_spriteram.read(offs + 6));
 				if (sy != 0x8000) {					/* Is sprite is turned off ? */
-					sprite = READ_WORD(&buffered_spriteram[offs]) & 0x7ff;
-					color = READ_WORD(&buffered_spriteram[offs + 2]) & 0x3f;
+					sprite = READ_WORD(&buffered_spriteram.read(offs)) & 0x7ff;
+					color = READ_WORD(&buffered_spriteram.read(offs + 2)) & 0x3f;
 					colmask[color] |= Machine.gfx[3].pen_usage[sprite];
 				}
 			}
@@ -470,10 +470,10 @@ public class twincobr
 			for (offs = 0;offs < spriteram_size[0];offs += 8)
 			{
 				int sy;
-				sy = READ_WORD_Z80(&buffered_spriteram[offs + 6]);
+				sy = READ_WORD_Z80(&buffered_spriteram.read(offs + 6));
 				if (sy != 0x8000) {					/* Is sprite is turned off ? */
-					sprite = READ_WORD_Z80(&buffered_spriteram[offs]) & 0x7ff;
-					color = READ_WORD_Z80(&buffered_spriteram[offs + 2]) & 0x3f;
+					sprite = READ_WORD_Z80(&buffered_spriteram.read(offs)) & 0x7ff;
+					color = READ_WORD_Z80(&buffered_spriteram.read(offs + 2)) & 0x3f;
 					colmask[color] |= Machine.gfx[3].pen_usage[sprite];
 				}
 			}
@@ -611,22 +611,22 @@ public class twincobr
 	/*********  Begin ugly sprite hack for Wardner when hero is in shop *********/
 		if ((wardner_sprite_hack) && (fgscrollx != bgscrollx)) {	/* Wardner ? */
 			if ((fgscrollx==0x1c9) || (twincobr_flip_screen && (fgscrollx==0x17a))) {	/* in the shop ? */
-				int wardner_hack = READ_WORD_Z80(&buffered_spriteram[0x0b04]);
+				int wardner_hack = READ_WORD_Z80(&buffered_spriteram.read(0x0b04));
 			/* sprite position 0x6300 to 0x8700 -- hero on shop keeper (normal) */
 			/* sprite position 0x3900 to 0x5e00 -- hero on shop keeper (flip) */
 				if ((wardner_hack > 0x3900) && (wardner_hack < 0x8700)) {	/* hero at shop keeper ? */
-						wardner_hack = READ_WORD_Z80(&buffered_spriteram[0x0b02]);
+						wardner_hack = READ_WORD_Z80(&buffered_spriteram.read(0x0b02));
 						wardner_hack |= 0x0400;			/* make hero top priority */
-						WRITE_WORD_Z80(&buffered_spriteram[0x0b02],wardner_hack);
-						wardner_hack = READ_WORD_Z80(&buffered_spriteram[0x0b0a]);
+						WRITE_WORD_Z80(&buffered_spriteram.read(0x0b02),wardner_hack);
+						wardner_hack = READ_WORD_Z80(&buffered_spriteram.read(0x0b0a));
 						wardner_hack |= 0x0400;
-						WRITE_WORD_Z80(&buffered_spriteram[0x0b0a],wardner_hack);
-						wardner_hack = READ_WORD_Z80(&buffered_spriteram[0x0b12]);
+						WRITE_WORD_Z80(&buffered_spriteram.read(0x0b0a),wardner_hack);
+						wardner_hack = READ_WORD_Z80(&buffered_spriteram.read(0x0b12));
 						wardner_hack |= 0x0400;
-						WRITE_WORD_Z80(&buffered_spriteram[0x0b12],wardner_hack);
-						wardner_hack = READ_WORD_Z80(&buffered_spriteram[0x0b1a]);
+						WRITE_WORD_Z80(&buffered_spriteram.read(0x0b12),wardner_hack);
+						wardner_hack = READ_WORD_Z80(&buffered_spriteram.read(0x0b1a));
 						wardner_hack |= 0x0400;
-						WRITE_WORD_Z80(&buffered_spriteram[0x0b1a],wardner_hack);
+						WRITE_WORD_Z80(&buffered_spriteram.read(0x0b1a),wardner_hack);
 				}
 			}
 		}

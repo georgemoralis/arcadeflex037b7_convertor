@@ -139,6 +139,43 @@ public class convertMame {
                     line_change_flag = true;
                     continue;
                 }
+                case 'b':
+                {
+                    i = Convertor.inpos;
+                    if(sUtil.getToken("buffered_spriteram"))
+                    {
+                        if (sUtil.parseChar() != '[') {
+                            Convertor.inpos = i;
+                            break;
+                        }
+                        Convertor.token[0] = sUtil.parseToken(']');
+                        sUtil.skipSpace();
+                        if (sUtil.parseChar() != ']') {
+                            Convertor.inpos = i;
+                            break;
+                        }
+                        else {
+                            sUtil.skipSpace();
+                            if (sUtil.parseChar() == '=') {
+                                int g=Convertor.inpos;
+                                if (sUtil.parseChar() == '=') {
+                                    Convertor.inpos = i;
+                                    break;
+                                }
+                                Convertor.inpos=g;
+                                sUtil.skipSpace();
+                                Convertor.token[1] = sUtil.parseToken(';');
+                                sUtil.putString((new StringBuilder()).append("buffered_spriteram.write(").append(Convertor.token[0]).append(",").append(Convertor.token[1]).append(");").toString());
+                                Convertor.inpos +=1;
+                                break;
+                            }
+                            sUtil.putString((new StringBuilder()).append("buffered_spriteram.read(").append(Convertor.token[0]).append(")").toString());
+                            Convertor.inpos -= 1;
+                            continue;
+                        }
+                    }
+                    break;
+                }
                 case 's': {
                     if (type == WRITEHANDLER || type == VH_SCREENREFRESH || type == VH_START || type == READHANDLER) {
                         if(i3==-1) break;//if is not inside a memwrite function break

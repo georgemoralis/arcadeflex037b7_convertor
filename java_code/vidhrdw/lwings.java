@@ -187,8 +187,8 @@ public class lwings
 		int sx,sy;
 	
 	
-		sx = buffered_spriteram[offs + 3] - 0x100 * (buffered_spriteram[offs + 1] & 0x01);
-		sy = buffered_spriteram[offs + 2];
+		sx = buffered_spriteram.read(offs + 3)- 0x100 * (buffered_spriteram.read(offs + 1)& 0x01);
+		sy = buffered_spriteram.read(offs + 2);
 	
 		return sx && sy;
 	}
@@ -205,12 +205,12 @@ public class lwings
 				int code,color,sx,sy,flipx,flipy;
 	
 	
-				sx = buffered_spriteram[offs + 3] - 0x100 * (buffered_spriteram[offs + 1] & 0x01);
-				sy = buffered_spriteram[offs + 2];
-				code = buffered_spriteram[offs] | (buffered_spriteram[offs + 1] & 0xc0) << 2;
-				color = (buffered_spriteram[offs + 1] & 0x38) >> 3;
-				flipx = buffered_spriteram[offs + 1] & 0x02;
-				flipy = buffered_spriteram[offs + 1] & 0x04;
+				sx = buffered_spriteram.read(offs + 3)- 0x100 * (buffered_spriteram.read(offs + 1)& 0x01);
+				sy = buffered_spriteram.read(offs + 2);
+				code = buffered_spriteram.read(offs)| (buffered_spriteram.read(offs + 1)& 0xc0) << 2;
+				color = (buffered_spriteram.read(offs + 1)& 0x38) >> 3;
+				flipx = buffered_spriteram.read(offs + 1)& 0x02;
+				flipy = buffered_spriteram.read(offs + 1)& 0x04;
 	
 				if (flip_screen != 0)
 				{
@@ -241,22 +241,22 @@ public class lwings
 				int code,color,sx,sy,flipx,flipy;
 	
 	
-				sx = buffered_spriteram[offs + 3] - 0x100 * (buffered_spriteram[offs + 1] & 0x01);
-				sy = buffered_spriteram[offs + 2];
-				code = buffered_spriteram[offs] |
-					   ((buffered_spriteram[offs + 1] & 0x20) << 4) |
-					   ((buffered_spriteram[offs + 1] & 0x40) << 2) |
-					   ((buffered_spriteram[offs + 1] & 0x80) << 3);
-				color = (buffered_spriteram[offs + 1] & 0x0e) >> 1;
+				sx = buffered_spriteram.read(offs + 3)- 0x100 * (buffered_spriteram.read(offs + 1)& 0x01);
+				sy = buffered_spriteram.read(offs + 2);
+				code = buffered_spriteram.read(offs)|
+					   ((buffered_spriteram.read(offs + 1)& 0x20) << 4) |
+					   ((buffered_spriteram.read(offs + 1)& 0x40) << 2) |
+					   ((buffered_spriteram.read(offs + 1)& 0x80) << 3);
+				color = (buffered_spriteram.read(offs + 1)& 0x0e) >> 1;
 	
 				if (trojan_vh_type != 0)
 				{
 					flipx = 0;										/* Avengers */
-					flipy = ~buffered_spriteram[offs + 1] & 0x10;
+					flipy = ~buffered_spriteram.read(offs + 1)& 0x10;
 				}
 				else
 				{
-					flipx = buffered_spriteram[offs + 1] & 0x10;	/* Trojan */
+					flipx = buffered_spriteram.read(offs + 1)& 0x10;	/* Trojan */
 					flipy = 1;
 				}
 	
@@ -291,7 +291,7 @@ public class lwings
 			{
 				int color;
 	
-				color = (buffered_spriteram[offs + 1] & 0x38) >> 3;
+				color = (buffered_spriteram.read(offs + 1)& 0x38) >> 3;
 				memset(sprite_colors + color * 16, PALETTE_COLOR_USED, 15);
 			}
 		}
@@ -311,7 +311,7 @@ public class lwings
 			{
 				int color;
 	
-				color = (buffered_spriteram[offs + 1] & 0x0e) >> 1;
+				color = (buffered_spriteram.read(offs + 1)& 0x0e) >> 1;
 				memset(sprite_colors + color * 16, PALETTE_COLOR_USED, 15);
 			}
 		}

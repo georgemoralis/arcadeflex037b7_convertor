@@ -307,11 +307,11 @@ public class cninja
 		{
 			int x,y,sprite,multi;
 	
-			sprite = READ_WORD (&buffered_spriteram[offs+2]) & spritemask;
+			sprite = READ_WORD (&buffered_spriteram.read(offs+2)) & spritemask;
 			if (!sprite) continue;
 	
-			x = READ_WORD(&buffered_spriteram[offs+4]);
-			y = READ_WORD(&buffered_spriteram[offs]);
+			x = READ_WORD(&buffered_spriteram.read(offs+4));
+			y = READ_WORD(&buffered_spriteram.read(offs));
 	
 			color = (x >> 9) &0xf;
 			multi = (1 << ((y & 0x0600) >> 9)) - 1;
@@ -348,16 +348,16 @@ public class cninja
 		for (offs = 0;offs < 0x800;offs += 8)
 		{
 			int x,y,sprite,colour,multi,fx,fy,inc,flash,mult;
-			sprite = READ_WORD (&buffered_spriteram[offs+2]) & spritemask;
+			sprite = READ_WORD (&buffered_spriteram.read(offs+2)) & spritemask;
 			if (!sprite) continue;
 	
-			x = READ_WORD(&buffered_spriteram[offs+4]);
+			x = READ_WORD(&buffered_spriteram.read(offs+4));
 	
 			/* Sprite/playfield priority */
 			if ((x&0x4000) && pri==1) continue;
 			if (!(x&0x4000) && pri==0) continue;
 	
-			y = READ_WORD(&buffered_spriteram[offs]);
+			y = READ_WORD(&buffered_spriteram.read(offs));
 			flash=y&0x1000;
 			if (flash && (cpu_getcurrentframe() & 1)) continue;
 			colour = (x >> 9) &0xf;

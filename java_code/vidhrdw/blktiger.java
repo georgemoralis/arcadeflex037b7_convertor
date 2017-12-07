@@ -216,10 +216,10 @@ public class blktiger
 		/* Draw the sprites. */
 		for (offs = spriteram_size - 4;offs >= 0;offs -= 4)
 		{
-			int attr = buffered_spriteram[offs+1];
-			int sx = buffered_spriteram[offs + 3] - ((attr & 0x10) << 4);
-			int sy = buffered_spriteram[offs + 2];
-			int code = buffered_spriteram[offs] | ((attr & 0xe0) << 3);
+			int attr = buffered_spriteram.read(offs+1);
+			int sx = buffered_spriteram.read(offs + 3)- ((attr & 0x10) << 4);
+			int sy = buffered_spriteram.read(offs + 2);
+			int code = buffered_spriteram.read(offs)| ((attr & 0xe0) << 3);
 			int color = attr & 0x07;
 			int flipx = attr & 0x08;
 	
@@ -245,9 +245,9 @@ public class blktiger
 	
 		for (offs = spriteram_size - 4;offs >= 0;offs -= 4)
 		{
-			int attr = buffered_spriteram[offs+1];
-			int sx = buffered_spriteram[offs + 3] - ((attr & 0x10) << 4);
-			int sy = buffered_spriteram[offs + 2];
+			int attr = buffered_spriteram.read(offs+1);
+			int sx = buffered_spriteram.read(offs + 3)- ((attr & 0x10) << 4);
+			int sy = buffered_spriteram.read(offs + 2);
 	
 			/* only count visible sprites */
 			if (sx+15 >= Machine.visible_area.min_x &&
@@ -258,7 +258,7 @@ public class blktiger
 				int i;
 	
 				int color = attr & 0x07;
-				int code = buffered_spriteram[offs] | ((attr & 0xe0) << 3);
+				int code = buffered_spriteram.read(offs)| ((attr & 0xe0) << 3);
 	
 				for (i = 0;i < 15;i++)
 				{

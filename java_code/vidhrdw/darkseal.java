@@ -188,11 +188,11 @@ public class darkseal
 		{
 			int x,y,sprite,multi;
 	
-			sprite = READ_WORD (&buffered_spriteram[offs+2]) & 0x1fff;
+			sprite = READ_WORD (&buffered_spriteram.read(offs+2)) & 0x1fff;
 			if (!sprite) continue;
 	
-			y = READ_WORD(&buffered_spriteram[offs]);
-			x = READ_WORD(&buffered_spriteram[offs+4]);
+			y = READ_WORD(&buffered_spriteram.read(offs));
+			x = READ_WORD(&buffered_spriteram.read(offs+4));
 			color = (x >> 9) &0x1f;
 	
 			x = x & 0x01ff;
@@ -232,11 +232,11 @@ public class darkseal
 		{
 			int x,y,sprite,colour,multi,fx,fy,inc,flash,mult;
 	
-			sprite = READ_WORD (&buffered_spriteram[offs+2]) & 0x1fff;
+			sprite = READ_WORD (&buffered_spriteram.read(offs+2)) & 0x1fff;
 			if (!sprite) continue;
 	
-			y = READ_WORD(&buffered_spriteram[offs]);
-			x = READ_WORD(&buffered_spriteram[offs+4]);
+			y = READ_WORD(&buffered_spriteram.read(offs));
+			x = READ_WORD(&buffered_spriteram.read(offs+4));
 	
 			flash=y&0x1000;
 			if (flash && (cpu_getcurrentframe() & 1)) continue;

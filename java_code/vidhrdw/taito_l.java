@@ -19,7 +19,7 @@ public class taito_l
 	static int bankc[4];
 	static int flipscreen;
 	#define SPRITERAM_SIZE 0x400
-	static unsigned char buffered_spriteram[SPRITERAM_SIZE];
+	static unsigned char buffered_spriteram.read(SPRITERAM_SIZE);
 	
 	
 	/***************************************************************************
@@ -273,16 +273,16 @@ public class taito_l
 		{
 			int code,color,sx,sy,flipx,flipy;
 	
-			color = buffered_spriteram[offs + 2] & 0x0f;
-			code = buffered_spriteram[offs] | (buffered_spriteram[offs + 1] << 8);
+			color = buffered_spriteram.read(offs + 2)& 0x0f;
+			code = buffered_spriteram.read(offs)| (buffered_spriteram.read(offs + 1)<< 8);
 	
 			code |= (horshoes_gfxbank & 0x03) << 10;
 	
-			sx = buffered_spriteram[offs + 4] | ((buffered_spriteram[offs + 5] & 1) << 8);
-			sy = buffered_spriteram[offs + 6];
+			sx = buffered_spriteram.read(offs + 4)| ((buffered_spriteram.read(offs + 5)& 1) << 8);
+			sy = buffered_spriteram.read(offs + 6);
 			if (sx >= 320) sx -= 512;
-			flipx = buffered_spriteram[offs + 3] & 0x01;
-			flipy = buffered_spriteram[offs + 3] & 0x02;
+			flipx = buffered_spriteram.read(offs + 3)& 0x01;
+			flipy = buffered_spriteram.read(offs + 3)& 0x02;
 	
 			if (flipscreen != 0)
 			{

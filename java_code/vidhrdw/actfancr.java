@@ -149,8 +149,8 @@ public class actfancr
 		for (color = 0;color < 16;color++) colmask[color] = 0;
 		for (offs = 0; offs < 0x800; offs += 2)
 		{
-			tile = buffered_spriteram[offs+2]+(buffered_spriteram[offs+3]<<8);
-			color=buffered_spriteram[offs+5]>>4;
+			tile = buffered_spriteram.read(offs+2)+(buffered_spriteram.read(offs+3)<<8);
+			color=buffered_spriteram.read(offs+5)>>4;
 			colmask[color] |= Machine.gfx[1].pen_usage[tile&0xfff];
 		}
 		for (color = 0;color < 16;color++)
@@ -175,9 +175,9 @@ public class actfancr
 		{
 			int x,y,sprite,colour,multi,fx,fy,inc,flash;
 	
-			y=buffered_spriteram[offs]+(buffered_spriteram[offs+1]<<8);
+			y=buffered_spriteram.read(offs)+(buffered_spriteram.read(offs+1)<<8);
 	 		if ((y&0x8000) == 0) continue;
-			x = buffered_spriteram[offs+4]+(buffered_spriteram[offs+5]<<8);
+			x = buffered_spriteram.read(offs+4)+(buffered_spriteram.read(offs+5)<<8);
 			colour = ((x & 0xf000) >> 12);
 			flash=x&0x800;
 			if (flash && (cpu_getcurrentframe() & 1)) continue;
@@ -187,7 +187,7 @@ public class actfancr
 			multi = (1 << ((y & 0x1800) >> 11)) - 1;	/* 1x, 2x, 4x, 8x height */
 	
 												/* multi = 0   1   3   7 */
-			sprite = buffered_spriteram[offs+2]+(buffered_spriteram[offs+3]<<8);
+			sprite = buffered_spriteram.read(offs+2)+(buffered_spriteram.read(offs+3)<<8);
 			sprite &= 0x0fff;
 	
 			x = x & 0x01ff;
@@ -289,8 +289,8 @@ public class actfancr
 		for (color = 0;color < 16;color++) colmask[color] = 0;
 		for (offs = 0; offs < 0x800; offs += 2)
 		{
-			tile = buffered_spriteram[offs+2]+(buffered_spriteram[offs+3]<<8);
-			color= buffered_spriteram[offs+5]>>4;
+			tile = buffered_spriteram.read(offs+2)+(buffered_spriteram.read(offs+3)<<8);
+			color= buffered_spriteram.read(offs+5)>>4;
 			colmask[color] |= Machine.gfx[1].pen_usage[tile&0xfff];
 		}
 		for (color = 0;color < 16;color++)
@@ -315,9 +315,9 @@ public class actfancr
 		{
 			int x,y,sprite,colour,multi,fx,fy,inc,flash;
 	
-			y=buffered_spriteram[offs]+(buffered_spriteram[offs+1]<<8);
+			y=buffered_spriteram.read(offs)+(buffered_spriteram.read(offs+1)<<8);
 	 		if ((y&0x8000) == 0) continue;
-			x = buffered_spriteram[offs+4]+(buffered_spriteram[offs+5]<<8);
+			x = buffered_spriteram.read(offs+4)+(buffered_spriteram.read(offs+5)<<8);
 			colour = ((x & 0xf000) >> 12);
 			flash=x&0x800;
 			if (flash && (cpu_getcurrentframe() & 1)) continue;
@@ -327,7 +327,7 @@ public class actfancr
 			multi = (1 << ((y & 0x1800) >> 11)) - 1;	/* 1x, 2x, 4x, 8x height */
 	
 												/* multi = 0   1   3   7 */
-			sprite = buffered_spriteram[offs+2]+(buffered_spriteram[offs+3]<<8);
+			sprite = buffered_spriteram.read(offs+2)+(buffered_spriteram.read(offs+3)<<8);
 			sprite &= 0x0fff;
 	
 			x = x & 0x01ff;

@@ -237,10 +237,10 @@ public class dec8
 	
 		for (offs = 0;offs < 0x800;offs += 8)
 		{
-			y=buffered_spriteram[offs+1]+(buffered_spriteram[offs]<<8);
+			y=buffered_spriteram.read(offs+1)+(buffered_spriteram.read(offs)<<8);
 			if ((y&0x8000) == 0) continue;
 	
-	        fx=buffered_spriteram[offs+3];
+	        fx=buffered_spriteram.read(offs+3);
 	
 			if ((fx&0x1) == 0) continue;
 	
@@ -248,11 +248,11 @@ public class dec8
 	        fy=fx&0x2;
 	        fx=fx&0x4;
 	
-			x = buffered_spriteram[offs+5]+(buffered_spriteram[offs+4]<<8);
-			colour = buffered_spriteram[offs+6] >> 4;
+			x = buffered_spriteram.read(offs+5)+(buffered_spriteram.read(offs+4)<<8);
+			colour = buffered_spriteram.read(offs+6)>> 4;
 			if (priority==1 && (colour&8)) continue;
 			if (priority==2 && !(colour&8)) continue;
-			sprite = buffered_spriteram[offs+7]+(buffered_spriteram[offs+6]<<8);
+			sprite = buffered_spriteram.read(offs+7)+(buffered_spriteram.read(offs+6)<<8);
 			sprite &= 0x0fff;
 	
 			if (extra != 0) {y=y+16;sprite&=0xffe;}
@@ -301,9 +301,9 @@ public class dec8
 		/* Sprites */
 		for (offs = 0;offs < 0x800;offs += 8)
 		{
-			y =buffered_spriteram[offs+1]+(buffered_spriteram[offs]<<8);
+			y =buffered_spriteram.read(offs+1)+(buffered_spriteram.read(offs)<<8);
 	 		if ((y&0x8000) == 0) continue;
-			x = buffered_spriteram[offs+5]+(buffered_spriteram[offs+4]<<8);
+			x = buffered_spriteram.read(offs+5)+(buffered_spriteram.read(offs+4)<<8);
 			colour = ((x & 0xf000) >> 12);
 			flash=x&0x800;
 			if (flash && (cpu_getcurrentframe() & 1)) continue;
@@ -316,7 +316,7 @@ public class dec8
 			multi = (1 << ((y & 0x1800) >> 11)) - 1;	/* 1x, 2x, 4x, 8x height */
 	
 												/* multi = 0   1   3   7 */
-			sprite = buffered_spriteram[offs+3]+(buffered_spriteram[offs+2]<<8);
+			sprite = buffered_spriteram.read(offs+3)+(buffered_spriteram.read(offs+2)<<8);
 			sprite &= 0x0fff;
 	
 			x = x & 0x01ff;
@@ -366,18 +366,18 @@ public class dec8
 		{
 			int multi,fx,sx,sy,sy2,code,color;
 	
-			code = buffered_spriteram[offs+3] + ( ( buffered_spriteram[offs+1] & 0xe0 ) << 3 );
-			sx = (241 - buffered_spriteram[offs+2]);
+			code = buffered_spriteram.read(offs+3)+ ( ( buffered_spriteram.read(offs+1)& 0xe0 ) << 3 );
+			sx = (241 - buffered_spriteram.read(offs+2));
 		//if (sx < -7) sx += 256;
 	
-			sy = buffered_spriteram[offs];
-			color = (buffered_spriteram[offs+1] & 0x03) + ((buffered_spriteram[offs+1] & 0x08) >> 1);
+			sy = buffered_spriteram.read(offs);
+			color = (buffered_spriteram.read(offs+1)& 0x03) + ((buffered_spriteram.read(offs+1)& 0x08) >> 1);
 	
 			if (pri==0 && color!=0) continue;
 			if (pri==1 && color==0) continue;
 	
-			fx = buffered_spriteram[offs+1] & 0x04;
-			multi = buffered_spriteram[offs+1] & 0x10;
+			fx = buffered_spriteram.read(offs+1)& 0x04;
+			multi = buffered_spriteram.read(offs+1)& 0x10;
 	
 			if (flip_screen != 0) {
 				sy=240-sy;

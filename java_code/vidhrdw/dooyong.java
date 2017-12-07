@@ -319,21 +319,21 @@ public class dooyong
 			int sx,sy,code,color;
 			int flipx=0,flipy=0,height=0,y;
 	
-			sx = buffered_spriteram[offs+3] | ((buffered_spriteram[offs+1] & 0x10) << 4);
-			sy = buffered_spriteram[offs+2];
-			code = buffered_spriteram[offs] | ((buffered_spriteram[offs+1] & 0xe0) << 3);
-			color = buffered_spriteram[offs+1] & 0x0f;
+			sx = buffered_spriteram.read(offs+3)| ((buffered_spriteram.read(offs+1)& 0x10) << 4);
+			sy = buffered_spriteram.read(offs+2);
+			code = buffered_spriteram.read(offs)| ((buffered_spriteram.read(offs+1)& 0xe0) << 3);
+			color = buffered_spriteram.read(offs+1)& 0x0f;
 	
 			if (pollux_extensions != 0)
 			{
-				code |= ((buffered_spriteram[offs+0x1c] & 0x01) << 11);
-				height = (buffered_spriteram[offs+0x1c] & 0x70) >> 4;
+				code |= ((buffered_spriteram.read(offs+0x1c)& 0x01) << 11);
+				height = (buffered_spriteram.read(offs+0x1c)& 0x70) >> 4;
 				code &= ~height;
 				if (pollux_extensions == 2)
 				{
-					sy += 6 - ((~buffered_spriteram[offs+0x1c] & 0x02) << 7);
-					flipx = buffered_spriteram[offs+0x1c] & 0x08;
-					flipy = buffered_spriteram[offs+0x1c] & 0x04;
+					sy += 6 - ((~buffered_spriteram.read(offs+0x1c)& 0x02) << 7);
+					flipx = buffered_spriteram.read(offs+0x1c)& 0x08;
+					flipy = buffered_spriteram.read(offs+0x1c)& 0x04;
 				}
 			}
 	
@@ -363,17 +363,17 @@ public class dooyong
 	
 		for (offs = 0;offs < spriteram_size;offs += 16)
 		{
-			if (READ_WORD(&buffered_spriteram[offs]) & 0x0001)	/* enable */
+			if (READ_WORD(&buffered_spriteram.read(offs)) & 0x0001)	/* enable */
 			{
 				int sx,sy,code,color;
 				int flipx=0,flipy=0,width,height,x,y;
 	
-				sx = READ_WORD(&buffered_spriteram[offs+8]);
-				sy = (INT16)READ_WORD(&buffered_spriteram[offs+12]);
-				code = READ_WORD(&buffered_spriteram[offs+6]);
-				color = READ_WORD(&buffered_spriteram[offs+14]);
-				width = READ_WORD(&buffered_spriteram[offs+2]) & 0x000f;
-				height = (READ_WORD(&buffered_spriteram[offs+2]) & 0x00f0) >> 4;
+				sx = READ_WORD(&buffered_spriteram.read(offs+8));
+				sy = (INT16)READ_WORD(&buffered_spriteram.read(offs+12));
+				code = READ_WORD(&buffered_spriteram.read(offs+6));
+				color = READ_WORD(&buffered_spriteram.read(offs+14));
+				width = READ_WORD(&buffered_spriteram.read(offs+2)) & 0x000f;
+				height = (READ_WORD(&buffered_spriteram.read(offs+2)) & 0x00f0) >> 4;
 	
 				if (flip_screen != 0)
 				{

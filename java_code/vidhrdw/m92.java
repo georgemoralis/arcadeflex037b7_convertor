@@ -446,15 +446,15 @@ public class m92
 			int sprite,x_multi,y_multi,x,y,s_ptr;
 	
 			/* Save colours by skipping offscreen sprites */
-			y=(buffered_spriteram[offs+0] | (buffered_spriteram[offs+1]<<8))&0x1ff;
-			x=(buffered_spriteram[offs+6] | (buffered_spriteram[offs+7]<<8))&0x1ff;
+			y=(buffered_spriteram.read(offs+0)| (buffered_spriteram.read(offs+1)<<8))&0x1ff;
+			x=(buffered_spriteram.read(offs+6)| (buffered_spriteram.read(offs+7)<<8))&0x1ff;
 			if (x==0 || y==0) continue;
 	
-		    sprite=buffered_spriteram[offs+2] | (buffered_spriteram[offs+3]<<8);
-			color=buffered_spriteram[offs+4]&0x3f;
+		    sprite=buffered_spriteram.read(offs+2)| (buffered_spriteram.read(offs+3)<<8);
+			color=buffered_spriteram.read(offs+4)&0x3f;
 	
-			y_multi=(buffered_spriteram[offs+1]>>1)&0x3;
-			x_multi=(buffered_spriteram[offs+1]>>3)&0x3;
+			y_multi=(buffered_spriteram.read(offs+1)>>1)&0x3;
+			x_multi=(buffered_spriteram.read(offs+1)>>3)&0x3;
 	
 			y_multi=1 << y_multi; /* 1, 2, 4 or 8 */
 			x_multi=1 << x_multi; /* 1, 2, 4 or 8 */
@@ -488,23 +488,23 @@ public class m92
 		for (offs = m92_sprite_list;offs >= 0;offs -= 8) {
 			int x,y,sprite,colour,fx,fy,x_multi,y_multi,i,j,s_ptr;
 	
-			if (((buffered_spriteram[offs+4]&0x80)==0x80) && pri==0) continue;
-			if (((buffered_spriteram[offs+4]&0x80)==0x00) && pri==1) continue;
+			if (((buffered_spriteram.read(offs+4)&0x80)==0x80) && pri==0) continue;
+			if (((buffered_spriteram.read(offs+4)&0x80)==0x00) && pri==1) continue;
 	
-			y=(buffered_spriteram[offs+0] | (buffered_spriteram[offs+1]<<8))&0x1ff;
-			x=(buffered_spriteram[offs+6] | (buffered_spriteram[offs+7]<<8))&0x1ff;
+			y=(buffered_spriteram.read(offs+0)| (buffered_spriteram.read(offs+1)<<8))&0x1ff;
+			x=(buffered_spriteram.read(offs+6)| (buffered_spriteram.read(offs+7)<<8))&0x1ff;
 			if (x==0 || y==0) continue; /* offscreen */
 	
 			x = x - 16;
 			y = 512 - 16 - y;
 	
-		    sprite=(buffered_spriteram[offs+2] | (buffered_spriteram[offs+3]<<8));
-			colour=buffered_spriteram[offs+4]&0x3f;
+		    sprite=(buffered_spriteram.read(offs+2)| (buffered_spriteram.read(offs+3)<<8));
+			colour=buffered_spriteram.read(offs+4)&0x3f;
 	
-			fx=buffered_spriteram[offs+5]&1;
-			fy=buffered_spriteram[offs+5]&2;
-			y_multi=(buffered_spriteram[offs+1]>>1)&0x3;
-			x_multi=(buffered_spriteram[offs+1]>>3)&0x3;
+			fx=buffered_spriteram.read(offs+5)&1;
+			fy=buffered_spriteram.read(offs+5)&2;
+			y_multi=(buffered_spriteram.read(offs+1)>>1)&0x3;
+			x_multi=(buffered_spriteram.read(offs+1)>>3)&0x3;
 	
 			y_multi=1 << y_multi; /* 1, 2, 4 or 8 */
 			x_multi=1 << x_multi; /* 1, 2, 4 or 8 */

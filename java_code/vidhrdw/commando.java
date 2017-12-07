@@ -180,9 +180,9 @@ public class commando
 	
 	
 			/* bit 1 of attr is not used */
-			attr = buffered_spriteram[offs + 1];
-			sx = buffered_spriteram[offs + 3] - ((attr & 0x01) << 8);
-			sy = buffered_spriteram[offs + 2];
+			attr = buffered_spriteram.read(offs + 1);
+			sx = buffered_spriteram.read(offs + 3)- ((attr & 0x01) << 8);
+			sy = buffered_spriteram.read(offs + 2);
 			flipx = attr & 0x04;
 			flipy = attr & 0x08;
 			bank = (attr & 0xc0) >> 6;
@@ -197,7 +197,7 @@ public class commando
 	
 			if (bank < 3)
 				drawgfx(bitmap,Machine.gfx[2],
-						buffered_spriteram[offs] + 256 * bank,
+						buffered_spriteram.read(offs)+ 256 * bank,
 						(attr & 0x30) >> 4,
 						flipx,flipy,
 						sx,sy,

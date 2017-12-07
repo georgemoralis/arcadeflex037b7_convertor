@@ -124,9 +124,9 @@ public class gng
 	
 		for (offs = spriteram_size - 4;offs >= 0;offs -= 4)
 		{
-			unsigned char attributes = buffered_spriteram[offs+1];
-			int sx = buffered_spriteram[offs + 3] - 0x100 * (attributes & 0x01);
-			int sy = buffered_spriteram[offs + 2];
+			unsigned char attributes = buffered_spriteram.read(offs+1);
+			int sx = buffered_spriteram.read(offs + 3)- 0x100 * (attributes & 0x01);
+			int sy = buffered_spriteram.read(offs + 2);
 			int flipx = attributes & 0x04;
 			int flipy = attributes & 0x08;
 	
@@ -139,7 +139,7 @@ public class gng
 			}
 	
 			drawgfx(bitmap,gfx,
-					buffered_spriteram[offs] + ((attributes<<2) & 0x300),
+					buffered_spriteram.read(offs)+ ((attributes<<2) & 0x300),
 					(attributes >> 4) & 3,
 					flipx,flipy,
 					sx,sy,

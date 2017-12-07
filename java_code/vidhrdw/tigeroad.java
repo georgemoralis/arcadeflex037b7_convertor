@@ -105,7 +105,7 @@ public class tigeroad
 	
 	static void render_sprites( struct osd_bitmap *bitmap )
 	{
-		UBytePtr source = &buffered_spriteram[spriteram_size] - 8;
+		UBytePtr source = &buffered_spriteram.read(spriteram_size)- 8;
 		UBytePtr finish = buffered_spriteram;
 	
 		while( source>=finish )
